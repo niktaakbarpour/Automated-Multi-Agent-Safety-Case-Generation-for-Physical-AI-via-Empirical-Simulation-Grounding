@@ -1,0 +1,30 @@
+{
+  "current_stage": "execution_inventory_only",
+  "llm_called": false,
+  "schema_version": "1.0.0",
+  "tasks": 40,
+  "runs": 2000,
+  "benchmark_success_percent": {
+    "goal": 96.4,
+    "spatial": 91.4,
+    "object": 98.8,
+    "long": 95.2
+  },
+  "unique_task_ids": 40,
+  "unique_run_ids": 2000,
+  "proposed_requirements": 0,
+  "approved_requirements": 0,
+  "generated_safety_events": 0,
+  "safety_verdict": "not_assessed",
+  "instruction_mismatch_tasks": 30,
+  "instruction_fallback_runs": 0,
+  "prompt_verification_problem_runs": 0,
+  "hdf5_root_annotation_matches": [],
+  "elapsed_s": 70.4935462474823,
+  "limitations": [
+    "Frame measurement inventory samples first/middle/final frames per run",
+    "No whole-array HDF5 checksum rehash or independent full video decode",
+    "Inventory only; requirements, cases, claims, safety events, objections, checkers and LLM components are outside this stage",
+    "Cases and claims need explicit evidence links and semantic review; argument revision does not certify a safer policy"
+  ]
+}

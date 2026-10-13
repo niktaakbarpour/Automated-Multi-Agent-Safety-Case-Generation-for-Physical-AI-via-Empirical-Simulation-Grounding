@@ -1,0 +1,28 @@
+{
+  "project_id": "trustworthy_project",
+  "schema_version": "1.0.0",
+  "source_results": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero",
+  "expected_checkpoint": "moojink/openvla-7b-oft-finetuned-libero-spatial-object-goal-10",
+  "expected_success_percent": {
+    "goal": 96.4,
+    "spatial": 91.4,
+    "object": 98.8,
+    "long": 95.2
+  },
+  "suites": [
+    "goal",
+    "spatial",
+    "object",
+    "long"
+  ],
+  "expected_task_count": 40,
+  "expected_run_count": 2000,
+  "instruction_policy": "Exact recorded policy input; preserve BDDL language separately; flag exact mismatches; clearly mark BDDL fallback if policy input absent",
+  "study_scope": "Use recorded OpenVLA-OFT FT-All LIBERO executions to check and revise LLM-generated safety cases. Evaluate whether evidence-linked arguments accurately reflect recorded executions. Argument revision is not claimed to make the robot safer.",
+  "requirements_need_review": true,
+  "task_failure_is_safety_violation": false,
+  "event_policy": "Only approved checking rules may identify safety events. Ordinary transitions remain raw evidence addressable by run_id and step_id. No safety event types are approved yet.",
+  "current_stage": "execution_inventory_only",
+  "llm_enabled": false,
+  "create_safety_records": false
+}

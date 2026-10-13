@@ -1,0 +1,41 @@
+{
+  "passed": true,
+  "task_count": 40,
+  "run_count": 2000,
+  "empty_safety_collections": true,
+  "raw_transition_checks": [
+    {
+      "run_id": "libero_goal_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db",
+      "step_id": 0
+    },
+    {
+      "run_id": "libero_goal_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db",
+      "step_id": 136
+    },
+    {
+      "run_id": "libero_spatial_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db",
+      "step_id": 0
+    },
+    {
+      "run_id": "libero_spatial_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db",
+      "step_id": 79
+    },
+    {
+      "run_id": "libero_object_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db",
+      "step_id": 0
+    },
+    {
+      "run_id": "libero_object_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db",
+      "step_id": 122
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db",
+      "step_id": 0
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db",
+      "step_id": 246
+    }
+  ],
+  "scope": "All record links, suite outcomes, native body bindings and trajectory byte sizes; first/last raw transitions in each suite; invalid-step rejection"
+}

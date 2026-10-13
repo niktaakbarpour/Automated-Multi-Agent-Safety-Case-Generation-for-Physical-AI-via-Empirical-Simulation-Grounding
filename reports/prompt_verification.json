@@ -1,0 +1,6 @@
+{
+  "tokenizer_verified_against_checkpoint": true,
+  "runs_checked": 2000,
+  "problem_runs": [],
+  "scope": "All recorded inference input_ids decoded and checked for exact recorded instruction substring; no model forwards."
+}

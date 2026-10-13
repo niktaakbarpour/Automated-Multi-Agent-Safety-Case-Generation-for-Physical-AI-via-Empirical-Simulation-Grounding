@@ -1,0 +1,23 @@
+{
+  "source_results": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero",
+  "file_counts": {
+    ".txt": 4091,
+    ".json": 22358,
+    ".log": 2016,
+    "": 6177,
+    ".csv": 4065,
+    ".pid": 2059,
+    ".init": 44,
+    ".mp4": 4008,
+    ".xml": 2004,
+    ".h5": 2006,
+    ".png": 32,
+    ".bddl": 44
+  },
+  "json_files_scanned": 22358,
+  "structured_annotation_matches": [],
+  "candidate_filenames": [],
+  "read_errors": [],
+  "elapsed_s": 17.385497093200684,
+  "interpretation": "Structured safety annotations are identified by explicit keys, not inferred from success/failure. Ordinary transitions and contact measurements reside in HDF5; their presence is a separate evidence inventory."
+}

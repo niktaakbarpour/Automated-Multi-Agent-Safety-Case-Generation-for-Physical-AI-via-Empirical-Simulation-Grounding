@@ -1,0 +1,6 @@
+{
+  "archive": "/disk/1/data/niktakbr/hestia-archives/2026-10-12-unused/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero.zip",
+  "member": "openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/model/tokenizer.json",
+  "sha256": "8f5e2869e1807b8bb3c7717a294539c37e9de5d728ad60e31ef57e83cc5ea527",
+  "verified_against_recorded_checkpoint": true
+}
