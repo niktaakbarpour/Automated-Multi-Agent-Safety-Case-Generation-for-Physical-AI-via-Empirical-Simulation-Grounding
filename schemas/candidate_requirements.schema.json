@@ -1,0 +1,136 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Unreviewed candidate safety requirements v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "task_id",
+    "candidate_requirements",
+    "missing_information"
+  ],
+  "properties": {
+    "task_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "candidate_requirements": {
+      "type": "array",
+      "maxItems": 3,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "statement",
+          "hazard_or_consequence",
+          "applies_when",
+          "suggested_check",
+          "requirement_id",
+          "entities",
+          "required_measurements",
+          "checkability",
+          "assumptions",
+          "supporting_input_refs",
+          "review_status"
+        ],
+        "properties": {
+          "statement": {
+            "type": "string",
+            "minLength": 1
+          },
+          "hazard_or_consequence": {
+            "type": "string",
+            "minLength": 1
+          },
+          "applies_when": {
+            "type": "string",
+            "minLength": 1
+          },
+          "suggested_check": {
+            "type": "string",
+            "minLength": 1
+          },
+          "requirement_id": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "entities": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "uniqueItems": true,
+            "minItems": 1
+          },
+          "required_measurements": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "measurement_id",
+                "description",
+                "availability"
+              ],
+              "properties": {
+                "measurement_id": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "description": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "availability": {
+                  "enum": [
+                    "present",
+                    "missing"
+                  ]
+                }
+              }
+            }
+          },
+          "checkability": {
+            "enum": [
+              "potentially_checkable",
+              "needs_more_information",
+              "not_checkable_with_current_records"
+            ]
+          },
+          "assumptions": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "uniqueItems": true
+          },
+          "supporting_input_refs": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "uniqueItems": true,
+            "minItems": 1
+          },
+          "review_status": {
+            "const": "pending"
+          }
+        }
+      }
+    },
+    "missing_information": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    }
+  }
+}

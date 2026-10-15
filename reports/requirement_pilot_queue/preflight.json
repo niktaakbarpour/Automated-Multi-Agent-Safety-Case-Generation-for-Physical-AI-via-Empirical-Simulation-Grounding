@@ -1,0 +1,16 @@
+{
+  "timestamp": "2026-10-14T17:28:01.399415+00:00",
+  "host": "hestia",
+  "python": "3.14.2 (main, Apr 30 2026, 14:14:42) [GCC 14.3.1 20250617 (Red Hat 14.3.1-2)]",
+  "model_revision": "1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0",
+  "weight_bytes": 55563006776,
+  "gpu_scope": 1,
+  "gpu": "name, memory.total [MiB], memory.used [MiB], driver_version\nNVIDIA L40S, 46068 MiB, 198 MiB, 595.99.02\n",
+  "disk": "Filesystem      Size  Used Avail Use% Mounted on\n/dev/nvme2n1p1   14T   14T  150G  99% /local/home\n",
+  "memory": "               total        used        free      shared  buff/cache   available\nMem:           251Gi        37Gi        63Gi       254Mi       152Gi       213Gi\nSwap:           31Gi        12Gi        19Gi\n",
+  "setup_status": "deferred_until_storage_available",
+  "prior_input_hashes": {
+    "data/tasks.json": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a",
+    "data/runs.json": "a3ef8102a622a379b115287ec9b882d8d8b88829954115970347d17c0c8994f6"
+  }
+}

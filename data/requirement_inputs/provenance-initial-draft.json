@@ -1,0 +1,446 @@
+{
+  "entity:living_room_table": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/scene_description/declared_fixtures/living_room_table",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "entity:alphabet_soup_1": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/scene_description/declared_objects/alphabet_soup_1",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "entity:cream_cheese_1": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/scene_description/declared_objects/cream_cheese_1",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "entity:tomato_sauce_1": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/scene_description/declared_objects/tomato_sauce_1",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "entity:ketchup_1": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/scene_description/declared_objects/ketchup_1",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "entity:orange_juice_1": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/scene_description/declared_objects/orange_juice_1",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "entity:milk_1": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/scene_description/declared_objects/milk_1",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "entity:butter_1": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/scene_description/declared_objects/butter_1",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "entity:basket_1": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/scene_description/declared_objects/basket_1",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "surface:floor": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/scene_description/native_surface_geometry/0",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "measurement:raw_observation:alphabet_soup_1_pos": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/available_measurements/common_raw_observation_keys/1",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "measurement:raw_observation:alphabet_soup_1_quat": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/available_measurements/common_raw_observation_keys/2",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "measurement:raw_observation:alphabet_soup_1_to_robot0_eef_pos": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/available_measurements/common_raw_observation_keys/3",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "measurement:raw_observation:alphabet_soup_1_to_robot0_eef_quat": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/available_measurements/common_raw_observation_keys/4",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "measurement:raw_observation:basket_1_pos": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/available_measurements/common_raw_observation_keys/5",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "measurement:raw_observation:basket_1_quat": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/available_measurements/common_raw_observation_keys/6",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "measurement:raw_observation:basket_1_to_robot0_eef_pos": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/available_measurements/common_raw_observation_keys/7",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "measurement:raw_observation:basket_1_to_robot0_eef_quat": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/available_measurements/common_raw_observation_keys/8",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "measurement:raw_observation:butter_1_pos": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/available_measurements/common_raw_observation_keys/9",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "measurement:raw_observation:butter_1_quat": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/available_measurements/common_raw_observation_keys/10",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "measurement:raw_observation:butter_1_to_robot0_eef_pos": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/available_measurements/common_raw_observation_keys/11",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "measurement:raw_observation:butter_1_to_robot0_eef_quat": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/available_measurements/common_raw_observation_keys/12",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "measurement:raw_observation:cream_cheese_1_pos": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/available_measurements/common_raw_observation_keys/13",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "measurement:raw_observation:cream_cheese_1_quat": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/available_measurements/common_raw_observation_keys/14",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "measurement:raw_observation:cream_cheese_1_to_robot0_eef_pos": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/available_measurements/common_raw_observation_keys/15",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "measurement:raw_observation:cream_cheese_1_to_robot0_eef_quat": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/available_measurements/common_raw_observation_keys/16",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "measurement:raw_observation:ketchup_1_pos": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/available_measurements/common_raw_observation_keys/17",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "measurement:raw_observation:ketchup_1_quat": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/available_measurements/common_raw_observation_keys/18",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "measurement:raw_observation:ketchup_1_to_robot0_eef_pos": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/available_measurements/common_raw_observation_keys/19",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "measurement:raw_observation:ketchup_1_to_robot0_eef_quat": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/available_measurements/common_raw_observation_keys/20",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "measurement:raw_observation:milk_1_pos": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/available_measurements/common_raw_observation_keys/21",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "measurement:raw_observation:milk_1_quat": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/available_measurements/common_raw_observation_keys/22",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "measurement:raw_observation:milk_1_to_robot0_eef_pos": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/available_measurements/common_raw_observation_keys/23",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "measurement:raw_observation:milk_1_to_robot0_eef_quat": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/available_measurements/common_raw_observation_keys/24",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "measurement:raw_observation:object-state": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/available_measurements/common_raw_observation_keys/25",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "measurement:raw_observation:orange_juice_1_pos": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/available_measurements/common_raw_observation_keys/26",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "measurement:raw_observation:orange_juice_1_quat": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/available_measurements/common_raw_observation_keys/27",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "measurement:raw_observation:orange_juice_1_to_robot0_eef_pos": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/available_measurements/common_raw_observation_keys/28",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "measurement:raw_observation:orange_juice_1_to_robot0_eef_quat": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/available_measurements/common_raw_observation_keys/29",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "measurement:raw_observation:robot0_eef_pos": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/available_measurements/common_raw_observation_keys/30",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "measurement:raw_observation:robot0_eef_quat": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/available_measurements/common_raw_observation_keys/31",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "measurement:raw_observation:robot0_gripper_qpos": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/available_measurements/common_raw_observation_keys/33",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "measurement:raw_observation:robot0_gripper_qvel": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/available_measurements/common_raw_observation_keys/34",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "measurement:raw_observation:robot0_joint_pos": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/available_measurements/common_raw_observation_keys/35",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "measurement:raw_observation:robot0_joint_pos_cos": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/available_measurements/common_raw_observation_keys/36",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "measurement:raw_observation:robot0_joint_pos_sin": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/available_measurements/common_raw_observation_keys/37",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "measurement:raw_observation:robot0_joint_vel": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/available_measurements/common_raw_observation_keys/38",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "measurement:raw_observation:robot0_proprio-state": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/available_measurements/common_raw_observation_keys/39",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "measurement:raw_observation:tomato_sauce_1_pos": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/available_measurements/common_raw_observation_keys/40",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "measurement:raw_observation:tomato_sauce_1_quat": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/available_measurements/common_raw_observation_keys/41",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "measurement:raw_observation:tomato_sauce_1_to_robot0_eef_pos": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/available_measurements/common_raw_observation_keys/42",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "measurement:raw_observation:tomato_sauce_1_to_robot0_eef_quat": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/available_measurements/common_raw_observation_keys/43",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "measurement:simulator:act": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/available_measurements/common_simulator_keys/0",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "measurement:simulator:actuator_force": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/available_measurements/common_simulator_keys/1",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "measurement:simulator:body_xpos": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/available_measurements/common_simulator_keys/2",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "measurement:simulator:body_xquat": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/available_measurements/common_simulator_keys/3",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "measurement:simulator:cfrc_ext": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/available_measurements/common_simulator_keys/4",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "measurement:simulator:contacts": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/available_measurements/common_simulator_keys/5",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "measurement:simulator:ctrl": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/available_measurements/common_simulator_keys/6",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "measurement:simulator:cvel": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/available_measurements/common_simulator_keys/7",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "measurement:simulator:flattened": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/available_measurements/common_simulator_keys/8",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "measurement:simulator:geom_xmat": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/available_measurements/common_simulator_keys/9",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "measurement:simulator:geom_xpos": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/available_measurements/common_simulator_keys/10",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "measurement:simulator:ncon": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/available_measurements/common_simulator_keys/11",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "measurement:simulator:qacc": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/available_measurements/common_simulator_keys/12",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "measurement:simulator:qpos": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/available_measurements/common_simulator_keys/13",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "measurement:simulator:qvel": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/available_measurements/common_simulator_keys/14",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "measurement:simulator:sensordata": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/available_measurements/common_simulator_keys/15",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "measurement:simulator:site_xmat": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/available_measurements/common_simulator_keys/16",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "measurement:simulator:site_xpos": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/available_measurements/common_simulator_keys/17",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "measurement:simulator:time": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/available_measurements/common_simulator_keys/18",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "instruction": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/task_instruction/recorded_policy_instruction",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "bddl_language": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/task_instruction/environment_bddl_language",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "intended_interaction": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/intended_interaction",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "measurement_limitations": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/available_measurements/missing_information",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "missing_information": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/missing_information",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "scope": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/scope",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "scene:declared_fixtures": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/scene_description/declared_fixtures",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "scene:declared_objects": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/scene_description/declared_objects",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "scene:regions": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/scene_description/regions",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "scene:native_surface_geometry": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/scene_description/native_surface_geometry",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "scene:containers_named_by_goal_predicates": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/scene_description/containers_named_by_goal_predicates",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "scene:initial_predicates": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/scene_description/initial_predicates",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "scene:scene_properties": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/scene_description/scene_properties",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "native_identity_bindings": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/objects/reference_native_bindings",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "preparation_sources": {
+    "data/tasks.json": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a",
+    "data/runs.json": "a3ef8102a622a379b115287ec9b882d8d8b88829954115970347d17c0c8994f6",
+    "reports/source_manifest.json": "e4adcf8475e1c3e7cdd7c07df626b58d717a11d2a6ea645128b31b9fc64cbbd5"
+  },
+  "reference_run_id": "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db",
+  "task_evidence": {
+    "bddl": {
+      "source_relative_path": "long/task_00/task.bddl",
+      "sha256": "2e661058917f683a25bce480015197f0a2c1911bcbc2b9dd9d947199069c9618",
+      "bytes": 3284
+    },
+    "task_metadata": {
+      "source_relative_path": "long/task_00/run_metadata.json",
+      "sha256": "c373ede5eacc3e21bd2eaa41a3c73dc8ec483818ab879e2e3cb32db47bd824dd",
+      "bytes": 113713
+    },
+    "reference_run_id": "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db"
+  }
+}

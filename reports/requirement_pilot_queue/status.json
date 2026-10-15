@@ -1,0 +1,8 @@
+{
+  "status": "queued_waiting_for_storage",
+  "updated_at": "2026-10-15T16:54:33.509062+00:00",
+  "queue_pid": 1427061,
+  "gpu": 1,
+  "required_free_gib": 221.75,
+  "free_gib": 150.81
+}

@@ -1,0 +1,9 @@
+{
+  "tests_passed": 8,
+  "test_environment": "isolated local CPU environment; exact source inventory hashes matched Hestia",
+  "model_inference_tested": false,
+  "source_sha256": {
+    "src/requirement_proposals.py": "4d138fcf04ebb0f01b141cac5c300309725eda7d9ef738f4dae9ce1e5160a10e",
+    "tests/test_requirement_proposals.py": "b2fc1929d9dcd7ddbd11c3b337dfe7beacac0516fe6b4d3a48b0697fd9f5bcd4"
+  }
+}
