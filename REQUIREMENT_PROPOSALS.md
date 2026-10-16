@@ -92,3 +92,7 @@ Restart 2026-10-16: isolated Python 3.12; Transformers 5.17.0 satisfies vLLM 0.3
 ## Completed 20261016 runtime reconciliation
 
 The completed pilot is `data/requirement_pilots/20261016T154747Z`. All three generations passed structural validation; scientific review remains pending. GPU server stopped at 2026-10-16T17:54:18Z. Its final status is preserved in `reports/requirement_pilot_queue/status.json`. The production client used a 14,400-second timeout, not the earlier 1,800-second source default. Original recorded calls lasted 1570.55, 1929.66, and 4036.22 seconds, so the latter two exceed that earlier default. Original outputs and their captured configurations are immutable historical records. The snapshot and hashes in `reports/requirement_v2_review` reconcile source/runtime without retroactively claiming a Git commit was recorded by the pilot.
+
+## Version 2 preparation
+
+See `REQUIREMENT_PROPOSALS_V2.md` for the revised input/prompt paths, separate review suggestion, geometry qualifications, focused tests, and future launch command. The queue now requires an explicit `--launch-reviewed-pilot` flag to start; without it the command prints a plan only. No second pilot has been launched.
