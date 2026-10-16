@@ -3,3 +3,7 @@ __pycache__/
 *.lock
 .venv/
 .DS_Store
+
+.venv*/
+/data/requirement_pilots/*
+/reports/requirement_pilot_v2_queue/*

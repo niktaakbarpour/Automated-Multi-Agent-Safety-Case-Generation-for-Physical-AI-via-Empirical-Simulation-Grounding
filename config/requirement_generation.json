@@ -33,5 +33,11 @@
   "environment_budget_gib": 20,
   "host": "hestia",
   "environment_path": "/disk/1/data/niktakbr/trustworthy-runtime/venv-py312",
-  "runtime_cache": "/disk/1/data/niktakbr/trustworthy-runtime/cache"
+  "runtime_cache": "/disk/1/data/niktakbr/trustworthy-runtime/cache",
+  "task_input_path": "data/requirement_inputs/development.json",
+  "prompt_path": "prompts/requirements-v1.txt",
+  "prompt_version": "requirements-v1",
+  "schema_path": "schemas/candidate_requirements.schema.json",
+  "request_timeout_seconds": 14400,
+  "runtime_report_dir": "reports/requirement_pilot_queue"
 }

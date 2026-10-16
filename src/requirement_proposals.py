@@ -1,8 +1,33 @@
 """Outcome-free input preparation and review-only candidate generation."""
-import argparse, datetime, hashlib, json, time, urllib.request
+import argparse, datetime, hashlib, json, time, urllib.request, urllib.error, subprocess, math
 from pathlib import Path
 
 VERSION = 'requirements-v1'
+DEFAULT_REQUEST_TIMEOUT_SECONDS = 14400
+
+class TransportError(RuntimeError):
+    """HTTP/network/protocol failure, separate from generated-output validation."""
+    def __init__(self, message, *, elapsed_seconds=None, timeout_seconds=None, status_code=None):
+        super().__init__(message)
+        self.details = {'kind':'transport','message':message,'elapsed_seconds':elapsed_seconds,
+                        'timeout_seconds':timeout_seconds,'status_code':status_code}
+
+
+def git_state(project):
+    def run(*args):
+        return subprocess.check_output(['git','-C',str(project),*args],text=True,stderr=subprocess.DEVNULL).strip()
+    try:
+        commit=run('rev-parse','HEAD'); changes=run('status','--porcelain=v1','--untracked-files=normal')
+        return {'commit':commit,'dirty':bool(changes),'status_porcelain':changes.splitlines(),
+                'source_file_sha256':{str(p.relative_to(project)):digest(p.read_bytes()) for p in sorted((Path(project)/'src').glob('*.py'))}}
+    except (subprocess.CalledProcessError,FileNotFoundError):
+        return {'commit':None,'dirty':None,'status':'not_a_git_checkout_or_git_unavailable'}
+
+
+def configured_path(project, config, key, default):
+    p=Path(config.get(key,default))
+    return p if p.is_absolute() else Path(project)/p
+
 def digest(data): return hashlib.sha256(data).hexdigest()
 def now(): return datetime.datetime.now(datetime.timezone.utc).isoformat()
 def read(p): return json.loads(Path(p).read_text())
@@ -89,8 +114,11 @@ def validate(document, task_input, schema):
     errors = [f'{"/".join(map(str,e.path))}: {e.message}' for e in Draft202012Validator(schema).iter_errors(document)]
     if errors: return errors
     if document['task_id']!=task_input['task_id']: errors.append('Incorrect task_id')
-    if not document['candidate_requirements'] and not document['missing_information']:
+    if task_input.get('schema_version')!='requirements-input-v2' and not document['candidate_requirements'] and not document['missing_information']:
         errors.append('Zero candidates require missing information or a reason')
+    if task_input.get('schema_version')=='requirements-input-v2':
+        normalized=[' '.join(v.lower().split()).rstrip('.;') for v in document['missing_information']]
+        if len(normalized)!=len(set(normalized)): errors.append('Duplicate missing-information warnings')
     entities = {e['entity_id'] for e in task_input['entities']}
     inventory = {m['measurement_id'] for m in task_input['measurement_inventory']}
     refs = set(task_input['source_refs']); seen = set()
@@ -106,6 +134,9 @@ def validate(document, task_input, schema):
             if m['availability']=='missing':
                 missing=True
                 if m['measurement_id'] is not None: errors.append('Missing measurement must have null measurement_id')
+        if task_input.get('schema_version')=='requirements-input-v2' and r['checkability']=='potentially_checkable':
+            if not task_input['measurement_coverage']['full_run_availability_verified'] or any(m['units']=='unverified' or m['coordinate_frame']=='unverified' or m['object_reference_point']=='unverified' for m in task_input['measurement_inventory'] if m['measurement_id'] in {v['measurement_id'] for v in r['required_measurements']}):
+                errors.append('Checking semantics or full-run coverage unverified; use needs_more_information')
         if missing and r['checkability']=='potentially_checkable': errors.append('Missing measurements incompatible with potentially_checkable')
     if task_input['instruction_mismatch']['meaning_review_status']=='needs_review' and document['candidate_requirements']:
         errors.append('Task instruction mismatch needs review before proposals')
@@ -122,10 +153,20 @@ def review_file(document):
           'reviewer_comments':'','revised_requirement_text':'','reason_for_changes':''}
           for r in document['candidate_requirements']]}
 
-def request_json(url, payload=None):
+def request_json(url, payload=None, timeout_seconds=DEFAULT_REQUEST_TIMEOUT_SECONDS):
+    if not isinstance(timeout_seconds,(int,float)) or isinstance(timeout_seconds,bool) or not math.isfinite(timeout_seconds) or timeout_seconds<=0:
+        raise ValueError('request_timeout_seconds must be finite and positive')
     data=None if payload is None else json.dumps(payload).encode()
     req=urllib.request.Request(url,data=data,headers={'Content-Type':'application/json'})
-    with urllib.request.urlopen(req,timeout=14400) as f: return json.load(f)
+    start=time.monotonic()
+    try:
+        with urllib.request.urlopen(req,timeout=timeout_seconds) as f:
+            try: return json.load(f)
+            except (json.JSONDecodeError,UnicodeDecodeError) as e:
+                raise TransportError('HTTP response is not valid API JSON',elapsed_seconds=time.monotonic()-start,timeout_seconds=timeout_seconds) from e
+    except (urllib.error.URLError,TimeoutError,ConnectionError,OSError) as e:
+        raise TransportError(str(e),elapsed_seconds=time.monotonic()-start,
+            timeout_seconds=timeout_seconds,status_code=getattr(e,'code',None)) from e
 
 def complete(config, messages, seed, tokenizer):
     settings=config['generation']
@@ -138,10 +179,10 @@ def complete(config, messages, seed, tokenizer):
       'presence_penalty':settings['presence_penalty'],'repetition_penalty':settings['repetition_penalty'],
       'max_tokens':settings['max_tokens'],'seed':seed,'reasoning_effort':settings['reasoning_effort'],
       'chat_template_kwargs':template,'return_prompt_text':True}
-    start=time.monotonic(); raw=request_json(config['base_url']+'/chat/completions',payload)
+    start=time.monotonic(); raw=request_json(config['base_url']+'/chat/completions',payload,timeout_seconds=config.get('request_timeout_seconds',DEFAULT_REQUEST_TIMEOUT_SECONDS))
     return raw, {'request':payload,'rendered_chat_template':rendered,'input_tokens':len(ids),
                  'template_matches':raw.get('prompt_text')==rendered,
-                 'elapsed_seconds':time.monotonic()-start,'timestamp':now()}
+                 'elapsed_seconds':time.monotonic()-start,'timestamp':now(),'request_timeout_seconds':config.get('request_timeout_seconds',DEFAULT_REQUEST_TIMEOUT_SECONDS)}
 
 def final_response(raw):
     choice=raw['choices'][0]; message=choice['message']
@@ -154,19 +195,27 @@ def final_response(raw):
 def pilot(project, config_path, output):
     from transformers import AutoTokenizer
     project=Path(project);config=read(config_path);out=Path(output);out.mkdir(parents=True,exist_ok=False)
-    source=project/'data/requirement_inputs/development.json';task_input=read(source)
+    source=configured_path(project,config,'task_input_path','data/requirement_inputs/development.json');task_input=read(source)
     tokenizer=AutoTokenizer.from_pretrained(config['snapshot_path'],local_files_only=True,trust_remote_code=False)
-    prompt=(project/'prompts/requirements-v1.txt').read_text();schema=read(project/'schemas/candidate_requirements.schema.json')
+    prompt_path=configured_path(project,config,'prompt_path','prompts/requirements-v1.txt');prompt=prompt_path.read_text()
+    schema_path=configured_path(project,config,'schema_path','schemas/candidate_requirements.schema.json');schema=read(schema_path)
     input_hash=digest(source.read_bytes());pilot_id='requirements-'+digest((input_hash+str(out)+config['revision']).encode())[:20]
     write(out/'task_input.json',task_input);write(out/'config.json',config)
     (out/'prompt.txt').write_text(prompt);write(out/'schema.json',schema)
-    write(out/'metadata.json',{'pilot_id':pilot_id,'input_sha256':input_hash,'prompt_version':VERSION,
+    write(out/'metadata.json',{'pilot_id':pilot_id,'input_sha256':input_hash,'prompt_version':config.get('prompt_version',VERSION),'git':git_state(project),
+       'task_input_path':str(source),'prompt_path':str(prompt_path),'schema_path':str(schema_path),
+       'request_timeout_seconds':config.get('request_timeout_seconds',DEFAULT_REQUEST_TIMEOUT_SECONDS),
        'prompt_sha256':digest(prompt.encode()),'schema_sha256':digest(json.dumps(schema,sort_keys=True).encode()),
        'created_at':now(),'scope':'candidate proposals only; no safety assessment or execution','source_provenance':read(source.with_name('provenance.json'))})
     for name in ['model_manifest.json','package_versions.txt','backend_settings_audit.json','server_command.json']:
-        (out/name).write_bytes((project/'reports/requirement_pilot_queue'/name).read_bytes())
+        (out/name).write_bytes((configured_path(project,config,'runtime_report_dir','reports/requirement_pilot_queue')/name).read_bytes())
     smoke_messages=[{'role':'user','content':'Return the complete final JSON object {"smoke":"ok"}. No additional final-answer text.'}]
-    raw,meta=complete(config,smoke_messages,900,tokenizer);write(out/'smoke_raw.json',raw);write(out/'smoke_request.json',meta)
+    try: raw,meta=complete(config,smoke_messages,900,tokenizer)
+    except TransportError as error:
+        write(out/'smoke_transport_error.json',{**error.details,'timestamp':now()});raise
+    except ValueError as error:
+        write(out/'smoke_request_preflight_error.json',{'error':str(error),'timestamp':now()});raise
+    write(out/'smoke_raw.json',raw);write(out/'smoke_request.json',meta)
     assert meta['template_matches'],'Backend did not apply the exact pinned chat template/settings'
     text,reason=final_response(raw);assert json.loads(text)=={'smoke':'ok'}
     assert raw.get('usage',{}).get('prompt_tokens')==meta['input_tokens'],'Backend template/token count differs from pinned local template'
@@ -180,19 +229,23 @@ def pilot(project, config_path, output):
         folder=out/f'generation_{generation:02d}';folder.mkdir();messages=list(base);valid=False
         for attempt in range(2):
             try: raw,meta=complete(config,messages,seed,tokenizer)
-            except Exception as error:
-                write(folder/f'attempt_{attempt+1}_transport_error.json',{'error':str(error),'timestamp':now(),'retry':bool(attempt)})
+            except TransportError as error:
+                write(folder/f'attempt_{attempt+1}_transport_error.json',{**error.details,'timestamp':now(),'retry':bool(attempt)})
+                break
+            except ValueError as error:
+                write(folder/f'attempt_{attempt+1}_request_preflight_error.json',{'kind':'request_preflight','error':str(error),'timestamp':now()})
                 break
             write(folder/f'attempt_{attempt+1}_raw.json',raw)
             meta.update(retry=bool(attempt),seed=seed);write(folder/f'attempt_{attempt+1}_metadata.json',meta)
             document=None;errors=[]
             try:
                 if not meta['template_matches']: raise ValueError('Backend template/settings mismatch')
+                if raw.get('usage',{}).get('prompt_tokens')!=meta['input_tokens']: raise ValueError('Backend prompt token count mismatch')
                 text,reason=final_response(raw);(folder/f'attempt_{attempt+1}_final.txt').write_text(text)
                 document=json.loads(text);errors=validate(document,task_input,schema)
             except (ValueError,KeyError,TypeError) as e: errors=[str(e)]
             write(folder/f'attempt_{attempt+1}_validation.json',{'structurally_valid':not errors,'errors':errors,
-                'scientific_review':'pending','truncated':raw['choices'][0]['finish_reason']=='length','retry':bool(attempt)})
+                'scientific_review':'pending','truncated':bool(raw.get('choices')) and raw['choices'][0].get('finish_reason')=='length','retry':bool(attempt)})
             if not errors:
                 # Null allocation is allowed in the wire schema; content is never rewritten.
                 original=json.loads(json.dumps(document));write(folder/'parsed_original.json',original)
@@ -207,10 +260,16 @@ def pilot(project, config_path, output):
 def main():
     ap=argparse.ArgumentParser();ap.add_argument('--project',type=Path,required=True)
     sub=ap.add_subparsers(dest='command',required=True);p=sub.add_parser('prepare');p.add_argument('--task-id')
+    p=sub.add_parser('prepare-v2');p.add_argument('--task-id',default='2448c758145ae5ad500f');p.add_argument('--geometry',type=Path,required=True);p.add_argument('--objective',type=Path,required=True);p.add_argument('--output',type=Path,required=True)
     p=sub.add_parser('pilot');p.add_argument('--config',type=Path,required=True);p.add_argument('--output',type=Path,required=True)
     a=ap.parse_args()
     if a.command=='prepare':
         value,provenance=prepare(a.project,a.task_id);p=a.project/'data/requirement_inputs';p.mkdir(exist_ok=False)
         write(p/'development.json',value);write(p/'provenance.json',provenance);print(value['task_id'])
+    elif a.command=='prepare-v2':
+        from requirement_inputs_v2 import prepare_v2
+        value,provenance=prepare_v2(a.project,a.geometry,a.objective,a.task_id)
+        a.output.mkdir(parents=True,exist_ok=False)
+        write(a.output/'development.json',value);write(a.output/'provenance.json',provenance)
     else: pilot(a.project,a.config,a.output)
 if __name__=='__main__': main()

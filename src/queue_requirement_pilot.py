@@ -1,5 +1,5 @@
 """Persistent, GPU-1-only queue. Installation and downloads require sufficient persistent storage."""
-import datetime, fcntl, hashlib, importlib.metadata, json, os, shutil, signal, subprocess, sys, time, traceback, urllib.request
+import argparse, datetime, fcntl, hashlib, importlib.metadata, json, os, shutil, signal, subprocess, sys, time, traceback, urllib.request
 from pathlib import Path
 R=Path(__file__).resolve().parents[1]
 Q=R/'reports/requirement_pilot_queue'
@@ -8,7 +8,7 @@ def now(): return datetime.datetime.now(datetime.timezone.utc).isoformat()
 def write(p,v):
     p=Path(p);tmp=p.with_suffix('.tmp');tmp.write_text(json.dumps(v,indent=2)+'\n');tmp.replace(p)
 def status(stage,**kw):
-    write(Q/'status.json',{'status':stage,'updated_at':now(),'queue_pid':os.getpid(),'gpu':1,**kw})
+    write(Q/'status.json',{'status':stage,'updated_at':now(),'queue_pid':os.getpid(),'queue_process_start_ticks':proc_identity(os.getpid()),'gpu':1,**kw})
 def proc_identity(pid):
     try: return Path(f'/proc/{pid}/stat').read_text().rsplit(')',1)[1].split()[19]
     except FileNotFoundError: return None
@@ -58,6 +58,7 @@ config['snapshot_path']=str(snapshot)
 Path('reports/requirement_pilot_queue/resolved_config.json').write_text(json.dumps(config,indent=2))
 Path('reports/requirement_pilot_queue/model_manifest.json').write_text(json.dumps({'repo':config['model_repo'],'revision':info.sha,'snapshot':str(snapshot),'files':manifest},indent=2))
 '''
+    script=script.replace("Path('config/requirement_generation.json')",f"Path({str(Q/'launch_config.json')!r})").replace('reports/requirement_pilot_queue/',str(Q)+'/')
     file=Q/'download_model.py';file.write_text(script)
     cmd=[str(py),str(file)]
     with (Q/'setup.log').open('a') as log:
@@ -78,10 +79,17 @@ Path('reports/requirement_pilot_queue/model_manifest.json').write_text(json.dump
             if download.poll() is None:
                 if paused:os.killpg(download.pid,signal.SIGCONT)
                 os.killpg(download.pid,signal.SIGTERM);download.wait(timeout=30)
-def main():
+def main(config_path, output=None):
+    global Q
+    config=read(config_path)
+    configured=Path(config.get('runtime_report_dir','reports/requirement_pilot_queue'))
+    Q=configured if configured.is_absolute() else R/configured
+    if Q.resolve()==(R/'reports/requirement_pilot_queue').resolve() and config.get('prompt_version')=='requirements-v2':
+        raise ValueError('Version 2 must use a separate runtime report directory')
     Q.mkdir(parents=True,exist_ok=True);lock=(Q/'queue.lock').open('a');fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
     assert subprocess.check_output(['hostname'],text=True).strip().lower()=='hestia'
-    config=read(R/'config/requirement_generation.json');assert config['physical_gpu']==1
+    assert config['physical_gpu']==1
+    write(Q/'launch_config.json',config)
     server=None
     try:
         while jobs():status('queued_waiting_for_gpu1',compute_jobs=jobs());time.sleep(30)
@@ -118,6 +126,7 @@ for p in root.rglob('*.py'):
  if 'reasoning_effort' in text and ('chat_template_kwargs' in text or 'SamplingParams' in text):matches[str(p.relative_to(root))]=text
 pathlib.Path('reports/requirement_pilot_queue/backend_settings_audit.json').write_text(json.dumps({'vllm':vllm.__version__,'transformers':transformers.__version__,'torch':torch.__version__,'cuda':torch.version.cuda,'fields':required,'sampling_and_template_settings_verified':True,'handling_sources':matches},indent=2))
 """
+        audit=audit.replace("pathlib.Path('config/requirement_generation.json')",f"pathlib.Path({str(Q/'launch_config.json')!r})").replace('reports/requirement_pilot_queue/',str(Q)+'/')
         auditfile=Q/'audit_backend.py';auditfile.write_text(audit);run([str(py),str(auditfile)],'setup.log',env)
         status('downloading_pinned_model');setup_model(config,env,py);config=read(Q/'resolved_config.json')
         if jobs():raise RuntimeError('GPU 1 acquired another compute job during setup; refusing model load')
@@ -138,9 +147,9 @@ pathlib.Path('reports/requirement_pilot_queue/backend_settings_audit.json').writ
                 if time.monotonic()>deadline:raise RuntimeError('Server startup timeout')
                 time.sleep(5)
         stamp=datetime.datetime.now(datetime.timezone.utc).strftime('%Y%m%dT%H%M%SZ')
-        out=R/'data/requirement_pilots'/stamp;status('smoke_then_three_generations',output=str(out),server_pid=server.pid)
+        out=Path(output) if output else R/'data/requirement_pilots'/stamp;status('smoke_then_configured_generations',output=str(out),server_pid=server.pid)
         run([str(py),str(R/'src/requirement_proposals.py'),'--project',str(R),'pilot','--config',str(Q/'resolved_config.json'),'--output',str(out)],'pilot.log',env)
-        status('completed_pending_human_review',output=str(out),generations=3)
+        status('completed_pending_human_review',output=str(out),generations=len(config['generation']['seeds']))
     except BaseException:
         status('blocked_error',error=traceback.format_exc());raise
     finally:
@@ -149,4 +158,24 @@ pathlib.Path('reports/requirement_pilot_queue/backend_settings_audit.json').writ
             os.killpg(server.pid,signal.SIGTERM)
             try:server.wait(timeout=30)
             except subprocess.TimeoutExpired:os.killpg(server.pid,signal.SIGKILL);server.wait()
-if __name__=='__main__':main()
+def inspect_status(path):
+    s=read(path)
+    terminal={'completed_pending_human_review','blocked_error','stopped_before_launch_for_review'}
+    if s.get('status') not in terminal:
+        start=s.get('queue_process_start_ticks')
+        if start is None or proc_identity(s.get('queue_pid',-1))!=start:
+            return {**s,'reported_status':s.get('status'),'status':'stale_process_not_verified'}
+    return s
+
+if __name__=='__main__':
+    ap=argparse.ArgumentParser()
+    ap.add_argument('--config',type=Path,default=R/'config/requirement_generation.json')
+    ap.add_argument('--output',type=Path)
+    ap.add_argument('--launch-reviewed-pilot',action='store_true',help='Launch only after researcher review; otherwise print the plan without starting jobs.')
+    ap.add_argument('--status',type=Path)
+    a=ap.parse_args()
+    if a.status:print(json.dumps(inspect_status(a.status),indent=2))
+    elif not a.launch_reviewed_pilot:
+        print(json.dumps({'status':'stopped_before_launch_for_review','config_path':str(a.config),'config':read(a.config),'output':str(a.output) if a.output else None},indent=2))
+    else:main(a.config.resolve(),a.output)
+

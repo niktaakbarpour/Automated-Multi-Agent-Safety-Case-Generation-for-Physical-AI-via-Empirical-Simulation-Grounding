@@ -1,0 +1,17 @@
+{
+  "proposal_id": "proposal-e0af7cf5ea13e7fa42f9",
+  "original_proposal": "data/requirement_pilots/20261016T154747Z/generation_03/candidates.json",
+  "suggested_decision": "needs_revision",
+  "status": "suggestion_only_not_human_review",
+  "actual_human_review_status": "pending",
+  "reasons": [
+    "An end-of-run check does not cover the entire execution.",
+    "The applicability condition near is undefined.",
+    "Object-root height is not necessarily table or support height.",
+    "Robot-contact causation is not established by the available observations.",
+    "The assumption that the basket remains on the table is unnecessary for this requirement."
+  ],
+  "suggested_revision_direction": "State a qualitative no-unintended-fall requirement for non-target objects over the full manipulation interval. Defer operational fall/support/temporal criteria until validated, avoid near, remove unsupported contact causation and the basket assumption.",
+  "reviewer_identity": null,
+  "approval": null
+}
