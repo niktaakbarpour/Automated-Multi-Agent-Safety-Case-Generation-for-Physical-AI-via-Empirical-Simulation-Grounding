@@ -1,0 +1,5 @@
+# Existing Hestia geometry-inspection/test environment; no model inference.
+mujoco==3.8.1
+numpy==2.5.3
+h5py==3.16.0
+jsonschema==4.26.0

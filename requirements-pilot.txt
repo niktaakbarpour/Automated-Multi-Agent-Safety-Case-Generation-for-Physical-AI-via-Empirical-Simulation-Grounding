@@ -1,0 +1,4 @@
+# Completed pilot's serving versions; full environment captured separately.
+vllm==0.31.0
+transformers==5.17.0
+jsonschema==4.26.0

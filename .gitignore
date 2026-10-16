@@ -7,3 +7,9 @@ __pycache__/
 .venv*/
 /data/requirement_pilots/*
 /reports/requirement_pilot_v2_queue/*
+
+# Runtime logs/caches are historical records on Hestia, not source changes.
+/reports/requirement_pilot_queue/*
+# Inspection artifacts are retained on Hestia pending review/export authorization.
+/evidence/geometry_v2/
+/data/requirement_inputs/v2/
