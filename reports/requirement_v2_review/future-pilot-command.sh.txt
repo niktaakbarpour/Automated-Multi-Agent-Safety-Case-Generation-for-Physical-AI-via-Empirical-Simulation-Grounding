@@ -1,0 +1,6 @@
+cd /local/home/niktakbr/trustworthy_project
+/disk/1/data/niktakbr/trustworthy-runtime/venv-py312/bin/python \
+  src/queue_requirement_pilot.py \
+  --config config/requirement_generation.v2.json \
+  --output data/requirement_pilots/v2-reviewed-non-target-falls \
+  --launch-reviewed-pilot

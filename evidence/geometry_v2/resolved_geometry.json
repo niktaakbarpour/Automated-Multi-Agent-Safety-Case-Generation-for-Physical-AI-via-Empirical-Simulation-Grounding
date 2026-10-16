@@ -1,0 +1,3205 @@
+{
+  "task_id": "2448c758145ae5ad500f",
+  "reference_run_id": "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db",
+  "source_xml_relative_path": "long/task_00/episode_000/simulator.xml",
+  "source_xml_sha256": "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542",
+  "saved_xml": "evidence/geometry_v2/simulator.xml",
+  "original_empty_geometry_explanation": "The named living_room_table body has sites but no direct geom. Seven geoms are in child living_room_table_col; body.findall(./geom) omitted them.",
+  "table": {
+    "native_body_name": "living_room_table",
+    "geometries": [
+      {
+        "geom_id": 9,
+        "name": null,
+        "source_id": "xml:a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542:compiled_geom:9",
+        "owner_body": "living_room_table_col",
+        "body_ancestry": [
+          "living_room_table_col",
+          "living_room_table",
+          "world"
+        ],
+        "type": "mesh",
+        "size": [
+          0.31056590746732665,
+          0.5982799323202417,
+          1.0205756350518047
+        ],
+        "position_world_reference": [
+          -0.23900374532962915,
+          0.15165635836949815,
+          0.28185909133285464
+        ],
+        "rotation_world_reference": [
+          [
+            -0.00045623449858955833,
+            0.9999998290327308,
+            -0.0003657657705700701
+          ],
+          [
+            0.09030495556857959,
+            0.0004054715855771329,
+            0.9959140779166431
+          ],
+          [
+            0.9959140559555562,
+            0.0004213398983167749,
+            -0.09030512511951316
+          ]
+        ],
+        "contype": 0,
+        "conaffinity": 0,
+        "render_group": 1,
+        "explicit_contact_pair_member": false,
+        "geometry_role": "visual_only",
+        "role_qualification": "Collision capability from effective masks/explicit pairs; actual contacts still depend on pair filtering and state.",
+        "transform_status": "compiler_resolved_model_reference",
+        "mesh_asset": "living_room_table_vis",
+        "world_aabb_reference": {
+          "min": [
+            -0.8369035272412353,
+            -0.8582420247221152,
+            -1.5137417486155158e-08
+          ],
+          "max": [
+            0.3592310307632474,
+            0.940840015571742,
+            0.4495020301773647
+          ]
+        },
+        "bounds_qualification": "Compiled mesh vertices and compiler-resolved mesh/geom transforms; not an identified support face."
+      },
+      {
+        "geom_id": 10,
+        "name": null,
+        "source_id": "xml:a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542:compiled_geom:10",
+        "owner_body": "living_room_table_col",
+        "body_ancestry": [
+          "living_room_table_col",
+          "living_room_table",
+          "world"
+        ],
+        "type": "box",
+        "size": [
+          0.01184,
+          0.44432,
+          0.67171
+        ],
+        "position_world_reference": [
+          -0.25,
+          0.05239000000000005,
+          0.4249199999999999
+        ],
+        "rotation_world_reference": [
+          [
+            0.0,
+            -0.9999999999999996,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.9999999999999996
+          ],
+          [
+            -0.9999999999999996,
+            0.0,
+            0.0
+          ]
+        ],
+        "contype": 1,
+        "conaffinity": 1,
+        "render_group": 0,
+        "explicit_contact_pair_member": false,
+        "geometry_role": "collision_enabled",
+        "role_qualification": "Collision capability from effective masks/explicit pairs; actual contacts still depend on pair filtering and state.",
+        "transform_status": "compiler_resolved_model_reference",
+        "world_aabb_reference": {
+          "min": [
+            -0.6943199999999998,
+            -0.6193199999999996,
+            0.4130799999999999
+          ],
+          "max": [
+            0.19431999999999977,
+            0.7240999999999997,
+            0.4367599999999999
+          ]
+        },
+        "horizontal_upper_face_z_candidate": 0.4367599999999999
+      },
+      {
+        "geom_id": 11,
+        "name": null,
+        "source_id": "xml:a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542:compiled_geom:11",
+        "owner_body": "living_room_table_col",
+        "body_ancestry": [
+          "living_room_table_col",
+          "living_room_table",
+          "world"
+        ],
+        "type": "box",
+        "size": [
+          0.01184,
+          0.10133,
+          0.41675
+        ],
+        "position_world_reference": [
+          -0.25,
+          0.7993599999999998,
+          0.4249199999999999
+        ],
+        "rotation_world_reference": [
+          [
+            0.0,
+            0.0,
+            0.9999999999999998
+          ],
+          [
+            0.0,
+            0.9999999999999998,
+            0.0
+          ],
+          [
+            -0.9999999999999998,
+            0.0,
+            0.0
+          ]
+        ],
+        "contype": 1,
+        "conaffinity": 1,
+        "render_group": 0,
+        "explicit_contact_pair_member": false,
+        "geometry_role": "collision_enabled",
+        "role_qualification": "Collision capability from effective masks/explicit pairs; actual contacts still depend on pair filtering and state.",
+        "transform_status": "compiler_resolved_model_reference",
+        "world_aabb_reference": {
+          "min": [
+            -0.66675,
+            0.6980299999999999,
+            0.4130799999999999
+          ],
+          "max": [
+            0.1667499999999999,
+            0.9006899999999998,
+            0.4367599999999999
+          ]
+        },
+        "horizontal_upper_face_z_candidate": 0.4367599999999999
+      },
+      {
+        "geom_id": 12,
+        "name": null,
+        "source_id": "xml:a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542:compiled_geom:12",
+        "owner_body": "living_room_table_col",
+        "body_ancestry": [
+          "living_room_table_col",
+          "living_room_table",
+          "world"
+        ],
+        "type": "box",
+        "size": [
+          0.01184,
+          0.10133,
+          0.41675
+        ],
+        "position_world_reference": [
+          -0.25,
+          -0.7200599999999998,
+          0.4249199999999999
+        ],
+        "rotation_world_reference": [
+          [
+            0.0,
+            -0.0,
+            -0.9999999999999998
+          ],
+          [
+            0.0,
+            0.9999999999999998,
+            -0.0
+          ],
+          [
+            0.9999999999999998,
+            0.0,
+            0.0
+          ]
+        ],
+        "contype": 1,
+        "conaffinity": 1,
+        "render_group": 0,
+        "explicit_contact_pair_member": false,
+        "geometry_role": "collision_enabled",
+        "role_qualification": "Collision capability from effective masks/explicit pairs; actual contacts still depend on pair filtering and state.",
+        "transform_status": "compiler_resolved_model_reference",
+        "world_aabb_reference": {
+          "min": [
+            -0.66675,
+            -0.8213899999999998,
+            0.4130799999999999
+          ],
+          "max": [
+            0.1667499999999999,
+            -0.6187299999999998,
+            0.4367599999999999
+          ]
+        },
+        "horizontal_upper_face_z_candidate": 0.4367599999999999
+      },
+      {
+        "geom_id": 13,
+        "name": null,
+        "source_id": "xml:a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542:compiled_geom:13",
+        "owner_body": "living_room_table_col",
+        "body_ancestry": [
+          "living_room_table_col",
+          "living_room_table",
+          "world"
+        ],
+        "type": "box",
+        "size": [
+          0.01184,
+          0.07752,
+          0.67171
+        ],
+        "position_world_reference": [
+          0.26120999999999994,
+          0.05239000000000005,
+          0.4249199999999999
+        ],
+        "rotation_world_reference": [
+          [
+            0.0,
+            -0.9999999999999996,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.9999999999999996
+          ],
+          [
+            -0.9999999999999996,
+            0.0,
+            0.0
+          ]
+        ],
+        "contype": 1,
+        "conaffinity": 1,
+        "render_group": 0,
+        "explicit_contact_pair_member": false,
+        "geometry_role": "collision_enabled",
+        "role_qualification": "Collision capability from effective masks/explicit pairs; actual contacts still depend on pair filtering and state.",
+        "transform_status": "compiler_resolved_model_reference",
+        "world_aabb_reference": {
+          "min": [
+            0.18368999999999996,
+            -0.6193199999999996,
+            0.4130799999999999
+          ],
+          "max": [
+            0.3387299999999999,
+            0.7240999999999997,
+            0.4367599999999999
+          ]
+        },
+        "horizontal_upper_face_z_candidate": 0.4367599999999999
+      },
+      {
+        "geom_id": 14,
+        "name": null,
+        "source_id": "xml:a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542:compiled_geom:14",
+        "owner_body": "living_room_table_col",
+        "body_ancestry": [
+          "living_room_table_col",
+          "living_room_table",
+          "world"
+        ],
+        "type": "box",
+        "size": [
+          0.01184,
+          0.07752,
+          0.67171
+        ],
+        "position_world_reference": [
+          -0.7466499999999998,
+          0.05239000000000005,
+          0.4249199999999999
+        ],
+        "rotation_world_reference": [
+          [
+            0.0,
+            -0.9999999999999996,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.9999999999999996
+          ],
+          [
+            -0.9999999999999996,
+            0.0,
+            0.0
+          ]
+        ],
+        "contype": 1,
+        "conaffinity": 1,
+        "render_group": 0,
+        "explicit_contact_pair_member": false,
+        "geometry_role": "collision_enabled",
+        "role_qualification": "Collision capability from effective masks/explicit pairs; actual contacts still depend on pair filtering and state.",
+        "transform_status": "compiler_resolved_model_reference",
+        "world_aabb_reference": {
+          "min": [
+            -0.8241699999999998,
+            -0.6193199999999996,
+            0.4130799999999999
+          ],
+          "max": [
+            -0.6691299999999998,
+            0.7240999999999997,
+            0.4367599999999999
+          ]
+        },
+        "horizontal_upper_face_z_candidate": 0.4367599999999999
+      },
+      {
+        "geom_id": 15,
+        "name": null,
+        "source_id": "xml:a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542:compiled_geom:15",
+        "owner_body": "living_room_table_col",
+        "body_ancestry": [
+          "living_room_table_col",
+          "living_room_table",
+          "world"
+        ],
+        "type": "box",
+        "size": [
+          0.20884,
+          0.41162,
+          0.43516
+        ],
+        "position_world_reference": [
+          -0.25,
+          0.25,
+          0.20413999999999993
+        ],
+        "rotation_world_reference": [
+          [
+            0.0,
+            -0.9999999999999996,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            -0.9999999999999996
+          ],
+          [
+            0.9999999999999996,
+            0.0,
+            0.0
+          ]
+        ],
+        "contype": 1,
+        "conaffinity": 1,
+        "render_group": 0,
+        "explicit_contact_pair_member": false,
+        "geometry_role": "collision_enabled",
+        "role_qualification": "Collision capability from effective masks/explicit pairs; actual contacts still depend on pair filtering and state.",
+        "transform_status": "compiler_resolved_model_reference",
+        "world_aabb_reference": {
+          "min": [
+            -0.6616199999999999,
+            -0.18515999999999982,
+            -0.004699999999999982
+          ],
+          "max": [
+            0.16161999999999982,
+            0.6851599999999998,
+            0.41297999999999985
+          ]
+        },
+        "horizontal_upper_face_z_candidate": 0.41297999999999985
+      }
+    ],
+    "selection_basis": "Named surface candidate with all descendant-body geometry; not a prohibited region.",
+    "verification": "compiler_resolved_model_reference",
+    "collision_enabled_geoms": 6,
+    "visual_only_geoms": 1
+  },
+  "geometry_resolution": {
+    "status": "compiler_resolved",
+    "source_xml": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_000/simulator.xml",
+    "source_xml_sha256": "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542",
+    "pose_scope": "Model reference configuration qpos0, not recorded execution poses.",
+    "limitations": [
+      "Geometry is not an approved support binding, safety rule, or observed contact."
+    ],
+    "compiler": "mujoco",
+    "compiler_version": "3.8.1",
+    "body_count": 29,
+    "geom_count": 161,
+    "units": "MuJoCo model length units (normally meters); no independent physical calibration.",
+    "hierarchy_note": "XML nesting retained separately; compiled hierarchy includes frames/defaults resolved by MuJoCo."
+  },
+  "xml_body_hierarchy": [
+    {
+      "name": "floor",
+      "parent": "world",
+      "xml_attributes": {
+        "name": "floor"
+      },
+      "direct_geometry_count": 1
+    },
+    {
+      "name": "living_room_table",
+      "parent": "world",
+      "xml_attributes": {
+        "name": "living_room_table"
+      },
+      "direct_geometry_count": 0
+    },
+    {
+      "name": "living_room_table_col",
+      "parent": "living_room_table",
+      "xml_attributes": {
+        "name": "living_room_table_col",
+        "pos": "-0.25 0.25 0",
+        "quat": "0.707107 0 0 0.707107"
+      },
+      "direct_geometry_count": 7
+    },
+    {
+      "name": "robot0_base",
+      "parent": "world",
+      "xml_attributes": {
+        "name": "robot0_base",
+        "pos": "-0.51 0 0.42"
+      },
+      "direct_geometry_count": 0
+    },
+    {
+      "name": "robot0_link0",
+      "parent": "robot0_base",
+      "xml_attributes": {
+        "name": "robot0_link0"
+      },
+      "direct_geometry_count": 13
+    },
+    {
+      "name": "robot0_link1",
+      "parent": "robot0_link0",
+      "xml_attributes": {
+        "name": "robot0_link1",
+        "pos": "0 0 0.333"
+      },
+      "direct_geometry_count": 2
+    },
+    {
+      "name": "robot0_link2",
+      "parent": "robot0_link1",
+      "xml_attributes": {
+        "name": "robot0_link2",
+        "quat": "0.707107 -0.707107 0 0"
+      },
+      "direct_geometry_count": 2
+    },
+    {
+      "name": "robot0_link3",
+      "parent": "robot0_link2",
+      "xml_attributes": {
+        "name": "robot0_link3",
+        "pos": "0 -0.316 0",
+        "quat": "0.707107 0.707107 0 0"
+      },
+      "direct_geometry_count": 5
+    },
+    {
+      "name": "robot0_link4",
+      "parent": "robot0_link3",
+      "xml_attributes": {
+        "name": "robot0_link4",
+        "pos": "0.0825 0 0",
+        "quat": "0.707107 0.707107 0 0"
+      },
+      "direct_geometry_count": 5
+    },
+    {
+      "name": "robot0_link5",
+      "parent": "robot0_link4",
+      "xml_attributes": {
+        "name": "robot0_link5",
+        "pos": "-0.0825 0.384 0",
+        "quat": "0.707107 -0.707107 0 0"
+      },
+      "direct_geometry_count": 4
+    },
+    {
+      "name": "robot0_link6",
+      "parent": "robot0_link5",
+      "xml_attributes": {
+        "name": "robot0_link6",
+        "quat": "0.707107 0.707107 0 0"
+      },
+      "direct_geometry_count": 18
+    },
+    {
+      "name": "robot0_link7",
+      "parent": "robot0_link6",
+      "xml_attributes": {
+        "name": "robot0_link7",
+        "pos": "0.088 0 0",
+        "quat": "0.707107 0.707107 0 0"
+      },
+      "direct_geometry_count": 8
+    },
+    {
+      "name": "robot0_right_hand",
+      "parent": "robot0_link7",
+      "xml_attributes": {
+        "name": "robot0_right_hand",
+        "pos": "0 0 0.1065",
+        "quat": "0.923785 0 0 -0.382911"
+      },
+      "direct_geometry_count": 0
+    },
+    {
+      "name": "gripper0_right_gripper",
+      "parent": "robot0_right_hand",
+      "xml_attributes": {
+        "name": "gripper0_right_gripper",
+        "quat": "0.707107 0 0 -0.707107"
+      },
+      "direct_geometry_count": 2
+    },
+    {
+      "name": "gripper0_eef",
+      "parent": "gripper0_right_gripper",
+      "xml_attributes": {
+        "name": "gripper0_eef",
+        "pos": "0 0 0.097"
+      },
+      "direct_geometry_count": 0
+    },
+    {
+      "name": "gripper0_leftfinger",
+      "parent": "gripper0_right_gripper",
+      "xml_attributes": {
+        "name": "gripper0_leftfinger",
+        "pos": "0 0 0.0524",
+        "quat": "0.707107 0 0 0.707107"
+      },
+      "direct_geometry_count": 2
+    },
+    {
+      "name": "gripper0_finger_joint1_tip",
+      "parent": "gripper0_leftfinger",
+      "xml_attributes": {
+        "name": "gripper0_finger_joint1_tip",
+        "pos": "0 0.0085 0.056"
+      },
+      "direct_geometry_count": 1
+    },
+    {
+      "name": "gripper0_rightfinger",
+      "parent": "gripper0_right_gripper",
+      "xml_attributes": {
+        "name": "gripper0_rightfinger",
+        "pos": "0 0 0.0524",
+        "quat": "0.707107 0 0 0.707107"
+      },
+      "direct_geometry_count": 2
+    },
+    {
+      "name": "gripper0_finger_joint2_tip",
+      "parent": "gripper0_rightfinger",
+      "xml_attributes": {
+        "name": "gripper0_finger_joint2_tip",
+        "pos": "0 -0.0085 0.056"
+      },
+      "direct_geometry_count": 1
+    },
+    {
+      "name": "mount0_base",
+      "parent": "robot0_base",
+      "xml_attributes": {
+        "name": "mount0_base"
+      },
+      "direct_geometry_count": 0
+    },
+    {
+      "name": "alphabet_soup_1_main",
+      "parent": "world",
+      "xml_attributes": {
+        "name": "alphabet_soup_1_main"
+      },
+      "direct_geometry_count": 22
+    },
+    {
+      "name": "cream_cheese_1_main",
+      "parent": "world",
+      "xml_attributes": {
+        "name": "cream_cheese_1_main"
+      },
+      "direct_geometry_count": 2
+    },
+    {
+      "name": "tomato_sauce_1_main",
+      "parent": "world",
+      "xml_attributes": {
+        "name": "tomato_sauce_1_main"
+      },
+      "direct_geometry_count": 25
+    },
+    {
+      "name": "ketchup_1_main",
+      "parent": "world",
+      "xml_attributes": {
+        "name": "ketchup_1_main"
+      },
+      "direct_geometry_count": 13
+    },
+    {
+      "name": "orange_juice_1_main",
+      "parent": "world",
+      "xml_attributes": {
+        "name": "orange_juice_1_main"
+      },
+      "direct_geometry_count": 5
+    },
+    {
+      "name": "milk_1_main",
+      "parent": "world",
+      "xml_attributes": {
+        "name": "milk_1_main"
+      },
+      "direct_geometry_count": 5
+    },
+    {
+      "name": "butter_1_main",
+      "parent": "world",
+      "xml_attributes": {
+        "name": "butter_1_main"
+      },
+      "direct_geometry_count": 2
+    },
+    {
+      "name": "basket_1_main",
+      "parent": "world",
+      "xml_attributes": {
+        "name": "basket_1_main"
+      },
+      "direct_geometry_count": 6
+    }
+  ],
+  "compiled_body_hierarchy": [
+    {
+      "body_id": 0,
+      "name": "world",
+      "parent": null,
+      "position_world_reference": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_world_reference": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "has_joints": false,
+      "mocap": false
+    },
+    {
+      "body_id": 1,
+      "name": "floor",
+      "parent": "world",
+      "position_world_reference": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_world_reference": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "has_joints": false,
+      "mocap": false
+    },
+    {
+      "body_id": 2,
+      "name": "living_room_table",
+      "parent": "world",
+      "position_world_reference": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_world_reference": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "has_joints": false,
+      "mocap": false
+    },
+    {
+      "body_id": 3,
+      "name": "living_room_table_col",
+      "parent": "living_room_table",
+      "position_world_reference": [
+        -0.25,
+        0.25,
+        0.0
+      ],
+      "rotation_world_reference": [
+        [
+          0.0,
+          -0.9999999999999998,
+          0.0
+        ],
+        [
+          0.9999999999999998,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.9999999999999998
+        ]
+      ],
+      "has_joints": false,
+      "mocap": false
+    },
+    {
+      "body_id": 4,
+      "name": "robot0_base",
+      "parent": "world",
+      "position_world_reference": [
+        -0.51,
+        0.0,
+        0.42
+      ],
+      "rotation_world_reference": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "has_joints": false,
+      "mocap": false
+    },
+    {
+      "body_id": 5,
+      "name": "robot0_link0",
+      "parent": "robot0_base",
+      "position_world_reference": [
+        -0.51,
+        0.0,
+        0.42
+      ],
+      "rotation_world_reference": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "has_joints": false,
+      "mocap": false
+    },
+    {
+      "body_id": 6,
+      "name": "robot0_link1",
+      "parent": "robot0_link0",
+      "position_world_reference": [
+        -0.51,
+        0.0,
+        0.753
+      ],
+      "rotation_world_reference": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "has_joints": true,
+      "mocap": false
+    },
+    {
+      "body_id": 7,
+      "name": "robot0_link2",
+      "parent": "robot0_link1",
+      "position_world_reference": [
+        -0.51,
+        0.0,
+        0.753
+      ],
+      "rotation_world_reference": [
+        [
+          0.9999999999999998,
+          -0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.9999999999999998
+        ],
+        [
+          -0.0,
+          -0.9999999999999998,
+          0.0
+        ]
+      ],
+      "has_joints": true,
+      "mocap": false
+    },
+    {
+      "body_id": 8,
+      "name": "robot0_link3",
+      "parent": "robot0_link2",
+      "position_world_reference": [
+        -0.51,
+        0.0,
+        1.069
+      ],
+      "rotation_world_reference": [
+        [
+          0.9999999999999996,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.9999999999999996,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.9999999999999996
+        ]
+      ],
+      "has_joints": true,
+      "mocap": false
+    },
+    {
+      "body_id": 9,
+      "name": "robot0_link4",
+      "parent": "robot0_link3",
+      "position_world_reference": [
+        -0.42750000000000005,
+        0.0,
+        1.069
+      ],
+      "rotation_world_reference": [
+        [
+          0.9999999999999996,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          -0.9999999999999996
+        ],
+        [
+          0.0,
+          0.9999999999999996,
+          0.0
+        ]
+      ],
+      "has_joints": true,
+      "mocap": false
+    },
+    {
+      "body_id": 10,
+      "name": "robot0_link5",
+      "parent": "robot0_link4",
+      "position_world_reference": [
+        -0.51,
+        0.0,
+        1.4529999999999998
+      ],
+      "rotation_world_reference": [
+        [
+          0.9999999999999993,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.9999999999999993,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.9999999999999993
+        ]
+      ],
+      "has_joints": true,
+      "mocap": false
+    },
+    {
+      "body_id": 11,
+      "name": "robot0_link6",
+      "parent": "robot0_link5",
+      "position_world_reference": [
+        -0.51,
+        0.0,
+        1.4529999999999998
+      ],
+      "rotation_world_reference": [
+        [
+          0.9999999999999992,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          -0.9999999999999992
+        ],
+        [
+          0.0,
+          0.9999999999999992,
+          0.0
+        ]
+      ],
+      "has_joints": true,
+      "mocap": false
+    },
+    {
+      "body_id": 12,
+      "name": "robot0_link7",
+      "parent": "robot0_link6",
+      "position_world_reference": [
+        -0.4220000000000001,
+        0.0,
+        1.4529999999999998
+      ],
+      "rotation_world_reference": [
+        [
+          0.9999999999999991,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          -0.9999999999999991,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          -0.9999999999999991
+        ]
+      ],
+      "has_joints": true,
+      "mocap": false
+    },
+    {
+      "body_id": 13,
+      "name": "robot0_right_hand",
+      "parent": "robot0_link7",
+      "position_world_reference": [
+        -0.4220000000000001,
+        0.0,
+        1.3465
+      ],
+      "rotation_world_reference": [
+        [
+          0.706758203174422,
+          0.7074551874469933,
+          0.0
+        ],
+        [
+          0.7074551874469933,
+          -0.706758203174422,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          -0.9999999999999989
+        ]
+      ],
+      "has_joints": false,
+      "mocap": false
+    },
+    {
+      "body_id": 14,
+      "name": "gripper0_right_gripper",
+      "parent": "robot0_right_hand",
+      "position_world_reference": [
+        -0.4220000000000001,
+        0.0,
+        1.3465
+      ],
+      "rotation_world_reference": [
+        [
+          -0.707455187446993,
+          0.7067582031744216,
+          0.0
+        ],
+        [
+          0.7067582031744216,
+          0.707455187446993,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          -0.9999999999999984
+        ]
+      ],
+      "has_joints": false,
+      "mocap": false
+    },
+    {
+      "body_id": 15,
+      "name": "gripper0_eef",
+      "parent": "gripper0_right_gripper",
+      "position_world_reference": [
+        -0.4220000000000001,
+        0.0,
+        1.2495000000000003
+      ],
+      "rotation_world_reference": [
+        [
+          -0.707455187446993,
+          0.7067582031744216,
+          0.0
+        ],
+        [
+          0.7067582031744216,
+          0.707455187446993,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          -0.9999999999999984
+        ]
+      ],
+      "has_joints": false,
+      "mocap": false
+    },
+    {
+      "body_id": 16,
+      "name": "gripper0_leftfinger",
+      "parent": "gripper0_right_gripper",
+      "position_world_reference": [
+        -0.4220000000000001,
+        0.0,
+        1.2941
+      ],
+      "rotation_world_reference": [
+        [
+          0.7067582031744215,
+          0.7074551874469929,
+          0.0
+        ],
+        [
+          0.7074551874469929,
+          -0.7067582031744215,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          -0.9999999999999984
+        ]
+      ],
+      "has_joints": true,
+      "mocap": false
+    },
+    {
+      "body_id": 17,
+      "name": "gripper0_finger_joint1_tip",
+      "parent": "gripper0_leftfinger",
+      "position_world_reference": [
+        -0.4159866309067007,
+        -0.006007444726982583,
+        1.2381000000000002
+      ],
+      "rotation_world_reference": [
+        [
+          0.7067582031744215,
+          0.7074551874469929,
+          0.0
+        ],
+        [
+          0.7074551874469929,
+          -0.7067582031744215,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          -0.9999999999999984
+        ]
+      ],
+      "has_joints": false,
+      "mocap": false
+    },
+    {
+      "body_id": 18,
+      "name": "gripper0_rightfinger",
+      "parent": "gripper0_right_gripper",
+      "position_world_reference": [
+        -0.4220000000000001,
+        0.0,
+        1.2941
+      ],
+      "rotation_world_reference": [
+        [
+          0.7067582031744215,
+          0.7074551874469929,
+          0.0
+        ],
+        [
+          0.7074551874469929,
+          -0.7067582031744215,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          -0.9999999999999984
+        ]
+      ],
+      "has_joints": true,
+      "mocap": false
+    },
+    {
+      "body_id": 19,
+      "name": "gripper0_finger_joint2_tip",
+      "parent": "gripper0_rightfinger",
+      "position_world_reference": [
+        -0.4280133690932995,
+        0.006007444726982583,
+        1.2381000000000002
+      ],
+      "rotation_world_reference": [
+        [
+          0.7067582031744215,
+          0.7074551874469929,
+          0.0
+        ],
+        [
+          0.7074551874469929,
+          -0.7067582031744215,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          -0.9999999999999984
+        ]
+      ],
+      "has_joints": false,
+      "mocap": false
+    },
+    {
+      "body_id": 20,
+      "name": "mount0_base",
+      "parent": "robot0_base",
+      "position_world_reference": [
+        -0.51,
+        0.0,
+        0.42
+      ],
+      "rotation_world_reference": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "has_joints": false,
+      "mocap": false
+    },
+    {
+      "body_id": 21,
+      "name": "alphabet_soup_1_main",
+      "parent": "world",
+      "position_world_reference": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_world_reference": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "has_joints": true,
+      "mocap": false
+    },
+    {
+      "body_id": 22,
+      "name": "cream_cheese_1_main",
+      "parent": "world",
+      "position_world_reference": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_world_reference": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "has_joints": true,
+      "mocap": false
+    },
+    {
+      "body_id": 23,
+      "name": "tomato_sauce_1_main",
+      "parent": "world",
+      "position_world_reference": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_world_reference": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "has_joints": true,
+      "mocap": false
+    },
+    {
+      "body_id": 24,
+      "name": "ketchup_1_main",
+      "parent": "world",
+      "position_world_reference": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_world_reference": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "has_joints": true,
+      "mocap": false
+    },
+    {
+      "body_id": 25,
+      "name": "orange_juice_1_main",
+      "parent": "world",
+      "position_world_reference": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_world_reference": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "has_joints": true,
+      "mocap": false
+    },
+    {
+      "body_id": 26,
+      "name": "milk_1_main",
+      "parent": "world",
+      "position_world_reference": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_world_reference": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "has_joints": true,
+      "mocap": false
+    },
+    {
+      "body_id": 27,
+      "name": "butter_1_main",
+      "parent": "world",
+      "position_world_reference": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_world_reference": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "has_joints": true,
+      "mocap": false
+    },
+    {
+      "body_id": 28,
+      "name": "basket_1_main",
+      "parent": "world",
+      "position_world_reference": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_world_reference": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "has_joints": true,
+      "mocap": false
+    }
+  ],
+  "worldbody_geometry": [
+    {
+      "geom_id": 0,
+      "name": "wall_decoration",
+      "source_id": "xml:a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542:compiled_geom:0",
+      "owner_body": "world",
+      "body_ancestry": [
+        "world"
+      ],
+      "type": "mesh",
+      "size": [
+        0.0019999999552965195,
+        0.43127200603485166,
+        0.5046419858932502
+      ],
+      "position_world_reference": [
+        -1.9480000000447035,
+        0.5806475877761841,
+        1.4612571954727174
+      ],
+      "rotation_world_reference": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "contype": 0,
+      "conaffinity": 0,
+      "render_group": 1,
+      "explicit_contact_pair_member": false,
+      "geometry_role": "visual_only",
+      "role_qualification": "Collision capability from effective masks/explicit pairs; actual contacts still depend on pair filtering and state.",
+      "transform_status": "compiler_resolved_model_reference",
+      "mesh_asset": "wall_decoration_vis",
+      "world_aabb_reference": {
+        "min": [
+          -1.9499999999068678,
+          0.14937558770179749,
+          0.95661518573761
+        ],
+        "max": [
+          -1.9460000001825393,
+          1.0119195878505707,
+          1.9658992052078248
+        ]
+      },
+      "bounds_qualification": "Compiled mesh vertices and compiler-resolved mesh/geom transforms; not an identified support face."
+    },
+    {
+      "geom_id": 1,
+      "name": "living_room",
+      "source_id": "xml:a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542:compiled_geom:1",
+      "owner_body": "world",
+      "body_ancestry": [
+        "world"
+      ],
+      "type": "mesh",
+      "size": [
+        0.20256627517000536,
+        1.0143532877547277,
+        1.4690118284985376
+      ],
+      "position_world_reference": [
+        -1.7512338218951875,
+        -0.19087045190213897,
+        0.6089428662409978
+      ],
+      "rotation_world_reference": [
+        [
+          -0.9986510444354402,
+          -0.04032126169549445,
+          0.03271524573176954
+        ],
+        [
+          0.007611384157878823,
+          0.509577192872013,
+          0.860391278044985
+        ],
+        [
+          -0.05136300496668593,
+          0.8594796567458506,
+          -0.5085828952696201
+        ]
+      ],
+      "contype": 0,
+      "conaffinity": 0,
+      "render_group": 1,
+      "explicit_contact_pair_member": false,
+      "geometry_role": "visual_only",
+      "role_qualification": "Collision capability from effective masks/explicit pairs; actual contacts still depend on pair filtering and state.",
+      "transform_status": "compiler_resolved_model_reference",
+      "mesh_asset": "living_room_vis",
+      "world_aabb_reference": {
+        "min": [
+          -1.9100007033873612,
+          -1.1765656170415117,
+          -3.281705240887334e-08
+        ],
+        "max": [
+          -1.5270327900278018,
+          1.1553003514505045,
+          1.5957913959098415
+        ]
+      },
+      "bounds_qualification": "Compiled mesh vertices and compiler-resolved mesh/geom transforms; not an identified support face."
+    },
+    {
+      "geom_id": 2,
+      "name": "wall_leftcorner_visual",
+      "source_id": "xml:a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542:compiled_geom:2",
+      "owner_body": "world",
+      "body_ancestry": [
+        "world"
+      ],
+      "type": "box",
+      "size": [
+        1.06,
+        1.5,
+        0.01
+      ],
+      "position_world_reference": [
+        -1.25,
+        2.25,
+        1.5
+      ],
+      "rotation_world_reference": [
+        [
+          0.7071065044671293,
+          0.0,
+          0.7071070579058572
+        ],
+        [
+          0.7071070579058572,
+          0.0,
+          -0.7071065044671294
+        ],
+        [
+          0.0,
+          0.9999999999999998,
+          0.0
+        ]
+      ],
+      "contype": 0,
+      "conaffinity": 0,
+      "render_group": 1,
+      "explicit_contact_pair_member": false,
+      "geometry_role": "visual_only",
+      "role_qualification": "Collision capability from effective masks/explicit pairs; actual contacts still depend on pair filtering and state.",
+      "transform_status": "compiler_resolved_model_reference",
+      "world_aabb_reference": {
+        "min": [
+          -2.0066039653142154,
+          1.4933954535751202,
+          4.440892098500626e-16
+        ],
+        "max": [
+          -0.4933960346857844,
+          3.00660454642488,
+          2.9999999999999996
+        ]
+      },
+      "horizontal_upper_face_z_candidate": 2.9999999999999996
+    },
+    {
+      "geom_id": 3,
+      "name": "wall_rightcorner_visual",
+      "source_id": "xml:a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542:compiled_geom:3",
+      "owner_body": "world",
+      "body_ancestry": [
+        "world"
+      ],
+      "type": "box",
+      "size": [
+        1.06,
+        1.5,
+        0.01
+      ],
+      "position_world_reference": [
+        -1.25,
+        -2.25,
+        1.5
+      ],
+      "rotation_world_reference": [
+        [
+          0.7071065044671293,
+          0.0,
+          -0.7071070579058572
+        ],
+        [
+          -0.7071070579058572,
+          0.0,
+          -0.7071065044671294
+        ],
+        [
+          0.0,
+          0.9999999999999998,
+          0.0
+        ]
+      ],
+      "contype": 0,
+      "conaffinity": 0,
+      "render_group": 1,
+      "explicit_contact_pair_member": false,
+      "geometry_role": "visual_only",
+      "role_qualification": "Collision capability from effective masks/explicit pairs; actual contacts still depend on pair filtering and state.",
+      "transform_status": "compiler_resolved_model_reference",
+      "world_aabb_reference": {
+        "min": [
+          -2.0066039653142154,
+          -3.00660454642488,
+          4.440892098500626e-16
+        ],
+        "max": [
+          -0.4933960346857844,
+          -1.4933954535751202,
+          2.9999999999999996
+        ]
+      },
+      "horizontal_upper_face_z_candidate": 2.9999999999999996
+    },
+    {
+      "geom_id": 4,
+      "name": "wall_left_visual",
+      "source_id": "xml:a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542:compiled_geom:4",
+      "owner_body": "world",
+      "body_ancestry": [
+        "world"
+      ],
+      "type": "box",
+      "size": [
+        1.75,
+        1.5,
+        0.01
+      ],
+      "position_world_reference": [
+        1.25,
+        3.0,
+        1.5
+      ],
+      "rotation_world_reference": [
+        [
+          0.9999999999999998,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          -0.9999999999999998
+        ],
+        [
+          0.0,
+          0.9999999999999998,
+          0.0
+        ]
+      ],
+      "contype": 0,
+      "conaffinity": 0,
+      "render_group": 1,
+      "explicit_contact_pair_member": false,
+      "geometry_role": "visual_only",
+      "role_qualification": "Collision capability from effective masks/explicit pairs; actual contacts still depend on pair filtering and state.",
+      "transform_status": "compiler_resolved_model_reference",
+      "world_aabb_reference": {
+        "min": [
+          -0.49999999999999956,
+          2.99,
+          4.440892098500626e-16
+        ],
+        "max": [
+          2.9999999999999996,
+          3.01,
+          2.9999999999999996
+        ]
+      },
+      "horizontal_upper_face_z_candidate": 2.9999999999999996
+    },
+    {
+      "geom_id": 5,
+      "name": "wall_right_visual",
+      "source_id": "xml:a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542:compiled_geom:5",
+      "owner_body": "world",
+      "body_ancestry": [
+        "world"
+      ],
+      "type": "box",
+      "size": [
+        1.75,
+        1.5,
+        0.01
+      ],
+      "position_world_reference": [
+        1.25,
+        -3.0,
+        1.5
+      ],
+      "rotation_world_reference": [
+        [
+          0.9999999999999998,
+          -0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.9999999999999998
+        ],
+        [
+          -0.0,
+          -0.9999999999999998,
+          0.0
+        ]
+      ],
+      "contype": 0,
+      "conaffinity": 0,
+      "render_group": 1,
+      "explicit_contact_pair_member": false,
+      "geometry_role": "visual_only",
+      "role_qualification": "Collision capability from effective masks/explicit pairs; actual contacts still depend on pair filtering and state.",
+      "transform_status": "compiler_resolved_model_reference",
+      "world_aabb_reference": {
+        "min": [
+          -0.49999999999999956,
+          -3.01,
+          4.440892098500626e-16
+        ],
+        "max": [
+          2.9999999999999996,
+          -2.99,
+          2.9999999999999996
+        ]
+      },
+      "horizontal_upper_face_z_candidate": 2.9999999999999996
+    },
+    {
+      "geom_id": 6,
+      "name": "wall_rear_visual",
+      "source_id": "xml:a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542:compiled_geom:6",
+      "owner_body": "world",
+      "body_ancestry": [
+        "world"
+      ],
+      "type": "box",
+      "size": [
+        1.5,
+        1.5,
+        0.01
+      ],
+      "position_world_reference": [
+        -2.0,
+        0.0,
+        1.5
+      ],
+      "rotation_world_reference": [
+        [
+          0.0,
+          0.0,
+          1.0
+        ],
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ]
+      ],
+      "contype": 0,
+      "conaffinity": 0,
+      "render_group": 1,
+      "explicit_contact_pair_member": false,
+      "geometry_role": "visual_only",
+      "role_qualification": "Collision capability from effective masks/explicit pairs; actual contacts still depend on pair filtering and state.",
+      "transform_status": "compiler_resolved_model_reference",
+      "world_aabb_reference": {
+        "min": [
+          -2.01,
+          -1.5,
+          0.0
+        ],
+        "max": [
+          -1.99,
+          1.5,
+          3.0
+        ]
+      },
+      "horizontal_upper_face_z_candidate": 3.0
+    },
+    {
+      "geom_id": 7,
+      "name": "wall_front_visual",
+      "source_id": "xml:a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542:compiled_geom:7",
+      "owner_body": "world",
+      "body_ancestry": [
+        "world"
+      ],
+      "type": "box",
+      "size": [
+        3.0,
+        1.5,
+        0.01
+      ],
+      "position_world_reference": [
+        3.0,
+        0.0,
+        1.5
+      ],
+      "rotation_world_reference": [
+        [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ]
+      ],
+      "contype": 0,
+      "conaffinity": 0,
+      "render_group": 1,
+      "explicit_contact_pair_member": false,
+      "geometry_role": "visual_only",
+      "role_qualification": "Collision capability from effective masks/explicit pairs; actual contacts still depend on pair filtering and state.",
+      "transform_status": "compiler_resolved_model_reference",
+      "world_aabb_reference": {
+        "min": [
+          2.99,
+          -3.0,
+          0.0
+        ],
+        "max": [
+          3.01,
+          3.0,
+          3.0
+        ]
+      },
+      "horizontal_upper_face_z_candidate": 3.0
+    }
+  ],
+  "assets": [
+    {
+      "type": "texture",
+      "name": "texplane",
+      "xml_file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/libero/libero/assets/textures/seamless_wood_planks_floor.png",
+      "resolved_path": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/libero/libero/assets/textures/seamless_wood_planks_floor.png",
+      "exists": true,
+      "attributes": {
+        "type": "2d",
+        "colorspace": "linear",
+        "name": "texplane",
+        "file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/libero/libero/assets/textures/seamless_wood_planks_floor.png"
+      },
+      "sha256": "c7a70ef3fad0cafc1d196e49f9ff1b483d0a5e62ed457b108a9c9b2c9ed1dd13",
+      "bytes": 3174441
+    },
+    {
+      "type": "texture",
+      "name": "tex-table",
+      "xml_file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/libero/libero/assets/textures/seamless_wood_planks_floor.png",
+      "resolved_path": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/libero/libero/assets/textures/seamless_wood_planks_floor.png",
+      "exists": true,
+      "attributes": {
+        "type": "cube",
+        "colorspace": "linear",
+        "name": "tex-table",
+        "file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/libero/libero/assets/textures/seamless_wood_planks_floor.png"
+      },
+      "sha256": "c7a70ef3fad0cafc1d196e49f9ff1b483d0a5e62ed457b108a9c9b2c9ed1dd13",
+      "bytes": 3174441
+    },
+    {
+      "type": "texture",
+      "name": "tex-table-legs",
+      "xml_file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/libero/libero/assets/textures/seamless_wood_planks_floor.png",
+      "resolved_path": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/libero/libero/assets/textures/seamless_wood_planks_floor.png",
+      "exists": true,
+      "attributes": {
+        "type": "cube",
+        "colorspace": "linear",
+        "name": "tex-table-legs",
+        "file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/libero/libero/assets/textures/seamless_wood_planks_floor.png"
+      },
+      "sha256": "c7a70ef3fad0cafc1d196e49f9ff1b483d0a5e62ed457b108a9c9b2c9ed1dd13",
+      "bytes": 3174441
+    },
+    {
+      "type": "texture",
+      "name": "tex-wall",
+      "xml_file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/libero/libero/assets/textures/light-gray-plaster.png",
+      "resolved_path": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/libero/libero/assets/textures/light-gray-plaster.png",
+      "exists": true,
+      "attributes": {
+        "type": "2d",
+        "colorspace": "linear",
+        "name": "tex-wall",
+        "file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/libero/libero/assets/textures/light-gray-plaster.png"
+      },
+      "sha256": "d0bdaf13b44ab6ef3122451f6b3853e40bdf20bb9be7662649683ba525dfe191",
+      "bytes": 516639
+    },
+    {
+      "type": "texture",
+      "name": "tex-living_room_table",
+      "xml_file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/libero/libero/assets/scenes/living_room_table/living_room_table_texture.png",
+      "resolved_path": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/libero/libero/assets/scenes/living_room_table/living_room_table_texture.png",
+      "exists": true,
+      "attributes": {
+        "type": "2d",
+        "colorspace": "linear",
+        "name": "tex-living_room_table",
+        "file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/libero/libero/assets/scenes/living_room_table/living_room_table_texture.png"
+      },
+      "sha256": "38f401fdbbdeae06bf4c674f2488ab4bda8b89519a1d58976c7265b1f7c8c1e7",
+      "bytes": 1331834
+    },
+    {
+      "type": "texture",
+      "name": "tex-wall_decoration",
+      "xml_file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/libero/libero/assets/scenes/wall_decoration/wall_decoration_texture.png",
+      "resolved_path": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/libero/libero/assets/scenes/wall_decoration/wall_decoration_texture.png",
+      "exists": true,
+      "attributes": {
+        "type": "2d",
+        "colorspace": "linear",
+        "name": "tex-wall_decoration",
+        "file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/libero/libero/assets/scenes/wall_decoration/wall_decoration_texture.png"
+      },
+      "sha256": "b30b2b6f7499d05a4c502e3699027e14e9646023f4035b14b56f1fb55703bc3e",
+      "bytes": 4492846
+    },
+    {
+      "type": "texture",
+      "name": "tex-living_room",
+      "xml_file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/libero/libero/assets/scenes/living_room/living_room_wall_unit.png",
+      "resolved_path": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/libero/libero/assets/scenes/living_room/living_room_wall_unit.png",
+      "exists": true,
+      "attributes": {
+        "type": "2d",
+        "colorspace": "linear",
+        "name": "tex-living_room",
+        "file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/libero/libero/assets/scenes/living_room/living_room_wall_unit.png"
+      },
+      "sha256": "7e6f264015ca84d29a2850a7854517d0017ed53902ae3d851ae76441f5644730",
+      "bytes": 65012
+    },
+    {
+      "type": "texture",
+      "name": "alphabet_soup_1_tex-textured",
+      "xml_file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/libero/libero/assets/stable_hope_objects/alphabet_soup/texture_map.png",
+      "resolved_path": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/libero/libero/assets/stable_hope_objects/alphabet_soup/texture_map.png",
+      "exists": true,
+      "attributes": {
+        "type": "2d",
+        "colorspace": "linear",
+        "name": "alphabet_soup_1_tex-textured",
+        "file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/libero/libero/assets/stable_hope_objects/alphabet_soup/texture_map.png"
+      },
+      "sha256": "cd47556b3b2916ae138e8fd370d4f5192a2fe100369eec254c3c173409f48674",
+      "bytes": 1138366
+    },
+    {
+      "type": "texture",
+      "name": "cream_cheese_1_tex-cream_cheese",
+      "xml_file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/libero/libero/assets/stable_hope_objects/cream_cheese/texture_map.png",
+      "resolved_path": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/libero/libero/assets/stable_hope_objects/cream_cheese/texture_map.png",
+      "exists": true,
+      "attributes": {
+        "type": "2d",
+        "colorspace": "linear",
+        "name": "cream_cheese_1_tex-cream_cheese",
+        "file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/libero/libero/assets/stable_hope_objects/cream_cheese/texture_map.png"
+      },
+      "sha256": "6ef390c92c83f6f27da79df09130e48bda6785f98181942d2ec2548ab2afa814",
+      "bytes": 3071899
+    },
+    {
+      "type": "texture",
+      "name": "tomato_sauce_1_tex-textured",
+      "xml_file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/libero/libero/assets/stable_hope_objects/tomato_sauce/texture_map.png",
+      "resolved_path": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/libero/libero/assets/stable_hope_objects/tomato_sauce/texture_map.png",
+      "exists": true,
+      "attributes": {
+        "type": "2d",
+        "colorspace": "linear",
+        "name": "tomato_sauce_1_tex-textured",
+        "file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/libero/libero/assets/stable_hope_objects/tomato_sauce/texture_map.png"
+      },
+      "sha256": "9372cff38688004b69e7a1fc60ffa2576d6cf31a884de279d0d67bdd4a35c631",
+      "bytes": 2451651
+    },
+    {
+      "type": "texture",
+      "name": "ketchup_1_tex-textured",
+      "xml_file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/libero/libero/assets/stable_hope_objects/ketchup/texture_map.png",
+      "resolved_path": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/libero/libero/assets/stable_hope_objects/ketchup/texture_map.png",
+      "exists": true,
+      "attributes": {
+        "type": "2d",
+        "colorspace": "linear",
+        "name": "ketchup_1_tex-textured",
+        "file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/libero/libero/assets/stable_hope_objects/ketchup/texture_map.png"
+      },
+      "sha256": "01edda2f924589b0a23aac084c1270a4a39afde79131a1bec73f7a23ad592bfe",
+      "bytes": 1898296
+    },
+    {
+      "type": "texture",
+      "name": "orange_juice_1_tex-textured",
+      "xml_file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/libero/libero/assets/stable_hope_objects/orange_juice/texture_map.png",
+      "resolved_path": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/libero/libero/assets/stable_hope_objects/orange_juice/texture_map.png",
+      "exists": true,
+      "attributes": {
+        "type": "2d",
+        "colorspace": "linear",
+        "name": "orange_juice_1_tex-textured",
+        "file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/libero/libero/assets/stable_hope_objects/orange_juice/texture_map.png"
+      },
+      "sha256": "2488e5d72c7848db195be1d5a08d45a00b04122fff7ddcc107014d177d6d08c9",
+      "bytes": 3637784
+    },
+    {
+      "type": "texture",
+      "name": "milk_1_tex-textured",
+      "xml_file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/libero/libero/assets/stable_hope_objects/milk/texture_map.png",
+      "resolved_path": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/libero/libero/assets/stable_hope_objects/milk/texture_map.png",
+      "exists": true,
+      "attributes": {
+        "type": "2d",
+        "colorspace": "linear",
+        "name": "milk_1_tex-textured",
+        "file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/libero/libero/assets/stable_hope_objects/milk/texture_map.png"
+      },
+      "sha256": "0e6130ec7a6a611a2574bba4f3d77bfaecd8ff6ed0fd449e34fe8479f4585ec3",
+      "bytes": 3384036
+    },
+    {
+      "type": "texture",
+      "name": "butter_1_tex-butter",
+      "xml_file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/libero/libero/assets/stable_hope_objects/butter/texture_map.png",
+      "resolved_path": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/libero/libero/assets/stable_hope_objects/butter/texture_map.png",
+      "exists": true,
+      "attributes": {
+        "type": "2d",
+        "colorspace": "linear",
+        "name": "butter_1_tex-butter",
+        "file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/libero/libero/assets/stable_hope_objects/butter/texture_map.png"
+      },
+      "sha256": "e344d473644d71b919484f6b93d52707ea4821fe05c14514d7cd6cc24f2486c2",
+      "bytes": 3158511
+    },
+    {
+      "type": "texture",
+      "name": "basket_1_tex-basket",
+      "xml_file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/libero/libero/assets/stable_scanned_objects/basket/texture.png",
+      "resolved_path": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/libero/libero/assets/stable_scanned_objects/basket/texture.png",
+      "exists": true,
+      "attributes": {
+        "type": "2d",
+        "colorspace": "linear",
+        "name": "basket_1_tex-basket",
+        "file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/libero/libero/assets/stable_scanned_objects/basket/texture.png"
+      },
+      "sha256": "89c2107a39ce27d7dffc383153153e021958408cd6fffd8bf8f318a0bb2c302b",
+      "bytes": 11112400
+    },
+    {
+      "type": "mesh",
+      "name": "living_room_table_vis",
+      "xml_file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/libero/libero/assets/scenes/living_room_table/visual/living_room_table_vis.msh",
+      "resolved_path": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/libero/libero/assets/scenes/living_room_table/visual/living_room_table_vis.msh",
+      "exists": true,
+      "attributes": {
+        "name": "living_room_table_vis",
+        "file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/libero/libero/assets/scenes/living_room_table/visual/living_room_table_vis.msh",
+        "scale": "1.5 1.5 1.5"
+      },
+      "sha256": "9877f90c22971b98840ca6f8611fec6e0a8bec85f0e5f0a78e9e08bb57a8e2ec",
+      "bytes": 1699504
+    },
+    {
+      "type": "mesh",
+      "name": "wall_decoration_vis",
+      "xml_file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/libero/libero/assets/scenes/wall_decoration/visual/wall_decoration_vis.msh",
+      "resolved_path": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/libero/libero/assets/scenes/wall_decoration/visual/wall_decoration_vis.msh",
+      "exists": true,
+      "attributes": {
+        "name": "wall_decoration_vis",
+        "file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/libero/libero/assets/scenes/wall_decoration/visual/wall_decoration_vis.msh",
+        "scale": "0.4 0.1 0.4"
+      },
+      "sha256": "30c873f6e13e19a721672219d0b964a3de9ddacc6b44906888c9bf366254e1bb",
+      "bytes": 1312
+    },
+    {
+      "type": "mesh",
+      "name": "living_room_vis",
+      "xml_file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/libero/libero/assets/scenes/living_room/visual/living_room_vis.msh",
+      "resolved_path": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/libero/libero/assets/scenes/living_room/visual/living_room_vis.msh",
+      "exists": true,
+      "attributes": {
+        "name": "living_room_vis",
+        "file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/libero/libero/assets/scenes/living_room/visual/living_room_vis.msh",
+        "scale": "0.7 0.7 0.7"
+      },
+      "sha256": "326c50b18dfce7d338473ab8d99edce64c752cfef0203495faa2471dcafd4f8b",
+      "bytes": 6514576
+    },
+    {
+      "type": "mesh",
+      "name": "robot0_link0",
+      "xml_file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/meshes/link0.stl",
+      "resolved_path": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/meshes/link0.stl",
+      "exists": true,
+      "attributes": {
+        "name": "robot0_link0",
+        "file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/meshes/link0.stl"
+      },
+      "sha256": "dfc6d94330de8ddb005b311bfdba9f3b8e1aa7c256b71592ee7ff32cb9a9a5aa",
+      "bytes": 10084
+    },
+    {
+      "type": "mesh",
+      "name": "robot0_link1",
+      "xml_file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/meshes/link1.stl",
+      "resolved_path": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/meshes/link1.stl",
+      "exists": true,
+      "attributes": {
+        "name": "robot0_link1",
+        "file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/meshes/link1.stl"
+      },
+      "sha256": "d24e332dffccf260b91d05dde17c5998bb9559d37da8608a8ee5213d9661f603",
+      "bytes": 625884
+    },
+    {
+      "type": "mesh",
+      "name": "robot0_link2",
+      "xml_file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/meshes/link2.stl",
+      "resolved_path": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/meshes/link2.stl",
+      "exists": true,
+      "attributes": {
+        "name": "robot0_link2",
+        "file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/meshes/link2.stl"
+      },
+      "sha256": "370f7605a0fae3529db169ded50f52f171024aa792d4d773bc84197301f6a039",
+      "bytes": 15084
+    },
+    {
+      "type": "mesh",
+      "name": "robot0_link3",
+      "xml_file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/meshes/link3.stl",
+      "resolved_path": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/meshes/link3.stl",
+      "exists": true,
+      "attributes": {
+        "name": "robot0_link3",
+        "file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/meshes/link3.stl"
+      },
+      "sha256": "0a8d638b9349c6c0eefc4e888636ac4838c4b27170f18a51699321118af709c1",
+      "bytes": 15084
+    },
+    {
+      "type": "mesh",
+      "name": "robot0_link4",
+      "xml_file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/meshes/link4.stl",
+      "resolved_path": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/meshes/link4.stl",
+      "exists": true,
+      "attributes": {
+        "name": "robot0_link4",
+        "file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/meshes/link4.stl"
+      },
+      "sha256": "0180ebb5772ec9840cb049750cffb29a9ddc90311752a16ea34757782ef9e48d",
+      "bytes": 15084
+    },
+    {
+      "type": "mesh",
+      "name": "robot0_link5",
+      "xml_file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/meshes/link5.stl",
+      "resolved_path": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/meshes/link5.stl",
+      "exists": true,
+      "attributes": {
+        "name": "robot0_link5",
+        "file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/meshes/link5.stl"
+      },
+      "sha256": "dd17e688c7870e722283525879643d53a74c0024d328b0e14b034b54c8b6c31a",
+      "bytes": 15084
+    },
+    {
+      "type": "mesh",
+      "name": "robot0_link6",
+      "xml_file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/meshes/link6.stl",
+      "resolved_path": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/meshes/link6.stl",
+      "exists": true,
+      "attributes": {
+        "name": "robot0_link6",
+        "file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/meshes/link6.stl"
+      },
+      "sha256": "20b768e99a0e0440b5754dcca108016434e57937cc356acd9c352ccd3cb27f77",
+      "bytes": 10084
+    },
+    {
+      "type": "mesh",
+      "name": "robot0_link7",
+      "xml_file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/meshes/link7.stl",
+      "resolved_path": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/meshes/link7.stl",
+      "exists": true,
+      "attributes": {
+        "name": "robot0_link7",
+        "file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/meshes/link7.stl"
+      },
+      "sha256": "92ac6afcf7574c034d3170d8a68e95ac9048ab9d0dd5bbd8311b86e551b9ab1c",
+      "bytes": 10084
+    },
+    {
+      "type": "mesh",
+      "name": "robot0_link0_vis_0",
+      "xml_file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link0_vis/link0_vis_0.obj",
+      "resolved_path": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link0_vis/link0_vis_0.obj",
+      "exists": true,
+      "attributes": {
+        "name": "robot0_link0_vis_0",
+        "file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link0_vis/link0_vis_0.obj"
+      },
+      "sha256": "6c4415add409c161a92dc7cccbecf6819a3a92aba3b0cf043cd513b58aa23257",
+      "bytes": 369249
+    },
+    {
+      "type": "mesh",
+      "name": "robot0_link0_vis_1",
+      "xml_file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link0_vis/link0_vis_1.obj",
+      "resolved_path": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link0_vis/link0_vis_1.obj",
+      "exists": true,
+      "attributes": {
+        "name": "robot0_link0_vis_1",
+        "file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link0_vis/link0_vis_1.obj"
+      },
+      "sha256": "ac248e0725c1eb29a0dd6490fc8d349dc57c5c3f51f15752266d4cc55753e1ee",
+      "bytes": 125712
+    },
+    {
+      "type": "mesh",
+      "name": "robot0_link0_vis_2",
+      "xml_file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link0_vis/link0_vis_2.obj",
+      "resolved_path": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link0_vis/link0_vis_2.obj",
+      "exists": true,
+      "attributes": {
+        "name": "robot0_link0_vis_2",
+        "file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link0_vis/link0_vis_2.obj"
+      },
+      "sha256": "e112cdf4c9071ae6c277ae9c92b165060d02bc8b954da7df24e67aaf11deede0",
+      "bytes": 752808
+    },
+    {
+      "type": "mesh",
+      "name": "robot0_link0_vis_3",
+      "xml_file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link0_vis/link0_vis_3.obj",
+      "resolved_path": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link0_vis/link0_vis_3.obj",
+      "exists": true,
+      "attributes": {
+        "name": "robot0_link0_vis_3",
+        "file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link0_vis/link0_vis_3.obj"
+      },
+      "sha256": "ba273f526f3b3d4e8489ddd89813f5d109f0e289ca993550c9a06beca5a83416",
+      "bytes": 59762
+    },
+    {
+      "type": "mesh",
+      "name": "robot0_link0_vis_4",
+      "xml_file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link0_vis/link0_vis_4.obj",
+      "resolved_path": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link0_vis/link0_vis_4.obj",
+      "exists": true,
+      "attributes": {
+        "name": "robot0_link0_vis_4",
+        "file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link0_vis/link0_vis_4.obj"
+      },
+      "sha256": "df932880c83025fdef4a8366926679c924adb395c3313aa445c151387c5a12b3",
+      "bytes": 263526
+    },
+    {
+      "type": "mesh",
+      "name": "robot0_link0_vis_5",
+      "xml_file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link0_vis/link0_vis_5.obj",
+      "resolved_path": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link0_vis/link0_vis_5.obj",
+      "exists": true,
+      "attributes": {
+        "name": "robot0_link0_vis_5",
+        "file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link0_vis/link0_vis_5.obj"
+      },
+      "sha256": "ae616a8d11339861af3b83d6bf1d0d1038c61984a7ddae5af93ffb96cc32a122",
+      "bytes": 22068
+    },
+    {
+      "type": "mesh",
+      "name": "robot0_link0_vis_6",
+      "xml_file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link0_vis/link0_vis_6.obj",
+      "resolved_path": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link0_vis/link0_vis_6.obj",
+      "exists": true,
+      "attributes": {
+        "name": "robot0_link0_vis_6",
+        "file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link0_vis/link0_vis_6.obj"
+      },
+      "sha256": "d9b40045d90e0202640437e66dc9b02c5c449b9169f97d70099dfc35a88f2eb4",
+      "bytes": 4640
+    },
+    {
+      "type": "mesh",
+      "name": "robot0_link0_vis_7",
+      "xml_file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link0_vis/link0_vis_7.obj",
+      "resolved_path": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link0_vis/link0_vis_7.obj",
+      "exists": true,
+      "attributes": {
+        "name": "robot0_link0_vis_7",
+        "file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link0_vis/link0_vis_7.obj"
+      },
+      "sha256": "c61618cad1396e6a134ba8b32ec754fc67bd576d411417142f1a36f4003c7017",
+      "bytes": 35031
+    },
+    {
+      "type": "mesh",
+      "name": "robot0_link0_vis_8",
+      "xml_file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link0_vis/link0_vis_8.obj",
+      "resolved_path": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link0_vis/link0_vis_8.obj",
+      "exists": true,
+      "attributes": {
+        "name": "robot0_link0_vis_8",
+        "file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link0_vis/link0_vis_8.obj"
+      },
+      "sha256": "82b9aedf8ff51ebde219529fa366c079311f5528203276cd1eedfcba90574d52",
+      "bytes": 3724190
+    },
+    {
+      "type": "mesh",
+      "name": "robot0_link0_vis_9",
+      "xml_file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link0_vis/link0_vis_9.obj",
+      "resolved_path": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link0_vis/link0_vis_9.obj",
+      "exists": true,
+      "attributes": {
+        "name": "robot0_link0_vis_9",
+        "file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link0_vis/link0_vis_9.obj"
+      },
+      "sha256": "00b9daacb7c18b0ab071b089515b9e87a8785abafb36cf63355e3b8afdce8022",
+      "bytes": 128999
+    },
+    {
+      "type": "mesh",
+      "name": "robot0_link0_vis_10",
+      "xml_file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link0_vis/link0_vis_10.obj",
+      "resolved_path": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link0_vis/link0_vis_10.obj",
+      "exists": true,
+      "attributes": {
+        "name": "robot0_link0_vis_10",
+        "file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link0_vis/link0_vis_10.obj"
+      },
+      "sha256": "b4b1a66f689dededc8c45cc2fc01aa3bdf8f2cf689ee83eb3db0f9400af9883f",
+      "bytes": 419789
+    },
+    {
+      "type": "mesh",
+      "name": "robot0_link0_vis_11",
+      "xml_file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link0_vis/link0_vis_11.obj",
+      "resolved_path": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link0_vis/link0_vis_11.obj",
+      "exists": true,
+      "attributes": {
+        "name": "robot0_link0_vis_11",
+        "file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link0_vis/link0_vis_11.obj"
+      },
+      "sha256": "3f22c57436629d8f1d06650f105a822cb3b85f071f3c268210561abf2812b809",
+      "bytes": 25564
+    },
+    {
+      "type": "mesh",
+      "name": "robot0_link1_vis",
+      "xml_file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link1_vis/link1_vis.obj",
+      "resolved_path": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link1_vis/link1_vis.obj",
+      "exists": true,
+      "attributes": {
+        "name": "robot0_link1_vis",
+        "file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link1_vis/link1_vis.obj"
+      },
+      "sha256": "912779814d93a7d2c6f0413f6eb5042291b08e11b3dae769019aaa0ddb64e23f",
+      "bytes": 3779935
+    },
+    {
+      "type": "mesh",
+      "name": "robot0_link2_vis",
+      "xml_file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link2_vis/link2_vis.obj",
+      "resolved_path": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link2_vis/link2_vis.obj",
+      "exists": true,
+      "attributes": {
+        "name": "robot0_link2_vis",
+        "file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link2_vis/link2_vis.obj"
+      },
+      "sha256": "96c6ea002e2c6474ac1473014e3f0df1f90b7aa2beb5c6182671fda890a3cb74",
+      "bytes": 3818503
+    },
+    {
+      "type": "mesh",
+      "name": "robot0_link3_vis_0",
+      "xml_file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link3_vis/link3_vis_0.obj",
+      "resolved_path": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link3_vis/link3_vis_0.obj",
+      "exists": true,
+      "attributes": {
+        "name": "robot0_link3_vis_0",
+        "file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link3_vis/link3_vis_0.obj"
+      },
+      "sha256": "b2119dee4b4a5e3a5bdac57b7fa04d379da8af502860496946a90c1b904db590",
+      "bytes": 3598907
+    },
+    {
+      "type": "mesh",
+      "name": "robot0_link3_vis_1",
+      "xml_file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link3_vis/link3_vis_1.obj",
+      "resolved_path": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link3_vis/link3_vis_1.obj",
+      "exists": true,
+      "attributes": {
+        "name": "robot0_link3_vis_1",
+        "file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link3_vis/link3_vis_1.obj"
+      },
+      "sha256": "ebfed3850a693ac1a1b97a418742ec98355f7008de1e14037cdbdbc75a0d5fb9",
+      "bytes": 83763
+    },
+    {
+      "type": "mesh",
+      "name": "robot0_link3_vis_2",
+      "xml_file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link3_vis/link3_vis_2.obj",
+      "resolved_path": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link3_vis/link3_vis_2.obj",
+      "exists": true,
+      "attributes": {
+        "name": "robot0_link3_vis_2",
+        "file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link3_vis/link3_vis_2.obj"
+      },
+      "sha256": "81e20d3187dcafcc4ce8bca69c74d6ad985491d263939a93b6aac8b478a4cc86",
+      "bytes": 100940
+    },
+    {
+      "type": "mesh",
+      "name": "robot0_link3_vis_3",
+      "xml_file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link3_vis/link3_vis_3.obj",
+      "resolved_path": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link3_vis/link3_vis_3.obj",
+      "exists": true,
+      "attributes": {
+        "name": "robot0_link3_vis_3",
+        "file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link3_vis/link3_vis_3.obj"
+      },
+      "sha256": "53abcab5d93f13797f34450929dfe8c0ddbcd72266130611487d10be23cd736a",
+      "bytes": 588399
+    },
+    {
+      "type": "mesh",
+      "name": "robot0_link4_vis_0",
+      "xml_file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link4_vis/link4_vis_0.obj",
+      "resolved_path": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link4_vis/link4_vis_0.obj",
+      "exists": true,
+      "attributes": {
+        "name": "robot0_link4_vis_0",
+        "file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link4_vis/link4_vis_0.obj"
+      },
+      "sha256": "591f8533b4020ebbaafc4a4cb62c7e0988f204879dd1cbd30a78c3bc197f380b",
+      "bytes": 102621
+    },
+    {
+      "type": "mesh",
+      "name": "robot0_link4_vis_1",
+      "xml_file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link4_vis/link4_vis_1.obj",
+      "resolved_path": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link4_vis/link4_vis_1.obj",
+      "exists": true,
+      "attributes": {
+        "name": "robot0_link4_vis_1",
+        "file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link4_vis/link4_vis_1.obj"
+      },
+      "sha256": "3c1a7e83814a54522b91dc069e2448b6f0ca10149869fd68713e97e9f1dd5d05",
+      "bytes": 3711222
+    },
+    {
+      "type": "mesh",
+      "name": "robot0_link4_vis_2",
+      "xml_file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link4_vis/link4_vis_2.obj",
+      "resolved_path": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link4_vis/link4_vis_2.obj",
+      "exists": true,
+      "attributes": {
+        "name": "robot0_link4_vis_2",
+        "file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link4_vis/link4_vis_2.obj"
+      },
+      "sha256": "931bdb58e44e8b328842708e00ef80c0e8e48f47949804b7c8b10dc8e9d8dbf2",
+      "bytes": 583535
+    },
+    {
+      "type": "mesh",
+      "name": "robot0_link4_vis_3",
+      "xml_file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link4_vis/link4_vis_3.obj",
+      "resolved_path": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link4_vis/link4_vis_3.obj",
+      "exists": true,
+      "attributes": {
+        "name": "robot0_link4_vis_3",
+        "file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link4_vis/link4_vis_3.obj"
+      },
+      "sha256": "dd8ab577710fbe454ca463f0d69edf36f717d2868355288a76b77f586a384aa9",
+      "bytes": 82772
+    },
+    {
+      "type": "mesh",
+      "name": "robot0_link5_vis_0",
+      "xml_file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link5_vis/link5_vis_0.obj",
+      "resolved_path": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link5_vis/link5_vis_0.obj",
+      "exists": true,
+      "attributes": {
+        "name": "robot0_link5_vis_0",
+        "file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link5_vis/link5_vis_0.obj"
+      },
+      "sha256": "65417fb042a34286b6aa5fee2e0a7ff60a567f1296738f985b666cd319fb3d7a",
+      "bytes": 933412
+    },
+    {
+      "type": "mesh",
+      "name": "robot0_link5_vis_1",
+      "xml_file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link5_vis/link5_vis_1.obj",
+      "resolved_path": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link5_vis/link5_vis_1.obj",
+      "exists": true,
+      "attributes": {
+        "name": "robot0_link5_vis_1",
+        "file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link5_vis/link5_vis_1.obj"
+      },
+      "sha256": "f61bc98778d9e22a422ac2a339603d606b8e6af7727d8629a442cc04419a2789",
+      "bytes": 47149
+    },
+    {
+      "type": "mesh",
+      "name": "robot0_link5_vis_2",
+      "xml_file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link5_vis/link5_vis_2.obj",
+      "resolved_path": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link5_vis/link5_vis_2.obj",
+      "exists": true,
+      "attributes": {
+        "name": "robot0_link5_vis_2",
+        "file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link5_vis/link5_vis_2.obj"
+      },
+      "sha256": "ebca16efc559c30fa812168764d0b4b353049965bdc6cbbf25708a945948b2b4",
+      "bytes": 4664101
+    },
+    {
+      "type": "mesh",
+      "name": "robot0_link6_vis_0",
+      "xml_file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link6_vis/link6_vis_0.obj",
+      "resolved_path": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link6_vis/link6_vis_0.obj",
+      "exists": true,
+      "attributes": {
+        "name": "robot0_link6_vis_0",
+        "file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link6_vis/link6_vis_0.obj"
+      },
+      "sha256": "e66366f5bdd2a04b75d17abd251019bf59b57f3f74dcfdbefa870c437121b790",
+      "bytes": 187087
+    },
+    {
+      "type": "mesh",
+      "name": "robot0_link6_vis_1",
+      "xml_file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link6_vis/link6_vis_1.obj",
+      "resolved_path": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link6_vis/link6_vis_1.obj",
+      "exists": true,
+      "attributes": {
+        "name": "robot0_link6_vis_1",
+        "file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link6_vis/link6_vis_1.obj"
+      },
+      "sha256": "05fa8ccb4bc50585862c374a2c1e2a072c6422b6e3088404767d5bb7fc714500",
+      "bytes": 24011
+    },
+    {
+      "type": "mesh",
+      "name": "robot0_link6_vis_2",
+      "xml_file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link6_vis/link6_vis_2.obj",
+      "resolved_path": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link6_vis/link6_vis_2.obj",
+      "exists": true,
+      "attributes": {
+        "name": "robot0_link6_vis_2",
+        "file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link6_vis/link6_vis_2.obj"
+      },
+      "sha256": "a7aaca55658be11af36f2388a1c674d6ce09973dd8b9f87c30bf00bb245b55e8",
+      "bytes": 10567
+    },
+    {
+      "type": "mesh",
+      "name": "robot0_link6_vis_3",
+      "xml_file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link6_vis/link6_vis_3.obj",
+      "resolved_path": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link6_vis/link6_vis_3.obj",
+      "exists": true,
+      "attributes": {
+        "name": "robot0_link6_vis_3",
+        "file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link6_vis/link6_vis_3.obj"
+      },
+      "sha256": "ad289bd24071568198d907b001ae659676637b6c868212ad1d49177a2352bb7b",
+      "bytes": 16467
+    },
+    {
+      "type": "mesh",
+      "name": "robot0_link6_vis_4",
+      "xml_file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link6_vis/link6_vis_4.obj",
+      "resolved_path": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link6_vis/link6_vis_4.obj",
+      "exists": true,
+      "attributes": {
+        "name": "robot0_link6_vis_4",
+        "file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link6_vis/link6_vis_4.obj"
+      },
+      "sha256": "606af8cc5fe30b63a2a28c0c78b423c780ca3b73cc88356570a92145941ffde8",
+      "bytes": 18942
+    },
+    {
+      "type": "mesh",
+      "name": "robot0_link6_vis_5",
+      "xml_file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link6_vis/link6_vis_5.obj",
+      "resolved_path": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link6_vis/link6_vis_5.obj",
+      "exists": true,
+      "attributes": {
+        "name": "robot0_link6_vis_5",
+        "file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link6_vis/link6_vis_5.obj"
+      },
+      "sha256": "06d573ce2e042a4ffbf080e79ae1cdc84e3a63e4d1bf72272d81410789bb61d6",
+      "bytes": 16175
+    },
+    {
+      "type": "mesh",
+      "name": "robot0_link6_vis_6",
+      "xml_file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link6_vis/link6_vis_6.obj",
+      "resolved_path": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link6_vis/link6_vis_6.obj",
+      "exists": true,
+      "attributes": {
+        "name": "robot0_link6_vis_6",
+        "file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link6_vis/link6_vis_6.obj"
+      },
+      "sha256": "4382b6e12dc5dbcc1ca3fdc595dd82e73e1dc4a6b8ceca545bfdd0338ca12d21",
+      "bytes": 17405
+    },
+    {
+      "type": "mesh",
+      "name": "robot0_link6_vis_7",
+      "xml_file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link6_vis/link6_vis_7.obj",
+      "resolved_path": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link6_vis/link6_vis_7.obj",
+      "exists": true,
+      "attributes": {
+        "name": "robot0_link6_vis_7",
+        "file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link6_vis/link6_vis_7.obj"
+      },
+      "sha256": "2777f33115993dec3af8eb6d614af6165ae2836ffd1ea4e41849ed32c5a60326",
+      "bytes": 2543
+    },
+    {
+      "type": "mesh",
+      "name": "robot0_link6_vis_8",
+      "xml_file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link6_vis/link6_vis_8.obj",
+      "resolved_path": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link6_vis/link6_vis_8.obj",
+      "exists": true,
+      "attributes": {
+        "name": "robot0_link6_vis_8",
+        "file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link6_vis/link6_vis_8.obj"
+      },
+      "sha256": "aef37fabd21f209461bdb9ed6873ebc3ded6807bb01ec88cf1a002499ae629d2",
+      "bytes": 6524
+    },
+    {
+      "type": "mesh",
+      "name": "robot0_link6_vis_9",
+      "xml_file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link6_vis/link6_vis_9.obj",
+      "resolved_path": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link6_vis/link6_vis_9.obj",
+      "exists": true,
+      "attributes": {
+        "name": "robot0_link6_vis_9",
+        "file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link6_vis/link6_vis_9.obj"
+      },
+      "sha256": "c1a7246819060a248d61291ae3a9a629f7e11d866090f32729e6e434eda7cefd",
+      "bytes": 16869
+    },
+    {
+      "type": "mesh",
+      "name": "robot0_link6_vis_10",
+      "xml_file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link6_vis/link6_vis_10.obj",
+      "resolved_path": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link6_vis/link6_vis_10.obj",
+      "exists": true,
+      "attributes": {
+        "name": "robot0_link6_vis_10",
+        "file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link6_vis/link6_vis_10.obj"
+      },
+      "sha256": "a846ef010d109e6e66bfd67f995263c4cef5e2e0a56560c3ce6831e0abc8c07b",
+      "bytes": 475755
+    },
+    {
+      "type": "mesh",
+      "name": "robot0_link6_vis_11",
+      "xml_file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link6_vis/link6_vis_11.obj",
+      "resolved_path": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link6_vis/link6_vis_11.obj",
+      "exists": true,
+      "attributes": {
+        "name": "robot0_link6_vis_11",
+        "file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link6_vis/link6_vis_11.obj"
+      },
+      "sha256": "ffd2103606b3288c98c3c3f29cccb3e202dc12d92d58225e4fbf5ef023a8c28f",
+      "bytes": 31950
+    },
+    {
+      "type": "mesh",
+      "name": "robot0_link6_vis_12",
+      "xml_file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link6_vis/link6_vis_12.obj",
+      "resolved_path": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link6_vis/link6_vis_12.obj",
+      "exists": true,
+      "attributes": {
+        "name": "robot0_link6_vis_12",
+        "file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link6_vis/link6_vis_12.obj"
+      },
+      "sha256": "bc34f87c700531402a64cde7f7f9f25c4f5351ce6ec96f3b078e75a55b70bd42",
+      "bytes": 4345
+    },
+    {
+      "type": "mesh",
+      "name": "robot0_link6_vis_13",
+      "xml_file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link6_vis/link6_vis_13.obj",
+      "resolved_path": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link6_vis/link6_vis_13.obj",
+      "exists": true,
+      "attributes": {
+        "name": "robot0_link6_vis_13",
+        "file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link6_vis/link6_vis_13.obj"
+      },
+      "sha256": "a476a77077eeec8bdb0db07163dd20f8213e2106c6d88ac554346293434bd479",
+      "bytes": 4464
+    },
+    {
+      "type": "mesh",
+      "name": "robot0_link6_vis_14",
+      "xml_file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link6_vis/link6_vis_14.obj",
+      "resolved_path": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link6_vis/link6_vis_14.obj",
+      "exists": true,
+      "attributes": {
+        "name": "robot0_link6_vis_14",
+        "file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link6_vis/link6_vis_14.obj"
+      },
+      "sha256": "289cbb1e35b09f158dcaf7025d815d76f935e2d5ca956bb03d25c5f10748af51",
+      "bytes": 549206
+    },
+    {
+      "type": "mesh",
+      "name": "robot0_link6_vis_15",
+      "xml_file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link6_vis/link6_vis_15.obj",
+      "resolved_path": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link6_vis/link6_vis_15.obj",
+      "exists": true,
+      "attributes": {
+        "name": "robot0_link6_vis_15",
+        "file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link6_vis/link6_vis_15.obj"
+      },
+      "sha256": "f66985ec70db62eec18669848e53c1509ac4e68d6b97a58874fedc180c1cd85c",
+      "bytes": 843617
+    },
+    {
+      "type": "mesh",
+      "name": "robot0_link6_vis_16",
+      "xml_file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link6_vis/link6_vis_16.obj",
+      "resolved_path": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link6_vis/link6_vis_16.obj",
+      "exists": true,
+      "attributes": {
+        "name": "robot0_link6_vis_16",
+        "file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link6_vis/link6_vis_16.obj"
+      },
+      "sha256": "45af20fc788566fdc76053167264685792f20f22c683dfd0cc382d8c8bbb640a",
+      "bytes": 4406563
+    },
+    {
+      "type": "mesh",
+      "name": "robot0_link7_vis_0",
+      "xml_file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link7_vis/link7_vis_0.obj",
+      "resolved_path": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link7_vis/link7_vis_0.obj",
+      "exists": true,
+      "attributes": {
+        "name": "robot0_link7_vis_0",
+        "file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link7_vis/link7_vis_0.obj"
+      },
+      "sha256": "2d35397b9d9289e3cfaa9de5cf689185b5d3b0bba7b204efffbc8443ea9c615d",
+      "bytes": 1885189
+    },
+    {
+      "type": "mesh",
+      "name": "robot0_link7_vis_1",
+      "xml_file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link7_vis/link7_vis_1.obj",
+      "resolved_path": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link7_vis/link7_vis_1.obj",
+      "exists": true,
+      "attributes": {
+        "name": "robot0_link7_vis_1",
+        "file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link7_vis/link7_vis_1.obj"
+      },
+      "sha256": "32ca565d7e3923a9b10a536043845d28911756de976f51c84e426aea3cc719ab",
+      "bytes": 167733
+    },
+    {
+      "type": "mesh",
+      "name": "robot0_link7_vis_2",
+      "xml_file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link7_vis/link7_vis_2.obj",
+      "resolved_path": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link7_vis/link7_vis_2.obj",
+      "exists": true,
+      "attributes": {
+        "name": "robot0_link7_vis_2",
+        "file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link7_vis/link7_vis_2.obj"
+      },
+      "sha256": "da959a052900a8d03914b03bf0cd79662a49c2462e1737cc177591be33be5951",
+      "bytes": 289135
+    },
+    {
+      "type": "mesh",
+      "name": "robot0_link7_vis_3",
+      "xml_file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link7_vis/link7_vis_3.obj",
+      "resolved_path": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link7_vis/link7_vis_3.obj",
+      "exists": true,
+      "attributes": {
+        "name": "robot0_link7_vis_3",
+        "file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link7_vis/link7_vis_3.obj"
+      },
+      "sha256": "6af51159175526f823c37a59fc22e78ebad90809662d30e154da8cbabf355bd2",
+      "bytes": 169848
+    },
+    {
+      "type": "mesh",
+      "name": "robot0_link7_vis_4",
+      "xml_file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link7_vis/link7_vis_4.obj",
+      "resolved_path": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link7_vis/link7_vis_4.obj",
+      "exists": true,
+      "attributes": {
+        "name": "robot0_link7_vis_4",
+        "file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link7_vis/link7_vis_4.obj"
+      },
+      "sha256": "b72d69f2da72512b48c0c418a7169b023d5bcddb12e894fe97bf8eeee57e5090",
+      "bytes": 117537
+    },
+    {
+      "type": "mesh",
+      "name": "robot0_link7_vis_5",
+      "xml_file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link7_vis/link7_vis_5.obj",
+      "resolved_path": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link7_vis/link7_vis_5.obj",
+      "exists": true,
+      "attributes": {
+        "name": "robot0_link7_vis_5",
+        "file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link7_vis/link7_vis_5.obj"
+      },
+      "sha256": "d91d2892366a36f82f5bfc7e0fe60b360faf5ace94f8ba1ef38b15d6d9c4ffac",
+      "bytes": 313356
+    },
+    {
+      "type": "mesh",
+      "name": "robot0_link7_vis_6",
+      "xml_file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link7_vis/link7_vis_6.obj",
+      "resolved_path": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link7_vis/link7_vis_6.obj",
+      "exists": true,
+      "attributes": {
+        "name": "robot0_link7_vis_6",
+        "file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link7_vis/link7_vis_6.obj"
+      },
+      "sha256": "6f8e94925a34c5e0fecae66c11460d7c4ff70dcf448a5da6de14e1badf0e71da",
+      "bytes": 137916
+    },
+    {
+      "type": "mesh",
+      "name": "robot0_link7_vis_7",
+      "xml_file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link7_vis/link7_vis_7.obj",
+      "resolved_path": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link7_vis/link7_vis_7.obj",
+      "exists": true,
+      "attributes": {
+        "name": "robot0_link7_vis_7",
+        "file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/robots/panda/obj_meshes/link7_vis/link7_vis_7.obj"
+      },
+      "sha256": "36957666d65f3bee84661c5d8276711b4958aae10c9a5192c0fdfd5a8b7f7770",
+      "bytes": 1089226
+    },
+    {
+      "type": "mesh",
+      "name": "gripper0_hand",
+      "xml_file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/grippers/meshes/panda_gripper/hand.stl",
+      "resolved_path": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/grippers/meshes/panda_gripper/hand.stl",
+      "exists": true,
+      "attributes": {
+        "name": "gripper0_hand",
+        "file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/grippers/meshes/panda_gripper/hand.stl"
+      },
+      "sha256": "94493e94f30fe940f2c8ca2f155c3bbe67bbff406d3edf5e261670d2f0f6e2ed",
+      "bytes": 10084
+    },
+    {
+      "type": "mesh",
+      "name": "gripper0_hand_vis",
+      "xml_file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/grippers/meshes/panda_gripper/hand_vis.stl",
+      "resolved_path": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/grippers/meshes/panda_gripper/hand_vis.stl",
+      "exists": true,
+      "attributes": {
+        "name": "gripper0_hand_vis",
+        "file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/grippers/meshes/panda_gripper/hand_vis.stl"
+      },
+      "sha256": "fdeb1a924b8d0f1f997f47d6d8af102c7290a1d5144145efdc39501dc13f0fa1",
+      "bytes": 353984
+    },
+    {
+      "type": "mesh",
+      "name": "gripper0_finger",
+      "xml_file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/grippers/meshes/panda_gripper/finger.stl",
+      "resolved_path": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/grippers/meshes/panda_gripper/finger.stl",
+      "exists": true,
+      "attributes": {
+        "name": "gripper0_finger",
+        "file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/grippers/meshes/panda_gripper/finger.stl"
+      },
+      "sha256": "2d07a740392f3b9b0816f65d64fff9927d3d57c897870fc4b6ff9c56fff3a0c8",
+      "bytes": 1684
+    },
+    {
+      "type": "mesh",
+      "name": "gripper0_finger_vis",
+      "xml_file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/grippers/meshes/panda_gripper/finger_vis.stl",
+      "resolved_path": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/grippers/meshes/panda_gripper/finger_vis.stl",
+      "exists": true,
+      "attributes": {
+        "name": "gripper0_finger_vis",
+        "file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/grippers/meshes/panda_gripper/finger_vis.stl"
+      },
+      "sha256": "e49613148a74f1ba9b5793813078e5becf15833e0296073dc1c523508be35ae4",
+      "bytes": 31284
+    },
+    {
+      "type": "mesh",
+      "name": "gripper0_finger_vis2",
+      "xml_file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/grippers/meshes/panda_gripper/finger_longer.stl",
+      "resolved_path": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/grippers/meshes/panda_gripper/finger_longer.stl",
+      "exists": true,
+      "attributes": {
+        "name": "gripper0_finger_vis2",
+        "file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/models/assets/grippers/meshes/panda_gripper/finger_longer.stl"
+      },
+      "sha256": "8857e33ee59c3a395c3036a11e4f1731c88c203c821bb03ca97737a2d04cba27",
+      "bytes": 2884
+    },
+    {
+      "type": "mesh",
+      "name": "alphabet_soup_1_textured_vis",
+      "xml_file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/libero/libero/assets/stable_hope_objects/alphabet_soup/visual/textured_vis.msh",
+      "resolved_path": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/libero/libero/assets/stable_hope_objects/alphabet_soup/visual/textured_vis.msh",
+      "exists": true,
+      "attributes": {
+        "name": "alphabet_soup_1_textured_vis",
+        "file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/libero/libero/assets/stable_hope_objects/alphabet_soup/visual/textured_vis.msh",
+        "scale": "0.01 0.01 0.01"
+      },
+      "sha256": "a9f36a95f4ad97cb141f134251114d46cc4f3950229d76ac815e751cc0cf121e",
+      "bytes": 1496788
+    },
+    {
+      "type": "mesh",
+      "name": "cream_cheese_1_cream_cheese_vis",
+      "xml_file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/libero/libero/assets/stable_hope_objects/cream_cheese/visual/cream_cheese_vis.msh",
+      "resolved_path": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/libero/libero/assets/stable_hope_objects/cream_cheese/visual/cream_cheese_vis.msh",
+      "exists": true,
+      "attributes": {
+        "name": "cream_cheese_1_cream_cheese_vis",
+        "file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/libero/libero/assets/stable_hope_objects/cream_cheese/visual/cream_cheese_vis.msh",
+        "scale": "0.008 0.008 0.008"
+      },
+      "sha256": "0110fcd0351384174e70956ae83c4b30a677bc5673aa8107213b73334efbdf3b",
+      "bytes": 1753612
+    },
+    {
+      "type": "mesh",
+      "name": "tomato_sauce_1_textured_vis",
+      "xml_file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/libero/libero/assets/stable_hope_objects/tomato_sauce/visual/textured_vis.msh",
+      "resolved_path": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/libero/libero/assets/stable_hope_objects/tomato_sauce/visual/textured_vis.msh",
+      "exists": true,
+      "attributes": {
+        "name": "tomato_sauce_1_textured_vis",
+        "file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/libero/libero/assets/stable_hope_objects/tomato_sauce/visual/textured_vis.msh",
+        "scale": "0.01 0.01 0.01"
+      },
+      "sha256": "eeb9ee401b204db5ca5b98cf8d52274695b5562ee31f0affaca58a25a07cc2e4",
+      "bytes": 3087520
+    },
+    {
+      "type": "mesh",
+      "name": "ketchup_1_textured_vis",
+      "xml_file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/libero/libero/assets/stable_hope_objects/ketchup/visual/textured_vis.msh",
+      "resolved_path": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/libero/libero/assets/stable_hope_objects/ketchup/visual/textured_vis.msh",
+      "exists": true,
+      "attributes": {
+        "name": "ketchup_1_textured_vis",
+        "file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/libero/libero/assets/stable_hope_objects/ketchup/visual/textured_vis.msh",
+        "scale": "0.01 0.01 0.01"
+      },
+      "sha256": "52a6903d11261ef819b707241f058de28dced28746f9bbb142649a18f1d48321",
+      "bytes": 1677796
+    },
+    {
+      "type": "mesh",
+      "name": "orange_juice_1_textured_vis",
+      "xml_file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/libero/libero/assets/stable_hope_objects/orange_juice/visual/textured_vis.msh",
+      "resolved_path": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/libero/libero/assets/stable_hope_objects/orange_juice/visual/textured_vis.msh",
+      "exists": true,
+      "attributes": {
+        "name": "orange_juice_1_textured_vis",
+        "file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/libero/libero/assets/stable_hope_objects/orange_juice/visual/textured_vis.msh",
+        "scale": "0.0075 0.0075 0.0075"
+      },
+      "sha256": "9ebfebfe88f469abd9015bea348f242ee36a93829f75975535dcb44a5c3d876d",
+      "bytes": 2152672
+    },
+    {
+      "type": "mesh",
+      "name": "milk_1_textured_vis",
+      "xml_file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/libero/libero/assets/stable_hope_objects/milk/visual/textured_vis.msh",
+      "resolved_path": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/libero/libero/assets/stable_hope_objects/milk/visual/textured_vis.msh",
+      "exists": true,
+      "attributes": {
+        "name": "milk_1_textured_vis",
+        "file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/libero/libero/assets/stable_hope_objects/milk/visual/textured_vis.msh",
+        "scale": "0.0075 0.0075 0.0075"
+      },
+      "sha256": "540a0eedb3d483e96dda195f06ce531f9991c9f07fece482f569131ab69a8036",
+      "bytes": 1578328
+    },
+    {
+      "type": "mesh",
+      "name": "butter_1_butter_vis",
+      "xml_file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/libero/libero/assets/stable_hope_objects/butter/visual/butter_vis.msh",
+      "resolved_path": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/libero/libero/assets/stable_hope_objects/butter/visual/butter_vis.msh",
+      "exists": true,
+      "attributes": {
+        "name": "butter_1_butter_vis",
+        "file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/libero/libero/assets/stable_hope_objects/butter/visual/butter_vis.msh",
+        "scale": "0.0075 0.0075 0.0075"
+      },
+      "sha256": "88b3916e53c813c7e06c856d7e0563e636c07247d95982c2cd05abc0ebd0cc68",
+      "bytes": 1554676
+    },
+    {
+      "type": "mesh",
+      "name": "basket_1_basket_vis",
+      "xml_file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/libero/libero/assets/stable_scanned_objects/basket/visual/basket_vis.msh",
+      "resolved_path": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/libero/libero/assets/stable_scanned_objects/basket/visual/basket_vis.msh",
+      "exists": true,
+      "attributes": {
+        "name": "basket_1_basket_vis",
+        "file": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/libero/libero/assets/stable_scanned_objects/basket/visual/basket_vis.msh"
+      },
+      "sha256": "51ca04e71fbca8a4fdd5fa86362867d414e401923e1cb9b0daed488513b46734",
+      "bytes": 7170136
+    }
+  ],
+  "unresolved": [
+    "Supporting tabletop face and object-to-support semantic bindings are not validated.",
+    "Reference transforms are qpos0/model-reference configuration, not per-frame execution poses.",
+    "Bounds are geometric candidates, not approved fall thresholds or proof of support.",
+    "No table height is inferred from object-center positions."
+  ],
+  "inspection_only_no_simulation_steps": true
+}
