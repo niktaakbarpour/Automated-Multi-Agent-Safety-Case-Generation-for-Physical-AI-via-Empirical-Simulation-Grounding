@@ -1,8 +1,8 @@
 {
-  "status": "queued_waiting_for_storage",
-  "updated_at": "2026-10-15T16:54:33.509062+00:00",
-  "queue_pid": 1427061,
+  "status": "completed_pending_human_review",
+  "updated_at": "2026-10-16T17:54:18.813490+00:00",
+  "queue_pid": 4008628,
   "gpu": 1,
-  "required_free_gib": 221.75,
-  "free_gib": 150.81
+  "output": "/local/home/niktakbr/trustworthy_project/data/requirement_pilots/20261016T154747Z",
+  "generations": 3
 }

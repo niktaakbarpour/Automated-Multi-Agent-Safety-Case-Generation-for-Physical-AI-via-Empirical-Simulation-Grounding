@@ -54,4 +54,19 @@ class ProposalsTest(unittest.TestCase):
             self.assertTrue(all(x['valid'] for x in summary['generations']))
             second=p/'outputs/generation_02';self.assertTrue((second/'attempt_1_raw.json').exists());self.assertTrue((second/'attempt_2_raw.json').exists())
             self.assertEqual(json.loads((second/'human_review.json').read_text())['reviews'][0]['decision'],'pending')
+    def test_token_count_and_context_with_new_tokenizer_default(self):
+        import requirement_proposals as rp
+        class Tokenizer:
+            def apply_chat_template(self,messages,**kwargs):
+                if not kwargs.get('tokenize'):return 'exact-template'
+                return [1,2,3] if kwargs.get('return_dict') is False else {'input_ids':[1,2,3],'attention_mask':[1,1,1]}
+        config=json.loads((R/'config/requirement_generation.json').read_text())
+        config['generation'].update(context_limit=10,max_tokens=8)
+        with patch('requirement_proposals.request_json') as request:
+            with self.assertRaises(ValueError):rp.complete(config,[{'role':'user','content':'x'}],1000,Tokenizer())
+            request.assert_not_called()
+            config['generation']['context_limit']=12
+            request.return_value={'prompt_text':'exact-template'}
+            raw,meta=rp.complete(config,[{'role':'user','content':'x'}],1000,Tokenizer())
+            self.assertEqual(meta['input_tokens'],3);self.assertTrue(meta['template_matches'])
 if __name__=='__main__':unittest.main()

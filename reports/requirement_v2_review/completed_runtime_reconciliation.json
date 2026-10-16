@@ -1,0 +1,59 @@
+{
+  "pilot": "20261016T154747Z",
+  "historical_git_commit": "not recorded; project directory was not a Git checkout",
+  "known_repository_base": "bba1031",
+  "captured_actual_source_sha256": {
+    "src/audit_imports.py": "314340114f3f6e4814ae8311d9e6dae8187483346f7bd92e7d79847a799f8e43",
+    "src/collect.py": "0f2744be4957e1a237866c366233967bc3955b055c9560dc3acc88e717668cdf",
+    "src/evidence.py": "97e74cf498eff85c211226738bc51996549db5067eea3dba3ddc860813dfbe19",
+    "src/facts.py": "2b8df985b8eb7a8e1f89e7862d66ec28512513d9faf0c7eee9b41850cd6d7c3a",
+    "src/identifiers.py": "4cadae02275696d6c6636326d6b68c84bc3f6e28e57f94c6d129c155517ee810",
+    "src/pipeline.py": "9b26d181efdca2a173fbd69c0b0e98627ef552bd1ef6983f07a475cbd4754ea5",
+    "src/queue_requirement_pilot.py": "aaddadaa5e08082a579afed6aa48dc311f8f0381bda4d242a091f1588644fc13",
+    "src/requirement_proposals.py": "dd1415f78c1a75956171b20c7a28c992c493a6ca0097cba7f0b513ff71603284",
+    "config/approved_checkers.json": "9d054f7eb1154f5b6c4b27ecaac34413f1dc0536d310840b8f06a763d80c96c8",
+    "config/project.json": "78943abbcf15bcd47fdc67c3d7cbc8c18bf21e3c27827406229a91b4aee1f8d7",
+    "config/requirement_generation.json": "83a919558e6acb076d4f507a7c6272511ba02f910e43b8db989a55a16b85ea39",
+    "tests/test_contract.py": "5310ee9646572a1c74fda3c97aa2b88d2340d6738b9ce6c764534113792efebd",
+    "tests/test_requirement_proposals.py": "77fb39bed297c3b4fb67f3b0eef7b5a1a662b8f4688fd98b2935993761990124"
+  },
+  "runtime": {
+    "model_repo": "Qwen/Qwen3.8-27B",
+    "revision": "1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0",
+    "snapshot_path": "/disk/1/data/niktakbr/trustworthy-runtime/huggingface/hub/models--Qwen--Qwen3.8-27B/snapshots/1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0",
+    "backend": "vllm",
+    "precision": "bfloat16",
+    "quantization": null,
+    "physical_gpu": 1,
+    "cpu_offload_gib": 20,
+    "base_url": "http://127.0.0.1:8027/v1",
+    "model_cache": "/disk/1/data/niktakbr/trustworthy-runtime/huggingface",
+    "weight_bytes": 55563006776,
+    "vllm_version": "0.31.0",
+    "transformers_version": "5.17.0",
+    "generation": {
+      "thinking": true,
+      "reasoning_effort": "medium",
+      "temperature": 1.0,
+      "top_p": 0.95,
+      "top_k": 20,
+      "min_p": 0.0,
+      "presence_penalty": 0.0,
+      "repetition_penalty": 1.0,
+      "context_limit": 32768,
+      "max_tokens": 6144,
+      "seeds": [
+        1000,
+        1001,
+        1002
+      ]
+    },
+    "disk_reserve_gib": 150,
+    "environment_budget_gib": 20,
+    "host": "hestia",
+    "environment_path": "/disk/1/data/niktakbr/trustworthy-runtime/venv-py312",
+    "runtime_cache": "/disk/1/data/niktakbr/trustworthy-runtime/cache"
+  },
+  "completed_at": "2026-10-16T17:54:18.813490+00:00",
+  "original_pilot_files_manifest": "original_pilot_hashes.json"
+}

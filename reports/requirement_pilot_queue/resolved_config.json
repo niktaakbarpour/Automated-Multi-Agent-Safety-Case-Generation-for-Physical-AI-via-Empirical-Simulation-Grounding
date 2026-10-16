@@ -1,0 +1,37 @@
+{
+  "model_repo": "Qwen/Qwen3.8-27B",
+  "revision": "1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0",
+  "snapshot_path": "/disk/1/data/niktakbr/trustworthy-runtime/huggingface/hub/models--Qwen--Qwen3.8-27B/snapshots/1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0",
+  "backend": "vllm",
+  "precision": "bfloat16",
+  "quantization": null,
+  "physical_gpu": 1,
+  "cpu_offload_gib": 20,
+  "base_url": "http://127.0.0.1:8027/v1",
+  "model_cache": "/disk/1/data/niktakbr/trustworthy-runtime/huggingface",
+  "weight_bytes": 55563006776,
+  "vllm_version": "0.31.0",
+  "transformers_version": "5.17.0",
+  "generation": {
+    "thinking": true,
+    "reasoning_effort": "medium",
+    "temperature": 1.0,
+    "top_p": 0.95,
+    "top_k": 20,
+    "min_p": 0.0,
+    "presence_penalty": 0.0,
+    "repetition_penalty": 1.0,
+    "context_limit": 32768,
+    "max_tokens": 6144,
+    "seeds": [
+      1000,
+      1001,
+      1002
+    ]
+  },
+  "disk_reserve_gib": 150,
+  "environment_budget_gib": 20,
+  "host": "hestia",
+  "environment_path": "/disk/1/data/niktakbr/trustworthy-runtime/venv-py312",
+  "runtime_cache": "/disk/1/data/niktakbr/trustworthy-runtime/cache"
+}

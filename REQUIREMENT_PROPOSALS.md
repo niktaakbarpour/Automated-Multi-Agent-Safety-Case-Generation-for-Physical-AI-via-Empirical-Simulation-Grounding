@@ -40,14 +40,14 @@ Official references consulted:
 - Offload: https://docs.vllm.ai/en/latest/configuration/engine_args/#cpu-offload-gb
 - Pinned backend request handling: https://github.com/vllm-project/vllm/blob/v0.31.0/vllm/entrypoints/openai/chat_completion/protocol.py
 
-Backend: vLLM 0.31.0 with Transformers 5.19.0 in `.venv-requirements`. Installation,
+Backend: vLLM 0.31.0 with Transformers 5.17.0 in `/disk/1/data/niktakbr/trustworthy-runtime/venv-py312`. Installation,
 dependency checking, full package versions, immutable weight hashes, commands, server
 logs, and backend settings assertions are saved under `reports/requirement_pilot_queue`.
 No setup or download runs until storage is sufficient. GPU use is restricted to physical
 GPU 1 through `CUDA_VISIBLE_DEVICES=1`; no project work uses GPUs 0 or 2. The server
 binds only to `127.0.0.1:8027` and is stopped after this pilot by its own supervisor.
 
-Persistent model cache: `/local/home/niktakbr/.cache/huggingface`. The queue requires
+Persistent model cache: `/disk/1/data/niktakbr/trustworthy-runtime/huggingface`. The queue requires
 roughly 222 GiB free before installation/download, preserving the existing experiments'
 150 GiB reserve plus model and environment budgets. Downloads pause if the reserve
 is approached. No results or unrelated files are removed to make space.
@@ -68,12 +68,12 @@ python3 src/requirement_proposals.py --project "$PWD" prepare
 # Queue: lightweight process; setup waits for GPU 1 and persistent storage:
 python3 src/queue_requirement_pilot.py
 # Repeat once the pinned backend is serving (choose a new output directory):
-.venv-requirements/bin/python src/requirement_proposals.py --project "$PWD" pilot \
+/disk/1/data/niktakbr/trustworthy-runtime/venv-py312/bin/python src/requirement_proposals.py --project "$PWD" pilot \
   --config reports/requirement_pilot_queue/resolved_config.json \
   --output data/requirement_pilots/repeat-unique-name
 ```
 
-Persistent session: `tmux -L trustworthy-requirements-gpu1`, session `pilot`.
+Persistent session: `tmux -L trustworthy-requirements-gpu1-20261016`, session `verified-client` (completed).
 Live status: `reports/requirement_pilot_queue/status.json`.
 Outputs: `data/requirement_pilots/<UTC timestamp>/generation_01` through `generation_03`.
 Each generation stores raw responses, final text, validation reports, original parsed
@@ -86,3 +86,9 @@ mapping/calibration, collision extents/support bindings, continuous substep cont
 history, fragility, damage, and human/restricted-region annotations. These remain unknown.
 The initial preparation's inventory scans only selected frame keys; no claim is made that
 every potential measurement exists on every transition. Safety requirements may be zero.
+
+Restart 2026-10-16: isolated Python 3.12; Transformers 5.17.0 satisfies vLLM 0.31.0 dependency range (>=5.10.4,<5.18). Model revision, BF16, no quantization, GPU 1 and all generation settings unchanged. Runtime, model and caches reside on the data disk. Prior configuration and error are preserved under reports/requirement_pilot_queue/restart-20261016/.
+
+## Completed 20261016 runtime reconciliation
+
+The completed pilot is `data/requirement_pilots/20261016T154747Z`. All three generations passed structural validation; scientific review remains pending. GPU server stopped at 2026-10-16T17:54:18Z. Its final status is preserved in `reports/requirement_pilot_queue/status.json`. The production client used a 14,400-second timeout, not the earlier 1,800-second source default. Original recorded calls lasted 1570.55, 1929.66, and 4036.22 seconds, so the latter two exceed that earlier default. Original outputs and their captured configurations are immutable historical records. The snapshot and hashes in `reports/requirement_v2_review` reconcile source/runtime without retroactively claiming a Git commit was recorded by the pilot.

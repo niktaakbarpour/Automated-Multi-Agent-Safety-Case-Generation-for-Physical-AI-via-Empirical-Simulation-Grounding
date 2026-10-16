@@ -125,13 +125,13 @@ def review_file(document):
 def request_json(url, payload=None):
     data=None if payload is None else json.dumps(payload).encode()
     req=urllib.request.Request(url,data=data,headers={'Content-Type':'application/json'})
-    with urllib.request.urlopen(req,timeout=1800) as f: return json.load(f)
+    with urllib.request.urlopen(req,timeout=14400) as f: return json.load(f)
 
 def complete(config, messages, seed, tokenizer):
     settings=config['generation']
     template={'enable_thinking':settings['thinking'],'preserve_thinking':False,'reasoning_effort':settings['reasoning_effort']}
     rendered=tokenizer.apply_chat_template(messages,tokenize=False,add_generation_prompt=True,**template)
-    ids=tokenizer.apply_chat_template(messages,tokenize=True,add_generation_prompt=True,**template)
+    ids=tokenizer.apply_chat_template(messages,tokenize=True,return_dict=False,add_generation_prompt=True,**template)
     if len(ids)+settings['max_tokens']>settings['context_limit']: raise ValueError('Input plus output budget exceeds context; input was not truncated')
     payload={'model':config['model_repo'],'messages':messages,'temperature':settings['temperature'],
       'top_p':settings['top_p'],'top_k':settings['top_k'],'min_p':settings['min_p'],

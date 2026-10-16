@@ -21,13 +21,17 @@ def run(cmd,log,env):
         f.write('\nCOMMAND '+json.dumps(cmd)+'\n');f.flush()
         subprocess.run(cmd,cwd=R,env=env,stdout=f,stderr=subprocess.STDOUT,check=True)
 def cache_env(config):
-    env=os.environ.copy();base=Path('/local/home/niktakbr/.cache')
+    env=os.environ.copy();base=Path(config.get('runtime_cache','/local/home/niktakbr/.cache'))
     vals={'HF_HOME':config['model_cache'],'PIP_CACHE_DIR':str(base/'pip'),
       'XDG_CACHE_HOME':str(base),'UV_CACHE_DIR':str(base/'uv'),'UV_PYTHON_INSTALL_DIR':str(base/'uv/python'),
       'TMPDIR':str(base/'tmp'),'TORCH_HOME':str(base/'torch'),'CUDA_CACHE_PATH':str(base/'cuda'),
       'MPLCONFIGDIR':str(base/'matplotlib'),'NUMBA_CACHE_DIR':str(base/'numba'),
       'CUDA_VISIBLE_DEVICES':'1','OMP_NUM_THREADS':'4','TOKENIZERS_PARALLELISM':'false',
-      'HF_HUB_DISABLE_PROGRESS_BARS':'1','PYTHONDONTWRITEBYTECODE':'1'}
+      'HF_HUB_DISABLE_PROGRESS_BARS':'1','PYTHONDONTWRITEBYTECODE':'1',
+      'XDG_CONFIG_HOME':str(base/'config'),'VLLM_CONFIG_ROOT':str(base/'config/vllm'),
+      'FLASHINFER_WORKSPACE_BASE':str(base/'flashinfer-home'),
+      'VLLM_NO_USAGE_STATS':'1','VLLM_CACHE_ROOT':str(base/'vllm'),'TRITON_CACHE_DIR':str(base/'triton'),
+      'TORCHINDUCTOR_CACHE_DIR':str(base/'torchinductor'),'TORCH_EXTENSIONS_DIR':str(base/'torch-extensions')}
     for key,value in vals.items():
         if key.endswith('_DIR') or key.endswith('_HOME') or key in ['TMPDIR','MPLCONFIGDIR','NUMBA_CACHE_DIR']:Path(value).mkdir(parents=True,exist_ok=True)
     env.update(vals);write(Q/'effective_environment.json',vals);return env
@@ -84,7 +88,7 @@ def main():
         required=config['disk_reserve_gib']+config['environment_budget_gib']+config['weight_bytes']/2**30
         while shutil.disk_usage(R).free/2**30<required:
             status('queued_waiting_for_storage',required_free_gib=round(required,2),free_gib=round(shutil.disk_usage(R).free/2**30,2));time.sleep(30)
-        env=cache_env(config);venv=R/'.venv-requirements';py=venv/'bin/python'
+        env=cache_env(config);venv=Path(config.get('environment_path',str(R/'.venv-requirements')));py=venv/'bin/python'
         if not py.exists():run([sys.executable,'-m','venv',str(venv)],'setup.log',env)
         status('installing_isolated_backend')
         run([str(py),'-m','pip','install','vllm=='+config['vllm_version'],'transformers=='+config['transformers_version'],'jsonschema==4.26.0'],'setup.log',env)

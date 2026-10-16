@@ -8,10 +8,10 @@
   "physical_gpu": 1,
   "cpu_offload_gib": 20,
   "base_url": "http://127.0.0.1:8027/v1",
-  "model_cache": "/local/home/niktakbr/.cache/huggingface",
+  "model_cache": "/disk/1/data/niktakbr/trustworthy-runtime/huggingface",
   "weight_bytes": 55563006776,
   "vllm_version": "0.31.0",
-  "transformers_version": "5.19.0",
+  "transformers_version": "5.17.0",
   "generation": {
     "thinking": true,
     "reasoning_effort": "medium",
@@ -31,5 +31,7 @@
   },
   "disk_reserve_gib": 150,
   "environment_budget_gib": 20,
-  "host": "hestia"
+  "host": "hestia",
+  "environment_path": "/disk/1/data/niktakbr/trustworthy-runtime/venv-py312",
+  "runtime_cache": "/disk/1/data/niktakbr/trustworthy-runtime/cache"
 }
