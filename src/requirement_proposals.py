@@ -1,5 +1,5 @@
 """Outcome-free input preparation and review-only candidate generation."""
-import argparse, datetime, hashlib, json, time, urllib.request, urllib.error, subprocess, math
+import argparse, datetime, hashlib, json, time, urllib.request, urllib.error, subprocess, math, shutil
 from pathlib import Path
 
 VERSION = 'requirements-v1'
@@ -201,12 +201,24 @@ def pilot(project, config_path, output):
     schema_path=configured_path(project,config,'schema_path','schemas/candidate_requirements.schema.json');schema=read(schema_path)
     input_hash=digest(source.read_bytes());pilot_id='requirements-'+digest((input_hash+str(out)+config['revision']).encode())[:20]
     write(out/'task_input.json',task_input);write(out/'config.json',config)
+    provenance_path=source.with_name('provenance.json');write(out/'provenance.json',read(provenance_path))
+    for key,name in [('objective_path','objective.json'),('objective_decision_path','objective_decision.json')]:
+        if config.get(key): (out/name).write_bytes(configured_path(project,config,key,config[key]).read_bytes())
+    frozen=out/'source_snapshot';frozen.mkdir()
+    source_hashes={}
+    for directory in ['src','tests','config','prompts','schemas']:
+        if not (project/directory).is_dir():continue
+        for p in sorted((project/directory).rglob('*')):
+            if not p.is_file() or '__pycache__' in p.parts:continue
+            rel=p.relative_to(project);dest=frozen/rel;dest.parent.mkdir(parents=True,exist_ok=True);shutil.copy2(p,dest)
+            source_hashes[str(rel)]=digest(p.read_bytes())
+    write(out/'source_hashes.json',source_hashes)
     (out/'prompt.txt').write_text(prompt);write(out/'schema.json',schema)
     write(out/'metadata.json',{'pilot_id':pilot_id,'input_sha256':input_hash,'prompt_version':config.get('prompt_version',VERSION),'git':git_state(project),
        'task_input_path':str(source),'prompt_path':str(prompt_path),'schema_path':str(schema_path),
        'request_timeout_seconds':config.get('request_timeout_seconds',DEFAULT_REQUEST_TIMEOUT_SECONDS),
        'prompt_sha256':digest(prompt.encode()),'schema_sha256':digest(json.dumps(schema,sort_keys=True).encode()),
-       'created_at':now(),'scope':'candidate proposals only; no safety assessment or execution','source_provenance':read(source.with_name('provenance.json'))})
+       'created_at':now(),'scope':'candidate proposals only; no safety assessment or execution','source_provenance':read(provenance_path),'frozen_source_hashes':source_hashes})
     for name in ['model_manifest.json','package_versions.txt','backend_settings_audit.json','server_command.json']:
         (out/name).write_bytes((configured_path(project,config,'runtime_report_dir','reports/requirement_pilot_queue')/name).read_bytes())
     smoke_messages=[{'role':'user','content':'Return the complete final JSON object {"smoke":"ok"}. No additional final-answer text.'}]

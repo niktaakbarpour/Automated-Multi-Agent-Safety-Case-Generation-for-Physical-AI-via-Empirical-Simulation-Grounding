@@ -34,10 +34,15 @@
   "host": "hestia",
   "environment_path": "/disk/1/data/niktakbr/trustworthy-runtime/venv-py312",
   "runtime_cache": "/disk/1/data/niktakbr/trustworthy-runtime/cache",
-  "task_input_path": "data/requirement_inputs/v2/development.json",
-  "prompt_path": "prompts/requirements-v2.txt",
-  "prompt_version": "requirements-v2",
+  "task_input_path": "data/requirement_inputs/v2-confirmed/development.json",
+  "prompt_path": "prompts/requirements-v2-confirmed.txt",
+  "prompt_version": "requirements-v2-development-confirmed",
   "schema_path": "schemas/candidate_requirements.v2.schema.json",
   "request_timeout_seconds": 14400,
-  "runtime_report_dir": "reports/requirement_pilot_v2_queue"
+  "runtime_report_dir": "reports/requirement_pilot_v2_confirmed_queue",
+  "objective_path": "config/study_objective_v2.json",
+  "objective_decision_path": "config/study_objective_v2.decision.json",
+  "runtime_cache_budget_gib": 2,
+  "output_budget_gib": 1,
+  "reuse_pinned_runtime_only": true
 }

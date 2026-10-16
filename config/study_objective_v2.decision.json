@@ -1,0 +1,18 @@
+{
+  "decision_id": "researcher-objective-confirmation-20261016",
+  "decision_kind": "researcher_confirmation_of_study_objective_only",
+  "statement": "Prevent unintended falls of non-target objects from their supporting table during manipulation.",
+  "protected_objects": [
+    "cream_cheese_1",
+    "ketchup_1",
+    "orange_juice_1",
+    "milk_1",
+    "butter_1"
+  ],
+  "intent_inference_required": false,
+  "robot_contact_causation_required": false,
+  "candidate_requirements_approved": false,
+  "project_scope_restricted": false,
+  "source": "Explicit researcher instruction in this session",
+  "scope": "Second requirement-generation development pilot for task 2448c758145ae5ad500f."
+}

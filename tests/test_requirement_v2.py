@@ -9,10 +9,10 @@ R=Path(__file__).resolve().parents[1]
 class RequirementV2Test(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.value,cls.provenance=prepare_v2(R,R/'evidence/geometry_v2/resolved_geometry.json',R/'config/study_objective_v2.proposed.json')
+        cls.value,cls.provenance=prepare_v2(R,R/'evidence/geometry_v2/resolved_geometry.json',R/'config/study_objective_v2.json')
         cls.schema=rp.read(R/'schemas/candidate_requirements.v2.schema.json')
     def test_other_tasks_cannot_receive_hardcoded_pilot_facts(self):
-        with self.assertRaises(ValueError):prepare_v2(R,R/'evidence/geometry_v2/resolved_geometry.json',R/'config/study_objective_v2.proposed.json','different-task')
+        with self.assertRaises(ValueError):prepare_v2(R,R/'evidence/geometry_v2/resolved_geometry.json',R/'config/study_objective_v2.json','different-task')
     def test_measurement_coverage_and_reference_run(self):
         c=self.value['measurement_coverage'];self.assertEqual(c['sample_count'],3)
         self.assertEqual(c['reference_run_id'],self.provenance['reference_run_id'])
@@ -25,7 +25,7 @@ class RequirementV2Test(unittest.TestCase):
         for f in ['benchmark_outcome','termination_reason','initial_position_world_m','initial_orientation_wxyz','success_rate']:self.assertNotIn(f,text)
         self.assertNotIn('\"sampled_frames\":',text)
         self.assertFalse(self.value['proposal_policy']['approved_requirements_or_checkers_required_to_propose'])
-        self.assertEqual(self.value['researcher_provided_study_objectives'][0]['review_status'],'proposed_pending_researcher_review')
+        self.assertEqual(self.value['researcher_provided_study_objectives'][0]['review_status'],'confirmed_study_objective_only')
         ids=[m['id'] for m in self.value['later_checking_information']];self.assertEqual(len(ids),len(set(ids)))
         self.assertNotIn('approved_safety_requirements_and_event_checkers',text)
     def example(self):
@@ -47,10 +47,10 @@ class RequirementV2Test(unittest.TestCase):
     def exercise_pilot(self,with_errors=False):
         with tempfile.TemporaryDirectory() as tmp:
             p=Path(tmp);(p/'custom').mkdir();(p/'runtime').mkdir()
-            rp.write(p/'custom/task.json',self.value);rp.write(p/'custom/provenance.json',{'audit':'full provenance stays separate'})
+            rp.write(p/'custom/objective.json',rp.read(R/'config/study_objective_v2.json'));rp.write(p/'custom/decision.json',rp.read(R/'config/study_objective_v2.decision.json'));rp.write(p/'custom/task.json',self.value);rp.write(p/'custom/provenance.json',{'audit':'full provenance stays separate'})
             (p/'custom/prompt.txt').write_text('CUSTOM PROMPT VERSION 42');rp.write(p/'custom/schema.json',self.schema)
             for n in ['model_manifest.json','package_versions.txt','backend_settings_audit.json','server_command.json']:(p/'runtime'/n).write_text('{}')
-            c=rp.read(R/'config/requirement_generation.v2.json');c.update(task_input_path='custom/task.json',prompt_path='custom/prompt.txt',prompt_version='custom-v42',schema_path='custom/schema.json',runtime_report_dir='runtime',request_timeout_seconds=9876)
+            c=rp.read(R/'config/requirement_generation.v2.json');c.update(task_input_path='custom/task.json',prompt_path='custom/prompt.txt',prompt_version='custom-v42',schema_path='custom/schema.json',runtime_report_dir='runtime',request_timeout_seconds=9876,objective_path='custom/objective.json',objective_decision_path='custom/decision.json')
             rp.write(p/'config.json',c);calls=[]
             def completion(config,messages,seed,tokenizer):
                 calls.append((seed,messages));self.assertEqual(config['request_timeout_seconds'],9876)
@@ -66,6 +66,8 @@ class RequirementV2Test(unittest.TestCase):
                 else:rp.pilot(p,p/'config.json',p/'output')
             m=rp.read(p/'output/metadata.json');self.assertEqual(m['prompt_version'],'custom-v42');self.assertIn('git',m)
             self.assertEqual((p/'output/prompt.txt').read_text(),'CUSTOM PROMPT VERSION 42')
+            self.assertEqual(rp.read(p/'output/objective.json')['review_status'],'confirmed_study_objective_only')
+            self.assertFalse(rp.read(p/'output/objective_decision.json')['candidate_requirements_approved'])
             self.assertTrue(all('CUSTOM PROMPT VERSION 42' in messages[0]['content'] for seed,messages in calls if seed!=900))
             if with_errors:
                 g=p/'output/generation_01';self.assertTrue((g/'attempt_1_transport_error.json').exists());self.assertFalse((g/'attempt_1_validation.json').exists())

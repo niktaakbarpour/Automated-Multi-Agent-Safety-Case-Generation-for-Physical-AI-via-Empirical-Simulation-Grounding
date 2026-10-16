@@ -13,3 +13,7 @@ __pycache__/
 # Inspection artifacts are retained on Hestia pending review/export authorization.
 /evidence/geometry_v2/
 /data/requirement_inputs/v2/
+
+/reports/requirement_pilot_v2_confirmed_queue/
+/reports/requirement_v2_confirmed_launch/
+/data/requirement_inputs/v2-confirmed/

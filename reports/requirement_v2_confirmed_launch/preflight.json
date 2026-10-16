@@ -1,0 +1,61 @@
+{
+  "prompt_tokens": 3898,
+  "output_token_budget": 6144,
+  "same_model_and_generation_settings": true,
+  "output": "/local/home/niktakbr/trustworthy_project/data/requirement_pilots/20261016-v2-confirmed-development",
+  "storage": {
+    "filesystems": [
+      {
+        "device": "66309",
+        "anchor": "/disk/1/data/niktakbr/trustworthy-runtime/huggingface",
+        "free_bytes": 8260175224832,
+        "incremental_budget_bytes": 2147483648,
+        "reserve_bytes": 161061273600,
+        "roles": [
+          {
+            "role": "model_cache",
+            "path": "/disk/1/data/niktakbr/trustworthy-runtime/huggingface",
+            "incremental_budget_bytes": 0
+          },
+          {
+            "role": "environment",
+            "path": "/disk/1/data/niktakbr/trustworthy-runtime/venv-py312",
+            "incremental_budget_bytes": 0
+          },
+          {
+            "role": "runtime_cache",
+            "path": "/disk/1/data/niktakbr/trustworthy-runtime/cache",
+            "incremental_budget_bytes": 2147483648
+          }
+        ],
+        "required_free_bytes": 163208757248,
+        "sufficient": true
+      },
+      {
+        "device": "66308",
+        "anchor": "/local/home/niktakbr/trustworthy_project/data/requirement_pilots",
+        "free_bytes": 1879658725376,
+        "incremental_budget_bytes": 1140850688,
+        "reserve_bytes": 161061273600,
+        "roles": [
+          {
+            "role": "outputs",
+            "path": "/local/home/niktakbr/trustworthy_project/data/requirement_pilots/20261016-v2-confirmed-development",
+            "incremental_budget_bytes": 1073741824
+          },
+          {
+            "role": "runtime_reports",
+            "path": "/local/home/niktakbr/trustworthy_project/reports/requirement_pilot_v2_confirmed_queue",
+            "incremental_budget_bytes": 67108864
+          }
+        ],
+        "required_free_bytes": 162202124288,
+        "sufficient": true
+      }
+    ],
+    "sufficient": true,
+    "existing_weight_bytes_credited": 55563006776,
+    "existing_environment_credited": true,
+    "cache_credit_qualification": "Sizes credited for budgeting only; all model files must pass pinned SHA-256 verification before load."
+  }
+}

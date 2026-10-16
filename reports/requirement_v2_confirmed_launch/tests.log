@@ -1,0 +1,45 @@
+test_confirmation_is_not_requirement_approval (test_confirmed_pilot.ConfirmedInputTest.test_confirmation_is_not_requirement_approval) ... ok
+test_rejects_geometry_task_run_or_resolution_mismatch (test_confirmed_pilot.ConfirmedInputTest.test_rejects_geometry_task_run_or_resolution_mismatch) ... ok
+test_rejects_source_object_or_goal_mismatch (test_confirmed_pilot.ConfirmedInputTest.test_rejects_source_object_or_goal_mismatch) ... ok
+test_selected_fields_and_complete_inventory_are_separate (test_confirmed_pilot.ConfirmedInputTest.test_selected_fields_and_complete_inventory_are_separate) ... ok
+test_actual_filesystems_grouped_and_existing_items_credited (test_confirmed_pilot.StorageTest.test_actual_filesystems_grouped_and_existing_items_credited) ... ok
+test_missing_environment_and_low_actual_cache_disk (test_confirmed_pilot.StorageTest.test_missing_environment_and_low_actual_cache_disk) ... ok
+test_no_budget_credit_for_wrong_model_revision (test_confirmed_pilot.StorageTest.test_no_budget_credit_for_wrong_model_revision) ... ok
+test_runtime_mismatch_fails_without_installation (test_confirmed_pilot.StorageTest.test_runtime_mismatch_fails_without_installation) ... ok
+test_symlinked_and_future_paths_use_destination_filesystem (test_confirmed_pilot.StorageTest.test_symlinked_and_future_paths_use_destination_filesystem) ... ok
+test_identity (test_contract.Contract.test_identity) ... ok
+test_instruction (test_contract.Contract.test_instruction) ... ok
+test_steps (test_contract.Contract.test_steps) ... ok
+test_effective_defaults_and_collision_role_not_render_group (test_geometry.GeometryTest.test_effective_defaults_and_collision_role_not_render_group) ... ok
+test_explicit_contact_pair_overrides_zero_mask_role (test_geometry.GeometryTest.test_explicit_contact_pair_overrides_zero_mask_role) ... ok
+test_mesh_scaling_and_compiler_mesh_alignment (test_geometry.GeometryTest.test_mesh_scaling_and_compiler_mesh_alignment) ... ok
+test_nested_coordinate_transforms_and_rotated_box_bounds (test_geometry.GeometryTest.test_nested_coordinate_transforms_and_rotated_box_bounds) ... ok
+test_nested_geometry_and_hierarchy (test_geometry.GeometryTest.test_nested_geometry_and_hierarchy) ... ok
+test_unsupported_xml_is_reported_without_invented_transforms (test_geometry.GeometryTest.test_unsupported_xml_is_reported_without_invented_transforms) ... ok
+test_worldbody_geometry (test_geometry.GeometryTest.test_worldbody_geometry) ... ok
+test_three_frame_field_inventory_does_not_claim_full_run_or_units (test_geometry.InventoryCoverageTest.test_three_frame_field_inventory_does_not_claim_full_run_or_units) ... ok
+test_ids_and_review (test_requirement_proposals.ProposalsTest.test_ids_and_review) ... ok
+test_missing_measurement (test_requirement_proposals.ProposalsTest.test_missing_measurement) ... ok
+test_outcomes_excluded (test_requirement_proposals.ProposalsTest.test_outcomes_excluded) ... ok
+test_pending_and_duplicate_ids (test_requirement_proposals.ProposalsTest.test_pending_and_duplicate_ids) ... ok
+test_pilot_three_independent_outputs_and_one_retry (test_requirement_proposals.ProposalsTest.test_pilot_three_independent_outputs_and_one_retry) ... ok
+test_references_and_measurements (test_requirement_proposals.ProposalsTest.test_references_and_measurements) ... ok
+test_token_count_and_context_with_new_tokenizer_default (test_requirement_proposals.ProposalsTest.test_token_count_and_context_with_new_tokenizer_default) ... ok
+test_truncation_and_reasoning (test_requirement_proposals.ProposalsTest.test_truncation_and_reasoning) ... ok
+test_zero_allowed (test_requirement_proposals.ProposalsTest.test_zero_allowed) ... ok
+test_checkability_does_not_overclaim_sampled_presence (test_requirement_v2.RequirementV2Test.test_checkability_does_not_overclaim_sampled_presence) ... ok
+test_configurable_prompt_input_schema_and_metadata (test_requirement_v2.RequirementV2Test.test_configurable_prompt_input_schema_and_metadata) ... ok
+test_duplicate_warnings_rejected_without_rewriting_output (test_requirement_v2.RequirementV2Test.test_duplicate_warnings_rejected_without_rewriting_output) ... ok
+test_git_commit_and_dirty_status (test_requirement_v2.RequirementV2Test.test_git_commit_and_dirty_status) ... ok
+test_http_timeout_forwarding_and_transport_errors (test_requirement_v2.RequirementV2Test.test_http_timeout_forwarding_and_transport_errors) ... ok
+test_input_categories_and_no_outcomes_or_checker_prerequisite (test_requirement_v2.RequirementV2Test.test_input_categories_and_no_outcomes_or_checker_prerequisite) ... ok
+test_measurement_coverage_and_reference_run (test_requirement_v2.RequirementV2Test.test_measurement_coverage_and_reference_run) ... ok
+test_other_tasks_cannot_receive_hardcoded_pilot_facts (test_requirement_v2.RequirementV2Test.test_other_tasks_cannot_receive_hardcoded_pilot_facts) ... ok
+test_qualitative_incomplete_candidates_and_abstentions (test_requirement_v2.RequirementV2Test.test_qualitative_incomplete_candidates_and_abstentions) ... ok
+test_queue_stale_status_and_separate_v2_runtime (test_requirement_v2.RequirementV2Test.test_queue_stale_status_and_separate_v2_runtime) ... ok
+test_transport_and_output_validation_are_separate (test_requirement_v2.RequirementV2Test.test_transport_and_output_validation_are_separate) ... ok
+
+----------------------------------------------------------------------
+Ran 40 tests in 4.491s
+
+OK

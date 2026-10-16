@@ -1,6 +1,7 @@
 """Persistent, GPU-1-only queue. Installation and downloads require sufficient persistent storage."""
 import argparse, datetime, fcntl, hashlib, importlib.metadata, json, os, shutil, signal, subprocess, sys, time, traceback, urllib.request
 from pathlib import Path
+from pilot_storage import storage_plan, verify_existing_runtime, verify_cached_model
 R=Path(__file__).resolve().parents[1]
 Q=R/'reports/requirement_pilot_queue'
 def read(p): return json.loads(Path(p).read_text())
@@ -35,50 +36,6 @@ def cache_env(config):
     for key,value in vals.items():
         if key.endswith('_DIR') or key.endswith('_HOME') or key in ['TMPDIR','MPLCONFIGDIR','NUMBA_CACHE_DIR']:Path(value).mkdir(parents=True,exist_ok=True)
     env.update(vals);write(Q/'effective_environment.json',vals);return env
-def setup_model(config,env,py):
-    # Pin all files to the already-resolved official repository revision; no substitutions.
-    script='''
-from huggingface_hub import HfApi,snapshot_download
-import json,hashlib
-from pathlib import Path
-config=json.loads(Path('config/requirement_generation.json').read_text())
-info=HfApi().model_info(config['model_repo'],revision=config['revision'],files_metadata=True)
-assert info.sha==config['revision']
-snapshot=Path(snapshot_download(config['model_repo'],revision=config['revision'],allow_patterns=['*.json','*.safetensors','*.jinja','*.txt','*.model','README.md'],max_workers=2))
-manifest={}
-for p in sorted(snapshot.rglob('*')):
- if p.is_file():
-  with p.open('rb') as f:h=hashlib.file_digest(f,'sha256').hexdigest()
-  manifest[str(p.relative_to(snapshot))]={'sha256':h,'bytes':p.stat().st_size}
-for sibling in info.siblings:
- if sibling.rfilename in manifest and sibling.lfs:
-  assert manifest[sibling.rfilename]['sha256']==sibling.lfs.sha256,sibling.rfilename
-assert any(n.endswith('.safetensors') for n in manifest)
-config['snapshot_path']=str(snapshot)
-Path('reports/requirement_pilot_queue/resolved_config.json').write_text(json.dumps(config,indent=2))
-Path('reports/requirement_pilot_queue/model_manifest.json').write_text(json.dumps({'repo':config['model_repo'],'revision':info.sha,'snapshot':str(snapshot),'files':manifest},indent=2))
-'''
-    script=script.replace("Path('config/requirement_generation.json')",f"Path({str(Q/'launch_config.json')!r})").replace('reports/requirement_pilot_queue/',str(Q)+'/')
-    file=Q/'download_model.py';file.write_text(script)
-    cmd=[str(py),str(file)]
-    with (Q/'setup.log').open('a') as log:
-        log.write('\nCOMMAND '+json.dumps(cmd)+'\n');log.flush()
-        download=subprocess.Popen(cmd,cwd=R,env=env,stdout=log,stderr=subprocess.STDOUT,start_new_session=True)
-        paused=False
-        try:
-            while download.poll() is None:
-                free=shutil.disk_usage(R).free/2**30
-                if free<config['disk_reserve_gib']+10 and not paused:
-                    os.killpg(download.pid,signal.SIGSTOP);paused=True
-                    status('download_paused_for_storage',free_gib=round(free,2),download_pid=download.pid)
-                elif paused and free>config['disk_reserve_gib']+config['weight_bytes']/2**30+20:
-                    os.killpg(download.pid,signal.SIGCONT);paused=False;status('downloading_pinned_model')
-                time.sleep(2)
-            if download.returncode:raise RuntimeError('Pinned download failed; see setup.log')
-        finally:
-            if download.poll() is None:
-                if paused:os.killpg(download.pid,signal.SIGCONT)
-                os.killpg(download.pid,signal.SIGTERM);download.wait(timeout=30)
 def main(config_path, output=None):
     global Q
     config=read(config_path)
@@ -93,15 +50,16 @@ def main(config_path, output=None):
     server=None
     try:
         while jobs():status('queued_waiting_for_gpu1',compute_jobs=jobs());time.sleep(30)
-        required=config['disk_reserve_gib']+config['environment_budget_gib']+config['weight_bytes']/2**30
-        while shutil.disk_usage(R).free/2**30<required:
-            status('queued_waiting_for_storage',required_free_gib=round(required,2),free_gib=round(shutil.disk_usage(R).free/2**30,2));time.sleep(30)
-        env=cache_env(config);venv=Path(config.get('environment_path',str(R/'.venv-requirements')));py=venv/'bin/python'
-        if not py.exists():run([sys.executable,'-m','venv',str(venv)],'setup.log',env)
-        status('installing_isolated_backend')
-        run([str(py),'-m','pip','install','vllm=='+config['vllm_version'],'transformers=='+config['transformers_version'],'jsonschema==4.26.0'],'setup.log',env)
-        run([str(py),'-m','pip','check'],'setup.log',env)
-        with (Q/'package_versions.txt').open('w') as f:subprocess.run([str(py),'-m','pip','freeze'],stdout=f,check=True)
+        out=Path(output) if output else R/'data/requirement_pilots'/datetime.datetime.now(datetime.timezone.utc).strftime('%Y%m%dT%H%M%SZ')
+        if not out.is_absolute():out=R/out
+        if out.exists():raise ValueError('Pilot output directory already exists; refusing overwrite')
+        plan=storage_plan(config,R,out);write(Q/'storage_plan.json',plan)
+        while not plan['sufficient']:
+            status('queued_waiting_for_storage',storage=plan);time.sleep(30)
+            plan=storage_plan(config,R,out);write(Q/'storage_plan.json',plan)
+        env=cache_env(config);venv=Path(config['environment_path'])
+        status('verifying_existing_pinned_runtime')
+        py=verify_existing_runtime(config,R,Q)
         # Save installed backend's handling of requested settings for verification, without environment/secrets.
         audit="""import inspect,json,pathlib,vllm,transformers,torch
 from vllm.entrypoints.openai.chat_completion.protocol import ChatCompletionRequest
@@ -128,7 +86,10 @@ pathlib.Path('reports/requirement_pilot_queue/backend_settings_audit.json').writ
 """
         audit=audit.replace("pathlib.Path('config/requirement_generation.json')",f"pathlib.Path({str(Q/'launch_config.json')!r})").replace('reports/requirement_pilot_queue/',str(Q)+'/')
         auditfile=Q/'audit_backend.py';auditfile.write_text(audit);run([str(py),str(auditfile)],'setup.log',env)
-        status('downloading_pinned_model');setup_model(config,env,py);config=read(Q/'resolved_config.json')
+        status('verifying_cached_pinned_model');verify_cached_model(config,R,Q)
+        write(Q/'resolved_config.json',config)
+        plan=storage_plan(config,R,out);write(Q/'storage_plan_verified.json',plan)
+        if not plan['sufficient']:raise RuntimeError('Storage changed during verification; refusing model load')
         if jobs():raise RuntimeError('GPU 1 acquired another compute job during setup; refusing model load')
         cmd=[str(venv/'bin/vllm'),'serve',config['snapshot_path'],'--served-model-name',config['model_repo'],
              '--revision',config['revision'],'--tokenizer-revision',config['revision'],
@@ -146,8 +107,7 @@ pathlib.Path('reports/requirement_pilot_queue/backend_settings_audit.json').writ
             except Exception:
                 if time.monotonic()>deadline:raise RuntimeError('Server startup timeout')
                 time.sleep(5)
-        stamp=datetime.datetime.now(datetime.timezone.utc).strftime('%Y%m%dT%H%M%SZ')
-        out=Path(output) if output else R/'data/requirement_pilots'/stamp;status('smoke_then_configured_generations',output=str(out),server_pid=server.pid)
+        status('smoke_then_configured_generations',output=str(out),server_pid=server.pid)
         run([str(py),str(R/'src/requirement_proposals.py'),'--project',str(R),'pilot','--config',str(Q/'resolved_config.json'),'--output',str(out)],'pilot.log',env)
         status('completed_pending_human_review',output=str(out),generations=len(config['generation']['seeds']))
     except BaseException:
