@@ -1,0 +1,9 @@
+{
+  "authorization": "User authorized development checker on existing 40-run development partition only, with proposed conservative scope",
+  "requirement_approval": false,
+  "human_labels_entered": false,
+  "detector_validated": false,
+  "requirement_scope_choices": "config.json and REVIEW_DECISIONS.md",
+  "human_reviewer_identity": "",
+  "approved_decision": null
+}

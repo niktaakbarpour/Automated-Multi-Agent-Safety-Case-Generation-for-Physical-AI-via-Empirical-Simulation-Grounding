@@ -1,0 +1,5 @@
+# Existing reused Hestia runtime; no installation or upgrade performed.
+numpy==2.5.3
+h5py==3.16.0
+mujoco==3.8.1
+Pillow==12.3.0

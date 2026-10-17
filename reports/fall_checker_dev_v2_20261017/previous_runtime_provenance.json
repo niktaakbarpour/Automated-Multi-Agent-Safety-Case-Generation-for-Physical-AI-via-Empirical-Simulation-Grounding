@@ -1,0 +1,37 @@
+{
+  "source_project_commit": "fda672f93bd00d74b7dfdbb1a4fa4e7f5a0bfe9b",
+  "source_project_dirty_status": "?? reports/fall_checker_dev_20261017/\n?? reports/fall_review_20261016/\n?? reports/fall_review_v2_20261016/\n?? reports/fall_review_v2_download_receipt.json\n?? reports/trustworthy-fall-checker-dev-20261017.zip\n?? reports/trustworthy-fall-review-20261016.zip\n?? reports/trustworthy-fall-review-v2-20261016.zip\n",
+  "development_source_hashes": {
+    "src/run_development.py": "9a827eef1c07804b87684fa1831f7c1beb4951b33ed38f73b31c85fcee390000",
+    "src/checker.py": "539eea92e833b4f9b5dfe832f5eb6c10611230eff2478f3bd4b6cae093853834",
+    "src/native_geometry_v2.py": "3d582b66656751a59bd981bbf007270dabf0d431822acd065114c3c38e51407c",
+    "src/export_clips.py": "4d6c57319bb478224702150fd1b129ec9f4f32ca6a11a8322adda96424232a3d",
+    "src/finalize_assessments.py": "31b08bda28d017f04c61b3d910b27d3198485d54c904066cb6cbc5619393c489",
+    "src/prepare_review.py": "9e29ced5636c2f97e5352ab7eec7742f6b7c2882f5d6211d7911b671ab3af2b2",
+    "src/package_release.py": "35474fef215955d400c92e5e3e918046e3e5ed07a16b294dfa5503ec63e7b0ee",
+    "tests/test_checker.py": "8e2a2303c4d588c47c7a4f7883df2f72df58d90a5a898fe57549fb406cee0350",
+    "tests/test_native_geometry_v2.py": "ac23c43bc241a2450a3087154d00cb79fc4d1073b7e66931aad73a5d612caae0"
+  },
+  "runtime_python": "/local/home/niktakbr/rdt-1b-libero/.venv/bin/python",
+  "python": "3.12.14 (main, Aug 13 2026, 00:00:00) [GCC 14.3.1 20251022 (Red Hat 14.3.1-4)]",
+  "platform": "Linux-6.12.0-211.49.1.el10_2.x86_64-x86_64-with-glibc2.39",
+  "packages": {
+    "numpy": "2.5.3",
+    "h5py": "3.16.0",
+    "mujoco": "3.8.1",
+    "Pillow": "12.3.0",
+    "imageio": "2.38.0",
+    "imageio-ffmpeg": "0.6.0"
+  },
+  "commands": [
+    "PYTHONDONTWRITEBYTECODE=1 python -m unittest discover -s tests -v",
+    "PYTHONDONTWRITEBYTECODE=1 python src/run_development.py --root . --output outputs",
+    "PYTHONDONTWRITEBYTECODE=1 python src/finalize_assessments.py .",
+    "PYTHONDONTWRITEBYTECODE=1 python src/export_clips.py .",
+    "PYTHONDONTWRITEBYTECODE=1 python src/prepare_review.py ."
+  ],
+  "history": "First-pass analysis and intermediate reassessment preserved in development_history; final conservative code reassesses the same exported development geometry/contact bundles. No additional original-recording access for reassessment.",
+  "dependencies_changed": false,
+  "physics_advanced": false,
+  "heldout_evaluated": false
+}

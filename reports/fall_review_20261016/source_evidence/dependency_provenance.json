@@ -1,0 +1,58 @@
+[
+  {
+    "source": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/libero/libero/envs/bddl_base_domain.py",
+    "copy": "libero__libero__envs__bddl_base_domain.py",
+    "sha256": "4f4da47dd241ac6590d66c7559d76e44b68669924207f53143ca3a4962921f24",
+    "producer_expected_sha256": "4f4da47dd241ac6590d66c7559d76e44b68669924207f53143ca3a4962921f24",
+    "matches_producer": true,
+    "qualification": "Compared with recorded evaluator provenance"
+  },
+  {
+    "source": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/libero/libero/envs/env_wrapper.py",
+    "copy": "libero__libero__envs__env_wrapper.py",
+    "sha256": "a782fb76c9792268d28979474fe72849e1e98ada49c8e997a65359a8d6b6acd0",
+    "producer_expected_sha256": "a782fb76c9792268d28979474fe72849e1e98ada49c8e997a65359a8d6b6acd0",
+    "matches_producer": true,
+    "qualification": "Compared with recorded evaluator provenance"
+  },
+  {
+    "source": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/environments/base.py",
+    "copy": "robosuite__environments__base.py",
+    "sha256": "3d55a1d8b0350478b7e7e8d1c7a1250c8f173b69a67016ecb9e65c6965e741f6",
+    "producer_expected_sha256": null,
+    "matches_producer": null,
+    "qualification": "No historical producer hash for this dependency file"
+  },
+  {
+    "source": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/utils/binding_utils.py",
+    "copy": "robosuite__utils__binding_utils.py",
+    "sha256": "f5c8aada3bc85d3e66b9c4719c62892f0a32e4ea3489f66cc9abcaa170282c04",
+    "producer_expected_sha256": null,
+    "matches_producer": null,
+    "qualification": "No historical producer hash for this dependency file"
+  },
+  {
+    "source": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/utils/observables.py",
+    "copy": "robosuite__utils__observables.py",
+    "sha256": "0368fbfca3b732915819f9618a30aa38b559cc343a45fc15fab8ef0d5e8f7446",
+    "producer_expected_sha256": null,
+    "matches_producer": null,
+    "qualification": "No historical producer hash for this dependency file"
+  },
+  {
+    "source": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/macros.py",
+    "copy": "robosuite__macros.py",
+    "sha256": "d09834e770db690f43f46d6dc93605efe316b8b5eb7fe6cf2bc1647df95a302d",
+    "producer_expected_sha256": null,
+    "matches_producer": null,
+    "qualification": "No historical producer hash for this dependency file"
+  },
+  {
+    "source": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/utils/transform_utils.py",
+    "copy": "robosuite__utils__transform_utils.py",
+    "sha256": "1c2317895733449883b56af0decefb3529649b3a7779dc2ef3ed00816bb25bb0",
+    "producer_expected_sha256": null,
+    "matches_producer": null,
+    "qualification": "No historical producer hash for this dependency file"
+  }
+]

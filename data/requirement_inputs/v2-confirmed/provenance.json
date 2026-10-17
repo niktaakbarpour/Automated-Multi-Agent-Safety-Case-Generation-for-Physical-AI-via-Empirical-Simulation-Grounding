@@ -1,0 +1,5807 @@
+{
+  "entity:living_room_table": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/scene_description/declared_fixtures/living_room_table",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "entity:alphabet_soup_1": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/scene_description/declared_objects/alphabet_soup_1",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "entity:cream_cheese_1": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/scene_description/declared_objects/cream_cheese_1",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "entity:tomato_sauce_1": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/scene_description/declared_objects/tomato_sauce_1",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "entity:ketchup_1": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/scene_description/declared_objects/ketchup_1",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "entity:orange_juice_1": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/scene_description/declared_objects/orange_juice_1",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "entity:milk_1": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/scene_description/declared_objects/milk_1",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "entity:butter_1": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/scene_description/declared_objects/butter_1",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "entity:basket_1": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/scene_description/declared_objects/basket_1",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "surface:floor": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/scene_description/native_surface_geometry/0",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "measurement:raw_observation:alphabet_soup_1_pos": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/available_measurements/common_raw_observation_keys/1",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "measurement:raw_observation:alphabet_soup_1_quat": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/available_measurements/common_raw_observation_keys/2",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "measurement:raw_observation:alphabet_soup_1_to_robot0_eef_pos": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/available_measurements/common_raw_observation_keys/3",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "measurement:raw_observation:alphabet_soup_1_to_robot0_eef_quat": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/available_measurements/common_raw_observation_keys/4",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "measurement:raw_observation:basket_1_pos": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/available_measurements/common_raw_observation_keys/5",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "measurement:raw_observation:basket_1_quat": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/available_measurements/common_raw_observation_keys/6",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "measurement:raw_observation:basket_1_to_robot0_eef_pos": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/available_measurements/common_raw_observation_keys/7",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "measurement:raw_observation:basket_1_to_robot0_eef_quat": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/available_measurements/common_raw_observation_keys/8",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "measurement:raw_observation:butter_1_pos": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/available_measurements/common_raw_observation_keys/9",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "measurement:raw_observation:butter_1_quat": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/available_measurements/common_raw_observation_keys/10",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "measurement:raw_observation:butter_1_to_robot0_eef_pos": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/available_measurements/common_raw_observation_keys/11",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "measurement:raw_observation:butter_1_to_robot0_eef_quat": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/available_measurements/common_raw_observation_keys/12",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "measurement:raw_observation:cream_cheese_1_pos": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/available_measurements/common_raw_observation_keys/13",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "measurement:raw_observation:cream_cheese_1_quat": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/available_measurements/common_raw_observation_keys/14",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "measurement:raw_observation:cream_cheese_1_to_robot0_eef_pos": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/available_measurements/common_raw_observation_keys/15",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "measurement:raw_observation:cream_cheese_1_to_robot0_eef_quat": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/available_measurements/common_raw_observation_keys/16",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "measurement:raw_observation:ketchup_1_pos": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/available_measurements/common_raw_observation_keys/17",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "measurement:raw_observation:ketchup_1_quat": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/available_measurements/common_raw_observation_keys/18",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "measurement:raw_observation:ketchup_1_to_robot0_eef_pos": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/available_measurements/common_raw_observation_keys/19",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "measurement:raw_observation:ketchup_1_to_robot0_eef_quat": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/available_measurements/common_raw_observation_keys/20",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "measurement:raw_observation:milk_1_pos": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/available_measurements/common_raw_observation_keys/21",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "measurement:raw_observation:milk_1_quat": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/available_measurements/common_raw_observation_keys/22",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "measurement:raw_observation:milk_1_to_robot0_eef_pos": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/available_measurements/common_raw_observation_keys/23",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "measurement:raw_observation:milk_1_to_robot0_eef_quat": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/available_measurements/common_raw_observation_keys/24",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "measurement:raw_observation:object-state": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/available_measurements/common_raw_observation_keys/25",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "measurement:raw_observation:orange_juice_1_pos": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/available_measurements/common_raw_observation_keys/26",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "measurement:raw_observation:orange_juice_1_quat": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/available_measurements/common_raw_observation_keys/27",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "measurement:raw_observation:orange_juice_1_to_robot0_eef_pos": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/available_measurements/common_raw_observation_keys/28",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "measurement:raw_observation:orange_juice_1_to_robot0_eef_quat": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/available_measurements/common_raw_observation_keys/29",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "measurement:raw_observation:robot0_eef_pos": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/available_measurements/common_raw_observation_keys/30",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "measurement:raw_observation:robot0_eef_quat": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/available_measurements/common_raw_observation_keys/31",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "measurement:raw_observation:robot0_gripper_qpos": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/available_measurements/common_raw_observation_keys/33",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "measurement:raw_observation:robot0_gripper_qvel": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/available_measurements/common_raw_observation_keys/34",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "measurement:raw_observation:robot0_joint_pos": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/available_measurements/common_raw_observation_keys/35",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "measurement:raw_observation:robot0_joint_pos_cos": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/available_measurements/common_raw_observation_keys/36",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "measurement:raw_observation:robot0_joint_pos_sin": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/available_measurements/common_raw_observation_keys/37",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "measurement:raw_observation:robot0_joint_vel": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/available_measurements/common_raw_observation_keys/38",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "measurement:raw_observation:robot0_proprio-state": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/available_measurements/common_raw_observation_keys/39",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "measurement:raw_observation:tomato_sauce_1_pos": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/available_measurements/common_raw_observation_keys/40",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "measurement:raw_observation:tomato_sauce_1_quat": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/available_measurements/common_raw_observation_keys/41",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "measurement:raw_observation:tomato_sauce_1_to_robot0_eef_pos": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/available_measurements/common_raw_observation_keys/42",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "measurement:raw_observation:tomato_sauce_1_to_robot0_eef_quat": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/available_measurements/common_raw_observation_keys/43",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "measurement:simulator:act": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/available_measurements/common_simulator_keys/0",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "measurement:simulator:actuator_force": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/available_measurements/common_simulator_keys/1",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "measurement:simulator:body_xpos": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/available_measurements/common_simulator_keys/2",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "measurement:simulator:body_xquat": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/available_measurements/common_simulator_keys/3",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "measurement:simulator:cfrc_ext": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/available_measurements/common_simulator_keys/4",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "measurement:simulator:contacts": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/available_measurements/common_simulator_keys/5",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "measurement:simulator:ctrl": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/available_measurements/common_simulator_keys/6",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "measurement:simulator:cvel": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/available_measurements/common_simulator_keys/7",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "measurement:simulator:flattened": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/available_measurements/common_simulator_keys/8",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "measurement:simulator:geom_xmat": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/available_measurements/common_simulator_keys/9",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "measurement:simulator:geom_xpos": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/available_measurements/common_simulator_keys/10",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "measurement:simulator:ncon": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/available_measurements/common_simulator_keys/11",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "measurement:simulator:qacc": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/available_measurements/common_simulator_keys/12",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "measurement:simulator:qpos": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/available_measurements/common_simulator_keys/13",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "measurement:simulator:qvel": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/available_measurements/common_simulator_keys/14",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "measurement:simulator:sensordata": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/available_measurements/common_simulator_keys/15",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "measurement:simulator:site_xmat": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/available_measurements/common_simulator_keys/16",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "measurement:simulator:site_xpos": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/available_measurements/common_simulator_keys/17",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "measurement:simulator:time": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/available_measurements/common_simulator_keys/18",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "instruction": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/task_instruction/recorded_policy_instruction",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "bddl_language": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/task_instruction/environment_bddl_language",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "intended_interaction": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/intended_interaction",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "measurement_limitations": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/available_measurements/missing_information",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "missing_information": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/missing_information",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "scope": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/scope",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "scene:declared_fixtures": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/scene_description/declared_fixtures",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "scene:declared_objects": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/scene_description/declared_objects",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "scene:regions": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/scene_description/regions",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "scene:native_surface_geometry": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/scene_description/native_surface_geometry",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "scene:containers_named_by_goal_predicates": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/scene_description/containers_named_by_goal_predicates",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "scene:initial_predicates": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/scene_description/initial_predicates",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "scene:scene_properties": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/scene_description/scene_properties",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "native_identity_bindings": {
+    "file": "data/tasks.json",
+    "json_pointer": "/records/30/facts/objects/reference_native_bindings",
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "preparation_sources": {
+    "data/tasks.json": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a",
+    "data/runs.json": "a3ef8102a622a379b115287ec9b882d8d8b88829954115970347d17c0c8994f6",
+    "reports/source_manifest.json": "e4adcf8475e1c3e7cdd7c07df626b58d717a11d2a6ea645128b31b9fc64cbbd5"
+  },
+  "reference_run_id": "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db",
+  "task_evidence": {
+    "bddl": {
+      "source_relative_path": "long/task_00/task.bddl",
+      "sha256": "2e661058917f683a25bce480015197f0a2c1911bcbc2b9dd9d947199069c9618",
+      "bytes": 3284
+    },
+    "task_metadata": {
+      "source_relative_path": "long/task_00/run_metadata.json",
+      "sha256": "c373ede5eacc3e21bd2eaa41a3c73dc8ec483818ab879e2e3cb32db47bd824dd",
+      "bytes": 113713
+    },
+    "reference_run_id": "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db"
+  },
+  "legacy_input_for_audit_only": {
+    "schema_version": "1.0.0",
+    "task_id": "2448c758145ae5ad500f",
+    "selection": {
+      "reason": "No designated development task found; stable task-ID order among tasks with verified exact instruction match; outcomes not consulted.",
+      "selected_using_outcomes": false
+    },
+    "recorded_policy_instruction": "put both the alphabet soup and the tomato sauce in the basket",
+    "environment_bddl_language": "put both the alphabet soup and the tomato sauce in the basket",
+    "instruction_mismatch": {
+      "exact_mismatch": false,
+      "meaning_review_status": "exact_match"
+    },
+    "entities": [
+      {
+        "entity_id": "living_room_table",
+        "kind": "fixture",
+        "category_label": "living_room_table",
+        "properties": {
+          "material": "unknown",
+          "fragility": "unknown"
+        },
+        "source_ref": "entity:living_room_table"
+      },
+      {
+        "entity_id": "alphabet_soup_1",
+        "kind": "object",
+        "category_label": "alphabet_soup",
+        "properties": {
+          "material": "unknown",
+          "fragility": "unknown"
+        },
+        "source_ref": "entity:alphabet_soup_1"
+      },
+      {
+        "entity_id": "cream_cheese_1",
+        "kind": "object",
+        "category_label": "cream_cheese",
+        "properties": {
+          "material": "unknown",
+          "fragility": "unknown"
+        },
+        "source_ref": "entity:cream_cheese_1"
+      },
+      {
+        "entity_id": "tomato_sauce_1",
+        "kind": "object",
+        "category_label": "tomato_sauce",
+        "properties": {
+          "material": "unknown",
+          "fragility": "unknown"
+        },
+        "source_ref": "entity:tomato_sauce_1"
+      },
+      {
+        "entity_id": "ketchup_1",
+        "kind": "object",
+        "category_label": "ketchup",
+        "properties": {
+          "material": "unknown",
+          "fragility": "unknown"
+        },
+        "source_ref": "entity:ketchup_1"
+      },
+      {
+        "entity_id": "orange_juice_1",
+        "kind": "object",
+        "category_label": "orange_juice",
+        "properties": {
+          "material": "unknown",
+          "fragility": "unknown"
+        },
+        "source_ref": "entity:orange_juice_1"
+      },
+      {
+        "entity_id": "milk_1",
+        "kind": "object",
+        "category_label": "milk",
+        "properties": {
+          "material": "unknown",
+          "fragility": "unknown"
+        },
+        "source_ref": "entity:milk_1"
+      },
+      {
+        "entity_id": "butter_1",
+        "kind": "object",
+        "category_label": "butter",
+        "properties": {
+          "material": "unknown",
+          "fragility": "unknown"
+        },
+        "source_ref": "entity:butter_1"
+      },
+      {
+        "entity_id": "basket_1",
+        "kind": "object",
+        "category_label": "basket",
+        "properties": {
+          "material": "unknown",
+          "fragility": "unknown"
+        },
+        "source_ref": "entity:basket_1"
+      },
+      {
+        "entity_id": "floor",
+        "kind": "native_surface",
+        "properties": {
+          "material": "unknown",
+          "fragility": "unknown"
+        },
+        "source_ref": "surface:floor"
+      }
+    ],
+    "scene": {
+      "declared_fixtures": {
+        "living_room_table": "living_room_table"
+      },
+      "declared_objects": {
+        "alphabet_soup_1": "alphabet_soup",
+        "cream_cheese_1": "cream_cheese",
+        "tomato_sauce_1": "tomato_sauce",
+        "ketchup_1": "ketchup",
+        "orange_juice_1": "orange_juice",
+        "milk_1": "milk",
+        "butter_1": "butter",
+        "basket_1": "basket"
+      },
+      "regions": {
+        "living_room_table_basket_init_region": {
+          "target": "living_room_table",
+          "ranges": [
+            [
+              -0.01,
+              0.25,
+              0.01,
+              0.27
+            ]
+          ],
+          "extra": [],
+          "yaw_rotation": [
+            0.0,
+            0.0
+          ],
+          "rgba": [
+            0,
+            0,
+            1,
+            0
+          ],
+          "target_declared_in_scene": true
+        },
+        "living_room_table_milk_init_region": {
+          "target": "living_room_table",
+          "ranges": [
+            [
+              0.025,
+              -0.125,
+              0.07500000000000001,
+              -0.07500000000000001
+            ]
+          ],
+          "extra": [],
+          "yaw_rotation": [
+            0.0,
+            0.0
+          ],
+          "rgba": [
+            0,
+            0,
+            1,
+            0
+          ],
+          "target_declared_in_scene": true
+        },
+        "living_room_table_cream_cheese_init_region": {
+          "target": "living_room_table",
+          "ranges": [
+            [
+              0.07500000000000001,
+              -0.225,
+              0.125,
+              -0.17500000000000002
+            ]
+          ],
+          "extra": [],
+          "yaw_rotation": [
+            0.0,
+            0.0
+          ],
+          "rgba": [
+            0,
+            0,
+            1,
+            0
+          ],
+          "target_declared_in_scene": true
+        },
+        "living_room_table_orange_juice_init_region": {
+          "target": "living_room_table",
+          "ranges": [
+            [
+              -0.025,
+              -0.275,
+              0.025,
+              -0.225
+            ]
+          ],
+          "extra": [],
+          "yaw_rotation": [
+            0.0,
+            0.0
+          ],
+          "rgba": [
+            0,
+            0,
+            1,
+            0
+          ],
+          "target_declared_in_scene": true
+        },
+        "living_room_table_tomato_sauce_init_region": {
+          "target": "living_room_table",
+          "ranges": [
+            [
+              -0.125,
+              0.025,
+              -0.07500000000000001,
+              0.07500000000000001
+            ]
+          ],
+          "extra": [],
+          "yaw_rotation": [
+            0.0,
+            0.0
+          ],
+          "rgba": [
+            0,
+            0,
+            1,
+            0
+          ],
+          "target_declared_in_scene": true
+        },
+        "living_room_table_alphabet_soup_init_region": {
+          "target": "living_room_table",
+          "ranges": [
+            [
+              -0.125,
+              -0.175,
+              -0.07500000000000001,
+              -0.125
+            ]
+          ],
+          "extra": [],
+          "yaw_rotation": [
+            0.0,
+            0.0
+          ],
+          "rgba": [
+            0,
+            0,
+            1,
+            0
+          ],
+          "target_declared_in_scene": true
+        },
+        "living_room_table_butter_init_region": {
+          "target": "living_room_table",
+          "ranges": [
+            [
+              0.025,
+              0.025,
+              0.07500000000000001,
+              0.07500000000000001
+            ]
+          ],
+          "extra": [],
+          "yaw_rotation": [
+            0.0,
+            0.0
+          ],
+          "rgba": [
+            0,
+            0,
+            1,
+            0
+          ],
+          "target_declared_in_scene": true
+        },
+        "living_room_table_ketchup_init_region": {
+          "target": "living_room_table",
+          "ranges": [
+            [
+              -0.275,
+              -0.175,
+              -0.225,
+              -0.125
+            ]
+          ],
+          "extra": [],
+          "yaw_rotation": [
+            0.0,
+            0.0
+          ],
+          "rgba": [
+            0,
+            0,
+            1,
+            0
+          ],
+          "target_declared_in_scene": true
+        },
+        "basket_1_contain_region": {
+          "target": "basket_1",
+          "ranges": [],
+          "extra": [],
+          "yaw_rotation": [
+            0,
+            0
+          ],
+          "rgba": [
+            0,
+            0,
+            1,
+            0
+          ],
+          "target_declared_in_scene": true
+        }
+      },
+      "native_surface_geometry": [
+        {
+          "native_body_name": "floor",
+          "geometries": [
+            {
+              "name": "floor",
+              "size": "3 3 0.125",
+              "type": "plane",
+              "group": "1",
+              "material": "floorplane"
+            }
+          ],
+          "selection_basis": "Actual XML body name; support-surface candidate, not a prohibited region"
+        },
+        {
+          "native_body_name": "living_room_table",
+          "geometries": [],
+          "selection_basis": "Actual XML body name; support-surface candidate, not a prohibited region"
+        }
+      ],
+      "containers_named_by_goal_predicates": [
+        {
+          "entity_name": "basket_1",
+          "source_goal_predicate": [
+            "in",
+            "alphabet_soup_1",
+            "basket_1_contain_region"
+          ],
+          "role_basis": "Destination of an actual environment In predicate"
+        },
+        {
+          "entity_name": "basket_1",
+          "source_goal_predicate": [
+            "in",
+            "tomato_sauce_1",
+            "basket_1_contain_region"
+          ],
+          "role_basis": "Destination of an actual environment In predicate"
+        }
+      ],
+      "initial_predicates": [
+        [
+          "on",
+          "alphabet_soup_1",
+          "living_room_table_alphabet_soup_init_region"
+        ],
+        [
+          "on",
+          "cream_cheese_1",
+          "living_room_table_cream_cheese_init_region"
+        ],
+        [
+          "on",
+          "tomato_sauce_1",
+          "living_room_table_tomato_sauce_init_region"
+        ],
+        [
+          "on",
+          "ketchup_1",
+          "living_room_table_ketchup_init_region"
+        ],
+        [
+          "on",
+          "milk_1",
+          "living_room_table_milk_init_region"
+        ],
+        [
+          "on",
+          "orange_juice_1",
+          "living_room_table_orange_juice_init_region"
+        ],
+        [
+          "on",
+          "butter_1",
+          "living_room_table_butter_init_region"
+        ],
+        [
+          "on",
+          "basket_1",
+          "living_room_table_basket_init_region"
+        ]
+      ],
+      "scene_properties": {}
+    },
+    "intended_interaction": {
+      "instruction": "put both the alphabet soup and the tomato sauce in the basket",
+      "environment_objects_of_interest": [
+        "alphabet_soup_1",
+        "tomato_sauce_1",
+        "basket_1"
+      ],
+      "environment_goal_predicates": [
+        [
+          "in",
+          "alphabet_soup_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "tomato_sauce_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "contact_plan": "Not explicitly specified; no allowed/prohibited contact policy inferred"
+    },
+    "measurement_inventory": [
+      {
+        "measurement_id": "raw_observation:alphabet_soup_1_pos",
+        "source_field": "/frames/<frame_id>/raw_observation/alphabet_soup_1_pos/value (serialized field; contacts use structured children)",
+        "known_meaning": "Recorded position or relative-position vector; consult source configuration for exact frame and units before checking.",
+        "source_ref": "measurement:raw_observation:alphabet_soup_1_pos"
+      },
+      {
+        "measurement_id": "raw_observation:alphabet_soup_1_quat",
+        "source_field": "/frames/<frame_id>/raw_observation/alphabet_soup_1_quat/value (serialized field; contacts use structured children)",
+        "known_meaning": "Recorded orientation or relative orientation quaternion; consult source configuration for ordering and frame.",
+        "source_ref": "measurement:raw_observation:alphabet_soup_1_quat"
+      },
+      {
+        "measurement_id": "raw_observation:alphabet_soup_1_to_robot0_eef_pos",
+        "source_field": "/frames/<frame_id>/raw_observation/alphabet_soup_1_to_robot0_eef_pos/value (serialized field; contacts use structured children)",
+        "known_meaning": "Recorded position or relative-position vector; consult source configuration for exact frame and units before checking.",
+        "source_ref": "measurement:raw_observation:alphabet_soup_1_to_robot0_eef_pos"
+      },
+      {
+        "measurement_id": "raw_observation:alphabet_soup_1_to_robot0_eef_quat",
+        "source_field": "/frames/<frame_id>/raw_observation/alphabet_soup_1_to_robot0_eef_quat/value (serialized field; contacts use structured children)",
+        "known_meaning": "Recorded orientation or relative orientation quaternion; consult source configuration for ordering and frame.",
+        "source_ref": "measurement:raw_observation:alphabet_soup_1_to_robot0_eef_quat"
+      },
+      {
+        "measurement_id": "raw_observation:basket_1_pos",
+        "source_field": "/frames/<frame_id>/raw_observation/basket_1_pos/value (serialized field; contacts use structured children)",
+        "known_meaning": "Recorded position or relative-position vector; consult source configuration for exact frame and units before checking.",
+        "source_ref": "measurement:raw_observation:basket_1_pos"
+      },
+      {
+        "measurement_id": "raw_observation:basket_1_quat",
+        "source_field": "/frames/<frame_id>/raw_observation/basket_1_quat/value (serialized field; contacts use structured children)",
+        "known_meaning": "Recorded orientation or relative orientation quaternion; consult source configuration for ordering and frame.",
+        "source_ref": "measurement:raw_observation:basket_1_quat"
+      },
+      {
+        "measurement_id": "raw_observation:basket_1_to_robot0_eef_pos",
+        "source_field": "/frames/<frame_id>/raw_observation/basket_1_to_robot0_eef_pos/value (serialized field; contacts use structured children)",
+        "known_meaning": "Recorded position or relative-position vector; consult source configuration for exact frame and units before checking.",
+        "source_ref": "measurement:raw_observation:basket_1_to_robot0_eef_pos"
+      },
+      {
+        "measurement_id": "raw_observation:basket_1_to_robot0_eef_quat",
+        "source_field": "/frames/<frame_id>/raw_observation/basket_1_to_robot0_eef_quat/value (serialized field; contacts use structured children)",
+        "known_meaning": "Recorded orientation or relative orientation quaternion; consult source configuration for ordering and frame.",
+        "source_ref": "measurement:raw_observation:basket_1_to_robot0_eef_quat"
+      },
+      {
+        "measurement_id": "raw_observation:butter_1_pos",
+        "source_field": "/frames/<frame_id>/raw_observation/butter_1_pos/value (serialized field; contacts use structured children)",
+        "known_meaning": "Recorded position or relative-position vector; consult source configuration for exact frame and units before checking.",
+        "source_ref": "measurement:raw_observation:butter_1_pos"
+      },
+      {
+        "measurement_id": "raw_observation:butter_1_quat",
+        "source_field": "/frames/<frame_id>/raw_observation/butter_1_quat/value (serialized field; contacts use structured children)",
+        "known_meaning": "Recorded orientation or relative orientation quaternion; consult source configuration for ordering and frame.",
+        "source_ref": "measurement:raw_observation:butter_1_quat"
+      },
+      {
+        "measurement_id": "raw_observation:butter_1_to_robot0_eef_pos",
+        "source_field": "/frames/<frame_id>/raw_observation/butter_1_to_robot0_eef_pos/value (serialized field; contacts use structured children)",
+        "known_meaning": "Recorded position or relative-position vector; consult source configuration for exact frame and units before checking.",
+        "source_ref": "measurement:raw_observation:butter_1_to_robot0_eef_pos"
+      },
+      {
+        "measurement_id": "raw_observation:butter_1_to_robot0_eef_quat",
+        "source_field": "/frames/<frame_id>/raw_observation/butter_1_to_robot0_eef_quat/value (serialized field; contacts use structured children)",
+        "known_meaning": "Recorded orientation or relative orientation quaternion; consult source configuration for ordering and frame.",
+        "source_ref": "measurement:raw_observation:butter_1_to_robot0_eef_quat"
+      },
+      {
+        "measurement_id": "raw_observation:cream_cheese_1_pos",
+        "source_field": "/frames/<frame_id>/raw_observation/cream_cheese_1_pos/value (serialized field; contacts use structured children)",
+        "known_meaning": "Recorded position or relative-position vector; consult source configuration for exact frame and units before checking.",
+        "source_ref": "measurement:raw_observation:cream_cheese_1_pos"
+      },
+      {
+        "measurement_id": "raw_observation:cream_cheese_1_quat",
+        "source_field": "/frames/<frame_id>/raw_observation/cream_cheese_1_quat/value (serialized field; contacts use structured children)",
+        "known_meaning": "Recorded orientation or relative orientation quaternion; consult source configuration for ordering and frame.",
+        "source_ref": "measurement:raw_observation:cream_cheese_1_quat"
+      },
+      {
+        "measurement_id": "raw_observation:cream_cheese_1_to_robot0_eef_pos",
+        "source_field": "/frames/<frame_id>/raw_observation/cream_cheese_1_to_robot0_eef_pos/value (serialized field; contacts use structured children)",
+        "known_meaning": "Recorded position or relative-position vector; consult source configuration for exact frame and units before checking.",
+        "source_ref": "measurement:raw_observation:cream_cheese_1_to_robot0_eef_pos"
+      },
+      {
+        "measurement_id": "raw_observation:cream_cheese_1_to_robot0_eef_quat",
+        "source_field": "/frames/<frame_id>/raw_observation/cream_cheese_1_to_robot0_eef_quat/value (serialized field; contacts use structured children)",
+        "known_meaning": "Recorded orientation or relative orientation quaternion; consult source configuration for ordering and frame.",
+        "source_ref": "measurement:raw_observation:cream_cheese_1_to_robot0_eef_quat"
+      },
+      {
+        "measurement_id": "raw_observation:ketchup_1_pos",
+        "source_field": "/frames/<frame_id>/raw_observation/ketchup_1_pos/value (serialized field; contacts use structured children)",
+        "known_meaning": "Recorded position or relative-position vector; consult source configuration for exact frame and units before checking.",
+        "source_ref": "measurement:raw_observation:ketchup_1_pos"
+      },
+      {
+        "measurement_id": "raw_observation:ketchup_1_quat",
+        "source_field": "/frames/<frame_id>/raw_observation/ketchup_1_quat/value (serialized field; contacts use structured children)",
+        "known_meaning": "Recorded orientation or relative orientation quaternion; consult source configuration for ordering and frame.",
+        "source_ref": "measurement:raw_observation:ketchup_1_quat"
+      },
+      {
+        "measurement_id": "raw_observation:ketchup_1_to_robot0_eef_pos",
+        "source_field": "/frames/<frame_id>/raw_observation/ketchup_1_to_robot0_eef_pos/value (serialized field; contacts use structured children)",
+        "known_meaning": "Recorded position or relative-position vector; consult source configuration for exact frame and units before checking.",
+        "source_ref": "measurement:raw_observation:ketchup_1_to_robot0_eef_pos"
+      },
+      {
+        "measurement_id": "raw_observation:ketchup_1_to_robot0_eef_quat",
+        "source_field": "/frames/<frame_id>/raw_observation/ketchup_1_to_robot0_eef_quat/value (serialized field; contacts use structured children)",
+        "known_meaning": "Recorded orientation or relative orientation quaternion; consult source configuration for ordering and frame.",
+        "source_ref": "measurement:raw_observation:ketchup_1_to_robot0_eef_quat"
+      },
+      {
+        "measurement_id": "raw_observation:milk_1_pos",
+        "source_field": "/frames/<frame_id>/raw_observation/milk_1_pos/value (serialized field; contacts use structured children)",
+        "known_meaning": "Recorded position or relative-position vector; consult source configuration for exact frame and units before checking.",
+        "source_ref": "measurement:raw_observation:milk_1_pos"
+      },
+      {
+        "measurement_id": "raw_observation:milk_1_quat",
+        "source_field": "/frames/<frame_id>/raw_observation/milk_1_quat/value (serialized field; contacts use structured children)",
+        "known_meaning": "Recorded orientation or relative orientation quaternion; consult source configuration for ordering and frame.",
+        "source_ref": "measurement:raw_observation:milk_1_quat"
+      },
+      {
+        "measurement_id": "raw_observation:milk_1_to_robot0_eef_pos",
+        "source_field": "/frames/<frame_id>/raw_observation/milk_1_to_robot0_eef_pos/value (serialized field; contacts use structured children)",
+        "known_meaning": "Recorded position or relative-position vector; consult source configuration for exact frame and units before checking.",
+        "source_ref": "measurement:raw_observation:milk_1_to_robot0_eef_pos"
+      },
+      {
+        "measurement_id": "raw_observation:milk_1_to_robot0_eef_quat",
+        "source_field": "/frames/<frame_id>/raw_observation/milk_1_to_robot0_eef_quat/value (serialized field; contacts use structured children)",
+        "known_meaning": "Recorded orientation or relative orientation quaternion; consult source configuration for ordering and frame.",
+        "source_ref": "measurement:raw_observation:milk_1_to_robot0_eef_quat"
+      },
+      {
+        "measurement_id": "raw_observation:object-state",
+        "source_field": "/frames/<frame_id>/raw_observation/object-state/value (serialized field; contacts use structured children)",
+        "known_meaning": "Recorded field; units, frame, and calibration require source review before checking.",
+        "source_ref": "measurement:raw_observation:object-state"
+      },
+      {
+        "measurement_id": "raw_observation:orange_juice_1_pos",
+        "source_field": "/frames/<frame_id>/raw_observation/orange_juice_1_pos/value (serialized field; contacts use structured children)",
+        "known_meaning": "Recorded position or relative-position vector; consult source configuration for exact frame and units before checking.",
+        "source_ref": "measurement:raw_observation:orange_juice_1_pos"
+      },
+      {
+        "measurement_id": "raw_observation:orange_juice_1_quat",
+        "source_field": "/frames/<frame_id>/raw_observation/orange_juice_1_quat/value (serialized field; contacts use structured children)",
+        "known_meaning": "Recorded orientation or relative orientation quaternion; consult source configuration for ordering and frame.",
+        "source_ref": "measurement:raw_observation:orange_juice_1_quat"
+      },
+      {
+        "measurement_id": "raw_observation:orange_juice_1_to_robot0_eef_pos",
+        "source_field": "/frames/<frame_id>/raw_observation/orange_juice_1_to_robot0_eef_pos/value (serialized field; contacts use structured children)",
+        "known_meaning": "Recorded position or relative-position vector; consult source configuration for exact frame and units before checking.",
+        "source_ref": "measurement:raw_observation:orange_juice_1_to_robot0_eef_pos"
+      },
+      {
+        "measurement_id": "raw_observation:orange_juice_1_to_robot0_eef_quat",
+        "source_field": "/frames/<frame_id>/raw_observation/orange_juice_1_to_robot0_eef_quat/value (serialized field; contacts use structured children)",
+        "known_meaning": "Recorded orientation or relative orientation quaternion; consult source configuration for ordering and frame.",
+        "source_ref": "measurement:raw_observation:orange_juice_1_to_robot0_eef_quat"
+      },
+      {
+        "measurement_id": "raw_observation:robot0_eef_pos",
+        "source_field": "/frames/<frame_id>/raw_observation/robot0_eef_pos/value (serialized field; contacts use structured children)",
+        "known_meaning": "Recorded position or relative-position vector; consult source configuration for exact frame and units before checking.",
+        "source_ref": "measurement:raw_observation:robot0_eef_pos"
+      },
+      {
+        "measurement_id": "raw_observation:robot0_eef_quat",
+        "source_field": "/frames/<frame_id>/raw_observation/robot0_eef_quat/value (serialized field; contacts use structured children)",
+        "known_meaning": "Recorded orientation or relative orientation quaternion; consult source configuration for ordering and frame.",
+        "source_ref": "measurement:raw_observation:robot0_eef_quat"
+      },
+      {
+        "measurement_id": "raw_observation:robot0_gripper_qpos",
+        "source_field": "/frames/<frame_id>/raw_observation/robot0_gripper_qpos/value (serialized field; contacts use structured children)",
+        "known_meaning": "Recorded robot joint/gripper position or velocity; no approved safety limits supplied.",
+        "source_ref": "measurement:raw_observation:robot0_gripper_qpos"
+      },
+      {
+        "measurement_id": "raw_observation:robot0_gripper_qvel",
+        "source_field": "/frames/<frame_id>/raw_observation/robot0_gripper_qvel/value (serialized field; contacts use structured children)",
+        "known_meaning": "Recorded robot joint/gripper position or velocity; no approved safety limits supplied.",
+        "source_ref": "measurement:raw_observation:robot0_gripper_qvel"
+      },
+      {
+        "measurement_id": "raw_observation:robot0_joint_pos",
+        "source_field": "/frames/<frame_id>/raw_observation/robot0_joint_pos/value (serialized field; contacts use structured children)",
+        "known_meaning": "Recorded robot joint/gripper position or velocity; no approved safety limits supplied.",
+        "source_ref": "measurement:raw_observation:robot0_joint_pos"
+      },
+      {
+        "measurement_id": "raw_observation:robot0_joint_pos_cos",
+        "source_field": "/frames/<frame_id>/raw_observation/robot0_joint_pos_cos/value (serialized field; contacts use structured children)",
+        "known_meaning": "Recorded field; units, frame, and calibration require source review before checking.",
+        "source_ref": "measurement:raw_observation:robot0_joint_pos_cos"
+      },
+      {
+        "measurement_id": "raw_observation:robot0_joint_pos_sin",
+        "source_field": "/frames/<frame_id>/raw_observation/robot0_joint_pos_sin/value (serialized field; contacts use structured children)",
+        "known_meaning": "Recorded field; units, frame, and calibration require source review before checking.",
+        "source_ref": "measurement:raw_observation:robot0_joint_pos_sin"
+      },
+      {
+        "measurement_id": "raw_observation:robot0_joint_vel",
+        "source_field": "/frames/<frame_id>/raw_observation/robot0_joint_vel/value (serialized field; contacts use structured children)",
+        "known_meaning": "Recorded robot joint/gripper position or velocity; no approved safety limits supplied.",
+        "source_ref": "measurement:raw_observation:robot0_joint_vel"
+      },
+      {
+        "measurement_id": "raw_observation:robot0_proprio-state",
+        "source_field": "/frames/<frame_id>/raw_observation/robot0_proprio-state/value (serialized field; contacts use structured children)",
+        "known_meaning": "Recorded field; units, frame, and calibration require source review before checking.",
+        "source_ref": "measurement:raw_observation:robot0_proprio-state"
+      },
+      {
+        "measurement_id": "raw_observation:tomato_sauce_1_pos",
+        "source_field": "/frames/<frame_id>/raw_observation/tomato_sauce_1_pos/value (serialized field; contacts use structured children)",
+        "known_meaning": "Recorded position or relative-position vector; consult source configuration for exact frame and units before checking.",
+        "source_ref": "measurement:raw_observation:tomato_sauce_1_pos"
+      },
+      {
+        "measurement_id": "raw_observation:tomato_sauce_1_quat",
+        "source_field": "/frames/<frame_id>/raw_observation/tomato_sauce_1_quat/value (serialized field; contacts use structured children)",
+        "known_meaning": "Recorded orientation or relative orientation quaternion; consult source configuration for ordering and frame.",
+        "source_ref": "measurement:raw_observation:tomato_sauce_1_quat"
+      },
+      {
+        "measurement_id": "raw_observation:tomato_sauce_1_to_robot0_eef_pos",
+        "source_field": "/frames/<frame_id>/raw_observation/tomato_sauce_1_to_robot0_eef_pos/value (serialized field; contacts use structured children)",
+        "known_meaning": "Recorded position or relative-position vector; consult source configuration for exact frame and units before checking.",
+        "source_ref": "measurement:raw_observation:tomato_sauce_1_to_robot0_eef_pos"
+      },
+      {
+        "measurement_id": "raw_observation:tomato_sauce_1_to_robot0_eef_quat",
+        "source_field": "/frames/<frame_id>/raw_observation/tomato_sauce_1_to_robot0_eef_quat/value (serialized field; contacts use structured children)",
+        "known_meaning": "Recorded orientation or relative orientation quaternion; consult source configuration for ordering and frame.",
+        "source_ref": "measurement:raw_observation:tomato_sauce_1_to_robot0_eef_quat"
+      },
+      {
+        "measurement_id": "simulator:act",
+        "source_field": "/frames/<frame_id>/simulator/act/value (serialized field; contacts use structured children)",
+        "known_meaning": "Recorded field; units, frame, and calibration require source review before checking.",
+        "source_ref": "measurement:simulator:act"
+      },
+      {
+        "measurement_id": "simulator:actuator_force",
+        "source_field": "/frames/<frame_id>/simulator/actuator_force/value (serialized field; contacts use structured children)",
+        "known_meaning": "Recorded field; units, frame, and calibration require source review before checking.",
+        "source_ref": "measurement:simulator:actuator_force"
+      },
+      {
+        "measurement_id": "simulator:body_xpos",
+        "source_field": "/frames/<frame_id>/simulator/body_xpos/value (serialized field; contacts use structured children)",
+        "known_meaning": "Recorded field; units, frame, and calibration require source review before checking.",
+        "source_ref": "measurement:simulator:body_xpos"
+      },
+      {
+        "measurement_id": "simulator:body_xquat",
+        "source_field": "/frames/<frame_id>/simulator/body_xquat/value (serialized field; contacts use structured children)",
+        "known_meaning": "Recorded field; units, frame, and calibration require source review before checking.",
+        "source_ref": "measurement:simulator:body_xquat"
+      },
+      {
+        "measurement_id": "simulator:cfrc_ext",
+        "source_field": "/frames/<frame_id>/simulator/cfrc_ext/value (serialized field; contacts use structured children)",
+        "known_meaning": "Body external force/torque array; not per-contact force or a damage signal.",
+        "source_ref": "measurement:simulator:cfrc_ext"
+      },
+      {
+        "measurement_id": "simulator:contacts",
+        "source_field": "/frames/<frame_id>/simulator/contacts/value (serialized field; contacts use structured children)",
+        "known_meaning": "Control-step contact geometry IDs, distance and position; no per-contact force or continuous substep coverage.",
+        "source_ref": "measurement:simulator:contacts"
+      },
+      {
+        "measurement_id": "simulator:ctrl",
+        "source_field": "/frames/<frame_id>/simulator/ctrl/value (serialized field; contacts use structured children)",
+        "known_meaning": "Recorded field; units, frame, and calibration require source review before checking.",
+        "source_ref": "measurement:simulator:ctrl"
+      },
+      {
+        "measurement_id": "simulator:cvel",
+        "source_field": "/frames/<frame_id>/simulator/cvel/value (serialized field; contacts use structured children)",
+        "known_meaning": "Recorded field; units, frame, and calibration require source review before checking.",
+        "source_ref": "measurement:simulator:cvel"
+      },
+      {
+        "measurement_id": "simulator:flattened",
+        "source_field": "/frames/<frame_id>/simulator/flattened/value (serialized field; contacts use structured children)",
+        "known_meaning": "Recorded field; units, frame, and calibration require source review before checking.",
+        "source_ref": "measurement:simulator:flattened"
+      },
+      {
+        "measurement_id": "simulator:geom_xmat",
+        "source_field": "/frames/<frame_id>/simulator/geom_xmat/value (serialized field; contacts use structured children)",
+        "known_meaning": "Recorded field; units, frame, and calibration require source review before checking.",
+        "source_ref": "measurement:simulator:geom_xmat"
+      },
+      {
+        "measurement_id": "simulator:geom_xpos",
+        "source_field": "/frames/<frame_id>/simulator/geom_xpos/value (serialized field; contacts use structured children)",
+        "known_meaning": "Recorded field; units, frame, and calibration require source review before checking.",
+        "source_ref": "measurement:simulator:geom_xpos"
+      },
+      {
+        "measurement_id": "simulator:ncon",
+        "source_field": "/frames/<frame_id>/simulator/ncon/value (serialized field; contacts use structured children)",
+        "known_meaning": "Recorded field; units, frame, and calibration require source review before checking.",
+        "source_ref": "measurement:simulator:ncon"
+      },
+      {
+        "measurement_id": "simulator:qacc",
+        "source_field": "/frames/<frame_id>/simulator/qacc/value (serialized field; contacts use structured children)",
+        "known_meaning": "Recorded field; units, frame, and calibration require source review before checking.",
+        "source_ref": "measurement:simulator:qacc"
+      },
+      {
+        "measurement_id": "simulator:qpos",
+        "source_field": "/frames/<frame_id>/simulator/qpos/value (serialized field; contacts use structured children)",
+        "known_meaning": "Recorded field; units, frame, and calibration require source review before checking.",
+        "source_ref": "measurement:simulator:qpos"
+      },
+      {
+        "measurement_id": "simulator:qvel",
+        "source_field": "/frames/<frame_id>/simulator/qvel/value (serialized field; contacts use structured children)",
+        "known_meaning": "Recorded field; units, frame, and calibration require source review before checking.",
+        "source_ref": "measurement:simulator:qvel"
+      },
+      {
+        "measurement_id": "simulator:sensordata",
+        "source_field": "/frames/<frame_id>/simulator/sensordata/value (serialized field; contacts use structured children)",
+        "known_meaning": "Raw sensor array; named channel offsets, units and calibration are not mapped.",
+        "source_ref": "measurement:simulator:sensordata"
+      },
+      {
+        "measurement_id": "simulator:site_xmat",
+        "source_field": "/frames/<frame_id>/simulator/site_xmat/value (serialized field; contacts use structured children)",
+        "known_meaning": "Recorded field; units, frame, and calibration require source review before checking.",
+        "source_ref": "measurement:simulator:site_xmat"
+      },
+      {
+        "measurement_id": "simulator:site_xpos",
+        "source_field": "/frames/<frame_id>/simulator/site_xpos/value (serialized field; contacts use structured children)",
+        "known_meaning": "Recorded field; units, frame, and calibration require source review before checking.",
+        "source_ref": "measurement:simulator:site_xpos"
+      },
+      {
+        "measurement_id": "simulator:time",
+        "source_field": "/frames/<frame_id>/simulator/time/value (serialized field; contacts use structured children)",
+        "known_meaning": "Recorded field; units, frame, and calibration require source review before checking.",
+        "source_ref": "measurement:simulator:time"
+      }
+    ],
+    "measurement_limitations": [
+      {
+        "item": "approved_safety_requirements_and_event_checkers",
+        "status": "not_provided",
+        "consequence": "No safety-event labels or safety-violation verdicts may be produced."
+      },
+      {
+        "item": "approved_intended_contact_and_protected_object_policy",
+        "status": "not_provided",
+        "consequence": "Task goals alone do not establish which contacts are unsafe."
+      },
+      {
+        "item": "object_fragility_damage_and_material_safety_annotations",
+        "status": "not_provided",
+        "consequence": "Do not invent fragile objects or infer damage from names or task failure."
+      },
+      {
+        "item": "continuous_physics_substep_video_and_contact_history",
+        "status": "not_recorded",
+        "consequence": "Control-step snapshots cannot prove absence of intervening contact."
+      },
+      {
+        "item": "validated_object_collision_extents_and_table_support_binding",
+        "status": "not_tabulated",
+        "consequence": "XML/asset provenance permits future derivation; a root pose alone does not prove a fall."
+      },
+      {
+        "item": "safety_limits_or_force_damage_thresholds",
+        "status": "not_approved",
+        "consequence": "No numeric safety limits are supplied or inferred."
+      },
+      {
+        "item": "per_contact_force_measurements",
+        "status": "not_in_contact_records",
+        "consequence": "Body cfrc_ext and named sensor channels are not per-contact force labels."
+      },
+      {
+        "item": "named_sensor_numeric_channel_offsets_units_and_calibration",
+        "status": "not_in_simulator_index",
+        "consequence": "Actual XML sensor declarations and raw sensordata are preserved; validate version-specific channel mapping before force checking."
+      }
+    ],
+    "missing_information": [
+      {
+        "item": "approved_safety_requirements_and_event_checkers",
+        "status": "not_provided",
+        "consequence": "No safety-event labels or safety-violation verdicts may be produced."
+      },
+      {
+        "item": "approved_intended_contact_and_protected_object_policy",
+        "status": "not_provided",
+        "consequence": "Task goals alone do not establish which contacts are unsafe."
+      },
+      {
+        "item": "object_fragility_damage_and_material_safety_annotations",
+        "status": "not_provided",
+        "consequence": "Do not invent fragile objects or infer damage from names or task failure."
+      },
+      {
+        "item": "continuous_physics_substep_video_and_contact_history",
+        "status": "not_recorded",
+        "consequence": "Control-step snapshots cannot prove absence of intervening contact."
+      },
+      {
+        "item": "validated_object_collision_extents_and_table_support_binding",
+        "status": "not_tabulated",
+        "consequence": "XML/asset provenance permits future derivation; a root pose alone does not prove a fall."
+      },
+      {
+        "item": "safety_limits_or_force_damage_thresholds",
+        "status": "not_approved",
+        "consequence": "No numeric safety limits are supplied or inferred."
+      },
+      {
+        "item": "per_contact_force_measurements",
+        "status": "not_in_contact_records",
+        "consequence": "Body cfrc_ext and named sensor channels are not per-contact force labels."
+      },
+      {
+        "item": "named_sensor_numeric_channel_offsets_units_and_calibration",
+        "status": "not_in_simulator_index",
+        "consequence": "Actual XML sensor declarations and raw sensordata are preserved; validate version-specific channel mapping before force checking."
+      }
+    ],
+    "unknown_properties": {
+      "human_presence": "unknown",
+      "restricted_regions": "unknown",
+      "physical_damage": "unknown"
+    },
+    "scope": {
+      "study_scope": "Use recorded OpenVLA-OFT FT-All LIBERO executions to check and revise LLM-generated safety cases. Evaluate whether evidence-linked arguments accurately reflect recorded executions. Argument revision is not claimed to make the robot safer.",
+      "benchmark": "LIBERO",
+      "canonical_suite": "libero_10",
+      "benchmark_task_id": 0,
+      "task_name": "LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket",
+      "task_horizon": 520,
+      "randomization": "no added domain randomization",
+      "initial_state_protocol": "episode index modulo official archive length",
+      "checkpoint": "moojink/openvla-7b-oft-finetuned-libero-spatial-object-goal-10",
+      "checkpoint_revision": "638918f3d1c2e43a39a8a20772bdb8b91835e4b7",
+      "task_success_is_not_safety": true
+    },
+    "source_refs": {
+      "entity:living_room_table": {
+        "file": "data/tasks.json",
+        "json_pointer": "/records/30/facts/scene_description/declared_fixtures/living_room_table"
+      },
+      "entity:alphabet_soup_1": {
+        "file": "data/tasks.json",
+        "json_pointer": "/records/30/facts/scene_description/declared_objects/alphabet_soup_1"
+      },
+      "entity:cream_cheese_1": {
+        "file": "data/tasks.json",
+        "json_pointer": "/records/30/facts/scene_description/declared_objects/cream_cheese_1"
+      },
+      "entity:tomato_sauce_1": {
+        "file": "data/tasks.json",
+        "json_pointer": "/records/30/facts/scene_description/declared_objects/tomato_sauce_1"
+      },
+      "entity:ketchup_1": {
+        "file": "data/tasks.json",
+        "json_pointer": "/records/30/facts/scene_description/declared_objects/ketchup_1"
+      },
+      "entity:orange_juice_1": {
+        "file": "data/tasks.json",
+        "json_pointer": "/records/30/facts/scene_description/declared_objects/orange_juice_1"
+      },
+      "entity:milk_1": {
+        "file": "data/tasks.json",
+        "json_pointer": "/records/30/facts/scene_description/declared_objects/milk_1"
+      },
+      "entity:butter_1": {
+        "file": "data/tasks.json",
+        "json_pointer": "/records/30/facts/scene_description/declared_objects/butter_1"
+      },
+      "entity:basket_1": {
+        "file": "data/tasks.json",
+        "json_pointer": "/records/30/facts/scene_description/declared_objects/basket_1"
+      },
+      "surface:floor": {
+        "file": "data/tasks.json",
+        "json_pointer": "/records/30/facts/scene_description/native_surface_geometry/0"
+      },
+      "measurement:raw_observation:alphabet_soup_1_pos": {
+        "file": "data/tasks.json",
+        "json_pointer": "/records/30/facts/available_measurements/common_raw_observation_keys/1"
+      },
+      "measurement:raw_observation:alphabet_soup_1_quat": {
+        "file": "data/tasks.json",
+        "json_pointer": "/records/30/facts/available_measurements/common_raw_observation_keys/2"
+      },
+      "measurement:raw_observation:alphabet_soup_1_to_robot0_eef_pos": {
+        "file": "data/tasks.json",
+        "json_pointer": "/records/30/facts/available_measurements/common_raw_observation_keys/3"
+      },
+      "measurement:raw_observation:alphabet_soup_1_to_robot0_eef_quat": {
+        "file": "data/tasks.json",
+        "json_pointer": "/records/30/facts/available_measurements/common_raw_observation_keys/4"
+      },
+      "measurement:raw_observation:basket_1_pos": {
+        "file": "data/tasks.json",
+        "json_pointer": "/records/30/facts/available_measurements/common_raw_observation_keys/5"
+      },
+      "measurement:raw_observation:basket_1_quat": {
+        "file": "data/tasks.json",
+        "json_pointer": "/records/30/facts/available_measurements/common_raw_observation_keys/6"
+      },
+      "measurement:raw_observation:basket_1_to_robot0_eef_pos": {
+        "file": "data/tasks.json",
+        "json_pointer": "/records/30/facts/available_measurements/common_raw_observation_keys/7"
+      },
+      "measurement:raw_observation:basket_1_to_robot0_eef_quat": {
+        "file": "data/tasks.json",
+        "json_pointer": "/records/30/facts/available_measurements/common_raw_observation_keys/8"
+      },
+      "measurement:raw_observation:butter_1_pos": {
+        "file": "data/tasks.json",
+        "json_pointer": "/records/30/facts/available_measurements/common_raw_observation_keys/9"
+      },
+      "measurement:raw_observation:butter_1_quat": {
+        "file": "data/tasks.json",
+        "json_pointer": "/records/30/facts/available_measurements/common_raw_observation_keys/10"
+      },
+      "measurement:raw_observation:butter_1_to_robot0_eef_pos": {
+        "file": "data/tasks.json",
+        "json_pointer": "/records/30/facts/available_measurements/common_raw_observation_keys/11"
+      },
+      "measurement:raw_observation:butter_1_to_robot0_eef_quat": {
+        "file": "data/tasks.json",
+        "json_pointer": "/records/30/facts/available_measurements/common_raw_observation_keys/12"
+      },
+      "measurement:raw_observation:cream_cheese_1_pos": {
+        "file": "data/tasks.json",
+        "json_pointer": "/records/30/facts/available_measurements/common_raw_observation_keys/13"
+      },
+      "measurement:raw_observation:cream_cheese_1_quat": {
+        "file": "data/tasks.json",
+        "json_pointer": "/records/30/facts/available_measurements/common_raw_observation_keys/14"
+      },
+      "measurement:raw_observation:cream_cheese_1_to_robot0_eef_pos": {
+        "file": "data/tasks.json",
+        "json_pointer": "/records/30/facts/available_measurements/common_raw_observation_keys/15"
+      },
+      "measurement:raw_observation:cream_cheese_1_to_robot0_eef_quat": {
+        "file": "data/tasks.json",
+        "json_pointer": "/records/30/facts/available_measurements/common_raw_observation_keys/16"
+      },
+      "measurement:raw_observation:ketchup_1_pos": {
+        "file": "data/tasks.json",
+        "json_pointer": "/records/30/facts/available_measurements/common_raw_observation_keys/17"
+      },
+      "measurement:raw_observation:ketchup_1_quat": {
+        "file": "data/tasks.json",
+        "json_pointer": "/records/30/facts/available_measurements/common_raw_observation_keys/18"
+      },
+      "measurement:raw_observation:ketchup_1_to_robot0_eef_pos": {
+        "file": "data/tasks.json",
+        "json_pointer": "/records/30/facts/available_measurements/common_raw_observation_keys/19"
+      },
+      "measurement:raw_observation:ketchup_1_to_robot0_eef_quat": {
+        "file": "data/tasks.json",
+        "json_pointer": "/records/30/facts/available_measurements/common_raw_observation_keys/20"
+      },
+      "measurement:raw_observation:milk_1_pos": {
+        "file": "data/tasks.json",
+        "json_pointer": "/records/30/facts/available_measurements/common_raw_observation_keys/21"
+      },
+      "measurement:raw_observation:milk_1_quat": {
+        "file": "data/tasks.json",
+        "json_pointer": "/records/30/facts/available_measurements/common_raw_observation_keys/22"
+      },
+      "measurement:raw_observation:milk_1_to_robot0_eef_pos": {
+        "file": "data/tasks.json",
+        "json_pointer": "/records/30/facts/available_measurements/common_raw_observation_keys/23"
+      },
+      "measurement:raw_observation:milk_1_to_robot0_eef_quat": {
+        "file": "data/tasks.json",
+        "json_pointer": "/records/30/facts/available_measurements/common_raw_observation_keys/24"
+      },
+      "measurement:raw_observation:object-state": {
+        "file": "data/tasks.json",
+        "json_pointer": "/records/30/facts/available_measurements/common_raw_observation_keys/25"
+      },
+      "measurement:raw_observation:orange_juice_1_pos": {
+        "file": "data/tasks.json",
+        "json_pointer": "/records/30/facts/available_measurements/common_raw_observation_keys/26"
+      },
+      "measurement:raw_observation:orange_juice_1_quat": {
+        "file": "data/tasks.json",
+        "json_pointer": "/records/30/facts/available_measurements/common_raw_observation_keys/27"
+      },
+      "measurement:raw_observation:orange_juice_1_to_robot0_eef_pos": {
+        "file": "data/tasks.json",
+        "json_pointer": "/records/30/facts/available_measurements/common_raw_observation_keys/28"
+      },
+      "measurement:raw_observation:orange_juice_1_to_robot0_eef_quat": {
+        "file": "data/tasks.json",
+        "json_pointer": "/records/30/facts/available_measurements/common_raw_observation_keys/29"
+      },
+      "measurement:raw_observation:robot0_eef_pos": {
+        "file": "data/tasks.json",
+        "json_pointer": "/records/30/facts/available_measurements/common_raw_observation_keys/30"
+      },
+      "measurement:raw_observation:robot0_eef_quat": {
+        "file": "data/tasks.json",
+        "json_pointer": "/records/30/facts/available_measurements/common_raw_observation_keys/31"
+      },
+      "measurement:raw_observation:robot0_gripper_qpos": {
+        "file": "data/tasks.json",
+        "json_pointer": "/records/30/facts/available_measurements/common_raw_observation_keys/33"
+      },
+      "measurement:raw_observation:robot0_gripper_qvel": {
+        "file": "data/tasks.json",
+        "json_pointer": "/records/30/facts/available_measurements/common_raw_observation_keys/34"
+      },
+      "measurement:raw_observation:robot0_joint_pos": {
+        "file": "data/tasks.json",
+        "json_pointer": "/records/30/facts/available_measurements/common_raw_observation_keys/35"
+      },
+      "measurement:raw_observation:robot0_joint_pos_cos": {
+        "file": "data/tasks.json",
+        "json_pointer": "/records/30/facts/available_measurements/common_raw_observation_keys/36"
+      },
+      "measurement:raw_observation:robot0_joint_pos_sin": {
+        "file": "data/tasks.json",
+        "json_pointer": "/records/30/facts/available_measurements/common_raw_observation_keys/37"
+      },
+      "measurement:raw_observation:robot0_joint_vel": {
+        "file": "data/tasks.json",
+        "json_pointer": "/records/30/facts/available_measurements/common_raw_observation_keys/38"
+      },
+      "measurement:raw_observation:robot0_proprio-state": {
+        "file": "data/tasks.json",
+        "json_pointer": "/records/30/facts/available_measurements/common_raw_observation_keys/39"
+      },
+      "measurement:raw_observation:tomato_sauce_1_pos": {
+        "file": "data/tasks.json",
+        "json_pointer": "/records/30/facts/available_measurements/common_raw_observation_keys/40"
+      },
+      "measurement:raw_observation:tomato_sauce_1_quat": {
+        "file": "data/tasks.json",
+        "json_pointer": "/records/30/facts/available_measurements/common_raw_observation_keys/41"
+      },
+      "measurement:raw_observation:tomato_sauce_1_to_robot0_eef_pos": {
+        "file": "data/tasks.json",
+        "json_pointer": "/records/30/facts/available_measurements/common_raw_observation_keys/42"
+      },
+      "measurement:raw_observation:tomato_sauce_1_to_robot0_eef_quat": {
+        "file": "data/tasks.json",
+        "json_pointer": "/records/30/facts/available_measurements/common_raw_observation_keys/43"
+      },
+      "measurement:simulator:act": {
+        "file": "data/tasks.json",
+        "json_pointer": "/records/30/facts/available_measurements/common_simulator_keys/0"
+      },
+      "measurement:simulator:actuator_force": {
+        "file": "data/tasks.json",
+        "json_pointer": "/records/30/facts/available_measurements/common_simulator_keys/1"
+      },
+      "measurement:simulator:body_xpos": {
+        "file": "data/tasks.json",
+        "json_pointer": "/records/30/facts/available_measurements/common_simulator_keys/2"
+      },
+      "measurement:simulator:body_xquat": {
+        "file": "data/tasks.json",
+        "json_pointer": "/records/30/facts/available_measurements/common_simulator_keys/3"
+      },
+      "measurement:simulator:cfrc_ext": {
+        "file": "data/tasks.json",
+        "json_pointer": "/records/30/facts/available_measurements/common_simulator_keys/4"
+      },
+      "measurement:simulator:contacts": {
+        "file": "data/tasks.json",
+        "json_pointer": "/records/30/facts/available_measurements/common_simulator_keys/5"
+      },
+      "measurement:simulator:ctrl": {
+        "file": "data/tasks.json",
+        "json_pointer": "/records/30/facts/available_measurements/common_simulator_keys/6"
+      },
+      "measurement:simulator:cvel": {
+        "file": "data/tasks.json",
+        "json_pointer": "/records/30/facts/available_measurements/common_simulator_keys/7"
+      },
+      "measurement:simulator:flattened": {
+        "file": "data/tasks.json",
+        "json_pointer": "/records/30/facts/available_measurements/common_simulator_keys/8"
+      },
+      "measurement:simulator:geom_xmat": {
+        "file": "data/tasks.json",
+        "json_pointer": "/records/30/facts/available_measurements/common_simulator_keys/9"
+      },
+      "measurement:simulator:geom_xpos": {
+        "file": "data/tasks.json",
+        "json_pointer": "/records/30/facts/available_measurements/common_simulator_keys/10"
+      },
+      "measurement:simulator:ncon": {
+        "file": "data/tasks.json",
+        "json_pointer": "/records/30/facts/available_measurements/common_simulator_keys/11"
+      },
+      "measurement:simulator:qacc": {
+        "file": "data/tasks.json",
+        "json_pointer": "/records/30/facts/available_measurements/common_simulator_keys/12"
+      },
+      "measurement:simulator:qpos": {
+        "file": "data/tasks.json",
+        "json_pointer": "/records/30/facts/available_measurements/common_simulator_keys/13"
+      },
+      "measurement:simulator:qvel": {
+        "file": "data/tasks.json",
+        "json_pointer": "/records/30/facts/available_measurements/common_simulator_keys/14"
+      },
+      "measurement:simulator:sensordata": {
+        "file": "data/tasks.json",
+        "json_pointer": "/records/30/facts/available_measurements/common_simulator_keys/15"
+      },
+      "measurement:simulator:site_xmat": {
+        "file": "data/tasks.json",
+        "json_pointer": "/records/30/facts/available_measurements/common_simulator_keys/16"
+      },
+      "measurement:simulator:site_xpos": {
+        "file": "data/tasks.json",
+        "json_pointer": "/records/30/facts/available_measurements/common_simulator_keys/17"
+      },
+      "measurement:simulator:time": {
+        "file": "data/tasks.json",
+        "json_pointer": "/records/30/facts/available_measurements/common_simulator_keys/18"
+      },
+      "instruction": {
+        "file": "data/tasks.json",
+        "json_pointer": "/records/30/facts/task_instruction/recorded_policy_instruction"
+      },
+      "bddl_language": {
+        "file": "data/tasks.json",
+        "json_pointer": "/records/30/facts/task_instruction/environment_bddl_language"
+      },
+      "intended_interaction": {
+        "file": "data/tasks.json",
+        "json_pointer": "/records/30/facts/intended_interaction"
+      },
+      "measurement_limitations": {
+        "file": "data/tasks.json",
+        "json_pointer": "/records/30/facts/available_measurements/missing_information"
+      },
+      "missing_information": {
+        "file": "data/tasks.json",
+        "json_pointer": "/records/30/facts/missing_information"
+      },
+      "scope": {
+        "file": "data/tasks.json",
+        "json_pointer": "/records/30/facts/scope"
+      },
+      "scene:declared_fixtures": {
+        "file": "data/tasks.json",
+        "json_pointer": "/records/30/facts/scene_description/declared_fixtures"
+      },
+      "scene:declared_objects": {
+        "file": "data/tasks.json",
+        "json_pointer": "/records/30/facts/scene_description/declared_objects"
+      },
+      "scene:regions": {
+        "file": "data/tasks.json",
+        "json_pointer": "/records/30/facts/scene_description/regions"
+      },
+      "scene:native_surface_geometry": {
+        "file": "data/tasks.json",
+        "json_pointer": "/records/30/facts/scene_description/native_surface_geometry"
+      },
+      "scene:containers_named_by_goal_predicates": {
+        "file": "data/tasks.json",
+        "json_pointer": "/records/30/facts/scene_description/containers_named_by_goal_predicates"
+      },
+      "scene:initial_predicates": {
+        "file": "data/tasks.json",
+        "json_pointer": "/records/30/facts/scene_description/initial_predicates"
+      },
+      "scene:scene_properties": {
+        "file": "data/tasks.json",
+        "json_pointer": "/records/30/facts/scene_description/scene_properties"
+      },
+      "native_identity_bindings": {
+        "file": "data/tasks.json",
+        "json_pointer": "/records/30/facts/objects/reference_native_bindings"
+      },
+      "bddl_file": {
+        "file": "evidence/task_definitions/2448c758145ae5ad500f.bddl",
+        "sha256": "2e661058917f683a25bce480015197f0a2c1911bcbc2b9dd9d947199069c9618",
+        "original_source": "long/task_00/task.bddl"
+      }
+    },
+    "source_file_sha256": {
+      "data/tasks.json": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+    },
+    "native_identity_bindings": [
+      {
+        "name": "alphabet_soup_1",
+        "kind": "object",
+        "root_body_name": "alphabet_soup_1_main",
+        "body_id": 21,
+        "native_ids_scope": "This run simulator_index.json; numeric IDs are not portable between runs"
+      },
+      {
+        "name": "cream_cheese_1",
+        "kind": "object",
+        "root_body_name": "cream_cheese_1_main",
+        "body_id": 22,
+        "native_ids_scope": "This run simulator_index.json; numeric IDs are not portable between runs"
+      },
+      {
+        "name": "tomato_sauce_1",
+        "kind": "object",
+        "root_body_name": "tomato_sauce_1_main",
+        "body_id": 23,
+        "native_ids_scope": "This run simulator_index.json; numeric IDs are not portable between runs"
+      },
+      {
+        "name": "ketchup_1",
+        "kind": "object",
+        "root_body_name": "ketchup_1_main",
+        "body_id": 24,
+        "native_ids_scope": "This run simulator_index.json; numeric IDs are not portable between runs"
+      },
+      {
+        "name": "orange_juice_1",
+        "kind": "object",
+        "root_body_name": "orange_juice_1_main",
+        "body_id": 25,
+        "native_ids_scope": "This run simulator_index.json; numeric IDs are not portable between runs"
+      },
+      {
+        "name": "milk_1",
+        "kind": "object",
+        "root_body_name": "milk_1_main",
+        "body_id": 26,
+        "native_ids_scope": "This run simulator_index.json; numeric IDs are not portable between runs"
+      },
+      {
+        "name": "butter_1",
+        "kind": "object",
+        "root_body_name": "butter_1_main",
+        "body_id": 27,
+        "native_ids_scope": "This run simulator_index.json; numeric IDs are not portable between runs"
+      },
+      {
+        "name": "basket_1",
+        "kind": "object",
+        "root_body_name": "basket_1_main",
+        "body_id": 28,
+        "native_ids_scope": "This run simulator_index.json; numeric IDs are not portable between runs"
+      }
+    ],
+    "native_identity_scope_run_id": "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db"
+  },
+  "complete_task_facts": {
+    "task_instruction": {
+      "text": "put both the alphabet soup and the tomato sauce in the basket",
+      "primary_source": "recorded_policy_instruction",
+      "recorded_policy_instruction": "put both the alphabet soup and the tomato sauce in the basket",
+      "environment_bddl_language": "put both the alphabet soup and the tomato sauce in the basket",
+      "exact_mismatch": false,
+      "fallback_used": false,
+      "evidence": {
+        "source": "trajectory.h5",
+        "hdf5_path": "/language_inputs/instruction"
+      },
+      "prompt_token_check": {
+        "inference_calls_checked": 31,
+        "exact_instruction_in_all_decoded_prompts": true,
+        "issues": [],
+        "decoded_prompt_variants": [
+          "<s> In: What action should the robot take to put both the alphabet soup and the tomato sauce in the basket?\nOut:"
+        ],
+        "tokenizer_sha256": "8f5e2869e1807b8bb3c7717a294539c37e9de5d728ad60e31ef57e83cc5ea527"
+      }
+    },
+    "objects": {
+      "reference_run_id": "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db",
+      "reference_native_bindings": [
+        {
+          "name": "alphabet_soup_1",
+          "kind": "object",
+          "category_name": "alphabet_soup",
+          "root_body_name": "alphabet_soup_1_main",
+          "body_id": 21,
+          "joint_ids": {
+            "alphabet_soup_1_joint0": 9
+          },
+          "geom_ids": {
+            "alphabet_soup_1_g0": 75,
+            "alphabet_soup_1_g1": 76,
+            "alphabet_soup_1_g2": 77,
+            "alphabet_soup_1_g3": 78,
+            "alphabet_soup_1_g4": 79,
+            "alphabet_soup_1_g5": 80,
+            "alphabet_soup_1_g6": 81,
+            "alphabet_soup_1_g7": 82,
+            "alphabet_soup_1_g8": 83,
+            "alphabet_soup_1_g9": 84,
+            "alphabet_soup_1_g10": 85,
+            "alphabet_soup_1_g11": 86,
+            "alphabet_soup_1_g12": 87,
+            "alphabet_soup_1_g13": 88,
+            "alphabet_soup_1_g14": 89,
+            "alphabet_soup_1_g15": 90,
+            "alphabet_soup_1_g16": 91,
+            "alphabet_soup_1_g17": 92,
+            "alphabet_soup_1_g18": 93,
+            "alphabet_soup_1_g19": 94,
+            "alphabet_soup_1_g20": 95,
+            "alphabet_soup_1_g21": 96
+          },
+          "initial_position_world_m": [
+            -0.09381554624133535,
+            -0.15042038680035066,
+            0.4751698094694409
+          ],
+          "initial_orientation_wxyz": [
+            -0.002413355626639959,
+            0.0022849958174009193,
+            0.7074553524058774,
+            0.7067502238139091
+          ],
+          "native_ids_scope": "This run simulator_index.json; numeric IDs are not portable between runs"
+        },
+        {
+          "name": "cream_cheese_1",
+          "kind": "object",
+          "category_name": "cream_cheese",
+          "root_body_name": "cream_cheese_1_main",
+          "body_id": 22,
+          "joint_ids": {
+            "cream_cheese_1_joint0": 10
+          },
+          "geom_ids": {
+            "cream_cheese_1_g0": 97,
+            "cream_cheese_1_g1": 98
+          },
+          "initial_position_world_m": [
+            0.07851475615653067,
+            -0.19384593250156518,
+            0.44569592152000004
+          ],
+          "initial_orientation_wxyz": [
+            -1.3181533159272422e-20,
+            4.518909990605476e-17,
+            1.5151171702703428e-17,
+            1.0
+          ],
+          "native_ids_scope": "This run simulator_index.json; numeric IDs are not portable between runs"
+        },
+        {
+          "name": "tomato_sauce_1",
+          "kind": "object",
+          "category_name": "tomato_sauce",
+          "root_body_name": "tomato_sauce_1_main",
+          "body_id": 23,
+          "joint_ids": {
+            "tomato_sauce_1_joint0": 11
+          },
+          "geom_ids": {
+            "tomato_sauce_1_g0": 99,
+            "tomato_sauce_1_g1": 100,
+            "tomato_sauce_1_g2": 101,
+            "tomato_sauce_1_g3": 102,
+            "tomato_sauce_1_g4": 103,
+            "tomato_sauce_1_g5": 104,
+            "tomato_sauce_1_g6": 105,
+            "tomato_sauce_1_g7": 106,
+            "tomato_sauce_1_g8": 107,
+            "tomato_sauce_1_g9": 108,
+            "tomato_sauce_1_g10": 109,
+            "tomato_sauce_1_g11": 110,
+            "tomato_sauce_1_g12": 111,
+            "tomato_sauce_1_g13": 112,
+            "tomato_sauce_1_g14": 113,
+            "tomato_sauce_1_g15": 114,
+            "tomato_sauce_1_g16": 115,
+            "tomato_sauce_1_g17": 116,
+            "tomato_sauce_1_g18": 117,
+            "tomato_sauce_1_g19": 118,
+            "tomato_sauce_1_g20": 119,
+            "tomato_sauce_1_g21": 120,
+            "tomato_sauce_1_g22": 121,
+            "tomato_sauce_1_g23": 122,
+            "tomato_sauce_1_g24": 123
+          },
+          "initial_position_world_m": [
+            -0.11728844084700195,
+            0.05575548547705468,
+            0.47516927848924284
+          ],
+          "initial_orientation_wxyz": [
+            -0.0024677216973359754,
+            0.0022070378667394786,
+            0.7074518281383775,
+            0.7067538115901093
+          ],
+          "native_ids_scope": "This run simulator_index.json; numeric IDs are not portable between runs"
+        },
+        {
+          "name": "ketchup_1",
+          "kind": "object",
+          "category_name": "ketchup",
+          "root_body_name": "ketchup_1_main",
+          "body_id": 24,
+          "joint_ids": {
+            "ketchup_1_joint0": 12
+          },
+          "geom_ids": {
+            "ketchup_1_g0": 124,
+            "ketchup_1_g1": 125,
+            "ketchup_1_g2": 126,
+            "ketchup_1_g3": 127,
+            "ketchup_1_g4": 128,
+            "ketchup_1_g5": 129,
+            "ketchup_1_g6": 130,
+            "ketchup_1_g7": 131,
+            "ketchup_1_g8": 132,
+            "ketchup_1_g9": 133,
+            "ketchup_1_g10": 134,
+            "ketchup_1_g11": 135,
+            "ketchup_1_g12": 136
+          },
+          "initial_position_world_m": [
+            -0.26845992548397624,
+            -0.1485744190370726,
+            1.0536806762243625
+          ],
+          "initial_orientation_wxyz": [
+            0.5000554701337877,
+            0.499944493943911,
+            0.4998124206486814,
+            0.5001875387589619
+          ],
+          "native_ids_scope": "This run simulator_index.json; numeric IDs are not portable between runs"
+        },
+        {
+          "name": "orange_juice_1",
+          "kind": "object",
+          "category_name": "orange_juice",
+          "root_body_name": "orange_juice_1_main",
+          "body_id": 25,
+          "joint_ids": {
+            "orange_juice_1_joint0": 13
+          },
+          "geom_ids": {
+            "orange_juice_1_g0": 137,
+            "orange_juice_1_g1": 138,
+            "orange_juice_1_g2": 139,
+            "orange_juice_1_g3": 140,
+            "orange_juice_1_g4": 141
+          },
+          "initial_position_world_m": [
+            0.009971284083402258,
+            -0.2592464175819222,
+            0.8921157910606445
+          ],
+          "initial_orientation_wxyz": [
+            0.50004332866547,
+            0.4999566676859257,
+            0.5000435765236552,
+            0.49995641957171844
+          ],
+          "native_ids_scope": "This run simulator_index.json; numeric IDs are not portable between runs"
+        },
+        {
+          "name": "milk_1",
+          "kind": "object",
+          "category_name": "milk",
+          "root_body_name": "milk_1_main",
+          "body_id": 26,
+          "joint_ids": {
+            "milk_1_joint0": 14
+          },
+          "geom_ids": {
+            "milk_1_g0": 142,
+            "milk_1_g1": 143,
+            "milk_1_g2": 144,
+            "milk_1_g3": 145,
+            "milk_1_g4": 146
+          },
+          "initial_position_world_m": [
+            0.049267152623087285,
+            -0.1214023401857795,
+            0.8921157910598608
+          ],
+          "initial_orientation_wxyz": [
+            0.499956667686053,
+            0.5000433286653428,
+            0.4999564195715867,
+            0.500043576523786
+          ],
+          "native_ids_scope": "This run simulator_index.json; numeric IDs are not portable between runs"
+        },
+        {
+          "name": "butter_1",
+          "kind": "object",
+          "category_name": "butter",
+          "root_body_name": "butter_1_main",
+          "body_id": 27,
+          "joint_ids": {
+            "butter_1_joint0": 15
+          },
+          "geom_ids": {
+            "butter_1_g0": 147,
+            "butter_1_g1": 148
+          },
+          "initial_position_world_m": [
+            0.07044719834440562,
+            0.05265617771943741,
+            0.44546992152000003
+          ],
+          "initial_orientation_wxyz": [
+            -5.666756303554149e-20,
+            -3.929311323188711e-17,
+            1.4978346745961767e-17,
+            1.0
+          ],
+          "native_ids_scope": "This run simulator_index.json; numeric IDs are not portable between runs"
+        },
+        {
+          "name": "basket_1",
+          "kind": "object",
+          "category_name": "basket",
+          "root_body_name": "basket_1_main",
+          "body_id": 28,
+          "joint_ids": {
+            "basket_1_joint0": 16
+          },
+          "geom_ids": {
+            "basket_1_g0": 149,
+            "basket_1_g1": 150,
+            "basket_1_g2": 151,
+            "basket_1_g3": 152,
+            "basket_1_g4": 153,
+            "basket_1_g5": 154
+          },
+          "initial_position_world_m": [
+            -0.002115499018305853,
+            0.2689851938137835,
+            0.43219210516477036
+          ],
+          "initial_orientation_wxyz": [
+            0.7071047279169312,
+            -0.0016949951945791446,
+            0.0016949940570028825,
+            0.7071047714051719
+          ],
+          "native_ids_scope": "This run simulator_index.json; numeric IDs are not portable between runs"
+        }
+      ],
+      "native_ids_must_be_read_per_run": true
+    },
+    "scene_description": {
+      "declared_fixtures": {
+        "living_room_table": "living_room_table"
+      },
+      "declared_objects": {
+        "alphabet_soup_1": "alphabet_soup",
+        "cream_cheese_1": "cream_cheese",
+        "tomato_sauce_1": "tomato_sauce",
+        "ketchup_1": "ketchup",
+        "orange_juice_1": "orange_juice",
+        "milk_1": "milk",
+        "butter_1": "butter",
+        "basket_1": "basket"
+      },
+      "regions": {
+        "living_room_table_basket_init_region": {
+          "target": "living_room_table",
+          "ranges": [
+            [
+              -0.01,
+              0.25,
+              0.01,
+              0.27
+            ]
+          ],
+          "extra": [],
+          "yaw_rotation": [
+            0.0,
+            0.0
+          ],
+          "rgba": [
+            0,
+            0,
+            1,
+            0
+          ],
+          "target_declared_in_scene": true
+        },
+        "living_room_table_milk_init_region": {
+          "target": "living_room_table",
+          "ranges": [
+            [
+              0.025,
+              -0.125,
+              0.07500000000000001,
+              -0.07500000000000001
+            ]
+          ],
+          "extra": [],
+          "yaw_rotation": [
+            0.0,
+            0.0
+          ],
+          "rgba": [
+            0,
+            0,
+            1,
+            0
+          ],
+          "target_declared_in_scene": true
+        },
+        "living_room_table_cream_cheese_init_region": {
+          "target": "living_room_table",
+          "ranges": [
+            [
+              0.07500000000000001,
+              -0.225,
+              0.125,
+              -0.17500000000000002
+            ]
+          ],
+          "extra": [],
+          "yaw_rotation": [
+            0.0,
+            0.0
+          ],
+          "rgba": [
+            0,
+            0,
+            1,
+            0
+          ],
+          "target_declared_in_scene": true
+        },
+        "living_room_table_orange_juice_init_region": {
+          "target": "living_room_table",
+          "ranges": [
+            [
+              -0.025,
+              -0.275,
+              0.025,
+              -0.225
+            ]
+          ],
+          "extra": [],
+          "yaw_rotation": [
+            0.0,
+            0.0
+          ],
+          "rgba": [
+            0,
+            0,
+            1,
+            0
+          ],
+          "target_declared_in_scene": true
+        },
+        "living_room_table_tomato_sauce_init_region": {
+          "target": "living_room_table",
+          "ranges": [
+            [
+              -0.125,
+              0.025,
+              -0.07500000000000001,
+              0.07500000000000001
+            ]
+          ],
+          "extra": [],
+          "yaw_rotation": [
+            0.0,
+            0.0
+          ],
+          "rgba": [
+            0,
+            0,
+            1,
+            0
+          ],
+          "target_declared_in_scene": true
+        },
+        "living_room_table_alphabet_soup_init_region": {
+          "target": "living_room_table",
+          "ranges": [
+            [
+              -0.125,
+              -0.175,
+              -0.07500000000000001,
+              -0.125
+            ]
+          ],
+          "extra": [],
+          "yaw_rotation": [
+            0.0,
+            0.0
+          ],
+          "rgba": [
+            0,
+            0,
+            1,
+            0
+          ],
+          "target_declared_in_scene": true
+        },
+        "living_room_table_butter_init_region": {
+          "target": "living_room_table",
+          "ranges": [
+            [
+              0.025,
+              0.025,
+              0.07500000000000001,
+              0.07500000000000001
+            ]
+          ],
+          "extra": [],
+          "yaw_rotation": [
+            0.0,
+            0.0
+          ],
+          "rgba": [
+            0,
+            0,
+            1,
+            0
+          ],
+          "target_declared_in_scene": true
+        },
+        "living_room_table_ketchup_init_region": {
+          "target": "living_room_table",
+          "ranges": [
+            [
+              -0.275,
+              -0.175,
+              -0.225,
+              -0.125
+            ]
+          ],
+          "extra": [],
+          "yaw_rotation": [
+            0.0,
+            0.0
+          ],
+          "rgba": [
+            0,
+            0,
+            1,
+            0
+          ],
+          "target_declared_in_scene": true
+        },
+        "basket_1_contain_region": {
+          "target": "basket_1",
+          "ranges": [],
+          "extra": [],
+          "yaw_rotation": [
+            0,
+            0
+          ],
+          "rgba": [
+            0,
+            0,
+            1,
+            0
+          ],
+          "target_declared_in_scene": true
+        }
+      },
+      "native_surface_geometry": [
+        {
+          "native_body_name": "floor",
+          "geometries": [
+            {
+              "name": "floor",
+              "size": "3 3 0.125",
+              "type": "plane",
+              "group": "1",
+              "material": "floorplane"
+            }
+          ],
+          "selection_basis": "Actual XML body name; support-surface candidate, not a prohibited region"
+        },
+        {
+          "native_body_name": "living_room_table",
+          "geometries": [],
+          "selection_basis": "Actual XML body name; support-surface candidate, not a prohibited region"
+        }
+      ],
+      "containers_named_by_goal_predicates": [
+        {
+          "entity_name": "basket_1",
+          "source_goal_predicate": [
+            "in",
+            "alphabet_soup_1",
+            "basket_1_contain_region"
+          ],
+          "role_basis": "Destination of an actual environment In predicate"
+        },
+        {
+          "entity_name": "basket_1",
+          "source_goal_predicate": [
+            "in",
+            "tomato_sauce_1",
+            "basket_1_contain_region"
+          ],
+          "role_basis": "Destination of an actual environment In predicate"
+        }
+      ],
+      "initial_predicates": [
+        [
+          "on",
+          "alphabet_soup_1",
+          "living_room_table_alphabet_soup_init_region"
+        ],
+        [
+          "on",
+          "cream_cheese_1",
+          "living_room_table_cream_cheese_init_region"
+        ],
+        [
+          "on",
+          "tomato_sauce_1",
+          "living_room_table_tomato_sauce_init_region"
+        ],
+        [
+          "on",
+          "ketchup_1",
+          "living_room_table_ketchup_init_region"
+        ],
+        [
+          "on",
+          "milk_1",
+          "living_room_table_milk_init_region"
+        ],
+        [
+          "on",
+          "orange_juice_1",
+          "living_room_table_orange_juice_init_region"
+        ],
+        [
+          "on",
+          "butter_1",
+          "living_room_table_butter_init_region"
+        ],
+        [
+          "on",
+          "basket_1",
+          "living_room_table_basket_init_region"
+        ]
+      ],
+      "scene_properties": {},
+      "recorded_background_settings": {
+        "mat_rgba": [
+          [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          [
+            0.9019610285758972,
+            0.9215689897537231,
+            0.9294120073318481,
+            1.0
+          ],
+          [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          [
+            0.9019610285758972,
+            0.9215689897537231,
+            0.9294120073318481,
+            1.0
+          ],
+          [
+            0.2509799897670746,
+            0.2509799897670746,
+            0.2509799897670746,
+            1.0
+          ],
+          [
+            0.2509799897670746,
+            0.2509799897670746,
+            0.2509799897670746,
+            1.0
+          ],
+          [
+            0.9019610285758972,
+            0.9215689897537231,
+            0.9294120073318481,
+            1.0
+          ],
+          [
+            0.9019610285758972,
+            0.9215689897537231,
+            0.9294120073318481,
+            1.0
+          ],
+          [
+            0.2509799897670746,
+            0.2509799897670746,
+            0.2509799897670746,
+            1.0
+          ],
+          [
+            0.9019610285758972,
+            0.9215689897537231,
+            0.9294120073318481,
+            1.0
+          ],
+          [
+            0.2509799897670746,
+            0.2509799897670746,
+            0.2509799897670746,
+            1.0
+          ],
+          [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          [
+            0.2509799897670746,
+            0.2509799897670746,
+            0.2509799897670746,
+            1.0
+          ],
+          [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          [
+            0.2509799897670746,
+            0.2509799897670746,
+            0.2509799897670746,
+            1.0
+          ],
+          [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          [
+            0.25,
+            0.25,
+            0.25,
+            1.0
+          ],
+          [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          [
+            1.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            1.0
+          ],
+          [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          [
+            0.2509799897670746,
+            0.2509799897670746,
+            0.2509799897670746,
+            1.0
+          ],
+          [
+            0.2509799897670746,
+            0.2509799897670746,
+            0.2509799897670746,
+            1.0
+          ],
+          [
+            0.2509799897670746,
+            0.2509799897670746,
+            0.2509799897670746,
+            1.0
+          ],
+          [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          [
+            0.9019610285758972,
+            0.9215689897537231,
+            0.9294120073318481,
+            1.0
+          ],
+          [
+            0.25,
+            0.25,
+            0.25,
+            1.0
+          ],
+          [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          [
+            0.2509799897670746,
+            0.2509799897670746,
+            0.2509799897670746,
+            1.0
+          ],
+          [
+            0.03921600058674812,
+            0.5411760210990906,
+            0.7803919911384583,
+            1.0
+          ],
+          [
+            0.03921600058674812,
+            0.5411760210990906,
+            0.7803919911384583,
+            1.0
+          ],
+          [
+            0.2509799897670746,
+            0.2509799897670746,
+            0.2509799897670746,
+            1.0
+          ],
+          [
+            0.2509799897670746,
+            0.2509799897670746,
+            0.2509799897670746,
+            1.0
+          ],
+          [
+            0.2509799897670746,
+            0.2509799897670746,
+            0.2509799897670746,
+            1.0
+          ],
+          [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          [
+            0.2509799897670746,
+            0.2509799897670746,
+            0.2509799897670746,
+            1.0
+          ],
+          [
+            0.2509799897670746,
+            0.2509799897670746,
+            0.2509799897670746,
+            1.0
+          ],
+          [
+            0.2509799897670746,
+            0.2509799897670746,
+            0.2509799897670746,
+            1.0
+          ],
+          [
+            0.8980389833450317,
+            0.9176470041275024,
+            0.9294120073318481,
+            1.0
+          ],
+          [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        ],
+        "mat_texid": [
+          [
+            -1,
+            1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1
+          ],
+          [
+            -1,
+            2,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1
+          ],
+          [
+            -1,
+            3,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1
+          ],
+          [
+            -1,
+            4,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1
+          ],
+          [
+            -1,
+            5,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1
+          ],
+          [
+            -1,
+            6,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1
+          ],
+          [
+            -1,
+            7,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1
+          ],
+          [
+            -1,
+            8,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1
+          ],
+          [
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1
+          ],
+          [
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1
+          ],
+          [
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1
+          ],
+          [
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1
+          ],
+          [
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1
+          ],
+          [
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1
+          ],
+          [
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1
+          ],
+          [
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1
+          ],
+          [
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1
+          ],
+          [
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1
+          ],
+          [
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1
+          ],
+          [
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1
+          ],
+          [
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1
+          ],
+          [
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1
+          ],
+          [
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1
+          ],
+          [
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1
+          ],
+          [
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1
+          ],
+          [
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1
+          ],
+          [
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1
+          ],
+          [
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1
+          ],
+          [
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1
+          ],
+          [
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1
+          ],
+          [
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1
+          ],
+          [
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1
+          ],
+          [
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1
+          ],
+          [
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1
+          ],
+          [
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1
+          ],
+          [
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1
+          ],
+          [
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1
+          ],
+          [
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1
+          ],
+          [
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1
+          ],
+          [
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1
+          ],
+          [
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1
+          ],
+          [
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1
+          ],
+          [
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1
+          ],
+          [
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1
+          ],
+          [
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1
+          ],
+          [
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1
+          ],
+          [
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1
+          ],
+          [
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1
+          ],
+          [
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1
+          ],
+          [
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1
+          ],
+          [
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1
+          ],
+          [
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1
+          ],
+          [
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1
+          ],
+          [
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1
+          ],
+          [
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1
+          ],
+          [
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1
+          ],
+          [
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1
+          ],
+          [
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1
+          ],
+          [
+            -1,
+            9,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1
+          ],
+          [
+            -1,
+            10,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1
+          ],
+          [
+            -1,
+            11,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1
+          ],
+          [
+            -1,
+            12,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1
+          ],
+          [
+            -1,
+            13,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1
+          ],
+          [
+            -1,
+            14,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1
+          ],
+          [
+            -1,
+            15,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1
+          ],
+          [
+            -1,
+            16,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1
+          ]
+        ],
+        "mat_shininess": [
+          0.0,
+          0.0,
+          0.800000011920929,
+          0.20000000298023224,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.44999998807907104,
+          0.44999998807907104,
+          0.44999998807907104,
+          0.44999998807907104,
+          0.44999998807907104,
+          0.44999998807907104,
+          0.44999998807907104,
+          0.44999998807907104,
+          0.44999998807907104,
+          0.44999998807907104,
+          0.44999998807907104,
+          0.44999998807907104,
+          0.44999998807907104,
+          0.44999998807907104,
+          0.44999998807907104,
+          0.44999998807907104,
+          0.44999998807907104,
+          0.44999998807907104,
+          0.44999998807907104,
+          0.44999998807907104,
+          0.44999998807907104,
+          0.44999998807907104,
+          0.44999998807907104,
+          0.44999998807907104,
+          0.44999998807907104,
+          0.44999998807907104,
+          0.44999998807907104,
+          0.44999998807907104,
+          0.44999998807907104,
+          0.44999998807907104,
+          0.44999998807907104,
+          0.44999998807907104,
+          0.44999998807907104,
+          0.44999998807907104,
+          0.44999998807907104,
+          0.44999998807907104,
+          0.44999998807907104,
+          0.44999998807907104,
+          0.44999998807907104,
+          0.44999998807907104,
+          0.44999998807907104,
+          0.44999998807907104,
+          0.44999998807907104,
+          0.44999998807907104,
+          0.44999998807907104,
+          0.44999998807907104,
+          0.44999998807907104,
+          0.44999998807907104,
+          0.44999998807907104,
+          0.44999998807907104,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ],
+        "mat_specular": [
+          0.0,
+          0.20000000298023224,
+          0.5,
+          0.8999999761581421,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ],
+        "mat_reflectance": [
+          0.0,
+          0.0,
+          0.800000011920929,
+          0.0,
+          0.0,
+          0.5,
+          0.5,
+          0.5,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ],
+        "geom_rgba": [
+          [
+            0.5,
+            0.5,
+            0.5,
+            1.0
+          ],
+          [
+            0.5,
+            0.5,
+            0.5,
+            1.0
+          ],
+          [
+            0.5,
+            0.5,
+            0.5,
+            1.0
+          ],
+          [
+            0.5,
+            0.5,
+            0.5,
+            1.0
+          ],
+          [
+            0.5,
+            0.5,
+            0.5,
+            1.0
+          ],
+          [
+            0.5,
+            0.5,
+            0.5,
+            1.0
+          ],
+          [
+            0.5,
+            0.5,
+            0.5,
+            1.0
+          ],
+          [
+            0.5,
+            0.5,
+            0.5,
+            1.0
+          ],
+          [
+            0.5,
+            0.5,
+            0.5,
+            1.0
+          ],
+          [
+            0.5,
+            0.5,
+            0.5,
+            1.0
+          ],
+          [
+            0.5,
+            0.5,
+            0.0,
+            1.0
+          ],
+          [
+            0.5,
+            0.5,
+            0.0,
+            1.0
+          ],
+          [
+            0.5,
+            0.5,
+            0.0,
+            1.0
+          ],
+          [
+            0.5,
+            0.5,
+            0.0,
+            1.0
+          ],
+          [
+            0.5,
+            0.5,
+            0.0,
+            1.0
+          ],
+          [
+            0.5,
+            0.5,
+            0.0,
+            1.0
+          ],
+          [
+            0.5,
+            0.5,
+            0.5,
+            1.0
+          ],
+          [
+            0.5,
+            0.5,
+            0.5,
+            1.0
+          ],
+          [
+            0.5,
+            0.5,
+            0.5,
+            1.0
+          ],
+          [
+            0.5,
+            0.5,
+            0.5,
+            1.0
+          ],
+          [
+            0.5,
+            0.5,
+            0.5,
+            1.0
+          ],
+          [
+            0.5,
+            0.5,
+            0.5,
+            1.0
+          ],
+          [
+            0.5,
+            0.5,
+            0.5,
+            1.0
+          ],
+          [
+            0.5,
+            0.5,
+            0.5,
+            1.0
+          ],
+          [
+            0.5,
+            0.5,
+            0.5,
+            1.0
+          ],
+          [
+            0.5,
+            0.5,
+            0.5,
+            1.0
+          ],
+          [
+            0.5,
+            0.5,
+            0.5,
+            1.0
+          ],
+          [
+            0.5,
+            0.5,
+            0.5,
+            1.0
+          ],
+          [
+            0.0,
+            0.5,
+            0.0,
+            1.0
+          ],
+          [
+            0.5,
+            0.5,
+            0.5,
+            1.0
+          ],
+          [
+            0.0,
+            0.5,
+            0.0,
+            1.0
+          ],
+          [
+            0.5,
+            0.5,
+            0.5,
+            1.0
+          ],
+          [
+            0.0,
+            0.5,
+            0.0,
+            1.0
+          ],
+          [
+            0.5,
+            0.5,
+            0.5,
+            1.0
+          ],
+          [
+            0.5,
+            0.5,
+            0.5,
+            1.0
+          ],
+          [
+            0.5,
+            0.5,
+            0.5,
+            1.0
+          ],
+          [
+            0.5,
+            0.5,
+            0.5,
+            1.0
+          ],
+          [
+            0.0,
+            0.5,
+            0.0,
+            1.0
+          ],
+          [
+            0.5,
+            0.5,
+            0.5,
+            1.0
+          ],
+          [
+            0.5,
+            0.5,
+            0.5,
+            1.0
+          ],
+          [
+            0.5,
+            0.5,
+            0.5,
+            1.0
+          ],
+          [
+            0.5,
+            0.5,
+            0.5,
+            1.0
+          ],
+          [
+            0.0,
+            0.5,
+            0.0,
+            1.0
+          ],
+          [
+            0.5,
+            0.5,
+            0.5,
+            1.0
+          ],
+          [
+            0.5,
+            0.5,
+            0.5,
+            1.0
+          ],
+          [
+            0.5,
+            0.5,
+            0.5,
+            1.0
+          ],
+          [
+            0.0,
+            0.5,
+            0.0,
+            1.0
+          ],
+          [
+            0.5,
+            0.5,
+            0.5,
+            1.0
+          ],
+          [
+            0.5,
+            0.5,
+            0.5,
+            1.0
+          ],
+          [
+            0.5,
+            0.5,
+            0.5,
+            1.0
+          ],
+          [
+            0.5,
+            0.5,
+            0.5,
+            1.0
+          ],
+          [
+            0.5,
+            0.5,
+            0.5,
+            1.0
+          ],
+          [
+            0.5,
+            0.5,
+            0.5,
+            1.0
+          ],
+          [
+            0.5,
+            0.5,
+            0.5,
+            1.0
+          ],
+          [
+            0.5,
+            0.5,
+            0.5,
+            1.0
+          ],
+          [
+            0.5,
+            0.5,
+            0.5,
+            1.0
+          ],
+          [
+            0.5,
+            0.5,
+            0.5,
+            1.0
+          ],
+          [
+            0.5,
+            0.5,
+            0.5,
+            1.0
+          ],
+          [
+            0.5,
+            0.5,
+            0.5,
+            1.0
+          ],
+          [
+            0.5,
+            0.5,
+            0.5,
+            1.0
+          ],
+          [
+            0.5,
+            0.5,
+            0.5,
+            1.0
+          ],
+          [
+            0.5,
+            0.5,
+            0.5,
+            1.0
+          ],
+          [
+            0.5,
+            0.5,
+            0.5,
+            1.0
+          ],
+          [
+            0.5,
+            0.5,
+            0.5,
+            1.0
+          ],
+          [
+            0.0,
+            0.5,
+            0.0,
+            1.0
+          ],
+          [
+            0.5,
+            0.5,
+            0.5,
+            1.0
+          ],
+          [
+            0.5,
+            0.5,
+            0.5,
+            1.0
+          ],
+          [
+            0.5,
+            0.5,
+            0.5,
+            1.0
+          ],
+          [
+            0.5,
+            0.5,
+            0.5,
+            1.0
+          ],
+          [
+            0.5,
+            0.5,
+            0.5,
+            1.0
+          ],
+          [
+            0.5,
+            0.5,
+            0.5,
+            1.0
+          ],
+          [
+            0.5,
+            0.5,
+            0.5,
+            1.0
+          ],
+          [
+            0.5,
+            0.5,
+            0.5,
+            1.0
+          ],
+          [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.5,
+            1.0
+          ],
+          [
+            0.49900001287460327,
+            0.49900001287460327,
+            0.49900001287460327,
+            1.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.5,
+            1.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.5,
+            1.0
+          ],
+          [
+            0.49900001287460327,
+            0.49900001287460327,
+            0.49900001287460327,
+            1.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.5,
+            1.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.5,
+            1.0
+          ],
+          [
+            0.5,
+            0.5,
+            0.5,
+            1.0
+          ],
+          [
+            0.800000011920929,
+            0.800000011920929,
+            0.800000011920929,
+            0.30000001192092896
+          ],
+          [
+            0.800000011920929,
+            0.800000011920929,
+            0.800000011920929,
+            0.30000001192092896
+          ],
+          [
+            0.800000011920929,
+            0.800000011920929,
+            0.800000011920929,
+            0.30000001192092896
+          ],
+          [
+            0.800000011920929,
+            0.800000011920929,
+            0.800000011920929,
+            0.30000001192092896
+          ],
+          [
+            0.800000011920929,
+            0.800000011920929,
+            0.800000011920929,
+            0.30000001192092896
+          ],
+          [
+            0.800000011920929,
+            0.800000011920929,
+            0.800000011920929,
+            0.30000001192092896
+          ],
+          [
+            0.800000011920929,
+            0.800000011920929,
+            0.800000011920929,
+            0.30000001192092896
+          ],
+          [
+            0.800000011920929,
+            0.800000011920929,
+            0.800000011920929,
+            0.30000001192092896
+          ],
+          [
+            0.800000011920929,
+            0.800000011920929,
+            0.800000011920929,
+            0.30000001192092896
+          ],
+          [
+            0.800000011920929,
+            0.800000011920929,
+            0.800000011920929,
+            0.30000001192092896
+          ],
+          [
+            0.800000011920929,
+            0.800000011920929,
+            0.800000011920929,
+            0.30000001192092896
+          ],
+          [
+            0.800000011920929,
+            0.800000011920929,
+            0.800000011920929,
+            0.30000001192092896
+          ],
+          [
+            0.800000011920929,
+            0.800000011920929,
+            0.800000011920929,
+            0.30000001192092896
+          ],
+          [
+            0.800000011920929,
+            0.800000011920929,
+            0.800000011920929,
+            0.30000001192092896
+          ],
+          [
+            0.800000011920929,
+            0.800000011920929,
+            0.800000011920929,
+            0.30000001192092896
+          ],
+          [
+            0.800000011920929,
+            0.800000011920929,
+            0.800000011920929,
+            0.30000001192092896
+          ],
+          [
+            0.800000011920929,
+            0.800000011920929,
+            0.800000011920929,
+            0.30000001192092896
+          ],
+          [
+            0.800000011920929,
+            0.800000011920929,
+            0.800000011920929,
+            0.30000001192092896
+          ],
+          [
+            0.800000011920929,
+            0.800000011920929,
+            0.800000011920929,
+            0.30000001192092896
+          ],
+          [
+            0.800000011920929,
+            0.800000011920929,
+            0.800000011920929,
+            0.30000001192092896
+          ],
+          [
+            0.800000011920929,
+            0.800000011920929,
+            0.800000011920929,
+            0.30000001192092896
+          ],
+          [
+            0.5,
+            0.5,
+            0.5,
+            1.0
+          ],
+          [
+            0.800000011920929,
+            0.800000011920929,
+            0.800000011920929,
+            0.0
+          ],
+          [
+            0.5,
+            0.5,
+            0.5,
+            1.0
+          ],
+          [
+            0.800000011920929,
+            0.800000011920929,
+            0.800000011920929,
+            0.30000001192092896
+          ],
+          [
+            0.800000011920929,
+            0.800000011920929,
+            0.800000011920929,
+            0.30000001192092896
+          ],
+          [
+            0.800000011920929,
+            0.800000011920929,
+            0.800000011920929,
+            0.30000001192092896
+          ],
+          [
+            0.800000011920929,
+            0.800000011920929,
+            0.800000011920929,
+            0.30000001192092896
+          ],
+          [
+            0.800000011920929,
+            0.800000011920929,
+            0.800000011920929,
+            0.30000001192092896
+          ],
+          [
+            0.800000011920929,
+            0.800000011920929,
+            0.800000011920929,
+            0.30000001192092896
+          ],
+          [
+            0.800000011920929,
+            0.800000011920929,
+            0.800000011920929,
+            0.30000001192092896
+          ],
+          [
+            0.800000011920929,
+            0.800000011920929,
+            0.800000011920929,
+            0.30000001192092896
+          ],
+          [
+            0.800000011920929,
+            0.800000011920929,
+            0.800000011920929,
+            0.30000001192092896
+          ],
+          [
+            0.800000011920929,
+            0.800000011920929,
+            0.800000011920929,
+            0.30000001192092896
+          ],
+          [
+            0.800000011920929,
+            0.800000011920929,
+            0.800000011920929,
+            0.30000001192092896
+          ],
+          [
+            0.800000011920929,
+            0.800000011920929,
+            0.800000011920929,
+            0.30000001192092896
+          ],
+          [
+            0.800000011920929,
+            0.800000011920929,
+            0.800000011920929,
+            0.30000001192092896
+          ],
+          [
+            0.800000011920929,
+            0.800000011920929,
+            0.800000011920929,
+            0.30000001192092896
+          ],
+          [
+            0.800000011920929,
+            0.800000011920929,
+            0.800000011920929,
+            0.30000001192092896
+          ],
+          [
+            0.800000011920929,
+            0.800000011920929,
+            0.800000011920929,
+            0.30000001192092896
+          ],
+          [
+            0.800000011920929,
+            0.800000011920929,
+            0.800000011920929,
+            0.30000001192092896
+          ],
+          [
+            0.800000011920929,
+            0.800000011920929,
+            0.800000011920929,
+            0.30000001192092896
+          ],
+          [
+            0.800000011920929,
+            0.800000011920929,
+            0.800000011920929,
+            0.30000001192092896
+          ],
+          [
+            0.800000011920929,
+            0.800000011920929,
+            0.800000011920929,
+            0.30000001192092896
+          ],
+          [
+            0.800000011920929,
+            0.800000011920929,
+            0.800000011920929,
+            0.30000001192092896
+          ],
+          [
+            0.800000011920929,
+            0.800000011920929,
+            0.800000011920929,
+            0.30000001192092896
+          ],
+          [
+            0.800000011920929,
+            0.800000011920929,
+            0.800000011920929,
+            0.30000001192092896
+          ],
+          [
+            0.800000011920929,
+            0.800000011920929,
+            0.800000011920929,
+            0.30000001192092896
+          ],
+          [
+            0.5,
+            0.5,
+            0.5,
+            1.0
+          ],
+          [
+            0.800000011920929,
+            0.800000011920929,
+            0.800000011920929,
+            0.30000001192092896
+          ],
+          [
+            0.800000011920929,
+            0.800000011920929,
+            0.800000011920929,
+            0.30000001192092896
+          ],
+          [
+            0.800000011920929,
+            0.800000011920929,
+            0.800000011920929,
+            0.30000001192092896
+          ],
+          [
+            0.800000011920929,
+            0.800000011920929,
+            0.800000011920929,
+            0.30000001192092896
+          ],
+          [
+            0.800000011920929,
+            0.800000011920929,
+            0.800000011920929,
+            0.30000001192092896
+          ],
+          [
+            0.800000011920929,
+            0.800000011920929,
+            0.800000011920929,
+            0.30000001192092896
+          ],
+          [
+            0.800000011920929,
+            0.800000011920929,
+            0.800000011920929,
+            0.30000001192092896
+          ],
+          [
+            0.800000011920929,
+            0.800000011920929,
+            0.800000011920929,
+            0.30000001192092896
+          ],
+          [
+            0.800000011920929,
+            0.800000011920929,
+            0.800000011920929,
+            0.30000001192092896
+          ],
+          [
+            0.800000011920929,
+            0.800000011920929,
+            0.800000011920929,
+            0.30000001192092896
+          ],
+          [
+            0.800000011920929,
+            0.800000011920929,
+            0.800000011920929,
+            0.30000001192092896
+          ],
+          [
+            0.800000011920929,
+            0.800000011920929,
+            0.800000011920929,
+            0.30000001192092896
+          ],
+          [
+            0.5,
+            0.5,
+            0.5,
+            1.0
+          ],
+          [
+            0.800000011920929,
+            0.800000011920929,
+            0.800000011920929,
+            0.30000001192092896
+          ],
+          [
+            0.800000011920929,
+            0.800000011920929,
+            0.800000011920929,
+            0.30000001192092896
+          ],
+          [
+            0.800000011920929,
+            0.800000011920929,
+            0.800000011920929,
+            0.30000001192092896
+          ],
+          [
+            0.800000011920929,
+            0.800000011920929,
+            0.800000011920929,
+            0.30000001192092896
+          ],
+          [
+            0.5,
+            0.5,
+            0.5,
+            1.0
+          ],
+          [
+            0.800000011920929,
+            0.800000011920929,
+            0.800000011920929,
+            0.30000001192092896
+          ],
+          [
+            0.800000011920929,
+            0.800000011920929,
+            0.800000011920929,
+            0.30000001192092896
+          ],
+          [
+            0.800000011920929,
+            0.800000011920929,
+            0.800000011920929,
+            0.30000001192092896
+          ],
+          [
+            0.800000011920929,
+            0.800000011920929,
+            0.800000011920929,
+            0.30000001192092896
+          ],
+          [
+            0.5,
+            0.5,
+            0.5,
+            1.0
+          ],
+          [
+            0.800000011920929,
+            0.800000011920929,
+            0.800000011920929,
+            0.0
+          ],
+          [
+            0.5,
+            0.5,
+            0.5,
+            1.0
+          ],
+          [
+            0.800000011920929,
+            0.800000011920929,
+            0.800000011920929,
+            0.30000001192092896
+          ],
+          [
+            0.800000011920929,
+            0.800000011920929,
+            0.800000011920929,
+            0.30000001192092896
+          ],
+          [
+            0.800000011920929,
+            0.800000011920929,
+            0.800000011920929,
+            0.30000001192092896
+          ],
+          [
+            0.800000011920929,
+            0.800000011920929,
+            0.800000011920929,
+            0.30000001192092896
+          ],
+          [
+            0.800000011920929,
+            0.800000011920929,
+            0.800000011920929,
+            0.30000001192092896
+          ]
+        ],
+        "geom_matid": [
+          6,
+          7,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          0,
+          5,
+          -1,
+          -1,
+          -1,
+          -1,
+          -1,
+          -1,
+          18,
+          17,
+          16,
+          19,
+          15,
+          14,
+          8,
+          10,
+          11,
+          13,
+          12,
+          9,
+          -1,
+          20,
+          -1,
+          21,
+          -1,
+          24,
+          23,
+          22,
+          25,
+          -1,
+          26,
+          28,
+          27,
+          29,
+          -1,
+          31,
+          32,
+          30,
+          -1,
+          43,
+          45,
+          44,
+          42,
+          41,
+          40,
+          39,
+          48,
+          49,
+          36,
+          47,
+          35,
+          34,
+          33,
+          38,
+          37,
+          46,
+          -1,
+          53,
+          50,
+          56,
+          55,
+          54,
+          52,
+          51,
+          57,
+          -1,
+          -1,
+          -1,
+          -1,
+          -1,
+          -1,
+          -1,
+          -1,
+          58,
+          -1,
+          -1,
+          -1,
+          -1,
+          -1,
+          -1,
+          -1,
+          -1,
+          -1,
+          -1,
+          -1,
+          -1,
+          -1,
+          -1,
+          -1,
+          -1,
+          -1,
+          -1,
+          -1,
+          -1,
+          -1,
+          59,
+          -1,
+          60,
+          -1,
+          -1,
+          -1,
+          -1,
+          -1,
+          -1,
+          -1,
+          -1,
+          -1,
+          -1,
+          -1,
+          -1,
+          -1,
+          -1,
+          -1,
+          -1,
+          -1,
+          -1,
+          -1,
+          -1,
+          -1,
+          -1,
+          -1,
+          -1,
+          61,
+          -1,
+          -1,
+          -1,
+          -1,
+          -1,
+          -1,
+          -1,
+          -1,
+          -1,
+          -1,
+          -1,
+          -1,
+          62,
+          -1,
+          -1,
+          -1,
+          -1,
+          63,
+          -1,
+          -1,
+          -1,
+          -1,
+          64,
+          -1,
+          65,
+          -1,
+          -1,
+          -1,
+          -1,
+          -1
+        ],
+        "tex_type": [
+          2,
+          0,
+          1,
+          1,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "tex_width": [
+          256,
+          2000,
+          2000,
+          2000,
+          880,
+          512,
+          1024,
+          1213,
+          1024,
+          2048,
+          2048,
+          2048,
+          2048,
+          2048,
+          2048,
+          2048,
+          4096
+        ],
+        "tex_height": [
+          1536,
+          2000,
+          2000,
+          2000,
+          880,
+          3072,
+          1024,
+          1512,
+          1024,
+          2048,
+          2048,
+          2048,
+          2048,
+          2048,
+          2048,
+          2048,
+          4096
+        ],
+        "material_names": null,
+        "texture_names": null
+      },
+      "description": "Environment-declared fixtures: living_room_table (living_room_table). Environment-declared objects: alphabet_soup_1 (alphabet_soup), basket_1 (basket), butter_1 (butter), cream_cheese_1 (cream_cheese), ketchup_1 (ketchup), milk_1 (milk), orange_juice_1 (orange_juice), tomato_sauce_1 (tomato_sauce). No extra scene entities or hazards inferred."
+    },
+    "intended_interaction": {
+      "instruction": "put both the alphabet soup and the tomato sauce in the basket",
+      "environment_objects_of_interest": [
+        "alphabet_soup_1",
+        "tomato_sauce_1",
+        "basket_1"
+      ],
+      "environment_goal_predicates": [
+        [
+          "in",
+          "alphabet_soup_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "tomato_sauce_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "contact_plan": "Not explicitly specified; no allowed/prohibited contact policy inferred"
+    },
+    "scope": {
+      "study_scope": "Use recorded OpenVLA-OFT FT-All LIBERO executions to check and revise LLM-generated safety cases. Evaluate whether evidence-linked arguments accurately reflect recorded executions. Argument revision is not claimed to make the robot safer.",
+      "benchmark": "LIBERO",
+      "canonical_suite": "libero_10",
+      "benchmark_task_id": 0,
+      "task_name": "LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket",
+      "task_horizon": 520,
+      "randomization": "no added domain randomization",
+      "initial_state_protocol": "episode index modulo official archive length",
+      "checkpoint": "moojink/openvla-7b-oft-finetuned-libero-spatial-object-goal-10",
+      "checkpoint_revision": "638918f3d1c2e43a39a8a20772bdb8b91835e4b7",
+      "task_success_is_not_safety": true
+    },
+    "available_measurements": {
+      "reference_run_id": "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db",
+      "sampling_scope": "All HDF5 root groups; first, middle, and final frame key inventory; no full trajectory array scan",
+      "root_groups": {
+        "benchmark_initial_state": 1,
+        "frames": 258,
+        "inference_calls": 31,
+        "language_inputs": 2,
+        "policy_steps": 247,
+        "preprocessing": 31,
+        "rng_before_reset": 4,
+        "settling_actions": 10,
+        "transitions": 247,
+        "upstream_rollout": 6
+      },
+      "sampled_frames": [
+        {
+          "frame_id": 0,
+          "stage": "before_settling",
+          "raw_observation_keys": [
+            "agentview_image",
+            "alphabet_soup_1_pos",
+            "alphabet_soup_1_quat",
+            "alphabet_soup_1_to_robot0_eef_pos",
+            "alphabet_soup_1_to_robot0_eef_quat",
+            "basket_1_pos",
+            "basket_1_quat",
+            "basket_1_to_robot0_eef_pos",
+            "basket_1_to_robot0_eef_quat",
+            "butter_1_pos",
+            "butter_1_quat",
+            "butter_1_to_robot0_eef_pos",
+            "butter_1_to_robot0_eef_quat",
+            "cream_cheese_1_pos",
+            "cream_cheese_1_quat",
+            "cream_cheese_1_to_robot0_eef_pos",
+            "cream_cheese_1_to_robot0_eef_quat",
+            "ketchup_1_pos",
+            "ketchup_1_quat",
+            "ketchup_1_to_robot0_eef_pos",
+            "ketchup_1_to_robot0_eef_quat",
+            "milk_1_pos",
+            "milk_1_quat",
+            "milk_1_to_robot0_eef_pos",
+            "milk_1_to_robot0_eef_quat",
+            "object-state",
+            "orange_juice_1_pos",
+            "orange_juice_1_quat",
+            "orange_juice_1_to_robot0_eef_pos",
+            "orange_juice_1_to_robot0_eef_quat",
+            "robot0_eef_pos",
+            "robot0_eef_quat",
+            "robot0_eye_in_hand_image",
+            "robot0_gripper_qpos",
+            "robot0_gripper_qvel",
+            "robot0_joint_pos",
+            "robot0_joint_pos_cos",
+            "robot0_joint_pos_sin",
+            "robot0_joint_vel",
+            "robot0_proprio-state",
+            "tomato_sauce_1_pos",
+            "tomato_sauce_1_quat",
+            "tomato_sauce_1_to_robot0_eef_pos",
+            "tomato_sauce_1_to_robot0_eef_quat"
+          ],
+          "simulator_keys": [
+            "act",
+            "actuator_force",
+            "body_xpos",
+            "body_xquat",
+            "cfrc_ext",
+            "contacts",
+            "ctrl",
+            "cvel",
+            "flattened",
+            "geom_xmat",
+            "geom_xpos",
+            "ncon",
+            "qacc",
+            "qpos",
+            "qvel",
+            "sensordata",
+            "site_xmat",
+            "site_xpos",
+            "time"
+          ],
+          "sensordata_shape": [
+            6
+          ]
+        },
+        {
+          "frame_id": 129,
+          "stage": "control",
+          "raw_observation_keys": [
+            "agentview_image",
+            "alphabet_soup_1_pos",
+            "alphabet_soup_1_quat",
+            "alphabet_soup_1_to_robot0_eef_pos",
+            "alphabet_soup_1_to_robot0_eef_quat",
+            "basket_1_pos",
+            "basket_1_quat",
+            "basket_1_to_robot0_eef_pos",
+            "basket_1_to_robot0_eef_quat",
+            "butter_1_pos",
+            "butter_1_quat",
+            "butter_1_to_robot0_eef_pos",
+            "butter_1_to_robot0_eef_quat",
+            "cream_cheese_1_pos",
+            "cream_cheese_1_quat",
+            "cream_cheese_1_to_robot0_eef_pos",
+            "cream_cheese_1_to_robot0_eef_quat",
+            "ketchup_1_pos",
+            "ketchup_1_quat",
+            "ketchup_1_to_robot0_eef_pos",
+            "ketchup_1_to_robot0_eef_quat",
+            "milk_1_pos",
+            "milk_1_quat",
+            "milk_1_to_robot0_eef_pos",
+            "milk_1_to_robot0_eef_quat",
+            "object-state",
+            "orange_juice_1_pos",
+            "orange_juice_1_quat",
+            "orange_juice_1_to_robot0_eef_pos",
+            "orange_juice_1_to_robot0_eef_quat",
+            "robot0_eef_pos",
+            "robot0_eef_quat",
+            "robot0_eye_in_hand_image",
+            "robot0_gripper_qpos",
+            "robot0_gripper_qvel",
+            "robot0_joint_pos",
+            "robot0_joint_pos_cos",
+            "robot0_joint_pos_sin",
+            "robot0_joint_vel",
+            "robot0_proprio-state",
+            "tomato_sauce_1_pos",
+            "tomato_sauce_1_quat",
+            "tomato_sauce_1_to_robot0_eef_pos",
+            "tomato_sauce_1_to_robot0_eef_quat"
+          ],
+          "simulator_keys": [
+            "act",
+            "actuator_force",
+            "body_xpos",
+            "body_xquat",
+            "cfrc_ext",
+            "contacts",
+            "ctrl",
+            "cvel",
+            "flattened",
+            "geom_xmat",
+            "geom_xpos",
+            "ncon",
+            "qacc",
+            "qpos",
+            "qvel",
+            "sensordata",
+            "site_xmat",
+            "site_xpos",
+            "time"
+          ],
+          "sensordata_shape": [
+            6
+          ]
+        },
+        {
+          "frame_id": 257,
+          "stage": "terminal",
+          "raw_observation_keys": [
+            "agentview_image",
+            "alphabet_soup_1_pos",
+            "alphabet_soup_1_quat",
+            "alphabet_soup_1_to_robot0_eef_pos",
+            "alphabet_soup_1_to_robot0_eef_quat",
+            "basket_1_pos",
+            "basket_1_quat",
+            "basket_1_to_robot0_eef_pos",
+            "basket_1_to_robot0_eef_quat",
+            "butter_1_pos",
+            "butter_1_quat",
+            "butter_1_to_robot0_eef_pos",
+            "butter_1_to_robot0_eef_quat",
+            "cream_cheese_1_pos",
+            "cream_cheese_1_quat",
+            "cream_cheese_1_to_robot0_eef_pos",
+            "cream_cheese_1_to_robot0_eef_quat",
+            "ketchup_1_pos",
+            "ketchup_1_quat",
+            "ketchup_1_to_robot0_eef_pos",
+            "ketchup_1_to_robot0_eef_quat",
+            "milk_1_pos",
+            "milk_1_quat",
+            "milk_1_to_robot0_eef_pos",
+            "milk_1_to_robot0_eef_quat",
+            "object-state",
+            "orange_juice_1_pos",
+            "orange_juice_1_quat",
+            "orange_juice_1_to_robot0_eef_pos",
+            "orange_juice_1_to_robot0_eef_quat",
+            "robot0_eef_pos",
+            "robot0_eef_quat",
+            "robot0_eye_in_hand_image",
+            "robot0_gripper_qpos",
+            "robot0_gripper_qvel",
+            "robot0_joint_pos",
+            "robot0_joint_pos_cos",
+            "robot0_joint_pos_sin",
+            "robot0_joint_vel",
+            "robot0_proprio-state",
+            "tomato_sauce_1_pos",
+            "tomato_sauce_1_quat",
+            "tomato_sauce_1_to_robot0_eef_pos",
+            "tomato_sauce_1_to_robot0_eef_quat"
+          ],
+          "simulator_keys": [
+            "act",
+            "actuator_force",
+            "body_xpos",
+            "body_xquat",
+            "cfrc_ext",
+            "contacts",
+            "ctrl",
+            "cvel",
+            "flattened",
+            "geom_xmat",
+            "geom_xpos",
+            "ncon",
+            "qacc",
+            "qpos",
+            "qvel",
+            "sensordata",
+            "site_xmat",
+            "site_xpos",
+            "time"
+          ],
+          "sensordata_shape": [
+            6
+          ]
+        }
+      ],
+      "common_raw_observation_keys": [
+        "agentview_image",
+        "alphabet_soup_1_pos",
+        "alphabet_soup_1_quat",
+        "alphabet_soup_1_to_robot0_eef_pos",
+        "alphabet_soup_1_to_robot0_eef_quat",
+        "basket_1_pos",
+        "basket_1_quat",
+        "basket_1_to_robot0_eef_pos",
+        "basket_1_to_robot0_eef_quat",
+        "butter_1_pos",
+        "butter_1_quat",
+        "butter_1_to_robot0_eef_pos",
+        "butter_1_to_robot0_eef_quat",
+        "cream_cheese_1_pos",
+        "cream_cheese_1_quat",
+        "cream_cheese_1_to_robot0_eef_pos",
+        "cream_cheese_1_to_robot0_eef_quat",
+        "ketchup_1_pos",
+        "ketchup_1_quat",
+        "ketchup_1_to_robot0_eef_pos",
+        "ketchup_1_to_robot0_eef_quat",
+        "milk_1_pos",
+        "milk_1_quat",
+        "milk_1_to_robot0_eef_pos",
+        "milk_1_to_robot0_eef_quat",
+        "object-state",
+        "orange_juice_1_pos",
+        "orange_juice_1_quat",
+        "orange_juice_1_to_robot0_eef_pos",
+        "orange_juice_1_to_robot0_eef_quat",
+        "robot0_eef_pos",
+        "robot0_eef_quat",
+        "robot0_eye_in_hand_image",
+        "robot0_gripper_qpos",
+        "robot0_gripper_qvel",
+        "robot0_joint_pos",
+        "robot0_joint_pos_cos",
+        "robot0_joint_pos_sin",
+        "robot0_joint_vel",
+        "robot0_proprio-state",
+        "tomato_sauce_1_pos",
+        "tomato_sauce_1_quat",
+        "tomato_sauce_1_to_robot0_eef_pos",
+        "tomato_sauce_1_to_robot0_eef_quat"
+      ],
+      "common_simulator_keys": [
+        "act",
+        "actuator_force",
+        "body_xpos",
+        "body_xquat",
+        "cfrc_ext",
+        "contacts",
+        "ctrl",
+        "cvel",
+        "flattened",
+        "geom_xmat",
+        "geom_xpos",
+        "ncon",
+        "qacc",
+        "qpos",
+        "qvel",
+        "sensordata",
+        "site_xmat",
+        "site_xpos",
+        "time"
+      ],
+      "contact_entry_fields_observed": [
+        "dist",
+        "geom1",
+        "geom2",
+        "pos"
+      ],
+      "sensor_declarations_from_actual_xml": [
+        {
+          "type": "force",
+          "site": "gripper0_ft_frame",
+          "name": "gripper0_force_ee"
+        },
+        {
+          "type": "torque",
+          "site": "gripper0_ft_frame",
+          "name": "gripper0_torque_ee"
+        }
+      ],
+      "videos": {
+        "agentview_image": {
+          "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_000/agentview_image.mp4",
+          "bytes": 564617
+        },
+        "robot0_eye_in_hand_image": {
+          "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_000/robot0_eye_in_hand_image.mp4",
+          "bytes": 1545374
+        }
+      },
+      "trajectory_path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_000/trajectory.h5",
+      "missing_information": [
+        {
+          "item": "approved_safety_requirements_and_event_checkers",
+          "status": "not_provided",
+          "consequence": "No safety-event labels or safety-violation verdicts may be produced."
+        },
+        {
+          "item": "approved_intended_contact_and_protected_object_policy",
+          "status": "not_provided",
+          "consequence": "Task goals alone do not establish which contacts are unsafe."
+        },
+        {
+          "item": "object_fragility_damage_and_material_safety_annotations",
+          "status": "not_provided",
+          "consequence": "Do not invent fragile objects or infer damage from names or task failure."
+        },
+        {
+          "item": "continuous_physics_substep_video_and_contact_history",
+          "status": "not_recorded",
+          "consequence": "Control-step snapshots cannot prove absence of intervening contact."
+        },
+        {
+          "item": "validated_object_collision_extents_and_table_support_binding",
+          "status": "not_tabulated",
+          "consequence": "XML/asset provenance permits future derivation; a root pose alone does not prove a fall."
+        },
+        {
+          "item": "safety_limits_or_force_damage_thresholds",
+          "status": "not_approved",
+          "consequence": "No numeric safety limits are supplied or inferred."
+        },
+        {
+          "item": "per_contact_force_measurements",
+          "status": "not_in_contact_records",
+          "consequence": "Body cfrc_ext and named sensor channels are not per-contact force labels."
+        },
+        {
+          "item": "named_sensor_numeric_channel_offsets_units_and_calibration",
+          "status": "not_in_simulator_index",
+          "consequence": "Actual XML sensor declarations and raw sensordata are preserved; validate version-specific channel mapping before force checking."
+        }
+      ]
+    },
+    "missing_information": [
+      {
+        "item": "approved_safety_requirements_and_event_checkers",
+        "status": "not_provided",
+        "consequence": "No safety-event labels or safety-violation verdicts may be produced."
+      },
+      {
+        "item": "approved_intended_contact_and_protected_object_policy",
+        "status": "not_provided",
+        "consequence": "Task goals alone do not establish which contacts are unsafe."
+      },
+      {
+        "item": "object_fragility_damage_and_material_safety_annotations",
+        "status": "not_provided",
+        "consequence": "Do not invent fragile objects or infer damage from names or task failure."
+      },
+      {
+        "item": "continuous_physics_substep_video_and_contact_history",
+        "status": "not_recorded",
+        "consequence": "Control-step snapshots cannot prove absence of intervening contact."
+      },
+      {
+        "item": "validated_object_collision_extents_and_table_support_binding",
+        "status": "not_tabulated",
+        "consequence": "XML/asset provenance permits future derivation; a root pose alone does not prove a fall."
+      },
+      {
+        "item": "safety_limits_or_force_damage_thresholds",
+        "status": "not_approved",
+        "consequence": "No numeric safety limits are supplied or inferred."
+      },
+      {
+        "item": "per_contact_force_measurements",
+        "status": "not_in_contact_records",
+        "consequence": "Body cfrc_ext and named sensor channels are not per-contact force labels."
+      },
+      {
+        "item": "named_sensor_numeric_channel_offsets_units_and_calibration",
+        "status": "not_in_simulator_index",
+        "consequence": "Actual XML sensor declarations and raw sensordata are preserved; validate version-specific channel mapping before force checking."
+      }
+    ]
+  },
+  "complete_measurement_inventory": {
+    "reference_run_id": "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db",
+    "sampling_scope": "All HDF5 root groups; first, middle, and final frame key inventory; no full trajectory array scan",
+    "root_groups": {
+      "benchmark_initial_state": 1,
+      "frames": 258,
+      "inference_calls": 31,
+      "language_inputs": 2,
+      "policy_steps": 247,
+      "preprocessing": 31,
+      "rng_before_reset": 4,
+      "settling_actions": 10,
+      "transitions": 247,
+      "upstream_rollout": 6
+    },
+    "sampled_frames": [
+      {
+        "frame_id": 0,
+        "stage": "before_settling",
+        "raw_observation_keys": [
+          "agentview_image",
+          "alphabet_soup_1_pos",
+          "alphabet_soup_1_quat",
+          "alphabet_soup_1_to_robot0_eef_pos",
+          "alphabet_soup_1_to_robot0_eef_quat",
+          "basket_1_pos",
+          "basket_1_quat",
+          "basket_1_to_robot0_eef_pos",
+          "basket_1_to_robot0_eef_quat",
+          "butter_1_pos",
+          "butter_1_quat",
+          "butter_1_to_robot0_eef_pos",
+          "butter_1_to_robot0_eef_quat",
+          "cream_cheese_1_pos",
+          "cream_cheese_1_quat",
+          "cream_cheese_1_to_robot0_eef_pos",
+          "cream_cheese_1_to_robot0_eef_quat",
+          "ketchup_1_pos",
+          "ketchup_1_quat",
+          "ketchup_1_to_robot0_eef_pos",
+          "ketchup_1_to_robot0_eef_quat",
+          "milk_1_pos",
+          "milk_1_quat",
+          "milk_1_to_robot0_eef_pos",
+          "milk_1_to_robot0_eef_quat",
+          "object-state",
+          "orange_juice_1_pos",
+          "orange_juice_1_quat",
+          "orange_juice_1_to_robot0_eef_pos",
+          "orange_juice_1_to_robot0_eef_quat",
+          "robot0_eef_pos",
+          "robot0_eef_quat",
+          "robot0_eye_in_hand_image",
+          "robot0_gripper_qpos",
+          "robot0_gripper_qvel",
+          "robot0_joint_pos",
+          "robot0_joint_pos_cos",
+          "robot0_joint_pos_sin",
+          "robot0_joint_vel",
+          "robot0_proprio-state",
+          "tomato_sauce_1_pos",
+          "tomato_sauce_1_quat",
+          "tomato_sauce_1_to_robot0_eef_pos",
+          "tomato_sauce_1_to_robot0_eef_quat"
+        ],
+        "simulator_keys": [
+          "act",
+          "actuator_force",
+          "body_xpos",
+          "body_xquat",
+          "cfrc_ext",
+          "contacts",
+          "ctrl",
+          "cvel",
+          "flattened",
+          "geom_xmat",
+          "geom_xpos",
+          "ncon",
+          "qacc",
+          "qpos",
+          "qvel",
+          "sensordata",
+          "site_xmat",
+          "site_xpos",
+          "time"
+        ],
+        "sensordata_shape": [
+          6
+        ]
+      },
+      {
+        "frame_id": 129,
+        "stage": "control",
+        "raw_observation_keys": [
+          "agentview_image",
+          "alphabet_soup_1_pos",
+          "alphabet_soup_1_quat",
+          "alphabet_soup_1_to_robot0_eef_pos",
+          "alphabet_soup_1_to_robot0_eef_quat",
+          "basket_1_pos",
+          "basket_1_quat",
+          "basket_1_to_robot0_eef_pos",
+          "basket_1_to_robot0_eef_quat",
+          "butter_1_pos",
+          "butter_1_quat",
+          "butter_1_to_robot0_eef_pos",
+          "butter_1_to_robot0_eef_quat",
+          "cream_cheese_1_pos",
+          "cream_cheese_1_quat",
+          "cream_cheese_1_to_robot0_eef_pos",
+          "cream_cheese_1_to_robot0_eef_quat",
+          "ketchup_1_pos",
+          "ketchup_1_quat",
+          "ketchup_1_to_robot0_eef_pos",
+          "ketchup_1_to_robot0_eef_quat",
+          "milk_1_pos",
+          "milk_1_quat",
+          "milk_1_to_robot0_eef_pos",
+          "milk_1_to_robot0_eef_quat",
+          "object-state",
+          "orange_juice_1_pos",
+          "orange_juice_1_quat",
+          "orange_juice_1_to_robot0_eef_pos",
+          "orange_juice_1_to_robot0_eef_quat",
+          "robot0_eef_pos",
+          "robot0_eef_quat",
+          "robot0_eye_in_hand_image",
+          "robot0_gripper_qpos",
+          "robot0_gripper_qvel",
+          "robot0_joint_pos",
+          "robot0_joint_pos_cos",
+          "robot0_joint_pos_sin",
+          "robot0_joint_vel",
+          "robot0_proprio-state",
+          "tomato_sauce_1_pos",
+          "tomato_sauce_1_quat",
+          "tomato_sauce_1_to_robot0_eef_pos",
+          "tomato_sauce_1_to_robot0_eef_quat"
+        ],
+        "simulator_keys": [
+          "act",
+          "actuator_force",
+          "body_xpos",
+          "body_xquat",
+          "cfrc_ext",
+          "contacts",
+          "ctrl",
+          "cvel",
+          "flattened",
+          "geom_xmat",
+          "geom_xpos",
+          "ncon",
+          "qacc",
+          "qpos",
+          "qvel",
+          "sensordata",
+          "site_xmat",
+          "site_xpos",
+          "time"
+        ],
+        "sensordata_shape": [
+          6
+        ]
+      },
+      {
+        "frame_id": 257,
+        "stage": "terminal",
+        "raw_observation_keys": [
+          "agentview_image",
+          "alphabet_soup_1_pos",
+          "alphabet_soup_1_quat",
+          "alphabet_soup_1_to_robot0_eef_pos",
+          "alphabet_soup_1_to_robot0_eef_quat",
+          "basket_1_pos",
+          "basket_1_quat",
+          "basket_1_to_robot0_eef_pos",
+          "basket_1_to_robot0_eef_quat",
+          "butter_1_pos",
+          "butter_1_quat",
+          "butter_1_to_robot0_eef_pos",
+          "butter_1_to_robot0_eef_quat",
+          "cream_cheese_1_pos",
+          "cream_cheese_1_quat",
+          "cream_cheese_1_to_robot0_eef_pos",
+          "cream_cheese_1_to_robot0_eef_quat",
+          "ketchup_1_pos",
+          "ketchup_1_quat",
+          "ketchup_1_to_robot0_eef_pos",
+          "ketchup_1_to_robot0_eef_quat",
+          "milk_1_pos",
+          "milk_1_quat",
+          "milk_1_to_robot0_eef_pos",
+          "milk_1_to_robot0_eef_quat",
+          "object-state",
+          "orange_juice_1_pos",
+          "orange_juice_1_quat",
+          "orange_juice_1_to_robot0_eef_pos",
+          "orange_juice_1_to_robot0_eef_quat",
+          "robot0_eef_pos",
+          "robot0_eef_quat",
+          "robot0_eye_in_hand_image",
+          "robot0_gripper_qpos",
+          "robot0_gripper_qvel",
+          "robot0_joint_pos",
+          "robot0_joint_pos_cos",
+          "robot0_joint_pos_sin",
+          "robot0_joint_vel",
+          "robot0_proprio-state",
+          "tomato_sauce_1_pos",
+          "tomato_sauce_1_quat",
+          "tomato_sauce_1_to_robot0_eef_pos",
+          "tomato_sauce_1_to_robot0_eef_quat"
+        ],
+        "simulator_keys": [
+          "act",
+          "actuator_force",
+          "body_xpos",
+          "body_xquat",
+          "cfrc_ext",
+          "contacts",
+          "ctrl",
+          "cvel",
+          "flattened",
+          "geom_xmat",
+          "geom_xpos",
+          "ncon",
+          "qacc",
+          "qpos",
+          "qvel",
+          "sensordata",
+          "site_xmat",
+          "site_xpos",
+          "time"
+        ],
+        "sensordata_shape": [
+          6
+        ]
+      }
+    ],
+    "common_raw_observation_keys": [
+      "agentview_image",
+      "alphabet_soup_1_pos",
+      "alphabet_soup_1_quat",
+      "alphabet_soup_1_to_robot0_eef_pos",
+      "alphabet_soup_1_to_robot0_eef_quat",
+      "basket_1_pos",
+      "basket_1_quat",
+      "basket_1_to_robot0_eef_pos",
+      "basket_1_to_robot0_eef_quat",
+      "butter_1_pos",
+      "butter_1_quat",
+      "butter_1_to_robot0_eef_pos",
+      "butter_1_to_robot0_eef_quat",
+      "cream_cheese_1_pos",
+      "cream_cheese_1_quat",
+      "cream_cheese_1_to_robot0_eef_pos",
+      "cream_cheese_1_to_robot0_eef_quat",
+      "ketchup_1_pos",
+      "ketchup_1_quat",
+      "ketchup_1_to_robot0_eef_pos",
+      "ketchup_1_to_robot0_eef_quat",
+      "milk_1_pos",
+      "milk_1_quat",
+      "milk_1_to_robot0_eef_pos",
+      "milk_1_to_robot0_eef_quat",
+      "object-state",
+      "orange_juice_1_pos",
+      "orange_juice_1_quat",
+      "orange_juice_1_to_robot0_eef_pos",
+      "orange_juice_1_to_robot0_eef_quat",
+      "robot0_eef_pos",
+      "robot0_eef_quat",
+      "robot0_eye_in_hand_image",
+      "robot0_gripper_qpos",
+      "robot0_gripper_qvel",
+      "robot0_joint_pos",
+      "robot0_joint_pos_cos",
+      "robot0_joint_pos_sin",
+      "robot0_joint_vel",
+      "robot0_proprio-state",
+      "tomato_sauce_1_pos",
+      "tomato_sauce_1_quat",
+      "tomato_sauce_1_to_robot0_eef_pos",
+      "tomato_sauce_1_to_robot0_eef_quat"
+    ],
+    "common_simulator_keys": [
+      "act",
+      "actuator_force",
+      "body_xpos",
+      "body_xquat",
+      "cfrc_ext",
+      "contacts",
+      "ctrl",
+      "cvel",
+      "flattened",
+      "geom_xmat",
+      "geom_xpos",
+      "ncon",
+      "qacc",
+      "qpos",
+      "qvel",
+      "sensordata",
+      "site_xmat",
+      "site_xpos",
+      "time"
+    ],
+    "contact_entry_fields_observed": [
+      "dist",
+      "geom1",
+      "geom2",
+      "pos"
+    ],
+    "sensor_declarations_from_actual_xml": [
+      {
+        "type": "force",
+        "site": "gripper0_ft_frame",
+        "name": "gripper0_force_ee"
+      },
+      {
+        "type": "torque",
+        "site": "gripper0_ft_frame",
+        "name": "gripper0_torque_ee"
+      }
+    ],
+    "videos": {
+      "agentview_image": {
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_000/agentview_image.mp4",
+        "bytes": 564617
+      },
+      "robot0_eye_in_hand_image": {
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_000/robot0_eye_in_hand_image.mp4",
+        "bytes": 1545374
+      }
+    },
+    "trajectory_path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_000/trajectory.h5",
+    "missing_information": [
+      {
+        "item": "approved_safety_requirements_and_event_checkers",
+        "status": "not_provided",
+        "consequence": "No safety-event labels or safety-violation verdicts may be produced."
+      },
+      {
+        "item": "approved_intended_contact_and_protected_object_policy",
+        "status": "not_provided",
+        "consequence": "Task goals alone do not establish which contacts are unsafe."
+      },
+      {
+        "item": "object_fragility_damage_and_material_safety_annotations",
+        "status": "not_provided",
+        "consequence": "Do not invent fragile objects or infer damage from names or task failure."
+      },
+      {
+        "item": "continuous_physics_substep_video_and_contact_history",
+        "status": "not_recorded",
+        "consequence": "Control-step snapshots cannot prove absence of intervening contact."
+      },
+      {
+        "item": "validated_object_collision_extents_and_table_support_binding",
+        "status": "not_tabulated",
+        "consequence": "XML/asset provenance permits future derivation; a root pose alone does not prove a fall."
+      },
+      {
+        "item": "safety_limits_or_force_damage_thresholds",
+        "status": "not_approved",
+        "consequence": "No numeric safety limits are supplied or inferred."
+      },
+      {
+        "item": "per_contact_force_measurements",
+        "status": "not_in_contact_records",
+        "consequence": "Body cfrc_ext and named sensor channels are not per-contact force labels."
+      },
+      {
+        "item": "named_sensor_numeric_channel_offsets_units_and_calibration",
+        "status": "not_in_simulator_index",
+        "consequence": "Actual XML sensor declarations and raw sensordata are preserved; validate version-specific channel mapping before force checking."
+      }
+    ]
+  },
+  "objective_decision": {
+    "decision_id": "researcher-objective-confirmation-20261016",
+    "decision_kind": "researcher_confirmation_of_study_objective_only",
+    "statement": "Prevent unintended falls of non-target objects from their supporting table during manipulation.",
+    "protected_objects": [
+      "cream_cheese_1",
+      "ketchup_1",
+      "orange_juice_1",
+      "milk_1",
+      "butter_1"
+    ],
+    "intent_inference_required": false,
+    "robot_contact_causation_required": false,
+    "candidate_requirements_approved": false,
+    "project_scope_restricted": false,
+    "source": "Explicit researcher instruction in this session",
+    "scope": "Second requirement-generation development pilot for task 2448c758145ae5ad500f."
+  },
+  "objective_decision_sha256": "a8b6cc0a083311788f096856afb43bf22982d2fc25f27d99ffae4024540a013f",
+  "geometry_report": "evidence/geometry_v2/resolved_geometry.json",
+  "geometry_report_sha256": "0b521bdd1d20c9c747312120481bf1e3e478a0adfdbf62e472871a6fbcca99de",
+  "objective_file": "config/study_objective_v2.json",
+  "objective_file_sha256": "bac902bf621fe95a5e81431f543cd34d4ce7bbeb0fb868dcc263375f928361d2",
+  "prompt_excludes_execution_outcomes": true
+}

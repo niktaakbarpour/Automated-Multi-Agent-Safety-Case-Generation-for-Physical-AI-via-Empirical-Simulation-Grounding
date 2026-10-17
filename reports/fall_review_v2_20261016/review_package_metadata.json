@@ -1,0 +1,24 @@
+{
+  "version": "fall-review-v2-20261016",
+  "parent_review": "fall_review_20261016",
+  "created_utc": "2026-10-17T02:11:04.239051+00:00",
+  "source_parent_git_commit": "fda672f93bd00d74b7dfdbb1a4fa4e7f5a0bfe9b",
+  "new_source_scope": "Versioned src/ and tests/ in this package; original project collector/inventories unchanged. Exact new file hashes in PACKAGE_MANIFEST.json.",
+  "human_approvals_entered": false,
+  "reviewer_identities_entered": false,
+  "safety_verdicts_assigned": false,
+  "fall_checker_implemented": false,
+  "critic_built": false,
+  "new_LLM_pilot_or_robot_experiment": false,
+  "physics_advanced": false,
+  "static_kinematics_saved_separately": true,
+  "large_recording_hashes_recomputed": false,
+  "test_command": "PYTHONPATH=src python -m unittest discover -s tests -v",
+  "derivation_commands": [
+    "python src/targeted_investigation.py --project PROJECT --output NEW_OUTPUT",
+    "python src/finish_targeted_evidence.py --project PROJECT --output NEW_OUTPUT",
+    "python src/capture_source_provenance.py --project PROJECT --output NEW_OUTPUT",
+    "python src/prepare_blank_forms.py --output NEW_OUTPUT",
+    "python src/finalize_review_v2.py --project PROJECT --output NEW_OUTPUT --prepare"
+  ]
+}

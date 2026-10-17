@@ -1,0 +1,68 @@
+{
+  "source_xml_sha256": "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542",
+  "initial_region_sites": [
+    {
+      "name": "living_room_table_basket_init_region",
+      "pos": "0 0.26 0.41",
+      "size": "0.01 0.01 0.007",
+      "type": "box",
+      "rgba": "0 0 1 0"
+    },
+    {
+      "name": "living_room_table_milk_init_region",
+      "pos": "0.05 -0.1 0.41",
+      "size": "0.025 0.025 0.007",
+      "type": "box",
+      "rgba": "0 0 1 0"
+    },
+    {
+      "name": "living_room_table_cream_cheese_init_region",
+      "pos": "0.1 -0.2 0.41",
+      "size": "0.025 0.025 0.007",
+      "type": "box",
+      "rgba": "0 0 1 0"
+    },
+    {
+      "name": "living_room_table_orange_juice_init_region",
+      "pos": "0 -0.25 0.41",
+      "size": "0.025 0.025 0.007",
+      "type": "box",
+      "rgba": "0 0 1 0"
+    },
+    {
+      "name": "living_room_table_tomato_sauce_init_region",
+      "pos": "-0.1 0.05 0.41",
+      "size": "0.025 0.025 0.007",
+      "type": "box",
+      "rgba": "0 0 1 0"
+    },
+    {
+      "name": "living_room_table_alphabet_soup_init_region",
+      "pos": "-0.1 -0.15 0.41",
+      "size": "0.025 0.025 0.007",
+      "type": "box",
+      "rgba": "0 0 1 0"
+    },
+    {
+      "name": "living_room_table_butter_init_region",
+      "pos": "0.05 0.05 0.41",
+      "size": "0.025 0.025 0.007",
+      "type": "box",
+      "rgba": "0 0 1 0"
+    },
+    {
+      "name": "living_room_table_ketchup_init_region",
+      "pos": "-0.25 -0.15 0.41",
+      "size": "0.025 0.025 0.007",
+      "type": "box",
+      "rgba": "0 0 1 0"
+    }
+  ],
+  "site_z_declared_in_saved_xml": 0.41,
+  "native_table_upper_box_face_z": 0.43676000000000015,
+  "difference_m": 0.026760000000000173,
+  "source_of_height": "Saved table collision sizes/transforms, never object root positions",
+  "model_explicit_contact_pair_count": 0,
+  "model_equality_count": 0,
+  "qualification": "Mismatch is a recorded setup fact; it does not by itself establish the historical origin of the archive/scene inconsistency."
+}

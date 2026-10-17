@@ -1,0 +1,15 @@
+{
+  "status": "prepared_not_launched",
+  "new_prompt_tokens": 3584,
+  "old_prompt_tokens": 13383,
+  "max_output_tokens": 6144,
+  "context_limit": 32768,
+  "same_model_precision_and_generation_settings": true,
+  "offline_tokenizer_only": true,
+  "task_id": "2448c758145ae5ad500f",
+  "seeds": [
+    1000,
+    1001,
+    1002
+  ]
+}

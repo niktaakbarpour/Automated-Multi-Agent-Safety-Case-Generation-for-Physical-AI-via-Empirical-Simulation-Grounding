@@ -1,0 +1,345 @@
+{
+  "human_labels_entered": false,
+  "forms": [
+    {
+      "form_id": "recorded-example-000-cream_cheese_1",
+      "run_id": "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db",
+      "object": "cream_cheese_1",
+      "assessment_frame": "000010",
+      "evidence_references": [
+        "prepolicy_static_endpoint_geometry.json",
+        "settling_findings_by_run.json",
+        "examples/episode_000_sheet.png"
+      ],
+      "reviewer": "",
+      "support_label": null,
+      "supporting_entity_or_chain": null,
+      "evidence_reasoning": null,
+      "uncertainties": null,
+      "decision": null
+    },
+    {
+      "form_id": "recorded-example-000-ketchup_1",
+      "run_id": "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db",
+      "object": "ketchup_1",
+      "assessment_frame": "000010",
+      "evidence_references": [
+        "prepolicy_static_endpoint_geometry.json",
+        "settling_findings_by_run.json",
+        "examples/episode_000_sheet.png"
+      ],
+      "reviewer": "",
+      "support_label": null,
+      "supporting_entity_or_chain": null,
+      "evidence_reasoning": null,
+      "uncertainties": null,
+      "decision": null
+    },
+    {
+      "form_id": "recorded-example-000-orange_juice_1",
+      "run_id": "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db",
+      "object": "orange_juice_1",
+      "assessment_frame": "000010",
+      "evidence_references": [
+        "prepolicy_static_endpoint_geometry.json",
+        "settling_findings_by_run.json",
+        "examples/episode_000_sheet.png"
+      ],
+      "reviewer": "",
+      "support_label": null,
+      "supporting_entity_or_chain": null,
+      "evidence_reasoning": null,
+      "uncertainties": null,
+      "decision": null
+    },
+    {
+      "form_id": "recorded-example-000-milk_1",
+      "run_id": "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db",
+      "object": "milk_1",
+      "assessment_frame": "000010",
+      "evidence_references": [
+        "prepolicy_static_endpoint_geometry.json",
+        "settling_findings_by_run.json",
+        "examples/episode_000_sheet.png"
+      ],
+      "reviewer": "",
+      "support_label": null,
+      "supporting_entity_or_chain": null,
+      "evidence_reasoning": null,
+      "uncertainties": null,
+      "decision": null
+    },
+    {
+      "form_id": "recorded-example-000-butter_1",
+      "run_id": "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db",
+      "object": "butter_1",
+      "assessment_frame": "000010",
+      "evidence_references": [
+        "prepolicy_static_endpoint_geometry.json",
+        "settling_findings_by_run.json",
+        "examples/episode_000_sheet.png"
+      ],
+      "reviewer": "",
+      "support_label": null,
+      "supporting_entity_or_chain": null,
+      "evidence_reasoning": null,
+      "uncertainties": null,
+      "decision": null
+    },
+    {
+      "form_id": "recorded-example-001-cream_cheese_1",
+      "run_id": "libero_long_openvla_oft_task00_seed1001_trial001_cfafd9ddc3db",
+      "object": "cream_cheese_1",
+      "assessment_frame": "000010",
+      "evidence_references": [
+        "prepolicy_static_endpoint_geometry.json",
+        "settling_findings_by_run.json",
+        "examples/episode_001_sheet.png"
+      ],
+      "reviewer": "",
+      "support_label": null,
+      "supporting_entity_or_chain": null,
+      "evidence_reasoning": null,
+      "uncertainties": null,
+      "decision": null
+    },
+    {
+      "form_id": "recorded-example-001-ketchup_1",
+      "run_id": "libero_long_openvla_oft_task00_seed1001_trial001_cfafd9ddc3db",
+      "object": "ketchup_1",
+      "assessment_frame": "000010",
+      "evidence_references": [
+        "prepolicy_static_endpoint_geometry.json",
+        "settling_findings_by_run.json",
+        "examples/episode_001_sheet.png"
+      ],
+      "reviewer": "",
+      "support_label": null,
+      "supporting_entity_or_chain": null,
+      "evidence_reasoning": null,
+      "uncertainties": null,
+      "decision": null
+    },
+    {
+      "form_id": "recorded-example-001-orange_juice_1",
+      "run_id": "libero_long_openvla_oft_task00_seed1001_trial001_cfafd9ddc3db",
+      "object": "orange_juice_1",
+      "assessment_frame": "000010",
+      "evidence_references": [
+        "prepolicy_static_endpoint_geometry.json",
+        "settling_findings_by_run.json",
+        "examples/episode_001_sheet.png"
+      ],
+      "reviewer": "",
+      "support_label": null,
+      "supporting_entity_or_chain": null,
+      "evidence_reasoning": null,
+      "uncertainties": null,
+      "decision": null
+    },
+    {
+      "form_id": "recorded-example-001-milk_1",
+      "run_id": "libero_long_openvla_oft_task00_seed1001_trial001_cfafd9ddc3db",
+      "object": "milk_1",
+      "assessment_frame": "000010",
+      "evidence_references": [
+        "prepolicy_static_endpoint_geometry.json",
+        "settling_findings_by_run.json",
+        "examples/episode_001_sheet.png"
+      ],
+      "reviewer": "",
+      "support_label": null,
+      "supporting_entity_or_chain": null,
+      "evidence_reasoning": null,
+      "uncertainties": null,
+      "decision": null
+    },
+    {
+      "form_id": "recorded-example-001-butter_1",
+      "run_id": "libero_long_openvla_oft_task00_seed1001_trial001_cfafd9ddc3db",
+      "object": "butter_1",
+      "assessment_frame": "000010",
+      "evidence_references": [
+        "prepolicy_static_endpoint_geometry.json",
+        "settling_findings_by_run.json",
+        "examples/episode_001_sheet.png"
+      ],
+      "reviewer": "",
+      "support_label": null,
+      "supporting_entity_or_chain": null,
+      "evidence_reasoning": null,
+      "uncertainties": null,
+      "decision": null
+    },
+    {
+      "form_id": "recorded-example-002-cream_cheese_1",
+      "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+      "object": "cream_cheese_1",
+      "assessment_frame": "000010",
+      "evidence_references": [
+        "prepolicy_static_endpoint_geometry.json",
+        "settling_findings_by_run.json",
+        "examples/episode_002_sheet.png"
+      ],
+      "reviewer": "",
+      "support_label": null,
+      "supporting_entity_or_chain": null,
+      "evidence_reasoning": null,
+      "uncertainties": null,
+      "decision": null
+    },
+    {
+      "form_id": "recorded-example-002-ketchup_1",
+      "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+      "object": "ketchup_1",
+      "assessment_frame": "000010",
+      "evidence_references": [
+        "prepolicy_static_endpoint_geometry.json",
+        "settling_findings_by_run.json",
+        "examples/episode_002_sheet.png"
+      ],
+      "reviewer": "",
+      "support_label": null,
+      "supporting_entity_or_chain": null,
+      "evidence_reasoning": null,
+      "uncertainties": null,
+      "decision": null
+    },
+    {
+      "form_id": "recorded-example-002-orange_juice_1",
+      "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+      "object": "orange_juice_1",
+      "assessment_frame": "000010",
+      "evidence_references": [
+        "prepolicy_static_endpoint_geometry.json",
+        "settling_findings_by_run.json",
+        "examples/episode_002_sheet.png"
+      ],
+      "reviewer": "",
+      "support_label": null,
+      "supporting_entity_or_chain": null,
+      "evidence_reasoning": null,
+      "uncertainties": null,
+      "decision": null
+    },
+    {
+      "form_id": "recorded-example-002-milk_1",
+      "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+      "object": "milk_1",
+      "assessment_frame": "000010",
+      "evidence_references": [
+        "prepolicy_static_endpoint_geometry.json",
+        "settling_findings_by_run.json",
+        "examples/episode_002_sheet.png"
+      ],
+      "reviewer": "",
+      "support_label": null,
+      "supporting_entity_or_chain": null,
+      "evidence_reasoning": null,
+      "uncertainties": null,
+      "decision": null
+    },
+    {
+      "form_id": "recorded-example-002-butter_1",
+      "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+      "object": "butter_1",
+      "assessment_frame": "000010",
+      "evidence_references": [
+        "prepolicy_static_endpoint_geometry.json",
+        "settling_findings_by_run.json",
+        "examples/episode_002_sheet.png"
+      ],
+      "reviewer": "",
+      "support_label": null,
+      "supporting_entity_or_chain": null,
+      "evidence_reasoning": null,
+      "uncertainties": null,
+      "decision": null
+    },
+    {
+      "form_id": "recorded-example-014-cream_cheese_1",
+      "run_id": "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db",
+      "object": "cream_cheese_1",
+      "assessment_frame": "000010",
+      "evidence_references": [
+        "prepolicy_static_endpoint_geometry.json",
+        "settling_findings_by_run.json",
+        "examples/episode_014_sheet.png"
+      ],
+      "reviewer": "",
+      "support_label": null,
+      "supporting_entity_or_chain": null,
+      "evidence_reasoning": null,
+      "uncertainties": null,
+      "decision": null
+    },
+    {
+      "form_id": "recorded-example-014-ketchup_1",
+      "run_id": "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db",
+      "object": "ketchup_1",
+      "assessment_frame": "000010",
+      "evidence_references": [
+        "prepolicy_static_endpoint_geometry.json",
+        "settling_findings_by_run.json",
+        "examples/episode_014_sheet.png"
+      ],
+      "reviewer": "",
+      "support_label": null,
+      "supporting_entity_or_chain": null,
+      "evidence_reasoning": null,
+      "uncertainties": null,
+      "decision": null
+    },
+    {
+      "form_id": "recorded-example-014-orange_juice_1",
+      "run_id": "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db",
+      "object": "orange_juice_1",
+      "assessment_frame": "000010",
+      "evidence_references": [
+        "prepolicy_static_endpoint_geometry.json",
+        "settling_findings_by_run.json",
+        "examples/episode_014_sheet.png"
+      ],
+      "reviewer": "",
+      "support_label": null,
+      "supporting_entity_or_chain": null,
+      "evidence_reasoning": null,
+      "uncertainties": null,
+      "decision": null
+    },
+    {
+      "form_id": "recorded-example-014-milk_1",
+      "run_id": "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db",
+      "object": "milk_1",
+      "assessment_frame": "000010",
+      "evidence_references": [
+        "prepolicy_static_endpoint_geometry.json",
+        "settling_findings_by_run.json",
+        "examples/episode_014_sheet.png"
+      ],
+      "reviewer": "",
+      "support_label": null,
+      "supporting_entity_or_chain": null,
+      "evidence_reasoning": null,
+      "uncertainties": null,
+      "decision": null
+    },
+    {
+      "form_id": "recorded-example-014-butter_1",
+      "run_id": "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db",
+      "object": "butter_1",
+      "assessment_frame": "000010",
+      "evidence_references": [
+        "prepolicy_static_endpoint_geometry.json",
+        "settling_findings_by_run.json",
+        "examples/episode_014_sheet.png"
+      ],
+      "reviewer": "",
+      "support_label": null,
+      "supporting_entity_or_chain": null,
+      "evidence_reasoning": null,
+      "uncertainties": null,
+      "decision": null
+    }
+  ]
+}

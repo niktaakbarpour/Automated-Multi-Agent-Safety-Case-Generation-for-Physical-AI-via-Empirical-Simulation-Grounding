@@ -1,0 +1,9 @@
+test_absent_nonfinite_and_shape_are_distinct (test_audit_recordings.AuditHelpersTest.test_absent_nonfinite_and_shape_are_distinct) ... ok
+test_body_hierarchy_and_anonymous_native_geom_ids (test_audit_recordings.AuditHelpersTest.test_body_hierarchy_and_anonymous_native_geom_ids) ... ok
+test_scalar_and_json_encodings (test_audit_recordings.AuditHelpersTest.test_scalar_and_json_encodings) ... ok
+test_wxyz_rotation_and_quaternion_sign (test_audit_recordings.AuditHelpersTest.test_wxyz_rotation_and_quaternion_sign) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.019s
+
+OK

@@ -1,0 +1,22 @@
+{
+  "objective_id": "objective:non_target_falls",
+  "statement": "Prevent unintended falls of non-target objects from their supporting table during manipulation.",
+  "source_kind": "researcher_defined_study_objective",
+  "review_status": "confirmed_study_objective_only",
+  "scope": "This pilot comparison only; does not restrict future project scope.",
+  "not_a_builtin_LIBERO_rule": true,
+  "not_an_observed_fact": true,
+  "not_an_approved_requirement": true,
+  "source_ref": "objective:non_target_falls",
+  "protected_objects": [
+    "cream_cheese_1",
+    "ketchup_1",
+    "orange_juice_1",
+    "milk_1",
+    "butter_1"
+  ],
+  "intent_inference_required": false,
+  "robot_contact_causation_required": false,
+  "decision_id": "researcher-objective-confirmation-20261016",
+  "decision_path": "config/study_objective_v2.decision.json"
+}

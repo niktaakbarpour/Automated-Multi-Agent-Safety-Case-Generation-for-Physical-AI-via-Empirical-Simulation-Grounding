@@ -1,0 +1,54 @@
+test_ambiguous_gripper_not_direct (test_checker.AdditionalTests.test_ambiguous_gripper_not_direct) ... ok
+test_missing_boundary_unknown (test_checker.AdditionalTests.test_missing_boundary_unknown) ... ok
+test_nan_contact_rejected (test_checker.AdditionalTests.test_nan_contact_rejected) ... ok
+test_no_floor_required (test_checker.AdditionalTests.test_no_floor_required) ... FAIL
+test_recovery_keeps_event (test_checker.AdditionalTests.test_recovery_keeps_event) ... ok
+test_table_departure_observation (test_checker.AdditionalTests.test_table_departure_observation) ... ok
+test_catch_preserved (test_checker.CheckerTests.test_catch_preserved) ... ok
+test_direct_fall (test_checker.CheckerTests.test_direct_fall) ... ok
+test_indirect_unknown (test_checker.CheckerTests.test_indirect_unknown) ... ok
+test_lift_drop (test_checker.CheckerTests.test_lift_drop) ... ok
+test_missing_breaks_chain (test_checker.CheckerTests.test_missing_breaks_chain) ... ok
+test_missing_config_fails (test_checker.CheckerTests.test_missing_config_fails) ... ok
+test_native_id_regression (test_checker.CheckerTests.test_native_id_regression) ... ok
+test_no_heldout_open (test_checker.CheckerTests.test_no_heldout_open) ... ok
+test_non_floor_landing (test_checker.CheckerTests.test_non_floor_landing) ... ok
+test_phase_guard (test_checker.CheckerTests.test_phase_guard) ... ok
+test_setup_then_floor (test_checker.CheckerTests.test_setup_then_floor) ... ok
+test_side_contact_not_support (test_checker.CheckerTests.test_side_contact_not_support) ... ok
+test_supported_tipping (test_checker.CheckerTests.test_supported_tipping) ... ok
+test_timing_mismatch (test_checker.CheckerTests.test_timing_mismatch) ... ok
+test_unknown_initial (test_checker.CheckerTests.test_unknown_initial) ... ok
+test_late_object_or_profile_failure (test_focused_v2.AtomicFrame.test_late_object_or_profile_failure) ... ok
+test_success_once_per_object_profile (test_focused_v2.AtomicFrame.test_success_once_per_object_profile) ... ok
+test_boundary_censors_setup (test_focused_v2.PersistenceAndLifecycle.test_boundary_censors_setup) ... ok
+test_contact_ambiguity_not_erased (test_focused_v2.PersistenceAndLifecycle.test_contact_ambiguity_not_erased) ... ok
+test_exact_supported_10_free_11_12 (test_focused_v2.PersistenceAndLifecycle.test_exact_supported_10_free_11_12) ... ok
+test_gap_censors_then_resets_origin (test_focused_v2.PersistenceAndLifecycle.test_gap_censors_then_resets_origin) ... ok
+test_indirect_and_gripper_endpoint_excluded (test_focused_v2.PersistenceAndLifecycle.test_indirect_and_gripper_endpoint_excluded) ... ok
+test_later_geometry_upgrade (test_focused_v2.PersistenceAndLifecycle.test_later_geometry_upgrade) ... ok
+test_later_projection_upgrade (test_focused_v2.PersistenceAndLifecycle.test_later_projection_upgrade) ... ok
+test_postlift_never_direct (test_focused_v2.PersistenceAndLifecycle.test_postlift_never_direct) ... ok
+test_recovery_does_not_erase_history (test_focused_v2.PersistenceAndLifecycle.test_recovery_does_not_erase_history) ... ok
+test_termination_censors (test_focused_v2.PersistenceAndLifecycle.test_termination_censors) ... ok
+test_timing_gap_is_explicit (test_focused_v2.PersistenceAndLifecycle.test_timing_gap_is_explicit) ... ok
+test_actual_155_vs_161_failure (test_native_geometry_v2.ActualMappingRegression.test_actual_155_vs_161_failure) ... ok
+test_actual_contact_pair_and_anonymous_table_ids (test_native_geometry_v2.ActualMappingRegression.test_actual_contact_pair_and_anonymous_table_ids) ... ok
+test_actual_snapshot_and_corrupted_native_geometry_order (test_native_geometry_v2.ActualMappingRegression.test_actual_snapshot_and_corrupted_native_geometry_order) ... ok
+test_bad_contact_ids_and_recording_identity_rejected (test_native_geometry_v2.ActualMappingRegression.test_bad_contact_ids_and_recording_identity_rejected) ... ok
+test_corrected_inventory_uses_native_ids (test_native_geometry_v2.ActualMappingRegression.test_corrected_inventory_uses_native_ids) ... ok
+test_legacy_and_incomplete_mapping_fail_closed (test_native_geometry_v2.ActualMappingRegression.test_legacy_and_incomplete_mapping_fail_closed) ... ok
+
+======================================================================
+FAIL: test_no_floor_required (test_checker.AdditionalTests.test_no_floor_required)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/local/home/niktakbr/trustworthy_project/reports/fall_checker_dev_v2_20261017/tests/test_checker.py", line 53, in test_no_floor_required
+    r=analyze([sample(10,support=True)]+seq([.43,.4,.35],11),C);self.assertIsNone(r['events'][0]['ending'])
+                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: {'reason': 'recording_termination', 'type': 'recording_termination', 'censored': True, 'reference': None, 'last_observed_reference': {'frame': 13, 'time': 0.65}} is not None
+
+----------------------------------------------------------------------
+Ran 40 tests in 0.024s
+
+FAILED (failures=1)

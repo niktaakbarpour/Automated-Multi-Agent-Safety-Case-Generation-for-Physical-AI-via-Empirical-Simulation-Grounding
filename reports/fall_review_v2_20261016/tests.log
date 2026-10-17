@@ -1,0 +1,10 @@
+test_actual_155_vs_161_failure (test_native_geometry_v2.ActualMappingRegression.test_actual_155_vs_161_failure) ... ok
+test_actual_contact_pair_and_anonymous_table_ids (test_native_geometry_v2.ActualMappingRegression.test_actual_contact_pair_and_anonymous_table_ids) ... ok
+test_bad_contact_ids_and_recording_identity_rejected (test_native_geometry_v2.ActualMappingRegression.test_bad_contact_ids_and_recording_identity_rejected) ... ok
+test_corrected_inventory_uses_native_ids (test_native_geometry_v2.ActualMappingRegression.test_corrected_inventory_uses_native_ids) ... ok
+test_legacy_and_incomplete_mapping_fail_closed (test_native_geometry_v2.ActualMappingRegression.test_legacy_and_incomplete_mapping_fail_closed) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.008s
+
+OK

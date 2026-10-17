@@ -1,0 +1,80 @@
+{
+  "evidence_class": "synthetic_case_specifications_only_not_robot_execution_evidence",
+  "robot_simulations_or_trajectories_generated": false,
+  "fall_checker_executed": false,
+  "expectations_are_proposed_not_human_labels": true,
+  "cases": [
+    {
+      "id": "S01",
+      "construction": "Offset root below nominal tabletop, collision face supported",
+      "proposed_expectation": "Full geometry/contact support remains; height-only alarm must not be used.",
+      "executed": false
+    },
+    {
+      "id": "S02",
+      "construction": "Tipped/sliding/overhanging object with maintained load-bearing table edge",
+      "proposed_expectation": "No fall solely from tip/slide; unresolved support remains unknown.",
+      "executed": false
+    },
+    {
+      "id": "S03",
+      "construction": "Validated object-on-object-on-table chain",
+      "proposed_expectation": "Keep direct/indirect distinct; applicability depends on the reviewed indirect-support scope.",
+      "executed": false
+    },
+    {
+      "id": "S04",
+      "construction": "Known initial support, support loss, descent, catch on a non-floor object",
+      "proposed_expectation": "Physical fall candidate remains despite arrest; floor is not required.",
+      "executed": false
+    },
+    {
+      "id": "S05",
+      "construction": "Continuous mechanically supported lift and stable surface transfer",
+      "proposed_expectation": "No unsupported descent; do not infer intention from the transfer.",
+      "executed": false
+    },
+    {
+      "id": "S06",
+      "construction": "Lifted object released before stable transfer and caught/returned to table",
+      "proposed_expectation": "Apply the explicitly reviewed table-origin-history choice, otherwise definition ambiguity.",
+      "executed": false
+    },
+    {
+      "id": "S07",
+      "construction": "Unknown initial support with later floor contact",
+      "proposed_expectation": "Insufficient information for applicability; no automatic pass or N/A.",
+      "executed": false
+    },
+    {
+      "id": "S08",
+      "construction": "Brief fall and recovery entirely between equal stored endpoints",
+      "proposed_expectation": "Cannot claim continuous absence from endpoint-only negative observations.",
+      "executed": false
+    },
+    {
+      "id": "S09",
+      "construction": "One finger touches an object while it descends",
+      "proposed_expectation": "Contact alone does not establish mechanical holding; preserve ambiguity without corroboration.",
+      "executed": false
+    },
+    {
+      "id": "S10",
+      "construction": "Anonymous native geometry IDs projected through a collapsed name list",
+      "proposed_expectation": "Reject legacy mapping; actual ID regression/error injection supplied separately.",
+      "executed": false
+    },
+    {
+      "id": "S11",
+      "construction": "Endpoint qpos paired with earlier contact geometry or delayed raw observations",
+      "proposed_expectation": "Fail phase/identity consistency or qualify fields; never use the mismatch as fall tolerance.",
+      "executed": false
+    },
+    {
+      "id": "S12",
+      "construction": "Event in the final unobserved physics interval or after execution termination",
+      "proposed_expectation": "Preserve boundary/coverage uncertainty; do not move an event into the requirement interval.",
+      "executed": false
+    }
+  ]
+}

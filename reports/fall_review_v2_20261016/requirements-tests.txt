@@ -1,0 +1,2 @@
+# Standalone mapping, measurement and review-boundary tests; no GPU/model/recordings.
+numpy==2.5.3

@@ -1,0 +1,1122 @@
+[
+  {
+    "id": 2,
+    "name": "wall_leftcorner_visual",
+    "xml_quaternion_tokens": "0.653281 0.653281 0.270598 0.270598",
+    "runtime_relative_quaternion": [
+      0.6532814673582304,
+      0.6532814673582307,
+      0.27059808647933437,
+      0.27059808647933437
+    ],
+    "six_significant_digit_rounding_matches_xml": true,
+    "rotation_residual": 1.979077616232061e-07,
+    "corner_displacement_bound_m": 7.270193056092429e-07
+  },
+  {
+    "id": 3,
+    "name": "wall_rightcorner_visual",
+    "xml_quaternion_tokens": "0.653281 0.653281 -0.270598 -0.270598",
+    "runtime_relative_quaternion": [
+      0.6532814673582304,
+      0.6532814673582307,
+      -0.27059808647933437,
+      -0.27059808647933437
+    ],
+    "six_significant_digit_rounding_matches_xml": true,
+    "rotation_residual": 1.979077616232061e-07,
+    "corner_displacement_bound_m": 7.270193056092429e-07
+  },
+  {
+    "id": 4,
+    "name": "wall_left_visual",
+    "xml_quaternion_tokens": "0.707107 0.707107 0 0",
+    "runtime_relative_quaternion": [
+      0.7071067811865476,
+      0.7071067811865477,
+      0.0,
+      0.0
+    ],
+    "six_significant_digit_rounding_matches_xml": true,
+    "rotation_residual": 2.220446049250313e-16,
+    "corner_displacement_bound_m": 8.864503417856891e-16
+  },
+  {
+    "id": 5,
+    "name": "wall_right_visual",
+    "xml_quaternion_tokens": "0.707107 -0.707107 0 0",
+    "runtime_relative_quaternion": [
+      0.7071067811865476,
+      -0.7071067811865477,
+      0.0,
+      0.0
+    ],
+    "six_significant_digit_rounding_matches_xml": true,
+    "rotation_residual": 2.220446049250313e-16,
+    "corner_displacement_bound_m": 8.864503417856891e-16
+  },
+  {
+    "id": 6,
+    "name": "wall_rear_visual",
+    "xml_quaternion_tokens": "0.5 0.5 0.5 0.5",
+    "runtime_relative_quaternion": [
+      0.5,
+      0.5,
+      0.5,
+      0.5
+    ],
+    "six_significant_digit_rounding_matches_xml": true,
+    "rotation_residual": 0.0,
+    "corner_displacement_bound_m": 0.0
+  },
+  {
+    "id": 7,
+    "name": "wall_front_visual",
+    "xml_quaternion_tokens": "0.5 0.5 -0.5 -0.5",
+    "runtime_relative_quaternion": [
+      0.5,
+      0.5,
+      -0.5,
+      -0.5
+    ],
+    "six_significant_digit_rounding_matches_xml": true,
+    "rotation_residual": 0.0,
+    "corner_displacement_bound_m": 0.0
+  },
+  {
+    "id": 77,
+    "name": "gripper0_finger1_pad_collision",
+    "xml_quaternion_tokens": "0 0 0 1",
+    "runtime_relative_quaternion": [
+      1.721503718649828e-18,
+      1.991579999778473e-18,
+      -9.628399991410628e-20,
+      0.9999999999999996
+    ],
+    "six_significant_digit_rounding_matches_xml": true,
+    "rotation_residual": 1.3322676295501878e-15,
+    "corner_displacement_bound_m": 2.4781807149033056e-17
+  },
+  {
+    "id": 80,
+    "name": "gripper0_finger2_pad_collision",
+    "xml_quaternion_tokens": "0 0 0 1",
+    "runtime_relative_quaternion": [
+      1.721503718649828e-18,
+      1.991579999778473e-18,
+      -9.628399991410628e-20,
+      0.9999999999999996
+    ],
+    "six_significant_digit_rounding_matches_xml": true,
+    "rotation_residual": 1.3322676295501878e-15,
+    "corner_displacement_bound_m": 2.4781807149033056e-17
+  },
+  {
+    "id": 82,
+    "name": "alphabet_soup_1_g1",
+    "xml_quaternion_tokens": "0.5 -0.5 0.5 0.5",
+    "runtime_relative_quaternion": [
+      0.5,
+      -0.4999999999999999,
+      0.4999999999999999,
+      0.49999999999999994
+    ],
+    "six_significant_digit_rounding_matches_xml": true,
+    "rotation_residual": 2.220446049250313e-16,
+    "corner_displacement_bound_m": 1.8625222324093488e-17
+  },
+  {
+    "id": 83,
+    "name": "alphabet_soup_1_g2",
+    "xml_quaternion_tokens": "0.707107 0.707107 0 0",
+    "runtime_relative_quaternion": [
+      0.7071067811865476,
+      0.7071067811865475,
+      0.0,
+      0.0
+    ],
+    "six_significant_digit_rounding_matches_xml": true,
+    "rotation_residual": 0.0,
+    "corner_displacement_bound_m": 0.0
+  },
+  {
+    "id": 84,
+    "name": "alphabet_soup_1_g3",
+    "xml_quaternion_tokens": "0.707107 0.707107 0 0",
+    "runtime_relative_quaternion": [
+      0.7071067811865476,
+      0.7071067811865475,
+      0.0,
+      0.0
+    ],
+    "six_significant_digit_rounding_matches_xml": true,
+    "rotation_residual": 0.0,
+    "corner_displacement_bound_m": 0.0
+  },
+  {
+    "id": 85,
+    "name": "alphabet_soup_1_g4",
+    "xml_quaternion_tokens": "0.5 -0.5 0.5 0.5",
+    "runtime_relative_quaternion": [
+      0.5,
+      -0.4999999999999999,
+      0.4999999999999999,
+      0.49999999999999994
+    ],
+    "six_significant_digit_rounding_matches_xml": true,
+    "rotation_residual": 2.220446049250313e-16,
+    "corner_displacement_bound_m": 1.6895431062716684e-17
+  },
+  {
+    "id": 86,
+    "name": "alphabet_soup_1_g5",
+    "xml_quaternion_tokens": "0.5 -0.5 0.5 0.5",
+    "runtime_relative_quaternion": [
+      0.5,
+      -0.4999999999999999,
+      0.4999999999999999,
+      0.49999999999999994
+    ],
+    "six_significant_digit_rounding_matches_xml": true,
+    "rotation_residual": 2.220446049250313e-16,
+    "corner_displacement_bound_m": 1.6895431062716684e-17
+  },
+  {
+    "id": 87,
+    "name": "alphabet_soup_1_g6",
+    "xml_quaternion_tokens": "0.5 0.5 0.5 -0.5",
+    "runtime_relative_quaternion": [
+      0.4999999999999999,
+      0.5,
+      0.49999999999999994,
+      -0.4999999999999999
+    ],
+    "six_significant_digit_rounding_matches_xml": true,
+    "rotation_residual": 2.220446049250313e-16,
+    "corner_displacement_bound_m": 1.513577836685735e-17
+  },
+  {
+    "id": 88,
+    "name": "alphabet_soup_1_g7",
+    "xml_quaternion_tokens": "0.5 0.5 0.5 -0.5",
+    "runtime_relative_quaternion": [
+      0.4999999999999999,
+      0.5,
+      0.49999999999999994,
+      -0.4999999999999999
+    ],
+    "six_significant_digit_rounding_matches_xml": true,
+    "rotation_residual": 2.220446049250313e-16,
+    "corner_displacement_bound_m": 1.513577836685735e-17
+  },
+  {
+    "id": 89,
+    "name": "alphabet_soup_1_g8",
+    "xml_quaternion_tokens": "0.000299999 0.000299999 -0.707107 0.707107",
+    "runtime_relative_quaternion": [
+      0.00029999860737969694,
+      0.000299998607379697,
+      -0.7071067175475252,
+      0.7071067175475251
+    ],
+    "six_significant_digit_rounding_matches_xml": true,
+    "rotation_residual": 7.715558325701796e-10,
+    "corner_displacement_bound_m": 4.1764732058611896e-11
+  },
+  {
+    "id": 90,
+    "name": "alphabet_soup_1_g9",
+    "xml_quaternion_tokens": "0.707107 0.707107 0.000299999 -0.000299999",
+    "runtime_relative_quaternion": [
+      0.7071067175475252,
+      0.7071067175475251,
+      0.00029999860737969694,
+      -0.0002999986073796969
+    ],
+    "six_significant_digit_rounding_matches_xml": true,
+    "rotation_residual": 7.715558327870201e-10,
+    "corner_displacement_bound_m": 4.176473206780092e-11
+  },
+  {
+    "id": 91,
+    "name": "alphabet_soup_1_g10",
+    "xml_quaternion_tokens": "0.696606 0.696606 -0.121409 0.121409",
+    "runtime_relative_quaternion": [
+      0.6966059038300074,
+      0.6966059038300073,
+      -0.12140928609121489,
+      0.12140928609121486
+    ],
+    "six_significant_digit_rounding_matches_xml": true,
+    "rotation_residual": 7.941195099281373e-07,
+    "corner_displacement_bound_m": 4.5679390144349343e-08
+  },
+  {
+    "id": 92,
+    "name": "alphabet_soup_1_g11",
+    "xml_quaternion_tokens": "0.169931 -0.169931 0.686384 0.686384",
+    "runtime_relative_quaternion": [
+      0.16993106898873805,
+      -0.16993106898873803,
+      0.6863843178514094,
+      0.6863843178514095
+    ],
+    "six_significant_digit_rounding_matches_xml": true,
+    "rotation_residual": 2.3563071660515078e-08,
+    "corner_displacement_bound_m": 1.442046733812847e-09
+  },
+  {
+    "id": 93,
+    "name": "alphabet_soup_1_g12",
+    "xml_quaternion_tokens": "0.303302 -0.303302 0.638755 0.638755",
+    "runtime_relative_quaternion": [
+      0.30330228918266644,
+      -0.3033022891826664,
+      0.6387548210202052,
+      0.6387548210202051
+    ],
+    "six_significant_digit_rounding_matches_xml": true,
+    "rotation_residual": 7.408509600237423e-07,
+    "corner_displacement_bound_m": 5.174916320104281e-08
+  },
+  {
+    "id": 94,
+    "name": "alphabet_soup_1_g13",
+    "xml_quaternion_tokens": "0.41278 -0.41278 0.574119 0.574119",
+    "runtime_relative_quaternion": [
+      0.412779544786969,
+      -0.412779544786969,
+      0.5741193668615112,
+      0.5741193668615113
+    ],
+    "six_significant_digit_rounding_matches_xml": true,
+    "rotation_residual": 1.5651596943500046e-06,
+    "corner_displacement_bound_m": 8.937588668028681e-08
+  },
+  {
+    "id": 95,
+    "name": "alphabet_soup_1_g14",
+    "xml_quaternion_tokens": "0.41278 -0.41278 0.574119 0.574119",
+    "runtime_relative_quaternion": [
+      0.412779544786969,
+      -0.412779544786969,
+      0.5741193668615112,
+      0.5741193668615113
+    ],
+    "six_significant_digit_rounding_matches_xml": true,
+    "rotation_residual": 1.5651596943500046e-06,
+    "corner_displacement_bound_m": 8.937588668028681e-08
+  },
+  {
+    "id": 96,
+    "name": "alphabet_soup_1_g15",
+    "xml_quaternion_tokens": "0.369019 0.369019 -0.603179 0.603179",
+    "runtime_relative_quaternion": [
+      0.36901930890128526,
+      0.36901930890128526,
+      -0.6031788703676692,
+      0.6031788703676694
+    ],
+    "six_significant_digit_rounding_matches_xml": true,
+    "rotation_residual": 8.339250443523127e-07,
+    "corner_displacement_bound_m": 5.070071723946923e-08
+  },
+  {
+    "id": 97,
+    "name": "alphabet_soup_1_g16",
+    "xml_quaternion_tokens": "0.651373 0.651373 0.275161 -0.275161",
+    "runtime_relative_quaternion": [
+      0.6513726690049794,
+      0.6513726690049793,
+      0.27516112747502974,
+      -0.2751611274750297
+    ],
+    "six_significant_digit_rounding_matches_xml": true,
+    "rotation_residual": 4.993002533648649e-07,
+    "corner_displacement_bound_m": 3.769879894874809e-08
+  },
+  {
+    "id": 98,
+    "name": "alphabet_soup_1_g17",
+    "xml_quaternion_tokens": "0.0520499 0.0520499 -0.705188 0.705188",
+    "runtime_relative_quaternion": [
+      0.05204988868622708,
+      0.05204988868622708,
+      -0.7051884918855039,
+      0.7051884918855038
+    ],
+    "six_significant_digit_rounding_matches_xml": true,
+    "rotation_residual": 1.3286816910595967e-07,
+    "corner_displacement_bound_m": 7.271017213103303e-09
+  },
+  {
+    "id": 99,
+    "name": "alphabet_soup_1_g18",
+    "xml_quaternion_tokens": "0.13049 0.13049 -0.694962 0.694962",
+    "runtime_relative_quaternion": [
+      0.13049038603028001,
+      0.13049038603028001,
+      -0.694962055909291,
+      0.6949620559092912
+    ],
+    "six_significant_digit_rounding_matches_xml": true,
+    "rotation_residual": 9.728208523185344e-07,
+    "corner_displacement_bound_m": 5.650810780344033e-08
+  },
+  {
+    "id": 100,
+    "name": "alphabet_soup_1_g19",
+    "xml_quaternion_tokens": "0.655721 0.655721 0.264631 -0.264631",
+    "runtime_relative_quaternion": [
+      0.65572147189964,
+      0.6557214718996401,
+      0.26463059401696104,
+      -0.2646305940169611
+    ],
+    "six_significant_digit_rounding_matches_xml": true,
+    "rotation_residual": 1.1261576695620334e-06,
+    "corner_displacement_bound_m": 8.46798417462545e-08
+  },
+  {
+    "id": 101,
+    "name": "alphabet_soup_1_g20",
+    "xml_quaternion_tokens": "0.20946 -0.20946 0.675371 0.675371",
+    "runtime_relative_quaternion": [
+      0.20946039200549052,
+      -0.20946039200549044,
+      0.6753712639585032,
+      0.6753712639585032
+    ],
+    "six_significant_digit_rounding_matches_xml": true,
+    "rotation_residual": 6.908054361876026e-07,
+    "corner_displacement_bound_m": 4.535282186951579e-08
+  },
+  {
+    "id": 102,
+    "name": "alphabet_soup_1_g21",
+    "xml_quaternion_tokens": "0.562041 -0.562041 0.429081 0.429081",
+    "runtime_relative_quaternion": [
+      0.5620407823613135,
+      -0.5620407823613133,
+      0.429080597280607,
+      0.42908059728060705
+    ],
+    "six_significant_digit_rounding_matches_xml": true,
+    "rotation_residual": 5.130362761285312e-07,
+    "corner_displacement_bound_m": 2.8788797858629826e-08
+  },
+  {
+    "id": 104,
+    "name": "cream_cheese_1_g1",
+    "xml_quaternion_tokens": "0.707107 0 0.707107 0",
+    "runtime_relative_quaternion": [
+      0.7071067811865476,
+      0.0,
+      0.7071067811865477,
+      0.0
+    ],
+    "six_significant_digit_rounding_matches_xml": true,
+    "rotation_residual": 2.220446049250313e-16,
+    "corner_displacement_bound_m": 1.7973629519381784e-17
+  },
+  {
+    "id": 106,
+    "name": "tomato_sauce_1_g1",
+    "xml_quaternion_tokens": "0.5 -0.5 0.5 0.5",
+    "runtime_relative_quaternion": [
+      0.5,
+      -0.4999999999999999,
+      0.4999999999999999,
+      0.49999999999999994
+    ],
+    "six_significant_digit_rounding_matches_xml": true,
+    "rotation_residual": 2.220446049250313e-16,
+    "corner_displacement_bound_m": 1.8625222324093488e-17
+  },
+  {
+    "id": 107,
+    "name": "tomato_sauce_1_g2",
+    "xml_quaternion_tokens": "0.707107 0.707107 0 0",
+    "runtime_relative_quaternion": [
+      0.7071067811865476,
+      0.7071067811865475,
+      0.0,
+      0.0
+    ],
+    "six_significant_digit_rounding_matches_xml": true,
+    "rotation_residual": 0.0,
+    "corner_displacement_bound_m": 0.0
+  },
+  {
+    "id": 108,
+    "name": "tomato_sauce_1_g3",
+    "xml_quaternion_tokens": "0.707107 0.707107 0 0",
+    "runtime_relative_quaternion": [
+      0.7071067811865476,
+      0.7071067811865475,
+      0.0,
+      0.0
+    ],
+    "six_significant_digit_rounding_matches_xml": true,
+    "rotation_residual": 0.0,
+    "corner_displacement_bound_m": 0.0
+  },
+  {
+    "id": 109,
+    "name": "tomato_sauce_1_g4",
+    "xml_quaternion_tokens": "0.5 -0.5 0.5 0.5",
+    "runtime_relative_quaternion": [
+      0.5,
+      -0.4999999999999999,
+      0.4999999999999999,
+      0.49999999999999994
+    ],
+    "six_significant_digit_rounding_matches_xml": true,
+    "rotation_residual": 2.220446049250313e-16,
+    "corner_displacement_bound_m": 1.6895431062716684e-17
+  },
+  {
+    "id": 110,
+    "name": "tomato_sauce_1_g5",
+    "xml_quaternion_tokens": "0.5 -0.5 0.5 0.5",
+    "runtime_relative_quaternion": [
+      0.5,
+      -0.4999999999999999,
+      0.4999999999999999,
+      0.49999999999999994
+    ],
+    "six_significant_digit_rounding_matches_xml": true,
+    "rotation_residual": 2.220446049250313e-16,
+    "corner_displacement_bound_m": 1.6895431062716684e-17
+  },
+  {
+    "id": 111,
+    "name": "tomato_sauce_1_g6",
+    "xml_quaternion_tokens": "0.5 0.5 0.5 -0.5",
+    "runtime_relative_quaternion": [
+      0.4999999999999999,
+      0.5,
+      0.49999999999999994,
+      -0.4999999999999999
+    ],
+    "six_significant_digit_rounding_matches_xml": true,
+    "rotation_residual": 2.220446049250313e-16,
+    "corner_displacement_bound_m": 1.513577836685735e-17
+  },
+  {
+    "id": 112,
+    "name": "tomato_sauce_1_g7",
+    "xml_quaternion_tokens": "0.5 0.5 0.5 -0.5",
+    "runtime_relative_quaternion": [
+      0.4999999999999999,
+      0.5,
+      0.49999999999999994,
+      -0.4999999999999999
+    ],
+    "six_significant_digit_rounding_matches_xml": true,
+    "rotation_residual": 2.220446049250313e-16,
+    "corner_displacement_bound_m": 1.513577836685735e-17
+  },
+  {
+    "id": 113,
+    "name": "tomato_sauce_1_g8",
+    "xml_quaternion_tokens": "0.000299999 0.000299999 -0.707107 0.707107",
+    "runtime_relative_quaternion": [
+      0.00029999860737969694,
+      0.000299998607379697,
+      -0.7071067175475252,
+      0.7071067175475251
+    ],
+    "six_significant_digit_rounding_matches_xml": true,
+    "rotation_residual": 7.715558325701796e-10,
+    "corner_displacement_bound_m": 4.1764732058611896e-11
+  },
+  {
+    "id": 114,
+    "name": "tomato_sauce_1_g9",
+    "xml_quaternion_tokens": "0.707107 0.707107 0.000299999 -0.000299999",
+    "runtime_relative_quaternion": [
+      0.7071067175475252,
+      0.7071067175475251,
+      0.00029999860737969694,
+      -0.0002999986073796969
+    ],
+    "six_significant_digit_rounding_matches_xml": true,
+    "rotation_residual": 7.715558327870201e-10,
+    "corner_displacement_bound_m": 4.176473206780092e-11
+  },
+  {
+    "id": 115,
+    "name": "tomato_sauce_1_g10",
+    "xml_quaternion_tokens": "0.121409 -0.121409 0.696606 0.696606",
+    "runtime_relative_quaternion": [
+      0.1214092860912149,
+      -0.12140928609121489,
+      0.6966059038300073,
+      0.6966059038300074
+    ],
+    "six_significant_digit_rounding_matches_xml": true,
+    "rotation_residual": 7.941195099281373e-07,
+    "corner_displacement_bound_m": 4.5679390146382414e-08
+  },
+  {
+    "id": 116,
+    "name": "tomato_sauce_1_g11",
+    "xml_quaternion_tokens": "0.686384 0.686384 -0.169931 0.169931",
+    "runtime_relative_quaternion": [
+      0.6863843178514095,
+      0.6863843178514094,
+      -0.16993106898873803,
+      0.16993106898873803
+    ],
+    "six_significant_digit_rounding_matches_xml": true,
+    "rotation_residual": 2.3563071660515078e-08,
+    "corner_displacement_bound_m": 1.4420467310090114e-09
+  },
+  {
+    "id": 117,
+    "name": "tomato_sauce_1_g12",
+    "xml_quaternion_tokens": "0.303302 -0.303302 0.638755 0.638755",
+    "runtime_relative_quaternion": [
+      0.30330228918266644,
+      -0.3033022891826664,
+      0.6387548210202052,
+      0.6387548210202051
+    ],
+    "six_significant_digit_rounding_matches_xml": true,
+    "rotation_residual": 7.408509600237423e-07,
+    "corner_displacement_bound_m": 5.174916320104281e-08
+  },
+  {
+    "id": 118,
+    "name": "tomato_sauce_1_g13",
+    "xml_quaternion_tokens": "0.41278 -0.41278 0.574119 0.574119",
+    "runtime_relative_quaternion": [
+      0.412779544786969,
+      -0.412779544786969,
+      0.5741193668615112,
+      0.5741193668615113
+    ],
+    "six_significant_digit_rounding_matches_xml": true,
+    "rotation_residual": 1.5651596943500046e-06,
+    "corner_displacement_bound_m": 8.937588668028681e-08
+  },
+  {
+    "id": 119,
+    "name": "tomato_sauce_1_g14",
+    "xml_quaternion_tokens": "0.41278 -0.41278 0.574119 0.574119",
+    "runtime_relative_quaternion": [
+      0.412779544786969,
+      -0.412779544786969,
+      0.5741193668615112,
+      0.5741193668615113
+    ],
+    "six_significant_digit_rounding_matches_xml": true,
+    "rotation_residual": 1.5651596943500046e-06,
+    "corner_displacement_bound_m": 8.937588668028681e-08
+  },
+  {
+    "id": 120,
+    "name": "tomato_sauce_1_g15",
+    "xml_quaternion_tokens": "0.603179 0.603179 0.369019 -0.369019",
+    "runtime_relative_quaternion": [
+      0.6031788703676694,
+      0.6031788703676692,
+      0.36901930890128526,
+      -0.36901930890128526
+    ],
+    "six_significant_digit_rounding_matches_xml": true,
+    "rotation_residual": 8.339250442968016e-07,
+    "corner_displacement_bound_m": 5.0700717236793895e-08
+  },
+  {
+    "id": 121,
+    "name": "tomato_sauce_1_g16",
+    "xml_quaternion_tokens": "0.651373 0.651373 0.275161 -0.275161",
+    "runtime_relative_quaternion": [
+      0.6513726690049794,
+      0.6513726690049793,
+      0.27516112747502974,
+      -0.2751611274750297
+    ],
+    "six_significant_digit_rounding_matches_xml": true,
+    "rotation_residual": 4.993002533648649e-07,
+    "corner_displacement_bound_m": 3.769879894874809e-08
+  },
+  {
+    "id": 122,
+    "name": "tomato_sauce_1_g17",
+    "xml_quaternion_tokens": "0.0520499 0.0520499 -0.705188 0.705188",
+    "runtime_relative_quaternion": [
+      0.05204988868622708,
+      0.05204988868622708,
+      -0.7051884918855039,
+      0.7051884918855038
+    ],
+    "six_significant_digit_rounding_matches_xml": true,
+    "rotation_residual": 1.3286816910595967e-07,
+    "corner_displacement_bound_m": 7.271017213103303e-09
+  },
+  {
+    "id": 123,
+    "name": "tomato_sauce_1_g18",
+    "xml_quaternion_tokens": "0.694962 0.694962 0.13049 -0.13049",
+    "runtime_relative_quaternion": [
+      0.694962055909291,
+      0.6949620559092912,
+      0.13049038603028001,
+      -0.13049038603028
+    ],
+    "six_significant_digit_rounding_matches_xml": true,
+    "rotation_residual": 9.728208523185344e-07,
+    "corner_displacement_bound_m": 5.650810780235035e-08
+  },
+  {
+    "id": 124,
+    "name": "tomato_sauce_1_g19",
+    "xml_quaternion_tokens": "0.655721 0.655721 0.264631 -0.264631",
+    "runtime_relative_quaternion": [
+      0.65572147189964,
+      0.6557214718996401,
+      0.26463059401696104,
+      -0.2646305940169611
+    ],
+    "six_significant_digit_rounding_matches_xml": true,
+    "rotation_residual": 1.1261576695620334e-06,
+    "corner_displacement_bound_m": 8.46798417462545e-08
+  },
+  {
+    "id": 125,
+    "name": "tomato_sauce_1_g20",
+    "xml_quaternion_tokens": "0.562041 -0.562041 0.429081 0.429081",
+    "runtime_relative_quaternion": [
+      0.5620407823613135,
+      -0.5620407823613133,
+      0.429080597280607,
+      0.42908059728060705
+    ],
+    "six_significant_digit_rounding_matches_xml": true,
+    "rotation_residual": 5.130362761285312e-07,
+    "corner_displacement_bound_m": 2.8788797858629826e-08
+  },
+  {
+    "id": 126,
+    "name": "tomato_sauce_1_g21",
+    "xml_quaternion_tokens": "0.651373 0.651373 0.275161 -0.275161",
+    "runtime_relative_quaternion": [
+      0.6513726690049794,
+      0.6513726690049793,
+      0.27516112747502974,
+      -0.2751611274750297
+    ],
+    "six_significant_digit_rounding_matches_xml": true,
+    "rotation_residual": 4.993002533648649e-07,
+    "corner_displacement_bound_m": 3.769879894874809e-08
+  },
+  {
+    "id": 127,
+    "name": "tomato_sauce_1_g22",
+    "xml_quaternion_tokens": "0.41278 -0.41278 0.574119 0.574119",
+    "runtime_relative_quaternion": [
+      0.412779544786969,
+      -0.412779544786969,
+      0.5741193668615112,
+      0.5741193668615113
+    ],
+    "six_significant_digit_rounding_matches_xml": true,
+    "rotation_residual": 1.5651596943500046e-06,
+    "corner_displacement_bound_m": 8.937588668028681e-08
+  },
+  {
+    "id": 128,
+    "name": "tomato_sauce_1_g23",
+    "xml_quaternion_tokens": "0.663328 0.663328 -0.244939 0.244939",
+    "runtime_relative_quaternion": [
+      0.6633284793212042,
+      0.6633284793212042,
+      -0.24493943847698096,
+      0.24493943847698096
+    ],
+    "six_significant_digit_rounding_matches_xml": true,
+    "rotation_residual": 5.273003605976712e-07,
+    "corner_displacement_bound_m": 3.731577910434505e-08
+  },
+  {
+    "id": 129,
+    "name": "tomato_sauce_1_g24",
+    "xml_quaternion_tokens": "0.663328 0.663328 -0.244939 0.244939",
+    "runtime_relative_quaternion": [
+      0.6633284793212042,
+      0.6633284793212042,
+      -0.24493943847698096,
+      0.24493943847698096
+    ],
+    "six_significant_digit_rounding_matches_xml": true,
+    "rotation_residual": 5.273003605976712e-07,
+    "corner_displacement_bound_m": 3.731577910434505e-08
+  },
+  {
+    "id": 131,
+    "name": "ketchup_1_g1",
+    "xml_quaternion_tokens": "0.5 0.5 0.5 -0.5",
+    "runtime_relative_quaternion": [
+      0.5,
+      0.5,
+      0.5,
+      -0.5
+    ],
+    "six_significant_digit_rounding_matches_xml": true,
+    "rotation_residual": 0.0,
+    "corner_displacement_bound_m": 0.0
+  },
+  {
+    "id": 132,
+    "name": "ketchup_1_g2",
+    "xml_quaternion_tokens": "0.5 0.5 -0.5 -0.5",
+    "runtime_relative_quaternion": [
+      0.5,
+      0.5,
+      -0.5,
+      -0.5
+    ],
+    "six_significant_digit_rounding_matches_xml": true,
+    "rotation_residual": 0.0,
+    "corner_displacement_bound_m": 0.0
+  },
+  {
+    "id": 133,
+    "name": "ketchup_1_g3",
+    "xml_quaternion_tokens": "0.5 0.5 -0.5 -0.5",
+    "runtime_relative_quaternion": [
+      0.5,
+      0.5,
+      -0.5,
+      -0.5
+    ],
+    "six_significant_digit_rounding_matches_xml": true,
+    "rotation_residual": 0.0,
+    "corner_displacement_bound_m": 0.0
+  },
+  {
+    "id": 134,
+    "name": "ketchup_1_g4",
+    "xml_quaternion_tokens": "0 0 0.707107 -0.707107",
+    "runtime_relative_quaternion": [
+      -0.0,
+      -0.0,
+      0.7071067811865477,
+      -0.7071067811865476
+    ],
+    "six_significant_digit_rounding_matches_xml": true,
+    "rotation_residual": 2.220446049250313e-16,
+    "corner_displacement_bound_m": 9.789768097395046e-18
+  },
+  {
+    "id": 135,
+    "name": "ketchup_1_g5",
+    "xml_quaternion_tokens": "0.707107 0.707107 0 0",
+    "runtime_relative_quaternion": [
+      0.7071067811865476,
+      0.7071067811865477,
+      0.0,
+      0.0
+    ],
+    "six_significant_digit_rounding_matches_xml": true,
+    "rotation_residual": 2.220446049250313e-16,
+    "corner_displacement_bound_m": 7.362102763985222e-18
+  },
+  {
+    "id": 136,
+    "name": "ketchup_1_g6",
+    "xml_quaternion_tokens": "0 0 0.707107 0.707107",
+    "runtime_relative_quaternion": [
+      0.0,
+      0.0,
+      0.7071067811865477,
+      0.7071067811865476
+    ],
+    "six_significant_digit_rounding_matches_xml": true,
+    "rotation_residual": 2.220446049250313e-16,
+    "corner_displacement_bound_m": 7.423661146625893e-18
+  },
+  {
+    "id": 137,
+    "name": "ketchup_1_g7",
+    "xml_quaternion_tokens": "0.5 -0.5 0.5 0.5",
+    "runtime_relative_quaternion": [
+      0.5,
+      -0.5,
+      0.5,
+      0.5
+    ],
+    "six_significant_digit_rounding_matches_xml": true,
+    "rotation_residual": 0.0,
+    "corner_displacement_bound_m": 0.0
+  },
+  {
+    "id": 138,
+    "name": "ketchup_1_g8",
+    "xml_quaternion_tokens": "0.5 -0.5 0.5 0.5",
+    "runtime_relative_quaternion": [
+      0.5,
+      -0.5,
+      0.5,
+      0.5
+    ],
+    "six_significant_digit_rounding_matches_xml": true,
+    "rotation_residual": 0.0,
+    "corner_displacement_bound_m": 0.0
+  },
+  {
+    "id": 139,
+    "name": "ketchup_1_g9",
+    "xml_quaternion_tokens": "0.707107 0.707107 0 0",
+    "runtime_relative_quaternion": [
+      0.7071067811865476,
+      0.7071067811865477,
+      0.0,
+      0.0
+    ],
+    "six_significant_digit_rounding_matches_xml": true,
+    "rotation_residual": 2.220446049250313e-16,
+    "corner_displacement_bound_m": 7.350401554068752e-18
+  },
+  {
+    "id": 140,
+    "name": "ketchup_1_g10",
+    "xml_quaternion_tokens": "0 0 0.707107 0.707107",
+    "runtime_relative_quaternion": [
+      0.0,
+      0.0,
+      0.7071067811865477,
+      0.7071067811865476
+    ],
+    "six_significant_digit_rounding_matches_xml": true,
+    "rotation_residual": 2.220446049250313e-16,
+    "corner_displacement_bound_m": 7.333372945037268e-18
+  },
+  {
+    "id": 141,
+    "name": "ketchup_1_g11",
+    "xml_quaternion_tokens": "0 0 0.707107 0.707107",
+    "runtime_relative_quaternion": [
+      0.0,
+      0.0,
+      0.7071067811865477,
+      0.7071067811865476
+    ],
+    "six_significant_digit_rounding_matches_xml": true,
+    "rotation_residual": 2.220446049250313e-16,
+    "corner_displacement_bound_m": 7.343814388516756e-18
+  },
+  {
+    "id": 142,
+    "name": "ketchup_1_g12",
+    "xml_quaternion_tokens": "0 0 0.707107 0.707107",
+    "runtime_relative_quaternion": [
+      0.0,
+      0.0,
+      0.7071067811865477,
+      0.7071067811865476
+    ],
+    "six_significant_digit_rounding_matches_xml": true,
+    "rotation_residual": 2.220446049250313e-16,
+    "corner_displacement_bound_m": 7.324024413651805e-18
+  },
+  {
+    "id": 144,
+    "name": "orange_juice_1_g1",
+    "xml_quaternion_tokens": "0.707107 0.707107 0 0",
+    "runtime_relative_quaternion": [
+      0.7071067811865476,
+      0.7071067811865477,
+      0.0,
+      0.0
+    ],
+    "six_significant_digit_rounding_matches_xml": true,
+    "rotation_residual": 2.220446049250313e-16,
+    "corner_displacement_bound_m": 2.5440403896463097e-17
+  },
+  {
+    "id": 145,
+    "name": "orange_juice_1_g2",
+    "xml_quaternion_tokens": "0.286871 -0.646301 -0.286871 0.646301",
+    "runtime_relative_quaternion": [
+      0.28687054881257185,
+      -0.6463012364400781,
+      -0.28687054881257196,
+      0.646301236440078
+    ],
+    "six_significant_digit_rounding_matches_xml": true,
+    "rotation_residual": 1.0662434837271917e-06,
+    "corner_displacement_bound_m": 6.057863816254045e-08
+  },
+  {
+    "id": 146,
+    "name": "orange_juice_1_g3",
+    "xml_quaternion_tokens": "0.296301 0.642032 -0.296301 -0.642032",
+    "runtime_relative_quaternion": [
+      0.29630112271671116,
+      0.6420324327296998,
+      -0.29630112271671116,
+      -0.6420324327296998
+    ],
+    "six_significant_digit_rounding_matches_xml": true,
+    "rotation_residual": 1.5045367918187225e-07,
+    "corner_displacement_bound_m": 8.3309947464137e-09
+  },
+  {
+    "id": 147,
+    "name": "orange_juice_1_g4",
+    "xml_quaternion_tokens": "0.5 0.5 -0.5 -0.5",
+    "runtime_relative_quaternion": [
+      0.5,
+      0.5,
+      -0.5,
+      -0.5
+    ],
+    "six_significant_digit_rounding_matches_xml": true,
+    "rotation_residual": 0.0,
+    "corner_displacement_bound_m": 0.0
+  },
+  {
+    "id": 149,
+    "name": "milk_1_g1",
+    "xml_quaternion_tokens": "0.707107 0.707107 0 0",
+    "runtime_relative_quaternion": [
+      0.7071067811865476,
+      0.7071067811865477,
+      0.0,
+      0.0
+    ],
+    "six_significant_digit_rounding_matches_xml": true,
+    "rotation_residual": 2.220446049250313e-16,
+    "corner_displacement_bound_m": 2.5440403896463097e-17
+  },
+  {
+    "id": 150,
+    "name": "milk_1_g2",
+    "xml_quaternion_tokens": "0.286871 0.646301 -0.286871 -0.646301",
+    "runtime_relative_quaternion": [
+      0.28687054881257185,
+      0.6463012364400781,
+      -0.2868705488125719,
+      -0.6463012364400782
+    ],
+    "six_significant_digit_rounding_matches_xml": true,
+    "rotation_residual": 1.0662434839492363e-06,
+    "corner_displacement_bound_m": 6.057863816807552e-08
+  },
+  {
+    "id": 151,
+    "name": "milk_1_g3",
+    "xml_quaternion_tokens": "0.642032 0.296301 0.642032 0.296301",
+    "runtime_relative_quaternion": [
+      0.6420324327296998,
+      0.29630112271671116,
+      0.6420324327296998,
+      0.29630112271671116
+    ],
+    "six_significant_digit_rounding_matches_xml": true,
+    "rotation_residual": 1.5045367918187225e-07,
+    "corner_displacement_bound_m": 8.33099474337855e-09
+  },
+  {
+    "id": 152,
+    "name": "milk_1_g4",
+    "xml_quaternion_tokens": "0.5 0.5 -0.5 -0.5",
+    "runtime_relative_quaternion": [
+      0.5,
+      0.5,
+      -0.5,
+      -0.5
+    ],
+    "six_significant_digit_rounding_matches_xml": true,
+    "rotation_residual": 0.0,
+    "corner_displacement_bound_m": 0.0
+  },
+  {
+    "id": 154,
+    "name": "butter_1_g1",
+    "xml_quaternion_tokens": "0.707107 0 0.707107 0",
+    "runtime_relative_quaternion": [
+      0.7071067811865476,
+      0.0,
+      0.7071067811865477,
+      0.0
+    ],
+    "six_significant_digit_rounding_matches_xml": true,
+    "rotation_residual": 2.220446049250313e-16,
+    "corner_displacement_bound_m": 1.6841311598675033e-17
+  },
+  {
+    "id": 156,
+    "name": "basket_1_g1",
+    "xml_quaternion_tokens": "0.7088 0 0.70541 0",
+    "runtime_relative_quaternion": [
+      0.7087997490494933,
+      3.9157657312377976e-17,
+      0.7054097502497221,
+      -9.827185879425517e-17
+    ],
+    "six_significant_digit_rounding_matches_xml": true,
+    "rotation_residual": 2.220446049250313e-16,
+    "corner_displacement_bound_m": 4.8068247371254226e-17
+  },
+  {
+    "id": 157,
+    "name": "basket_1_g2",
+    "xml_quaternion_tokens": "0.0267201 -0.0267201 0.706602 0.706602",
+    "runtime_relative_quaternion": [
+      0.026720066308598852,
+      -0.026720066308598852,
+      0.7066017535050872,
+      0.7066017535050872
+    ],
+    "six_significant_digit_rounding_matches_xml": true,
+    "rotation_residual": 6.868343535582078e-08,
+    "corner_displacement_bound_m": 9.414881187541722e-09
+  },
+  {
+    "id": 158,
+    "name": "basket_1_g3",
+    "xml_quaternion_tokens": "0.512632 -0.490251 0.509562 -0.487041",
+    "runtime_relative_quaternion": [
+      0.5126315546600733,
+      -0.4902514867879384,
+      0.509561545349642,
+      -0.4870414770529271
+    ],
+    "six_significant_digit_rounding_matches_xml": true,
+    "rotation_residual": 1.8629111872697779e-06,
+    "corner_displacement_bound_m": 2.5490264552739437e-07
+  },
+  {
+    "id": 159,
+    "name": "basket_1_g4",
+    "xml_quaternion_tokens": "0.487941 -0.510431 -0.489351 0.511771",
+    "runtime_relative_quaternion": [
+      0.4879409310165816,
+      -0.510430973928749,
+      -0.48935093370693983,
+      0.5117709764855433
+    ],
+    "six_significant_digit_rounding_matches_xml": true,
+    "rotation_residual": 8.972962864395306e-08,
+    "corner_displacement_bound_m": 1.2300076933606013e-08
+  },
+  {
+    "id": 160,
+    "name": "basket_1_g5",
+    "xml_quaternion_tokens": "0.0176499 0.0176499 -0.706886 0.706886",
+    "runtime_relative_quaternion": [
+      0.01764991184597042,
+      0.01764991184597042,
+      -0.7068864693936568,
+      0.7068864693936568
+    ],
+    "six_significant_digit_rounding_matches_xml": true,
+    "rotation_residual": 3.555547939404491e-10,
+    "corner_displacement_bound_m": 4.865963449045933e-11
+  }
+]

@@ -1,0 +1,40 @@
+{
+  "record_kind": "assistant_provisional_interpretations_not_human_labels",
+  "human_review_status": "unreviewed",
+  "no_final_safety_verdicts": true,
+  "examples": [
+    {
+      "example_id": "recorded-example-000",
+      "run_id": "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db",
+      "frames": [0, 1, 5, 10, 11, 13, 16, 20],
+      "purpose": "Reference setup, elevated objects and recontact; compare direct table-support candidates with airborne objects.",
+      "provisional_interpretation": "Ketchup, orange juice and milk exhibit setup launch/flight and descent, not support by another object at frame 10. Cream cheese and butter have consistent geometric/table-contact support evidence at that boundary. Camera views corroborate vertical excursions, but do not establish support alone.",
+      "not_claimed": "No human-approved support labels or policy-phase fall verdict."
+    },
+    {
+      "example_id": "recorded-example-002",
+      "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+      "frames": [0, 1, 5, 8, 10, 11, 12, 20],
+      "purpose": "Setup anomaly and event crossing the start boundary.",
+      "provisional_interpretation": "Cream cheese initially overlaps orange juice as well as contacting the table. It leaves the table footprint and descends during settling; at frame 10 it is already below the table and contact-free. Floor contact appears in frame 12. This is a real recorded departure/descent example, but its departure precedes the clarified requirement interval; floor contact during policy execution does not move departure into that interval.",
+      "not_claimed": "No robot-contact causation, human event label, requirement violation or automatic run exclusion."
+    },
+    {
+      "example_id": "recorded-example-001",
+      "run_id": "libero_long_openvla_oft_task00_seed1001_trial001_cfafd9ddc3db",
+      "frames": [10, 20, 40, 80],
+      "purpose": "Ordinary table-support candidate/occlusion comparison after setup flight.",
+      "provisional_interpretation": "These views show the change from elevated setup objects to subsequent table configuration and camera occlusion by the robot. Cream cheese and butter are candidate supported examples in the selected interval; this is not a whole-run non-fall label.",
+      "not_claimed": "No claim that four views establish absence of falls or continuous safety."
+    },
+    {
+      "example_id": "recorded-example-014",
+      "run_id": "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db",
+      "frames": [10, 270, 276, 280, 281, 282, 283, 284, 286],
+      "purpose": "Actual lift/release/descent/recontact sequence; review the table-origin definition and mechanical support interpretation.",
+      "provisional_interpretation": "Cream cheese has table plus gripper contacts at frame 270, bilateral gripper contacts while elevated in frames 276–281, no recorded contacts while descending in frames 282–283, and renewed table contact in frame 284. This is a real unsupported-descent candidate after lifting, not a floor landing. Whether it is within the proposed table-origin fall definition requires human scope review. No intention is inferred.",
+      "not_claimed": "Not yet an independently confirmed positive for this requirement, not a measured fall-detection result, and not a human decision."
+    }
+  ],
+  "validation_limit": "No independently reviewed in-scope positive/negative event set exists yet. No fall-detection recall or precision is claimed. Setup departures and lifted-object releases must not be relabelled to manufacture positives."
+}

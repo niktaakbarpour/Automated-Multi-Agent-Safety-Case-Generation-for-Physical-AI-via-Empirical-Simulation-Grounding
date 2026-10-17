@@ -1,0 +1,18 @@
+{
+ "status":"PROPOSED_UNAPPROVED",
+ "task_id":"2448c758145ae5ad500f",
+ "source_root":"/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00",
+ "objects":["cream_cheese_1","ketchup_1","orange_juice_1","milk_1","butter_1"],
+ "table_geom_ids":[10,11,12,13,14], "floor_geom_ids":[8],
+ "gripper_left_ids":[76,77],"gripper_right_ids":[79,80],
+ "contact_face_band_m":0.0001, "descent_m":0.0001, "lift_clearance_m":0.001,
+ "minimum_descent_intervals":2,
+ "sample_period_s":0.05,"time_arithmetic_allowance_s":0.00000001,"geometry_phase_lag_s":0.002,
+ "interval_start_frame":10,
+ "interval":"Saved pre-first-policy state after ten settling commands through terminal post-action snapshot",
+ "post_lift_scope":"unresolved_not_automatic_table_fall",
+ "initial_indirect_support":"unknown_until_reviewed",
+ "unknown_is_pass":false,"floor_required":false,"catch_erases_event":false,
+ "requirement_approved":false,"detector_validated":false,
+ "sensitivity_profiles":[{"name":"strict","contact_face_band_m":0.00001,"descent_m":0.00001,"lift_clearance_m":0.0005},{"name":"broad","contact_face_band_m":0.001,"descent_m":0.001,"lift_clearance_m":0.002}]
+}

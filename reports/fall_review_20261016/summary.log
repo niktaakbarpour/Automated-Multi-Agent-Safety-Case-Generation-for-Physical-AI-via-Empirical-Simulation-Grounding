@@ -1,0 +1,262 @@
+{
+  "task_id": "2448c758145ae5ad500f",
+  "runs": 50,
+  "seed_range": [
+    1000,
+    1049
+  ],
+  "frames": 14215,
+  "control_actions": 13665,
+  "control_action_count_range": [
+    235,
+    520
+  ],
+  "stages": {
+    "before_settling": 50,
+    "settling": 500,
+    "control": 13615,
+    "terminal": 50
+  },
+  "objects": {
+    "cream_cheese_1": {
+      "position_counts": {
+        "finite": 14215
+      },
+      "orientation_counts": {
+        "finite": 14215
+      },
+      "runs_with_initial_table_contacts": 49,
+      "episodes_without_initial_table_contacts": [
+        2
+      ],
+      "max_raw_body_distance_m": 0.0065024330334332095,
+      "max_qpos_body_position_distance_m": 0.006529055833545329,
+      "max_raw_vs_body_quaternion_component_difference": 0.00043756792461770253
+    },
+    "ketchup_1": {
+      "position_counts": {
+        "finite": 14215
+      },
+      "orientation_counts": {
+        "finite": 14215
+      },
+      "runs_with_initial_table_contacts": 0,
+      "episodes_without_initial_table_contacts": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49
+      ],
+      "max_raw_body_distance_m": 0.006395678271815669,
+      "max_qpos_body_position_distance_m": 0.006432839132233214,
+      "max_raw_vs_body_quaternion_component_difference": 1.3864946729169603e-05
+    },
+    "orange_juice_1": {
+      "position_counts": {
+        "finite": 14215
+      },
+      "orientation_counts": {
+        "finite": 14215
+      },
+      "runs_with_initial_table_contacts": 0,
+      "episodes_without_initial_table_contacts": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49
+      ],
+      "max_raw_body_distance_m": 0.006074381938679885,
+      "max_qpos_body_position_distance_m": 0.006111506190626174,
+      "max_raw_vs_body_quaternion_component_difference": 0.005074827590712344
+    },
+    "milk_1": {
+      "position_counts": {
+        "finite": 14215
+      },
+      "orientation_counts": {
+        "finite": 14215
+      },
+      "runs_with_initial_table_contacts": 0,
+      "episodes_without_initial_table_contacts": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49
+      ],
+      "max_raw_body_distance_m": 0.006063652907784389,
+      "max_qpos_body_position_distance_m": 0.006100782801840711,
+      "max_raw_vs_body_quaternion_component_difference": 0.0008139700653404525
+    },
+    "butter_1": {
+      "position_counts": {
+        "finite": 14215
+      },
+      "orientation_counts": {
+        "finite": 14215
+      },
+      "runs_with_initial_table_contacts": 50,
+      "episodes_without_initial_table_contacts": [],
+      "max_raw_body_distance_m": 0.0005253015702888497,
+      "max_qpos_body_position_distance_m": 0.0005643373016280817,
+      "max_raw_vs_body_quaternion_component_difference": 3.4161458965990116e-15
+    }
+  },
+  "timing_issues": [],
+  "transition_alignment_issues": [],
+  "contact_issues": [],
+  "contact_records": 456612,
+  "max_geom_position_component_residual_m": 2.498001805406602e-16,
+  "max_geom_rotation_component_residual": 1.8647877442156367e-06,
+  "max_table_pose_change": 0.0,
+  "body_joint_mapping_matches_all_runs": true,
+  "unique_xml_hashes": [
+    "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542"
+  ],
+  "model_assets_verified": true,
+  "max_sim_cadence_numerical_error_s": 2.771394225220547e-14,
+  "per_run_termination_sim_time_range_s": [
+    12.25000000000076,
+    26.49999999999619
+  ],
+  "max_wall_snapshot_gap_s": 0.70560598,
+  "full_file_hashes_recomputed": false,
+  "safety_verdicts_assigned": false
+}

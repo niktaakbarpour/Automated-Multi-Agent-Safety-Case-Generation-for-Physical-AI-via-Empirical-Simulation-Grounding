@@ -13,3 +13,14 @@ __pycache__/
 # Inspection artifacts are retained on Hestia pending review/export authorization.
 /evidence/geometry_v2/
 /data/requirement_inputs/v2/
+
+/reports/requirement_pilot_v2_confirmed_queue/
+/reports/requirement_v2_confirmed_launch/
+/data/requirement_inputs/v2-confirmed/
+
+# Delivery archives and temporary transfer payloads; extracted versioned results are tracked.
+/reports/trustworthy-fall-*.zip
+/reports/fall_checker_dev_20261017/*.b64
+/reports/fall_checker_dev_v2_20261017/*.b64
+/reports/fall_review_20261016/*.b64
+/reports/fall_review_v2_20261016/*.b64

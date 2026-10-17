@@ -1,0 +1,744 @@
+{
+  "source_xml": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_000/simulator.xml",
+  "sha256": "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542",
+  "option": [
+    {
+      "impratio": "20",
+      "density": "1.2",
+      "viscosity": "2e-05",
+      "cone": "elliptic"
+    }
+  ],
+  "default_geom_settings": [],
+  "explicit_geom_contact_settings": [
+    {
+      "name": null,
+      "attributes": {
+        "solref": "0.001",
+        "solimp": "0.998 0.998",
+        "friction": "0.95 0.3 0.1",
+        "contype": "0",
+        "conaffinity": "0"
+      }
+    },
+    {
+      "name": null,
+      "attributes": {
+        "solref": "0.001",
+        "solimp": "0.998 0.998",
+        "friction": "0.95 0.3 0.1"
+      }
+    },
+    {
+      "name": null,
+      "attributes": {
+        "solref": "0.001",
+        "solimp": "0.998 0.998",
+        "friction": "0.95 0.3 0.1"
+      }
+    },
+    {
+      "name": null,
+      "attributes": {
+        "solref": "0.001",
+        "solimp": "0.998 0.998",
+        "friction": "0.95 0.3 0.1"
+      }
+    },
+    {
+      "name": null,
+      "attributes": {
+        "solref": "0.001",
+        "solimp": "0.998 0.998",
+        "friction": "0.95 0.3 0.1"
+      }
+    },
+    {
+      "name": null,
+      "attributes": {
+        "solref": "0.001",
+        "solimp": "0.998 0.998",
+        "friction": "0.95 0.3 0.1"
+      }
+    },
+    {
+      "name": null,
+      "attributes": {
+        "solref": "0.001",
+        "solimp": "0.998 0.998",
+        "friction": "0.95 0.3 0.1"
+      }
+    },
+    {
+      "name": "gripper0_finger1_pad_collision",
+      "attributes": {
+        "solref": "0.01 0.5",
+        "friction": "2 0.05"
+      }
+    },
+    {
+      "name": "gripper0_finger2_pad_collision",
+      "attributes": {
+        "solref": "0.01 0.5",
+        "friction": "2 0.05"
+      }
+    },
+    {
+      "name": "alphabet_soup_1_g0",
+      "attributes": {
+        "solref": "0.001",
+        "solimp": "0.998 0.998",
+        "friction": "0.95 0.3 0.1",
+        "contype": "0",
+        "conaffinity": "0"
+      }
+    },
+    {
+      "name": "alphabet_soup_1_g1",
+      "attributes": {
+        "solref": "0.001",
+        "solimp": "0.998 0.998",
+        "friction": "0.95 0.3 0.1"
+      }
+    },
+    {
+      "name": "alphabet_soup_1_g2",
+      "attributes": {
+        "solref": "0.001",
+        "solimp": "0.998 0.998",
+        "friction": "0.95 0.3 0.1"
+      }
+    },
+    {
+      "name": "alphabet_soup_1_g3",
+      "attributes": {
+        "solref": "0.001",
+        "solimp": "0.998 0.998",
+        "friction": "0.95 0.3 0.1"
+      }
+    },
+    {
+      "name": "alphabet_soup_1_g4",
+      "attributes": {
+        "solref": "0.001",
+        "solimp": "0.998 0.998",
+        "friction": "0.95 0.3 0.1"
+      }
+    },
+    {
+      "name": "alphabet_soup_1_g5",
+      "attributes": {
+        "solref": "0.001",
+        "solimp": "0.998 0.998",
+        "friction": "0.95 0.3 0.1"
+      }
+    },
+    {
+      "name": "alphabet_soup_1_g6",
+      "attributes": {
+        "solref": "0.001",
+        "solimp": "0.998 0.998",
+        "friction": "0.95 0.3 0.1"
+      }
+    },
+    {
+      "name": "alphabet_soup_1_g7",
+      "attributes": {
+        "solref": "0.001",
+        "solimp": "0.998 0.998",
+        "friction": "0.95 0.3 0.1"
+      }
+    },
+    {
+      "name": "alphabet_soup_1_g8",
+      "attributes": {
+        "solref": "0.001",
+        "solimp": "0.998 0.998",
+        "friction": "0.95 0.3 0.1"
+      }
+    },
+    {
+      "name": "alphabet_soup_1_g9",
+      "attributes": {
+        "solref": "0.001",
+        "solimp": "0.998 0.998",
+        "friction": "0.95 0.3 0.1"
+      }
+    },
+    {
+      "name": "alphabet_soup_1_g10",
+      "attributes": {
+        "solref": "0.001",
+        "solimp": "0.998 0.998",
+        "friction": "0.95 0.3 0.1"
+      }
+    },
+    {
+      "name": "alphabet_soup_1_g11",
+      "attributes": {
+        "solref": "0.001",
+        "solimp": "0.998 0.998",
+        "friction": "0.95 0.3 0.1"
+      }
+    },
+    {
+      "name": "alphabet_soup_1_g12",
+      "attributes": {
+        "solref": "0.001",
+        "solimp": "0.998 0.998",
+        "friction": "0.95 0.3 0.1"
+      }
+    },
+    {
+      "name": "alphabet_soup_1_g13",
+      "attributes": {
+        "solref": "0.001",
+        "solimp": "0.998 0.998",
+        "friction": "0.95 0.3 0.1"
+      }
+    },
+    {
+      "name": "alphabet_soup_1_g14",
+      "attributes": {
+        "solref": "0.001",
+        "solimp": "0.998 0.998",
+        "friction": "0.95 0.3 0.1"
+      }
+    },
+    {
+      "name": "alphabet_soup_1_g15",
+      "attributes": {
+        "solref": "0.001",
+        "solimp": "0.998 0.998",
+        "friction": "0.95 0.3 0.1"
+      }
+    },
+    {
+      "name": "alphabet_soup_1_g16",
+      "attributes": {
+        "solref": "0.001",
+        "solimp": "0.998 0.998",
+        "friction": "0.95 0.3 0.1"
+      }
+    },
+    {
+      "name": "alphabet_soup_1_g17",
+      "attributes": {
+        "solref": "0.001",
+        "solimp": "0.998 0.998",
+        "friction": "0.95 0.3 0.1"
+      }
+    },
+    {
+      "name": "alphabet_soup_1_g18",
+      "attributes": {
+        "solref": "0.001",
+        "solimp": "0.998 0.998",
+        "friction": "0.95 0.3 0.1"
+      }
+    },
+    {
+      "name": "alphabet_soup_1_g19",
+      "attributes": {
+        "solref": "0.001",
+        "solimp": "0.998 0.998",
+        "friction": "0.95 0.3 0.1"
+      }
+    },
+    {
+      "name": "alphabet_soup_1_g20",
+      "attributes": {
+        "solref": "0.001",
+        "solimp": "0.998 0.998",
+        "friction": "0.95 0.3 0.1"
+      }
+    },
+    {
+      "name": "alphabet_soup_1_g21",
+      "attributes": {
+        "solref": "0.001",
+        "solimp": "0.998 0.998",
+        "friction": "0.95 0.3 0.1"
+      }
+    },
+    {
+      "name": "cream_cheese_1_g0",
+      "attributes": {
+        "solref": "0.001",
+        "solimp": "0.998 0.998",
+        "friction": "0.95 0.3 0.1",
+        "contype": "0",
+        "conaffinity": "0"
+      }
+    },
+    {
+      "name": "cream_cheese_1_g1",
+      "attributes": {
+        "solref": "0.001",
+        "solimp": "0.998 0.998",
+        "friction": "0.95 0.3 0.1"
+      }
+    },
+    {
+      "name": "tomato_sauce_1_g0",
+      "attributes": {
+        "solref": "0.001",
+        "solimp": "0.998 0.998",
+        "friction": "0.95 0.3 0.1",
+        "contype": "0",
+        "conaffinity": "0"
+      }
+    },
+    {
+      "name": "tomato_sauce_1_g1",
+      "attributes": {
+        "solref": "0.001",
+        "solimp": "0.998 0.998",
+        "friction": "0.95 0.3 0.1"
+      }
+    },
+    {
+      "name": "tomato_sauce_1_g2",
+      "attributes": {
+        "solref": "0.001",
+        "solimp": "0.998 0.998",
+        "friction": "0.95 0.3 0.1"
+      }
+    },
+    {
+      "name": "tomato_sauce_1_g3",
+      "attributes": {
+        "solref": "0.001",
+        "solimp": "0.998 0.998",
+        "friction": "0.95 0.3 0.1"
+      }
+    },
+    {
+      "name": "tomato_sauce_1_g4",
+      "attributes": {
+        "solref": "0.001",
+        "solimp": "0.998 0.998",
+        "friction": "0.95 0.3 0.1"
+      }
+    },
+    {
+      "name": "tomato_sauce_1_g5",
+      "attributes": {
+        "solref": "0.001",
+        "solimp": "0.998 0.998",
+        "friction": "0.95 0.3 0.1"
+      }
+    },
+    {
+      "name": "tomato_sauce_1_g6",
+      "attributes": {
+        "solref": "0.001",
+        "solimp": "0.998 0.998",
+        "friction": "0.95 0.3 0.1"
+      }
+    },
+    {
+      "name": "tomato_sauce_1_g7",
+      "attributes": {
+        "solref": "0.001",
+        "solimp": "0.998 0.998",
+        "friction": "0.95 0.3 0.1"
+      }
+    },
+    {
+      "name": "tomato_sauce_1_g8",
+      "attributes": {
+        "solref": "0.001",
+        "solimp": "0.998 0.998",
+        "friction": "0.95 0.3 0.1"
+      }
+    },
+    {
+      "name": "tomato_sauce_1_g9",
+      "attributes": {
+        "solref": "0.001",
+        "solimp": "0.998 0.998",
+        "friction": "0.95 0.3 0.1"
+      }
+    },
+    {
+      "name": "tomato_sauce_1_g10",
+      "attributes": {
+        "solref": "0.001",
+        "solimp": "0.998 0.998",
+        "friction": "0.95 0.3 0.1"
+      }
+    },
+    {
+      "name": "tomato_sauce_1_g11",
+      "attributes": {
+        "solref": "0.001",
+        "solimp": "0.998 0.998",
+        "friction": "0.95 0.3 0.1"
+      }
+    },
+    {
+      "name": "tomato_sauce_1_g12",
+      "attributes": {
+        "solref": "0.001",
+        "solimp": "0.998 0.998",
+        "friction": "0.95 0.3 0.1"
+      }
+    },
+    {
+      "name": "tomato_sauce_1_g13",
+      "attributes": {
+        "solref": "0.001",
+        "solimp": "0.998 0.998",
+        "friction": "0.95 0.3 0.1"
+      }
+    },
+    {
+      "name": "tomato_sauce_1_g14",
+      "attributes": {
+        "solref": "0.001",
+        "solimp": "0.998 0.998",
+        "friction": "0.95 0.3 0.1"
+      }
+    },
+    {
+      "name": "tomato_sauce_1_g15",
+      "attributes": {
+        "solref": "0.001",
+        "solimp": "0.998 0.998",
+        "friction": "0.95 0.3 0.1"
+      }
+    },
+    {
+      "name": "tomato_sauce_1_g16",
+      "attributes": {
+        "solref": "0.001",
+        "solimp": "0.998 0.998",
+        "friction": "0.95 0.3 0.1"
+      }
+    },
+    {
+      "name": "tomato_sauce_1_g17",
+      "attributes": {
+        "solref": "0.001",
+        "solimp": "0.998 0.998",
+        "friction": "0.95 0.3 0.1"
+      }
+    },
+    {
+      "name": "tomato_sauce_1_g18",
+      "attributes": {
+        "solref": "0.001",
+        "solimp": "0.998 0.998",
+        "friction": "0.95 0.3 0.1"
+      }
+    },
+    {
+      "name": "tomato_sauce_1_g19",
+      "attributes": {
+        "solref": "0.001",
+        "solimp": "0.998 0.998",
+        "friction": "0.95 0.3 0.1"
+      }
+    },
+    {
+      "name": "tomato_sauce_1_g20",
+      "attributes": {
+        "solref": "0.001",
+        "solimp": "0.998 0.998",
+        "friction": "0.95 0.3 0.1"
+      }
+    },
+    {
+      "name": "tomato_sauce_1_g21",
+      "attributes": {
+        "solref": "0.001",
+        "solimp": "0.998 0.998",
+        "friction": "0.95 0.3 0.1"
+      }
+    },
+    {
+      "name": "tomato_sauce_1_g22",
+      "attributes": {
+        "solref": "0.001",
+        "solimp": "0.998 0.998",
+        "friction": "0.95 0.3 0.1"
+      }
+    },
+    {
+      "name": "tomato_sauce_1_g23",
+      "attributes": {
+        "solref": "0.001",
+        "solimp": "0.998 0.998",
+        "friction": "0.95 0.3 0.1"
+      }
+    },
+    {
+      "name": "tomato_sauce_1_g24",
+      "attributes": {
+        "solref": "0.001",
+        "solimp": "0.998 0.998",
+        "friction": "0.95 0.3 0.1"
+      }
+    },
+    {
+      "name": "ketchup_1_g0",
+      "attributes": {
+        "solref": "0.001",
+        "solimp": "0.998 0.998",
+        "friction": "0.95 0.3 0.1",
+        "contype": "0",
+        "conaffinity": "0"
+      }
+    },
+    {
+      "name": "ketchup_1_g1",
+      "attributes": {
+        "solref": "0.001",
+        "solimp": "0.998 0.998",
+        "friction": "0.95 0.3 0.1"
+      }
+    },
+    {
+      "name": "ketchup_1_g2",
+      "attributes": {
+        "solref": "0.001",
+        "solimp": "0.998 0.998",
+        "friction": "0.95 0.3 0.1"
+      }
+    },
+    {
+      "name": "ketchup_1_g3",
+      "attributes": {
+        "solref": "0.001",
+        "solimp": "0.998 0.998",
+        "friction": "0.95 0.3 0.1"
+      }
+    },
+    {
+      "name": "ketchup_1_g4",
+      "attributes": {
+        "solref": "0.001",
+        "solimp": "0.998 0.998",
+        "friction": "0.95 0.3 0.1"
+      }
+    },
+    {
+      "name": "ketchup_1_g5",
+      "attributes": {
+        "solref": "0.001",
+        "solimp": "0.998 0.998",
+        "friction": "0.95 0.3 0.1"
+      }
+    },
+    {
+      "name": "ketchup_1_g6",
+      "attributes": {
+        "solref": "0.001",
+        "solimp": "0.998 0.998",
+        "friction": "0.95 0.3 0.1"
+      }
+    },
+    {
+      "name": "ketchup_1_g7",
+      "attributes": {
+        "solref": "0.001",
+        "solimp": "0.998 0.998",
+        "friction": "0.95 0.3 0.1"
+      }
+    },
+    {
+      "name": "ketchup_1_g8",
+      "attributes": {
+        "solref": "0.001",
+        "solimp": "0.998 0.998",
+        "friction": "0.95 0.3 0.1"
+      }
+    },
+    {
+      "name": "ketchup_1_g9",
+      "attributes": {
+        "solref": "0.001",
+        "solimp": "0.998 0.998",
+        "friction": "0.95 0.3 0.1"
+      }
+    },
+    {
+      "name": "ketchup_1_g10",
+      "attributes": {
+        "solref": "0.001",
+        "solimp": "0.998 0.998",
+        "friction": "0.95 0.3 0.1"
+      }
+    },
+    {
+      "name": "ketchup_1_g11",
+      "attributes": {
+        "solref": "0.001",
+        "solimp": "0.998 0.998",
+        "friction": "0.95 0.3 0.1"
+      }
+    },
+    {
+      "name": "ketchup_1_g12",
+      "attributes": {
+        "solref": "0.001",
+        "solimp": "0.998 0.998",
+        "friction": "0.95 0.3 0.1"
+      }
+    },
+    {
+      "name": "orange_juice_1_g0",
+      "attributes": {
+        "solref": "0.001",
+        "solimp": "0.998 0.998",
+        "friction": "0.95 0.3 0.1",
+        "contype": "0",
+        "conaffinity": "0"
+      }
+    },
+    {
+      "name": "orange_juice_1_g1",
+      "attributes": {
+        "solref": "0.001",
+        "solimp": "0.998 0.998",
+        "friction": "0.95 0.3 0.1"
+      }
+    },
+    {
+      "name": "orange_juice_1_g2",
+      "attributes": {
+        "solref": "0.001",
+        "solimp": "0.998 0.998",
+        "friction": "0.95 0.3 0.1"
+      }
+    },
+    {
+      "name": "orange_juice_1_g3",
+      "attributes": {
+        "solref": "0.001",
+        "solimp": "0.998 0.998",
+        "friction": "0.95 0.3 0.1"
+      }
+    },
+    {
+      "name": "orange_juice_1_g4",
+      "attributes": {
+        "solref": "0.001",
+        "solimp": "0.998 0.998",
+        "friction": "0.95 0.3 0.1"
+      }
+    },
+    {
+      "name": "milk_1_g0",
+      "attributes": {
+        "solref": "0.001",
+        "solimp": "0.998 0.998",
+        "friction": "0.95 0.3 0.1",
+        "contype": "0",
+        "conaffinity": "0"
+      }
+    },
+    {
+      "name": "milk_1_g1",
+      "attributes": {
+        "solref": "0.001",
+        "solimp": "0.998 0.998",
+        "friction": "0.95 0.3 0.1"
+      }
+    },
+    {
+      "name": "milk_1_g2",
+      "attributes": {
+        "solref": "0.001",
+        "solimp": "0.998 0.998",
+        "friction": "0.95 0.3 0.1"
+      }
+    },
+    {
+      "name": "milk_1_g3",
+      "attributes": {
+        "solref": "0.001",
+        "solimp": "0.998 0.998",
+        "friction": "0.95 0.3 0.1"
+      }
+    },
+    {
+      "name": "milk_1_g4",
+      "attributes": {
+        "solref": "0.001",
+        "solimp": "0.998 0.998",
+        "friction": "0.95 0.3 0.1"
+      }
+    },
+    {
+      "name": "butter_1_g0",
+      "attributes": {
+        "solref": "0.001",
+        "solimp": "0.998 0.998",
+        "friction": "0.95 0.3 0.1",
+        "contype": "0",
+        "conaffinity": "0"
+      }
+    },
+    {
+      "name": "butter_1_g1",
+      "attributes": {
+        "solref": "0.001",
+        "solimp": "0.998 0.998",
+        "friction": "0.95 0.3 0.1"
+      }
+    },
+    {
+      "name": "basket_1_g0",
+      "attributes": {
+        "solref": "0.001",
+        "solimp": "0.998 0.998",
+        "friction": "0.95 0.3 0.1",
+        "contype": "0",
+        "conaffinity": "0"
+      }
+    },
+    {
+      "name": "basket_1_g1",
+      "attributes": {
+        "solref": "0.001",
+        "solimp": "0.998 0.998",
+        "friction": "0.95 0.3 0.1"
+      }
+    },
+    {
+      "name": "basket_1_g2",
+      "attributes": {
+        "solref": "0.001",
+        "solimp": "0.998 0.998",
+        "friction": "0.95 0.3 0.1"
+      }
+    },
+    {
+      "name": "basket_1_g3",
+      "attributes": {
+        "solref": "0.001",
+        "solimp": "0.998 0.998",
+        "friction": "0.95 0.3 0.1"
+      }
+    },
+    {
+      "name": "basket_1_g4",
+      "attributes": {
+        "solref": "0.001",
+        "solimp": "0.998 0.998",
+        "friction": "0.95 0.3 0.1"
+      }
+    },
+    {
+      "name": "basket_1_g5",
+      "attributes": {
+        "solref": "0.001",
+        "solimp": "0.998 0.998",
+        "friction": "0.95 0.3 0.1"
+      }
+    }
+  ],
+  "qualification": "Unspecified defaults are not inferred as calibrated support or fall thresholds."
+}

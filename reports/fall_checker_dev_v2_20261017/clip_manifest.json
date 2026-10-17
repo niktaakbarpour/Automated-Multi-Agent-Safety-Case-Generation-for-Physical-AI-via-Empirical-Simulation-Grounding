@@ -1,0 +1,2502 @@
+[
+  {
+    "file": "clips/episode_000_agentview_image_000000-000030.mp4",
+    "run_id": "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db",
+    "recording": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_000/trajectory.h5",
+    "camera": "agentview_image",
+    "consecutive_frames": true,
+    "references": [
+      {
+        "frame": 0,
+        "simulator_endpoint_time_s": 0.0,
+        "geometry_nominal_time_s": 0,
+        "hdf5_path": "frames/000000/raw_observation/agentview_image/value",
+        "stage": "before_settling",
+        "control_step": 0,
+        "host_snapshot_utc": "2026-10-11T10:54:45.964070+00:00"
+      },
+      {
+        "frame": 1,
+        "simulator_endpoint_time_s": 0.05000000000000003,
+        "geometry_nominal_time_s": 0.04800000000000003,
+        "hdf5_path": "frames/000001/raw_observation/agentview_image/value",
+        "stage": "settling",
+        "control_step": 0,
+        "host_snapshot_utc": "2026-10-11T10:54:46.227314+00:00"
+      },
+      {
+        "frame": 2,
+        "simulator_endpoint_time_s": 0.10000000000000007,
+        "geometry_nominal_time_s": 0.09800000000000007,
+        "hdf5_path": "frames/000002/raw_observation/agentview_image/value",
+        "stage": "settling",
+        "control_step": 0,
+        "host_snapshot_utc": "2026-10-11T10:54:46.256205+00:00"
+      },
+      {
+        "frame": 3,
+        "simulator_endpoint_time_s": 0.1500000000000001,
+        "geometry_nominal_time_s": 0.1480000000000001,
+        "hdf5_path": "frames/000003/raw_observation/agentview_image/value",
+        "stage": "settling",
+        "control_step": 0,
+        "host_snapshot_utc": "2026-10-11T10:54:46.284458+00:00"
+      },
+      {
+        "frame": 4,
+        "simulator_endpoint_time_s": 0.20000000000000015,
+        "geometry_nominal_time_s": 0.19800000000000015,
+        "hdf5_path": "frames/000004/raw_observation/agentview_image/value",
+        "stage": "settling",
+        "control_step": 0,
+        "host_snapshot_utc": "2026-10-11T10:54:46.312508+00:00"
+      },
+      {
+        "frame": 5,
+        "simulator_endpoint_time_s": 0.25000000000000017,
+        "geometry_nominal_time_s": 0.24800000000000016,
+        "hdf5_path": "frames/000005/raw_observation/agentview_image/value",
+        "stage": "settling",
+        "control_step": 0,
+        "host_snapshot_utc": "2026-10-11T10:54:46.340355+00:00"
+      },
+      {
+        "frame": 6,
+        "simulator_endpoint_time_s": 0.3000000000000002,
+        "geometry_nominal_time_s": 0.2980000000000002,
+        "hdf5_path": "frames/000006/raw_observation/agentview_image/value",
+        "stage": "settling",
+        "control_step": 0,
+        "host_snapshot_utc": "2026-10-11T10:54:46.368274+00:00"
+      },
+      {
+        "frame": 7,
+        "simulator_endpoint_time_s": 0.35000000000000026,
+        "geometry_nominal_time_s": 0.34800000000000025,
+        "hdf5_path": "frames/000007/raw_observation/agentview_image/value",
+        "stage": "settling",
+        "control_step": 0,
+        "host_snapshot_utc": "2026-10-11T10:54:46.395826+00:00"
+      },
+      {
+        "frame": 8,
+        "simulator_endpoint_time_s": 0.4000000000000003,
+        "geometry_nominal_time_s": 0.3980000000000003,
+        "hdf5_path": "frames/000008/raw_observation/agentview_image/value",
+        "stage": "settling",
+        "control_step": 0,
+        "host_snapshot_utc": "2026-10-11T10:54:46.425039+00:00"
+      },
+      {
+        "frame": 9,
+        "simulator_endpoint_time_s": 0.45000000000000034,
+        "geometry_nominal_time_s": 0.44800000000000034,
+        "hdf5_path": "frames/000009/raw_observation/agentview_image/value",
+        "stage": "settling",
+        "control_step": 0,
+        "host_snapshot_utc": "2026-10-11T10:54:46.454099+00:00"
+      },
+      {
+        "frame": 10,
+        "simulator_endpoint_time_s": 0.5000000000000003,
+        "geometry_nominal_time_s": 0.49800000000000033,
+        "hdf5_path": "frames/000010/raw_observation/agentview_image/value",
+        "stage": "settling",
+        "control_step": 0,
+        "host_snapshot_utc": "2026-10-11T10:54:46.483695+00:00"
+      },
+      {
+        "frame": 11,
+        "simulator_endpoint_time_s": 0.5500000000000004,
+        "geometry_nominal_time_s": 0.5480000000000004,
+        "hdf5_path": "frames/000011/raw_observation/agentview_image/value",
+        "stage": "control",
+        "control_step": 0,
+        "host_snapshot_utc": "2026-10-11T10:54:47.189299+00:00"
+      },
+      {
+        "frame": 12,
+        "simulator_endpoint_time_s": 0.6000000000000004,
+        "geometry_nominal_time_s": 0.5980000000000004,
+        "hdf5_path": "frames/000012/raw_observation/agentview_image/value",
+        "stage": "control",
+        "control_step": 1,
+        "host_snapshot_utc": "2026-10-11T10:54:47.259951+00:00"
+      },
+      {
+        "frame": 13,
+        "simulator_endpoint_time_s": 0.6500000000000005,
+        "geometry_nominal_time_s": 0.6480000000000005,
+        "hdf5_path": "frames/000013/raw_observation/agentview_image/value",
+        "stage": "control",
+        "control_step": 2,
+        "host_snapshot_utc": "2026-10-11T10:54:47.318332+00:00"
+      },
+      {
+        "frame": 14,
+        "simulator_endpoint_time_s": 0.7000000000000005,
+        "geometry_nominal_time_s": 0.6980000000000005,
+        "hdf5_path": "frames/000014/raw_observation/agentview_image/value",
+        "stage": "control",
+        "control_step": 3,
+        "host_snapshot_utc": "2026-10-11T10:54:47.377252+00:00"
+      },
+      {
+        "frame": 15,
+        "simulator_endpoint_time_s": 0.7500000000000006,
+        "geometry_nominal_time_s": 0.7480000000000006,
+        "hdf5_path": "frames/000015/raw_observation/agentview_image/value",
+        "stage": "control",
+        "control_step": 4,
+        "host_snapshot_utc": "2026-10-11T10:54:47.436065+00:00"
+      },
+      {
+        "frame": 16,
+        "simulator_endpoint_time_s": 0.8000000000000006,
+        "geometry_nominal_time_s": 0.7980000000000006,
+        "hdf5_path": "frames/000016/raw_observation/agentview_image/value",
+        "stage": "control",
+        "control_step": 5,
+        "host_snapshot_utc": "2026-10-11T10:54:47.499062+00:00"
+      },
+      {
+        "frame": 17,
+        "simulator_endpoint_time_s": 0.8500000000000006,
+        "geometry_nominal_time_s": 0.8480000000000006,
+        "hdf5_path": "frames/000017/raw_observation/agentview_image/value",
+        "stage": "control",
+        "control_step": 6,
+        "host_snapshot_utc": "2026-10-11T10:54:47.565027+00:00"
+      },
+      {
+        "frame": 18,
+        "simulator_endpoint_time_s": 0.9000000000000007,
+        "geometry_nominal_time_s": 0.8980000000000007,
+        "hdf5_path": "frames/000018/raw_observation/agentview_image/value",
+        "stage": "control",
+        "control_step": 7,
+        "host_snapshot_utc": "2026-10-11T10:54:47.632784+00:00"
+      },
+      {
+        "frame": 19,
+        "simulator_endpoint_time_s": 0.9500000000000007,
+        "geometry_nominal_time_s": 0.9480000000000007,
+        "hdf5_path": "frames/000019/raw_observation/agentview_image/value",
+        "stage": "control",
+        "control_step": 8,
+        "host_snapshot_utc": "2026-10-11T10:54:47.827867+00:00"
+      },
+      {
+        "frame": 20,
+        "simulator_endpoint_time_s": 1.0000000000000007,
+        "geometry_nominal_time_s": 0.9980000000000007,
+        "hdf5_path": "frames/000020/raw_observation/agentview_image/value",
+        "stage": "control",
+        "control_step": 9,
+        "host_snapshot_utc": "2026-10-11T10:54:47.889523+00:00"
+      },
+      {
+        "frame": 21,
+        "simulator_endpoint_time_s": 1.0500000000000007,
+        "geometry_nominal_time_s": 1.0480000000000007,
+        "hdf5_path": "frames/000021/raw_observation/agentview_image/value",
+        "stage": "control",
+        "control_step": 10,
+        "host_snapshot_utc": "2026-10-11T10:54:47.949233+00:00"
+      },
+      {
+        "frame": 22,
+        "simulator_endpoint_time_s": 1.1000000000000008,
+        "geometry_nominal_time_s": 1.0980000000000008,
+        "hdf5_path": "frames/000022/raw_observation/agentview_image/value",
+        "stage": "control",
+        "control_step": 11,
+        "host_snapshot_utc": "2026-10-11T10:54:48.028703+00:00"
+      },
+      {
+        "frame": 23,
+        "simulator_endpoint_time_s": 1.1500000000000008,
+        "geometry_nominal_time_s": 1.1480000000000008,
+        "hdf5_path": "frames/000023/raw_observation/agentview_image/value",
+        "stage": "control",
+        "control_step": 12,
+        "host_snapshot_utc": "2026-10-11T10:54:48.088160+00:00"
+      },
+      {
+        "frame": 24,
+        "simulator_endpoint_time_s": 1.2000000000000008,
+        "geometry_nominal_time_s": 1.1980000000000008,
+        "hdf5_path": "frames/000024/raw_observation/agentview_image/value",
+        "stage": "control",
+        "control_step": 13,
+        "host_snapshot_utc": "2026-10-11T10:54:48.147168+00:00"
+      },
+      {
+        "frame": 25,
+        "simulator_endpoint_time_s": 1.2500000000000009,
+        "geometry_nominal_time_s": 1.2480000000000009,
+        "hdf5_path": "frames/000025/raw_observation/agentview_image/value",
+        "stage": "control",
+        "control_step": 14,
+        "host_snapshot_utc": "2026-10-11T10:54:48.211039+00:00"
+      },
+      {
+        "frame": 26,
+        "simulator_endpoint_time_s": 1.300000000000001,
+        "geometry_nominal_time_s": 1.298000000000001,
+        "hdf5_path": "frames/000026/raw_observation/agentview_image/value",
+        "stage": "control",
+        "control_step": 15,
+        "host_snapshot_utc": "2026-10-11T10:54:48.273887+00:00"
+      },
+      {
+        "frame": 27,
+        "simulator_endpoint_time_s": 1.350000000000001,
+        "geometry_nominal_time_s": 1.348000000000001,
+        "hdf5_path": "frames/000027/raw_observation/agentview_image/value",
+        "stage": "control",
+        "control_step": 16,
+        "host_snapshot_utc": "2026-10-11T10:54:48.460463+00:00"
+      },
+      {
+        "frame": 28,
+        "simulator_endpoint_time_s": 1.400000000000001,
+        "geometry_nominal_time_s": 1.398000000000001,
+        "hdf5_path": "frames/000028/raw_observation/agentview_image/value",
+        "stage": "control",
+        "control_step": 17,
+        "host_snapshot_utc": "2026-10-11T10:54:48.525245+00:00"
+      },
+      {
+        "frame": 29,
+        "simulator_endpoint_time_s": 1.450000000000001,
+        "geometry_nominal_time_s": 1.448000000000001,
+        "hdf5_path": "frames/000029/raw_observation/agentview_image/value",
+        "stage": "control",
+        "control_step": 18,
+        "host_snapshot_utc": "2026-10-11T10:54:48.587049+00:00"
+      },
+      {
+        "frame": 30,
+        "simulator_endpoint_time_s": 1.500000000000001,
+        "geometry_nominal_time_s": 1.498000000000001,
+        "hdf5_path": "frames/000030/raw_observation/agentview_image/value",
+        "stage": "control",
+        "control_step": 19,
+        "host_snapshot_utc": "2026-10-11T10:54:48.646418+00:00"
+      }
+    ],
+    "qualification": "Camera exposure time not independently recorded; images may use cached observation phase. Visual corroboration only; selected excerpt is not a whole-run negative.",
+    "transformation": "180 degree rotation matching producer display; no scene pixels interpolated; padded caption"
+  },
+  {
+    "file": "clips/episode_000_robot0_eye_in_hand_image_000000-000030.mp4",
+    "run_id": "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db",
+    "recording": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_000/trajectory.h5",
+    "camera": "robot0_eye_in_hand_image",
+    "consecutive_frames": true,
+    "references": [
+      {
+        "frame": 0,
+        "simulator_endpoint_time_s": 0.0,
+        "geometry_nominal_time_s": 0,
+        "hdf5_path": "frames/000000/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "before_settling",
+        "control_step": 0,
+        "host_snapshot_utc": "2026-10-11T10:54:45.964070+00:00"
+      },
+      {
+        "frame": 1,
+        "simulator_endpoint_time_s": 0.05000000000000003,
+        "geometry_nominal_time_s": 0.04800000000000003,
+        "hdf5_path": "frames/000001/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "settling",
+        "control_step": 0,
+        "host_snapshot_utc": "2026-10-11T10:54:46.227314+00:00"
+      },
+      {
+        "frame": 2,
+        "simulator_endpoint_time_s": 0.10000000000000007,
+        "geometry_nominal_time_s": 0.09800000000000007,
+        "hdf5_path": "frames/000002/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "settling",
+        "control_step": 0,
+        "host_snapshot_utc": "2026-10-11T10:54:46.256205+00:00"
+      },
+      {
+        "frame": 3,
+        "simulator_endpoint_time_s": 0.1500000000000001,
+        "geometry_nominal_time_s": 0.1480000000000001,
+        "hdf5_path": "frames/000003/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "settling",
+        "control_step": 0,
+        "host_snapshot_utc": "2026-10-11T10:54:46.284458+00:00"
+      },
+      {
+        "frame": 4,
+        "simulator_endpoint_time_s": 0.20000000000000015,
+        "geometry_nominal_time_s": 0.19800000000000015,
+        "hdf5_path": "frames/000004/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "settling",
+        "control_step": 0,
+        "host_snapshot_utc": "2026-10-11T10:54:46.312508+00:00"
+      },
+      {
+        "frame": 5,
+        "simulator_endpoint_time_s": 0.25000000000000017,
+        "geometry_nominal_time_s": 0.24800000000000016,
+        "hdf5_path": "frames/000005/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "settling",
+        "control_step": 0,
+        "host_snapshot_utc": "2026-10-11T10:54:46.340355+00:00"
+      },
+      {
+        "frame": 6,
+        "simulator_endpoint_time_s": 0.3000000000000002,
+        "geometry_nominal_time_s": 0.2980000000000002,
+        "hdf5_path": "frames/000006/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "settling",
+        "control_step": 0,
+        "host_snapshot_utc": "2026-10-11T10:54:46.368274+00:00"
+      },
+      {
+        "frame": 7,
+        "simulator_endpoint_time_s": 0.35000000000000026,
+        "geometry_nominal_time_s": 0.34800000000000025,
+        "hdf5_path": "frames/000007/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "settling",
+        "control_step": 0,
+        "host_snapshot_utc": "2026-10-11T10:54:46.395826+00:00"
+      },
+      {
+        "frame": 8,
+        "simulator_endpoint_time_s": 0.4000000000000003,
+        "geometry_nominal_time_s": 0.3980000000000003,
+        "hdf5_path": "frames/000008/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "settling",
+        "control_step": 0,
+        "host_snapshot_utc": "2026-10-11T10:54:46.425039+00:00"
+      },
+      {
+        "frame": 9,
+        "simulator_endpoint_time_s": 0.45000000000000034,
+        "geometry_nominal_time_s": 0.44800000000000034,
+        "hdf5_path": "frames/000009/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "settling",
+        "control_step": 0,
+        "host_snapshot_utc": "2026-10-11T10:54:46.454099+00:00"
+      },
+      {
+        "frame": 10,
+        "simulator_endpoint_time_s": 0.5000000000000003,
+        "geometry_nominal_time_s": 0.49800000000000033,
+        "hdf5_path": "frames/000010/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "settling",
+        "control_step": 0,
+        "host_snapshot_utc": "2026-10-11T10:54:46.483695+00:00"
+      },
+      {
+        "frame": 11,
+        "simulator_endpoint_time_s": 0.5500000000000004,
+        "geometry_nominal_time_s": 0.5480000000000004,
+        "hdf5_path": "frames/000011/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "control",
+        "control_step": 0,
+        "host_snapshot_utc": "2026-10-11T10:54:47.189299+00:00"
+      },
+      {
+        "frame": 12,
+        "simulator_endpoint_time_s": 0.6000000000000004,
+        "geometry_nominal_time_s": 0.5980000000000004,
+        "hdf5_path": "frames/000012/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "control",
+        "control_step": 1,
+        "host_snapshot_utc": "2026-10-11T10:54:47.259951+00:00"
+      },
+      {
+        "frame": 13,
+        "simulator_endpoint_time_s": 0.6500000000000005,
+        "geometry_nominal_time_s": 0.6480000000000005,
+        "hdf5_path": "frames/000013/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "control",
+        "control_step": 2,
+        "host_snapshot_utc": "2026-10-11T10:54:47.318332+00:00"
+      },
+      {
+        "frame": 14,
+        "simulator_endpoint_time_s": 0.7000000000000005,
+        "geometry_nominal_time_s": 0.6980000000000005,
+        "hdf5_path": "frames/000014/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "control",
+        "control_step": 3,
+        "host_snapshot_utc": "2026-10-11T10:54:47.377252+00:00"
+      },
+      {
+        "frame": 15,
+        "simulator_endpoint_time_s": 0.7500000000000006,
+        "geometry_nominal_time_s": 0.7480000000000006,
+        "hdf5_path": "frames/000015/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "control",
+        "control_step": 4,
+        "host_snapshot_utc": "2026-10-11T10:54:47.436065+00:00"
+      },
+      {
+        "frame": 16,
+        "simulator_endpoint_time_s": 0.8000000000000006,
+        "geometry_nominal_time_s": 0.7980000000000006,
+        "hdf5_path": "frames/000016/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "control",
+        "control_step": 5,
+        "host_snapshot_utc": "2026-10-11T10:54:47.499062+00:00"
+      },
+      {
+        "frame": 17,
+        "simulator_endpoint_time_s": 0.8500000000000006,
+        "geometry_nominal_time_s": 0.8480000000000006,
+        "hdf5_path": "frames/000017/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "control",
+        "control_step": 6,
+        "host_snapshot_utc": "2026-10-11T10:54:47.565027+00:00"
+      },
+      {
+        "frame": 18,
+        "simulator_endpoint_time_s": 0.9000000000000007,
+        "geometry_nominal_time_s": 0.8980000000000007,
+        "hdf5_path": "frames/000018/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "control",
+        "control_step": 7,
+        "host_snapshot_utc": "2026-10-11T10:54:47.632784+00:00"
+      },
+      {
+        "frame": 19,
+        "simulator_endpoint_time_s": 0.9500000000000007,
+        "geometry_nominal_time_s": 0.9480000000000007,
+        "hdf5_path": "frames/000019/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "control",
+        "control_step": 8,
+        "host_snapshot_utc": "2026-10-11T10:54:47.827867+00:00"
+      },
+      {
+        "frame": 20,
+        "simulator_endpoint_time_s": 1.0000000000000007,
+        "geometry_nominal_time_s": 0.9980000000000007,
+        "hdf5_path": "frames/000020/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "control",
+        "control_step": 9,
+        "host_snapshot_utc": "2026-10-11T10:54:47.889523+00:00"
+      },
+      {
+        "frame": 21,
+        "simulator_endpoint_time_s": 1.0500000000000007,
+        "geometry_nominal_time_s": 1.0480000000000007,
+        "hdf5_path": "frames/000021/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "control",
+        "control_step": 10,
+        "host_snapshot_utc": "2026-10-11T10:54:47.949233+00:00"
+      },
+      {
+        "frame": 22,
+        "simulator_endpoint_time_s": 1.1000000000000008,
+        "geometry_nominal_time_s": 1.0980000000000008,
+        "hdf5_path": "frames/000022/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "control",
+        "control_step": 11,
+        "host_snapshot_utc": "2026-10-11T10:54:48.028703+00:00"
+      },
+      {
+        "frame": 23,
+        "simulator_endpoint_time_s": 1.1500000000000008,
+        "geometry_nominal_time_s": 1.1480000000000008,
+        "hdf5_path": "frames/000023/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "control",
+        "control_step": 12,
+        "host_snapshot_utc": "2026-10-11T10:54:48.088160+00:00"
+      },
+      {
+        "frame": 24,
+        "simulator_endpoint_time_s": 1.2000000000000008,
+        "geometry_nominal_time_s": 1.1980000000000008,
+        "hdf5_path": "frames/000024/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "control",
+        "control_step": 13,
+        "host_snapshot_utc": "2026-10-11T10:54:48.147168+00:00"
+      },
+      {
+        "frame": 25,
+        "simulator_endpoint_time_s": 1.2500000000000009,
+        "geometry_nominal_time_s": 1.2480000000000009,
+        "hdf5_path": "frames/000025/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "control",
+        "control_step": 14,
+        "host_snapshot_utc": "2026-10-11T10:54:48.211039+00:00"
+      },
+      {
+        "frame": 26,
+        "simulator_endpoint_time_s": 1.300000000000001,
+        "geometry_nominal_time_s": 1.298000000000001,
+        "hdf5_path": "frames/000026/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "control",
+        "control_step": 15,
+        "host_snapshot_utc": "2026-10-11T10:54:48.273887+00:00"
+      },
+      {
+        "frame": 27,
+        "simulator_endpoint_time_s": 1.350000000000001,
+        "geometry_nominal_time_s": 1.348000000000001,
+        "hdf5_path": "frames/000027/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "control",
+        "control_step": 16,
+        "host_snapshot_utc": "2026-10-11T10:54:48.460463+00:00"
+      },
+      {
+        "frame": 28,
+        "simulator_endpoint_time_s": 1.400000000000001,
+        "geometry_nominal_time_s": 1.398000000000001,
+        "hdf5_path": "frames/000028/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "control",
+        "control_step": 17,
+        "host_snapshot_utc": "2026-10-11T10:54:48.525245+00:00"
+      },
+      {
+        "frame": 29,
+        "simulator_endpoint_time_s": 1.450000000000001,
+        "geometry_nominal_time_s": 1.448000000000001,
+        "hdf5_path": "frames/000029/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "control",
+        "control_step": 18,
+        "host_snapshot_utc": "2026-10-11T10:54:48.587049+00:00"
+      },
+      {
+        "frame": 30,
+        "simulator_endpoint_time_s": 1.500000000000001,
+        "geometry_nominal_time_s": 1.498000000000001,
+        "hdf5_path": "frames/000030/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "control",
+        "control_step": 19,
+        "host_snapshot_utc": "2026-10-11T10:54:48.646418+00:00"
+      }
+    ],
+    "qualification": "Camera exposure time not independently recorded; images may use cached observation phase. Visual corroboration only; selected excerpt is not a whole-run negative.",
+    "transformation": "180 degree rotation matching producer display; no scene pixels interpolated; padded caption"
+  },
+  {
+    "file": "clips/episode_001_agentview_image_000000-000030.mp4",
+    "run_id": "libero_long_openvla_oft_task00_seed1001_trial001_cfafd9ddc3db",
+    "recording": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_001/trajectory.h5",
+    "camera": "agentview_image",
+    "consecutive_frames": true,
+    "references": [
+      {
+        "frame": 0,
+        "simulator_endpoint_time_s": 0.0,
+        "geometry_nominal_time_s": 0,
+        "hdf5_path": "frames/000000/raw_observation/agentview_image/value",
+        "stage": "before_settling",
+        "control_step": 0,
+        "host_snapshot_utc": "2026-10-11T10:55:08.685790+00:00"
+      },
+      {
+        "frame": 1,
+        "simulator_endpoint_time_s": 0.05000000000000003,
+        "geometry_nominal_time_s": 0.04800000000000003,
+        "hdf5_path": "frames/000001/raw_observation/agentview_image/value",
+        "stage": "settling",
+        "control_step": 0,
+        "host_snapshot_utc": "2026-10-11T10:55:08.970987+00:00"
+      },
+      {
+        "frame": 2,
+        "simulator_endpoint_time_s": 0.10000000000000007,
+        "geometry_nominal_time_s": 0.09800000000000007,
+        "hdf5_path": "frames/000002/raw_observation/agentview_image/value",
+        "stage": "settling",
+        "control_step": 0,
+        "host_snapshot_utc": "2026-10-11T10:55:09.001652+00:00"
+      },
+      {
+        "frame": 3,
+        "simulator_endpoint_time_s": 0.1500000000000001,
+        "geometry_nominal_time_s": 0.1480000000000001,
+        "hdf5_path": "frames/000003/raw_observation/agentview_image/value",
+        "stage": "settling",
+        "control_step": 0,
+        "host_snapshot_utc": "2026-10-11T10:55:09.030445+00:00"
+      },
+      {
+        "frame": 4,
+        "simulator_endpoint_time_s": 0.20000000000000015,
+        "geometry_nominal_time_s": 0.19800000000000015,
+        "hdf5_path": "frames/000004/raw_observation/agentview_image/value",
+        "stage": "settling",
+        "control_step": 0,
+        "host_snapshot_utc": "2026-10-11T10:55:09.058675+00:00"
+      },
+      {
+        "frame": 5,
+        "simulator_endpoint_time_s": 0.25000000000000017,
+        "geometry_nominal_time_s": 0.24800000000000016,
+        "hdf5_path": "frames/000005/raw_observation/agentview_image/value",
+        "stage": "settling",
+        "control_step": 0,
+        "host_snapshot_utc": "2026-10-11T10:55:09.086953+00:00"
+      },
+      {
+        "frame": 6,
+        "simulator_endpoint_time_s": 0.3000000000000002,
+        "geometry_nominal_time_s": 0.2980000000000002,
+        "hdf5_path": "frames/000006/raw_observation/agentview_image/value",
+        "stage": "settling",
+        "control_step": 0,
+        "host_snapshot_utc": "2026-10-11T10:55:09.115588+00:00"
+      },
+      {
+        "frame": 7,
+        "simulator_endpoint_time_s": 0.35000000000000026,
+        "geometry_nominal_time_s": 0.34800000000000025,
+        "hdf5_path": "frames/000007/raw_observation/agentview_image/value",
+        "stage": "settling",
+        "control_step": 0,
+        "host_snapshot_utc": "2026-10-11T10:55:09.143616+00:00"
+      },
+      {
+        "frame": 8,
+        "simulator_endpoint_time_s": 0.4000000000000003,
+        "geometry_nominal_time_s": 0.3980000000000003,
+        "hdf5_path": "frames/000008/raw_observation/agentview_image/value",
+        "stage": "settling",
+        "control_step": 0,
+        "host_snapshot_utc": "2026-10-11T10:55:09.173289+00:00"
+      },
+      {
+        "frame": 9,
+        "simulator_endpoint_time_s": 0.45000000000000034,
+        "geometry_nominal_time_s": 0.44800000000000034,
+        "hdf5_path": "frames/000009/raw_observation/agentview_image/value",
+        "stage": "settling",
+        "control_step": 0,
+        "host_snapshot_utc": "2026-10-11T10:55:09.202807+00:00"
+      },
+      {
+        "frame": 10,
+        "simulator_endpoint_time_s": 0.5000000000000003,
+        "geometry_nominal_time_s": 0.49800000000000033,
+        "hdf5_path": "frames/000010/raw_observation/agentview_image/value",
+        "stage": "settling",
+        "control_step": 0,
+        "host_snapshot_utc": "2026-10-11T10:55:09.232999+00:00"
+      },
+      {
+        "frame": 11,
+        "simulator_endpoint_time_s": 0.5500000000000004,
+        "geometry_nominal_time_s": 0.5480000000000004,
+        "hdf5_path": "frames/000011/raw_observation/agentview_image/value",
+        "stage": "control",
+        "control_step": 0,
+        "host_snapshot_utc": "2026-10-11T10:55:09.491999+00:00"
+      },
+      {
+        "frame": 12,
+        "simulator_endpoint_time_s": 0.6000000000000004,
+        "geometry_nominal_time_s": 0.5980000000000004,
+        "hdf5_path": "frames/000012/raw_observation/agentview_image/value",
+        "stage": "control",
+        "control_step": 1,
+        "host_snapshot_utc": "2026-10-11T10:55:09.558586+00:00"
+      },
+      {
+        "frame": 13,
+        "simulator_endpoint_time_s": 0.6500000000000005,
+        "geometry_nominal_time_s": 0.6480000000000005,
+        "hdf5_path": "frames/000013/raw_observation/agentview_image/value",
+        "stage": "control",
+        "control_step": 2,
+        "host_snapshot_utc": "2026-10-11T10:55:09.617894+00:00"
+      },
+      {
+        "frame": 14,
+        "simulator_endpoint_time_s": 0.7000000000000005,
+        "geometry_nominal_time_s": 0.6980000000000005,
+        "hdf5_path": "frames/000014/raw_observation/agentview_image/value",
+        "stage": "control",
+        "control_step": 3,
+        "host_snapshot_utc": "2026-10-11T10:55:09.679787+00:00"
+      },
+      {
+        "frame": 15,
+        "simulator_endpoint_time_s": 0.7500000000000006,
+        "geometry_nominal_time_s": 0.7480000000000006,
+        "hdf5_path": "frames/000015/raw_observation/agentview_image/value",
+        "stage": "control",
+        "control_step": 4,
+        "host_snapshot_utc": "2026-10-11T10:55:09.753057+00:00"
+      },
+      {
+        "frame": 16,
+        "simulator_endpoint_time_s": 0.8000000000000006,
+        "geometry_nominal_time_s": 0.7980000000000006,
+        "hdf5_path": "frames/000016/raw_observation/agentview_image/value",
+        "stage": "control",
+        "control_step": 5,
+        "host_snapshot_utc": "2026-10-11T10:55:09.813820+00:00"
+      },
+      {
+        "frame": 17,
+        "simulator_endpoint_time_s": 0.8500000000000006,
+        "geometry_nominal_time_s": 0.8480000000000006,
+        "hdf5_path": "frames/000017/raw_observation/agentview_image/value",
+        "stage": "control",
+        "control_step": 6,
+        "host_snapshot_utc": "2026-10-11T10:55:09.873883+00:00"
+      },
+      {
+        "frame": 18,
+        "simulator_endpoint_time_s": 0.9000000000000007,
+        "geometry_nominal_time_s": 0.8980000000000007,
+        "hdf5_path": "frames/000018/raw_observation/agentview_image/value",
+        "stage": "control",
+        "control_step": 7,
+        "host_snapshot_utc": "2026-10-11T10:55:09.933453+00:00"
+      },
+      {
+        "frame": 19,
+        "simulator_endpoint_time_s": 0.9500000000000007,
+        "geometry_nominal_time_s": 0.9480000000000007,
+        "hdf5_path": "frames/000019/raw_observation/agentview_image/value",
+        "stage": "control",
+        "control_step": 8,
+        "host_snapshot_utc": "2026-10-11T10:55:10.112610+00:00"
+      },
+      {
+        "frame": 20,
+        "simulator_endpoint_time_s": 1.0000000000000007,
+        "geometry_nominal_time_s": 0.9980000000000007,
+        "hdf5_path": "frames/000020/raw_observation/agentview_image/value",
+        "stage": "control",
+        "control_step": 9,
+        "host_snapshot_utc": "2026-10-11T10:55:10.178532+00:00"
+      },
+      {
+        "frame": 21,
+        "simulator_endpoint_time_s": 1.0500000000000007,
+        "geometry_nominal_time_s": 1.0480000000000007,
+        "hdf5_path": "frames/000021/raw_observation/agentview_image/value",
+        "stage": "control",
+        "control_step": 10,
+        "host_snapshot_utc": "2026-10-11T10:55:10.240514+00:00"
+      },
+      {
+        "frame": 22,
+        "simulator_endpoint_time_s": 1.1000000000000008,
+        "geometry_nominal_time_s": 1.0980000000000008,
+        "hdf5_path": "frames/000022/raw_observation/agentview_image/value",
+        "stage": "control",
+        "control_step": 11,
+        "host_snapshot_utc": "2026-10-11T10:55:10.299059+00:00"
+      },
+      {
+        "frame": 23,
+        "simulator_endpoint_time_s": 1.1500000000000008,
+        "geometry_nominal_time_s": 1.1480000000000008,
+        "hdf5_path": "frames/000023/raw_observation/agentview_image/value",
+        "stage": "control",
+        "control_step": 12,
+        "host_snapshot_utc": "2026-10-11T10:55:10.360842+00:00"
+      },
+      {
+        "frame": 24,
+        "simulator_endpoint_time_s": 1.2000000000000008,
+        "geometry_nominal_time_s": 1.1980000000000008,
+        "hdf5_path": "frames/000024/raw_observation/agentview_image/value",
+        "stage": "control",
+        "control_step": 13,
+        "host_snapshot_utc": "2026-10-11T10:55:10.421363+00:00"
+      },
+      {
+        "frame": 25,
+        "simulator_endpoint_time_s": 1.2500000000000009,
+        "geometry_nominal_time_s": 1.2480000000000009,
+        "hdf5_path": "frames/000025/raw_observation/agentview_image/value",
+        "stage": "control",
+        "control_step": 14,
+        "host_snapshot_utc": "2026-10-11T10:55:10.482394+00:00"
+      },
+      {
+        "frame": 26,
+        "simulator_endpoint_time_s": 1.300000000000001,
+        "geometry_nominal_time_s": 1.298000000000001,
+        "hdf5_path": "frames/000026/raw_observation/agentview_image/value",
+        "stage": "control",
+        "control_step": 15,
+        "host_snapshot_utc": "2026-10-11T10:55:10.543856+00:00"
+      },
+      {
+        "frame": 27,
+        "simulator_endpoint_time_s": 1.350000000000001,
+        "geometry_nominal_time_s": 1.348000000000001,
+        "hdf5_path": "frames/000027/raw_observation/agentview_image/value",
+        "stage": "control",
+        "control_step": 16,
+        "host_snapshot_utc": "2026-10-11T10:55:10.726670+00:00"
+      },
+      {
+        "frame": 28,
+        "simulator_endpoint_time_s": 1.400000000000001,
+        "geometry_nominal_time_s": 1.398000000000001,
+        "hdf5_path": "frames/000028/raw_observation/agentview_image/value",
+        "stage": "control",
+        "control_step": 17,
+        "host_snapshot_utc": "2026-10-11T10:55:10.801448+00:00"
+      },
+      {
+        "frame": 29,
+        "simulator_endpoint_time_s": 1.450000000000001,
+        "geometry_nominal_time_s": 1.448000000000001,
+        "hdf5_path": "frames/000029/raw_observation/agentview_image/value",
+        "stage": "control",
+        "control_step": 18,
+        "host_snapshot_utc": "2026-10-11T10:55:10.862479+00:00"
+      },
+      {
+        "frame": 30,
+        "simulator_endpoint_time_s": 1.500000000000001,
+        "geometry_nominal_time_s": 1.498000000000001,
+        "hdf5_path": "frames/000030/raw_observation/agentview_image/value",
+        "stage": "control",
+        "control_step": 19,
+        "host_snapshot_utc": "2026-10-11T10:55:10.922843+00:00"
+      }
+    ],
+    "qualification": "Camera exposure time not independently recorded; images may use cached observation phase. Visual corroboration only; selected excerpt is not a whole-run negative.",
+    "transformation": "180 degree rotation matching producer display; no scene pixels interpolated; padded caption"
+  },
+  {
+    "file": "clips/episode_001_robot0_eye_in_hand_image_000000-000030.mp4",
+    "run_id": "libero_long_openvla_oft_task00_seed1001_trial001_cfafd9ddc3db",
+    "recording": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_001/trajectory.h5",
+    "camera": "robot0_eye_in_hand_image",
+    "consecutive_frames": true,
+    "references": [
+      {
+        "frame": 0,
+        "simulator_endpoint_time_s": 0.0,
+        "geometry_nominal_time_s": 0,
+        "hdf5_path": "frames/000000/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "before_settling",
+        "control_step": 0,
+        "host_snapshot_utc": "2026-10-11T10:55:08.685790+00:00"
+      },
+      {
+        "frame": 1,
+        "simulator_endpoint_time_s": 0.05000000000000003,
+        "geometry_nominal_time_s": 0.04800000000000003,
+        "hdf5_path": "frames/000001/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "settling",
+        "control_step": 0,
+        "host_snapshot_utc": "2026-10-11T10:55:08.970987+00:00"
+      },
+      {
+        "frame": 2,
+        "simulator_endpoint_time_s": 0.10000000000000007,
+        "geometry_nominal_time_s": 0.09800000000000007,
+        "hdf5_path": "frames/000002/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "settling",
+        "control_step": 0,
+        "host_snapshot_utc": "2026-10-11T10:55:09.001652+00:00"
+      },
+      {
+        "frame": 3,
+        "simulator_endpoint_time_s": 0.1500000000000001,
+        "geometry_nominal_time_s": 0.1480000000000001,
+        "hdf5_path": "frames/000003/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "settling",
+        "control_step": 0,
+        "host_snapshot_utc": "2026-10-11T10:55:09.030445+00:00"
+      },
+      {
+        "frame": 4,
+        "simulator_endpoint_time_s": 0.20000000000000015,
+        "geometry_nominal_time_s": 0.19800000000000015,
+        "hdf5_path": "frames/000004/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "settling",
+        "control_step": 0,
+        "host_snapshot_utc": "2026-10-11T10:55:09.058675+00:00"
+      },
+      {
+        "frame": 5,
+        "simulator_endpoint_time_s": 0.25000000000000017,
+        "geometry_nominal_time_s": 0.24800000000000016,
+        "hdf5_path": "frames/000005/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "settling",
+        "control_step": 0,
+        "host_snapshot_utc": "2026-10-11T10:55:09.086953+00:00"
+      },
+      {
+        "frame": 6,
+        "simulator_endpoint_time_s": 0.3000000000000002,
+        "geometry_nominal_time_s": 0.2980000000000002,
+        "hdf5_path": "frames/000006/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "settling",
+        "control_step": 0,
+        "host_snapshot_utc": "2026-10-11T10:55:09.115588+00:00"
+      },
+      {
+        "frame": 7,
+        "simulator_endpoint_time_s": 0.35000000000000026,
+        "geometry_nominal_time_s": 0.34800000000000025,
+        "hdf5_path": "frames/000007/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "settling",
+        "control_step": 0,
+        "host_snapshot_utc": "2026-10-11T10:55:09.143616+00:00"
+      },
+      {
+        "frame": 8,
+        "simulator_endpoint_time_s": 0.4000000000000003,
+        "geometry_nominal_time_s": 0.3980000000000003,
+        "hdf5_path": "frames/000008/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "settling",
+        "control_step": 0,
+        "host_snapshot_utc": "2026-10-11T10:55:09.173289+00:00"
+      },
+      {
+        "frame": 9,
+        "simulator_endpoint_time_s": 0.45000000000000034,
+        "geometry_nominal_time_s": 0.44800000000000034,
+        "hdf5_path": "frames/000009/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "settling",
+        "control_step": 0,
+        "host_snapshot_utc": "2026-10-11T10:55:09.202807+00:00"
+      },
+      {
+        "frame": 10,
+        "simulator_endpoint_time_s": 0.5000000000000003,
+        "geometry_nominal_time_s": 0.49800000000000033,
+        "hdf5_path": "frames/000010/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "settling",
+        "control_step": 0,
+        "host_snapshot_utc": "2026-10-11T10:55:09.232999+00:00"
+      },
+      {
+        "frame": 11,
+        "simulator_endpoint_time_s": 0.5500000000000004,
+        "geometry_nominal_time_s": 0.5480000000000004,
+        "hdf5_path": "frames/000011/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "control",
+        "control_step": 0,
+        "host_snapshot_utc": "2026-10-11T10:55:09.491999+00:00"
+      },
+      {
+        "frame": 12,
+        "simulator_endpoint_time_s": 0.6000000000000004,
+        "geometry_nominal_time_s": 0.5980000000000004,
+        "hdf5_path": "frames/000012/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "control",
+        "control_step": 1,
+        "host_snapshot_utc": "2026-10-11T10:55:09.558586+00:00"
+      },
+      {
+        "frame": 13,
+        "simulator_endpoint_time_s": 0.6500000000000005,
+        "geometry_nominal_time_s": 0.6480000000000005,
+        "hdf5_path": "frames/000013/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "control",
+        "control_step": 2,
+        "host_snapshot_utc": "2026-10-11T10:55:09.617894+00:00"
+      },
+      {
+        "frame": 14,
+        "simulator_endpoint_time_s": 0.7000000000000005,
+        "geometry_nominal_time_s": 0.6980000000000005,
+        "hdf5_path": "frames/000014/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "control",
+        "control_step": 3,
+        "host_snapshot_utc": "2026-10-11T10:55:09.679787+00:00"
+      },
+      {
+        "frame": 15,
+        "simulator_endpoint_time_s": 0.7500000000000006,
+        "geometry_nominal_time_s": 0.7480000000000006,
+        "hdf5_path": "frames/000015/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "control",
+        "control_step": 4,
+        "host_snapshot_utc": "2026-10-11T10:55:09.753057+00:00"
+      },
+      {
+        "frame": 16,
+        "simulator_endpoint_time_s": 0.8000000000000006,
+        "geometry_nominal_time_s": 0.7980000000000006,
+        "hdf5_path": "frames/000016/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "control",
+        "control_step": 5,
+        "host_snapshot_utc": "2026-10-11T10:55:09.813820+00:00"
+      },
+      {
+        "frame": 17,
+        "simulator_endpoint_time_s": 0.8500000000000006,
+        "geometry_nominal_time_s": 0.8480000000000006,
+        "hdf5_path": "frames/000017/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "control",
+        "control_step": 6,
+        "host_snapshot_utc": "2026-10-11T10:55:09.873883+00:00"
+      },
+      {
+        "frame": 18,
+        "simulator_endpoint_time_s": 0.9000000000000007,
+        "geometry_nominal_time_s": 0.8980000000000007,
+        "hdf5_path": "frames/000018/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "control",
+        "control_step": 7,
+        "host_snapshot_utc": "2026-10-11T10:55:09.933453+00:00"
+      },
+      {
+        "frame": 19,
+        "simulator_endpoint_time_s": 0.9500000000000007,
+        "geometry_nominal_time_s": 0.9480000000000007,
+        "hdf5_path": "frames/000019/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "control",
+        "control_step": 8,
+        "host_snapshot_utc": "2026-10-11T10:55:10.112610+00:00"
+      },
+      {
+        "frame": 20,
+        "simulator_endpoint_time_s": 1.0000000000000007,
+        "geometry_nominal_time_s": 0.9980000000000007,
+        "hdf5_path": "frames/000020/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "control",
+        "control_step": 9,
+        "host_snapshot_utc": "2026-10-11T10:55:10.178532+00:00"
+      },
+      {
+        "frame": 21,
+        "simulator_endpoint_time_s": 1.0500000000000007,
+        "geometry_nominal_time_s": 1.0480000000000007,
+        "hdf5_path": "frames/000021/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "control",
+        "control_step": 10,
+        "host_snapshot_utc": "2026-10-11T10:55:10.240514+00:00"
+      },
+      {
+        "frame": 22,
+        "simulator_endpoint_time_s": 1.1000000000000008,
+        "geometry_nominal_time_s": 1.0980000000000008,
+        "hdf5_path": "frames/000022/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "control",
+        "control_step": 11,
+        "host_snapshot_utc": "2026-10-11T10:55:10.299059+00:00"
+      },
+      {
+        "frame": 23,
+        "simulator_endpoint_time_s": 1.1500000000000008,
+        "geometry_nominal_time_s": 1.1480000000000008,
+        "hdf5_path": "frames/000023/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "control",
+        "control_step": 12,
+        "host_snapshot_utc": "2026-10-11T10:55:10.360842+00:00"
+      },
+      {
+        "frame": 24,
+        "simulator_endpoint_time_s": 1.2000000000000008,
+        "geometry_nominal_time_s": 1.1980000000000008,
+        "hdf5_path": "frames/000024/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "control",
+        "control_step": 13,
+        "host_snapshot_utc": "2026-10-11T10:55:10.421363+00:00"
+      },
+      {
+        "frame": 25,
+        "simulator_endpoint_time_s": 1.2500000000000009,
+        "geometry_nominal_time_s": 1.2480000000000009,
+        "hdf5_path": "frames/000025/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "control",
+        "control_step": 14,
+        "host_snapshot_utc": "2026-10-11T10:55:10.482394+00:00"
+      },
+      {
+        "frame": 26,
+        "simulator_endpoint_time_s": 1.300000000000001,
+        "geometry_nominal_time_s": 1.298000000000001,
+        "hdf5_path": "frames/000026/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "control",
+        "control_step": 15,
+        "host_snapshot_utc": "2026-10-11T10:55:10.543856+00:00"
+      },
+      {
+        "frame": 27,
+        "simulator_endpoint_time_s": 1.350000000000001,
+        "geometry_nominal_time_s": 1.348000000000001,
+        "hdf5_path": "frames/000027/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "control",
+        "control_step": 16,
+        "host_snapshot_utc": "2026-10-11T10:55:10.726670+00:00"
+      },
+      {
+        "frame": 28,
+        "simulator_endpoint_time_s": 1.400000000000001,
+        "geometry_nominal_time_s": 1.398000000000001,
+        "hdf5_path": "frames/000028/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "control",
+        "control_step": 17,
+        "host_snapshot_utc": "2026-10-11T10:55:10.801448+00:00"
+      },
+      {
+        "frame": 29,
+        "simulator_endpoint_time_s": 1.450000000000001,
+        "geometry_nominal_time_s": 1.448000000000001,
+        "hdf5_path": "frames/000029/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "control",
+        "control_step": 18,
+        "host_snapshot_utc": "2026-10-11T10:55:10.862479+00:00"
+      },
+      {
+        "frame": 30,
+        "simulator_endpoint_time_s": 1.500000000000001,
+        "geometry_nominal_time_s": 1.498000000000001,
+        "hdf5_path": "frames/000030/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "control",
+        "control_step": 19,
+        "host_snapshot_utc": "2026-10-11T10:55:10.922843+00:00"
+      }
+    ],
+    "qualification": "Camera exposure time not independently recorded; images may use cached observation phase. Visual corroboration only; selected excerpt is not a whole-run negative.",
+    "transformation": "180 degree rotation matching producer display; no scene pixels interpolated; padded caption"
+  },
+  {
+    "file": "clips/episode_002_agentview_image_000000-000030.mp4",
+    "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+    "recording": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_002/trajectory.h5",
+    "camera": "agentview_image",
+    "consecutive_frames": true,
+    "references": [
+      {
+        "frame": 0,
+        "simulator_endpoint_time_s": 0.0,
+        "geometry_nominal_time_s": 0,
+        "hdf5_path": "frames/000000/raw_observation/agentview_image/value",
+        "stage": "before_settling",
+        "control_step": 0,
+        "host_snapshot_utc": "2026-10-11T10:55:33.097890+00:00"
+      },
+      {
+        "frame": 1,
+        "simulator_endpoint_time_s": 0.05000000000000003,
+        "geometry_nominal_time_s": 0.04800000000000003,
+        "hdf5_path": "frames/000001/raw_observation/agentview_image/value",
+        "stage": "settling",
+        "control_step": 0,
+        "host_snapshot_utc": "2026-10-11T10:55:33.416518+00:00"
+      },
+      {
+        "frame": 2,
+        "simulator_endpoint_time_s": 0.10000000000000007,
+        "geometry_nominal_time_s": 0.09800000000000007,
+        "hdf5_path": "frames/000002/raw_observation/agentview_image/value",
+        "stage": "settling",
+        "control_step": 0,
+        "host_snapshot_utc": "2026-10-11T10:55:33.446761+00:00"
+      },
+      {
+        "frame": 3,
+        "simulator_endpoint_time_s": 0.1500000000000001,
+        "geometry_nominal_time_s": 0.1480000000000001,
+        "hdf5_path": "frames/000003/raw_observation/agentview_image/value",
+        "stage": "settling",
+        "control_step": 0,
+        "host_snapshot_utc": "2026-10-11T10:55:33.475338+00:00"
+      },
+      {
+        "frame": 4,
+        "simulator_endpoint_time_s": 0.20000000000000015,
+        "geometry_nominal_time_s": 0.19800000000000015,
+        "hdf5_path": "frames/000004/raw_observation/agentview_image/value",
+        "stage": "settling",
+        "control_step": 0,
+        "host_snapshot_utc": "2026-10-11T10:55:33.503670+00:00"
+      },
+      {
+        "frame": 5,
+        "simulator_endpoint_time_s": 0.25000000000000017,
+        "geometry_nominal_time_s": 0.24800000000000016,
+        "hdf5_path": "frames/000005/raw_observation/agentview_image/value",
+        "stage": "settling",
+        "control_step": 0,
+        "host_snapshot_utc": "2026-10-11T10:55:33.531804+00:00"
+      },
+      {
+        "frame": 6,
+        "simulator_endpoint_time_s": 0.3000000000000002,
+        "geometry_nominal_time_s": 0.2980000000000002,
+        "hdf5_path": "frames/000006/raw_observation/agentview_image/value",
+        "stage": "settling",
+        "control_step": 0,
+        "host_snapshot_utc": "2026-10-11T10:55:33.559981+00:00"
+      },
+      {
+        "frame": 7,
+        "simulator_endpoint_time_s": 0.35000000000000026,
+        "geometry_nominal_time_s": 0.34800000000000025,
+        "hdf5_path": "frames/000007/raw_observation/agentview_image/value",
+        "stage": "settling",
+        "control_step": 0,
+        "host_snapshot_utc": "2026-10-11T10:55:33.587609+00:00"
+      },
+      {
+        "frame": 8,
+        "simulator_endpoint_time_s": 0.4000000000000003,
+        "geometry_nominal_time_s": 0.3980000000000003,
+        "hdf5_path": "frames/000008/raw_observation/agentview_image/value",
+        "stage": "settling",
+        "control_step": 0,
+        "host_snapshot_utc": "2026-10-11T10:55:33.616840+00:00"
+      },
+      {
+        "frame": 9,
+        "simulator_endpoint_time_s": 0.45000000000000034,
+        "geometry_nominal_time_s": 0.44800000000000034,
+        "hdf5_path": "frames/000009/raw_observation/agentview_image/value",
+        "stage": "settling",
+        "control_step": 0,
+        "host_snapshot_utc": "2026-10-11T10:55:33.645857+00:00"
+      },
+      {
+        "frame": 10,
+        "simulator_endpoint_time_s": 0.5000000000000003,
+        "geometry_nominal_time_s": 0.49800000000000033,
+        "hdf5_path": "frames/000010/raw_observation/agentview_image/value",
+        "stage": "settling",
+        "control_step": 0,
+        "host_snapshot_utc": "2026-10-11T10:55:33.675258+00:00"
+      },
+      {
+        "frame": 11,
+        "simulator_endpoint_time_s": 0.5500000000000004,
+        "geometry_nominal_time_s": 0.5480000000000004,
+        "hdf5_path": "frames/000011/raw_observation/agentview_image/value",
+        "stage": "control",
+        "control_step": 0,
+        "host_snapshot_utc": "2026-10-11T10:55:33.939657+00:00"
+      },
+      {
+        "frame": 12,
+        "simulator_endpoint_time_s": 0.6000000000000004,
+        "geometry_nominal_time_s": 0.5980000000000004,
+        "hdf5_path": "frames/000012/raw_observation/agentview_image/value",
+        "stage": "control",
+        "control_step": 1,
+        "host_snapshot_utc": "2026-10-11T10:55:34.012968+00:00"
+      },
+      {
+        "frame": 13,
+        "simulator_endpoint_time_s": 0.6500000000000005,
+        "geometry_nominal_time_s": 0.6480000000000005,
+        "hdf5_path": "frames/000013/raw_observation/agentview_image/value",
+        "stage": "control",
+        "control_step": 2,
+        "host_snapshot_utc": "2026-10-11T10:55:34.077226+00:00"
+      },
+      {
+        "frame": 14,
+        "simulator_endpoint_time_s": 0.7000000000000005,
+        "geometry_nominal_time_s": 0.6980000000000005,
+        "hdf5_path": "frames/000014/raw_observation/agentview_image/value",
+        "stage": "control",
+        "control_step": 3,
+        "host_snapshot_utc": "2026-10-11T10:55:34.147717+00:00"
+      },
+      {
+        "frame": 15,
+        "simulator_endpoint_time_s": 0.7500000000000006,
+        "geometry_nominal_time_s": 0.7480000000000006,
+        "hdf5_path": "frames/000015/raw_observation/agentview_image/value",
+        "stage": "control",
+        "control_step": 4,
+        "host_snapshot_utc": "2026-10-11T10:55:34.207513+00:00"
+      },
+      {
+        "frame": 16,
+        "simulator_endpoint_time_s": 0.8000000000000006,
+        "geometry_nominal_time_s": 0.7980000000000006,
+        "hdf5_path": "frames/000016/raw_observation/agentview_image/value",
+        "stage": "control",
+        "control_step": 5,
+        "host_snapshot_utc": "2026-10-11T10:55:34.267041+00:00"
+      },
+      {
+        "frame": 17,
+        "simulator_endpoint_time_s": 0.8500000000000006,
+        "geometry_nominal_time_s": 0.8480000000000006,
+        "hdf5_path": "frames/000017/raw_observation/agentview_image/value",
+        "stage": "control",
+        "control_step": 6,
+        "host_snapshot_utc": "2026-10-11T10:55:34.329169+00:00"
+      },
+      {
+        "frame": 18,
+        "simulator_endpoint_time_s": 0.9000000000000007,
+        "geometry_nominal_time_s": 0.8980000000000007,
+        "hdf5_path": "frames/000018/raw_observation/agentview_image/value",
+        "stage": "control",
+        "control_step": 7,
+        "host_snapshot_utc": "2026-10-11T10:55:34.388800+00:00"
+      },
+      {
+        "frame": 19,
+        "simulator_endpoint_time_s": 0.9500000000000007,
+        "geometry_nominal_time_s": 0.9480000000000007,
+        "hdf5_path": "frames/000019/raw_observation/agentview_image/value",
+        "stage": "control",
+        "control_step": 8,
+        "host_snapshot_utc": "2026-10-11T10:55:34.566149+00:00"
+      },
+      {
+        "frame": 20,
+        "simulator_endpoint_time_s": 1.0000000000000007,
+        "geometry_nominal_time_s": 0.9980000000000007,
+        "hdf5_path": "frames/000020/raw_observation/agentview_image/value",
+        "stage": "control",
+        "control_step": 9,
+        "host_snapshot_utc": "2026-10-11T10:55:34.632656+00:00"
+      },
+      {
+        "frame": 21,
+        "simulator_endpoint_time_s": 1.0500000000000007,
+        "geometry_nominal_time_s": 1.0480000000000007,
+        "hdf5_path": "frames/000021/raw_observation/agentview_image/value",
+        "stage": "control",
+        "control_step": 10,
+        "host_snapshot_utc": "2026-10-11T10:55:34.691376+00:00"
+      },
+      {
+        "frame": 22,
+        "simulator_endpoint_time_s": 1.1000000000000008,
+        "geometry_nominal_time_s": 1.0980000000000008,
+        "hdf5_path": "frames/000022/raw_observation/agentview_image/value",
+        "stage": "control",
+        "control_step": 11,
+        "host_snapshot_utc": "2026-10-11T10:55:34.754419+00:00"
+      },
+      {
+        "frame": 23,
+        "simulator_endpoint_time_s": 1.1500000000000008,
+        "geometry_nominal_time_s": 1.1480000000000008,
+        "hdf5_path": "frames/000023/raw_observation/agentview_image/value",
+        "stage": "control",
+        "control_step": 12,
+        "host_snapshot_utc": "2026-10-11T10:55:34.817279+00:00"
+      },
+      {
+        "frame": 24,
+        "simulator_endpoint_time_s": 1.2000000000000008,
+        "geometry_nominal_time_s": 1.1980000000000008,
+        "hdf5_path": "frames/000024/raw_observation/agentview_image/value",
+        "stage": "control",
+        "control_step": 13,
+        "host_snapshot_utc": "2026-10-11T10:55:34.877880+00:00"
+      },
+      {
+        "frame": 25,
+        "simulator_endpoint_time_s": 1.2500000000000009,
+        "geometry_nominal_time_s": 1.2480000000000009,
+        "hdf5_path": "frames/000025/raw_observation/agentview_image/value",
+        "stage": "control",
+        "control_step": 14,
+        "host_snapshot_utc": "2026-10-11T10:55:34.939448+00:00"
+      },
+      {
+        "frame": 26,
+        "simulator_endpoint_time_s": 1.300000000000001,
+        "geometry_nominal_time_s": 1.298000000000001,
+        "hdf5_path": "frames/000026/raw_observation/agentview_image/value",
+        "stage": "control",
+        "control_step": 15,
+        "host_snapshot_utc": "2026-10-11T10:55:35.000181+00:00"
+      },
+      {
+        "frame": 27,
+        "simulator_endpoint_time_s": 1.350000000000001,
+        "geometry_nominal_time_s": 1.348000000000001,
+        "hdf5_path": "frames/000027/raw_observation/agentview_image/value",
+        "stage": "control",
+        "control_step": 16,
+        "host_snapshot_utc": "2026-10-11T10:55:35.180501+00:00"
+      },
+      {
+        "frame": 28,
+        "simulator_endpoint_time_s": 1.400000000000001,
+        "geometry_nominal_time_s": 1.398000000000001,
+        "hdf5_path": "frames/000028/raw_observation/agentview_image/value",
+        "stage": "control",
+        "control_step": 17,
+        "host_snapshot_utc": "2026-10-11T10:55:35.240889+00:00"
+      },
+      {
+        "frame": 29,
+        "simulator_endpoint_time_s": 1.450000000000001,
+        "geometry_nominal_time_s": 1.448000000000001,
+        "hdf5_path": "frames/000029/raw_observation/agentview_image/value",
+        "stage": "control",
+        "control_step": 18,
+        "host_snapshot_utc": "2026-10-11T10:55:35.301683+00:00"
+      },
+      {
+        "frame": 30,
+        "simulator_endpoint_time_s": 1.500000000000001,
+        "geometry_nominal_time_s": 1.498000000000001,
+        "hdf5_path": "frames/000030/raw_observation/agentview_image/value",
+        "stage": "control",
+        "control_step": 19,
+        "host_snapshot_utc": "2026-10-11T10:55:35.361743+00:00"
+      }
+    ],
+    "qualification": "Camera exposure time not independently recorded; images may use cached observation phase. Visual corroboration only; selected excerpt is not a whole-run negative.",
+    "transformation": "180 degree rotation matching producer display; no scene pixels interpolated; padded caption"
+  },
+  {
+    "file": "clips/episode_002_robot0_eye_in_hand_image_000000-000030.mp4",
+    "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+    "recording": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_002/trajectory.h5",
+    "camera": "robot0_eye_in_hand_image",
+    "consecutive_frames": true,
+    "references": [
+      {
+        "frame": 0,
+        "simulator_endpoint_time_s": 0.0,
+        "geometry_nominal_time_s": 0,
+        "hdf5_path": "frames/000000/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "before_settling",
+        "control_step": 0,
+        "host_snapshot_utc": "2026-10-11T10:55:33.097890+00:00"
+      },
+      {
+        "frame": 1,
+        "simulator_endpoint_time_s": 0.05000000000000003,
+        "geometry_nominal_time_s": 0.04800000000000003,
+        "hdf5_path": "frames/000001/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "settling",
+        "control_step": 0,
+        "host_snapshot_utc": "2026-10-11T10:55:33.416518+00:00"
+      },
+      {
+        "frame": 2,
+        "simulator_endpoint_time_s": 0.10000000000000007,
+        "geometry_nominal_time_s": 0.09800000000000007,
+        "hdf5_path": "frames/000002/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "settling",
+        "control_step": 0,
+        "host_snapshot_utc": "2026-10-11T10:55:33.446761+00:00"
+      },
+      {
+        "frame": 3,
+        "simulator_endpoint_time_s": 0.1500000000000001,
+        "geometry_nominal_time_s": 0.1480000000000001,
+        "hdf5_path": "frames/000003/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "settling",
+        "control_step": 0,
+        "host_snapshot_utc": "2026-10-11T10:55:33.475338+00:00"
+      },
+      {
+        "frame": 4,
+        "simulator_endpoint_time_s": 0.20000000000000015,
+        "geometry_nominal_time_s": 0.19800000000000015,
+        "hdf5_path": "frames/000004/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "settling",
+        "control_step": 0,
+        "host_snapshot_utc": "2026-10-11T10:55:33.503670+00:00"
+      },
+      {
+        "frame": 5,
+        "simulator_endpoint_time_s": 0.25000000000000017,
+        "geometry_nominal_time_s": 0.24800000000000016,
+        "hdf5_path": "frames/000005/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "settling",
+        "control_step": 0,
+        "host_snapshot_utc": "2026-10-11T10:55:33.531804+00:00"
+      },
+      {
+        "frame": 6,
+        "simulator_endpoint_time_s": 0.3000000000000002,
+        "geometry_nominal_time_s": 0.2980000000000002,
+        "hdf5_path": "frames/000006/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "settling",
+        "control_step": 0,
+        "host_snapshot_utc": "2026-10-11T10:55:33.559981+00:00"
+      },
+      {
+        "frame": 7,
+        "simulator_endpoint_time_s": 0.35000000000000026,
+        "geometry_nominal_time_s": 0.34800000000000025,
+        "hdf5_path": "frames/000007/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "settling",
+        "control_step": 0,
+        "host_snapshot_utc": "2026-10-11T10:55:33.587609+00:00"
+      },
+      {
+        "frame": 8,
+        "simulator_endpoint_time_s": 0.4000000000000003,
+        "geometry_nominal_time_s": 0.3980000000000003,
+        "hdf5_path": "frames/000008/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "settling",
+        "control_step": 0,
+        "host_snapshot_utc": "2026-10-11T10:55:33.616840+00:00"
+      },
+      {
+        "frame": 9,
+        "simulator_endpoint_time_s": 0.45000000000000034,
+        "geometry_nominal_time_s": 0.44800000000000034,
+        "hdf5_path": "frames/000009/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "settling",
+        "control_step": 0,
+        "host_snapshot_utc": "2026-10-11T10:55:33.645857+00:00"
+      },
+      {
+        "frame": 10,
+        "simulator_endpoint_time_s": 0.5000000000000003,
+        "geometry_nominal_time_s": 0.49800000000000033,
+        "hdf5_path": "frames/000010/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "settling",
+        "control_step": 0,
+        "host_snapshot_utc": "2026-10-11T10:55:33.675258+00:00"
+      },
+      {
+        "frame": 11,
+        "simulator_endpoint_time_s": 0.5500000000000004,
+        "geometry_nominal_time_s": 0.5480000000000004,
+        "hdf5_path": "frames/000011/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "control",
+        "control_step": 0,
+        "host_snapshot_utc": "2026-10-11T10:55:33.939657+00:00"
+      },
+      {
+        "frame": 12,
+        "simulator_endpoint_time_s": 0.6000000000000004,
+        "geometry_nominal_time_s": 0.5980000000000004,
+        "hdf5_path": "frames/000012/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "control",
+        "control_step": 1,
+        "host_snapshot_utc": "2026-10-11T10:55:34.012968+00:00"
+      },
+      {
+        "frame": 13,
+        "simulator_endpoint_time_s": 0.6500000000000005,
+        "geometry_nominal_time_s": 0.6480000000000005,
+        "hdf5_path": "frames/000013/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "control",
+        "control_step": 2,
+        "host_snapshot_utc": "2026-10-11T10:55:34.077226+00:00"
+      },
+      {
+        "frame": 14,
+        "simulator_endpoint_time_s": 0.7000000000000005,
+        "geometry_nominal_time_s": 0.6980000000000005,
+        "hdf5_path": "frames/000014/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "control",
+        "control_step": 3,
+        "host_snapshot_utc": "2026-10-11T10:55:34.147717+00:00"
+      },
+      {
+        "frame": 15,
+        "simulator_endpoint_time_s": 0.7500000000000006,
+        "geometry_nominal_time_s": 0.7480000000000006,
+        "hdf5_path": "frames/000015/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "control",
+        "control_step": 4,
+        "host_snapshot_utc": "2026-10-11T10:55:34.207513+00:00"
+      },
+      {
+        "frame": 16,
+        "simulator_endpoint_time_s": 0.8000000000000006,
+        "geometry_nominal_time_s": 0.7980000000000006,
+        "hdf5_path": "frames/000016/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "control",
+        "control_step": 5,
+        "host_snapshot_utc": "2026-10-11T10:55:34.267041+00:00"
+      },
+      {
+        "frame": 17,
+        "simulator_endpoint_time_s": 0.8500000000000006,
+        "geometry_nominal_time_s": 0.8480000000000006,
+        "hdf5_path": "frames/000017/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "control",
+        "control_step": 6,
+        "host_snapshot_utc": "2026-10-11T10:55:34.329169+00:00"
+      },
+      {
+        "frame": 18,
+        "simulator_endpoint_time_s": 0.9000000000000007,
+        "geometry_nominal_time_s": 0.8980000000000007,
+        "hdf5_path": "frames/000018/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "control",
+        "control_step": 7,
+        "host_snapshot_utc": "2026-10-11T10:55:34.388800+00:00"
+      },
+      {
+        "frame": 19,
+        "simulator_endpoint_time_s": 0.9500000000000007,
+        "geometry_nominal_time_s": 0.9480000000000007,
+        "hdf5_path": "frames/000019/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "control",
+        "control_step": 8,
+        "host_snapshot_utc": "2026-10-11T10:55:34.566149+00:00"
+      },
+      {
+        "frame": 20,
+        "simulator_endpoint_time_s": 1.0000000000000007,
+        "geometry_nominal_time_s": 0.9980000000000007,
+        "hdf5_path": "frames/000020/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "control",
+        "control_step": 9,
+        "host_snapshot_utc": "2026-10-11T10:55:34.632656+00:00"
+      },
+      {
+        "frame": 21,
+        "simulator_endpoint_time_s": 1.0500000000000007,
+        "geometry_nominal_time_s": 1.0480000000000007,
+        "hdf5_path": "frames/000021/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "control",
+        "control_step": 10,
+        "host_snapshot_utc": "2026-10-11T10:55:34.691376+00:00"
+      },
+      {
+        "frame": 22,
+        "simulator_endpoint_time_s": 1.1000000000000008,
+        "geometry_nominal_time_s": 1.0980000000000008,
+        "hdf5_path": "frames/000022/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "control",
+        "control_step": 11,
+        "host_snapshot_utc": "2026-10-11T10:55:34.754419+00:00"
+      },
+      {
+        "frame": 23,
+        "simulator_endpoint_time_s": 1.1500000000000008,
+        "geometry_nominal_time_s": 1.1480000000000008,
+        "hdf5_path": "frames/000023/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "control",
+        "control_step": 12,
+        "host_snapshot_utc": "2026-10-11T10:55:34.817279+00:00"
+      },
+      {
+        "frame": 24,
+        "simulator_endpoint_time_s": 1.2000000000000008,
+        "geometry_nominal_time_s": 1.1980000000000008,
+        "hdf5_path": "frames/000024/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "control",
+        "control_step": 13,
+        "host_snapshot_utc": "2026-10-11T10:55:34.877880+00:00"
+      },
+      {
+        "frame": 25,
+        "simulator_endpoint_time_s": 1.2500000000000009,
+        "geometry_nominal_time_s": 1.2480000000000009,
+        "hdf5_path": "frames/000025/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "control",
+        "control_step": 14,
+        "host_snapshot_utc": "2026-10-11T10:55:34.939448+00:00"
+      },
+      {
+        "frame": 26,
+        "simulator_endpoint_time_s": 1.300000000000001,
+        "geometry_nominal_time_s": 1.298000000000001,
+        "hdf5_path": "frames/000026/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "control",
+        "control_step": 15,
+        "host_snapshot_utc": "2026-10-11T10:55:35.000181+00:00"
+      },
+      {
+        "frame": 27,
+        "simulator_endpoint_time_s": 1.350000000000001,
+        "geometry_nominal_time_s": 1.348000000000001,
+        "hdf5_path": "frames/000027/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "control",
+        "control_step": 16,
+        "host_snapshot_utc": "2026-10-11T10:55:35.180501+00:00"
+      },
+      {
+        "frame": 28,
+        "simulator_endpoint_time_s": 1.400000000000001,
+        "geometry_nominal_time_s": 1.398000000000001,
+        "hdf5_path": "frames/000028/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "control",
+        "control_step": 17,
+        "host_snapshot_utc": "2026-10-11T10:55:35.240889+00:00"
+      },
+      {
+        "frame": 29,
+        "simulator_endpoint_time_s": 1.450000000000001,
+        "geometry_nominal_time_s": 1.448000000000001,
+        "hdf5_path": "frames/000029/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "control",
+        "control_step": 18,
+        "host_snapshot_utc": "2026-10-11T10:55:35.301683+00:00"
+      },
+      {
+        "frame": 30,
+        "simulator_endpoint_time_s": 1.500000000000001,
+        "geometry_nominal_time_s": 1.498000000000001,
+        "hdf5_path": "frames/000030/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "control",
+        "control_step": 19,
+        "host_snapshot_utc": "2026-10-11T10:55:35.361743+00:00"
+      }
+    ],
+    "qualification": "Camera exposure time not independently recorded; images may use cached observation phase. Visual corroboration only; selected excerpt is not a whole-run negative.",
+    "transformation": "180 degree rotation matching producer display; no scene pixels interpolated; padded caption"
+  },
+  {
+    "file": "clips/episode_014_agentview_image_000260-000300.mp4",
+    "run_id": "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db",
+    "recording": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_014/trajectory.h5",
+    "camera": "agentview_image",
+    "consecutive_frames": true,
+    "references": [
+      {
+        "frame": 260,
+        "simulator_endpoint_time_s": 13.00000000000101,
+        "geometry_nominal_time_s": 12.99800000000101,
+        "hdf5_path": "frames/000260/raw_observation/agentview_image/value",
+        "stage": "control",
+        "control_step": 249,
+        "host_snapshot_utc": "2026-10-11T11:00:24.397017+00:00"
+      },
+      {
+        "frame": 261,
+        "simulator_endpoint_time_s": 13.050000000001027,
+        "geometry_nominal_time_s": 13.048000000001027,
+        "hdf5_path": "frames/000261/raw_observation/agentview_image/value",
+        "stage": "control",
+        "control_step": 250,
+        "host_snapshot_utc": "2026-10-11T11:00:24.460983+00:00"
+      },
+      {
+        "frame": 262,
+        "simulator_endpoint_time_s": 13.100000000001044,
+        "geometry_nominal_time_s": 13.098000000001043,
+        "hdf5_path": "frames/000262/raw_observation/agentview_image/value",
+        "stage": "control",
+        "control_step": 251,
+        "host_snapshot_utc": "2026-10-11T11:00:24.524719+00:00"
+      },
+      {
+        "frame": 263,
+        "simulator_endpoint_time_s": 13.15000000000106,
+        "geometry_nominal_time_s": 13.14800000000106,
+        "hdf5_path": "frames/000263/raw_observation/agentview_image/value",
+        "stage": "control",
+        "control_step": 252,
+        "host_snapshot_utc": "2026-10-11T11:00:24.586024+00:00"
+      },
+      {
+        "frame": 264,
+        "simulator_endpoint_time_s": 13.200000000001078,
+        "geometry_nominal_time_s": 13.198000000001077,
+        "hdf5_path": "frames/000264/raw_observation/agentview_image/value",
+        "stage": "control",
+        "control_step": 253,
+        "host_snapshot_utc": "2026-10-11T11:00:24.647230+00:00"
+      },
+      {
+        "frame": 265,
+        "simulator_endpoint_time_s": 13.250000000001094,
+        "geometry_nominal_time_s": 13.248000000001094,
+        "hdf5_path": "frames/000265/raw_observation/agentview_image/value",
+        "stage": "control",
+        "control_step": 254,
+        "host_snapshot_utc": "2026-10-11T11:00:24.708170+00:00"
+      },
+      {
+        "frame": 266,
+        "simulator_endpoint_time_s": 13.300000000001111,
+        "geometry_nominal_time_s": 13.29800000000111,
+        "hdf5_path": "frames/000266/raw_observation/agentview_image/value",
+        "stage": "control",
+        "control_step": 255,
+        "host_snapshot_utc": "2026-10-11T11:00:24.768889+00:00"
+      },
+      {
+        "frame": 267,
+        "simulator_endpoint_time_s": 13.350000000001128,
+        "geometry_nominal_time_s": 13.348000000001127,
+        "hdf5_path": "frames/000267/raw_observation/agentview_image/value",
+        "stage": "control",
+        "control_step": 256,
+        "host_snapshot_utc": "2026-10-11T11:00:24.947510+00:00"
+      },
+      {
+        "frame": 268,
+        "simulator_endpoint_time_s": 13.400000000001144,
+        "geometry_nominal_time_s": 13.398000000001144,
+        "hdf5_path": "frames/000268/raw_observation/agentview_image/value",
+        "stage": "control",
+        "control_step": 257,
+        "host_snapshot_utc": "2026-10-11T11:00:25.008035+00:00"
+      },
+      {
+        "frame": 269,
+        "simulator_endpoint_time_s": 13.450000000001161,
+        "geometry_nominal_time_s": 13.44800000000116,
+        "hdf5_path": "frames/000269/raw_observation/agentview_image/value",
+        "stage": "control",
+        "control_step": 258,
+        "host_snapshot_utc": "2026-10-11T11:00:25.071113+00:00"
+      },
+      {
+        "frame": 270,
+        "simulator_endpoint_time_s": 13.500000000001178,
+        "geometry_nominal_time_s": 13.498000000001177,
+        "hdf5_path": "frames/000270/raw_observation/agentview_image/value",
+        "stage": "control",
+        "control_step": 259,
+        "host_snapshot_utc": "2026-10-11T11:00:25.133436+00:00"
+      },
+      {
+        "frame": 271,
+        "simulator_endpoint_time_s": 13.550000000001194,
+        "geometry_nominal_time_s": 13.548000000001194,
+        "hdf5_path": "frames/000271/raw_observation/agentview_image/value",
+        "stage": "control",
+        "control_step": 260,
+        "host_snapshot_utc": "2026-10-11T11:00:25.198958+00:00"
+      },
+      {
+        "frame": 272,
+        "simulator_endpoint_time_s": 13.600000000001211,
+        "geometry_nominal_time_s": 13.59800000000121,
+        "hdf5_path": "frames/000272/raw_observation/agentview_image/value",
+        "stage": "control",
+        "control_step": 261,
+        "host_snapshot_utc": "2026-10-11T11:00:25.268224+00:00"
+      },
+      {
+        "frame": 273,
+        "simulator_endpoint_time_s": 13.650000000001228,
+        "geometry_nominal_time_s": 13.648000000001227,
+        "hdf5_path": "frames/000273/raw_observation/agentview_image/value",
+        "stage": "control",
+        "control_step": 262,
+        "host_snapshot_utc": "2026-10-11T11:00:25.332502+00:00"
+      },
+      {
+        "frame": 274,
+        "simulator_endpoint_time_s": 13.700000000001245,
+        "geometry_nominal_time_s": 13.698000000001244,
+        "hdf5_path": "frames/000274/raw_observation/agentview_image/value",
+        "stage": "control",
+        "control_step": 263,
+        "host_snapshot_utc": "2026-10-11T11:00:25.399467+00:00"
+      },
+      {
+        "frame": 275,
+        "simulator_endpoint_time_s": 13.750000000001261,
+        "geometry_nominal_time_s": 13.74800000000126,
+        "hdf5_path": "frames/000275/raw_observation/agentview_image/value",
+        "stage": "control",
+        "control_step": 264,
+        "host_snapshot_utc": "2026-10-11T11:00:25.580941+00:00"
+      },
+      {
+        "frame": 276,
+        "simulator_endpoint_time_s": 13.800000000001278,
+        "geometry_nominal_time_s": 13.798000000001277,
+        "hdf5_path": "frames/000276/raw_observation/agentview_image/value",
+        "stage": "control",
+        "control_step": 265,
+        "host_snapshot_utc": "2026-10-11T11:00:25.644527+00:00"
+      },
+      {
+        "frame": 277,
+        "simulator_endpoint_time_s": 13.850000000001295,
+        "geometry_nominal_time_s": 13.848000000001294,
+        "hdf5_path": "frames/000277/raw_observation/agentview_image/value",
+        "stage": "control",
+        "control_step": 266,
+        "host_snapshot_utc": "2026-10-11T11:00:25.707242+00:00"
+      },
+      {
+        "frame": 278,
+        "simulator_endpoint_time_s": 13.900000000001311,
+        "geometry_nominal_time_s": 13.89800000000131,
+        "hdf5_path": "frames/000278/raw_observation/agentview_image/value",
+        "stage": "control",
+        "control_step": 267,
+        "host_snapshot_utc": "2026-10-11T11:00:25.770591+00:00"
+      },
+      {
+        "frame": 279,
+        "simulator_endpoint_time_s": 13.950000000001328,
+        "geometry_nominal_time_s": 13.948000000001327,
+        "hdf5_path": "frames/000279/raw_observation/agentview_image/value",
+        "stage": "control",
+        "control_step": 268,
+        "host_snapshot_utc": "2026-10-11T11:00:25.833741+00:00"
+      },
+      {
+        "frame": 280,
+        "simulator_endpoint_time_s": 14.000000000001345,
+        "geometry_nominal_time_s": 13.998000000001344,
+        "hdf5_path": "frames/000280/raw_observation/agentview_image/value",
+        "stage": "control",
+        "control_step": 269,
+        "host_snapshot_utc": "2026-10-11T11:00:25.897822+00:00"
+      },
+      {
+        "frame": 281,
+        "simulator_endpoint_time_s": 14.050000000001361,
+        "geometry_nominal_time_s": 14.04800000000136,
+        "hdf5_path": "frames/000281/raw_observation/agentview_image/value",
+        "stage": "control",
+        "control_step": 270,
+        "host_snapshot_utc": "2026-10-11T11:00:25.959928+00:00"
+      },
+      {
+        "frame": 282,
+        "simulator_endpoint_time_s": 14.100000000001378,
+        "geometry_nominal_time_s": 14.098000000001377,
+        "hdf5_path": "frames/000282/raw_observation/agentview_image/value",
+        "stage": "control",
+        "control_step": 271,
+        "host_snapshot_utc": "2026-10-11T11:00:26.020814+00:00"
+      },
+      {
+        "frame": 283,
+        "simulator_endpoint_time_s": 14.150000000001395,
+        "geometry_nominal_time_s": 14.148000000001394,
+        "hdf5_path": "frames/000283/raw_observation/agentview_image/value",
+        "stage": "control",
+        "control_step": 272,
+        "host_snapshot_utc": "2026-10-11T11:00:26.198196+00:00"
+      },
+      {
+        "frame": 284,
+        "simulator_endpoint_time_s": 14.200000000001411,
+        "geometry_nominal_time_s": 14.19800000000141,
+        "hdf5_path": "frames/000284/raw_observation/agentview_image/value",
+        "stage": "control",
+        "control_step": 273,
+        "host_snapshot_utc": "2026-10-11T11:00:26.265479+00:00"
+      },
+      {
+        "frame": 285,
+        "simulator_endpoint_time_s": 14.250000000001428,
+        "geometry_nominal_time_s": 14.248000000001428,
+        "hdf5_path": "frames/000285/raw_observation/agentview_image/value",
+        "stage": "control",
+        "control_step": 274,
+        "host_snapshot_utc": "2026-10-11T11:00:26.335445+00:00"
+      },
+      {
+        "frame": 286,
+        "simulator_endpoint_time_s": 14.300000000001445,
+        "geometry_nominal_time_s": 14.298000000001444,
+        "hdf5_path": "frames/000286/raw_observation/agentview_image/value",
+        "stage": "control",
+        "control_step": 275,
+        "host_snapshot_utc": "2026-10-11T11:00:26.396831+00:00"
+      },
+      {
+        "frame": 287,
+        "simulator_endpoint_time_s": 14.350000000001462,
+        "geometry_nominal_time_s": 14.348000000001461,
+        "hdf5_path": "frames/000287/raw_observation/agentview_image/value",
+        "stage": "control",
+        "control_step": 276,
+        "host_snapshot_utc": "2026-10-11T11:00:26.456811+00:00"
+      },
+      {
+        "frame": 288,
+        "simulator_endpoint_time_s": 14.400000000001478,
+        "geometry_nominal_time_s": 14.398000000001478,
+        "hdf5_path": "frames/000288/raw_observation/agentview_image/value",
+        "stage": "control",
+        "control_step": 277,
+        "host_snapshot_utc": "2026-10-11T11:00:26.516577+00:00"
+      },
+      {
+        "frame": 289,
+        "simulator_endpoint_time_s": 14.450000000001495,
+        "geometry_nominal_time_s": 14.448000000001494,
+        "hdf5_path": "frames/000289/raw_observation/agentview_image/value",
+        "stage": "control",
+        "control_step": 278,
+        "host_snapshot_utc": "2026-10-11T11:00:26.577445+00:00"
+      },
+      {
+        "frame": 290,
+        "simulator_endpoint_time_s": 14.500000000001512,
+        "geometry_nominal_time_s": 14.498000000001511,
+        "hdf5_path": "frames/000290/raw_observation/agentview_image/value",
+        "stage": "control",
+        "control_step": 279,
+        "host_snapshot_utc": "2026-10-11T11:00:26.638418+00:00"
+      },
+      {
+        "frame": 291,
+        "simulator_endpoint_time_s": 14.550000000001528,
+        "geometry_nominal_time_s": 14.548000000001528,
+        "hdf5_path": "frames/000291/raw_observation/agentview_image/value",
+        "stage": "control",
+        "control_step": 280,
+        "host_snapshot_utc": "2026-10-11T11:00:26.816926+00:00"
+      },
+      {
+        "frame": 292,
+        "simulator_endpoint_time_s": 14.600000000001545,
+        "geometry_nominal_time_s": 14.598000000001544,
+        "hdf5_path": "frames/000292/raw_observation/agentview_image/value",
+        "stage": "control",
+        "control_step": 281,
+        "host_snapshot_utc": "2026-10-11T11:00:26.876695+00:00"
+      },
+      {
+        "frame": 293,
+        "simulator_endpoint_time_s": 14.650000000001562,
+        "geometry_nominal_time_s": 14.648000000001561,
+        "hdf5_path": "frames/000293/raw_observation/agentview_image/value",
+        "stage": "control",
+        "control_step": 282,
+        "host_snapshot_utc": "2026-10-11T11:00:26.938276+00:00"
+      },
+      {
+        "frame": 294,
+        "simulator_endpoint_time_s": 14.700000000001578,
+        "geometry_nominal_time_s": 14.698000000001578,
+        "hdf5_path": "frames/000294/raw_observation/agentview_image/value",
+        "stage": "control",
+        "control_step": 283,
+        "host_snapshot_utc": "2026-10-11T11:00:26.998968+00:00"
+      },
+      {
+        "frame": 295,
+        "simulator_endpoint_time_s": 14.750000000001595,
+        "geometry_nominal_time_s": 14.748000000001595,
+        "hdf5_path": "frames/000295/raw_observation/agentview_image/value",
+        "stage": "control",
+        "control_step": 284,
+        "host_snapshot_utc": "2026-10-11T11:00:27.058885+00:00"
+      },
+      {
+        "frame": 296,
+        "simulator_endpoint_time_s": 14.800000000001612,
+        "geometry_nominal_time_s": 14.798000000001611,
+        "hdf5_path": "frames/000296/raw_observation/agentview_image/value",
+        "stage": "control",
+        "control_step": 285,
+        "host_snapshot_utc": "2026-10-11T11:00:27.119319+00:00"
+      },
+      {
+        "frame": 297,
+        "simulator_endpoint_time_s": 14.850000000001629,
+        "geometry_nominal_time_s": 14.848000000001628,
+        "hdf5_path": "frames/000297/raw_observation/agentview_image/value",
+        "stage": "control",
+        "control_step": 286,
+        "host_snapshot_utc": "2026-10-11T11:00:27.179530+00:00"
+      },
+      {
+        "frame": 298,
+        "simulator_endpoint_time_s": 14.900000000001645,
+        "geometry_nominal_time_s": 14.898000000001645,
+        "hdf5_path": "frames/000298/raw_observation/agentview_image/value",
+        "stage": "control",
+        "control_step": 287,
+        "host_snapshot_utc": "2026-10-11T11:00:27.239832+00:00"
+      },
+      {
+        "frame": 299,
+        "simulator_endpoint_time_s": 14.950000000001662,
+        "geometry_nominal_time_s": 14.948000000001661,
+        "hdf5_path": "frames/000299/raw_observation/agentview_image/value",
+        "stage": "control",
+        "control_step": 288,
+        "host_snapshot_utc": "2026-10-11T11:00:27.420179+00:00"
+      },
+      {
+        "frame": 300,
+        "simulator_endpoint_time_s": 15.000000000001679,
+        "geometry_nominal_time_s": 14.998000000001678,
+        "hdf5_path": "frames/000300/raw_observation/agentview_image/value",
+        "stage": "control",
+        "control_step": 289,
+        "host_snapshot_utc": "2026-10-11T11:00:27.482142+00:00"
+      }
+    ],
+    "qualification": "Camera exposure time not independently recorded; images may use cached observation phase. Visual corroboration only; selected excerpt is not a whole-run negative.",
+    "transformation": "180 degree rotation matching producer display; no scene pixels interpolated; padded caption"
+  },
+  {
+    "file": "clips/episode_014_robot0_eye_in_hand_image_000260-000300.mp4",
+    "run_id": "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db",
+    "recording": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_014/trajectory.h5",
+    "camera": "robot0_eye_in_hand_image",
+    "consecutive_frames": true,
+    "references": [
+      {
+        "frame": 260,
+        "simulator_endpoint_time_s": 13.00000000000101,
+        "geometry_nominal_time_s": 12.99800000000101,
+        "hdf5_path": "frames/000260/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "control",
+        "control_step": 249,
+        "host_snapshot_utc": "2026-10-11T11:00:24.397017+00:00"
+      },
+      {
+        "frame": 261,
+        "simulator_endpoint_time_s": 13.050000000001027,
+        "geometry_nominal_time_s": 13.048000000001027,
+        "hdf5_path": "frames/000261/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "control",
+        "control_step": 250,
+        "host_snapshot_utc": "2026-10-11T11:00:24.460983+00:00"
+      },
+      {
+        "frame": 262,
+        "simulator_endpoint_time_s": 13.100000000001044,
+        "geometry_nominal_time_s": 13.098000000001043,
+        "hdf5_path": "frames/000262/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "control",
+        "control_step": 251,
+        "host_snapshot_utc": "2026-10-11T11:00:24.524719+00:00"
+      },
+      {
+        "frame": 263,
+        "simulator_endpoint_time_s": 13.15000000000106,
+        "geometry_nominal_time_s": 13.14800000000106,
+        "hdf5_path": "frames/000263/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "control",
+        "control_step": 252,
+        "host_snapshot_utc": "2026-10-11T11:00:24.586024+00:00"
+      },
+      {
+        "frame": 264,
+        "simulator_endpoint_time_s": 13.200000000001078,
+        "geometry_nominal_time_s": 13.198000000001077,
+        "hdf5_path": "frames/000264/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "control",
+        "control_step": 253,
+        "host_snapshot_utc": "2026-10-11T11:00:24.647230+00:00"
+      },
+      {
+        "frame": 265,
+        "simulator_endpoint_time_s": 13.250000000001094,
+        "geometry_nominal_time_s": 13.248000000001094,
+        "hdf5_path": "frames/000265/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "control",
+        "control_step": 254,
+        "host_snapshot_utc": "2026-10-11T11:00:24.708170+00:00"
+      },
+      {
+        "frame": 266,
+        "simulator_endpoint_time_s": 13.300000000001111,
+        "geometry_nominal_time_s": 13.29800000000111,
+        "hdf5_path": "frames/000266/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "control",
+        "control_step": 255,
+        "host_snapshot_utc": "2026-10-11T11:00:24.768889+00:00"
+      },
+      {
+        "frame": 267,
+        "simulator_endpoint_time_s": 13.350000000001128,
+        "geometry_nominal_time_s": 13.348000000001127,
+        "hdf5_path": "frames/000267/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "control",
+        "control_step": 256,
+        "host_snapshot_utc": "2026-10-11T11:00:24.947510+00:00"
+      },
+      {
+        "frame": 268,
+        "simulator_endpoint_time_s": 13.400000000001144,
+        "geometry_nominal_time_s": 13.398000000001144,
+        "hdf5_path": "frames/000268/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "control",
+        "control_step": 257,
+        "host_snapshot_utc": "2026-10-11T11:00:25.008035+00:00"
+      },
+      {
+        "frame": 269,
+        "simulator_endpoint_time_s": 13.450000000001161,
+        "geometry_nominal_time_s": 13.44800000000116,
+        "hdf5_path": "frames/000269/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "control",
+        "control_step": 258,
+        "host_snapshot_utc": "2026-10-11T11:00:25.071113+00:00"
+      },
+      {
+        "frame": 270,
+        "simulator_endpoint_time_s": 13.500000000001178,
+        "geometry_nominal_time_s": 13.498000000001177,
+        "hdf5_path": "frames/000270/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "control",
+        "control_step": 259,
+        "host_snapshot_utc": "2026-10-11T11:00:25.133436+00:00"
+      },
+      {
+        "frame": 271,
+        "simulator_endpoint_time_s": 13.550000000001194,
+        "geometry_nominal_time_s": 13.548000000001194,
+        "hdf5_path": "frames/000271/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "control",
+        "control_step": 260,
+        "host_snapshot_utc": "2026-10-11T11:00:25.198958+00:00"
+      },
+      {
+        "frame": 272,
+        "simulator_endpoint_time_s": 13.600000000001211,
+        "geometry_nominal_time_s": 13.59800000000121,
+        "hdf5_path": "frames/000272/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "control",
+        "control_step": 261,
+        "host_snapshot_utc": "2026-10-11T11:00:25.268224+00:00"
+      },
+      {
+        "frame": 273,
+        "simulator_endpoint_time_s": 13.650000000001228,
+        "geometry_nominal_time_s": 13.648000000001227,
+        "hdf5_path": "frames/000273/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "control",
+        "control_step": 262,
+        "host_snapshot_utc": "2026-10-11T11:00:25.332502+00:00"
+      },
+      {
+        "frame": 274,
+        "simulator_endpoint_time_s": 13.700000000001245,
+        "geometry_nominal_time_s": 13.698000000001244,
+        "hdf5_path": "frames/000274/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "control",
+        "control_step": 263,
+        "host_snapshot_utc": "2026-10-11T11:00:25.399467+00:00"
+      },
+      {
+        "frame": 275,
+        "simulator_endpoint_time_s": 13.750000000001261,
+        "geometry_nominal_time_s": 13.74800000000126,
+        "hdf5_path": "frames/000275/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "control",
+        "control_step": 264,
+        "host_snapshot_utc": "2026-10-11T11:00:25.580941+00:00"
+      },
+      {
+        "frame": 276,
+        "simulator_endpoint_time_s": 13.800000000001278,
+        "geometry_nominal_time_s": 13.798000000001277,
+        "hdf5_path": "frames/000276/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "control",
+        "control_step": 265,
+        "host_snapshot_utc": "2026-10-11T11:00:25.644527+00:00"
+      },
+      {
+        "frame": 277,
+        "simulator_endpoint_time_s": 13.850000000001295,
+        "geometry_nominal_time_s": 13.848000000001294,
+        "hdf5_path": "frames/000277/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "control",
+        "control_step": 266,
+        "host_snapshot_utc": "2026-10-11T11:00:25.707242+00:00"
+      },
+      {
+        "frame": 278,
+        "simulator_endpoint_time_s": 13.900000000001311,
+        "geometry_nominal_time_s": 13.89800000000131,
+        "hdf5_path": "frames/000278/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "control",
+        "control_step": 267,
+        "host_snapshot_utc": "2026-10-11T11:00:25.770591+00:00"
+      },
+      {
+        "frame": 279,
+        "simulator_endpoint_time_s": 13.950000000001328,
+        "geometry_nominal_time_s": 13.948000000001327,
+        "hdf5_path": "frames/000279/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "control",
+        "control_step": 268,
+        "host_snapshot_utc": "2026-10-11T11:00:25.833741+00:00"
+      },
+      {
+        "frame": 280,
+        "simulator_endpoint_time_s": 14.000000000001345,
+        "geometry_nominal_time_s": 13.998000000001344,
+        "hdf5_path": "frames/000280/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "control",
+        "control_step": 269,
+        "host_snapshot_utc": "2026-10-11T11:00:25.897822+00:00"
+      },
+      {
+        "frame": 281,
+        "simulator_endpoint_time_s": 14.050000000001361,
+        "geometry_nominal_time_s": 14.04800000000136,
+        "hdf5_path": "frames/000281/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "control",
+        "control_step": 270,
+        "host_snapshot_utc": "2026-10-11T11:00:25.959928+00:00"
+      },
+      {
+        "frame": 282,
+        "simulator_endpoint_time_s": 14.100000000001378,
+        "geometry_nominal_time_s": 14.098000000001377,
+        "hdf5_path": "frames/000282/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "control",
+        "control_step": 271,
+        "host_snapshot_utc": "2026-10-11T11:00:26.020814+00:00"
+      },
+      {
+        "frame": 283,
+        "simulator_endpoint_time_s": 14.150000000001395,
+        "geometry_nominal_time_s": 14.148000000001394,
+        "hdf5_path": "frames/000283/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "control",
+        "control_step": 272,
+        "host_snapshot_utc": "2026-10-11T11:00:26.198196+00:00"
+      },
+      {
+        "frame": 284,
+        "simulator_endpoint_time_s": 14.200000000001411,
+        "geometry_nominal_time_s": 14.19800000000141,
+        "hdf5_path": "frames/000284/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "control",
+        "control_step": 273,
+        "host_snapshot_utc": "2026-10-11T11:00:26.265479+00:00"
+      },
+      {
+        "frame": 285,
+        "simulator_endpoint_time_s": 14.250000000001428,
+        "geometry_nominal_time_s": 14.248000000001428,
+        "hdf5_path": "frames/000285/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "control",
+        "control_step": 274,
+        "host_snapshot_utc": "2026-10-11T11:00:26.335445+00:00"
+      },
+      {
+        "frame": 286,
+        "simulator_endpoint_time_s": 14.300000000001445,
+        "geometry_nominal_time_s": 14.298000000001444,
+        "hdf5_path": "frames/000286/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "control",
+        "control_step": 275,
+        "host_snapshot_utc": "2026-10-11T11:00:26.396831+00:00"
+      },
+      {
+        "frame": 287,
+        "simulator_endpoint_time_s": 14.350000000001462,
+        "geometry_nominal_time_s": 14.348000000001461,
+        "hdf5_path": "frames/000287/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "control",
+        "control_step": 276,
+        "host_snapshot_utc": "2026-10-11T11:00:26.456811+00:00"
+      },
+      {
+        "frame": 288,
+        "simulator_endpoint_time_s": 14.400000000001478,
+        "geometry_nominal_time_s": 14.398000000001478,
+        "hdf5_path": "frames/000288/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "control",
+        "control_step": 277,
+        "host_snapshot_utc": "2026-10-11T11:00:26.516577+00:00"
+      },
+      {
+        "frame": 289,
+        "simulator_endpoint_time_s": 14.450000000001495,
+        "geometry_nominal_time_s": 14.448000000001494,
+        "hdf5_path": "frames/000289/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "control",
+        "control_step": 278,
+        "host_snapshot_utc": "2026-10-11T11:00:26.577445+00:00"
+      },
+      {
+        "frame": 290,
+        "simulator_endpoint_time_s": 14.500000000001512,
+        "geometry_nominal_time_s": 14.498000000001511,
+        "hdf5_path": "frames/000290/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "control",
+        "control_step": 279,
+        "host_snapshot_utc": "2026-10-11T11:00:26.638418+00:00"
+      },
+      {
+        "frame": 291,
+        "simulator_endpoint_time_s": 14.550000000001528,
+        "geometry_nominal_time_s": 14.548000000001528,
+        "hdf5_path": "frames/000291/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "control",
+        "control_step": 280,
+        "host_snapshot_utc": "2026-10-11T11:00:26.816926+00:00"
+      },
+      {
+        "frame": 292,
+        "simulator_endpoint_time_s": 14.600000000001545,
+        "geometry_nominal_time_s": 14.598000000001544,
+        "hdf5_path": "frames/000292/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "control",
+        "control_step": 281,
+        "host_snapshot_utc": "2026-10-11T11:00:26.876695+00:00"
+      },
+      {
+        "frame": 293,
+        "simulator_endpoint_time_s": 14.650000000001562,
+        "geometry_nominal_time_s": 14.648000000001561,
+        "hdf5_path": "frames/000293/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "control",
+        "control_step": 282,
+        "host_snapshot_utc": "2026-10-11T11:00:26.938276+00:00"
+      },
+      {
+        "frame": 294,
+        "simulator_endpoint_time_s": 14.700000000001578,
+        "geometry_nominal_time_s": 14.698000000001578,
+        "hdf5_path": "frames/000294/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "control",
+        "control_step": 283,
+        "host_snapshot_utc": "2026-10-11T11:00:26.998968+00:00"
+      },
+      {
+        "frame": 295,
+        "simulator_endpoint_time_s": 14.750000000001595,
+        "geometry_nominal_time_s": 14.748000000001595,
+        "hdf5_path": "frames/000295/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "control",
+        "control_step": 284,
+        "host_snapshot_utc": "2026-10-11T11:00:27.058885+00:00"
+      },
+      {
+        "frame": 296,
+        "simulator_endpoint_time_s": 14.800000000001612,
+        "geometry_nominal_time_s": 14.798000000001611,
+        "hdf5_path": "frames/000296/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "control",
+        "control_step": 285,
+        "host_snapshot_utc": "2026-10-11T11:00:27.119319+00:00"
+      },
+      {
+        "frame": 297,
+        "simulator_endpoint_time_s": 14.850000000001629,
+        "geometry_nominal_time_s": 14.848000000001628,
+        "hdf5_path": "frames/000297/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "control",
+        "control_step": 286,
+        "host_snapshot_utc": "2026-10-11T11:00:27.179530+00:00"
+      },
+      {
+        "frame": 298,
+        "simulator_endpoint_time_s": 14.900000000001645,
+        "geometry_nominal_time_s": 14.898000000001645,
+        "hdf5_path": "frames/000298/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "control",
+        "control_step": 287,
+        "host_snapshot_utc": "2026-10-11T11:00:27.239832+00:00"
+      },
+      {
+        "frame": 299,
+        "simulator_endpoint_time_s": 14.950000000001662,
+        "geometry_nominal_time_s": 14.948000000001661,
+        "hdf5_path": "frames/000299/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "control",
+        "control_step": 288,
+        "host_snapshot_utc": "2026-10-11T11:00:27.420179+00:00"
+      },
+      {
+        "frame": 300,
+        "simulator_endpoint_time_s": 15.000000000001679,
+        "geometry_nominal_time_s": 14.998000000001678,
+        "hdf5_path": "frames/000300/raw_observation/robot0_eye_in_hand_image/value",
+        "stage": "control",
+        "control_step": 289,
+        "host_snapshot_utc": "2026-10-11T11:00:27.482142+00:00"
+      }
+    ],
+    "qualification": "Camera exposure time not independently recorded; images may use cached observation phase. Visual corroboration only; selected excerpt is not a whole-run negative.",
+    "transformation": "180 degree rotation matching producer display; no scene pixels interpolated; padded caption"
+  }
+]

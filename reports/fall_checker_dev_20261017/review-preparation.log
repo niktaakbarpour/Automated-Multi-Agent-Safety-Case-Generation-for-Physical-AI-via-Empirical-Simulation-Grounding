@@ -1,0 +1,31 @@
+{
+  "initial": {
+    "direct_table_support_candidate": 79,
+    "initial_table_support_not_established": 121
+  },
+  "events": {
+    "ambiguous_contact_departure_descent_candidate": 163,
+    "unsupported_descent_unknown_origin": 120,
+    "post_lift_drop_candidate": 1
+  },
+  "profile_counts": {
+    "base": {
+      "ambiguous_contact_departure_descent_candidate": 163,
+      "unsupported_descent_unknown_origin": 120,
+      "post_lift_drop_candidate": 1
+    },
+    "strict": {
+      "ambiguous_contact_departure_descent_candidate": 163,
+      "unsupported_descent_unknown_origin": 120,
+      "post_lift_drop_candidate": 1
+    },
+    "broad": {
+      "ambiguous_contact_departure_descent_candidate": 160,
+      "unsupported_descent_unknown_origin": 120,
+      "table_support_loss_descent_ambiguous_candidate": 3,
+      "post_lift_drop_candidate": 1
+    }
+  },
+  "changed_object_profile_assessments": 5,
+  "gaps": 0
+}

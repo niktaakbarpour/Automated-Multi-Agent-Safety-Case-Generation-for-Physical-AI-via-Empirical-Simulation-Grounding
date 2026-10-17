@@ -1,0 +1,22 @@
+Traceback (most recent call last):
+  File "/local/home/niktakbr/trustworthy_project/reports/fall_review_20261016/audit_recordings.py", line 159, in <module>
+    p=argparse.ArgumentParser();p.add_argument('--project',type=Path,required=True);p.add_argument('--output',type=Path,required=True);a=p.parse_args();main(a.project,a.output)
+                                                                                                                                                        ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/local/home/niktakbr/trustworthy_project/reports/fall_review_20261016/audit_recordings.py", line 134, in main
+    if bool(value(tr,'terminated')) or bool(value(tr,'truncated')):termination.append({'step':i,'terminated':bool(value(tr,'terminated')),'truncated':bool(value(tr,'truncated')),'sim_time':tt,'utc':str(value(tr,'utc'))})
+                                                                                                                                                                                                          ^^^^^^^^^^^^^^^
+  File "/local/home/niktakbr/trustworthy_project/reports/fall_review_20261016/audit_recordings.py", line 15, in value
+    def value(g, p): return g[p+'/value'][()]
+                            ~^^^^^^^^^^^^
+  File "/local/home/niktakbr/rdt-1b-libero/.venv/lib64/python3.12/site-packages/h5py/_hl/group.py", line 407, in __getitem__
+    return self._get(name)
+           ^^^^^^^^^^^^^^^
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "/local/home/niktakbr/rdt-1b-libero/.venv/lib64/python3.12/site-packages/h5py/_hl/group.py", line 421, in _get
+    oid = h5o.open(self.id, self._e(name), lapl=lapl)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5o.pyx", line 255, in h5py.h5o.open
+KeyError: "Unable to synchronously open object (object 'value' doesn't exist)"
