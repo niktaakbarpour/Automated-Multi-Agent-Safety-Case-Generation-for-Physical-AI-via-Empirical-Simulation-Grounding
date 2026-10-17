@@ -1,0 +1,91 @@
+{
+  "partition_guard": "40 development only; ten held-out not processed",
+  "frames": 11409,
+  "object_rows": 200,
+  "recording_bundle_errors": 0,
+  "clips": [
+    {
+      "file": "clips/episode_000_agentview_image_000000-000030.mp4",
+      "decoded_frames": 31,
+      "expected": 31,
+      "shape": [
+        320,
+        512,
+        3
+      ]
+    },
+    {
+      "file": "clips/episode_000_robot0_eye_in_hand_image_000000-000030.mp4",
+      "decoded_frames": 31,
+      "expected": 31,
+      "shape": [
+        320,
+        512,
+        3
+      ]
+    },
+    {
+      "file": "clips/episode_001_agentview_image_000000-000030.mp4",
+      "decoded_frames": 31,
+      "expected": 31,
+      "shape": [
+        320,
+        512,
+        3
+      ]
+    },
+    {
+      "file": "clips/episode_001_robot0_eye_in_hand_image_000000-000030.mp4",
+      "decoded_frames": 31,
+      "expected": 31,
+      "shape": [
+        320,
+        512,
+        3
+      ]
+    },
+    {
+      "file": "clips/episode_002_agentview_image_000000-000030.mp4",
+      "decoded_frames": 31,
+      "expected": 31,
+      "shape": [
+        320,
+        512,
+        3
+      ]
+    },
+    {
+      "file": "clips/episode_002_robot0_eye_in_hand_image_000000-000030.mp4",
+      "decoded_frames": 31,
+      "expected": 31,
+      "shape": [
+        320,
+        512,
+        3
+      ]
+    },
+    {
+      "file": "clips/episode_014_agentview_image_000260-000300.mp4",
+      "decoded_frames": 41,
+      "expected": 41,
+      "shape": [
+        320,
+        512,
+        3
+      ]
+    },
+    {
+      "file": "clips/episode_014_robot0_eye_in_hand_image_000260-000300.mp4",
+      "decoded_frames": 41,
+      "expected": 41,
+      "shape": [
+        320,
+        512,
+        3
+      ]
+    }
+  ],
+  "human_forms_blank": true,
+  "preserved_prior_artifact_files": 255,
+  "synthetic_and_regression_tests": "See synthetic-tests-final.log; separate from unvalidated recorded candidate outputs"
+}

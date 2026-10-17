@@ -1,0 +1,35 @@
+{
+  "python": "3.12.14 (main, Aug 13 2026, 00:00:00) [GCC 14.3.1 20251022 (Red Hat 14.3.1-4)]",
+  "executable": "/local/home/niktakbr/rdt-1b-libero/.venv/bin/python",
+  "platform": "Linux-6.12.0-211.49.1.el10_2.x86_64-x86_64-with-glibc2.39",
+  "packages": {
+    "numpy": "2.5.3",
+    "h5py": "3.16.0"
+  },
+  "source_commit": "fda672f93bd00d74b7dfdbb1a4fa4e7f5a0bfe9b",
+  "source_dirty_status": "?? reports/fall_checker_dev_20261017/\n?? reports/fall_checker_dev_v2_20261017/\n?? reports/fall_review_20261016/\n?? reports/fall_review_v2_20261016/\n?? reports/fall_review_v2_download_receipt.json\n?? reports/trustworthy-fall-checker-dev-20261017-final.zip\n?? reports/trustworthy-fall-checker-dev-20261017.zip\n?? reports/trustworthy-fall-review-20261016.zip\n?? reports/trustworthy-fall-review-v2-20261016.zip\n",
+  "new_source_hashes": {
+    "src/run_development.py": "ad4137fd5289ebd2f7f54007e12bd1b4eb9d5802a457c13fdce65ff5d17fb68d",
+    "src/reassess_extracts.py": "d31c68fd14122d76ac2b71defcb3888a9023fd72bbd4241f8de703ae777b2342",
+    "src/export_clips.py": "4d6c57319bb478224702150fd1b129ec9f4f32ca6a11a8322adda96424232a3d",
+    "src/checker.py": "d365947673071431fa2a5ed6a3cbd0e6b7b96a689a6303afc872b7f94343460d",
+    "src/native_geometry_v2.py": "3d582b66656751a59bd981bbf007270dabf0d431822acd065114c3c38e51407c",
+    "src/report_changes.py": "18551ad35d72a9f33ac098c709527944c143f6a91571cc49ae4296d9f7347a48",
+    "src/package_v2.py": "ea02644993408255064b4b6ad78a3869f96d875b0066aa07ea1e28e3b7abeab3",
+    "tests/test_native_geometry_v2.py": "ac23c43bc241a2450a3087154d00cb79fc4d1073b7e66931aad73a5d612caae0",
+    "tests/test_focused_v2.py": "bf6b9df2239d383cb16a670019a80370e0b8e15093269906138b0c50f1bd375b",
+    "tests/test_checker.py": "b5ebb380fd477286efbe9ce37fb68cd0359dc691e5a3c8b160c23effc0c85f55",
+    "tests/test_recorded_regressions.py": "8c8bb61c66373d296f9d3800d7cdd12cd0a14f48a989811c7687f47c787e10f6"
+  },
+  "previous_release": "/local/home/niktakbr/trustworthy_project/reports/fall_checker_dev_20261017",
+  "physical_parameters_changed": false,
+  "physics_stepped": false,
+  "LLM_rerun": false,
+  "original_recordings_opened": false,
+  "held_out_evaluated": false,
+  "commands": [
+    "PYTHONDONTWRITEBYTECODE=1 python -m unittest discover -s tests -v",
+    "PYTHONDONTWRITEBYTECODE=1 python src/reassess_extracts.py --root . --previous-release ../fall_checker_dev_20261017 --output outputs",
+    "PYTHONDONTWRITEBYTECODE=1 python src/report_changes.py . ../fall_checker_dev_20261017"
+  ]
+}

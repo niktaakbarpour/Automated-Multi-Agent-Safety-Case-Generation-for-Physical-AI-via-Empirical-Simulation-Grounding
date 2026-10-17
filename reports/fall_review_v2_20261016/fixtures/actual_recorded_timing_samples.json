@@ -1,0 +1,1820 @@
+{
+  "evidence_class": "recorded_robot_measurement_excerpt_not_synthetic",
+  "samples": [
+    {
+      "run_id": "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db",
+      "frame": "000001",
+      "object": "cream_cheese_1",
+      "source_trajectory": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_000/trajectory.h5",
+      "source_hdf5_full_hash_not_independently_recomputed": true,
+      "dt": 0.002,
+      "qpos_xyz": [
+        0.07851475615653067,
+        -0.19384593250156518,
+        0.44569540229569765
+      ],
+      "qvel_xyz": [
+        -1.8503765193393692e-20,
+        4.243503592112096e-20,
+        8.648594100774905e-05
+      ],
+      "qacc_xyz": [
+        -6.1704701316142645e-19,
+        3.0172634265824368e-18,
+        -0.014408080637273255
+      ],
+      "recorded_body_xyz": [
+        0.07851475615653067,
+        -0.19384593250156518,
+        0.4456952293238156
+      ],
+      "recorded_raw_xyz": [
+        0.07851475615653067,
+        -0.19384593250156518,
+        0.4456949987289144
+      ]
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db",
+      "frame": "000001",
+      "object": "ketchup_1",
+      "source_trajectory": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_000/trajectory.h5",
+      "source_hdf5_full_hash_not_independently_recomputed": true,
+      "dt": 0.002,
+      "qpos_xyz": [
+        -0.2684693007471496,
+        -0.14861313673937224,
+        0.6501333916990275
+      ],
+      "qvel_xyz": [
+        -3.58943086420365e-06,
+        2.6882580523685246e-05,
+        3.153754445347846
+      ],
+      "qacc_xyz": [
+        6.55567491537703e-05,
+        0.0005899361654614858,
+        -10.322322026774644
+      ],
+      "recorded_body_xyz": [
+        -0.26846929356828786,
+        -0.14861319050453328,
+        0.6438258828083319
+      ],
+      "recorded_raw_xyz": [
+        -0.26846928610498944,
+        -0.14861324189919323,
+        0.6374770864103112
+      ]
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db",
+      "frame": "000001",
+      "object": "orange_juice_1",
+      "source_trajectory": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_000/trajectory.h5",
+      "source_hdf5_full_hash_not_independently_recomputed": true,
+      "dt": 0.002,
+      "qpos_xyz": [
+        0.009968210615512268,
+        -0.2592230007531756,
+        0.6334737953615217
+      ],
+      "qvel_xyz": [
+        2.789158248628645e-06,
+        -1.6595659808110034e-05,
+        2.821621208342487
+      ],
+      "qacc_xyz": [
+        5.389049401269702e-05,
+        -0.00035664257710983914,
+        -10.276221806349643
+      ],
+      "recorded_body_xyz": [
+        0.00996820503719577,
+        -0.259222967561856,
+        0.6278305529448367
+      ],
+      "recorded_raw_xyz": [
+        0.009968199674340825,
+        -0.25922293580761435,
+        0.6221462069392782
+      ]
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db",
+      "frame": "000001",
+      "object": "milk_1",
+      "source_trajectory": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_000/trajectory.h5",
+      "source_hdf5_full_hash_not_independently_recomputed": true,
+      "dt": 0.002,
+      "qpos_xyz": [
+        0.0492702260909745,
+        -0.12142575701452647,
+        0.6334737953614398
+      ],
+      "qvel_xyz": [
+        -2.7891582863845957e-06,
+        1.6595659808352594e-05,
+        2.821621208340859
+      ],
+      "qacc_xyz": [
+        -5.3890493442690334e-05,
+        0.00035664257711911704,
+        -10.276221806349135
+      ],
+      "recorded_body_xyz": [
+        0.04927023166929107,
+        -0.1214257902058461,
+        0.6278305529447581
+      ],
+      "recorded_raw_xyz": [
+        0.04927023703214609,
+        -0.12142582196008773,
+        0.622146206939203
+      ]
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db",
+      "frame": "000001",
+      "object": "butter_1",
+      "source_trajectory": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_000/trajectory.h5",
+      "source_hdf5_full_hash_not_independently_recomputed": true,
+      "dt": 0.002,
+      "qpos_xyz": [
+        0.07044719834440541,
+        0.0526561777194373,
+        0.4622780750478823
+      ],
+      "qvel_xyz": [
+        8.620591455866234e-18,
+        -1.236321795434472e-21,
+        0.20798744687823056
+      ],
+      "qacc_xyz": [
+        3.981033743052978e-17,
+        -1.0177469596407479e-19,
+        -9.849914062147061
+      ],
+      "recorded_body_xyz": [
+        0.07044719834440541,
+        0.0526561777194373,
+        0.4618621001541259
+      ],
+      "recorded_raw_xyz": [
+        0.07044719834440541,
+        0.0526561777194373,
+        0.4614067331114229
+      ]
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db",
+      "frame": "000010",
+      "object": "cream_cheese_1",
+      "source_trajectory": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_000/trajectory.h5",
+      "source_hdf5_full_hash_not_independently_recomputed": true,
+      "dt": 0.002,
+      "qpos_xyz": [
+        0.07851475615653067,
+        -0.19384593250156518,
+        0.44569592152000004
+      ],
+      "qvel_xyz": [
+        3.0909735642005086e-20,
+        1.881770927872556e-19,
+        1.0891026564006564e-14
+      ],
+      "qacc_xyz": [
+        6.611907937616057e-16,
+        2.024889671631027e-15,
+        -9.824904067707924e-16
+      ],
+      "recorded_body_xyz": [
+        0.07851475615653067,
+        -0.19384593250156518,
+        0.44569592152000004
+      ],
+      "recorded_raw_xyz": [
+        0.07851475615653067,
+        -0.19384593250156518,
+        0.44569592152000004
+      ]
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db",
+      "frame": "000010",
+      "object": "ketchup_1",
+      "source_trajectory": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_000/trajectory.h5",
+      "source_hdf5_full_hash_not_independently_recomputed": true,
+      "dt": 0.002,
+      "qpos_xyz": [
+        -0.26845985277513545,
+        -0.1485742186185226,
+        1.0510565774949703
+      ],
+      "qvel_xyz": [
+        3.635442040161954e-05,
+        0.00010020927500467978,
+        -1.312049364696069
+      ],
+      "qacc_xyz": [
+        -6.614904156909082e-08,
+        -9.35449324312181e-05,
+        -9.708086118656933
+      ],
+      "recorded_body_xyz": [
+        -0.26845992548397624,
+        -0.1485744190370726,
+        1.0536806762243625
+      ],
+      "recorded_raw_xyz": [
+        -0.2684599981930648,
+        -0.14857461982976677,
+        1.0562659442818052
+      ]
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db",
+      "frame": "000010",
+      "object": "orange_juice_1",
+      "source_trajectory": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_000/trajectory.h5",
+      "source_hdf5_full_hash_not_independently_recomputed": true,
+      "dt": 0.002,
+      "qpos_xyz": [
+        0.009971297474187,
+        -0.2592465338699187,
+        0.888858890578431
+      ],
+      "qvel_xyz": [
+        6.695392371079887e-06,
+        -5.814399826311635e-05,
+        -1.6284502411067387
+      ],
+      "qacc_xyz": [
+        -1.7284988132258223e-05,
+        0.0001192931086996104,
+        -9.649222980480276
+      ],
+      "recorded_body_xyz": [
+        0.009971284083402258,
+        -0.2592464175819222,
+        0.8921157910606445
+      ],
+      "recorded_raw_xyz": [
+        0.009971270623479548,
+        -0.25924630081679484,
+        0.8953340958697767
+      ]
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db",
+      "frame": "000010",
+      "object": "milk_1",
+      "source_trajectory": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_000/trajectory.h5",
+      "source_hdf5_full_hash_not_independently_recomputed": true,
+      "dt": 0.002,
+      "qpos_xyz": [
+        0.04926713923230257,
+        -0.12140222389778298,
+        0.8888588905776443
+      ],
+      "qvel_xyz": [
+        -6.695392358327992e-06,
+        5.8143998264122876e-05,
+        -1.628450241108266
+      ],
+      "qacc_xyz": [
+        1.728498806599135e-05,
+        -0.00011929310870097967,
+        -9.64922298048
+      ],
+      "recorded_body_xyz": [
+        0.049267152623087285,
+        -0.1214023401857795,
+        0.8921157910598608
+      ],
+      "recorded_raw_xyz": [
+        0.04926716608300997,
+        -0.12140245695090687,
+        0.895334095868996
+      ]
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db",
+      "frame": "000010",
+      "object": "butter_1",
+      "source_trajectory": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_000/trajectory.h5",
+      "source_hdf5_full_hash_not_independently_recomputed": true,
+      "dt": 0.002,
+      "qpos_xyz": [
+        0.07044719834440562,
+        0.05265617771943741,
+        0.44546992152000003
+      ],
+      "qvel_xyz": [
+        3.012851044210432e-20,
+        6.065281338028623e-19,
+        1.1541366154987607e-14
+      ],
+      "qacc_xyz": [
+        -9.400074509727737e-16,
+        -5.714700811729107e-16,
+        -1.0952906176230461e-15
+      ],
+      "recorded_body_xyz": [
+        0.07044719834440562,
+        0.05265617771943741,
+        0.44546992152000003
+      ],
+      "recorded_raw_xyz": [
+        0.07044719834440562,
+        0.05265617771943741,
+        0.44546992152000003
+      ]
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db",
+      "frame": "000011",
+      "object": "cream_cheese_1",
+      "source_trajectory": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_000/trajectory.h5",
+      "source_hdf5_full_hash_not_independently_recomputed": true,
+      "dt": 0.002,
+      "qpos_xyz": [
+        0.07851475615653067,
+        -0.19384593250156518,
+        0.44569592152000004
+      ],
+      "qvel_xyz": [
+        -1.0397059218528943e-18,
+        -5.607750994364389e-19,
+        1.0891026564006567e-14
+      ],
+      "qacc_xyz": [
+        -7.48767336175999e-17,
+        -3.958577012246631e-17,
+        1.2610729941028372e-15
+      ],
+      "recorded_body_xyz": [
+        0.07851475615653067,
+        -0.19384593250156518,
+        0.44569592152000004
+      ],
+      "recorded_raw_xyz": [
+        0.07851475615653067,
+        -0.19384593250156518,
+        0.44569592152000004
+      ]
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db",
+      "frame": "000011",
+      "object": "ketchup_1",
+      "source_trajectory": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_000/trajectory.h5",
+      "source_hdf5_full_hash_not_independently_recomputed": true,
+      "dt": 0.002,
+      "qpos_xyz": [
+        -0.268458059777889,
+        -0.14856937820807686,
+        0.9728673805244963
+      ],
+      "qvel_xyz": [
+        3.495543973355048e-05,
+        9.27737589137949e-05,
+        -1.7955445403497128
+      ],
+      "qacc_xyz": [
+        -5.571541310570815e-05,
+        -0.00020471666191559698,
+        -9.632270029170774
+      ],
+      "recorded_body_xyz": [
+        -0.2684581296887685,
+        -0.14856956375559469,
+        0.9764584696051957
+      ],
+      "recorded_raw_xyz": [
+        -0.26845819982252983,
+        -0.14856975012195292,
+        0.9800110312652366
+      ]
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db",
+      "frame": "000011",
+      "object": "orange_juice_1",
+      "source_trajectory": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_000/trajectory.h5",
+      "source_hdf5_full_hash_not_independently_recomputed": true,
+      "dt": 0.002,
+      "qpos_xyz": [
+        0.009971604657874382,
+        -0.25924923938094374,
+        0.7949370695351422
+      ],
+      "qvel_xyz": [
+        5.540857479571705e-06,
+        -4.9542420241944367e-05,
+        -2.10838799413714
+      ],
+      "qacc_xyz": [
+        -2.8917622455929107e-05,
+        0.00022429907279166036,
+        -9.549082327260313
+      ],
+      "recorded_body_xyz": [
+        0.009971593576159423,
+        -0.25924914029610324,
+        0.7991538455234165
+      ],
+      "recorded_raw_xyz": [
+        0.009971582378777783,
+        -0.25924904031408313,
+        0.8033324263885719
+      ]
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db",
+      "frame": "000011",
+      "object": "milk_1",
+      "source_trajectory": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_000/trajectory.h5",
+      "source_hdf5_full_hash_not_independently_recomputed": true,
+      "dt": 0.002,
+      "qpos_xyz": [
+        0.0492668320486157,
+        -0.12139951838675792,
+        0.7949370695342796
+      ],
+      "qvel_xyz": [
+        -5.5408574713585255e-06,
+        4.95424202428642e-05,
+        -2.108387994138652
+      ],
+      "qacc_xyz": [
+        2.8917622340836103e-05,
+        -0.00022429907279382394,
+        -9.549082327259963
+      ],
+      "recorded_body_xyz": [
+        0.04926684313033064,
+        -0.1213996174715984,
+        0.7991538455225569
+      ],
+      "recorded_raw_xyz": [
+        0.049266854327712266,
+        -0.1213997174536185,
+        0.8033324263877154
+      ]
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db",
+      "frame": "000011",
+      "object": "butter_1",
+      "source_trajectory": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_000/trajectory.h5",
+      "source_hdf5_full_hash_not_independently_recomputed": true,
+      "dt": 0.002,
+      "qpos_xyz": [
+        0.07044719834440562,
+        0.05265617771943741,
+        0.44546992152000003
+      ],
+      "qvel_xyz": [
+        1.056328338531824e-18,
+        3.8342837843583556e-19,
+        1.1541366154987607e-14
+      ],
+      "qacc_xyz": [
+        -3.401986978712424e-16,
+        -4.8259565710840115e-16,
+        2.2896920955339246e-16
+      ],
+      "recorded_body_xyz": [
+        0.07044719834440562,
+        0.05265617771943741,
+        0.44546992152000003
+      ],
+      "recorded_raw_xyz": [
+        0.07044719834440562,
+        0.05265617771943741,
+        0.44546992152000003
+      ]
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+      "frame": "000001",
+      "object": "cream_cheese_1",
+      "source_trajectory": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_002/trajectory.h5",
+      "source_hdf5_full_hash_not_independently_recomputed": true,
+      "dt": 0.002,
+      "qpos_xyz": [
+        0.1241340350236118,
+        -0.1862327698670956,
+        0.5291059133220725
+      ],
+      "qvel_xyz": [
+        0.8991605859216257,
+        0.13512125003934736,
+        1.4203030224025825
+      ],
+      "qacc_xyz": [
+        -0.280034128740563,
+        -0.03042953687449726,
+        -10.764997501292125
+      ],
+      "recorded_body_xyz": [
+        0.12233571385176854,
+        -0.18650301236717431,
+        0.5262653072772673
+      ],
+      "recorded_raw_xyz": [
+        0.12053627272422893,
+        -0.1867733765657521,
+        0.5233816481934374
+      ]
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+      "frame": "000001",
+      "object": "ketchup_1",
+      "source_trajectory": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_002/trajectory.h5",
+      "source_hdf5_full_hash_not_independently_recomputed": true,
+      "dt": 0.002,
+      "qpos_xyz": [
+        -0.24005317787396804,
+        -0.15741373283866544,
+        0.6501333916990275
+      ],
+      "qvel_xyz": [
+        -3.5894308646729258e-06,
+        2.6882580523090768e-05,
+        3.153754445347846
+      ],
+      "qacc_xyz": [
+        6.555674915397613e-05,
+        0.0005899361654615836,
+        -10.322322026774643
+      ],
+      "recorded_body_xyz": [
+        -0.24005317069510632,
+        -0.1574137866038265,
+        0.6438258828083319
+      ],
+      "recorded_raw_xyz": [
+        -0.24005316323180786,
+        -0.15741383799848643,
+        0.6374770864103112
+      ]
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+      "frame": "000001",
+      "object": "orange_juice_1",
+      "source_trajectory": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_002/trajectory.h5",
+      "source_hdf5_full_hash_not_independently_recomputed": true,
+      "dt": 0.002,
+      "qpos_xyz": [
+        0.015413390288213232,
+        -0.231075934078818,
+        0.6331854764498521
+      ],
+      "qvel_xyz": [
+        -0.004441132315161753,
+        0.0007410793007875383,
+        2.815666958274965
+      ],
+      "qacc_xyz": [
+        -0.023861788739699862,
+        -0.012123246393919583,
+        -10.274109036402217
+      ],
+      "recorded_body_xyz": [
+        0.015422272552843555,
+        -0.23107741623741956,
+        0.6275541425333022
+      ],
+      "recorded_raw_xyz": [
+        0.015431061049727515,
+        -0.23107894598751777,
+        0.6218817134325365
+      ]
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+      "frame": "000001",
+      "object": "milk_1",
+      "source_trajectory": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_002/trajectory.h5",
+      "source_hdf5_full_hash_not_independently_recomputed": true,
+      "dt": 0.002,
+      "qpos_xyz": [
+        0.0394481022234203,
+        -0.10980313850746384,
+        0.6334737953614398
+      ],
+      "qvel_xyz": [
+        -2.789158285841615e-06,
+        1.6595659808338773e-05,
+        2.821621208340859
+      ],
+      "qacc_xyz": [
+        -5.389049344309013e-05,
+        0.00035664257711837566,
+        -10.276221806349135
+      ],
+      "recorded_body_xyz": [
+        0.039448107801736874,
+        -0.10980317169878347,
+        0.6278305529447581
+      ],
+      "recorded_raw_xyz": [
+        0.039448113164591896,
+        -0.1098032034530251,
+        0.622146206939203
+      ]
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+      "frame": "000001",
+      "object": "butter_1",
+      "source_trajectory": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_002/trajectory.h5",
+      "source_hdf5_full_hash_not_independently_recomputed": true,
+      "dt": 0.002,
+      "qpos_xyz": [
+        0.06710511174744366,
+        0.02515547306013219,
+        0.4622780750478823
+      ],
+      "qvel_xyz": [
+        8.620591455866234e-18,
+        -1.3911369483462903e-18,
+        0.20798744687823056
+      ],
+      "qacc_xyz": [
+        3.981033743052978e-17,
+        -3.189181908897005e-18,
+        -9.849914062147061
+      ],
+      "recorded_body_xyz": [
+        0.06710511174744366,
+        0.02515547306013219,
+        0.4618621001541259
+      ],
+      "recorded_raw_xyz": [
+        0.06710511174744366,
+        0.02515547306013219,
+        0.4614067331114229
+      ]
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+      "frame": "000010",
+      "object": "cream_cheese_1",
+      "source_trajectory": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_002/trajectory.h5",
+      "source_hdf5_full_hash_not_independently_recomputed": true,
+      "dt": 0.002,
+      "qpos_xyz": [
+        0.5152419774267146,
+        -0.1269338474143539,
+        0.17136498460511054
+      ],
+      "qvel_xyz": [
+        0.8690368870268973,
+        0.13172526377331756,
+        -2.7831734256903125
+      ],
+      "qacc_xyz": [
+        0.22985856749958009,
+        0.02405023131358113,
+        -7.469917271908118
+      ],
+      "recorded_body_xyz": [
+        0.5135039036526609,
+        -0.12719729794190054,
+        0.17693133145649118
+      ],
+      "recorded_raw_xyz": [
+        0.511766749164457,
+        -0.1274606522840512,
+        0.18246780346212466
+      ]
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+      "frame": "000010",
+      "object": "ketchup_1",
+      "source_trajectory": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_002/trajectory.h5",
+      "source_hdf5_full_hash_not_independently_recomputed": true,
+      "dt": 0.002,
+      "qpos_xyz": [
+        -0.24004372990195458,
+        -0.157374814717816,
+        1.0510565774949703
+      ],
+      "qvel_xyz": [
+        3.635442040116835e-05,
+        0.00010020927500409782,
+        -1.3120493646960687
+      ],
+      "qacc_xyz": [
+        -6.61490415593006e-08,
+        -9.354493243120587e-05,
+        -9.708086118656933
+      ],
+      "recorded_body_xyz": [
+        -0.2400438026107954,
+        -0.157375015136366,
+        1.0536806762243625
+      ],
+      "recorded_raw_xyz": [
+        -0.24004387531988397,
+        -0.15737521592906017,
+        1.0562659442818052
+      ]
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+      "frame": "000010",
+      "object": "orange_juice_1",
+      "source_trajectory": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_002/trajectory.h5",
+      "source_hdf5_full_hash_not_independently_recomputed": true,
+      "dt": 0.002,
+      "qpos_xyz": [
+        0.012582365461253646,
+        -0.23116656633783048,
+        0.8860134734668967
+      ],
+      "qvel_xyz": [
+        -0.006552179439877045,
+        -0.0003444365529877638,
+        -1.6339832686862796
+      ],
+      "qacc_xyz": [
+        0.0028712455223191477,
+        0.0014516047402423167,
+        -9.64829951431697
+      ],
+      "recorded_body_xyz": [
+        0.0125954698201334,
+        -0.2311658774647245,
+        0.8892814400042693
+      ],
+      "recorded_raw_xyz": [
+        0.012608585674719591,
+        -0.23116518278011597,
+        0.8925108145618474
+      ]
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+      "frame": "000010",
+      "object": "milk_1",
+      "source_trajectory": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_002/trajectory.h5",
+      "source_hdf5_full_hash_not_independently_recomputed": true,
+      "dt": 0.002,
+      "qpos_xyz": [
+        0.03944501536474854,
+        -0.10977960539072038,
+        0.8888588905776443
+      ],
+      "qvel_xyz": [
+        -6.69539235782368e-06,
+        5.8143998264050404e-05,
+        -1.628450241108266
+      ],
+      "qacc_xyz": [
+        1.7284988066040013e-05,
+        -0.0001192931087009267,
+        -9.64922298048
+      ],
+      "recorded_body_xyz": [
+        0.039445028755533254,
+        -0.1097797216787169,
+        0.8921157910598608
+      ],
+      "recorded_raw_xyz": [
+        0.03944504221545594,
+        -0.10977983844384427,
+        0.895334095868996
+      ]
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+      "frame": "000010",
+      "object": "butter_1",
+      "source_trajectory": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_002/trajectory.h5",
+      "source_hdf5_full_hash_not_independently_recomputed": true,
+      "dt": 0.002,
+      "qpos_xyz": [
+        0.06710511174744403,
+        0.025155473060132594,
+        0.44546992152000003
+      ],
+      "qvel_xyz": [
+        3.1540890977856174e-19,
+        2.4852371636115345e-18,
+        1.1543446184390754e-14
+      ],
+      "qacc_xyz": [
+        -4.921549997806215e-16,
+        -1.1309006684565124e-16,
+        3.1595909679958034e-15
+      ],
+      "recorded_body_xyz": [
+        0.06710511174744403,
+        0.025155473060132594,
+        0.44546992152000003
+      ],
+      "recorded_raw_xyz": [
+        0.06710511174744403,
+        0.025155473060132594,
+        0.44546992152000003
+      ]
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+      "frame": "000011",
+      "object": "cream_cheese_1",
+      "source_trajectory": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_002/trajectory.h5",
+      "source_hdf5_full_hash_not_independently_recomputed": true,
+      "dt": 0.002,
+      "qpos_xyz": [
+        0.5590447696751983,
+        -0.1203109242277046,
+        0.02279707551271469
+      ],
+      "qvel_xyz": [
+        0.8834345318443244,
+        0.13322838403582213,
+        -3.1398942888288937
+      ],
+      "qacc_xyz": [
+        0.34218284960919887,
+        0.03567696290911442,
+        -6.82397149025899
+      ],
+      "recorded_body_xyz": [
+        0.5572779006115097,
+        -0.12057738099577625,
+        0.029076864090372478
+      ],
+      "recorded_raw_xyz": [
+        0.5555124000582714,
+        -0.12084369507903295,
+        0.035329361188321244
+      ]
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+      "frame": "000011",
+      "object": "ketchup_1",
+      "source_trajectory": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_002/trajectory.h5",
+      "source_hdf5_full_hash_not_independently_recomputed": true,
+      "dt": 0.002,
+      "qpos_xyz": [
+        -0.24004193690470804,
+        -0.15736997430737032,
+        0.9728673805244963
+      ],
+      "qvel_xyz": [
+        3.495543973309966e-05,
+        9.277375891321327e-05,
+        -1.7955445403497128
+      ],
+      "qacc_xyz": [
+        -5.5715413105698335e-05,
+        -0.00020471666191559698,
+        -9.632270029170774
+      ],
+      "recorded_body_xyz": [
+        -0.24004200681558752,
+        -0.15737015985488814,
+        0.9764584696051957
+      ],
+      "recorded_raw_xyz": [
+        -0.2400420769493489,
+        -0.15737034622124635,
+        0.9800110312652366
+      ]
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+      "frame": "000011",
+      "object": "orange_juice_1",
+      "source_trajectory": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_002/trajectory.h5",
+      "source_hdf5_full_hash_not_independently_recomputed": true,
+      "dt": 0.002,
+      "qpos_xyz": [
+        0.012259390569462836,
+        -0.23118141862072009,
+        0.7918162902797871
+      ],
+      "qvel_xyz": [
+        -0.006357650666014267,
+        -0.000244571968616253,
+        -2.113869979657713
+      ],
+      "qacc_xyz": [
+        0.004900173006757308,
+        0.002538207760544917,
+        -9.547976302920533
+      ],
+      "recorded_body_xyz": [
+        0.012272105870794865,
+        -0.23118092947678284,
+        0.7960440302391025
+      ],
+      "recorded_raw_xyz": [
+        0.01228484077846894,
+        -0.23118043017732823,
+        0.8002335794989955
+      ]
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+      "frame": "000011",
+      "object": "milk_1",
+      "source_trajectory": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_002/trajectory.h5",
+      "source_hdf5_full_hash_not_independently_recomputed": true,
+      "dt": 0.002,
+      "qpos_xyz": [
+        0.03944470818106169,
+        -0.10977689987969531,
+        0.7949370695342796
+      ],
+      "qvel_xyz": [
+        -5.540857470850719e-06,
+        4.9542420242795594e-05,
+        -2.108387994138652
+      ],
+      "qacc_xyz": [
+        2.8917622340926248e-05,
+        -0.0002242990727937218,
+        -9.549082327259963
+      ],
+      "recorded_body_xyz": [
+        0.03944471926277663,
+        -0.1097769989645358,
+        0.7991538455225569
+      ],
+      "recorded_raw_xyz": [
+        0.03944473046015825,
+        -0.10977709894655589,
+        0.8033324263877154
+      ]
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+      "frame": "000011",
+      "object": "butter_1",
+      "source_trajectory": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_002/trajectory.h5",
+      "source_hdf5_full_hash_not_independently_recomputed": true,
+      "dt": 0.002,
+      "qpos_xyz": [
+        0.06710511174744403,
+        0.025155473060132594,
+        0.44546992152000003
+      ],
+      "qvel_xyz": [
+        -8.899644593418165e-20,
+        1.0148446082003365e-19,
+        1.1543446184390756e-14
+      ],
+      "qacc_xyz": [
+        2.668955168008595e-16,
+        -4.2181842554708934e-16,
+        5.115727190210829e-16
+      ],
+      "recorded_body_xyz": [
+        0.06710511174744403,
+        0.025155473060132594,
+        0.44546992152000003
+      ],
+      "recorded_raw_xyz": [
+        0.06710511174744403,
+        0.025155473060132594,
+        0.44546992152000003
+      ]
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db",
+      "frame": "000280",
+      "object": "cream_cheese_1",
+      "source_trajectory": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_014/trajectory.h5",
+      "source_hdf5_full_hash_not_independently_recomputed": true,
+      "dt": 0.002,
+      "qpos_xyz": [
+        0.10069937310659004,
+        -0.16792628320909242,
+        0.48893773876307656
+      ],
+      "qvel_xyz": [
+        0.004697222633797016,
+        0.02290660067501657,
+        0.0962017401250367
+      ],
+      "qacc_xyz": [
+        -0.13304520048715637,
+        -0.22896300944167847,
+        -0.6911158106173096
+      ],
+      "recorded_body_xyz": [
+        0.10068997866132244,
+        -0.16797209641044245,
+        0.4887453352828265
+      ],
+      "recorded_raw_xyz": [
+        0.10068005212116388,
+        -0.16801882531597698,
+        0.48855016778558547
+      ]
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db",
+      "frame": "000280",
+      "object": "ketchup_1",
+      "source_trajectory": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_014/trajectory.h5",
+      "source_hdf5_full_hash_not_independently_recomputed": true,
+      "dt": 0.002,
+      "qpos_xyz": [
+        -0.22712352975868982,
+        -0.1276003783402516,
+        0.5091799215164788
+      ],
+      "qvel_xyz": [
+        6.958187221266056e-16,
+        -1.0320114603563363e-15,
+        1.505822983903873e-14
+      ],
+      "qacc_xyz": [
+        -6.217331198963249e-16,
+        -2.6283752592649016e-16,
+        8.789498018067729e-16
+      ],
+      "recorded_body_xyz": [
+        -0.22712352975868982,
+        -0.1276003783402516,
+        0.5091799215164788
+      ],
+      "recorded_raw_xyz": [
+        -0.22712352975868982,
+        -0.1276003783402516,
+        0.5091799215164788
+      ]
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db",
+      "frame": "000280",
+      "object": "orange_juice_1",
+      "source_trajectory": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_014/trajectory.h5",
+      "source_hdf5_full_hash_not_independently_recomputed": true,
+      "dt": 0.002,
+      "qpos_xyz": [
+        0.07936974433381826,
+        -0.2748017275834527,
+        0.4630099203333241
+      ],
+      "qvel_xyz": [
+        2.30925434300566e-16,
+        -3.2571430528822634e-16,
+        6.528750803793306e-15
+      ],
+      "qacc_xyz": [
+        3.2014624684238817e-13,
+        -4.052251269796446e-13,
+        -3.4809645588528194e-13
+      ],
+      "recorded_body_xyz": [
+        0.07936974433381826,
+        -0.2748017275834527,
+        0.4630099203333241
+      ],
+      "recorded_raw_xyz": [
+        0.07936974433381826,
+        -0.2748017275834527,
+        0.4630099203333241
+      ]
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db",
+      "frame": "000280",
+      "object": "milk_1",
+      "source_trajectory": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_014/trajectory.h5",
+      "source_hdf5_full_hash_not_independently_recomputed": true,
+      "dt": 0.002,
+      "qpos_xyz": [
+        0.056887818100621726,
+        -0.09076772232908693,
+        0.5065154845342621
+      ],
+      "qvel_xyz": [
+        0.0012642122766021438,
+        -0.010846159858542245,
+        0.006430308905221709
+      ],
+      "qacc_xyz": [
+        3.324242321795784,
+        10.278207061732374,
+        11.33840655344911
+      ],
+      "recorded_body_xyz": [
+        0.05688528967606852,
+        -0.09074603000936984,
+        0.5065026239164516
+      ],
+      "recorded_raw_xyz": [
+        0.056895956310127435,
+        -0.09068335126405647,
+        0.5065351128825201
+      ]
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db",
+      "frame": "000280",
+      "object": "butter_1",
+      "source_trajectory": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_014/trajectory.h5",
+      "source_hdf5_full_hash_not_independently_recomputed": true,
+      "dt": 0.002,
+      "qpos_xyz": [
+        0.07390699632524665,
+        0.03036139884864115,
+        0.4454699215200001
+      ],
+      "qvel_xyz": [
+        -2.2992205824066193e-20,
+        4.191726259318039e-21,
+        4.602858214201924e-15
+      ],
+      "qacc_xyz": [
+        -3.9303798131327403e-17,
+        3.321121003389219e-16,
+        3.653289045058107e-17
+      ],
+      "recorded_body_xyz": [
+        0.07390699632524665,
+        0.03036139884864115,
+        0.4454699215200001
+      ],
+      "recorded_raw_xyz": [
+        0.07390699632524665,
+        0.03036139884864115,
+        0.4454699215200001
+      ]
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db",
+      "frame": "000281",
+      "object": "cream_cheese_1",
+      "source_trajectory": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_014/trajectory.h5",
+      "source_hdf5_full_hash_not_independently_recomputed": true,
+      "dt": 0.002,
+      "qpos_xyz": [
+        0.10038457269500532,
+        -0.16690550240350674,
+        0.4925239385026504
+      ],
+      "qvel_xyz": [
+        -0.00992730635648684,
+        0.01570945079243811,
+        0.05425318093004308
+      ],
+      "qacc_xyz": [
+        -0.14626219777094285,
+        -0.0469900623800907,
+        -0.6304756193137288
+      ],
+      "recorded_body_xyz": [
+        0.1004044273077183,
+        -0.1669369213050916,
+        0.4924154321407903
+      ],
+      "recorded_raw_xyz": [
+        0.10042369696607958,
+        -0.16696852813653756,
+        0.49230440428354755
+      ]
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db",
+      "frame": "000281",
+      "object": "ketchup_1",
+      "source_trajectory": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_014/trajectory.h5",
+      "source_hdf5_full_hash_not_independently_recomputed": true,
+      "dt": 0.002,
+      "qpos_xyz": [
+        -0.22712352975868982,
+        -0.1276003783402516,
+        0.5091799215164788
+      ],
+      "qvel_xyz": [
+        6.941873392479441e-16,
+        -1.0329889429831065e-15,
+        1.5060732796371257e-14
+      ],
+      "qacc_xyz": [
+        5.237445468794975e-16,
+        3.774513411126194e-16,
+        -3.8474173297130697e-16
+      ],
+      "recorded_body_xyz": [
+        -0.22712352975868982,
+        -0.1276003783402516,
+        0.5091799215164788
+      ],
+      "recorded_raw_xyz": [
+        -0.22712352975868982,
+        -0.1276003783402516,
+        0.5091799215164788
+      ]
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db",
+      "frame": "000281",
+      "object": "orange_juice_1",
+      "source_trajectory": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_014/trajectory.h5",
+      "source_hdf5_full_hash_not_independently_recomputed": true,
+      "dt": 0.002,
+      "qpos_xyz": [
+        0.07936974433381826,
+        -0.2748017275834527,
+        0.4630099203333241
+      ],
+      "qvel_xyz": [
+        -4.093284985255097e-16,
+        4.8477015077707e-16,
+        7.218578741634007e-15
+      ],
+      "qacc_xyz": [
+        -3.2019034548362417e-13,
+        4.0542148669292007e-13,
+        3.47526383862108e-13
+      ],
+      "recorded_body_xyz": [
+        0.07936974433381826,
+        -0.2748017275834527,
+        0.4630099203333241
+      ],
+      "recorded_raw_xyz": [
+        0.07936974433381826,
+        -0.2748017275834527,
+        0.4630099203333241
+      ]
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db",
+      "frame": "000281",
+      "object": "milk_1",
+      "source_trajectory": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_014/trajectory.h5",
+      "source_hdf5_full_hash_not_independently_recomputed": true,
+      "dt": 0.002,
+      "qpos_xyz": [
+        0.05685983630120702,
+        -0.09071863656590913,
+        0.5065098041514003
+      ],
+      "qvel_xyz": [
+        -1.4396471141542666e-05,
+        3.954001841812056e-05,
+        1.9551224411388015e-05
+      ],
+      "qacc_xyz": [
+        0.0024357084444771087,
+        -0.00668967735391886,
+        -0.0032578307482749214
+      ],
+      "recorded_body_xyz": [
+        0.0568598650941493,
+        -0.09071871564594597,
+        0.5065097650489515
+      ],
+      "recorded_raw_xyz": [
+        0.056859903590894566,
+        -0.09071882137751154,
+        0.5065097129189429
+      ]
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db",
+      "frame": "000281",
+      "object": "butter_1",
+      "source_trajectory": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_014/trajectory.h5",
+      "source_hdf5_full_hash_not_independently_recomputed": true,
+      "dt": 0.002,
+      "qpos_xyz": [
+        0.07390699632524665,
+        0.03036139884864115,
+        0.4454699215200001
+      ],
+      "qvel_xyz": [
+        -2.280026203280626e-18,
+        -2.5772421408147723e-18,
+        4.600213908268597e-15
+      ],
+      "qacc_xyz": [
+        1.5877947121268292e-15,
+        1.3239897599023922e-15,
+        3.6553626318851297e-17
+      ],
+      "recorded_body_xyz": [
+        0.07390699632524665,
+        0.03036139884864115,
+        0.4454699215200001
+      ],
+      "recorded_raw_xyz": [
+        0.07390699632524665,
+        0.03036139884864115,
+        0.4454699215200001
+      ]
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db",
+      "frame": "000282",
+      "object": "cream_cheese_1",
+      "source_trajectory": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_014/trajectory.h5",
+      "source_hdf5_full_hash_not_independently_recomputed": true,
+      "dt": 0.002,
+      "qpos_xyz": [
+        0.10015554690268211,
+        -0.16595990637483313,
+        0.4881542451213965
+      ],
+      "qvel_xyz": [
+        0.00024019893626501835,
+        0.020015172427894194,
+        -0.3047163423027119
+      ],
+      "qacc_xyz": [
+        0.001571254916051946,
+        -0.0014790795069831802,
+        -9.759440334273842
+      ],
+      "recorded_body_xyz": [
+        0.10015506650480958,
+        -0.1659999367196889,
+        0.48876367780600194
+      ],
+      "recorded_raw_xyz": [
+        0.10015459239094215,
+        -0.1660399729799077,
+        0.4893340790309604
+      ]
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db",
+      "frame": "000282",
+      "object": "ketchup_1",
+      "source_trajectory": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_014/trajectory.h5",
+      "source_hdf5_full_hash_not_independently_recomputed": true,
+      "dt": 0.002,
+      "qpos_xyz": [
+        -0.22712352975868982,
+        -0.1276003783402516,
+        0.5091799215164788
+      ],
+      "qvel_xyz": [
+        6.943383633209891e-16,
+        -1.0326387721304155e-15,
+        1.506069631532783e-14
+      ],
+      "qacc_xyz": [
+        1.8618658973325092e-16,
+        1.9035239333283244e-15,
+        1.988747288641994e-15
+      ],
+      "recorded_body_xyz": [
+        -0.22712352975868982,
+        -0.1276003783402516,
+        0.5091799215164788
+      ],
+      "recorded_raw_xyz": [
+        -0.22712352975868982,
+        -0.1276003783402516,
+        0.5091799215164788
+      ]
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db",
+      "frame": "000282",
+      "object": "orange_juice_1",
+      "source_trajectory": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_014/trajectory.h5",
+      "source_hdf5_full_hash_not_independently_recomputed": true,
+      "dt": 0.002,
+      "qpos_xyz": [
+        0.07936974433381826,
+        -0.2748017275834527,
+        0.4630099203333241
+      ],
+      "qvel_xyz": [
+        2.306755175588275e-16,
+        -3.245682672485473e-16,
+        6.5265043993651845e-15
+      ],
+      "qacc_xyz": [
+        3.2002690151468466e-13,
+        -4.0494241488545764e-13,
+        -3.4603104705017876e-13
+      ],
+      "recorded_body_xyz": [
+        0.07936974433381826,
+        -0.2748017275834527,
+        0.4630099203333241
+      ],
+      "recorded_raw_xyz": [
+        0.07936974433381826,
+        -0.2748017275834527,
+        0.4630099203333241
+      ]
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db",
+      "frame": "000282",
+      "object": "milk_1",
+      "source_trajectory": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_014/trajectory.h5",
+      "source_hdf5_full_hash_not_independently_recomputed": true,
+      "dt": 0.002,
+      "qpos_xyz": [
+        0.05685975092740536,
+        -0.09071840208575248,
+        0.5065099214307517
+      ],
+      "qvel_xyz": [
+        -1.011121276576147e-08,
+        2.7770787422888563e-08,
+        1.4761484158425248e-08
+      ],
+      "qacc_xyz": [
+        1.7106963827229894e-06,
+        -4.6984786861925534e-06,
+        -2.4596074473568352e-06
+      ],
+      "recorded_body_xyz": [
+        0.05685975094762779,
+        -0.09071840214129405,
+        0.5065099214012287
+      ],
+      "recorded_raw_xyz": [
+        0.056859750974665585,
+        -0.09071840221555426,
+        0.50650992136187
+      ]
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db",
+      "frame": "000282",
+      "object": "butter_1",
+      "source_trajectory": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_014/trajectory.h5",
+      "source_hdf5_full_hash_not_independently_recomputed": true,
+      "dt": 0.002,
+      "qpos_xyz": [
+        0.07390699632524665,
+        0.03036139884864115,
+        0.4454699215200001
+      ],
+      "qvel_xyz": [
+        -2.298080560212387e-18,
+        -1.579032273037103e-18,
+        4.602858214201924e-15
+      ],
+      "qacc_xyz": [
+        -1.543311629390759e-16,
+        -2.0773812412984978e-16,
+        3.650905785705654e-17
+      ],
+      "recorded_body_xyz": [
+        0.07390699632524665,
+        0.03036139884864115,
+        0.4454699215200001
+      ],
+      "recorded_raw_xyz": [
+        0.07390699632524665,
+        0.03036139884864115,
+        0.4454699215200001
+      ]
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db",
+      "frame": "000283",
+      "object": "cream_cheese_1",
+      "source_trajectory": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_014/trajectory.h5",
+      "source_hdf5_full_hash_not_independently_recomputed": true,
+      "dt": 0.002,
+      "qpos_xyz": [
+        0.10017326633892304,
+        -0.16496053965910323,
+        0.4603143085215717
+      ],
+      "qvel_xyz": [
+        0.0005411507293952215,
+        0.019973442585183805,
+        -0.7877860067155028
+      ],
+      "qacc_xyz": [
+        0.011551613575111488,
+        -3.120618282415016e-05,
+        -9.549638221496808
+      ],
+      "recorded_body_xyz": [
+        0.10017218403746425,
+        -0.1650004865442736,
+        0.4618898805350027
+      ],
+      "recorded_raw_xyz": [
+        0.10017114793500086,
+        -0.16504043355424855,
+        0.46342726016176816
+      ]
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db",
+      "frame": "000283",
+      "object": "ketchup_1",
+      "source_trajectory": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_014/trajectory.h5",
+      "source_hdf5_full_hash_not_independently_recomputed": true,
+      "dt": 0.002,
+      "qpos_xyz": [
+        -0.22712352975868982,
+        -0.1276003783402516,
+        0.5091799215164788
+      ],
+      "qvel_xyz": [
+        6.924592997006678e-16,
+        -1.031907189643578e-15,
+        1.5058355487243145e-14
+      ],
+      "qacc_xyz": [
+        2.67068567367522e-16,
+        2.7539080435267906e-16,
+        8.354897923212421e-16
+      ],
+      "recorded_body_xyz": [
+        -0.22712352975868982,
+        -0.1276003783402516,
+        0.5091799215164788
+      ],
+      "recorded_raw_xyz": [
+        -0.22712352975868982,
+        -0.1276003783402516,
+        0.5091799215164788
+      ]
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db",
+      "frame": "000283",
+      "object": "orange_juice_1",
+      "source_trajectory": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_014/trajectory.h5",
+      "source_hdf5_full_hash_not_independently_recomputed": true,
+      "dt": 0.002,
+      "qpos_xyz": [
+        0.07936974433381826,
+        -0.2748017275834527,
+        0.4630099203333241
+      ],
+      "qvel_xyz": [
+        -4.0966342579751556e-16,
+        4.859101651980588e-16,
+        7.206020285667505e-15
+      ],
+      "qacc_xyz": [
+        -3.200112813121956e-13,
+        4.063635772537384e-13,
+        3.5332963266913523e-13
+      ],
+      "recorded_body_xyz": [
+        0.07936974433381826,
+        -0.2748017275834527,
+        0.4630099203333241
+      ],
+      "recorded_raw_xyz": [
+        0.07936974433381826,
+        -0.2748017275834527,
+        0.4630099203333241
+      ]
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db",
+      "frame": "000283",
+      "object": "milk_1",
+      "source_trajectory": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_014/trajectory.h5",
+      "source_hdf5_full_hash_not_independently_recomputed": true,
+      "dt": 0.002,
+      "qpos_xyz": [
+        0.05685975086744397,
+        -0.09071840192106631,
+        0.506509921519301
+      ],
+      "qvel_xyz": [
+        -7.10311672092719e-12,
+        1.9505084421077158e-11,
+        1.1139526666581888e-11
+      ],
+      "qacc_xyz": [
+        1.200499074497899e-09,
+        -3.2997821572054394e-09,
+        -1.8607655446501136e-09
+      ],
+      "recorded_body_xyz": [
+        0.056859750867458175,
+        -0.09071840192110532,
+        0.5065099215192786
+      ],
+      "recorded_raw_xyz": [
+        0.05685975086747717,
+        -0.09071840192115747,
+        0.5065099215192489
+      ]
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db",
+      "frame": "000283",
+      "object": "butter_1",
+      "source_trajectory": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_014/trajectory.h5",
+      "source_hdf5_full_hash_not_independently_recomputed": true,
+      "dt": 0.002,
+      "qpos_xyz": [
+        0.07390699632524665,
+        0.03036139884864115,
+        0.4454699215200001
+      ],
+      "qvel_xyz": [
+        3.07893063590252e-18,
+        2.7453611099391685e-18,
+        4.600213908268596e-15
+      ],
+      "qacc_xyz": [
+        -1.1238798454995165e-16,
+        -1.9163074978067119e-16,
+        1.3604610402833098e-15
+      ],
+      "recorded_body_xyz": [
+        0.07390699632524665,
+        0.03036139884864115,
+        0.4454699215200001
+      ],
+      "recorded_raw_xyz": [
+        0.07390699632524665,
+        0.03036139884864115,
+        0.4454699215200001
+      ]
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db",
+      "frame": "000284",
+      "object": "cream_cheese_1",
+      "source_trajectory": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_014/trajectory.h5",
+      "source_hdf5_full_hash_not_independently_recomputed": true,
+      "dt": 0.002,
+      "qpos_xyz": [
+        0.09949355472258278,
+        -0.16437029743803772,
+        0.4462179825663042
+      ],
+      "qvel_xyz": [
+        0.008145738050601847,
+        0.015456886715372016,
+        -0.06338628183854718
+      ],
+      "qacc_xyz": [
+        0.07603756452358054,
+        -0.13395640244516707,
+        -3.4853554701970633
+      ],
+      "recorded_body_xyz": [
+        0.09947726324648158,
+        -0.16440121121146847,
+        0.4463447551299813
+      ],
+      "recorded_raw_xyz": [
+        0.09946127587154087,
+        -0.16443266072401308,
+        0.44645758852227857
+      ]
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db",
+      "frame": "000284",
+      "object": "ketchup_1",
+      "source_trajectory": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_014/trajectory.h5",
+      "source_hdf5_full_hash_not_independently_recomputed": true,
+      "dt": 0.002,
+      "qpos_xyz": [
+        -0.22712352975868982,
+        -0.1276003783402516,
+        0.5091799215164788
+      ],
+      "qvel_xyz": [
+        6.935108560092208e-16,
+        -1.0343458331292565e-15,
+        1.5058365734470743e-14
+      ],
+      "qacc_xyz": [
+        2.7577191616461275e-17,
+        -8.641909013138175e-17,
+        8.454099304707696e-16
+      ],
+      "recorded_body_xyz": [
+        -0.22712352975868982,
+        -0.1276003783402516,
+        0.5091799215164788
+      ],
+      "recorded_raw_xyz": [
+        -0.22712352975868982,
+        -0.1276003783402516,
+        0.5091799215164788
+      ]
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db",
+      "frame": "000284",
+      "object": "orange_juice_1",
+      "source_trajectory": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_014/trajectory.h5",
+      "source_hdf5_full_hash_not_independently_recomputed": true,
+      "dt": 0.002,
+      "qpos_xyz": [
+        0.07936974433381826,
+        -0.2748017275834527,
+        0.4630099203333241
+      ],
+      "qvel_xyz": [
+        2.308611922633152e-16,
+        -3.254524420594163e-16,
+        6.52537044374078e-15
+      ],
+      "qacc_xyz": [
+        3.2019809747679535e-13,
+        -4.0545195472572365e-13,
+        -3.482279899844406e-13
+      ],
+      "recorded_body_xyz": [
+        0.07936974433381826,
+        -0.2748017275834527,
+        0.4630099203333241
+      ],
+      "recorded_raw_xyz": [
+        0.07936974433381826,
+        -0.2748017275834527,
+        0.4630099203333241
+      ]
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db",
+      "frame": "000284",
+      "object": "milk_1",
+      "source_trajectory": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_014/trajectory.h5",
+      "source_hdf5_full_hash_not_independently_recomputed": true,
+      "dt": 0.002,
+      "qpos_xyz": [
+        0.05685975086740185,
+        -0.09071840192095061,
+        0.5065099215193677
+      ],
+      "qvel_xyz": [
+        -7.424789746599142e-15,
+        1.4810183323422363e-14,
+        1.5431783924547617e-14
+      ],
+      "qacc_xyz": [
+        4.414512476196402e-13,
+        -2.7152715480073725e-12,
+        -2.730842032025335e-14
+      ],
+      "recorded_body_xyz": [
+        0.056859750867401866,
+        -0.09071840192095064,
+        0.5065099215193677
+      ],
+      "recorded_raw_xyz": [
+        0.05685975086740188,
+        -0.09071840192095068,
+        0.5065099215193677
+      ]
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db",
+      "frame": "000284",
+      "object": "butter_1",
+      "source_trajectory": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_014/trajectory.h5",
+      "source_hdf5_full_hash_not_independently_recomputed": true,
+      "dt": 0.002,
+      "qpos_xyz": [
+        0.07390699632524665,
+        0.03036139884864115,
+        0.4454699215200001
+      ],
+      "qvel_xyz": [
+        -1.0365674156365621e-19,
+        2.304603704671508e-18,
+        4.600213908268597e-15
+      ],
+      "qacc_xyz": [
+        -3.1709977779998036e-17,
+        -1.3109882924650175e-15,
+        1.3606057204290972e-15
+      ],
+      "recorded_body_xyz": [
+        0.07390699632524665,
+        0.03036139884864115,
+        0.4454699215200001
+      ],
+      "recorded_raw_xyz": [
+        0.07390699632524665,
+        0.03036139884864115,
+        0.4454699215200001
+      ]
+    }
+  ]
+}

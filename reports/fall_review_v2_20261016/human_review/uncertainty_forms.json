@@ -1,0 +1,57 @@
+{
+  "human_labels_entered": false,
+  "forms": [
+    {
+      "form_id": "recorded-example-000",
+      "run_id": "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db",
+      "reviewer": "",
+      "missing_information": null,
+      "available_but_unvalidated_information": null,
+      "timing_uncertainty": null,
+      "geometry_uncertainty": null,
+      "visibility_or_occlusion": null,
+      "definition_or_scope_ambiguity": null,
+      "effect_on_interpretation": null,
+      "decision": null
+    },
+    {
+      "form_id": "recorded-example-001",
+      "run_id": "libero_long_openvla_oft_task00_seed1001_trial001_cfafd9ddc3db",
+      "reviewer": "",
+      "missing_information": null,
+      "available_but_unvalidated_information": null,
+      "timing_uncertainty": null,
+      "geometry_uncertainty": null,
+      "visibility_or_occlusion": null,
+      "definition_or_scope_ambiguity": null,
+      "effect_on_interpretation": null,
+      "decision": null
+    },
+    {
+      "form_id": "recorded-example-002",
+      "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+      "reviewer": "",
+      "missing_information": null,
+      "available_but_unvalidated_information": null,
+      "timing_uncertainty": null,
+      "geometry_uncertainty": null,
+      "visibility_or_occlusion": null,
+      "definition_or_scope_ambiguity": null,
+      "effect_on_interpretation": null,
+      "decision": null
+    },
+    {
+      "form_id": "recorded-example-014",
+      "run_id": "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db",
+      "reviewer": "",
+      "missing_information": null,
+      "available_but_unvalidated_information": null,
+      "timing_uncertainty": null,
+      "geometry_uncertainty": null,
+      "visibility_or_occlusion": null,
+      "definition_or_scope_ambiguity": null,
+      "effect_on_interpretation": null,
+      "decision": null
+    }
+  ]
+}

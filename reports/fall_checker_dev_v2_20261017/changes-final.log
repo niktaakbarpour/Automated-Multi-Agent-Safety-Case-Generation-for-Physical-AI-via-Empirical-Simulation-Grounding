@@ -1,0 +1,163 @@
+{
+  "statistics": {
+    "base": {
+      "before": {
+        "total": 284,
+        "types": {
+          "ambiguous_contact_departure_descent_candidate": 163,
+          "unsupported_descent_unknown_origin": 120,
+          "post_lift_drop_candidate": 1
+        },
+        "phase_types": {
+          "setup / ambiguous_contact_departure_descent_candidate": 163,
+          "policy / unsupported_descent_unknown_origin": 120,
+          "policy / post_lift_drop_candidate": 1
+        },
+        "applicability": {
+          "direct_table_support_candidate": 79,
+          "initial_table_support_not_established": 121
+        }
+      },
+      "persistence_only": {
+        "total": 283,
+        "types": {
+          "ambiguous_contact_departure_descent_candidate": 163,
+          "unsupported_descent_unknown_origin": 120
+        },
+        "phase_types": {
+          "setup / ambiguous_contact_departure_descent_candidate": 163,
+          "policy / unsupported_descent_unknown_origin": 120
+        },
+        "applicability": {
+          "direct_table_support_candidate": 79,
+          "initial_table_support_not_established": 121
+        }
+      },
+      "after": {
+        "total": 283,
+        "types": {
+          "ambiguous_contact_departure_descent_candidate": 163,
+          "unsupported_descent_unknown_origin": 120
+        },
+        "phase_types": {
+          "setup / ambiguous_contact_departure_descent_candidate": 163,
+          "policy / unsupported_descent_unknown_origin": 120
+        },
+        "applicability": {
+          "direct_table_support_candidate": 79,
+          "initial_table_support_not_established": 121
+        }
+      }
+    },
+    "strict": {
+      "before": {
+        "total": 284,
+        "types": {
+          "ambiguous_contact_departure_descent_candidate": 163,
+          "unsupported_descent_unknown_origin": 120,
+          "post_lift_drop_candidate": 1
+        },
+        "phase_types": {
+          "setup / ambiguous_contact_departure_descent_candidate": 163,
+          "policy / unsupported_descent_unknown_origin": 120,
+          "policy / post_lift_drop_candidate": 1
+        },
+        "applicability": {
+          "direct_table_support_candidate": 79,
+          "initial_table_support_not_established": 121
+        }
+      },
+      "persistence_only": {
+        "total": 283,
+        "types": {
+          "ambiguous_contact_departure_descent_candidate": 163,
+          "unsupported_descent_unknown_origin": 120
+        },
+        "phase_types": {
+          "setup / ambiguous_contact_departure_descent_candidate": 163,
+          "policy / unsupported_descent_unknown_origin": 120
+        },
+        "applicability": {
+          "direct_table_support_candidate": 79,
+          "initial_table_support_not_established": 121
+        }
+      },
+      "after": {
+        "total": 283,
+        "types": {
+          "ambiguous_contact_departure_descent_candidate": 163,
+          "unsupported_descent_unknown_origin": 120
+        },
+        "phase_types": {
+          "setup / ambiguous_contact_departure_descent_candidate": 163,
+          "policy / unsupported_descent_unknown_origin": 120
+        },
+        "applicability": {
+          "direct_table_support_candidate": 79,
+          "initial_table_support_not_established": 121
+        }
+      }
+    },
+    "broad": {
+      "before": {
+        "total": 284,
+        "types": {
+          "ambiguous_contact_departure_descent_candidate": 160,
+          "unsupported_descent_unknown_origin": 120,
+          "table_support_loss_descent_ambiguous_candidate": 3,
+          "post_lift_drop_candidate": 1
+        },
+        "phase_types": {
+          "setup / ambiguous_contact_departure_descent_candidate": 160,
+          "policy / unsupported_descent_unknown_origin": 120,
+          "setup / table_support_loss_descent_ambiguous_candidate": 3,
+          "policy / post_lift_drop_candidate": 1
+        },
+        "applicability": {
+          "direct_table_support_candidate": 79,
+          "initial_table_support_not_established": 121
+        }
+      },
+      "persistence_only": {
+        "total": 283,
+        "types": {
+          "ambiguous_contact_departure_descent_candidate": 160,
+          "unsupported_descent_unknown_origin": 120,
+          "table_support_loss_descent_ambiguous_candidate": 3
+        },
+        "phase_types": {
+          "setup / ambiguous_contact_departure_descent_candidate": 160,
+          "policy / unsupported_descent_unknown_origin": 120,
+          "setup / table_support_loss_descent_ambiguous_candidate": 3
+        },
+        "applicability": {
+          "direct_table_support_candidate": 79,
+          "initial_table_support_not_established": 121
+        }
+      },
+      "after": {
+        "total": 283,
+        "types": {
+          "ambiguous_contact_departure_descent_candidate": 160,
+          "unsupported_descent_unknown_origin": 120,
+          "direct_table_departure_descent_candidate": 1,
+          "table_support_loss_descent_ambiguous_candidate": 2
+        },
+        "phase_types": {
+          "setup / ambiguous_contact_departure_descent_candidate": 160,
+          "policy / unsupported_descent_unknown_origin": 120,
+          "setup / direct_table_departure_descent_candidate": 1,
+          "setup / table_support_loss_descent_ambiguous_candidate": 2
+        },
+        "applicability": {
+          "direct_table_support_candidate": 79,
+          "initial_table_support_not_established": 121
+        }
+      }
+    }
+  },
+  "applicability_changes": 0,
+  "profile_differences": 4,
+  "upgrades": 1,
+  "direct_candidates": 1
+}

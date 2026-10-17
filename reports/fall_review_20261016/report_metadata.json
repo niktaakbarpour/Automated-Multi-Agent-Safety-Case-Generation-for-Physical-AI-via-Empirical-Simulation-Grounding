@@ -1,0 +1,14 @@
+{
+  "created_utc": "2026-10-17T01:21:05.176800+00:00",
+  "source_commit": "fda672f93bd00d74b7dfdbb1a4fa4e7f5a0bfe9b",
+  "original_pilots_unchanged": true,
+  "measurement_audit_only": true,
+  "requirements_approved": false,
+  "human_review_decisions_entered": false,
+  "event_checker_implemented": false,
+  "critic_built": false,
+  "new_generation_pilot_launched": false,
+  "physics_steps_or_robot_reruns": false,
+  "audit_command": "/local/home/niktakbr/rdt-1b-libero/.venv/bin/python audit_recordings.py --project /local/home/niktakbr/trustworthy_project --output /local/home/niktakbr/trustworthy_project/reports/fall_review_20261016",
+  "summary_command": "python summarize_audit.py --project /local/home/niktakbr/trustworthy_project --output /local/home/niktakbr/trustworthy_project/reports/fall_review_20261016"
+}

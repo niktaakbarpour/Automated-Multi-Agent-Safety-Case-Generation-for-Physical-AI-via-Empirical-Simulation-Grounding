@@ -1,0 +1,144 @@
+{
+  "model_equality_count": 0,
+  "integrator": "mjINT_EULER",
+  "physics_timestep": 0.002,
+  "gravity_world": [
+    0.0,
+    0.0,
+    -9.81
+  ],
+  "objects": {
+    "cream_cheese_1": {
+      "body_id": 22,
+      "joint_name": "cream_cheese_1_joint0",
+      "joint_type": "mjJNT_FREE",
+      "joint_qpos_address": 16,
+      "joint_dof_address": 15,
+      "joint_limited": false,
+      "mocap_id": -1,
+      "gravity_compensation": 0.0,
+      "mass": 0.012395263265207783,
+      "damping": [
+        0.0005,
+        0.0005,
+        0.0005,
+        0.0005,
+        0.0005,
+        0.0005
+      ],
+      "joint_actuators": [],
+      "collision_geom_ids": [
+        104
+      ]
+    },
+    "ketchup_1": {
+      "body_id": 24,
+      "joint_name": "ketchup_1_joint0",
+      "joint_type": "mjJNT_FREE",
+      "joint_qpos_address": 30,
+      "joint_dof_address": 27,
+      "joint_limited": false,
+      "mocap_id": -1,
+      "gravity_compensation": 0.0,
+      "mass": 0.0493297714553163,
+      "damping": [
+        0.0005,
+        0.0005,
+        0.0005,
+        0.0005,
+        0.0005,
+        0.0005
+      ],
+      "joint_actuators": [],
+      "collision_geom_ids": [
+        131,
+        132,
+        133,
+        134,
+        135,
+        136,
+        137,
+        138,
+        139,
+        140,
+        141,
+        142
+      ]
+    },
+    "orange_juice_1": {
+      "body_id": 25,
+      "joint_name": "orange_juice_1_joint0",
+      "joint_type": "mjJNT_FREE",
+      "joint_qpos_address": 37,
+      "joint_dof_address": 33,
+      "joint_limited": false,
+      "mocap_id": -1,
+      "gravity_compensation": 0.0,
+      "mass": 0.06764708565569194,
+      "damping": [
+        0.0005,
+        0.0005,
+        0.0005,
+        0.0005,
+        0.0005,
+        0.0005
+      ],
+      "joint_actuators": [],
+      "collision_geom_ids": [
+        144,
+        145,
+        146,
+        147
+      ]
+    },
+    "milk_1": {
+      "body_id": 26,
+      "joint_name": "milk_1_joint0",
+      "joint_type": "mjJNT_FREE",
+      "joint_qpos_address": 44,
+      "joint_dof_address": 39,
+      "joint_limited": false,
+      "mocap_id": -1,
+      "gravity_compensation": 0.0,
+      "mass": 0.06850437075585257,
+      "damping": [
+        0.0005,
+        0.0005,
+        0.0005,
+        0.0005,
+        0.0005,
+        0.0005
+      ],
+      "joint_actuators": [],
+      "collision_geom_ids": [
+        149,
+        150,
+        151,
+        152
+      ]
+    },
+    "butter_1": {
+      "body_id": 27,
+      "joint_name": "butter_1_joint0",
+      "joint_type": "mjJNT_FREE",
+      "joint_qpos_address": 51,
+      "joint_dof_address": 45,
+      "joint_limited": false,
+      "mocap_id": -1,
+      "gravity_compensation": 0.0,
+      "mass": 0.010310277342361202,
+      "damping": [
+        0.0005,
+        0.0005,
+        0.0005,
+        0.0005,
+        0.0005,
+        0.0005
+      ],
+      "joint_actuators": [],
+      "collision_geom_ids": [
+        154
+      ]
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "runs": 50,
+  "frames_examined": 1593,
+  "object_frame_records": 7965,
+  "all_initial_states_match_saved_selection": true,
+  "all_initial_state_archive_hashes_match": true,
+  "max_runtime_local_pose_position_recomposition_error_m": 3.3306690738754696e-16,
+  "max_runtime_local_pose_rotation_recomposition_error": 2.4424906541753444e-15,
+  "max_static_undo_protected_body_position_component_error_m": 1.3877787807814457e-17,
+  "max_static_undo_protected_quaternion_component_error": 6.661338147750939e-16,
+  "max_Euler_qpos_body_translation_identity_residual_m": 1.1058862159352145e-16,
+  "max_raw_two_substep_hypothesis_residual_all_m": 2.496318632453386e-07,
+  "max_raw_two_substep_hypothesis_residual_no_snapshot_contacts_m": 2.4995818123878485e-08,
+  "raw_sample_phase_is_hypothesis_not_producer_timestamp": true,
+  "max_xml_rotation_box_corner_bound_m": 7.270193056092429e-07,
+  "six_digit_quaternion_checks": 80,
+  "six_digit_quaternion_matches": 80,
+  "no_physics_steps": true,
+  "no_event_or_safety_verdicts": true
+}

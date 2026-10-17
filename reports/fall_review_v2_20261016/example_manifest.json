@@ -1,0 +1,440 @@
+[
+  {
+    "example_id": "recorded-example-000",
+    "sheet": "examples/episode_000_sheet.png",
+    "split": "development",
+    "frames": [
+      {
+        "run_id": "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db",
+        "frame": "000000",
+        "stage": "before_settling",
+        "control_step": 0,
+        "simulator_time": 0.0,
+        "image_paths": [
+          "frames/000000/raw_observation/agentview_image/value",
+          "frames/000000/raw_observation/robot0_eye_in_hand_image/value"
+        ],
+        "trajectory": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_000/trajectory.h5",
+        "host_snapshot_utc": "2026-10-11T10:54:45.964070+00:00",
+        "camera_capture_time_not_independently_recorded": true
+      },
+      {
+        "run_id": "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db",
+        "frame": "000001",
+        "stage": "settling",
+        "control_step": 0,
+        "simulator_time": 0.05000000000000003,
+        "image_paths": [
+          "frames/000001/raw_observation/agentview_image/value",
+          "frames/000001/raw_observation/robot0_eye_in_hand_image/value"
+        ],
+        "trajectory": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_000/trajectory.h5",
+        "host_snapshot_utc": "2026-10-11T10:54:46.227314+00:00",
+        "camera_capture_time_not_independently_recorded": true
+      },
+      {
+        "run_id": "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db",
+        "frame": "000005",
+        "stage": "settling",
+        "control_step": 0,
+        "simulator_time": 0.25000000000000017,
+        "image_paths": [
+          "frames/000005/raw_observation/agentview_image/value",
+          "frames/000005/raw_observation/robot0_eye_in_hand_image/value"
+        ],
+        "trajectory": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_000/trajectory.h5",
+        "host_snapshot_utc": "2026-10-11T10:54:46.340355+00:00",
+        "camera_capture_time_not_independently_recorded": true
+      },
+      {
+        "run_id": "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db",
+        "frame": "000010",
+        "stage": "settling",
+        "control_step": 0,
+        "simulator_time": 0.5000000000000003,
+        "image_paths": [
+          "frames/000010/raw_observation/agentview_image/value",
+          "frames/000010/raw_observation/robot0_eye_in_hand_image/value"
+        ],
+        "trajectory": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_000/trajectory.h5",
+        "host_snapshot_utc": "2026-10-11T10:54:46.483695+00:00",
+        "camera_capture_time_not_independently_recorded": true
+      },
+      {
+        "run_id": "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db",
+        "frame": "000011",
+        "stage": "control",
+        "control_step": 0,
+        "simulator_time": 0.5500000000000004,
+        "image_paths": [
+          "frames/000011/raw_observation/agentview_image/value",
+          "frames/000011/raw_observation/robot0_eye_in_hand_image/value"
+        ],
+        "trajectory": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_000/trajectory.h5",
+        "host_snapshot_utc": "2026-10-11T10:54:47.189299+00:00",
+        "camera_capture_time_not_independently_recorded": true
+      },
+      {
+        "run_id": "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db",
+        "frame": "000013",
+        "stage": "control",
+        "control_step": 2,
+        "simulator_time": 0.6500000000000005,
+        "image_paths": [
+          "frames/000013/raw_observation/agentview_image/value",
+          "frames/000013/raw_observation/robot0_eye_in_hand_image/value"
+        ],
+        "trajectory": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_000/trajectory.h5",
+        "host_snapshot_utc": "2026-10-11T10:54:47.318332+00:00",
+        "camera_capture_time_not_independently_recorded": true
+      },
+      {
+        "run_id": "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db",
+        "frame": "000016",
+        "stage": "control",
+        "control_step": 5,
+        "simulator_time": 0.8000000000000006,
+        "image_paths": [
+          "frames/000016/raw_observation/agentview_image/value",
+          "frames/000016/raw_observation/robot0_eye_in_hand_image/value"
+        ],
+        "trajectory": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_000/trajectory.h5",
+        "host_snapshot_utc": "2026-10-11T10:54:47.499062+00:00",
+        "camera_capture_time_not_independently_recorded": true
+      },
+      {
+        "run_id": "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db",
+        "frame": "000020",
+        "stage": "control",
+        "control_step": 9,
+        "simulator_time": 1.0000000000000007,
+        "image_paths": [
+          "frames/000020/raw_observation/agentview_image/value",
+          "frames/000020/raw_observation/robot0_eye_in_hand_image/value"
+        ],
+        "trajectory": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_000/trajectory.h5",
+        "host_snapshot_utc": "2026-10-11T10:54:47.889523+00:00",
+        "camera_capture_time_not_independently_recorded": true
+      }
+    ],
+    "human_labels_entered": false
+  },
+  {
+    "example_id": "recorded-example-001",
+    "sheet": "examples/episode_001_sheet.png",
+    "split": "development",
+    "frames": [
+      {
+        "run_id": "libero_long_openvla_oft_task00_seed1001_trial001_cfafd9ddc3db",
+        "frame": "000010",
+        "stage": "settling",
+        "control_step": 0,
+        "simulator_time": 0.5000000000000003,
+        "image_paths": [
+          "frames/000010/raw_observation/agentview_image/value",
+          "frames/000010/raw_observation/robot0_eye_in_hand_image/value"
+        ],
+        "trajectory": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_001/trajectory.h5",
+        "host_snapshot_utc": "2026-10-11T10:55:09.232999+00:00",
+        "camera_capture_time_not_independently_recorded": true
+      },
+      {
+        "run_id": "libero_long_openvla_oft_task00_seed1001_trial001_cfafd9ddc3db",
+        "frame": "000020",
+        "stage": "control",
+        "control_step": 9,
+        "simulator_time": 1.0000000000000007,
+        "image_paths": [
+          "frames/000020/raw_observation/agentview_image/value",
+          "frames/000020/raw_observation/robot0_eye_in_hand_image/value"
+        ],
+        "trajectory": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_001/trajectory.h5",
+        "host_snapshot_utc": "2026-10-11T10:55:10.178532+00:00",
+        "camera_capture_time_not_independently_recorded": true
+      },
+      {
+        "run_id": "libero_long_openvla_oft_task00_seed1001_trial001_cfafd9ddc3db",
+        "frame": "000040",
+        "stage": "control",
+        "control_step": 29,
+        "simulator_time": 2.0000000000000013,
+        "image_paths": [
+          "frames/000040/raw_observation/agentview_image/value",
+          "frames/000040/raw_observation/robot0_eye_in_hand_image/value"
+        ],
+        "trajectory": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_001/trajectory.h5",
+        "host_snapshot_utc": "2026-10-11T10:55:11.665657+00:00",
+        "camera_capture_time_not_independently_recorded": true
+      },
+      {
+        "run_id": "libero_long_openvla_oft_task00_seed1001_trial001_cfafd9ddc3db",
+        "frame": "000080",
+        "stage": "control",
+        "control_step": 69,
+        "simulator_time": 3.999999999999781,
+        "image_paths": [
+          "frames/000080/raw_observation/agentview_image/value",
+          "frames/000080/raw_observation/robot0_eye_in_hand_image/value"
+        ],
+        "trajectory": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_001/trajectory.h5",
+        "host_snapshot_utc": "2026-10-11T10:55:14.940373+00:00",
+        "camera_capture_time_not_independently_recorded": true
+      }
+    ],
+    "human_labels_entered": false
+  },
+  {
+    "example_id": "recorded-example-002",
+    "sheet": "examples/episode_002_sheet.png",
+    "split": "development",
+    "frames": [
+      {
+        "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+        "frame": "000000",
+        "stage": "before_settling",
+        "control_step": 0,
+        "simulator_time": 0.0,
+        "image_paths": [
+          "frames/000000/raw_observation/agentview_image/value",
+          "frames/000000/raw_observation/robot0_eye_in_hand_image/value"
+        ],
+        "trajectory": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_002/trajectory.h5",
+        "host_snapshot_utc": "2026-10-11T10:55:33.097890+00:00",
+        "camera_capture_time_not_independently_recorded": true
+      },
+      {
+        "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+        "frame": "000001",
+        "stage": "settling",
+        "control_step": 0,
+        "simulator_time": 0.05000000000000003,
+        "image_paths": [
+          "frames/000001/raw_observation/agentview_image/value",
+          "frames/000001/raw_observation/robot0_eye_in_hand_image/value"
+        ],
+        "trajectory": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_002/trajectory.h5",
+        "host_snapshot_utc": "2026-10-11T10:55:33.416518+00:00",
+        "camera_capture_time_not_independently_recorded": true
+      },
+      {
+        "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+        "frame": "000005",
+        "stage": "settling",
+        "control_step": 0,
+        "simulator_time": 0.25000000000000017,
+        "image_paths": [
+          "frames/000005/raw_observation/agentview_image/value",
+          "frames/000005/raw_observation/robot0_eye_in_hand_image/value"
+        ],
+        "trajectory": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_002/trajectory.h5",
+        "host_snapshot_utc": "2026-10-11T10:55:33.531804+00:00",
+        "camera_capture_time_not_independently_recorded": true
+      },
+      {
+        "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+        "frame": "000008",
+        "stage": "settling",
+        "control_step": 0,
+        "simulator_time": 0.4000000000000003,
+        "image_paths": [
+          "frames/000008/raw_observation/agentview_image/value",
+          "frames/000008/raw_observation/robot0_eye_in_hand_image/value"
+        ],
+        "trajectory": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_002/trajectory.h5",
+        "host_snapshot_utc": "2026-10-11T10:55:33.616840+00:00",
+        "camera_capture_time_not_independently_recorded": true
+      },
+      {
+        "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+        "frame": "000010",
+        "stage": "settling",
+        "control_step": 0,
+        "simulator_time": 0.5000000000000003,
+        "image_paths": [
+          "frames/000010/raw_observation/agentview_image/value",
+          "frames/000010/raw_observation/robot0_eye_in_hand_image/value"
+        ],
+        "trajectory": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_002/trajectory.h5",
+        "host_snapshot_utc": "2026-10-11T10:55:33.675258+00:00",
+        "camera_capture_time_not_independently_recorded": true
+      },
+      {
+        "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+        "frame": "000011",
+        "stage": "control",
+        "control_step": 0,
+        "simulator_time": 0.5500000000000004,
+        "image_paths": [
+          "frames/000011/raw_observation/agentview_image/value",
+          "frames/000011/raw_observation/robot0_eye_in_hand_image/value"
+        ],
+        "trajectory": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_002/trajectory.h5",
+        "host_snapshot_utc": "2026-10-11T10:55:33.939657+00:00",
+        "camera_capture_time_not_independently_recorded": true
+      },
+      {
+        "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+        "frame": "000012",
+        "stage": "control",
+        "control_step": 1,
+        "simulator_time": 0.6000000000000004,
+        "image_paths": [
+          "frames/000012/raw_observation/agentview_image/value",
+          "frames/000012/raw_observation/robot0_eye_in_hand_image/value"
+        ],
+        "trajectory": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_002/trajectory.h5",
+        "host_snapshot_utc": "2026-10-11T10:55:34.012968+00:00",
+        "camera_capture_time_not_independently_recorded": true
+      },
+      {
+        "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+        "frame": "000020",
+        "stage": "control",
+        "control_step": 9,
+        "simulator_time": 1.0000000000000007,
+        "image_paths": [
+          "frames/000020/raw_observation/agentview_image/value",
+          "frames/000020/raw_observation/robot0_eye_in_hand_image/value"
+        ],
+        "trajectory": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_002/trajectory.h5",
+        "host_snapshot_utc": "2026-10-11T10:55:34.632656+00:00",
+        "camera_capture_time_not_independently_recorded": true
+      }
+    ],
+    "human_labels_entered": false
+  },
+  {
+    "example_id": "recorded-example-014",
+    "sheet": "examples/episode_014_sheet.png",
+    "split": "development",
+    "frames": [
+      {
+        "run_id": "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db",
+        "frame": "000010",
+        "stage": "settling",
+        "control_step": 0,
+        "simulator_time": 0.5000000000000003,
+        "image_paths": [
+          "frames/000010/raw_observation/agentview_image/value",
+          "frames/000010/raw_observation/robot0_eye_in_hand_image/value"
+        ],
+        "trajectory": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_014/trajectory.h5",
+        "host_snapshot_utc": "2026-10-11T11:00:04.890012+00:00",
+        "camera_capture_time_not_independently_recorded": true
+      },
+      {
+        "run_id": "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db",
+        "frame": "000270",
+        "stage": "control",
+        "control_step": 259,
+        "simulator_time": 13.500000000001178,
+        "image_paths": [
+          "frames/000270/raw_observation/agentview_image/value",
+          "frames/000270/raw_observation/robot0_eye_in_hand_image/value"
+        ],
+        "trajectory": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_014/trajectory.h5",
+        "host_snapshot_utc": "2026-10-11T11:00:25.133436+00:00",
+        "camera_capture_time_not_independently_recorded": true
+      },
+      {
+        "run_id": "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db",
+        "frame": "000276",
+        "stage": "control",
+        "control_step": 265,
+        "simulator_time": 13.800000000001278,
+        "image_paths": [
+          "frames/000276/raw_observation/agentview_image/value",
+          "frames/000276/raw_observation/robot0_eye_in_hand_image/value"
+        ],
+        "trajectory": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_014/trajectory.h5",
+        "host_snapshot_utc": "2026-10-11T11:00:25.644527+00:00",
+        "camera_capture_time_not_independently_recorded": true
+      },
+      {
+        "run_id": "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db",
+        "frame": "000280",
+        "stage": "control",
+        "control_step": 269,
+        "simulator_time": 14.000000000001345,
+        "image_paths": [
+          "frames/000280/raw_observation/agentview_image/value",
+          "frames/000280/raw_observation/robot0_eye_in_hand_image/value"
+        ],
+        "trajectory": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_014/trajectory.h5",
+        "host_snapshot_utc": "2026-10-11T11:00:25.897822+00:00",
+        "camera_capture_time_not_independently_recorded": true
+      },
+      {
+        "run_id": "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db",
+        "frame": "000281",
+        "stage": "control",
+        "control_step": 270,
+        "simulator_time": 14.050000000001361,
+        "image_paths": [
+          "frames/000281/raw_observation/agentview_image/value",
+          "frames/000281/raw_observation/robot0_eye_in_hand_image/value"
+        ],
+        "trajectory": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_014/trajectory.h5",
+        "host_snapshot_utc": "2026-10-11T11:00:25.959928+00:00",
+        "camera_capture_time_not_independently_recorded": true
+      },
+      {
+        "run_id": "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db",
+        "frame": "000282",
+        "stage": "control",
+        "control_step": 271,
+        "simulator_time": 14.100000000001378,
+        "image_paths": [
+          "frames/000282/raw_observation/agentview_image/value",
+          "frames/000282/raw_observation/robot0_eye_in_hand_image/value"
+        ],
+        "trajectory": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_014/trajectory.h5",
+        "host_snapshot_utc": "2026-10-11T11:00:26.020814+00:00",
+        "camera_capture_time_not_independently_recorded": true
+      },
+      {
+        "run_id": "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db",
+        "frame": "000283",
+        "stage": "control",
+        "control_step": 272,
+        "simulator_time": 14.150000000001395,
+        "image_paths": [
+          "frames/000283/raw_observation/agentview_image/value",
+          "frames/000283/raw_observation/robot0_eye_in_hand_image/value"
+        ],
+        "trajectory": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_014/trajectory.h5",
+        "host_snapshot_utc": "2026-10-11T11:00:26.198196+00:00",
+        "camera_capture_time_not_independently_recorded": true
+      },
+      {
+        "run_id": "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db",
+        "frame": "000284",
+        "stage": "control",
+        "control_step": 273,
+        "simulator_time": 14.200000000001411,
+        "image_paths": [
+          "frames/000284/raw_observation/agentview_image/value",
+          "frames/000284/raw_observation/robot0_eye_in_hand_image/value"
+        ],
+        "trajectory": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_014/trajectory.h5",
+        "host_snapshot_utc": "2026-10-11T11:00:26.265479+00:00",
+        "camera_capture_time_not_independently_recorded": true
+      },
+      {
+        "run_id": "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db",
+        "frame": "000286",
+        "stage": "control",
+        "control_step": 275,
+        "simulator_time": 14.300000000001445,
+        "image_paths": [
+          "frames/000286/raw_observation/agentview_image/value",
+          "frames/000286/raw_observation/robot0_eye_in_hand_image/value"
+        ],
+        "trajectory": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_014/trajectory.h5",
+        "host_snapshot_utc": "2026-10-11T11:00:26.396831+00:00",
+        "camera_capture_time_not_independently_recorded": true
+      }
+    ],
+    "human_labels_entered": false
+  }
+]

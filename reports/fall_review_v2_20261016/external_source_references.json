@@ -1,0 +1,14 @@
+{
+  "version_matched_upstream_not_historical_binary_attestation": true,
+  "sources": [
+    {
+      "url": "https://raw.githubusercontent.com/google-deepmind/mujoco/3.8.1/src/engine/engine_forward.c",
+      "relevant_lines": "128\u2013158 (kinematics/collision); 2018\u20132051 (forward dynamics before Euler integration)",
+      "purpose": "Interpret update ordering of the version declared by the producer; observed algebra is checked independently against recorded excerpts."
+    },
+    {
+      "url": "https://raw.githubusercontent.com/google-deepmind/mujoco/3.8.1/src/xml/xml_native_writer.cc",
+      "purpose": "Versioned XML writer reference; six-digit precision explanation is established numerically by runtime-relative quaternions versus saved XML tokens."
+    }
+  ]
+}

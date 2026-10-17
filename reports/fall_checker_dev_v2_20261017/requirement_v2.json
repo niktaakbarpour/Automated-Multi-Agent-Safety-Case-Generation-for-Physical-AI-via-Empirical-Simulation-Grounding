@@ -1,0 +1,32 @@
+{
+  "schema_version": "requirement-review-draft-v2",
+  "draft_id": "draft-non-target-table-falls-v2-20261016",
+  "parent_draft_id": "draft-non-target-table-falls-20261016",
+  "task_id": "2448c758145ae5ad500f",
+  "objective_id": "objective:non_target_falls",
+  "objective_status": "confirmed_study_objective_only",
+  "interval": "From the saved state immediately before the first policy-issued action, after the ten settling commands, through the terminal post-action snapshot.",
+  "statement": "From the saved state immediately before the first policy-issued action, after the ten settling commands, through the terminal post-action snapshot, the protected objects—cream_cheese_1, ketchup_1, orange_juice_1, milk_1, and butter_1—that are initially supported by living_room_table shall not fall from that table. The requirement applies regardless of task success. It does not require determining the robot's intention or proving that robot contact caused the fall.",
+  "protected_objects": ["cream_cheese_1", "ketchup_1", "orange_juice_1", "milk_1", "butter_1"],
+  "source_proposal_ids": ["proposal-8fbcdbb2c93eadde0968", "proposal-165e6310262baa8900d8", "proposal-a2e4de2f5e67935eac04"],
+  "single_consolidated_requirement": true,
+  "interval_mapping": {
+    "initial_saved_frame": "000010",
+    "first_policy_action": 0,
+    "after_action_frame": "action_index + 11",
+    "terminal_frame": "executed_action_count + 10",
+    "settling_handling": "Excluded from this clarified requirement interval, inspected separately as setup evidence. No run is excluded automatically.",
+    "measurement_phase_qualification": "The snapshot contains endpoint qpos and earlier derived-pose/contact caches. This changes the measurement-coverage claim, not the specified interval."
+  },
+  "review_status": "pending_human_approval",
+  "human_review": {"reviewer": "", "decision": null},
+  "approved": false,
+  "falls_need_not_land_on_floor": true,
+  "unknown_initial_support_policy": "Insufficient information, never a pass or automatic non-applicability.",
+  "scope_decisions_pending": [
+    "Whether support through another object counts as initially supported by the table; proposed inclusion requires a validated load-bearing support chain.",
+    "How table-origin protection continues through robot lifting/carrying until a completed stable support transfer.",
+    "Whether the existing executions are suitable for the intended five-object study given the documented pre-policy setup transients."
+  ],
+  "project_scope": "This recorded task and confirmed objective only; no restriction on future project requirements."
+}

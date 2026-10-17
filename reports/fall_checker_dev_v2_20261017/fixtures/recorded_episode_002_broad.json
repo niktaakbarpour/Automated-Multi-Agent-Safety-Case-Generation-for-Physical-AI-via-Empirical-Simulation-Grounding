@@ -1,0 +1,423 @@
+{
+  "origin": "Existing recorded geometry/contact extract; detector observations are provisional, not human labels",
+  "episode": 2,
+  "profile": "broad",
+  "object": "cream_cheese_1",
+  "source_extract_sha256": "fe0524b8f6a5d72ce0f2c6e160814cedf31cbbbea8562c87a156a2cedf9f7216",
+  "samples": [
+    {
+      "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+      "frame": 0,
+      "hdf5_frame": "000000",
+      "time": 0.0,
+      "stage": "before_settling",
+      "control_step": 0,
+      "host_snapshot_utc": "2026-10-11T10:55:33.097890+00:00",
+      "geometry_nominal_time": 0.0,
+      "valid": true,
+      "direct_support": true,
+      "support_candidates": [
+        10
+      ],
+      "side_or_unresolved_table_contacts": [],
+      "indirect_candidate": true,
+      "indirect_support_contacts": [
+        144
+      ],
+      "other_contacts": [
+        10,
+        144
+      ],
+      "gripper_contacts": [],
+      "bilateral_gripper": false,
+      "outside_table_support_projection": false,
+      "whole_collision_below_tabletop": false,
+      "bottom_z": 0.436064,
+      "top_z": 0.453936,
+      "center_z": 0.445,
+      "table_top_z": 0.43676000000000015,
+      "collision_bounds_m": [
+        [
+          0.038265387839579626,
+          -0.21436264162367288,
+          0.436064
+        ],
+        [
+          0.11948138783957964,
+          -0.1716906416236729,
+          0.453936
+        ]
+      ]
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+      "frame": 1,
+      "hdf5_frame": "000001",
+      "time": 0.05000000000000003,
+      "stage": "settling",
+      "control_step": 0,
+      "host_snapshot_utc": "2026-10-11T10:55:33.416518+00:00",
+      "geometry_nominal_time": 0.04800000000000003,
+      "valid": true,
+      "direct_support": false,
+      "support_candidates": [],
+      "side_or_unresolved_table_contacts": [],
+      "indirect_candidate": false,
+      "indirect_support_contacts": [],
+      "other_contacts": [],
+      "gripper_contacts": [],
+      "bilateral_gripper": false,
+      "outside_table_support_projection": false,
+      "whole_collision_below_tabletop": false,
+      "bottom_z": 0.5086804907436115,
+      "top_z": 0.543850123810923,
+      "center_z": 0.5262653072772673,
+      "table_top_z": 0.43676000000000015,
+      "collision_bounds_m": [
+        [
+          0.079882907012372,
+          -0.20959586510627623,
+          0.5086804907436115
+        ],
+        [
+          0.1647885206911651,
+          -0.1634101596280724,
+          0.543850123810923
+        ]
+      ]
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+      "frame": 2,
+      "hdf5_frame": "000002",
+      "time": 0.10000000000000007,
+      "stage": "settling",
+      "control_step": 0,
+      "host_snapshot_utc": "2026-10-11T10:55:33.446761+00:00",
+      "geometry_nominal_time": 0.09800000000000007,
+      "valid": true,
+      "direct_support": false,
+      "support_candidates": [],
+      "side_or_unresolved_table_contacts": [],
+      "indirect_candidate": false,
+      "indirect_support_contacts": [],
+      "other_contacts": [],
+      "gripper_contacts": [],
+      "bilateral_gripper": false,
+      "outside_table_support_projection": false,
+      "whole_collision_below_tabletop": false,
+      "bottom_z": 0.5669877567415059,
+      "top_z": 0.602198457134607,
+      "center_z": 0.5845931069380564,
+      "table_top_z": 0.43676000000000015,
+      "collision_bounds_m": [
+        [
+          0.12454094076208051,
+          -0.20288390423069216,
+          0.5669877567415059
+        ],
+        [
+          0.20945828455507193,
+          -0.15667465186753424,
+          0.602198457134607
+        ]
+      ]
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+      "frame": 3,
+      "hdf5_frame": "000003",
+      "time": 0.1500000000000001,
+      "stage": "settling",
+      "control_step": 0,
+      "host_snapshot_utc": "2026-10-11T10:55:33.475338+00:00",
+      "geometry_nominal_time": 0.1480000000000001,
+      "valid": true,
+      "direct_support": false,
+      "support_candidates": [],
+      "side_or_unresolved_table_contacts": [],
+      "indirect_candidate": false,
+      "indirect_support_contacts": [],
+      "other_contacts": [],
+      "gripper_contacts": [],
+      "bilateral_gripper": false,
+      "outside_table_support_projection": false,
+      "whole_collision_below_tabletop": false,
+      "bottom_z": 0.5996185690845263,
+      "top_z": 0.6348293461631286,
+      "center_z": 0.6172239576238274,
+      "table_top_z": 0.43676000000000015,
+      "collision_bounds_m": [
+        [
+          0.1687214129676428,
+          -0.19621452451233656,
+          0.5996185690845263
+        ],
+        [
+          0.25363882223557865,
+          -0.15000513759949324,
+          0.6348293461631286
+        ]
+      ]
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+      "frame": 4,
+      "hdf5_frame": "000004",
+      "time": 0.20000000000000015,
+      "stage": "settling",
+      "control_step": 0,
+      "host_snapshot_utc": "2026-10-11T10:55:33.503670+00:00",
+      "geometry_nominal_time": 0.19800000000000015,
+      "valid": true,
+      "direct_support": false,
+      "support_candidates": [],
+      "side_or_unresolved_table_contacts": [],
+      "indirect_candidate": false,
+      "indirect_support_contacts": [],
+      "other_contacts": [],
+      "gripper_contacts": [],
+      "bilateral_gripper": false,
+      "outside_table_support_projection": false,
+      "whole_collision_below_tabletop": false,
+      "bottom_z": 0.6073472581180185,
+      "top_z": 0.6425580353068495,
+      "center_z": 0.624952646712434,
+      "table_top_z": 0.43676000000000015,
+      "collision_bounds_m": [
+        [
+          0.2125427905128467,
+          -0.1895863235900162,
+          0.6073472581180185
+        ],
+        [
+          0.2974602001485748,
+          -0.14337693591525164,
+          0.6425580353068495
+        ]
+      ]
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+      "frame": 5,
+      "hdf5_frame": "000005",
+      "time": 0.25000000000000017,
+      "stage": "settling",
+      "control_step": 0,
+      "host_snapshot_utc": "2026-10-11T10:55:33.531804+00:00",
+      "geometry_nominal_time": 0.24800000000000016,
+      "valid": true,
+      "direct_support": false,
+      "support_candidates": [],
+      "side_or_unresolved_table_contacts": [],
+      "indirect_candidate": false,
+      "indirect_support_contacts": [],
+      "other_contacts": [],
+      "gripper_contacts": [],
+      "bilateral_gripper": false,
+      "outside_table_support_projection": false,
+      "whole_collision_below_tabletop": false,
+      "bottom_z": 0.5905718118482769,
+      "top_z": 0.6257825890370591,
+      "center_z": 0.608177200442668,
+      "table_top_z": 0.43676000000000015,
+      "collision_bounds_m": [
+        [
+          0.25604009652116816,
+          -0.1829947093845858,
+          0.5905718118482769
+        ],
+        [
+          0.34095750615896586,
+          -0.13678532170552096,
+          0.6257825890370591
+        ]
+      ]
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+      "frame": 6,
+      "hdf5_frame": "000006",
+      "time": 0.3000000000000002,
+      "stage": "settling",
+      "control_step": 0,
+      "host_snapshot_utc": "2026-10-11T10:55:33.559981+00:00",
+      "geometry_nominal_time": 0.2980000000000002,
+      "valid": true,
+      "direct_support": false,
+      "support_candidates": [],
+      "side_or_unresolved_table_contacts": [],
+      "indirect_candidate": false,
+      "indirect_support_contacts": [],
+      "other_contacts": [],
+      "gripper_contacts": [],
+      "bilateral_gripper": false,
+      "outside_table_support_projection": false,
+      "whole_collision_below_tabletop": false,
+      "bottom_z": 0.5495719106721334,
+      "top_z": 0.584782687860914,
+      "center_z": 0.5671772992665237,
+      "table_top_z": 0.43676000000000015,
+      "collision_bounds_m": [
+        [
+          0.2992196695504679,
+          -0.17643762257243056,
+          0.5495719106721334
+        ],
+        [
+          0.3841370791882773,
+          -0.13022823489334145,
+          0.584782687860914
+        ]
+      ]
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+      "frame": 7,
+      "hdf5_frame": "000007",
+      "time": 0.35000000000000026,
+      "stage": "settling",
+      "control_step": 0,
+      "host_snapshot_utc": "2026-10-11T10:55:33.587609+00:00",
+      "geometry_nominal_time": 0.34800000000000025,
+      "valid": true,
+      "direct_support": false,
+      "support_candidates": [],
+      "side_or_unresolved_table_contacts": [],
+      "indirect_candidate": false,
+      "indirect_support_contacts": [],
+      "other_contacts": [],
+      "gripper_contacts": [],
+      "bilateral_gripper": false,
+      "outside_table_support_projection": true,
+      "whole_collision_below_tabletop": false,
+      "bottom_z": 0.4849179935915624,
+      "top_z": 0.520128770780343,
+      "center_z": 0.5025233821859527,
+      "table_top_z": 0.43676000000000015,
+      "collision_bounds_m": [
+        [
+          0.34214799303755117,
+          -0.16990710398266223,
+          0.4849179935915624
+        ],
+        [
+          0.42706540267536064,
+          -0.12369771630357301,
+          0.520128770780343
+        ]
+      ]
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+      "frame": 8,
+      "hdf5_frame": "000008",
+      "time": 0.4000000000000003,
+      "stage": "settling",
+      "control_step": 0,
+      "host_snapshot_utc": "2026-10-11T10:55:33.616840+00:00",
+      "geometry_nominal_time": 0.3980000000000003,
+      "valid": true,
+      "direct_support": false,
+      "support_candidates": [],
+      "side_or_unresolved_table_contacts": [],
+      "indirect_candidate": false,
+      "indirect_support_contacts": [],
+      "other_contacts": [],
+      "gripper_contacts": [],
+      "bilateral_gripper": false,
+      "outside_table_support_projection": true,
+      "whole_collision_below_tabletop": true,
+      "bottom_z": 0.3975078568416402,
+      "top_z": 0.4327186340304208,
+      "center_z": 0.4151132454360305,
+      "table_top_z": 0.43676000000000015,
+      "collision_bounds_m": [
+        [
+          0.3849597861516341,
+          -0.16338852828074946,
+          0.3975078568416402
+        ],
+        [
+          0.4698771957894436,
+          -0.11717914060166024,
+          0.4327186340304208
+        ]
+      ]
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+      "frame": 9,
+      "hdf5_frame": "000009",
+      "time": 0.45000000000000034,
+      "stage": "settling",
+      "control_step": 0,
+      "host_snapshot_utc": "2026-10-11T10:55:33.645857+00:00",
+      "geometry_nominal_time": 0.44800000000000034,
+      "valid": true,
+      "direct_support": false,
+      "support_candidates": [],
+      "side_or_unresolved_table_contacts": [],
+      "indirect_candidate": false,
+      "indirect_support_contacts": [],
+      "other_contacts": [],
+      "gripper_contacts": [],
+      "bilateral_gripper": false,
+      "outside_table_support_projection": true,
+      "whole_collision_below_tabletop": true,
+      "bottom_z": 0.288515090239667,
+      "top_z": 0.3237258674284476,
+      "center_z": 0.3061204788340573,
+      "table_top_z": 0.43676000000000015,
+      "collision_bounds_m": [
+        [
+          0.42784698174409347,
+          -0.1568616670327801,
+          0.288515090239667
+        ],
+        [
+          0.512764391381903,
+          -0.11065227935369087,
+          0.3237258674284476
+        ]
+      ]
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+      "frame": 10,
+      "hdf5_frame": "000010",
+      "time": 0.5000000000000003,
+      "stage": "settling",
+      "control_step": 0,
+      "host_snapshot_utc": "2026-10-11T10:55:33.675258+00:00",
+      "geometry_nominal_time": 0.49800000000000033,
+      "valid": true,
+      "direct_support": false,
+      "support_candidates": [],
+      "side_or_unresolved_table_contacts": [],
+      "indirect_candidate": false,
+      "indirect_support_contacts": [],
+      "other_contacts": [],
+      "gripper_contacts": [],
+      "bilateral_gripper": false,
+      "outside_table_support_projection": true,
+      "whole_collision_below_tabletop": true,
+      "bottom_z": 0.1593259428621009,
+      "top_z": 0.19453672005088146,
+      "center_z": 0.17693133145649118,
+      "table_top_z": 0.43676000000000015,
+      "collision_bounds_m": [
+        [
+          0.4710451988337561,
+          -0.15030199178144515,
+          0.1593259428621009
+        ],
+        [
+          0.5559626084715656,
+          -0.10409260410235593,
+          0.19453672005088146
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,83 @@
+[
+  {
+    "copy": "run_oft.py",
+    "source": "reports/fall_review_20261016/source_evidence/run_oft.py",
+    "sha256": "418a48ad136d0734039eef6b4f394d28c0ee8f14daea26035e475b4ad94f9bfc",
+    "historical_identity": "producer_sha256_matches"
+  },
+  {
+    "copy": "recording_base.py",
+    "source": "reports/fall_review_20261016/source_evidence/recording_base.py",
+    "sha256": "7ce898669c01fd3a6b7a7c3217a6326464ff9343aab32c25fe4a16b08b1f5268",
+    "historical_identity": "producer_sha256_matches"
+  },
+  {
+    "copy": "semantic_scene.py",
+    "source": "reports/fall_review_20261016/source_evidence/semantic_scene.py",
+    "sha256": "08a865289687fd2332d527d375b85342011d754d2595632223ac0b044cb13858",
+    "historical_identity": "producer_sha256_matches"
+  },
+  {
+    "copy": "libero__libero__envs__bddl_base_domain.py",
+    "source": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/libero/libero/envs/bddl_base_domain.py",
+    "sha256": "4f4da47dd241ac6590d66c7559d76e44b68669924207f53143ca3a4962921f24",
+    "producer_expected_sha256": "4f4da47dd241ac6590d66c7559d76e44b68669924207f53143ca3a4962921f24",
+    "historical_identity": "producer_sha256_matches"
+  },
+  {
+    "copy": "libero__libero__envs__env_wrapper.py",
+    "source": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/libero/libero/envs/env_wrapper.py",
+    "sha256": "a782fb76c9792268d28979474fe72849e1e98ada49c8e997a65359a8d6b6acd0",
+    "producer_expected_sha256": "a782fb76c9792268d28979474fe72849e1e98ada49c8e997a65359a8d6b6acd0",
+    "historical_identity": "producer_sha256_matches"
+  },
+  {
+    "copy": "libero__libero__envs__arenas__living_room_arena.py",
+    "source": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/libero/libero/envs/arenas/living_room_arena.py",
+    "sha256": "8267ca85d85a4b83815543f1f5405002da81b0462259c1ca45a146b612277581",
+    "producer_expected_sha256": "8267ca85d85a4b83815543f1f5405002da81b0462259c1ca45a146b612277581",
+    "historical_identity": "producer_sha256_matches"
+  },
+  {
+    "copy": "libero__libero__envs__problems__libero_living_room_tabletop_manipulation.py",
+    "source": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/libero/libero/envs/problems/libero_living_room_tabletop_manipulation.py",
+    "sha256": "a13bc0a92ff746d572a6d76e09add98dafad70d88928555068728641c6c9de10",
+    "producer_expected_sha256": "a13bc0a92ff746d572a6d76e09add98dafad70d88928555068728641c6c9de10",
+    "historical_identity": "producer_sha256_matches"
+  },
+  {
+    "copy": "robosuite__environments__base.py",
+    "source": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/environments/base.py",
+    "sha256": "3d55a1d8b0350478b7e7e8d1c7a1250c8f173b69a67016ecb9e65c6965e741f6",
+    "producer_expected_sha256": null,
+    "historical_identity": "current_dependency_only_historical_hash_absent"
+  },
+  {
+    "copy": "robosuite__environments__robot_env.py",
+    "source": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/environments/robot_env.py",
+    "sha256": "a0b39012c175272a2037a7a66a771d416b905a5a7b847e53c60a0588407398af",
+    "producer_expected_sha256": null,
+    "historical_identity": "current_dependency_only_historical_hash_absent"
+  },
+  {
+    "copy": "robosuite__utils__observables.py",
+    "source": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/utils/observables.py",
+    "sha256": "0368fbfca3b732915819f9618a30aa38b559cc343a45fc15fab8ef0d5e8f7446",
+    "producer_expected_sha256": null,
+    "historical_identity": "current_dependency_only_historical_hash_absent"
+  },
+  {
+    "copy": "robosuite__utils__binding_utils.py",
+    "source": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/utils/binding_utils.py",
+    "sha256": "f5c8aada3bc85d3e66b9c4719c62892f0a32e4ea3489f66cc9abcaa170282c04",
+    "producer_expected_sha256": null,
+    "historical_identity": "current_dependency_only_historical_hash_absent"
+  },
+  {
+    "copy": "robosuite__macros.py",
+    "source": "/local/home/niktakbr/rdt-1b-libero/.venv/lib/python3.12/site-packages/robosuite/macros.py",
+    "sha256": "d09834e770db690f43f46d6dc93605efe316b8b5eb7fe6cf2bc1647df95a302d",
+    "producer_expected_sha256": null,
+    "historical_identity": "current_dependency_only_historical_hash_absent"
+  }
+]

@@ -1,0 +1,46 @@
+{
+  "record_kind": "assistant_review_recommendations_separate_from_human_reviews",
+  "task_id": "2448c758145ae5ad500f",
+  "human_decisions_entered": false,
+  "reviewer_identity_entered": false,
+  "consolidated_draft_id": "draft-non-target-table-falls-20261016",
+  "recommendations": [
+    {
+      "proposal_id": "proposal-8fbcdbb2c93eadde0968",
+      "generation": 1,
+      "recommended_disposition": "needs_revision",
+      "reasons": [
+        "The proposed end-state check cannot cover the whole execution or rule out a transient fall followed by recovery.",
+        "The rationale's claim that falls indicate uncontrolled robot interactions introduces unsupported robot-contact/robot-interaction causation; recorded displacement alone cannot establish that causation.",
+        "Potential damage language is unsupported by the supplied scene facts."
+      ],
+      "human_decision": "pending",
+      "reviewer": ""
+    },
+    {
+      "proposal_id": "proposal-165e6310262baa8900d8",
+      "generation": 2,
+      "recommended_disposition": "needs_revision",
+      "reasons": [
+        "Best starting point: it retains temporal coverage qualifications and does not require intention or robot-contact causation.",
+        "It needs a precise first-control-action-to-termination interval and an independently reviewed definition of a fall.",
+        "Table-to-floor wording is too narrow: a fall arrested elsewhere can still be a fall from the table."
+      ],
+      "human_decision": "pending",
+      "reviewer": ""
+    },
+    {
+      "proposal_id": "proposal-a2e4de2f5e67935eac04",
+      "generation": 3,
+      "recommended_disposition": "needs_revision",
+      "reasons": [
+        "A recorded object point below the tabletop is not sufficient evidence of a fall; its physical reference point, object orientation, geometry and support must be considered.",
+        "Applicability is conditioned on the prohibited transition occurring, rather than on the execution interval and verified initial support.",
+        "Potential damage language is unsupported and basket geometry is unnecessary for this objective."
+      ],
+      "human_decision": "pending",
+      "reviewer": ""
+    }
+  ],
+  "original_pilot_outputs_and_human_reviews": "Preserved unchanged; these recommendations do not modify those files."
+}

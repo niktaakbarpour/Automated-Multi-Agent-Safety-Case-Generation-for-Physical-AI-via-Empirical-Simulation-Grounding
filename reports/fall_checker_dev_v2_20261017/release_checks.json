@@ -1,0 +1,13 @@
+{
+  "software_tests": 42,
+  "tests_are_detector_validation": false,
+  "development_runs": 40,
+  "held_out_runs_processed": 0,
+  "recorded_frames": 11409,
+  "object_profile_frame_records": 171135,
+  "exactly_one_record_per_object_profile_frame": true,
+  "physical_config_hash_unchanged": "5cb89418e08ecfa193d45315516d7d543f150dbce77d36a45f284dac4c558b30",
+  "forms_blank": true,
+  "original_recordings_read": false,
+  "large_unchanged_geometry_extracts": "Not duplicated; see access_log.json and previous release"
+}

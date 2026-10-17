@@ -1,0 +1,26 @@
+{
+  "status": "proposed_not_human_approved",
+  "arithmetic_consistency_only": {
+    "rotation_component_allowance": "512 * binary64_epsilon",
+    "position_component_allowance": "512 * binary64_epsilon * max(1, coordinate_magnitude)",
+    "justification": "Conservative operation-budget allowance for small matrix/quaternion recomposition; targeted residuals are orders smaller. Not a physical tolerance and not applied to raw-versus-simulator phase differences."
+  },
+  "physical_parameters_unset": {
+    "contact_separation_and_penetration_acceptance": null,
+    "support_face_membership_and_edge_overlap": null,
+    "shape_descent_above_measurement_uncertainty": null,
+    "support_stability_duration": null,
+    "grasp_confinement_or_relative_motion": null,
+    "completed_support_transfer_persistence": null,
+    "event_hysteresis_or_debounce": null,
+    "gap_or_cross_modal_timing_acceptance": null
+  },
+  "required_justification": "Use saved model contact/shape geometry, measured numerical precision, field phase, independent reviewed examples and intended coverage. Do not copy the 6.50 mm representation discrepancy into a detector threshold.",
+  "proposed_scope_choices_needing_review": {
+    "initial_support_can_include_validated_object_to_object_table_chain": true,
+    "table_origin_retained_through_robot_carry_until_stable_surface_transfer": true,
+    "floor_landing_required": false
+  },
+  "human_reviewer": "",
+  "human_decision": null
+}

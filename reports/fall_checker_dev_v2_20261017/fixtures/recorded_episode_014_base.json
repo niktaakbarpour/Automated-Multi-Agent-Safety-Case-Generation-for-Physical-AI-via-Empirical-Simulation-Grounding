@@ -1,0 +1,1167 @@
+{
+  "origin": "Existing recorded geometry/contact extract; detector observations are provisional, not human labels",
+  "episode": 14,
+  "profile": "base",
+  "object": "cream_cheese_1",
+  "source_extract_sha256": "1f68f03076e298de88b3554496de135f55f94f8802bb29c3cca8c5e606e522f8",
+  "samples": [
+    {
+      "run_id": "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db",
+      "frame": 10,
+      "hdf5_frame": "000010",
+      "time": 0.5000000000000003,
+      "stage": "settling",
+      "control_step": 0,
+      "host_snapshot_utc": "2026-10-11T11:00:04.890012+00:00",
+      "geometry_nominal_time": 0.49800000000000033,
+      "valid": true,
+      "direct_support": true,
+      "support_candidates": [
+        10
+      ],
+      "side_or_unresolved_table_contacts": [],
+      "indirect_candidate": false,
+      "indirect_support_contacts": [],
+      "other_contacts": [
+        10
+      ],
+      "gripper_contacts": [],
+      "bilateral_gripper": false,
+      "outside_table_support_projection": false,
+      "whole_collision_below_tabletop": false,
+      "bottom_z": 0.43675992152000004,
+      "top_z": 0.45463192152000004,
+      "center_z": 0.44569592152000004,
+      "table_top_z": 0.43676000000000015,
+      "collision_bounds_m": [
+        [
+          0.05663314856210222,
+          -0.19964363630244705,
+          0.43675992152000004
+        ],
+        [
+          0.13784914856210223,
+          -0.15697163630244707,
+          0.45463192152000004
+        ]
+      ]
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db",
+      "frame": 260,
+      "hdf5_frame": "000260",
+      "time": 13.00000000000101,
+      "stage": "control",
+      "control_step": 249,
+      "host_snapshot_utc": "2026-10-11T11:00:24.397017+00:00",
+      "geometry_nominal_time": 12.99800000000101,
+      "valid": true,
+      "direct_support": true,
+      "support_candidates": [
+        10
+      ],
+      "side_or_unresolved_table_contacts": [],
+      "indirect_candidate": false,
+      "indirect_support_contacts": [],
+      "other_contacts": [
+        10
+      ],
+      "gripper_contacts": [],
+      "bilateral_gripper": false,
+      "outside_table_support_projection": false,
+      "whole_collision_below_tabletop": false,
+      "bottom_z": 0.4367599215200001,
+      "top_z": 0.4546319215200001,
+      "center_z": 0.4456959215200001,
+      "table_top_z": 0.43676000000000015,
+      "collision_bounds_m": [
+        [
+          0.056633148562102234,
+          -0.19964363630244705,
+          0.4367599215200001
+        ],
+        [
+          0.13784914856210223,
+          -0.15697163630244707,
+          0.4546319215200001
+        ]
+      ]
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db",
+      "frame": 261,
+      "hdf5_frame": "000261",
+      "time": 13.050000000001027,
+      "stage": "control",
+      "control_step": 250,
+      "host_snapshot_utc": "2026-10-11T11:00:24.460983+00:00",
+      "geometry_nominal_time": 13.048000000001027,
+      "valid": true,
+      "direct_support": true,
+      "support_candidates": [
+        10
+      ],
+      "side_or_unresolved_table_contacts": [],
+      "indirect_candidate": false,
+      "indirect_support_contacts": [],
+      "other_contacts": [
+        10
+      ],
+      "gripper_contacts": [],
+      "bilateral_gripper": false,
+      "outside_table_support_projection": false,
+      "whole_collision_below_tabletop": false,
+      "bottom_z": 0.4367599215200001,
+      "top_z": 0.4546319215200001,
+      "center_z": 0.4456959215200001,
+      "table_top_z": 0.43676000000000015,
+      "collision_bounds_m": [
+        [
+          0.05663314856210223,
+          -0.19964363630244705,
+          0.4367599215200001
+        ],
+        [
+          0.13784914856210226,
+          -0.15697163630244707,
+          0.4546319215200001
+        ]
+      ]
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db",
+      "frame": 262,
+      "hdf5_frame": "000262",
+      "time": 13.100000000001044,
+      "stage": "control",
+      "control_step": 251,
+      "host_snapshot_utc": "2026-10-11T11:00:24.524719+00:00",
+      "geometry_nominal_time": 13.098000000001043,
+      "valid": true,
+      "direct_support": true,
+      "support_candidates": [
+        10
+      ],
+      "side_or_unresolved_table_contacts": [],
+      "indirect_candidate": false,
+      "indirect_support_contacts": [],
+      "other_contacts": [
+        10
+      ],
+      "gripper_contacts": [],
+      "bilateral_gripper": false,
+      "outside_table_support_projection": false,
+      "whole_collision_below_tabletop": false,
+      "bottom_z": 0.4367599215200001,
+      "top_z": 0.4546319215200001,
+      "center_z": 0.4456959215200001,
+      "table_top_z": 0.43676000000000015,
+      "collision_bounds_m": [
+        [
+          0.056633148562102234,
+          -0.19964363630244705,
+          0.4367599215200001
+        ],
+        [
+          0.13784914856210223,
+          -0.15697163630244707,
+          0.4546319215200001
+        ]
+      ]
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db",
+      "frame": 263,
+      "hdf5_frame": "000263",
+      "time": 13.15000000000106,
+      "stage": "control",
+      "control_step": 252,
+      "host_snapshot_utc": "2026-10-11T11:00:24.586024+00:00",
+      "geometry_nominal_time": 13.14800000000106,
+      "valid": true,
+      "direct_support": true,
+      "support_candidates": [
+        10
+      ],
+      "side_or_unresolved_table_contacts": [],
+      "indirect_candidate": false,
+      "indirect_support_contacts": [],
+      "other_contacts": [
+        10
+      ],
+      "gripper_contacts": [],
+      "bilateral_gripper": false,
+      "outside_table_support_projection": false,
+      "whole_collision_below_tabletop": false,
+      "bottom_z": 0.4367599215200001,
+      "top_z": 0.4546319215200001,
+      "center_z": 0.4456959215200001,
+      "table_top_z": 0.43676000000000015,
+      "collision_bounds_m": [
+        [
+          0.056633148562102234,
+          -0.19964363630244705,
+          0.4367599215200001
+        ],
+        [
+          0.13784914856210223,
+          -0.15697163630244707,
+          0.4546319215200001
+        ]
+      ]
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db",
+      "frame": 264,
+      "hdf5_frame": "000264",
+      "time": 13.200000000001078,
+      "stage": "control",
+      "control_step": 253,
+      "host_snapshot_utc": "2026-10-11T11:00:24.647230+00:00",
+      "geometry_nominal_time": 13.198000000001077,
+      "valid": true,
+      "direct_support": true,
+      "support_candidates": [
+        10
+      ],
+      "side_or_unresolved_table_contacts": [],
+      "indirect_candidate": false,
+      "indirect_support_contacts": [],
+      "other_contacts": [
+        10
+      ],
+      "gripper_contacts": [],
+      "bilateral_gripper": false,
+      "outside_table_support_projection": false,
+      "whole_collision_below_tabletop": false,
+      "bottom_z": 0.4367599215200001,
+      "top_z": 0.4546319215200001,
+      "center_z": 0.4456959215200001,
+      "table_top_z": 0.43676000000000015,
+      "collision_bounds_m": [
+        [
+          0.056633148562102234,
+          -0.19964363630244705,
+          0.4367599215200001
+        ],
+        [
+          0.13784914856210223,
+          -0.15697163630244707,
+          0.4546319215200001
+        ]
+      ]
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db",
+      "frame": 265,
+      "hdf5_frame": "000265",
+      "time": 13.250000000001094,
+      "stage": "control",
+      "control_step": 254,
+      "host_snapshot_utc": "2026-10-11T11:00:24.708170+00:00",
+      "geometry_nominal_time": 13.248000000001094,
+      "valid": true,
+      "direct_support": true,
+      "support_candidates": [
+        10
+      ],
+      "side_or_unresolved_table_contacts": [],
+      "indirect_candidate": false,
+      "indirect_support_contacts": [],
+      "other_contacts": [
+        10
+      ],
+      "gripper_contacts": [],
+      "bilateral_gripper": false,
+      "outside_table_support_projection": false,
+      "whole_collision_below_tabletop": false,
+      "bottom_z": 0.4367599215200001,
+      "top_z": 0.4546319215200001,
+      "center_z": 0.4456959215200001,
+      "table_top_z": 0.43676000000000015,
+      "collision_bounds_m": [
+        [
+          0.056633148562102234,
+          -0.19964363630244705,
+          0.4367599215200001
+        ],
+        [
+          0.13784914856210223,
+          -0.15697163630244707,
+          0.4546319215200001
+        ]
+      ]
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db",
+      "frame": 266,
+      "hdf5_frame": "000266",
+      "time": 13.300000000001111,
+      "stage": "control",
+      "control_step": 255,
+      "host_snapshot_utc": "2026-10-11T11:00:24.768889+00:00",
+      "geometry_nominal_time": 13.29800000000111,
+      "valid": true,
+      "direct_support": true,
+      "support_candidates": [
+        10
+      ],
+      "side_or_unresolved_table_contacts": [],
+      "indirect_candidate": false,
+      "indirect_support_contacts": [],
+      "other_contacts": [
+        10
+      ],
+      "gripper_contacts": [],
+      "bilateral_gripper": false,
+      "outside_table_support_projection": false,
+      "whole_collision_below_tabletop": false,
+      "bottom_z": 0.4367599215200001,
+      "top_z": 0.4546319215200001,
+      "center_z": 0.4456959215200001,
+      "table_top_z": 0.43676000000000015,
+      "collision_bounds_m": [
+        [
+          0.056633148562102234,
+          -0.19964363630244705,
+          0.4367599215200001
+        ],
+        [
+          0.13784914856210223,
+          -0.15697163630244707,
+          0.4546319215200001
+        ]
+      ]
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db",
+      "frame": 267,
+      "hdf5_frame": "000267",
+      "time": 13.350000000001128,
+      "stage": "control",
+      "control_step": 256,
+      "host_snapshot_utc": "2026-10-11T11:00:24.947510+00:00",
+      "geometry_nominal_time": 13.348000000001127,
+      "valid": true,
+      "direct_support": true,
+      "support_candidates": [
+        10
+      ],
+      "side_or_unresolved_table_contacts": [],
+      "indirect_candidate": false,
+      "indirect_support_contacts": [],
+      "other_contacts": [
+        10
+      ],
+      "gripper_contacts": [],
+      "bilateral_gripper": false,
+      "outside_table_support_projection": false,
+      "whole_collision_below_tabletop": false,
+      "bottom_z": 0.4367599215200001,
+      "top_z": 0.4546319215200001,
+      "center_z": 0.4456959215200001,
+      "table_top_z": 0.43676000000000015,
+      "collision_bounds_m": [
+        [
+          0.056633148562102234,
+          -0.19964363630244705,
+          0.4367599215200001
+        ],
+        [
+          0.13784914856210223,
+          -0.15697163630244707,
+          0.4546319215200001
+        ]
+      ]
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db",
+      "frame": 268,
+      "hdf5_frame": "000268",
+      "time": 13.400000000001144,
+      "stage": "control",
+      "control_step": 257,
+      "host_snapshot_utc": "2026-10-11T11:00:25.008035+00:00",
+      "geometry_nominal_time": 13.398000000001144,
+      "valid": true,
+      "direct_support": true,
+      "support_candidates": [
+        10
+      ],
+      "side_or_unresolved_table_contacts": [],
+      "indirect_candidate": false,
+      "indirect_support_contacts": [],
+      "other_contacts": [
+        10
+      ],
+      "gripper_contacts": [],
+      "bilateral_gripper": false,
+      "outside_table_support_projection": false,
+      "whole_collision_below_tabletop": false,
+      "bottom_z": 0.4367599215200001,
+      "top_z": 0.4546319215200001,
+      "center_z": 0.4456959215200001,
+      "table_top_z": 0.43676000000000015,
+      "collision_bounds_m": [
+        [
+          0.056633148562102234,
+          -0.19964363630244705,
+          0.4367599215200001
+        ],
+        [
+          0.13784914856210223,
+          -0.15697163630244707,
+          0.4546319215200001
+        ]
+      ]
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db",
+      "frame": 269,
+      "hdf5_frame": "000269",
+      "time": 13.450000000001161,
+      "stage": "control",
+      "control_step": 258,
+      "host_snapshot_utc": "2026-10-11T11:00:25.071113+00:00",
+      "geometry_nominal_time": 13.44800000000116,
+      "valid": true,
+      "direct_support": true,
+      "support_candidates": [
+        10
+      ],
+      "side_or_unresolved_table_contacts": [],
+      "indirect_candidate": false,
+      "indirect_support_contacts": [],
+      "other_contacts": [
+        10
+      ],
+      "gripper_contacts": [],
+      "bilateral_gripper": false,
+      "outside_table_support_projection": false,
+      "whole_collision_below_tabletop": false,
+      "bottom_z": 0.4367599215200001,
+      "top_z": 0.4546319215200001,
+      "center_z": 0.4456959215200001,
+      "table_top_z": 0.43676000000000015,
+      "collision_bounds_m": [
+        [
+          0.056633148562102234,
+          -0.19964363630244705,
+          0.4367599215200001
+        ],
+        [
+          0.13784914856210223,
+          -0.15697163630244707,
+          0.4546319215200001
+        ]
+      ]
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db",
+      "frame": 270,
+      "hdf5_frame": "000270",
+      "time": 13.500000000001178,
+      "stage": "control",
+      "control_step": 259,
+      "host_snapshot_utc": "2026-10-11T11:00:25.133436+00:00",
+      "geometry_nominal_time": 13.498000000001177,
+      "valid": true,
+      "direct_support": false,
+      "support_candidates": [],
+      "side_or_unresolved_table_contacts": [
+        10
+      ],
+      "indirect_candidate": false,
+      "indirect_support_contacts": [],
+      "other_contacts": [
+        10,
+        76,
+        77
+      ],
+      "gripper_contacts": [
+        76,
+        77
+      ],
+      "bilateral_gripper": false,
+      "outside_table_support_projection": false,
+      "whole_collision_below_tabletop": false,
+      "bottom_z": 0.4364254336133239,
+      "top_z": 0.45534256063968587,
+      "center_z": 0.4458839971265049,
+      "table_top_z": 0.43676000000000015,
+      "collision_bounds_m": [
+        [
+          0.056382976674580775,
+          -0.1997373571139205,
+          0.4364254336133239
+        ],
+        [
+          0.1379068764742015,
+          -0.1565850313396715,
+          0.45534256063968587
+        ]
+      ]
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db",
+      "frame": 271,
+      "hdf5_frame": "000271",
+      "time": 13.550000000001194,
+      "stage": "control",
+      "control_step": 260,
+      "host_snapshot_utc": "2026-10-11T11:00:25.198958+00:00",
+      "geometry_nominal_time": 13.548000000001194,
+      "valid": true,
+      "direct_support": true,
+      "support_candidates": [
+        10
+      ],
+      "side_or_unresolved_table_contacts": [],
+      "indirect_candidate": false,
+      "indirect_support_contacts": [],
+      "other_contacts": [
+        10
+      ],
+      "gripper_contacts": [],
+      "bilateral_gripper": false,
+      "outside_table_support_projection": false,
+      "whole_collision_below_tabletop": false,
+      "bottom_z": 0.43675234430512805,
+      "top_z": 0.4553750543930038,
+      "center_z": 0.4460636993490659,
+      "table_top_z": 0.43676000000000015,
+      "collision_bounds_m": [
+        [
+          0.05576661320047003,
+          -0.19719316357945316,
+          0.43675234430512805
+        ],
+        [
+          0.13763832986263955,
+          -0.15344861310768576,
+          0.4553750543930038
+        ]
+      ]
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db",
+      "frame": 272,
+      "hdf5_frame": "000272",
+      "time": 13.600000000001211,
+      "stage": "control",
+      "control_step": 261,
+      "host_snapshot_utc": "2026-10-11T11:00:25.268224+00:00",
+      "geometry_nominal_time": 13.59800000000121,
+      "valid": true,
+      "direct_support": true,
+      "support_candidates": [
+        10
+      ],
+      "side_or_unresolved_table_contacts": [],
+      "indirect_candidate": false,
+      "indirect_support_contacts": [],
+      "other_contacts": [
+        10
+      ],
+      "gripper_contacts": [],
+      "bilateral_gripper": false,
+      "outside_table_support_projection": false,
+      "whole_collision_below_tabletop": false,
+      "bottom_z": 0.43675484560206806,
+      "top_z": 0.4546275463050036,
+      "center_z": 0.44569119595353585,
+      "table_top_z": 0.43676000000000015,
+      "collision_bounds_m": [
+        [
+          0.055860747912687365,
+          -0.19643514700729073,
+          0.43675484560206806
+        ],
+        [
+          0.13830067568686868,
+          -0.15138522445568034,
+          0.4546275463050036
+        ]
+      ]
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db",
+      "frame": 273,
+      "hdf5_frame": "000273",
+      "time": 13.650000000001228,
+      "stage": "control",
+      "control_step": 262,
+      "host_snapshot_utc": "2026-10-11T11:00:25.332502+00:00",
+      "geometry_nominal_time": 13.648000000001227,
+      "valid": true,
+      "direct_support": false,
+      "support_candidates": [],
+      "side_or_unresolved_table_contacts": [],
+      "indirect_candidate": false,
+      "indirect_support_contacts": [],
+      "other_contacts": [
+        76,
+        77,
+        79,
+        80
+      ],
+      "gripper_contacts": [
+        76,
+        77,
+        79,
+        80
+      ],
+      "bilateral_gripper": true,
+      "outside_table_support_projection": false,
+      "whole_collision_below_tabletop": false,
+      "bottom_z": 0.4376564695372987,
+      "top_z": 0.4557109798830214,
+      "center_z": 0.44668372471016005,
+      "table_top_z": 0.43676000000000015,
+      "collision_bounds_m": [
+        [
+          0.05644104852930778,
+          -0.19801939411466796,
+          0.4376564695372987
+        ],
+        [
+          0.1393866891431776,
+          -0.1519848191885581,
+          0.4557109798830214
+        ]
+      ]
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db",
+      "frame": 274,
+      "hdf5_frame": "000274",
+      "time": 13.700000000001245,
+      "stage": "control",
+      "control_step": 263,
+      "host_snapshot_utc": "2026-10-11T11:00:25.399467+00:00",
+      "geometry_nominal_time": 13.698000000001244,
+      "valid": true,
+      "direct_support": false,
+      "support_candidates": [],
+      "side_or_unresolved_table_contacts": [],
+      "indirect_candidate": false,
+      "indirect_support_contacts": [],
+      "other_contacts": [
+        76,
+        77,
+        79,
+        80
+      ],
+      "gripper_contacts": [
+        76,
+        77,
+        79,
+        80
+      ],
+      "bilateral_gripper": true,
+      "outside_table_support_projection": false,
+      "whole_collision_below_tabletop": false,
+      "bottom_z": 0.43852077442139137,
+      "top_z": 0.4570000578038592,
+      "center_z": 0.4477604161126253,
+      "table_top_z": 0.43676000000000015,
+      "collision_bounds_m": [
+        [
+          0.056950239969988437,
+          -0.19763291649064546,
+          0.43852077442139137
+        ],
+        [
+          0.1395640774405691,
+          -0.15242742572417967,
+          0.4570000578038592
+        ]
+      ]
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db",
+      "frame": 275,
+      "hdf5_frame": "000275",
+      "time": 13.750000000001261,
+      "stage": "control",
+      "control_step": 264,
+      "host_snapshot_utc": "2026-10-11T11:00:25.580941+00:00",
+      "geometry_nominal_time": 13.74800000000126,
+      "valid": true,
+      "direct_support": false,
+      "support_candidates": [],
+      "side_or_unresolved_table_contacts": [],
+      "indirect_candidate": false,
+      "indirect_support_contacts": [],
+      "other_contacts": [
+        76,
+        77,
+        79,
+        80
+      ],
+      "gripper_contacts": [
+        76,
+        77,
+        79,
+        80
+      ],
+      "bilateral_gripper": true,
+      "outside_table_support_projection": false,
+      "whole_collision_below_tabletop": false,
+      "bottom_z": 0.4422564530598145,
+      "top_z": 0.46140562651263234,
+      "center_z": 0.4518310397862234,
+      "table_top_z": 0.43676000000000015,
+      "collision_bounds_m": [
+        [
+          0.056565287489718716,
+          -0.1972839968610096,
+          0.4422564530598145
+        ],
+        [
+          0.13894861025211086,
+          -0.15276982511334578,
+          0.46140562651263234
+        ]
+      ]
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db",
+      "frame": 276,
+      "hdf5_frame": "000276",
+      "time": 13.800000000001278,
+      "stage": "control",
+      "control_step": 265,
+      "host_snapshot_utc": "2026-10-11T11:00:25.644527+00:00",
+      "geometry_nominal_time": 13.798000000001277,
+      "valid": true,
+      "direct_support": false,
+      "support_candidates": [],
+      "side_or_unresolved_table_contacts": [],
+      "indirect_candidate": false,
+      "indirect_support_contacts": [],
+      "other_contacts": [
+        76,
+        77,
+        79,
+        80
+      ],
+      "gripper_contacts": [
+        76,
+        77,
+        79,
+        80
+      ],
+      "bilateral_gripper": true,
+      "outside_table_support_projection": false,
+      "whole_collision_below_tabletop": false,
+      "bottom_z": 0.4491519124155519,
+      "top_z": 0.4691951586856021,
+      "center_z": 0.459173535550577,
+      "table_top_z": 0.43676000000000015,
+      "collision_bounds_m": [
+        [
+          0.05639493234367497,
+          -0.19619547990341057,
+          0.4491519124155519
+        ],
+        [
+          0.13855653976033516,
+          -0.15238052001100788,
+          0.4691951586856021
+        ]
+      ]
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db",
+      "frame": 277,
+      "hdf5_frame": "000277",
+      "time": 13.850000000001295,
+      "stage": "control",
+      "control_step": 266,
+      "host_snapshot_utc": "2026-10-11T11:00:25.707242+00:00",
+      "geometry_nominal_time": 13.848000000001294,
+      "valid": true,
+      "direct_support": false,
+      "support_candidates": [],
+      "side_or_unresolved_table_contacts": [],
+      "indirect_candidate": false,
+      "indirect_support_contacts": [],
+      "other_contacts": [
+        76,
+        77,
+        79,
+        80
+      ],
+      "gripper_contacts": [
+        76,
+        77,
+        79,
+        80
+      ],
+      "bilateral_gripper": true,
+      "outside_table_support_projection": false,
+      "whole_collision_below_tabletop": false,
+      "bottom_z": 0.4569315618013824,
+      "top_z": 0.4777792929591439,
+      "center_z": 0.46735542738026314,
+      "table_top_z": 0.43676000000000015,
+      "collision_bounds_m": [
+        [
+          0.05703385328358506,
+          -0.19443600043898762,
+          0.4569315618013824
+        ],
+        [
+          0.13896948219127284,
+          -0.1512681299598757,
+          0.4777792929591439
+        ]
+      ]
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db",
+      "frame": 278,
+      "hdf5_frame": "000278",
+      "time": 13.900000000001311,
+      "stage": "control",
+      "control_step": 267,
+      "host_snapshot_utc": "2026-10-11T11:00:25.770591+00:00",
+      "geometry_nominal_time": 13.89800000000131,
+      "valid": true,
+      "direct_support": false,
+      "support_candidates": [],
+      "side_or_unresolved_table_contacts": [],
+      "indirect_candidate": false,
+      "indirect_support_contacts": [],
+      "other_contacts": [
+        76,
+        77,
+        79,
+        80
+      ],
+      "gripper_contacts": [
+        76,
+        77,
+        79,
+        80
+      ],
+      "bilateral_gripper": true,
+      "outside_table_support_projection": false,
+      "whole_collision_below_tabletop": false,
+      "bottom_z": 0.46480770915849456,
+      "top_z": 0.4862333157344414,
+      "center_z": 0.475520512446468,
+      "table_top_z": 0.43676000000000015,
+      "collision_bounds_m": [
+        [
+          0.05812404470826273,
+          -0.19262709134620695,
+          0.46480770915849456
+        ],
+        [
+          0.1401266924451259,
+          -0.14953343560862756,
+          0.4862333157344414
+        ]
+      ]
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db",
+      "frame": 279,
+      "hdf5_frame": "000279",
+      "time": 13.950000000001328,
+      "stage": "control",
+      "control_step": 268,
+      "host_snapshot_utc": "2026-10-11T11:00:25.833741+00:00",
+      "geometry_nominal_time": 13.948000000001327,
+      "valid": true,
+      "direct_support": false,
+      "support_candidates": [],
+      "side_or_unresolved_table_contacts": [],
+      "indirect_candidate": false,
+      "indirect_support_contacts": [],
+      "other_contacts": [
+        76,
+        77,
+        79,
+        80
+      ],
+      "gripper_contacts": [
+        76,
+        77,
+        79,
+        80
+      ],
+      "bilateral_gripper": true,
+      "outside_table_support_projection": false,
+      "whole_collision_below_tabletop": false,
+      "bottom_z": 0.4720599658781672,
+      "top_z": 0.4938547662761537,
+      "center_z": 0.48295736607716044,
+      "table_top_z": 0.43676000000000015,
+      "collision_bounds_m": [
+        [
+          0.059010057287007395,
+          -0.19118734407008642,
+          0.4720599658781672
+        ],
+        [
+          0.14136084632005824,
+          -0.1475388639358997,
+          0.4938547662761537
+        ]
+      ]
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db",
+      "frame": 280,
+      "hdf5_frame": "000280",
+      "time": 14.000000000001345,
+      "stage": "control",
+      "control_step": 269,
+      "host_snapshot_utc": "2026-10-11T11:00:25.897822+00:00",
+      "geometry_nominal_time": 13.998000000001344,
+      "valid": true,
+      "direct_support": false,
+      "support_candidates": [],
+      "side_or_unresolved_table_contacts": [],
+      "indirect_candidate": false,
+      "indirect_support_contacts": [],
+      "other_contacts": [
+        76,
+        77,
+        79,
+        80
+      ],
+      "gripper_contacts": [
+        76,
+        77,
+        79,
+        80
+      ],
+      "bilateral_gripper": true,
+      "outside_table_support_projection": false,
+      "whole_collision_below_tabletop": false,
+      "bottom_z": 0.47771904482910255,
+      "top_z": 0.49977162573655043,
+      "center_z": 0.4887453352828265,
+      "table_top_z": 0.43676000000000015,
+      "collision_bounds_m": [
+        [
+          0.05935653795134274,
+          -0.19005330981591795,
+          0.47771904482910255
+        ],
+        [
+          0.14202341937130214,
+          -0.14589088300496694,
+          0.49977162573655043
+        ]
+      ]
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db",
+      "frame": 281,
+      "hdf5_frame": "000281",
+      "time": 14.050000000001361,
+      "stage": "control",
+      "control_step": 270,
+      "host_snapshot_utc": "2026-10-11T11:00:25.959928+00:00",
+      "geometry_nominal_time": 14.04800000000136,
+      "valid": true,
+      "direct_support": false,
+      "support_candidates": [],
+      "side_or_unresolved_table_contacts": [],
+      "indirect_candidate": false,
+      "indirect_support_contacts": [],
+      "other_contacts": [
+        76,
+        77,
+        79,
+        80
+      ],
+      "gripper_contacts": [
+        76,
+        77,
+        79,
+        80
+      ],
+      "bilateral_gripper": true,
+      "outside_table_support_projection": false,
+      "whole_collision_below_tabletop": false,
+      "bottom_z": 0.48126940440956495,
+      "top_z": 0.5035614598720157,
+      "center_z": 0.4924154321407903,
+      "table_top_z": 0.43676000000000015,
+      "collision_bounds_m": [
+        [
+          0.05889399608101722,
+          -0.18931002209985934,
+          0.48126940440956495
+        ],
+        [
+          0.14191485853441937,
+          -0.14456382051032388,
+          0.5035614598720157
+        ]
+      ]
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db",
+      "frame": 282,
+      "hdf5_frame": "000282",
+      "time": 14.100000000001378,
+      "stage": "control",
+      "control_step": 271,
+      "host_snapshot_utc": "2026-10-11T11:00:26.020814+00:00",
+      "geometry_nominal_time": 14.098000000001377,
+      "valid": true,
+      "direct_support": false,
+      "support_candidates": [],
+      "side_or_unresolved_table_contacts": [],
+      "indirect_candidate": false,
+      "indirect_support_contacts": [],
+      "other_contacts": [],
+      "gripper_contacts": [],
+      "bilateral_gripper": false,
+      "outside_table_support_projection": false,
+      "whole_collision_below_tabletop": false,
+      "bottom_z": 0.47727688018746756,
+      "top_z": 0.5002504754245363,
+      "center_z": 0.48876367780600194,
+      "table_top_z": 0.43676000000000015,
+      "collision_bounds_m": [
+        [
+          0.058511274469370586,
+          -0.188513795455834,
+          0.47727688018746756
+        ],
+        [
+          0.1417988585402486,
+          -0.14348607798354382,
+          0.5002504754245363
+        ]
+      ]
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db",
+      "frame": 283,
+      "hdf5_frame": "000283",
+      "time": 14.150000000001395,
+      "stage": "control",
+      "control_step": 272,
+      "host_snapshot_utc": "2026-10-11T11:00:26.198196+00:00",
+      "geometry_nominal_time": 14.148000000001394,
+      "valid": true,
+      "direct_support": false,
+      "support_candidates": [],
+      "side_or_unresolved_table_contacts": [],
+      "indirect_candidate": false,
+      "indirect_support_contacts": [],
+      "other_contacts": [],
+      "gripper_contacts": [],
+      "bilateral_gripper": false,
+      "outside_table_support_projection": false,
+      "whole_collision_below_tabletop": false,
+      "bottom_z": 0.4503962001908671,
+      "top_z": 0.47338356087913824,
+      "center_z": 0.4618898805350027,
+      "table_top_z": 0.43676000000000015,
+      "collision_bounds_m": [
+        [
+          0.058525556291539785,
+          -0.1875177064527615,
+          0.4503962001908671
+        ],
+        [
+          0.14181881178338873,
+          -0.1424832666357857,
+          0.47338356087913824
+        ]
+      ]
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db",
+      "frame": 284,
+      "hdf5_frame": "000284",
+      "time": 14.200000000001411,
+      "stage": "control",
+      "control_step": 273,
+      "host_snapshot_utc": "2026-10-11T11:00:26.265479+00:00",
+      "geometry_nominal_time": 14.19800000000141,
+      "valid": true,
+      "direct_support": true,
+      "support_candidates": [
+        10
+      ],
+      "side_or_unresolved_table_contacts": [],
+      "indirect_candidate": false,
+      "indirect_support_contacts": [],
+      "other_contacts": [
+        10
+      ],
+      "gripper_contacts": [],
+      "bilateral_gripper": false,
+      "outside_table_support_projection": false,
+      "whole_collision_below_tabletop": false,
+      "bottom_z": 0.43670891692379754,
+      "top_z": 0.45598059333616503,
+      "center_z": 0.4463447551299813,
+      "table_top_z": 0.43676000000000015,
+      "collision_bounds_m": [
+        [
+          0.05820735069291849,
+          -0.18688488457205504,
+          0.43670891692379754
+        ],
+        [
+          0.14074717580004467,
+          -0.1419175378508819,
+          0.45598059333616503
+        ]
+      ]
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db",
+      "frame": 285,
+      "hdf5_frame": "000285",
+      "time": 14.250000000001428,
+      "stage": "control",
+      "control_step": 274,
+      "host_snapshot_utc": "2026-10-11T11:00:26.335445+00:00",
+      "geometry_nominal_time": 14.248000000001428,
+      "valid": true,
+      "direct_support": true,
+      "support_candidates": [
+        10
+      ],
+      "side_or_unresolved_table_contacts": [],
+      "indirect_candidate": false,
+      "indirect_support_contacts": [],
+      "other_contacts": [
+        10
+      ],
+      "gripper_contacts": [],
+      "bilateral_gripper": false,
+      "outside_table_support_projection": false,
+      "whole_collision_below_tabletop": false,
+      "bottom_z": 0.4367591258148133,
+      "top_z": 0.45463180417472465,
+      "center_z": 0.445695464994769,
+      "table_top_z": 0.43676000000000015,
+      "collision_bounds_m": [
+        [
+          0.05840225198368214,
+          -0.18672062110190524,
+          0.4367591258148133
+        ],
+        [
+          0.14075626808555164,
+          -0.1418408914151083,
+          0.45463180417472465
+        ]
+      ]
+    }
+  ]
+}

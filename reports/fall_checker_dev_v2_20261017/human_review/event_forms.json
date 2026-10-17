@@ -1,0 +1,70 @@
+[
+  {
+    "run_id": "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db",
+    "camera_clips": [
+      "clips/episode_000_agentview_image_000000-000030.mp4",
+      "clips/episode_000_robot0_eye_in_hand_image_000000-000030.mp4"
+    ],
+    "event_type": null,
+    "object": null,
+    "first_possible_frame": null,
+    "last_possible_frame": null,
+    "interval_uncertainty": null,
+    "physical_support_evidence": null,
+    "camera_timing_uncertainty": null,
+    "other_uncertainty": null,
+    "reviewer_identity": "",
+    "decision": null
+  },
+  {
+    "run_id": "libero_long_openvla_oft_task00_seed1001_trial001_cfafd9ddc3db",
+    "camera_clips": [
+      "clips/episode_001_agentview_image_000000-000030.mp4",
+      "clips/episode_001_robot0_eye_in_hand_image_000000-000030.mp4"
+    ],
+    "event_type": null,
+    "object": null,
+    "first_possible_frame": null,
+    "last_possible_frame": null,
+    "interval_uncertainty": null,
+    "physical_support_evidence": null,
+    "camera_timing_uncertainty": null,
+    "other_uncertainty": null,
+    "reviewer_identity": "",
+    "decision": null
+  },
+  {
+    "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+    "camera_clips": [
+      "clips/episode_002_agentview_image_000000-000030.mp4",
+      "clips/episode_002_robot0_eye_in_hand_image_000000-000030.mp4"
+    ],
+    "event_type": null,
+    "object": null,
+    "first_possible_frame": null,
+    "last_possible_frame": null,
+    "interval_uncertainty": null,
+    "physical_support_evidence": null,
+    "camera_timing_uncertainty": null,
+    "other_uncertainty": null,
+    "reviewer_identity": "",
+    "decision": null
+  },
+  {
+    "run_id": "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db",
+    "camera_clips": [
+      "clips/episode_014_agentview_image_000260-000300.mp4",
+      "clips/episode_014_robot0_eye_in_hand_image_000260-000300.mp4"
+    ],
+    "event_type": null,
+    "object": null,
+    "first_possible_frame": null,
+    "last_possible_frame": null,
+    "interval_uncertainty": null,
+    "physical_support_evidence": null,
+    "camera_timing_uncertainty": null,
+    "other_uncertainty": null,
+    "reviewer_identity": "",
+    "decision": null
+  }
+]

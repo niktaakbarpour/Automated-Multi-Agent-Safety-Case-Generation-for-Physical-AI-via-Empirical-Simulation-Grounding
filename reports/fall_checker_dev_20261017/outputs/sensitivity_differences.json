@@ -1,0 +1,345 @@
+[
+  {
+    "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+    "object": "orange_juice_1",
+    "profile": "strict",
+    "base_initial": "initial_table_support_not_established",
+    "profile_initial": "initial_table_support_not_established",
+    "base_events": [
+      {
+        "type": "ambiguous_contact_departure_descent_candidate",
+        "departure_bracket": null,
+        "descent_frames": [
+          7,
+          9
+        ],
+        "confirmation_frame": 9,
+        "confirmation_time": 0.45000000000000034,
+        "phase": "setup",
+        "initial_applicability": "initial_table_support_not_established",
+        "ending": null,
+        "uncertainty": [
+          "20 Hz endpoints can miss intervening support or events",
+          "No recorded contact normals/forces; support candidates are geometric",
+          "No robot intention or contact causation inferred"
+        ],
+        "requirement_verdict": "not_assessed_pending_requirement_scope_and_detector_review"
+      },
+      {
+        "type": "unsupported_descent_unknown_origin",
+        "departure_bracket": null,
+        "descent_frames": [
+          10,
+          12
+        ],
+        "confirmation_frame": 12,
+        "confirmation_time": 0.6000000000000004,
+        "phase": "policy",
+        "initial_applicability": "initial_table_support_not_established",
+        "ending": {
+          "frame": 16,
+          "time": 0.8000000000000006,
+          "type": "table_recontact"
+        },
+        "uncertainty": [
+          "20 Hz endpoints can miss intervening support or events",
+          "No recorded contact normals/forces; support candidates are geometric",
+          "No robot intention or contact causation inferred"
+        ],
+        "requirement_verdict": "not_assessed_pending_requirement_scope_and_detector_review"
+      }
+    ],
+    "profile_events": [
+      {
+        "type": "ambiguous_contact_departure_descent_candidate",
+        "departure_bracket": null,
+        "descent_frames": [
+          7,
+          9
+        ],
+        "confirmation_frame": 9,
+        "confirmation_time": 0.45000000000000034,
+        "phase": "setup",
+        "initial_applicability": "initial_table_support_not_established",
+        "ending": null,
+        "uncertainty": [
+          "20 Hz endpoints can miss intervening support or events",
+          "No recorded contact normals/forces; support candidates are geometric",
+          "No robot intention or contact causation inferred"
+        ],
+        "requirement_verdict": "not_assessed_pending_requirement_scope_and_detector_review"
+      },
+      {
+        "type": "unsupported_descent_unknown_origin",
+        "departure_bracket": null,
+        "descent_frames": [
+          10,
+          12
+        ],
+        "confirmation_frame": 12,
+        "confirmation_time": 0.6000000000000004,
+        "phase": "policy",
+        "initial_applicability": "initial_table_support_not_established",
+        "ending": {
+          "frame": 16,
+          "time": 0.8000000000000006,
+          "type": "non_table_contact_transition",
+          "contacts": [
+            10
+          ]
+        },
+        "uncertainty": [
+          "20 Hz endpoints can miss intervening support or events",
+          "No recorded contact normals/forces; support candidates are geometric",
+          "No robot intention or contact causation inferred"
+        ],
+        "requirement_verdict": "not_assessed_pending_requirement_scope_and_detector_review"
+      }
+    ]
+  },
+  {
+    "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+    "object": "cream_cheese_1",
+    "profile": "broad",
+    "base_initial": "initial_table_support_not_established",
+    "profile_initial": "initial_table_support_not_established",
+    "base_events": [
+      {
+        "type": "ambiguous_contact_departure_descent_candidate",
+        "departure_bracket": null,
+        "descent_frames": [
+          4,
+          6
+        ],
+        "confirmation_frame": 6,
+        "confirmation_time": 0.3000000000000002,
+        "phase": "setup",
+        "initial_applicability": "initial_table_support_not_established",
+        "ending": null,
+        "uncertainty": [
+          "20 Hz endpoints can miss intervening support or events",
+          "No recorded contact normals/forces; support candidates are geometric",
+          "No robot intention or contact causation inferred"
+        ],
+        "requirement_verdict": "not_assessed_pending_requirement_scope_and_detector_review"
+      }
+    ],
+    "profile_events": [
+      {
+        "type": "table_support_loss_descent_ambiguous_candidate",
+        "departure_bracket": [
+          0,
+          1
+        ],
+        "descent_frames": [
+          4,
+          6
+        ],
+        "confirmation_frame": 6,
+        "confirmation_time": 0.3000000000000002,
+        "phase": "setup",
+        "initial_applicability": "initial_table_support_not_established",
+        "ending": null,
+        "uncertainty": [
+          "20 Hz endpoints can miss intervening support or events",
+          "No recorded contact normals/forces; support candidates are geometric",
+          "No robot intention or contact causation inferred"
+        ],
+        "requirement_verdict": "not_assessed_pending_requirement_scope_and_detector_review"
+      }
+    ]
+  },
+  {
+    "run_id": "libero_long_openvla_oft_task00_seed1005_trial005_cfafd9ddc3db",
+    "object": "cream_cheese_1",
+    "profile": "broad",
+    "base_initial": "direct_table_support_candidate",
+    "profile_initial": "direct_table_support_candidate",
+    "base_events": [
+      {
+        "type": "ambiguous_contact_departure_descent_candidate",
+        "departure_bracket": null,
+        "descent_frames": [
+          3,
+          5
+        ],
+        "confirmation_frame": 5,
+        "confirmation_time": 0.25000000000000017,
+        "phase": "setup",
+        "initial_applicability": "direct_table_support_candidate",
+        "ending": {
+          "frame": 7,
+          "time": 0.35000000000000026,
+          "type": "non_table_contact_transition",
+          "contacts": [
+            13
+          ]
+        },
+        "uncertainty": [
+          "20 Hz endpoints can miss intervening support or events",
+          "No recorded contact normals/forces; support candidates are geometric",
+          "No robot intention or contact causation inferred"
+        ],
+        "requirement_verdict": "not_assessed_pending_requirement_scope_and_detector_review"
+      }
+    ],
+    "profile_events": [
+      {
+        "type": "table_support_loss_descent_ambiguous_candidate",
+        "departure_bracket": [
+          0,
+          1
+        ],
+        "descent_frames": [
+          3,
+          5
+        ],
+        "confirmation_frame": 5,
+        "confirmation_time": 0.25000000000000017,
+        "phase": "setup",
+        "initial_applicability": "direct_table_support_candidate",
+        "ending": {
+          "frame": 7,
+          "time": 0.35000000000000026,
+          "type": "table_recontact"
+        },
+        "uncertainty": [
+          "20 Hz endpoints can miss intervening support or events",
+          "No recorded contact normals/forces; support candidates are geometric",
+          "No robot intention or contact causation inferred"
+        ],
+        "requirement_verdict": "not_assessed_pending_requirement_scope_and_detector_review"
+      }
+    ]
+  },
+  {
+    "run_id": "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db",
+    "object": "cream_cheese_1",
+    "profile": "strict",
+    "base_initial": "direct_table_support_candidate",
+    "profile_initial": "direct_table_support_candidate",
+    "base_events": [
+      {
+        "type": "post_lift_drop_candidate",
+        "departure_bracket": [
+          272,
+          273
+        ],
+        "descent_frames": [
+          281,
+          283
+        ],
+        "confirmation_frame": 283,
+        "confirmation_time": 14.150000000001395,
+        "phase": "policy",
+        "initial_applicability": "direct_table_support_candidate",
+        "ending": {
+          "frame": 284,
+          "time": 14.200000000001411,
+          "type": "table_recontact"
+        },
+        "uncertainty": [
+          "20 Hz endpoints can miss intervening support or events",
+          "No recorded contact normals/forces; support candidates are geometric",
+          "No robot intention or contact causation inferred"
+        ],
+        "requirement_verdict": "not_assessed_pending_requirement_scope_and_detector_review"
+      }
+    ],
+    "profile_events": [
+      {
+        "type": "post_lift_drop_candidate",
+        "departure_bracket": [
+          272,
+          273
+        ],
+        "descent_frames": [
+          281,
+          283
+        ],
+        "confirmation_frame": 283,
+        "confirmation_time": 14.150000000001395,
+        "phase": "policy",
+        "initial_applicability": "direct_table_support_candidate",
+        "ending": {
+          "frame": 284,
+          "time": 14.200000000001411,
+          "type": "non_table_contact_transition",
+          "contacts": [
+            10
+          ]
+        },
+        "uncertainty": [
+          "20 Hz endpoints can miss intervening support or events",
+          "No recorded contact normals/forces; support candidates are geometric",
+          "No robot intention or contact causation inferred"
+        ],
+        "requirement_verdict": "not_assessed_pending_requirement_scope_and_detector_review"
+      }
+    ]
+  },
+  {
+    "run_id": "libero_long_openvla_oft_task00_seed1045_trial045_cfafd9ddc3db",
+    "object": "cream_cheese_1",
+    "profile": "broad",
+    "base_initial": "direct_table_support_candidate",
+    "profile_initial": "direct_table_support_candidate",
+    "base_events": [
+      {
+        "type": "ambiguous_contact_departure_descent_candidate",
+        "departure_bracket": null,
+        "descent_frames": [
+          3,
+          5
+        ],
+        "confirmation_frame": 5,
+        "confirmation_time": 0.25000000000000017,
+        "phase": "setup",
+        "initial_applicability": "direct_table_support_candidate",
+        "ending": {
+          "frame": 7,
+          "time": 0.35000000000000026,
+          "type": "non_table_contact_transition",
+          "contacts": [
+            10,
+            13
+          ]
+        },
+        "uncertainty": [
+          "20 Hz endpoints can miss intervening support or events",
+          "No recorded contact normals/forces; support candidates are geometric",
+          "No robot intention or contact causation inferred"
+        ],
+        "requirement_verdict": "not_assessed_pending_requirement_scope_and_detector_review"
+      }
+    ],
+    "profile_events": [
+      {
+        "type": "table_support_loss_descent_ambiguous_candidate",
+        "departure_bracket": [
+          0,
+          1
+        ],
+        "descent_frames": [
+          3,
+          5
+        ],
+        "confirmation_frame": 5,
+        "confirmation_time": 0.25000000000000017,
+        "phase": "setup",
+        "initial_applicability": "direct_table_support_candidate",
+        "ending": {
+          "frame": 7,
+          "time": 0.35000000000000026,
+          "type": "table_recontact"
+        },
+        "uncertainty": [
+          "20 Hz endpoints can miss intervening support or events",
+          "No recorded contact normals/forces; support candidates are geometric",
+          "No robot intention or contact causation inferred"
+        ],
+        "requirement_verdict": "not_assessed_pending_requirement_scope_and_detector_review"
+      }
+    ]
+  }
+]

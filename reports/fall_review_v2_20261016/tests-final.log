@@ -1,0 +1,17 @@
+test_actual_155_vs_161_failure (test_native_geometry_v2.ActualMappingRegression.test_actual_155_vs_161_failure) ... ok
+test_actual_contact_pair_and_anonymous_table_ids (test_native_geometry_v2.ActualMappingRegression.test_actual_contact_pair_and_anonymous_table_ids) ... ok
+test_actual_snapshot_and_corrupted_native_geometry_order (test_native_geometry_v2.ActualMappingRegression.test_actual_snapshot_and_corrupted_native_geometry_order) ... ok
+test_bad_contact_ids_and_recording_identity_rejected (test_native_geometry_v2.ActualMappingRegression.test_bad_contact_ids_and_recording_identity_rejected) ... ok
+test_corrected_inventory_uses_native_ids (test_native_geometry_v2.ActualMappingRegression.test_corrected_inventory_uses_native_ids) ... ok
+test_legacy_and_incomplete_mapping_fail_closed (test_native_geometry_v2.ActualMappingRegression.test_legacy_and_incomplete_mapping_fail_closed) ... ok
+test_actual_box_quaternions_match_six_digit_XML_rounding (test_review_boundaries.ReviewBoundaries.test_actual_box_quaternions_match_six_digit_XML_rounding) ... ok
+test_human_forms_have_no_preentered_labels_or_decisions (test_review_boundaries.ReviewBoundaries.test_human_forms_have_no_preentered_labels_or_decisions) ... ok
+test_pending_requirement_and_unchanged_five_object_scope (test_review_boundaries.ReviewBoundaries.test_pending_requirement_and_unchanged_five_object_scope) ... ok
+test_Euler_translation_identity_in_actual_excerpts (test_timing_evidence.RecordedTimingEvidence.test_Euler_translation_identity_in_actual_excerpts) ... ok
+test_boundary_geometry_is_separate_static_evidence (test_timing_evidence.RecordedTimingEvidence.test_boundary_geometry_is_separate_static_evidence) ... ok
+test_raw_and_derived_are_not_assumed_synchronous (test_timing_evidence.RecordedTimingEvidence.test_raw_and_derived_are_not_assumed_synchronous) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 0.068s
+
+OK

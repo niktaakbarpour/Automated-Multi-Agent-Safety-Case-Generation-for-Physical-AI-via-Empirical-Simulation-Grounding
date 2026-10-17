@@ -1,0 +1,2258 @@
+[
+  {
+    "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+    "profile": "strict",
+    "object": "orange_juice_1",
+    "base": {
+      "initial_applicability": "initial_table_support_not_established",
+      "events": [
+        {
+          "type": "ambiguous_contact_departure_descent_candidate",
+          "initial_classification": "ambiguous_contact_departure_descent_candidate",
+          "classification_history": [
+            {
+              "type": "ambiguous_contact_departure_descent_candidate",
+              "reference": {
+                "frame": 9,
+                "time": 0.45000000000000034,
+                "geometry_nominal_time": 0.44800000000000034,
+                "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+                "hdf5_frame": "000009"
+              },
+              "supporting_evidence": [],
+              "reason": "Persistence confirmation at contact-free endpoints"
+            }
+          ],
+          "departure_bracket": null,
+          "observed_event_span": {
+            "start": {
+              "frame": 7,
+              "time": 0.35000000000000026,
+              "geometry_nominal_time": 0.34800000000000025,
+              "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+              "hdf5_frame": "000007"
+            },
+            "end": {
+              "frame": 9,
+              "time": 0.45000000000000034,
+              "geometry_nominal_time": 0.44800000000000034,
+              "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+              "hdf5_frame": "000009"
+            }
+          },
+          "descent_frames": [
+            7,
+            9
+          ],
+          "confirmation_window": [
+            {
+              "start": {
+                "frame": 7,
+                "time": 0.35000000000000026,
+                "geometry_nominal_time": 0.34800000000000025,
+                "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+                "hdf5_frame": "000007"
+              },
+              "end": {
+                "frame": 8,
+                "time": 0.4000000000000003,
+                "geometry_nominal_time": 0.3980000000000003,
+                "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+                "hdf5_frame": "000008"
+              },
+              "descent_m": 0.02037774388381608,
+              "both_endpoints_contact_free": true
+            },
+            {
+              "start": {
+                "frame": 8,
+                "time": 0.4000000000000003,
+                "geometry_nominal_time": 0.3980000000000003,
+                "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+                "hdf5_frame": "000008"
+              },
+              "end": {
+                "frame": 9,
+                "time": 0.45000000000000034,
+                "geometry_nominal_time": 0.44800000000000034,
+                "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+                "hdf5_frame": "000009"
+              },
+              "descent_m": 0.04481611971216126,
+              "both_endpoints_contact_free": true
+            }
+          ],
+          "observed_contact_free_descent_intervals": [
+            {
+              "start": {
+                "frame": 7,
+                "time": 0.35000000000000026,
+                "geometry_nominal_time": 0.34800000000000025,
+                "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+                "hdf5_frame": "000007"
+              },
+              "end": {
+                "frame": 8,
+                "time": 0.4000000000000003,
+                "geometry_nominal_time": 0.3980000000000003,
+                "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+                "hdf5_frame": "000008"
+              },
+              "descent_m": 0.02037774388381608,
+              "both_endpoints_contact_free": true
+            },
+            {
+              "start": {
+                "frame": 8,
+                "time": 0.4000000000000003,
+                "geometry_nominal_time": 0.3980000000000003,
+                "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+                "hdf5_frame": "000008"
+              },
+              "end": {
+                "frame": 9,
+                "time": 0.45000000000000034,
+                "geometry_nominal_time": 0.44800000000000034,
+                "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+                "hdf5_frame": "000009"
+              },
+              "descent_m": 0.04481611971216126,
+              "both_endpoints_contact_free": true
+            }
+          ],
+          "confirmation_frame": 9,
+          "confirmation_time": 0.45000000000000034,
+          "phase": "setup",
+          "initial_applicability": "initial_table_support_not_established",
+          "ending": {
+            "reason": "policy_interval_boundary",
+            "type": "policy_interval_boundary",
+            "censored": true,
+            "reference": null,
+            "last_observed_reference": {
+              "frame": 9,
+              "time": 0.45000000000000034,
+              "geometry_nominal_time": 0.44800000000000034,
+              "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+              "hdf5_frame": "000009"
+            }
+          },
+          "origin_history": {
+            "last_table_support_frame": null,
+            "lift_candidate": false,
+            "lift_evidence": [],
+            "unresolved_contact_history": true,
+            "unresolved_contact_frames": [
+              {
+                "frame": 0,
+                "time": 0.0,
+                "geometry_nominal_time": 0.0,
+                "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+                "hdf5_frame": "000000"
+              }
+            ]
+          },
+          "strong_departure_evidence": [],
+          "uncertainty": [
+            "Contact-free only at sampled endpoints; no continuous absence of contact established",
+            "20 Hz coverage can miss support, catches, short events and substep transitions",
+            "Recorded contacts lack normals/forces; support and lift remain candidates",
+            "No robot intention or contact causation inferred"
+          ],
+          "requirement_verdict": "not_assessed_pending_requirement_scope_and_detector_review"
+        },
+        {
+          "type": "unsupported_descent_unknown_origin",
+          "initial_classification": "unsupported_descent_unknown_origin",
+          "classification_history": [
+            {
+              "type": "unsupported_descent_unknown_origin",
+              "reference": {
+                "frame": 12,
+                "time": 0.6000000000000004,
+                "geometry_nominal_time": 0.5980000000000004,
+                "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+                "hdf5_frame": "000012"
+              },
+              "supporting_evidence": [],
+              "reason": "Persistence confirmation at contact-free endpoints"
+            }
+          ],
+          "departure_bracket": null,
+          "observed_event_span": {
+            "start": {
+              "frame": 10,
+              "time": 0.5000000000000003,
+              "geometry_nominal_time": 0.49800000000000033,
+              "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+              "hdf5_frame": "000010"
+            },
+            "end": {
+              "frame": 16,
+              "time": 0.8000000000000006,
+              "geometry_nominal_time": 0.7980000000000006,
+              "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+              "hdf5_frame": "000016"
+            }
+          },
+          "descent_frames": [
+            10,
+            12
+          ],
+          "confirmation_window": [
+            {
+              "start": {
+                "frame": 10,
+                "time": 0.5000000000000003,
+                "geometry_nominal_time": 0.49800000000000033,
+                "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+                "hdf5_frame": "000010"
+              },
+              "end": {
+                "frame": 11,
+                "time": 0.5500000000000004,
+                "geometry_nominal_time": 0.5480000000000004,
+                "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+                "hdf5_frame": "000011"
+              },
+              "descent_m": 0.09323767931407523,
+              "both_endpoints_contact_free": true
+            },
+            {
+              "start": {
+                "frame": 11,
+                "time": 0.5500000000000004,
+                "geometry_nominal_time": 0.5480000000000004,
+                "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+                "hdf5_frame": "000011"
+              },
+              "end": {
+                "frame": 12,
+                "time": 0.6000000000000004,
+                "geometry_nominal_time": 0.5980000000000004,
+                "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+                "hdf5_frame": "000012"
+              },
+              "descent_m": 0.11710197806243683,
+              "both_endpoints_contact_free": true
+            }
+          ],
+          "observed_contact_free_descent_intervals": [
+            {
+              "start": {
+                "frame": 10,
+                "time": 0.5000000000000003,
+                "geometry_nominal_time": 0.49800000000000033,
+                "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+                "hdf5_frame": "000010"
+              },
+              "end": {
+                "frame": 11,
+                "time": 0.5500000000000004,
+                "geometry_nominal_time": 0.5480000000000004,
+                "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+                "hdf5_frame": "000011"
+              },
+              "descent_m": 0.09323767931407523,
+              "both_endpoints_contact_free": true
+            },
+            {
+              "start": {
+                "frame": 11,
+                "time": 0.5500000000000004,
+                "geometry_nominal_time": 0.5480000000000004,
+                "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+                "hdf5_frame": "000011"
+              },
+              "end": {
+                "frame": 12,
+                "time": 0.6000000000000004,
+                "geometry_nominal_time": 0.5980000000000004,
+                "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+                "hdf5_frame": "000012"
+              },
+              "descent_m": 0.11710197806243683,
+              "both_endpoints_contact_free": true
+            },
+            {
+              "start": {
+                "frame": 12,
+                "time": 0.6000000000000004,
+                "geometry_nominal_time": 0.5980000000000004,
+                "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+                "hdf5_frame": "000012"
+              },
+              "end": {
+                "frame": 13,
+                "time": 0.6500000000000005,
+                "geometry_nominal_time": 0.6480000000000005,
+                "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+                "hdf5_frame": "000013"
+              },
+              "descent_m": 0.14065985881361365,
+              "both_endpoints_contact_free": true
+            },
+            {
+              "start": {
+                "frame": 13,
+                "time": 0.6500000000000005,
+                "geometry_nominal_time": 0.6480000000000005,
+                "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+                "hdf5_frame": "000013"
+              },
+              "end": {
+                "frame": 14,
+                "time": 0.7000000000000005,
+                "geometry_nominal_time": 0.6980000000000005,
+                "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+                "hdf5_frame": "000014"
+              },
+              "descent_m": 0.018224864379844496,
+              "both_endpoints_contact_free": true
+            }
+          ],
+          "confirmation_frame": 12,
+          "confirmation_time": 0.6000000000000004,
+          "phase": "policy",
+          "initial_applicability": "initial_table_support_not_established",
+          "ending": {
+            "reason": "table_recontact",
+            "type": "table_recontact",
+            "censored": false,
+            "reference": {
+              "frame": 16,
+              "time": 0.8000000000000006,
+              "geometry_nominal_time": 0.7980000000000006,
+              "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+              "hdf5_frame": "000016"
+            },
+            "last_observed_reference": {
+              "frame": 16,
+              "time": 0.8000000000000006,
+              "geometry_nominal_time": 0.7980000000000006,
+              "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+              "hdf5_frame": "000016"
+            },
+            "contacts": [
+              10
+            ]
+          },
+          "origin_history": {
+            "last_table_support_frame": null,
+            "lift_candidate": false,
+            "lift_evidence": [],
+            "unresolved_contact_history": false,
+            "unresolved_contact_frames": []
+          },
+          "strong_departure_evidence": [],
+          "uncertainty": [
+            "Contact-free only at sampled endpoints; no continuous absence of contact established",
+            "20 Hz coverage can miss support, catches, short events and substep transitions",
+            "Recorded contacts lack normals/forces; support and lift remain candidates",
+            "No robot intention or contact causation inferred"
+          ],
+          "requirement_verdict": "not_assessed_pending_requirement_scope_and_detector_review"
+        }
+      ],
+      "support_transitions": [
+        {
+          "type": "table_support_candidate_gained",
+          "frames": [
+            15,
+            16
+          ],
+          "times": [
+            0.7500000000000006,
+            0.8000000000000006
+          ],
+          "phase": "policy"
+        }
+      ],
+      "gaps": [],
+      "unconfirmed_descent_sequences": [],
+      "requirement_verdict": "not_assessed_pending_approval",
+      "human_label": null,
+      "measurement_statement": "Provisional 20 Hz endpoint evidence; absence of a candidate is not continuous safety."
+    },
+    "profile_result": {
+      "initial_applicability": "initial_table_support_not_established",
+      "events": [
+        {
+          "type": "ambiguous_contact_departure_descent_candidate",
+          "initial_classification": "ambiguous_contact_departure_descent_candidate",
+          "classification_history": [
+            {
+              "type": "ambiguous_contact_departure_descent_candidate",
+              "reference": {
+                "frame": 9,
+                "time": 0.45000000000000034,
+                "geometry_nominal_time": 0.44800000000000034,
+                "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+                "hdf5_frame": "000009"
+              },
+              "supporting_evidence": [],
+              "reason": "Persistence confirmation at contact-free endpoints"
+            }
+          ],
+          "departure_bracket": null,
+          "observed_event_span": {
+            "start": {
+              "frame": 7,
+              "time": 0.35000000000000026,
+              "geometry_nominal_time": 0.34800000000000025,
+              "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+              "hdf5_frame": "000007"
+            },
+            "end": {
+              "frame": 9,
+              "time": 0.45000000000000034,
+              "geometry_nominal_time": 0.44800000000000034,
+              "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+              "hdf5_frame": "000009"
+            }
+          },
+          "descent_frames": [
+            7,
+            9
+          ],
+          "confirmation_window": [
+            {
+              "start": {
+                "frame": 7,
+                "time": 0.35000000000000026,
+                "geometry_nominal_time": 0.34800000000000025,
+                "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+                "hdf5_frame": "000007"
+              },
+              "end": {
+                "frame": 8,
+                "time": 0.4000000000000003,
+                "geometry_nominal_time": 0.3980000000000003,
+                "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+                "hdf5_frame": "000008"
+              },
+              "descent_m": 0.02037774388381608,
+              "both_endpoints_contact_free": true
+            },
+            {
+              "start": {
+                "frame": 8,
+                "time": 0.4000000000000003,
+                "geometry_nominal_time": 0.3980000000000003,
+                "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+                "hdf5_frame": "000008"
+              },
+              "end": {
+                "frame": 9,
+                "time": 0.45000000000000034,
+                "geometry_nominal_time": 0.44800000000000034,
+                "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+                "hdf5_frame": "000009"
+              },
+              "descent_m": 0.04481611971216126,
+              "both_endpoints_contact_free": true
+            }
+          ],
+          "observed_contact_free_descent_intervals": [
+            {
+              "start": {
+                "frame": 7,
+                "time": 0.35000000000000026,
+                "geometry_nominal_time": 0.34800000000000025,
+                "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+                "hdf5_frame": "000007"
+              },
+              "end": {
+                "frame": 8,
+                "time": 0.4000000000000003,
+                "geometry_nominal_time": 0.3980000000000003,
+                "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+                "hdf5_frame": "000008"
+              },
+              "descent_m": 0.02037774388381608,
+              "both_endpoints_contact_free": true
+            },
+            {
+              "start": {
+                "frame": 8,
+                "time": 0.4000000000000003,
+                "geometry_nominal_time": 0.3980000000000003,
+                "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+                "hdf5_frame": "000008"
+              },
+              "end": {
+                "frame": 9,
+                "time": 0.45000000000000034,
+                "geometry_nominal_time": 0.44800000000000034,
+                "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+                "hdf5_frame": "000009"
+              },
+              "descent_m": 0.04481611971216126,
+              "both_endpoints_contact_free": true
+            }
+          ],
+          "confirmation_frame": 9,
+          "confirmation_time": 0.45000000000000034,
+          "phase": "setup",
+          "initial_applicability": "initial_table_support_not_established",
+          "ending": {
+            "reason": "policy_interval_boundary",
+            "type": "policy_interval_boundary",
+            "censored": true,
+            "reference": null,
+            "last_observed_reference": {
+              "frame": 9,
+              "time": 0.45000000000000034,
+              "geometry_nominal_time": 0.44800000000000034,
+              "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+              "hdf5_frame": "000009"
+            }
+          },
+          "origin_history": {
+            "last_table_support_frame": null,
+            "lift_candidate": false,
+            "lift_evidence": [],
+            "unresolved_contact_history": true,
+            "unresolved_contact_frames": [
+              {
+                "frame": 0,
+                "time": 0.0,
+                "geometry_nominal_time": 0.0,
+                "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+                "hdf5_frame": "000000"
+              }
+            ]
+          },
+          "strong_departure_evidence": [],
+          "uncertainty": [
+            "Contact-free only at sampled endpoints; no continuous absence of contact established",
+            "20 Hz coverage can miss support, catches, short events and substep transitions",
+            "Recorded contacts lack normals/forces; support and lift remain candidates",
+            "No robot intention or contact causation inferred"
+          ],
+          "requirement_verdict": "not_assessed_pending_requirement_scope_and_detector_review"
+        },
+        {
+          "type": "unsupported_descent_unknown_origin",
+          "initial_classification": "unsupported_descent_unknown_origin",
+          "classification_history": [
+            {
+              "type": "unsupported_descent_unknown_origin",
+              "reference": {
+                "frame": 12,
+                "time": 0.6000000000000004,
+                "geometry_nominal_time": 0.5980000000000004,
+                "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+                "hdf5_frame": "000012"
+              },
+              "supporting_evidence": [],
+              "reason": "Persistence confirmation at contact-free endpoints"
+            }
+          ],
+          "departure_bracket": null,
+          "observed_event_span": {
+            "start": {
+              "frame": 10,
+              "time": 0.5000000000000003,
+              "geometry_nominal_time": 0.49800000000000033,
+              "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+              "hdf5_frame": "000010"
+            },
+            "end": {
+              "frame": 16,
+              "time": 0.8000000000000006,
+              "geometry_nominal_time": 0.7980000000000006,
+              "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+              "hdf5_frame": "000016"
+            }
+          },
+          "descent_frames": [
+            10,
+            12
+          ],
+          "confirmation_window": [
+            {
+              "start": {
+                "frame": 10,
+                "time": 0.5000000000000003,
+                "geometry_nominal_time": 0.49800000000000033,
+                "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+                "hdf5_frame": "000010"
+              },
+              "end": {
+                "frame": 11,
+                "time": 0.5500000000000004,
+                "geometry_nominal_time": 0.5480000000000004,
+                "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+                "hdf5_frame": "000011"
+              },
+              "descent_m": 0.09323767931407523,
+              "both_endpoints_contact_free": true
+            },
+            {
+              "start": {
+                "frame": 11,
+                "time": 0.5500000000000004,
+                "geometry_nominal_time": 0.5480000000000004,
+                "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+                "hdf5_frame": "000011"
+              },
+              "end": {
+                "frame": 12,
+                "time": 0.6000000000000004,
+                "geometry_nominal_time": 0.5980000000000004,
+                "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+                "hdf5_frame": "000012"
+              },
+              "descent_m": 0.11710197806243683,
+              "both_endpoints_contact_free": true
+            }
+          ],
+          "observed_contact_free_descent_intervals": [
+            {
+              "start": {
+                "frame": 10,
+                "time": 0.5000000000000003,
+                "geometry_nominal_time": 0.49800000000000033,
+                "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+                "hdf5_frame": "000010"
+              },
+              "end": {
+                "frame": 11,
+                "time": 0.5500000000000004,
+                "geometry_nominal_time": 0.5480000000000004,
+                "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+                "hdf5_frame": "000011"
+              },
+              "descent_m": 0.09323767931407523,
+              "both_endpoints_contact_free": true
+            },
+            {
+              "start": {
+                "frame": 11,
+                "time": 0.5500000000000004,
+                "geometry_nominal_time": 0.5480000000000004,
+                "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+                "hdf5_frame": "000011"
+              },
+              "end": {
+                "frame": 12,
+                "time": 0.6000000000000004,
+                "geometry_nominal_time": 0.5980000000000004,
+                "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+                "hdf5_frame": "000012"
+              },
+              "descent_m": 0.11710197806243683,
+              "both_endpoints_contact_free": true
+            },
+            {
+              "start": {
+                "frame": 12,
+                "time": 0.6000000000000004,
+                "geometry_nominal_time": 0.5980000000000004,
+                "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+                "hdf5_frame": "000012"
+              },
+              "end": {
+                "frame": 13,
+                "time": 0.6500000000000005,
+                "geometry_nominal_time": 0.6480000000000005,
+                "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+                "hdf5_frame": "000013"
+              },
+              "descent_m": 0.14065985881361365,
+              "both_endpoints_contact_free": true
+            },
+            {
+              "start": {
+                "frame": 13,
+                "time": 0.6500000000000005,
+                "geometry_nominal_time": 0.6480000000000005,
+                "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+                "hdf5_frame": "000013"
+              },
+              "end": {
+                "frame": 14,
+                "time": 0.7000000000000005,
+                "geometry_nominal_time": 0.6980000000000005,
+                "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+                "hdf5_frame": "000014"
+              },
+              "descent_m": 0.018224864379844496,
+              "both_endpoints_contact_free": true
+            }
+          ],
+          "confirmation_frame": 12,
+          "confirmation_time": 0.6000000000000004,
+          "phase": "policy",
+          "initial_applicability": "initial_table_support_not_established",
+          "ending": {
+            "reason": "non_table_contact_transition",
+            "type": "non_table_contact_transition",
+            "censored": false,
+            "reference": {
+              "frame": 16,
+              "time": 0.8000000000000006,
+              "geometry_nominal_time": 0.7980000000000006,
+              "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+              "hdf5_frame": "000016"
+            },
+            "last_observed_reference": {
+              "frame": 16,
+              "time": 0.8000000000000006,
+              "geometry_nominal_time": 0.7980000000000006,
+              "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+              "hdf5_frame": "000016"
+            },
+            "contacts": [
+              10
+            ]
+          },
+          "origin_history": {
+            "last_table_support_frame": null,
+            "lift_candidate": false,
+            "lift_evidence": [],
+            "unresolved_contact_history": false,
+            "unresolved_contact_frames": []
+          },
+          "strong_departure_evidence": [],
+          "uncertainty": [
+            "Contact-free only at sampled endpoints; no continuous absence of contact established",
+            "20 Hz coverage can miss support, catches, short events and substep transitions",
+            "Recorded contacts lack normals/forces; support and lift remain candidates",
+            "No robot intention or contact causation inferred"
+          ],
+          "requirement_verdict": "not_assessed_pending_requirement_scope_and_detector_review"
+        }
+      ],
+      "support_transitions": [
+        {
+          "type": "table_support_candidate_gained",
+          "frames": [
+            16,
+            17
+          ],
+          "times": [
+            0.8000000000000006,
+            0.8500000000000006
+          ],
+          "phase": "policy"
+        },
+        {
+          "type": "table_support_candidate_departed",
+          "frames": [
+            17,
+            18
+          ],
+          "times": [
+            0.8500000000000006,
+            0.9000000000000007
+          ],
+          "phase": "policy"
+        },
+        {
+          "type": "table_support_candidate_gained",
+          "frames": [
+            18,
+            19
+          ],
+          "times": [
+            0.9000000000000007,
+            0.9500000000000007
+          ],
+          "phase": "policy"
+        }
+      ],
+      "gaps": [],
+      "unconfirmed_descent_sequences": [],
+      "requirement_verdict": "not_assessed_pending_approval",
+      "human_label": null,
+      "measurement_statement": "Provisional 20 Hz endpoint evidence; absence of a candidate is not continuous safety."
+    }
+  },
+  {
+    "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+    "profile": "broad",
+    "object": "cream_cheese_1",
+    "base": {
+      "initial_applicability": "initial_table_support_not_established",
+      "events": [
+        {
+          "type": "ambiguous_contact_departure_descent_candidate",
+          "initial_classification": "ambiguous_contact_departure_descent_candidate",
+          "classification_history": [
+            {
+              "type": "ambiguous_contact_departure_descent_candidate",
+              "reference": {
+                "frame": 6,
+                "time": 0.3000000000000002,
+                "geometry_nominal_time": 0.2980000000000002,
+                "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+                "hdf5_frame": "000006"
+              },
+              "supporting_evidence": [],
+              "reason": "Persistence confirmation at contact-free endpoints"
+            }
+          ],
+          "departure_bracket": null,
+          "observed_event_span": {
+            "start": {
+              "frame": 4,
+              "time": 0.20000000000000015,
+              "geometry_nominal_time": 0.19800000000000015,
+              "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+              "hdf5_frame": "000004"
+            },
+            "end": {
+              "frame": 9,
+              "time": 0.45000000000000034,
+              "geometry_nominal_time": 0.44800000000000034,
+              "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+              "hdf5_frame": "000009"
+            }
+          },
+          "descent_frames": [
+            4,
+            6
+          ],
+          "confirmation_window": [
+            {
+              "start": {
+                "frame": 4,
+                "time": 0.20000000000000015,
+                "geometry_nominal_time": 0.19800000000000015,
+                "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+                "hdf5_frame": "000004"
+              },
+              "end": {
+                "frame": 5,
+                "time": 0.25000000000000017,
+                "geometry_nominal_time": 0.24800000000000016,
+                "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+                "hdf5_frame": "000005"
+              },
+              "descent_m": 0.016775446269766014,
+              "both_endpoints_contact_free": true
+            },
+            {
+              "start": {
+                "frame": 5,
+                "time": 0.25000000000000017,
+                "geometry_nominal_time": 0.24800000000000016,
+                "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+                "hdf5_frame": "000005"
+              },
+              "end": {
+                "frame": 6,
+                "time": 0.3000000000000002,
+                "geometry_nominal_time": 0.2980000000000002,
+                "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+                "hdf5_frame": "000006"
+              },
+              "descent_m": 0.04099990117614427,
+              "both_endpoints_contact_free": true
+            }
+          ],
+          "observed_contact_free_descent_intervals": [
+            {
+              "start": {
+                "frame": 4,
+                "time": 0.20000000000000015,
+                "geometry_nominal_time": 0.19800000000000015,
+                "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+                "hdf5_frame": "000004"
+              },
+              "end": {
+                "frame": 5,
+                "time": 0.25000000000000017,
+                "geometry_nominal_time": 0.24800000000000016,
+                "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+                "hdf5_frame": "000005"
+              },
+              "descent_m": 0.016775446269766014,
+              "both_endpoints_contact_free": true
+            },
+            {
+              "start": {
+                "frame": 5,
+                "time": 0.25000000000000017,
+                "geometry_nominal_time": 0.24800000000000016,
+                "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+                "hdf5_frame": "000005"
+              },
+              "end": {
+                "frame": 6,
+                "time": 0.3000000000000002,
+                "geometry_nominal_time": 0.2980000000000002,
+                "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+                "hdf5_frame": "000006"
+              },
+              "descent_m": 0.04099990117614427,
+              "both_endpoints_contact_free": true
+            },
+            {
+              "start": {
+                "frame": 6,
+                "time": 0.3000000000000002,
+                "geometry_nominal_time": 0.2980000000000002,
+                "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+                "hdf5_frame": "000006"
+              },
+              "end": {
+                "frame": 7,
+                "time": 0.35000000000000026,
+                "geometry_nominal_time": 0.34800000000000025,
+                "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+                "hdf5_frame": "000007"
+              },
+              "descent_m": 0.064653917080571,
+              "both_endpoints_contact_free": true
+            },
+            {
+              "start": {
+                "frame": 7,
+                "time": 0.35000000000000026,
+                "geometry_nominal_time": 0.34800000000000025,
+                "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+                "hdf5_frame": "000007"
+              },
+              "end": {
+                "frame": 8,
+                "time": 0.4000000000000003,
+                "geometry_nominal_time": 0.3980000000000003,
+                "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+                "hdf5_frame": "000008"
+              },
+              "descent_m": 0.08741013674992221,
+              "both_endpoints_contact_free": true
+            },
+            {
+              "start": {
+                "frame": 8,
+                "time": 0.4000000000000003,
+                "geometry_nominal_time": 0.3980000000000003,
+                "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+                "hdf5_frame": "000008"
+              },
+              "end": {
+                "frame": 9,
+                "time": 0.45000000000000034,
+                "geometry_nominal_time": 0.44800000000000034,
+                "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+                "hdf5_frame": "000009"
+              },
+              "descent_m": 0.10899276660197321,
+              "both_endpoints_contact_free": true
+            }
+          ],
+          "confirmation_frame": 6,
+          "confirmation_time": 0.3000000000000002,
+          "phase": "setup",
+          "initial_applicability": "initial_table_support_not_established",
+          "ending": {
+            "reason": "policy_interval_boundary",
+            "type": "policy_interval_boundary",
+            "censored": true,
+            "reference": null,
+            "last_observed_reference": {
+              "frame": 9,
+              "time": 0.45000000000000034,
+              "geometry_nominal_time": 0.44800000000000034,
+              "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+              "hdf5_frame": "000009"
+            }
+          },
+          "origin_history": {
+            "last_table_support_frame": null,
+            "lift_candidate": false,
+            "lift_evidence": [],
+            "unresolved_contact_history": true,
+            "unresolved_contact_frames": [
+              {
+                "frame": 0,
+                "time": 0.0,
+                "geometry_nominal_time": 0.0,
+                "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+                "hdf5_frame": "000000"
+              }
+            ]
+          },
+          "strong_departure_evidence": [
+            {
+              "kind": "outside_table_support_projection",
+              "reference": {
+                "frame": 7,
+                "time": 0.35000000000000026,
+                "geometry_nominal_time": 0.34800000000000025,
+                "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+                "hdf5_frame": "000007"
+              }
+            },
+            {
+              "kind": "whole_collision_below_tabletop",
+              "reference": {
+                "frame": 8,
+                "time": 0.4000000000000003,
+                "geometry_nominal_time": 0.3980000000000003,
+                "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+                "hdf5_frame": "000008"
+              }
+            },
+            {
+              "kind": "outside_table_support_projection",
+              "reference": {
+                "frame": 8,
+                "time": 0.4000000000000003,
+                "geometry_nominal_time": 0.3980000000000003,
+                "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+                "hdf5_frame": "000008"
+              }
+            },
+            {
+              "kind": "whole_collision_below_tabletop",
+              "reference": {
+                "frame": 9,
+                "time": 0.45000000000000034,
+                "geometry_nominal_time": 0.44800000000000034,
+                "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+                "hdf5_frame": "000009"
+              }
+            },
+            {
+              "kind": "outside_table_support_projection",
+              "reference": {
+                "frame": 9,
+                "time": 0.45000000000000034,
+                "geometry_nominal_time": 0.44800000000000034,
+                "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+                "hdf5_frame": "000009"
+              }
+            }
+          ],
+          "uncertainty": [
+            "Contact-free only at sampled endpoints; no continuous absence of contact established",
+            "20 Hz coverage can miss support, catches, short events and substep transitions",
+            "Recorded contacts lack normals/forces; support and lift remain candidates",
+            "No robot intention or contact causation inferred"
+          ],
+          "requirement_verdict": "not_assessed_pending_requirement_scope_and_detector_review"
+        }
+      ],
+      "support_transitions": [],
+      "gaps": [],
+      "unconfirmed_descent_sequences": [
+        {
+          "contact_free_descent_intervals": [
+            {
+              "start": {
+                "frame": 10,
+                "time": 0.5000000000000003,
+                "geometry_nominal_time": 0.49800000000000033,
+                "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+                "hdf5_frame": "000010"
+              },
+              "end": {
+                "frame": 11,
+                "time": 0.5500000000000004,
+                "geometry_nominal_time": 0.5480000000000004,
+                "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+                "hdf5_frame": "000011"
+              },
+              "descent_m": 0.1478544673661187,
+              "both_endpoints_contact_free": true
+            }
+          ],
+          "count": 1,
+          "required": 2,
+          "stopped_reason": "contact_or_non_descending_endpoint",
+          "phase": "policy",
+          "departure_bracket": null,
+          "origin_history": {
+            "lift_candidate": false,
+            "unresolved_contact_history": false
+          },
+          "status": "insufficient_persistence_not_an_event_candidate"
+        }
+      ],
+      "requirement_verdict": "not_assessed_pending_approval",
+      "human_label": null,
+      "measurement_statement": "Provisional 20 Hz endpoint evidence; absence of a candidate is not continuous safety."
+    },
+    "profile_result": {
+      "initial_applicability": "initial_table_support_not_established",
+      "events": [
+        {
+          "type": "direct_table_departure_descent_candidate",
+          "initial_classification": "table_support_loss_descent_ambiguous_candidate",
+          "classification_history": [
+            {
+              "type": "table_support_loss_descent_ambiguous_candidate",
+              "reference": {
+                "frame": 6,
+                "time": 0.3000000000000002,
+                "geometry_nominal_time": 0.2980000000000002,
+                "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+                "hdf5_frame": "000006"
+              },
+              "supporting_evidence": [],
+              "reason": "Persistence confirmation at contact-free endpoints"
+            },
+            {
+              "type": "direct_table_departure_descent_candidate",
+              "reference": {
+                "frame": 7,
+                "time": 0.35000000000000026,
+                "geometry_nominal_time": 0.34800000000000025,
+                "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+                "hdf5_frame": "000007"
+              },
+              "supporting_evidence": [
+                {
+                  "kind": "outside_table_support_projection",
+                  "reference": {
+                    "frame": 7,
+                    "time": 0.35000000000000026,
+                    "geometry_nominal_time": 0.34800000000000025,
+                    "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+                    "hdf5_frame": "000007"
+                  }
+                }
+              ],
+              "reason": "Later collision geometry strengthens departure evidence; original ambiguity flags retained"
+            }
+          ],
+          "departure_bracket": [
+            0,
+            1
+          ],
+          "observed_event_span": {
+            "start": {
+              "frame": 1,
+              "time": 0.05
+            },
+            "end": {
+              "frame": 9,
+              "time": 0.45000000000000034,
+              "geometry_nominal_time": 0.44800000000000034,
+              "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+              "hdf5_frame": "000009"
+            }
+          },
+          "descent_frames": [
+            4,
+            6
+          ],
+          "confirmation_window": [
+            {
+              "start": {
+                "frame": 4,
+                "time": 0.20000000000000015,
+                "geometry_nominal_time": 0.19800000000000015,
+                "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+                "hdf5_frame": "000004"
+              },
+              "end": {
+                "frame": 5,
+                "time": 0.25000000000000017,
+                "geometry_nominal_time": 0.24800000000000016,
+                "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+                "hdf5_frame": "000005"
+              },
+              "descent_m": 0.016775446269766014,
+              "both_endpoints_contact_free": true
+            },
+            {
+              "start": {
+                "frame": 5,
+                "time": 0.25000000000000017,
+                "geometry_nominal_time": 0.24800000000000016,
+                "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+                "hdf5_frame": "000005"
+              },
+              "end": {
+                "frame": 6,
+                "time": 0.3000000000000002,
+                "geometry_nominal_time": 0.2980000000000002,
+                "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+                "hdf5_frame": "000006"
+              },
+              "descent_m": 0.04099990117614427,
+              "both_endpoints_contact_free": true
+            }
+          ],
+          "observed_contact_free_descent_intervals": [
+            {
+              "start": {
+                "frame": 4,
+                "time": 0.20000000000000015,
+                "geometry_nominal_time": 0.19800000000000015,
+                "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+                "hdf5_frame": "000004"
+              },
+              "end": {
+                "frame": 5,
+                "time": 0.25000000000000017,
+                "geometry_nominal_time": 0.24800000000000016,
+                "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+                "hdf5_frame": "000005"
+              },
+              "descent_m": 0.016775446269766014,
+              "both_endpoints_contact_free": true
+            },
+            {
+              "start": {
+                "frame": 5,
+                "time": 0.25000000000000017,
+                "geometry_nominal_time": 0.24800000000000016,
+                "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+                "hdf5_frame": "000005"
+              },
+              "end": {
+                "frame": 6,
+                "time": 0.3000000000000002,
+                "geometry_nominal_time": 0.2980000000000002,
+                "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+                "hdf5_frame": "000006"
+              },
+              "descent_m": 0.04099990117614427,
+              "both_endpoints_contact_free": true
+            },
+            {
+              "start": {
+                "frame": 6,
+                "time": 0.3000000000000002,
+                "geometry_nominal_time": 0.2980000000000002,
+                "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+                "hdf5_frame": "000006"
+              },
+              "end": {
+                "frame": 7,
+                "time": 0.35000000000000026,
+                "geometry_nominal_time": 0.34800000000000025,
+                "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+                "hdf5_frame": "000007"
+              },
+              "descent_m": 0.064653917080571,
+              "both_endpoints_contact_free": true
+            },
+            {
+              "start": {
+                "frame": 7,
+                "time": 0.35000000000000026,
+                "geometry_nominal_time": 0.34800000000000025,
+                "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+                "hdf5_frame": "000007"
+              },
+              "end": {
+                "frame": 8,
+                "time": 0.4000000000000003,
+                "geometry_nominal_time": 0.3980000000000003,
+                "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+                "hdf5_frame": "000008"
+              },
+              "descent_m": 0.08741013674992221,
+              "both_endpoints_contact_free": true
+            },
+            {
+              "start": {
+                "frame": 8,
+                "time": 0.4000000000000003,
+                "geometry_nominal_time": 0.3980000000000003,
+                "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+                "hdf5_frame": "000008"
+              },
+              "end": {
+                "frame": 9,
+                "time": 0.45000000000000034,
+                "geometry_nominal_time": 0.44800000000000034,
+                "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+                "hdf5_frame": "000009"
+              },
+              "descent_m": 0.10899276660197321,
+              "both_endpoints_contact_free": true
+            }
+          ],
+          "confirmation_frame": 6,
+          "confirmation_time": 0.3000000000000002,
+          "phase": "setup",
+          "initial_applicability": "initial_table_support_not_established",
+          "ending": {
+            "reason": "policy_interval_boundary",
+            "type": "policy_interval_boundary",
+            "censored": true,
+            "reference": null,
+            "last_observed_reference": {
+              "frame": 9,
+              "time": 0.45000000000000034,
+              "geometry_nominal_time": 0.44800000000000034,
+              "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+              "hdf5_frame": "000009"
+            }
+          },
+          "origin_history": {
+            "last_table_support_frame": 0,
+            "lift_candidate": false,
+            "lift_evidence": [],
+            "unresolved_contact_history": false,
+            "unresolved_contact_frames": []
+          },
+          "strong_departure_evidence": [
+            {
+              "kind": "outside_table_support_projection",
+              "reference": {
+                "frame": 7,
+                "time": 0.35000000000000026,
+                "geometry_nominal_time": 0.34800000000000025,
+                "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+                "hdf5_frame": "000007"
+              }
+            },
+            {
+              "kind": "whole_collision_below_tabletop",
+              "reference": {
+                "frame": 8,
+                "time": 0.4000000000000003,
+                "geometry_nominal_time": 0.3980000000000003,
+                "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+                "hdf5_frame": "000008"
+              }
+            },
+            {
+              "kind": "outside_table_support_projection",
+              "reference": {
+                "frame": 8,
+                "time": 0.4000000000000003,
+                "geometry_nominal_time": 0.3980000000000003,
+                "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+                "hdf5_frame": "000008"
+              }
+            },
+            {
+              "kind": "whole_collision_below_tabletop",
+              "reference": {
+                "frame": 9,
+                "time": 0.45000000000000034,
+                "geometry_nominal_time": 0.44800000000000034,
+                "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+                "hdf5_frame": "000009"
+              }
+            },
+            {
+              "kind": "outside_table_support_projection",
+              "reference": {
+                "frame": 9,
+                "time": 0.45000000000000034,
+                "geometry_nominal_time": 0.44800000000000034,
+                "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+                "hdf5_frame": "000009"
+              }
+            }
+          ],
+          "uncertainty": [
+            "Contact-free only at sampled endpoints; no continuous absence of contact established",
+            "20 Hz coverage can miss support, catches, short events and substep transitions",
+            "Recorded contacts lack normals/forces; support and lift remain candidates",
+            "No robot intention or contact causation inferred"
+          ],
+          "requirement_verdict": "not_assessed_pending_requirement_scope_and_detector_review"
+        }
+      ],
+      "support_transitions": [
+        {
+          "type": "table_support_candidate_departed",
+          "frames": [
+            0,
+            1
+          ],
+          "times": [
+            0.0,
+            0.05000000000000003
+          ],
+          "phase": "setup"
+        }
+      ],
+      "gaps": [],
+      "unconfirmed_descent_sequences": [
+        {
+          "contact_free_descent_intervals": [
+            {
+              "start": {
+                "frame": 10,
+                "time": 0.5000000000000003,
+                "geometry_nominal_time": 0.49800000000000033,
+                "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+                "hdf5_frame": "000010"
+              },
+              "end": {
+                "frame": 11,
+                "time": 0.5500000000000004,
+                "geometry_nominal_time": 0.5480000000000004,
+                "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+                "hdf5_frame": "000011"
+              },
+              "descent_m": 0.1478544673661187,
+              "both_endpoints_contact_free": true
+            }
+          ],
+          "count": 1,
+          "required": 2,
+          "stopped_reason": "contact_or_non_descending_endpoint",
+          "phase": "policy",
+          "departure_bracket": null,
+          "origin_history": {
+            "lift_candidate": false,
+            "unresolved_contact_history": false
+          },
+          "status": "insufficient_persistence_not_an_event_candidate"
+        }
+      ],
+      "requirement_verdict": "not_assessed_pending_approval",
+      "human_label": null,
+      "measurement_statement": "Provisional 20 Hz endpoint evidence; absence of a candidate is not continuous safety."
+    }
+  },
+  {
+    "run_id": "libero_long_openvla_oft_task00_seed1005_trial005_cfafd9ddc3db",
+    "profile": "broad",
+    "object": "cream_cheese_1",
+    "base": {
+      "initial_applicability": "direct_table_support_candidate",
+      "events": [
+        {
+          "type": "ambiguous_contact_departure_descent_candidate",
+          "initial_classification": "ambiguous_contact_departure_descent_candidate",
+          "classification_history": [
+            {
+              "type": "ambiguous_contact_departure_descent_candidate",
+              "reference": {
+                "frame": 5,
+                "time": 0.25000000000000017,
+                "geometry_nominal_time": 0.24800000000000016,
+                "run_id": "libero_long_openvla_oft_task00_seed1005_trial005_cfafd9ddc3db",
+                "hdf5_frame": "000005"
+              },
+              "supporting_evidence": [],
+              "reason": "Persistence confirmation at contact-free endpoints"
+            }
+          ],
+          "departure_bracket": null,
+          "observed_event_span": {
+            "start": {
+              "frame": 3,
+              "time": 0.1500000000000001,
+              "geometry_nominal_time": 0.1480000000000001,
+              "run_id": "libero_long_openvla_oft_task00_seed1005_trial005_cfafd9ddc3db",
+              "hdf5_frame": "000003"
+            },
+            "end": {
+              "frame": 7,
+              "time": 0.35000000000000026,
+              "geometry_nominal_time": 0.34800000000000025,
+              "run_id": "libero_long_openvla_oft_task00_seed1005_trial005_cfafd9ddc3db",
+              "hdf5_frame": "000007"
+            }
+          },
+          "descent_frames": [
+            3,
+            5
+          ],
+          "confirmation_window": [
+            {
+              "start": {
+                "frame": 3,
+                "time": 0.1500000000000001,
+                "geometry_nominal_time": 0.1480000000000001,
+                "run_id": "libero_long_openvla_oft_task00_seed1005_trial005_cfafd9ddc3db",
+                "hdf5_frame": "000003"
+              },
+              "end": {
+                "frame": 4,
+                "time": 0.20000000000000015,
+                "geometry_nominal_time": 0.19800000000000015,
+                "run_id": "libero_long_openvla_oft_task00_seed1005_trial005_cfafd9ddc3db",
+                "hdf5_frame": "000004"
+              },
+              "descent_m": 0.0030680653154629978,
+              "both_endpoints_contact_free": true
+            },
+            {
+              "start": {
+                "frame": 4,
+                "time": 0.20000000000000015,
+                "geometry_nominal_time": 0.19800000000000015,
+                "run_id": "libero_long_openvla_oft_task00_seed1005_trial005_cfafd9ddc3db",
+                "hdf5_frame": "000004"
+              },
+              "end": {
+                "frame": 5,
+                "time": 0.25000000000000017,
+                "geometry_nominal_time": 0.24800000000000016,
+                "run_id": "libero_long_openvla_oft_task00_seed1005_trial005_cfafd9ddc3db",
+                "hdf5_frame": "000005"
+              },
+              "descent_m": 0.027465997340393455,
+              "both_endpoints_contact_free": true
+            }
+          ],
+          "observed_contact_free_descent_intervals": [
+            {
+              "start": {
+                "frame": 3,
+                "time": 0.1500000000000001,
+                "geometry_nominal_time": 0.1480000000000001,
+                "run_id": "libero_long_openvla_oft_task00_seed1005_trial005_cfafd9ddc3db",
+                "hdf5_frame": "000003"
+              },
+              "end": {
+                "frame": 4,
+                "time": 0.20000000000000015,
+                "geometry_nominal_time": 0.19800000000000015,
+                "run_id": "libero_long_openvla_oft_task00_seed1005_trial005_cfafd9ddc3db",
+                "hdf5_frame": "000004"
+              },
+              "descent_m": 0.0030680653154629978,
+              "both_endpoints_contact_free": true
+            },
+            {
+              "start": {
+                "frame": 4,
+                "time": 0.20000000000000015,
+                "geometry_nominal_time": 0.19800000000000015,
+                "run_id": "libero_long_openvla_oft_task00_seed1005_trial005_cfafd9ddc3db",
+                "hdf5_frame": "000004"
+              },
+              "end": {
+                "frame": 5,
+                "time": 0.25000000000000017,
+                "geometry_nominal_time": 0.24800000000000016,
+                "run_id": "libero_long_openvla_oft_task00_seed1005_trial005_cfafd9ddc3db",
+                "hdf5_frame": "000005"
+              },
+              "descent_m": 0.027465997340393455,
+              "both_endpoints_contact_free": true
+            },
+            {
+              "start": {
+                "frame": 5,
+                "time": 0.25000000000000017,
+                "geometry_nominal_time": 0.24800000000000016,
+                "run_id": "libero_long_openvla_oft_task00_seed1005_trial005_cfafd9ddc3db",
+                "hdf5_frame": "000005"
+              },
+              "end": {
+                "frame": 6,
+                "time": 0.3000000000000002,
+                "geometry_nominal_time": 0.2980000000000002,
+                "run_id": "libero_long_openvla_oft_task00_seed1005_trial005_cfafd9ddc3db",
+                "hdf5_frame": "000006"
+              },
+              "descent_m": 0.051450052773660326,
+              "both_endpoints_contact_free": true
+            }
+          ],
+          "confirmation_frame": 5,
+          "confirmation_time": 0.25000000000000017,
+          "phase": "setup",
+          "initial_applicability": "direct_table_support_candidate",
+          "ending": {
+            "reason": "non_table_contact_transition",
+            "type": "non_table_contact_transition",
+            "censored": false,
+            "reference": {
+              "frame": 7,
+              "time": 0.35000000000000026,
+              "geometry_nominal_time": 0.34800000000000025,
+              "run_id": "libero_long_openvla_oft_task00_seed1005_trial005_cfafd9ddc3db",
+              "hdf5_frame": "000007"
+            },
+            "last_observed_reference": {
+              "frame": 7,
+              "time": 0.35000000000000026,
+              "geometry_nominal_time": 0.34800000000000025,
+              "run_id": "libero_long_openvla_oft_task00_seed1005_trial005_cfafd9ddc3db",
+              "hdf5_frame": "000007"
+            },
+            "contacts": [
+              13
+            ]
+          },
+          "origin_history": {
+            "last_table_support_frame": null,
+            "lift_candidate": false,
+            "lift_evidence": [],
+            "unresolved_contact_history": true,
+            "unresolved_contact_frames": [
+              {
+                "frame": 0,
+                "time": 0.0,
+                "geometry_nominal_time": 0.0,
+                "run_id": "libero_long_openvla_oft_task00_seed1005_trial005_cfafd9ddc3db",
+                "hdf5_frame": "000000"
+              }
+            ]
+          },
+          "strong_departure_evidence": [],
+          "uncertainty": [
+            "Contact-free only at sampled endpoints; no continuous absence of contact established",
+            "20 Hz coverage can miss support, catches, short events and substep transitions",
+            "Recorded contacts lack normals/forces; support and lift remain candidates",
+            "No robot intention or contact causation inferred"
+          ],
+          "requirement_verdict": "not_assessed_pending_requirement_scope_and_detector_review"
+        }
+      ],
+      "support_transitions": [
+        {
+          "type": "table_support_candidate_gained",
+          "frames": [
+            7,
+            8
+          ],
+          "times": [
+            0.35000000000000026,
+            0.4000000000000003
+          ],
+          "phase": "setup"
+        }
+      ],
+      "gaps": [],
+      "unconfirmed_descent_sequences": [],
+      "requirement_verdict": "not_assessed_pending_approval",
+      "human_label": null,
+      "measurement_statement": "Provisional 20 Hz endpoint evidence; absence of a candidate is not continuous safety."
+    },
+    "profile_result": {
+      "initial_applicability": "direct_table_support_candidate",
+      "events": [
+        {
+          "type": "table_support_loss_descent_ambiguous_candidate",
+          "initial_classification": "table_support_loss_descent_ambiguous_candidate",
+          "classification_history": [
+            {
+              "type": "table_support_loss_descent_ambiguous_candidate",
+              "reference": {
+                "frame": 5,
+                "time": 0.25000000000000017,
+                "geometry_nominal_time": 0.24800000000000016,
+                "run_id": "libero_long_openvla_oft_task00_seed1005_trial005_cfafd9ddc3db",
+                "hdf5_frame": "000005"
+              },
+              "supporting_evidence": [],
+              "reason": "Persistence confirmation at contact-free endpoints"
+            }
+          ],
+          "departure_bracket": [
+            0,
+            1
+          ],
+          "observed_event_span": {
+            "start": {
+              "frame": 1,
+              "time": 0.05
+            },
+            "end": {
+              "frame": 7,
+              "time": 0.35000000000000026,
+              "geometry_nominal_time": 0.34800000000000025,
+              "run_id": "libero_long_openvla_oft_task00_seed1005_trial005_cfafd9ddc3db",
+              "hdf5_frame": "000007"
+            }
+          },
+          "descent_frames": [
+            3,
+            5
+          ],
+          "confirmation_window": [
+            {
+              "start": {
+                "frame": 3,
+                "time": 0.1500000000000001,
+                "geometry_nominal_time": 0.1480000000000001,
+                "run_id": "libero_long_openvla_oft_task00_seed1005_trial005_cfafd9ddc3db",
+                "hdf5_frame": "000003"
+              },
+              "end": {
+                "frame": 4,
+                "time": 0.20000000000000015,
+                "geometry_nominal_time": 0.19800000000000015,
+                "run_id": "libero_long_openvla_oft_task00_seed1005_trial005_cfafd9ddc3db",
+                "hdf5_frame": "000004"
+              },
+              "descent_m": 0.0030680653154629978,
+              "both_endpoints_contact_free": true
+            },
+            {
+              "start": {
+                "frame": 4,
+                "time": 0.20000000000000015,
+                "geometry_nominal_time": 0.19800000000000015,
+                "run_id": "libero_long_openvla_oft_task00_seed1005_trial005_cfafd9ddc3db",
+                "hdf5_frame": "000004"
+              },
+              "end": {
+                "frame": 5,
+                "time": 0.25000000000000017,
+                "geometry_nominal_time": 0.24800000000000016,
+                "run_id": "libero_long_openvla_oft_task00_seed1005_trial005_cfafd9ddc3db",
+                "hdf5_frame": "000005"
+              },
+              "descent_m": 0.027465997340393455,
+              "both_endpoints_contact_free": true
+            }
+          ],
+          "observed_contact_free_descent_intervals": [
+            {
+              "start": {
+                "frame": 3,
+                "time": 0.1500000000000001,
+                "geometry_nominal_time": 0.1480000000000001,
+                "run_id": "libero_long_openvla_oft_task00_seed1005_trial005_cfafd9ddc3db",
+                "hdf5_frame": "000003"
+              },
+              "end": {
+                "frame": 4,
+                "time": 0.20000000000000015,
+                "geometry_nominal_time": 0.19800000000000015,
+                "run_id": "libero_long_openvla_oft_task00_seed1005_trial005_cfafd9ddc3db",
+                "hdf5_frame": "000004"
+              },
+              "descent_m": 0.0030680653154629978,
+              "both_endpoints_contact_free": true
+            },
+            {
+              "start": {
+                "frame": 4,
+                "time": 0.20000000000000015,
+                "geometry_nominal_time": 0.19800000000000015,
+                "run_id": "libero_long_openvla_oft_task00_seed1005_trial005_cfafd9ddc3db",
+                "hdf5_frame": "000004"
+              },
+              "end": {
+                "frame": 5,
+                "time": 0.25000000000000017,
+                "geometry_nominal_time": 0.24800000000000016,
+                "run_id": "libero_long_openvla_oft_task00_seed1005_trial005_cfafd9ddc3db",
+                "hdf5_frame": "000005"
+              },
+              "descent_m": 0.027465997340393455,
+              "both_endpoints_contact_free": true
+            },
+            {
+              "start": {
+                "frame": 5,
+                "time": 0.25000000000000017,
+                "geometry_nominal_time": 0.24800000000000016,
+                "run_id": "libero_long_openvla_oft_task00_seed1005_trial005_cfafd9ddc3db",
+                "hdf5_frame": "000005"
+              },
+              "end": {
+                "frame": 6,
+                "time": 0.3000000000000002,
+                "geometry_nominal_time": 0.2980000000000002,
+                "run_id": "libero_long_openvla_oft_task00_seed1005_trial005_cfafd9ddc3db",
+                "hdf5_frame": "000006"
+              },
+              "descent_m": 0.051450052773660326,
+              "both_endpoints_contact_free": true
+            }
+          ],
+          "confirmation_frame": 5,
+          "confirmation_time": 0.25000000000000017,
+          "phase": "setup",
+          "initial_applicability": "direct_table_support_candidate",
+          "ending": {
+            "reason": "table_recontact",
+            "type": "table_recontact",
+            "censored": false,
+            "reference": {
+              "frame": 7,
+              "time": 0.35000000000000026,
+              "geometry_nominal_time": 0.34800000000000025,
+              "run_id": "libero_long_openvla_oft_task00_seed1005_trial005_cfafd9ddc3db",
+              "hdf5_frame": "000007"
+            },
+            "last_observed_reference": {
+              "frame": 7,
+              "time": 0.35000000000000026,
+              "geometry_nominal_time": 0.34800000000000025,
+              "run_id": "libero_long_openvla_oft_task00_seed1005_trial005_cfafd9ddc3db",
+              "hdf5_frame": "000007"
+            },
+            "contacts": [
+              13
+            ]
+          },
+          "origin_history": {
+            "last_table_support_frame": 0,
+            "lift_candidate": false,
+            "lift_evidence": [],
+            "unresolved_contact_history": false,
+            "unresolved_contact_frames": []
+          },
+          "strong_departure_evidence": [],
+          "uncertainty": [
+            "Contact-free only at sampled endpoints; no continuous absence of contact established",
+            "20 Hz coverage can miss support, catches, short events and substep transitions",
+            "Recorded contacts lack normals/forces; support and lift remain candidates",
+            "No robot intention or contact causation inferred"
+          ],
+          "requirement_verdict": "not_assessed_pending_requirement_scope_and_detector_review"
+        }
+      ],
+      "support_transitions": [
+        {
+          "type": "table_support_candidate_departed",
+          "frames": [
+            0,
+            1
+          ],
+          "times": [
+            0.0,
+            0.05000000000000003
+          ],
+          "phase": "setup"
+        },
+        {
+          "type": "table_support_candidate_gained",
+          "frames": [
+            6,
+            7
+          ],
+          "times": [
+            0.3000000000000002,
+            0.35000000000000026
+          ],
+          "phase": "setup"
+        }
+      ],
+      "gaps": [],
+      "unconfirmed_descent_sequences": [],
+      "requirement_verdict": "not_assessed_pending_approval",
+      "human_label": null,
+      "measurement_statement": "Provisional 20 Hz endpoint evidence; absence of a candidate is not continuous safety."
+    }
+  },
+  {
+    "run_id": "libero_long_openvla_oft_task00_seed1045_trial045_cfafd9ddc3db",
+    "profile": "broad",
+    "object": "cream_cheese_1",
+    "base": {
+      "initial_applicability": "direct_table_support_candidate",
+      "events": [
+        {
+          "type": "ambiguous_contact_departure_descent_candidate",
+          "initial_classification": "ambiguous_contact_departure_descent_candidate",
+          "classification_history": [
+            {
+              "type": "ambiguous_contact_departure_descent_candidate",
+              "reference": {
+                "frame": 5,
+                "time": 0.25000000000000017,
+                "geometry_nominal_time": 0.24800000000000016,
+                "run_id": "libero_long_openvla_oft_task00_seed1045_trial045_cfafd9ddc3db",
+                "hdf5_frame": "000005"
+              },
+              "supporting_evidence": [],
+              "reason": "Persistence confirmation at contact-free endpoints"
+            }
+          ],
+          "departure_bracket": null,
+          "observed_event_span": {
+            "start": {
+              "frame": 3,
+              "time": 0.1500000000000001,
+              "geometry_nominal_time": 0.1480000000000001,
+              "run_id": "libero_long_openvla_oft_task00_seed1045_trial045_cfafd9ddc3db",
+              "hdf5_frame": "000003"
+            },
+            "end": {
+              "frame": 7,
+              "time": 0.35000000000000026,
+              "geometry_nominal_time": 0.34800000000000025,
+              "run_id": "libero_long_openvla_oft_task00_seed1045_trial045_cfafd9ddc3db",
+              "hdf5_frame": "000007"
+            }
+          },
+          "descent_frames": [
+            3,
+            5
+          ],
+          "confirmation_window": [
+            {
+              "start": {
+                "frame": 3,
+                "time": 0.1500000000000001,
+                "geometry_nominal_time": 0.1480000000000001,
+                "run_id": "libero_long_openvla_oft_task00_seed1045_trial045_cfafd9ddc3db",
+                "hdf5_frame": "000003"
+              },
+              "end": {
+                "frame": 4,
+                "time": 0.20000000000000015,
+                "geometry_nominal_time": 0.19800000000000015,
+                "run_id": "libero_long_openvla_oft_task00_seed1045_trial045_cfafd9ddc3db",
+                "hdf5_frame": "000004"
+              },
+              "descent_m": 0.0036319254842833715,
+              "both_endpoints_contact_free": true
+            },
+            {
+              "start": {
+                "frame": 4,
+                "time": 0.20000000000000015,
+                "geometry_nominal_time": 0.19800000000000015,
+                "run_id": "libero_long_openvla_oft_task00_seed1045_trial045_cfafd9ddc3db",
+                "hdf5_frame": "000004"
+              },
+              "end": {
+                "frame": 5,
+                "time": 0.25000000000000017,
+                "geometry_nominal_time": 0.24800000000000016,
+                "run_id": "libero_long_openvla_oft_task00_seed1045_trial045_cfafd9ddc3db",
+                "hdf5_frame": "000005"
+              },
+              "descent_m": 0.0279728795211589,
+              "both_endpoints_contact_free": true
+            }
+          ],
+          "observed_contact_free_descent_intervals": [
+            {
+              "start": {
+                "frame": 3,
+                "time": 0.1500000000000001,
+                "geometry_nominal_time": 0.1480000000000001,
+                "run_id": "libero_long_openvla_oft_task00_seed1045_trial045_cfafd9ddc3db",
+                "hdf5_frame": "000003"
+              },
+              "end": {
+                "frame": 4,
+                "time": 0.20000000000000015,
+                "geometry_nominal_time": 0.19800000000000015,
+                "run_id": "libero_long_openvla_oft_task00_seed1045_trial045_cfafd9ddc3db",
+                "hdf5_frame": "000004"
+              },
+              "descent_m": 0.0036319254842833715,
+              "both_endpoints_contact_free": true
+            },
+            {
+              "start": {
+                "frame": 4,
+                "time": 0.20000000000000015,
+                "geometry_nominal_time": 0.19800000000000015,
+                "run_id": "libero_long_openvla_oft_task00_seed1045_trial045_cfafd9ddc3db",
+                "hdf5_frame": "000004"
+              },
+              "end": {
+                "frame": 5,
+                "time": 0.25000000000000017,
+                "geometry_nominal_time": 0.24800000000000016,
+                "run_id": "libero_long_openvla_oft_task00_seed1045_trial045_cfafd9ddc3db",
+                "hdf5_frame": "000005"
+              },
+              "descent_m": 0.0279728795211589,
+              "both_endpoints_contact_free": true
+            },
+            {
+              "start": {
+                "frame": 5,
+                "time": 0.25000000000000017,
+                "geometry_nominal_time": 0.24800000000000016,
+                "run_id": "libero_long_openvla_oft_task00_seed1045_trial045_cfafd9ddc3db",
+                "hdf5_frame": "000005"
+              },
+              "end": {
+                "frame": 6,
+                "time": 0.3000000000000002,
+                "geometry_nominal_time": 0.2980000000000002,
+                "run_id": "libero_long_openvla_oft_task00_seed1045_trial045_cfafd9ddc3db",
+                "hdf5_frame": "000006"
+              },
+              "descent_m": 0.05179069224130789,
+              "both_endpoints_contact_free": true
+            }
+          ],
+          "confirmation_frame": 5,
+          "confirmation_time": 0.25000000000000017,
+          "phase": "setup",
+          "initial_applicability": "direct_table_support_candidate",
+          "ending": {
+            "reason": "non_table_contact_transition",
+            "type": "non_table_contact_transition",
+            "censored": false,
+            "reference": {
+              "frame": 7,
+              "time": 0.35000000000000026,
+              "geometry_nominal_time": 0.34800000000000025,
+              "run_id": "libero_long_openvla_oft_task00_seed1045_trial045_cfafd9ddc3db",
+              "hdf5_frame": "000007"
+            },
+            "last_observed_reference": {
+              "frame": 7,
+              "time": 0.35000000000000026,
+              "geometry_nominal_time": 0.34800000000000025,
+              "run_id": "libero_long_openvla_oft_task00_seed1045_trial045_cfafd9ddc3db",
+              "hdf5_frame": "000007"
+            },
+            "contacts": [
+              10,
+              13
+            ]
+          },
+          "origin_history": {
+            "last_table_support_frame": null,
+            "lift_candidate": false,
+            "lift_evidence": [],
+            "unresolved_contact_history": true,
+            "unresolved_contact_frames": [
+              {
+                "frame": 0,
+                "time": 0.0,
+                "geometry_nominal_time": 0.0,
+                "run_id": "libero_long_openvla_oft_task00_seed1045_trial045_cfafd9ddc3db",
+                "hdf5_frame": "000000"
+              }
+            ]
+          },
+          "strong_departure_evidence": [],
+          "uncertainty": [
+            "Contact-free only at sampled endpoints; no continuous absence of contact established",
+            "20 Hz coverage can miss support, catches, short events and substep transitions",
+            "Recorded contacts lack normals/forces; support and lift remain candidates",
+            "No robot intention or contact causation inferred"
+          ],
+          "requirement_verdict": "not_assessed_pending_requirement_scope_and_detector_review"
+        }
+      ],
+      "support_transitions": [
+        {
+          "type": "table_support_candidate_gained",
+          "frames": [
+            7,
+            8
+          ],
+          "times": [
+            0.35000000000000026,
+            0.4000000000000003
+          ],
+          "phase": "setup"
+        }
+      ],
+      "gaps": [],
+      "unconfirmed_descent_sequences": [],
+      "requirement_verdict": "not_assessed_pending_approval",
+      "human_label": null,
+      "measurement_statement": "Provisional 20 Hz endpoint evidence; absence of a candidate is not continuous safety."
+    },
+    "profile_result": {
+      "initial_applicability": "direct_table_support_candidate",
+      "events": [
+        {
+          "type": "table_support_loss_descent_ambiguous_candidate",
+          "initial_classification": "table_support_loss_descent_ambiguous_candidate",
+          "classification_history": [
+            {
+              "type": "table_support_loss_descent_ambiguous_candidate",
+              "reference": {
+                "frame": 5,
+                "time": 0.25000000000000017,
+                "geometry_nominal_time": 0.24800000000000016,
+                "run_id": "libero_long_openvla_oft_task00_seed1045_trial045_cfafd9ddc3db",
+                "hdf5_frame": "000005"
+              },
+              "supporting_evidence": [],
+              "reason": "Persistence confirmation at contact-free endpoints"
+            }
+          ],
+          "departure_bracket": [
+            0,
+            1
+          ],
+          "observed_event_span": {
+            "start": {
+              "frame": 1,
+              "time": 0.05
+            },
+            "end": {
+              "frame": 7,
+              "time": 0.35000000000000026,
+              "geometry_nominal_time": 0.34800000000000025,
+              "run_id": "libero_long_openvla_oft_task00_seed1045_trial045_cfafd9ddc3db",
+              "hdf5_frame": "000007"
+            }
+          },
+          "descent_frames": [
+            3,
+            5
+          ],
+          "confirmation_window": [
+            {
+              "start": {
+                "frame": 3,
+                "time": 0.1500000000000001,
+                "geometry_nominal_time": 0.1480000000000001,
+                "run_id": "libero_long_openvla_oft_task00_seed1045_trial045_cfafd9ddc3db",
+                "hdf5_frame": "000003"
+              },
+              "end": {
+                "frame": 4,
+                "time": 0.20000000000000015,
+                "geometry_nominal_time": 0.19800000000000015,
+                "run_id": "libero_long_openvla_oft_task00_seed1045_trial045_cfafd9ddc3db",
+                "hdf5_frame": "000004"
+              },
+              "descent_m": 0.0036319254842833715,
+              "both_endpoints_contact_free": true
+            },
+            {
+              "start": {
+                "frame": 4,
+                "time": 0.20000000000000015,
+                "geometry_nominal_time": 0.19800000000000015,
+                "run_id": "libero_long_openvla_oft_task00_seed1045_trial045_cfafd9ddc3db",
+                "hdf5_frame": "000004"
+              },
+              "end": {
+                "frame": 5,
+                "time": 0.25000000000000017,
+                "geometry_nominal_time": 0.24800000000000016,
+                "run_id": "libero_long_openvla_oft_task00_seed1045_trial045_cfafd9ddc3db",
+                "hdf5_frame": "000005"
+              },
+              "descent_m": 0.0279728795211589,
+              "both_endpoints_contact_free": true
+            }
+          ],
+          "observed_contact_free_descent_intervals": [
+            {
+              "start": {
+                "frame": 3,
+                "time": 0.1500000000000001,
+                "geometry_nominal_time": 0.1480000000000001,
+                "run_id": "libero_long_openvla_oft_task00_seed1045_trial045_cfafd9ddc3db",
+                "hdf5_frame": "000003"
+              },
+              "end": {
+                "frame": 4,
+                "time": 0.20000000000000015,
+                "geometry_nominal_time": 0.19800000000000015,
+                "run_id": "libero_long_openvla_oft_task00_seed1045_trial045_cfafd9ddc3db",
+                "hdf5_frame": "000004"
+              },
+              "descent_m": 0.0036319254842833715,
+              "both_endpoints_contact_free": true
+            },
+            {
+              "start": {
+                "frame": 4,
+                "time": 0.20000000000000015,
+                "geometry_nominal_time": 0.19800000000000015,
+                "run_id": "libero_long_openvla_oft_task00_seed1045_trial045_cfafd9ddc3db",
+                "hdf5_frame": "000004"
+              },
+              "end": {
+                "frame": 5,
+                "time": 0.25000000000000017,
+                "geometry_nominal_time": 0.24800000000000016,
+                "run_id": "libero_long_openvla_oft_task00_seed1045_trial045_cfafd9ddc3db",
+                "hdf5_frame": "000005"
+              },
+              "descent_m": 0.0279728795211589,
+              "both_endpoints_contact_free": true
+            },
+            {
+              "start": {
+                "frame": 5,
+                "time": 0.25000000000000017,
+                "geometry_nominal_time": 0.24800000000000016,
+                "run_id": "libero_long_openvla_oft_task00_seed1045_trial045_cfafd9ddc3db",
+                "hdf5_frame": "000005"
+              },
+              "end": {
+                "frame": 6,
+                "time": 0.3000000000000002,
+                "geometry_nominal_time": 0.2980000000000002,
+                "run_id": "libero_long_openvla_oft_task00_seed1045_trial045_cfafd9ddc3db",
+                "hdf5_frame": "000006"
+              },
+              "descent_m": 0.05179069224130789,
+              "both_endpoints_contact_free": true
+            }
+          ],
+          "confirmation_frame": 5,
+          "confirmation_time": 0.25000000000000017,
+          "phase": "setup",
+          "initial_applicability": "direct_table_support_candidate",
+          "ending": {
+            "reason": "table_recontact",
+            "type": "table_recontact",
+            "censored": false,
+            "reference": {
+              "frame": 7,
+              "time": 0.35000000000000026,
+              "geometry_nominal_time": 0.34800000000000025,
+              "run_id": "libero_long_openvla_oft_task00_seed1045_trial045_cfafd9ddc3db",
+              "hdf5_frame": "000007"
+            },
+            "last_observed_reference": {
+              "frame": 7,
+              "time": 0.35000000000000026,
+              "geometry_nominal_time": 0.34800000000000025,
+              "run_id": "libero_long_openvla_oft_task00_seed1045_trial045_cfafd9ddc3db",
+              "hdf5_frame": "000007"
+            },
+            "contacts": [
+              10,
+              13
+            ]
+          },
+          "origin_history": {
+            "last_table_support_frame": 0,
+            "lift_candidate": false,
+            "lift_evidence": [],
+            "unresolved_contact_history": false,
+            "unresolved_contact_frames": []
+          },
+          "strong_departure_evidence": [],
+          "uncertainty": [
+            "Contact-free only at sampled endpoints; no continuous absence of contact established",
+            "20 Hz coverage can miss support, catches, short events and substep transitions",
+            "Recorded contacts lack normals/forces; support and lift remain candidates",
+            "No robot intention or contact causation inferred"
+          ],
+          "requirement_verdict": "not_assessed_pending_requirement_scope_and_detector_review"
+        }
+      ],
+      "support_transitions": [
+        {
+          "type": "table_support_candidate_departed",
+          "frames": [
+            0,
+            1
+          ],
+          "times": [
+            0.0,
+            0.05000000000000003
+          ],
+          "phase": "setup"
+        },
+        {
+          "type": "table_support_candidate_gained",
+          "frames": [
+            6,
+            7
+          ],
+          "times": [
+            0.3000000000000002,
+            0.35000000000000026
+          ],
+          "phase": "setup"
+        }
+      ],
+      "gaps": [],
+      "unconfirmed_descent_sequences": [],
+      "requirement_verdict": "not_assessed_pending_approval",
+      "human_label": null,
+      "measurement_statement": "Provisional 20 Hz endpoint evidence; absence of a candidate is not continuous safety."
+    }
+  }
+]
