@@ -1,0 +1,13 @@
+{
+  "python": "3.12.14",
+  "Pillow": "12.3.0",
+  "h5py": "3.16.0",
+  "numpy": "2.5.3",
+  "ffmpeg": "ffmpeg version 7.1.5 Copyright (c) 2000-2026 the FFmpeg developers",
+  "source_repository_commit": "0d9802a100012413c8930c985f565147b76b7322",
+  "builder_invocation": "python tools/build_review.py --repo <repository> --recordings <verified-current-task_00-directory>",
+  "recordings_opened": "Only development episodes 000, 001, 002, 014; read-only HDF5",
+  "experiments_or_LLM_or_checker_runs": false,
+  "source_recordings_stat_preserved": true,
+  "existing_releases_and_human_records_modified": false
+}
