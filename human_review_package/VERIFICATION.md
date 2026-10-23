@@ -1,0 +1,69 @@
+# Package verification
+
+- PASS: 505 relative links resolve in the original and an independently copied folder.
+- PASS: initial_support has identical factual rows/evidence in both copies and blank human fields (20 rows each).
+- PASS: events has identical factual rows/evidence in both copies and blank human fields (20 rows each).
+- PASS: uncertainty_requests has identical factual rows/evidence in both copies and blank human fields (4 rows each).
+- PASS: requirement_interpretation has identical factual rows/evidence in both copies and blank human fields (20 rows each).
+- PASS: all CSVs parse with consistent columns; UTF-8 BOM and standard CSV quoting support spreadsheet editing.
+- PASS: no detector-output files, old outcome-revealing guides, credentials/model-file types or absolute source server paths in package. Human-facing measurements use a neutral allowlist.
+- PASS: episode_000 agentview_image all 258 decoded scene frames match raw source (worst MSE 5.070 <100).
+- PASS: full_videos/episode_000_agentview_image.mp4: 258 decoded frames, 12.900 s; source sequence 0–257.
+- PASS: short_clips/normal_speed/episode_000_agentview_image_000000-000030.mp4: 31 decoded frames, 1.550 s; source sequence 0–30.
+- PASS: short_clips/slow_motion/episode_000_agentview_image_000000-000030_025x.mp4: 31 decoded frames, 6.200 s; source sequence 0–30.
+- PASS: episode_000 robot0_eye_in_hand_image all 258 decoded scene frames match raw source (worst MSE 6.012 <100).
+- PASS: full_videos/episode_000_robot0_eye_in_hand_image.mp4: 258 decoded frames, 12.900 s; source sequence 0–257.
+- PASS: short_clips/normal_speed/episode_000_robot0_eye_in_hand_image_000000-000030.mp4: 31 decoded frames, 1.550 s; source sequence 0–30.
+- PASS: short_clips/slow_motion/episode_000_robot0_eye_in_hand_image_000000-000030_025x.mp4: 31 decoded frames, 6.200 s; source sequence 0–30.
+- PASS: episode_000 side_by_side all 258 decoded scene frames match raw source (worst MSE 5.999 <100).
+- PASS: full_videos/episode_000_side_by_side.mp4: 258 decoded frames, 12.900 s; source sequence 0–257.
+- PASS: short_clips/normal_speed/episode_000_side_by_side_000000-000030.mp4: 31 decoded frames, 1.550 s; source sequence 0–30.
+- PASS: short_clips/slow_motion/episode_000_side_by_side_000000-000030_025x.mp4: 31 decoded frames, 6.200 s; source sequence 0–30.
+- PASS: retained original episode_000_agentview_image_000000-000030.mp4 hash, count, timing and decoded scene alignment (worst MSE 5.572).
+- PASS: retained original episode_000_robot0_eye_in_hand_image_000000-000030.mp4 hash, count, timing and decoded scene alignment (worst MSE 7.440).
+- PASS: episode_001 agentview_image all 277 decoded scene frames match raw source (worst MSE 5.341 <100).
+- PASS: full_videos/episode_001_agentview_image.mp4: 277 decoded frames, 13.850 s; source sequence 0–276.
+- PASS: short_clips/normal_speed/episode_001_agentview_image_000000-000030.mp4: 31 decoded frames, 1.550 s; source sequence 0–30.
+- PASS: short_clips/slow_motion/episode_001_agentview_image_000000-000030_025x.mp4: 31 decoded frames, 6.200 s; source sequence 0–30.
+- PASS: episode_001 robot0_eye_in_hand_image all 277 decoded scene frames match raw source (worst MSE 6.078 <100).
+- PASS: full_videos/episode_001_robot0_eye_in_hand_image.mp4: 277 decoded frames, 13.850 s; source sequence 0–276.
+- PASS: short_clips/normal_speed/episode_001_robot0_eye_in_hand_image_000000-000030.mp4: 31 decoded frames, 1.550 s; source sequence 0–30.
+- PASS: short_clips/slow_motion/episode_001_robot0_eye_in_hand_image_000000-000030_025x.mp4: 31 decoded frames, 6.200 s; source sequence 0–30.
+- PASS: episode_001 side_by_side all 277 decoded scene frames match raw source (worst MSE 5.998 <100).
+- PASS: full_videos/episode_001_side_by_side.mp4: 277 decoded frames, 13.850 s; source sequence 0–276.
+- PASS: short_clips/normal_speed/episode_001_side_by_side_000000-000030.mp4: 31 decoded frames, 1.550 s; source sequence 0–30.
+- PASS: short_clips/slow_motion/episode_001_side_by_side_000000-000030_025x.mp4: 31 decoded frames, 6.200 s; source sequence 0–30.
+- PASS: retained original episode_001_agentview_image_000000-000030.mp4 hash, count, timing and decoded scene alignment (worst MSE 6.017).
+- PASS: retained original episode_001_robot0_eye_in_hand_image_000000-000030.mp4 hash, count, timing and decoded scene alignment (worst MSE 8.126).
+- PASS: episode_002 agentview_image all 246 decoded scene frames match raw source (worst MSE 5.434 <100).
+- PASS: full_videos/episode_002_agentview_image.mp4: 246 decoded frames, 12.300 s; source sequence 0–245.
+- PASS: short_clips/normal_speed/episode_002_agentview_image_000000-000030.mp4: 31 decoded frames, 1.550 s; source sequence 0–30.
+- PASS: short_clips/slow_motion/episode_002_agentview_image_000000-000030_025x.mp4: 31 decoded frames, 6.200 s; source sequence 0–30.
+- PASS: episode_002 robot0_eye_in_hand_image all 246 decoded scene frames match raw source (worst MSE 6.234 <100).
+- PASS: full_videos/episode_002_robot0_eye_in_hand_image.mp4: 246 decoded frames, 12.300 s; source sequence 0–245.
+- PASS: short_clips/normal_speed/episode_002_robot0_eye_in_hand_image_000000-000030.mp4: 31 decoded frames, 1.550 s; source sequence 0–30.
+- PASS: short_clips/slow_motion/episode_002_robot0_eye_in_hand_image_000000-000030_025x.mp4: 31 decoded frames, 6.200 s; source sequence 0–30.
+- PASS: episode_002 side_by_side all 246 decoded scene frames match raw source (worst MSE 6.218 <100).
+- PASS: full_videos/episode_002_side_by_side.mp4: 246 decoded frames, 12.300 s; source sequence 0–245.
+- PASS: short_clips/normal_speed/episode_002_side_by_side_000000-000030.mp4: 31 decoded frames, 1.550 s; source sequence 0–30.
+- PASS: short_clips/slow_motion/episode_002_side_by_side_000000-000030_025x.mp4: 31 decoded frames, 6.200 s; source sequence 0–30.
+- PASS: retained original episode_002_agentview_image_000000-000030.mp4 hash, count, timing and decoded scene alignment (worst MSE 6.315).
+- PASS: retained original episode_002_robot0_eye_in_hand_image_000000-000030.mp4 hash, count, timing and decoded scene alignment (worst MSE 7.511).
+- PASS: episode_014 agentview_image all 531 decoded scene frames match raw source (worst MSE 5.386 <100).
+- PASS: full_videos/episode_014_agentview_image.mp4: 531 decoded frames, 26.550 s; source sequence 0–530.
+- PASS: short_clips/normal_speed/episode_014_agentview_image_000260-000300.mp4: 41 decoded frames, 2.050 s; source sequence 260–300.
+- PASS: short_clips/slow_motion/episode_014_agentview_image_000260-000300_025x.mp4: 41 decoded frames, 8.200 s; source sequence 260–300.
+- PASS: episode_014 robot0_eye_in_hand_image all 531 decoded scene frames match raw source (worst MSE 6.361 <100).
+- PASS: full_videos/episode_014_robot0_eye_in_hand_image.mp4: 531 decoded frames, 26.550 s; source sequence 0–530.
+- PASS: short_clips/normal_speed/episode_014_robot0_eye_in_hand_image_000260-000300.mp4: 41 decoded frames, 2.050 s; source sequence 260–300.
+- PASS: short_clips/slow_motion/episode_014_robot0_eye_in_hand_image_000260-000300_025x.mp4: 41 decoded frames, 8.200 s; source sequence 260–300.
+- PASS: episode_014 side_by_side all 531 decoded scene frames match raw source (worst MSE 6.333 <100).
+- PASS: full_videos/episode_014_side_by_side.mp4: 531 decoded frames, 26.550 s; source sequence 0–530.
+- PASS: short_clips/normal_speed/episode_014_side_by_side_000260-000300.mp4: 41 decoded frames, 2.050 s; source sequence 260–300.
+- PASS: short_clips/slow_motion/episode_014_side_by_side_000260-000300_025x.mp4: 41 decoded frames, 8.200 s; source sequence 260–300.
+- PASS: retained original episode_014_agentview_image_000260-000300.mp4 hash, count, timing and decoded scene alignment (worst MSE 5.405).
+- PASS: retained original episode_014_robot0_eye_in_hand_image_000260-000300.mp4 hash, count, timing and decoded scene alignment (worst MSE 10.047).
+
+Automated checks do not supply human labels or approvals. H.264 comparisons use a maximum per-frame scene mean squared error below 100 (8-bit RGB); captions are excluded from scene comparison. No content interpolation is used. Original recording hashes, task/run/XML identity and boundary mapping were verified by the exporter.
+
+Selected config, split, geometry, entity inventory, clip manifest, requirement and legacy form sources were compared byte-for-byte between the preserved ZIP and extracted release: all nine matched. See evidence_manifest.json.
