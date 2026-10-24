@@ -1,0 +1,6 @@
+# Third-member adjudication
+Wait until both independent reviews have been returned privately and saved unchanged. Keep dated original CSVs in separate coordinator storage; do not overwrite them or publish either set early. Compare matching run/object/record IDs and any added event IDs. Align multiple events by physical description and interval; do not assume row order pairs events.
+
+Record disagreements in disagreements.csv: label differences, no-event versus uncertain, differing event inventories, onset intervals (including overlapping but nonidentical ranges), departure/landing timing, visibility and reasons. Re-watch the referenced shared evidence and consult measurements. Ask for existing evidence where necessary. Enter an adjudicated label and reasoning in final_labels.csv only after human review. Preserve uncertainty when evidence cannot settle a question. Keep source record IDs for both original reviews. No human decision is prefilled and no automated rule settles disagreements.
+
+All three members should agree on [scope decisions](scope_decisions.md) after independent physical records are saved and before requirement interpretations. Preserve physical labels separately from applicability and requirement decisions. Keep review identities, dates, prior exposure and approvals attributable to the actual humans.
