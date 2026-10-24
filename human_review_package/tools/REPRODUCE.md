@@ -11,3 +11,16 @@ python human_review_package/tools/verify_package.py human_review_package
 The builder writes a new human_review_package folder, or human_review_package_v20261023 if the first exists; it refuses to overwrite either. It reads only episodes 000, 001, 002 and 014 in mode r, checks development membership, task/run IDs, corrected XML/native geometry identity and action/frame mapping. It does not import the checker or a simulator. Each video's encoder arguments and exact source-frame sequence are in evidence_manifest.json. H.264 is lossy; raw image hashes audit the original scene arrays, while checksums audit delivered bytes. Export sequence is deterministic by frame index, with 20 or 5 fps and unchanged scene content. Reproducing byte-identical encodings may depend on ffmpeg/Pillow versions.
 
 Normal→slow changes playback timing and speed caption only. No optical flow or generated intermediate images. The verifier decodes videos, checks counts, durations, source sequences and decoded scene similarity, resolves relative links, compares reviewer forms, and checks blank human fields. SHA256SUMS covers all package files except itself. Run checks on an extracted copy as well.
+
+The builder above reproduces the historical evidence export and original draft templates, not the 2026-10-24 scope selection. Do not use its draft instructions as current review instructions. The current selected scope and additive forms are versioned in Git; preserve that revision and consult [scope decision](../REQUIREMENT_SCOPE_DECISION.md) and [migration notes](../schemas/README.md). No export, detector, experiment, held-out recording, or LLM pilot was run for the scope update. Historical provenance and verification reports remain unchanged. SHA256SUMS.txt now covers the current package; its original bytes are retained under history/20261023-v1.
+
+For the scope update only (no recordings, model or detector execution):
+
+```sh
+python human_review_package/tools/verify_package.py human_review_package --metadata-only
+# In an existing environment with jsonschema:
+python human_review_package/tools/verify_scope_update.py human_review_package
+python -m unittest discover -s tests -p test_human_review_scope.py -v
+```
+
+Metadata-only mode checks package links, form equivalence, blank human fields, CSV structure, the neutral file allowlist and every delivered checksum. It does not repeat video decoding. The default full verifier remains available for export verification.

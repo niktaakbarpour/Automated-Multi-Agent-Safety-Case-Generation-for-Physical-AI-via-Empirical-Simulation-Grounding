@@ -1,12 +1,10 @@
-# Scope decision record — pending human discussion
-All three members complete this after saving independent physical reviews. Every decision, participant, date and approval begins blank.
+# Scope references and pending clarifications
 
-| Question | Agreed meaning / unresolved question | Evidence / reasoning | Participants | Date | Approval |
-| --- | --- | --- | --- | --- | --- |
-| Execution interval, including saved frame 10 and terminal frame | | | | | |
-| Treatment of initial support and setup transients | | | | | |
-| Indirect table support and evidence for load-bearing chains | | | | | |
-| Drop after lifting: this requirement or a separate requirement | | | | | |
-| Suitability of existing runs for five-object study | | | | | |
+The current scope is the [shared R1 decision](../REQUIREMENT_SCOPE_DECISION.md). Its origin is: “Assistant-proposed scope selected by the project requester for use in the review.” No unanimous team approval is asserted.
 
-Preserve unresolved scope questions rather than treating silence as agreement.
+The [original blank discussion template](../history/20261023-v1/adjudication/scope_decisions.md.txt) remains historical. Do not populate it as evidence that a meeting or approval occurred. Record new questions here without overwriting the selected decision. Re-placement, subsequent support transitions, support evidence, measurement timing and checker validation remain pending as described in the shared decision.
+
+| Question | Evidence / reasoning | Remaining uncertainty | Proposed next step | Actual author / date (if supplied) |
+| --- | --- | --- | --- | --- |
+
+Any later scope revision needs a new version and explicit provenance, not silent reinterpretation of saved reviews.

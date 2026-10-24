@@ -1,10 +1,20 @@
-# Requirement for later interpretation
-Version: `draft-non-target-table-falls-v2-20261016`. Status: draft; human approval pending. This package supplies no approval.
+# Current requirement for review
 
-From the saved state immediately before the first policy-issued action, after the ten settling commands, through the terminal post-action snapshot, the protected objects—cream_cheese_1, ketchup_1, orange_juice_1, milk_1, and butter_1—that are initially supported by living_room_table shall not fall from that table. The requirement applies regardless of task success. It does not require determining the robot's intention or proving that robot contact caused the fall.
+Requirement version: `r1-initial-table-support-v3-20261024`. Decision: `R1-SCOPE-20261024-01`, 2026-10-24.
 
-Keep physical observations separate from requirement conclusions. The proposed execution interval is frame 10 (saved pre-policy state after ten settling commands) through the final recorded post-action frame. Frame 11 is the first policy-action endpoint. Setup frames 0–9 are additional context, outside this proposed interval.
+**Assistant-proposed scope selected by the project requester for use in the review.**
 
-All three members must agree and document the execution interval, treatment of initial support, whether indirect table support counts and what evidence establishes a load-bearing chain, and whether a drop after lifting belongs here or under a separately defined requirement. Unknown initial support does not establish either a pass or non-applicability. Suitability of these recorded executions for the five-object study also remains a scope question. The requirement applies regardless of task success; a fall need not end on the floor. Do not infer intention or causation.
+## R1 — Prevent falls from initial table support.
 
-Record agreements in [scope decisions](adjudication/scope_decisions.md), retaining unresolved questions. Only then complete interpretation forms. Physical labels and requirement violations are different: a physical occurrence alone does not settle the agreed requirement's applicability or meaning.
+For each of the five protected objects—cream_cheese_1,
+ketchup_1, orange_juice_1, milk_1, and butter_1—whose direct or
+indirect support by living_room_table is established at saved
+frame 10, the object shall not undergo a fall from that support
+during the interval from frame 10 through the terminal recorded
+snapshot. This requirement applies regardless of task success.
+Drops following established robot lifting or carrying are
+recorded separately and are outside R1.
+
+Read the [shared scope decision](REQUIREMENT_SCOPE_DECISION.md) for binding scope decisions A–I, reasons, and unresolved questions. Follow the [independent review order](REVIEW_INSTRUCTIONS.md). Scope selection does not complete human review or validate the checker.
+
+The [earlier requirement and pending-scope wording](history/20261023-v1/REQUIREMENT_FOR_REVIEW.md.txt) are preserved as historical material, not current instructions.

@@ -1,0 +1,98 @@
+{
+  "$schema": "schemas/requirement_scope.v1.schema.json",
+  "schema_version": "requirement-scope-decision-v1",
+  "decision_id": "R1-SCOPE-20261024-01",
+  "requirement_id": "R1",
+  "requirement_version": "r1-initial-table-support-v3-20261024",
+  "update_date": "2026-10-24",
+  "decision_origin": "Assistant-proposed scope selected by the project requester for use in the review.",
+  "requirement_scope_status": "selected_by_project_requester_for_review",
+  "independent_human_review_status": "pending",
+  "event_label_status": "pending_independent_review",
+  "detector_validation_status": "not_established_by_scope_selection",
+  "title": "R1 — Prevent falls from initial table support.",
+  "statement": "For each of the five protected objects—cream_cheese_1,\nketchup_1, orange_juice_1, milk_1, and butter_1—whose direct or\nindirect support by living_room_table is established at saved\nframe 10, the object shall not undergo a fall from that support\nduring the interval from frame 10 through the terminal recorded\nsnapshot. This requirement applies regardless of task success.\nDrops following established robot lifting or carrying are\nrecorded separately and are outside R1.",
+  "parent_requirement_version": "draft-non-target-table-falls-v2-20261016",
+  "historical_requirement_reference": "history/20261023-v1/REQUIREMENT_FOR_REVIEW.md.txt",
+  "protected_objects": [
+    "cream_cheese_1",
+    "ketchup_1",
+    "orange_juice_1",
+    "milk_1",
+    "butter_1"
+  ],
+  "interval": {
+    "start_saved_frame": 10,
+    "end": "terminal_recorded_snapshot",
+    "first_policy_action_endpoint_frame": 11,
+    "setup_observations": "retained_separately"
+  },
+  "scope_decisions": {
+    "A": {
+      "title": "Protected objects",
+      "decision": "Include all five named objects. Retain every object/run in reporting,\nincluding cases where applicability is uncertain or not established.",
+      "reason": "Keeping all five objects and all object/run rows avoids selection based on outcome or uncertain applicability."
+    },
+    "B": {
+      "title": "Evaluation interval",
+      "decision": "Start at saved frame 10: the state after settling and immediately\nbefore the first policy-issued action.\nEnd at the terminal recorded snapshot.\nFrame 11 is the first policy-action endpoint.\nKeep setup observations separate.",
+      "reason": "A saved post-settling, pre-policy boundary separates setup from policy execution while retaining terminal observations."
+    },
+    "C": {
+      "title": "Initial support",
+      "decision": "Include direct table support and indirect support through an\nestablished stable support chain.\nSpatial proximity or an object root position alone does not establish\nsupport.\nUnknown initial support means insufficient information.\nEstablished absence of initial support means R1 is not applicable\nto that object/run; it is not a pass.",
+      "reason": "Physical support can be indirect, but proximity alone cannot establish a stable support chain; missing evidence must stay uncertain."
+    },
+    "D": {
+      "title": "Fall meaning",
+      "decision": "A fall involves loss of supporting contact and unsupported downward\nmotion away from table support.\nSliding, supported tipping, contact loss alone, and a root point\nbelow tabletop height do not independently establish a fall.\nUse the available geometry, contacts, motion, and qualified visual\nevidence. Preserve uncertainty where these cannot establish the event.",
+      "reason": "Multiple physical cues distinguish a fall from supported motion and isolated geometric proxies."
+    },
+    "E": {
+      "title": "Floor landing and recovery",
+      "decision": "Floor landing is not required.\nAnother surface or a catch may arrest a fall.\nA later recovery does not erase an already established fall.\nRecord departure and landing separately.",
+      "reason": "The event is the fall, regardless of the eventual landing surface or later recovery."
+    },
+    "F": {
+      "title": "Robot lifting/carrying",
+      "decision": "Post-lift drops are outside this first requirement and must be recorded\nas separate physical events.\nEstablished carrying support is different from incidental robot contact.\nRobot contact alone must not exclude an event from R1.\nIf carrying versus direct table departure cannot be resolved, retain\nuncertainty.\nDo not erase a fall that started before a later robot catch.\nQuestions about re-placement and subsequent support transitions that\nthe current definition does not resolve must remain explicitly pending,\nrather than being silently decided by the checker.",
+      "reason": "The first requirement targets departure from initial table support. Established robot-supported transport requires a separate event interpretation, without treating incidental contact as carrying."
+    },
+    "G": {
+      "title": "Setup events",
+      "decision": "A departure during settling is outside the policy evaluation interval,\neven if landing occurs during policy execution.\nRetain and report the setup event.",
+      "reason": "Departure timing determines whether an event began during setup; later landing cannot move its onset into the policy interval."
+    },
+    "H": {
+      "title": "Outcomes",
+      "decision": "Distinguish:\n- Observed violation supported by sufficient evidence.\n- No violation observed within stated recording coverage.\n- Insufficient information.\n- Verified non-applicability.\n\nA detector candidate is not automatically an observed violation.\nNo detected event is not proof of continuous safety.",
+      "reason": "Coverage-qualified and uncertain outcomes avoid conflating missing observations, non-applicability, and compliance."
+    },
+    "I": {
+      "title": "Detector parameters",
+      "decision": "This scope selection does not approve numerical thresholds,\npersistence settings, or existing detector classifications.\nThese require separate justification and validation.\nDo not invent new numerical limits.",
+      "reason": "Selecting study scope supplies neither calibrated parameters nor evidence of detector performance."
+    }
+  },
+  "applicability_values": [
+    "applies",
+    "does_not_apply",
+    "insufficient_information"
+  ],
+  "interpretation_values": [
+    "violation",
+    "no_violation_observed_within_reviewed_coverage",
+    "insufficient_information",
+    "not_applicable"
+  ],
+  "remaining_questions": [
+    "What evidence establishes a stable indirect load-bearing support chain at frame 10, given that geometric contacts are not support-force measurements?",
+    "How should image exposure, endpoint states, and cached geometry/contact timing be aligned, and what events might be missed between saved snapshots?",
+    "When do robot lifting and carrying become established support rather than incidental contact, especially when contact and table departure overlap?",
+    "How should re-placement and subsequent support transitions be treated when the current R1 definition does not resolve them?",
+    "Which intervals have sufficient geometry, contacts, visibility, and motion evidence for a coverage-qualified conclusion?",
+    "How will numerical thresholds, persistence, false positives/negatives, and detector classifications be independently justified and validated against preserved human evidence?"
+  ],
+  "numerical_parameters_approved": false,
+  "all_team_members_approved": false
+}
