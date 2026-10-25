@@ -1,5 +1,3 @@
 ﻿request_id,reviewer_copy,episode,run_id,object_id,start_frame,end_frame,cannot_determine,additional_existing_evidence_requested,reviewer_identity,review_date,resolution_status,resolution_evidence,resolved_by,resolution_date
-,reviewer_1,episode_000,libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db,,,,,,,,,,,
-,reviewer_1,episode_001,libero_long_openvla_oft_task00_seed1001_trial001_cfafd9ddc3db,,,,,,,,,,,
-,reviewer_1,episode_002,libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db,,,,,,,,,,,
-,reviewer_1,episode_014,libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db,,,,,,,,,,,
+R1-U01,reviewer_1,episode_002,libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db,cream_cheese_1,0,1,Did it fall because it started out overlapping the orange juice?,Scene setup info for frame 0,reviewer_1,2026-10-24,,,,
+R1-U02,reviewer_1,episode_014,libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db,cream_cheese_1,270,284,Does half a second of holding count as carrying?,Decision from the R1 scope owner,reviewer_1,2026-10-24,,,,
