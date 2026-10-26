@@ -1,0 +1,15 @@
+{
+  "adjudicator_identity": "Nikta Akbarpour",
+  "approval_date": "2026-10-26",
+  "approval_ledger_sha256": "b5ed90ebc7952d0b59442eb8d180a0c612f2ba666c88550c1bc2d65af35d3bf5",
+  "approval_recorded_at_utc": "2026-10-26T20:32:39+00:00",
+  "approval_scope": "Full set of 90 AI-assisted recommendations, including five substantive disagreement recommendations, mechanical reconciliations, handling of unresolved uncertainties, and episode 014 cream-cheese interpretation under existing R1 post-lift exclusion.",
+  "approval_source": "explicit_user_instruction",
+  "approved_alignment_units": 90,
+  "approved_private_proposal_checksums_sha256": "8ed5334e4d0fc4a22d1d67d88ac8a61be45c06cf7088f8607c4745db7eac6627",
+  "approved_proposal_checksums_sha256": "fb8be65e404a7427fde688cad5cd235f3c43e30a5665bf34948f575615414490",
+  "approved_proposal_version": "r1-ai-complete-proposal-v1/ai_assisted_20261026",
+  "independent_reannotation_claimed": false,
+  "manual_inspection_of_every_event_claimed": false,
+  "uncertainty_policy": "Approval accepts evidence-qualified outcomes; ten uncertainty requests retain unresolved components. Unknown outcomes are not converted to negative safety labels."
+}

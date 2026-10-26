@@ -1,0 +1,44 @@
+{
+  "additional_nominal_agreement_coverage_tensions": 1,
+  "adjudicator_identity": "Nikta Akbarpour",
+  "alignment_units": 90,
+  "approval_date": "2026-10-26",
+  "camera_inspection": "Prior verified opening/boundary sheets reused; new consecutive sampled camera sequences inspected in both views. Full continuous videos not independently watched; no between-sample observations invented.",
+  "confidence_is_not_probability": true,
+  "confidence_scope": "Strength of the bounded recommendation/canonical representation, not certainty of continuous safety.",
+  "dataset_frozen": true,
+  "dataset_version": "r1-reference-be76abc531f5c716efca",
+  "decisions_human_approved": 90,
+  "decisions_pending_human_approval": 0,
+  "duplicate_event_rows_found": 0,
+  "episode_014_cream_cheese": "Approved: applies / no_violation_observed_within_reviewed_coverage under existing scope F; physical held-lift/drop retained.",
+  "high_confidence_recommendations": 79,
+  "mechanical_difference_units_reconciled": 33,
+  "new_recorded_samples_inspected": 6560,
+  "original_agreement_statistics_sha256": "2e5d45b6b9705ad8f75d4b3d0a053c4e438f5e82d394a3a077fae604e088a046",
+  "original_difference_units": 38,
+  "original_statistics_unchanged": true,
+  "original_substantive_difference_units_investigated": 5,
+  "original_uncertainty_requests": 11,
+  "recordings_fresh_hash_verified": 4,
+  "requirement_interpretation_counts": {
+    "no_violation_observed_within_reviewed_coverage": 7,
+    "not_applicable": 13
+  },
+  "schema_version": "r1-ai-complete-proposal-v1",
+  "sections": {
+    "A": 40,
+    "B": 33,
+    "C": 6,
+    "D": 11
+  },
+  "source_rows_preserved": 160,
+  "substantive_case_cards": 5,
+  "substantive_review_units": 6,
+  "uncertain_physical_event_classifications": 1,
+  "uncertainty_resolutions": {
+    "partially_resolved": 10,
+    "resolved_existing_evidence": 1
+  },
+  "unresolved_uncertainty_requests": 10
+}

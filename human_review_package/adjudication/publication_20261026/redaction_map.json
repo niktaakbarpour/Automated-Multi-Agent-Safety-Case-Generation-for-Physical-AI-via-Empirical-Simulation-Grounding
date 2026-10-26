@@ -1,0 +1,45 @@
+{
+  "changes": [
+    {
+      "action": "Replace private absolute locations with episode-scoped recording:// logical references; recording hashes retained.",
+      "field": "recording_provenance.*.source_directory"
+    },
+    {
+      "action": "Exclude detailed evidence-derived inventory; original XML hashes and public native_geometry.csv references retained.",
+      "field": "native_mapping"
+    },
+    {
+      "action": "Exclude private extraction metadata; original recording/XML hashes retained.",
+      "field": "recording_provenance.*.supporting_source_hashes_and_csv_schemas"
+    },
+    {
+      "action": "Separate public hashes from unavailable private evidence references; no payloads copied.",
+      "field": "evidence_file_sha256"
+    },
+    {
+      "action": "Retain original checksum as provenance hash; generate separate checksums for this publication version.",
+      "field": "proposal_checksums.json"
+    },
+    {
+      "action": "Add publication access limitations and prevent confusing publication approval with adjudication approval.",
+      "field": "README.md, adjudication_report.md"
+    }
+  ],
+  "decisions_unchanged": true,
+  "original_submissions_unchanged": true,
+  "schema_version": "r1-publication-redactions-v1",
+  "source_manifest_sha256": "34f6781d845ff782aefe3786f438d1bde3fee24ab63e7a53351d3bd85f509f96",
+  "statistics_unchanged": true,
+  "unchanged_scientific_artifacts": [
+    "alignment_report.csv",
+    "disagreements.csv",
+    "evidence_review.csv",
+    "adjudication_decisions.csv",
+    "agreement_statistics.json",
+    "approval_template.csv",
+    "provisional_initial_support.csv",
+    "provisional_events.csv",
+    "provisional_requirement_interpretation.csv",
+    "provisional_uncertainty_requests.csv"
+  ]
+}

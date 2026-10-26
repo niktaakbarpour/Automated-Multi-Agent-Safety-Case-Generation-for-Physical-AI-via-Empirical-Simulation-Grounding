@@ -1,0 +1,114 @@
+{
+  "adjudicated_agreement": null,
+  "adjudicated_agreement_reason": "Pending human approval; consensus would not be independent inter-rater reliability.",
+  "agreement_percent": 62.121212121212125,
+  "agreement_scope": "Exact/semantic agreement concerns the selected categorical labels or event unit, not identical prose, confidence, identity or dates. Original qualifications and expressed uncertainty are preserved separately.",
+  "agreements": 41,
+  "aligned_units": 90,
+  "all_difference_units": 38,
+  "categorical_reliability": {
+    "initial_support.support_label": {
+      "agreement_percent": 100.0,
+      "agreements": 20,
+      "kappa": 1.0,
+      "n": 20,
+      "undefined_reason": null
+    },
+    "requirement_interpretation.applicability": {
+      "agreement_percent": 100.0,
+      "agreements": 20,
+      "kappa": 1.0,
+      "n": 20,
+      "undefined_reason": null
+    },
+    "requirement_interpretation.interpretation": {
+      "agreement_percent": 95.0,
+      "agreements": 19,
+      "kappa": 0.8941798941798941,
+      "n": 20,
+      "undefined_reason": null
+    }
+  },
+  "classifications": {
+    "causal_attribution_difference": 1,
+    "conflicting_annotations": 1,
+    "coverage_difference": 5,
+    "coverage_inventory_difference": 12,
+    "event_segmentation_difference": 1,
+    "exact_agreement": 39,
+    "one_reviewer_event": 1,
+    "one_reviewer_uncertainty": 11,
+    "semantically_equivalent_agreement": 2,
+    "timing_or_precision_difference": 17
+  },
+  "denominator_definition": "Paired support, requirement and event/explicit-negative coverage units; excludes one-sided units and uncertainty questions. Event detail/coverage differences count against strict agreement.",
+  "disagreements_by_csv": {
+    "events": 37,
+    "initial_support": 0,
+    "requirement_interpretation": 1,
+    "uncertainty_requests": 0
+  },
+  "disagreements_by_event_type": {
+    "": 1,
+    "lift_drop_sequence": 1,
+    "negative_review": 17,
+    "rock_motion": 1,
+    "setup_bounce": 4,
+    "setup_move_to_floor": 1,
+    "setup_rise_and_return": 12,
+    "tip_motion": 1
+  },
+  "disagreements_by_object": {
+    "butter_1": 7,
+    "cream_cheese_1": 5,
+    "ketchup_1": 8,
+    "milk_1": 9,
+    "orange_juice_1": 9
+  },
+  "disagreements_by_run": {
+    "episode_000": 7,
+    "episode_001": 9,
+    "episode_002": 9,
+    "episode_014": 13
+  },
+  "event_matching": {
+    "alex_sequence_units": 20,
+    "caveat": "Sequence matching permits explicit compound lift/drop segmentation; this is not raw-event precision/recall. Timing equality is separate. No unannotated-interval true negatives and no event kappa.",
+    "matched_sequence_units": 19,
+    "original_negative_coverage_rows": {
+      "reviewer_1": 22,
+      "reviewer_2": 7
+    },
+    "original_observed_event_rows": {
+      "reviewer_1": 20,
+      "reviewer_2": 20
+    },
+    "ryiad_sequence_units": 19,
+    "tolerance_frames": 1,
+    "tolerance_seconds": 0.05,
+    "unmatched_units": 1
+  },
+  "incomplete_annotation_units": 0,
+  "paired_comparable_units": 66,
+  "paired_disagreements": 25,
+  "residual_qualification_units": 70,
+  "schema_version": "r1-adjudication-v1",
+  "source_row_counts": {
+    "reviewer_1/events": 42,
+    "reviewer_1/initial_support": 20,
+    "reviewer_1/requirement_interpretation": 20,
+    "reviewer_1/uncertainty_requests": 2,
+    "reviewer_2/events": 27,
+    "reviewer_2/initial_support": 20,
+    "reviewer_2/requirement_interpretation": 20,
+    "reviewer_2/uncertainty_requests": 9
+  },
+  "total_source_rows": 160,
+  "uncertainty_requests": 11,
+  "uncertainty_resolution_caveat": "Partially resolved means existing evidence answers part of the request; residual uncertainty remains explicit. No human resolution approval is inferred.",
+  "uncertainty_resolution_statuses": {
+    "partially_resolved": 11
+  },
+  "unresolved_count_definition": "13 priority units: 11 partially resolved original uncertainty requests plus 2 lift/drop physical/requirement units needing human support confirmation. Other timing/coverage qualifications remain in the ledger; all 90 decisions await approval.",
+  "unresolved_or_insufficient_evidence_units": 13
+}

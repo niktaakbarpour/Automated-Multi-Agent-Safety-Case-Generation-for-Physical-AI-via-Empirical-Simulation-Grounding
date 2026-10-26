@@ -1,0 +1,14 @@
+{
+  "README.md": "26a200452cdc95404cba1c3e543c38186a97d8a6347e33652463ccbe98e2d212",
+  "adjudicated_events.csv": "cf2b009b8a18d02983c818a4575f85ac7426f9f27f6dc52b49e4a133e85a3ee4",
+  "adjudicated_initial_support.csv": "4ca2edc64d6af27460eee5764fc3a9ab3ddd8408e1a0df2b4076ee8a05969bd3",
+  "adjudicated_requirement_interpretation.csv": "fe2c758a745c16f26bc9f032f9f8e782611383616396575b8fb414972478389a",
+  "adjudicated_uncertainty_requests.csv": "c07ba5a3994f8faf222b808667bb28202af1d8b85a83489c3c86fc32a555680d",
+  "adjudication_evidence_report.md": "ed17567b5b6ac0c41466d882a6edd92f66f367687b58d971e309464b5e8fc5df",
+  "adjudication_summary.json": "df1e53453d94b4d29cdb364625b70a4a87f49e553102a0211b777d3fba891c6c",
+  "complete_adjudication_decisions.csv": "363c1a512bccf34098c3cf93e90ac07e6d0e86c9ed1527bfa717d5c5989bc84b",
+  "dataset_manifest.json": "e4eaadb899ebf78385111d2d053fcd840b39e46d31dd638107f36ec7d9579c88",
+  "methodology.md": "d58224df6e8b5270f540faa07dc8e82842e39904e119ab7a9dcf185c3ca22e64",
+  "original_agreement_statistics.json": "2e5d45b6b9705ad8f75d4b3d0a053c4e438f5e82d394a3a077fae604e088a046",
+  "remaining_human_approval.csv": "88d7f19f10b4c2d6e0c31f387848820f176d0bb050e73edb58bb08d996ebfaea"
+}
