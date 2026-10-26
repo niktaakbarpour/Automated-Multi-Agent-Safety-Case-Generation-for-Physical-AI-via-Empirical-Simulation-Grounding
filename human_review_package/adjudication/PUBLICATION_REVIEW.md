@@ -1,3 +1,19 @@
+# Publication boundary for approved R1 reference
+
+## Approval and authorized update — 2026-10-26
+
+Nikta Akbarpour explicitly approved the full current AI-assisted package (90 alignment units), including the episode 014 post-lift exclusion and retained uncertainty. Her approval is of the package, not independent reannotation or manual inspection of each original event. The approved reference is `approved_reference/r1-reference-be76abc531f5c716efca/`. Its approval ledger, metadata and finalized label CSVs are authorized for publication. Ten requests remain partially resolved; original independent-review statistics and original submissions are unchanged.
+
+Additional reviewed publication-safe files include `ai_tools/`, `ai_tests/`, the immutable safe AI proposal `ai_assisted_20261026/`, the approved reference companion, evaluation handoff and validation documentation. Historical proposal files retain their pre-approval state. Actual approval metadata binds the exact approved proposal checksums; it does not retrospectively alter an earlier package.
+
+Raw `evidence_20261026/` and `evidence_complete_20261026/`, all contact sheets, the local HTML review interface, the private finalizer bridge, private core manifests/exports, local staging/failed-candidate artifacts, and private original proposal remain excluded. No new original submissions, raw recordings, HDF5, checkpoints, secrets or private absolute paths are added. The public companion copies all four core finalized label CSVs byte-for-byte, replaces the private manifest with an explicit allowlisted public manifest, and preserves source/evidence hashes and logical references without raw evidence payloads. Its references identify excluded evidence, not public availability.
+
+The original publication review below describes the earlier provisional snapshot and is retained as history. Its statements that all decisions are pending apply only to that historical stage. The new explicit adjudication approval and current final reference above are authoritative for current status. The PR remains a draft for review; no merge is authorized.
+
+---
+
+## Historical provisional publication boundary
+
 # Publication boundary for the provisional R1 adjudication
 
 Nikta authorized publication of reviewed safe components on a new feature branch and a draft pull request against main. This is **publication approval only**: all 90 proposed decisions remain pending human adjudicator approval. No real dataset-finalization command is executed.

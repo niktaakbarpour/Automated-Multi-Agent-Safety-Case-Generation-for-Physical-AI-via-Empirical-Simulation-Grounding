@@ -19,3 +19,6 @@ __pycache__/
 *.safetensors
 *.tar.gz
 *.zip
+# Local review UI and private bridge to the existing approval-gated finalizer.
+ai_review_local_*/
+ai_private_*/
