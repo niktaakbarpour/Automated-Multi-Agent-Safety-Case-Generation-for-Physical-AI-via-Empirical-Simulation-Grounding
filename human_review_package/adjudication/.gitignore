@@ -1,0 +1,21 @@
+# Local-only evidence and generated proposals: explicit publication review required.
+evidence_*/
+proposed_*/
+test_results*.txt
+frozen*/
+# Approval ledgers and authoritative exports require a separate publication review.
+*reviewed_approvals*.csv
+versioned-reference/
+__pycache__/
+*.pyc
+*.h5
+*.hdf5
+*.mp4
+*.mov
+*.png
+*.jpg
+*.jpeg
+*.pt
+*.safetensors
+*.tar.gz
+*.zip
