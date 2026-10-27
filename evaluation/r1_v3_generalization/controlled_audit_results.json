@@ -1,0 +1,35 @@
+{
+  "synthetic_only": true,
+  "empirical_accuracy_examples": 0,
+  "probes": [
+    {
+      "case": "tiny_represented_pose_change",
+      "change_m": 1e-10,
+      "applicability": "insufficient_information",
+      "reason": "Motion, competing/ambiguous contacts or an unestablished indirect chain prevent a stable support determination.",
+      "interpretation": "Conservative exact-rest sensitivity; not an empirical misclassification count."
+    },
+    {
+      "case": "initial_absence_then_later_table_departure",
+      "applicability": "does_not_apply",
+      "outcome": "not_applicable",
+      "contradictory_event_tags": [
+        {
+          "type": "r1_fall",
+          "scope": "in_scope",
+          "interval": [
+            13,
+            16
+          ]
+        }
+      ],
+      "interpretation": "Run-level non-applicability is preserved, but the physical event is tagged r1_fall/in_scope. Consumers must not use those tags without the initial-applicability gate. V4 consistency fix proposed; v3 unchanged."
+    },
+    {
+      "case": "post_lift_identity_renaming",
+      "post_lift_drops": 1,
+      "R1_outcome": "insufficient_information",
+      "interpretation": "Event predicates are name-independent once qualified facts exist. Scene-specific extraction/configuration remains a separate limitation."
+    }
+  ]
+}

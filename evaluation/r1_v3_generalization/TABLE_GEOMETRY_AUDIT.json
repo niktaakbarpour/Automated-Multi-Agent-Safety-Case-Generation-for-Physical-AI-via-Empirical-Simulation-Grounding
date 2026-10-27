@@ -1,0 +1,322 @@
+{
+  "frozen_config_table_ids": [
+    10,
+    11,
+    12,
+    13,
+    14
+  ],
+  "additional_owned_collision_id_15": {
+    "native_geom_id": 15,
+    "name": null,
+    "owner_body_id": 3,
+    "owner_body": "living_room_table_col",
+    "body_ancestry": [
+      "living_room_table_col",
+      "living_room_table",
+      "world"
+    ],
+    "type": "mjGEOM_BOX",
+    "size": [
+      0.20884,
+      0.41162,
+      0.43516
+    ],
+    "collision_capable": true,
+    "local_position_xml": [
+      0.0,
+      0.0,
+      0.20414
+    ],
+    "local_position_derived_from_recorded_snapshot": [
+      0.0,
+      0.0,
+      0.20414000000000004
+    ],
+    "local_rotation_xml": [
+      [
+        0.0,
+        -0.0,
+        -1.0
+      ],
+      [
+        0.0,
+        1.0,
+        -0.0
+      ],
+      [
+        1.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "local_rotation_derived_from_recorded_snapshot": [
+      [
+        0.0,
+        0.0,
+        -1.0000000000000004
+      ],
+      [
+        0.0,
+        1.0000000000000004,
+        0.0
+      ],
+      [
+        1.0000000000000004,
+        0.0,
+        0.0
+      ]
+    ],
+    "xml_runtime_rotation_max_component_difference": 4.440892098500626e-16,
+    "box_corner_displacement_bound_due_to_rotation_serialization_m": 4.879382953425998e-16,
+    "runtime_transform_source": {
+      "run_id": "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db",
+      "frame": "000000",
+      "body_xquat": "frames/000000/simulator/body_xquat/value",
+      "geom_xmat": "frames/000000/simulator/geom_xmat/value"
+    }
+  },
+  "new_runs_with_protected_contacts_to_omitted_id": [
+    {
+      "run_id": "libero_long_openvla_oft_task00_seed1004_trial004_cfafd9ddc3db",
+      "contacts": 9
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task00_seed1009_trial009_cfafd9ddc3db",
+      "contacts": 8
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task00_seed1029_trial029_cfafd9ddc3db",
+      "contacts": 8
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task00_seed1030_trial030_cfafd9ddc3db",
+      "contacts": 9
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task00_seed1032_trial032_cfafd9ddc3db",
+      "contacts": 8
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task00_seed1034_trial034_cfafd9ddc3db",
+      "contacts": 8
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task00_seed1036_trial036_cfafd9ddc3db",
+      "contacts": 8
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task00_seed1043_trial043_cfafd9ddc3db",
+      "contacts": 8
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task00_seed1044_trial044_cfafd9ddc3db",
+      "contacts": 8
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task00_seed1048_trial048_cfafd9ddc3db",
+      "contacts": 8
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task01_seed1000_trial000_cfafd9ddc3db",
+      "contacts": 8
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task01_seed1001_trial001_cfafd9ddc3db",
+      "contacts": 8
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task01_seed1002_trial002_cfafd9ddc3db",
+      "contacts": 8
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task01_seed1003_trial003_cfafd9ddc3db",
+      "contacts": 8
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task01_seed1004_trial004_cfafd9ddc3db",
+      "contacts": 8
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task01_seed1005_trial005_cfafd9ddc3db",
+      "contacts": 8
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task01_seed1006_trial006_cfafd9ddc3db",
+      "contacts": 8
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task01_seed1007_trial007_cfafd9ddc3db",
+      "contacts": 8
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task01_seed1008_trial008_cfafd9ddc3db",
+      "contacts": 8
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task01_seed1009_trial009_cfafd9ddc3db",
+      "contacts": 8
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task01_seed1010_trial010_cfafd9ddc3db",
+      "contacts": 8
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task01_seed1011_trial011_cfafd9ddc3db",
+      "contacts": 8
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task01_seed1012_trial012_cfafd9ddc3db",
+      "contacts": 8
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task01_seed1013_trial013_cfafd9ddc3db",
+      "contacts": 8
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task01_seed1014_trial014_cfafd9ddc3db",
+      "contacts": 8
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task01_seed1015_trial015_cfafd9ddc3db",
+      "contacts": 8
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task01_seed1016_trial016_cfafd9ddc3db",
+      "contacts": 8
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task01_seed1017_trial017_cfafd9ddc3db",
+      "contacts": 8
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task01_seed1018_trial018_cfafd9ddc3db",
+      "contacts": 8
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task01_seed1019_trial019_cfafd9ddc3db",
+      "contacts": 9
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task01_seed1020_trial020_cfafd9ddc3db",
+      "contacts": 8
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task01_seed1021_trial021_cfafd9ddc3db",
+      "contacts": 8
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task01_seed1022_trial022_cfafd9ddc3db",
+      "contacts": 9
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task01_seed1023_trial023_cfafd9ddc3db",
+      "contacts": 8
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task01_seed1024_trial024_cfafd9ddc3db",
+      "contacts": 8
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task01_seed1025_trial025_cfafd9ddc3db",
+      "contacts": 8
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task01_seed1026_trial026_cfafd9ddc3db",
+      "contacts": 8
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task01_seed1027_trial027_cfafd9ddc3db",
+      "contacts": 8
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task01_seed1028_trial028_cfafd9ddc3db",
+      "contacts": 8
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task01_seed1029_trial029_cfafd9ddc3db",
+      "contacts": 8
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task01_seed1030_trial030_cfafd9ddc3db",
+      "contacts": 8
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task01_seed1031_trial031_cfafd9ddc3db",
+      "contacts": 8
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task01_seed1032_trial032_cfafd9ddc3db",
+      "contacts": 9
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task01_seed1033_trial033_cfafd9ddc3db",
+      "contacts": 8
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task01_seed1034_trial034_cfafd9ddc3db",
+      "contacts": 8
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task01_seed1035_trial035_cfafd9ddc3db",
+      "contacts": 8
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task01_seed1036_trial036_cfafd9ddc3db",
+      "contacts": 8
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task01_seed1037_trial037_cfafd9ddc3db",
+      "contacts": 9
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task01_seed1038_trial038_cfafd9ddc3db",
+      "contacts": 8
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task01_seed1039_trial039_cfafd9ddc3db",
+      "contacts": 8
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task01_seed1040_trial040_cfafd9ddc3db",
+      "contacts": 8
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task01_seed1041_trial041_cfafd9ddc3db",
+      "contacts": 8
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task01_seed1042_trial042_cfafd9ddc3db",
+      "contacts": 8
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task01_seed1043_trial043_cfafd9ddc3db",
+      "contacts": 8
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task01_seed1044_trial044_cfafd9ddc3db",
+      "contacts": 8
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task01_seed1045_trial045_cfafd9ddc3db",
+      "contacts": 8
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task01_seed1046_trial046_cfafd9ddc3db",
+      "contacts": 9
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task01_seed1047_trial047_cfafd9ddc3db",
+      "contacts": 8
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task01_seed1048_trial048_cfafd9ddc3db",
+      "contacts": 8
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task01_seed1049_trial049_cfafd9ddc3db",
+      "contacts": 8
+    }
+  ],
+  "finding": "Configuration omits an owned collision BOX; no protected contact to that ID observed in these 60 recordings. Structural completeness concern, not an observed empirical misclassification."
+}

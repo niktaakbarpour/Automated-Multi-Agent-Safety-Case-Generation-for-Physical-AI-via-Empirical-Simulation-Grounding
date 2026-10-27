@@ -1,0 +1,18 @@
+test_body_order_and_geometry_count_mismatch_rejected (test_harness.HarnessTests) ... ok
+test_controlled_name_invariance_and_conservatism (test_harness.HarnessTests) ... ok
+test_controlled_probes_disclose_event_scope_inconsistency (test_harness.HarnessTests) ... ok
+test_different_xml_never_reuses_native_ids (test_harness.HarnessTests) ... ok
+test_frozen_checker_and_all_protected_hashes (test_harness.HarnessTests) ... ok
+test_no_modification_to_mapping_source_on_registration (test_harness.HarnessTests) ... ok
+test_no_prediction_input_to_review_exporter (test_harness.HarnessTests) ... ok
+test_reserved_partition_has_exact_ten_no_development_overlap (test_harness.HarnessTests) ... ok
+test_actual_task_shift_coverage_counts (test_harness.ResultsAndBlindingTests) ... ok
+test_harness_runtime_matches_pre_execution_freeze (test_harness.ResultsAndBlindingTests) ... ok
+test_no_complete_trajectory_duplicates_in_compared_64 (test_harness.ResultsAndBlindingTests) ... ok
+test_review_answer_columns_blank (test_harness.ResultsAndBlindingTests) ... ok
+test_unlabelled_metrics_are_null_not_zero (test_harness.ResultsAndBlindingTests) ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 0.181s
+
+OK

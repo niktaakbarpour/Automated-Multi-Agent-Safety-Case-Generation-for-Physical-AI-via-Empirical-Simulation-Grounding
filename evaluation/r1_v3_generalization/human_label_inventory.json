@@ -1,0 +1,212 @@
+{
+  "searched": "All CSVs under existing human_review_package with run and human-label/review columns; source reviewer submissions, adjudication tables and approved companion included.",
+  "sources": [
+    {
+      "path": "human_review_package/adjudication/publication_20261026/provisional_uncertainty_requests.csv",
+      "rows": 11,
+      "unique_run_ids": 4,
+      "selected_new_run_ids": []
+    },
+    {
+      "path": "human_review_package/adjudication/publication_20261026/provisional_initial_support.csv",
+      "rows": 20,
+      "unique_run_ids": 4,
+      "selected_new_run_ids": []
+    },
+    {
+      "path": "human_review_package/adjudication/publication_20261026/adjudication_decisions.csv",
+      "rows": 90,
+      "unique_run_ids": 4,
+      "selected_new_run_ids": []
+    },
+    {
+      "path": "human_review_package/adjudication/publication_20261026/provisional_requirement_interpretation.csv",
+      "rows": 20,
+      "unique_run_ids": 4,
+      "selected_new_run_ids": []
+    },
+    {
+      "path": "human_review_package/adjudication/publication_20261026/provisional_events.csv",
+      "rows": 39,
+      "unique_run_ids": 4,
+      "selected_new_run_ids": []
+    },
+    {
+      "path": "human_review_package/adjudication/approved_reference/r1-reference-be76abc531f5c716efca/adjudicated_initial_support.csv",
+      "rows": 20,
+      "unique_run_ids": 4,
+      "selected_new_run_ids": []
+    },
+    {
+      "path": "human_review_package/adjudication/approved_reference/r1-reference-be76abc531f5c716efca/final_decision_ledger.csv",
+      "rows": 90,
+      "unique_run_ids": 4,
+      "selected_new_run_ids": []
+    },
+    {
+      "path": "human_review_package/adjudication/approved_reference/r1-reference-be76abc531f5c716efca/adjudicated_requirement_interpretation.csv",
+      "rows": 20,
+      "unique_run_ids": 4,
+      "selected_new_run_ids": []
+    },
+    {
+      "path": "human_review_package/adjudication/approved_reference/r1-reference-be76abc531f5c716efca/adjudicated_uncertainty_requests.csv",
+      "rows": 11,
+      "unique_run_ids": 4,
+      "selected_new_run_ids": []
+    },
+    {
+      "path": "human_review_package/adjudication/approved_reference/r1-reference-be76abc531f5c716efca/adjudicated_events.csv",
+      "rows": 39,
+      "unique_run_ids": 4,
+      "selected_new_run_ids": []
+    },
+    {
+      "path": "human_review_package/adjudication/versioned-reference/r1-reference-be76abc531f5c716efca/adjudicated_initial_support.csv",
+      "rows": 20,
+      "unique_run_ids": 4,
+      "selected_new_run_ids": []
+    },
+    {
+      "path": "human_review_package/adjudication/versioned-reference/r1-reference-be76abc531f5c716efca/adjudicated_requirement_interpretation.csv",
+      "rows": 20,
+      "unique_run_ids": 4,
+      "selected_new_run_ids": []
+    },
+    {
+      "path": "human_review_package/adjudication/versioned-reference/r1-reference-be76abc531f5c716efca/adjudicated_uncertainty_requests.csv",
+      "rows": 11,
+      "unique_run_ids": 4,
+      "selected_new_run_ids": []
+    },
+    {
+      "path": "human_review_package/adjudication/versioned-reference/r1-reference-be76abc531f5c716efca/adjudicated_events.csv",
+      "rows": 39,
+      "unique_run_ids": 4,
+      "selected_new_run_ids": []
+    },
+    {
+      "path": "human_review_package/adjudication/ai_assisted_20261026/adjudicated_initial_support.csv",
+      "rows": 20,
+      "unique_run_ids": 4,
+      "selected_new_run_ids": []
+    },
+    {
+      "path": "human_review_package/adjudication/ai_assisted_20261026/adjudicated_requirement_interpretation.csv",
+      "rows": 20,
+      "unique_run_ids": 4,
+      "selected_new_run_ids": []
+    },
+    {
+      "path": "human_review_package/adjudication/ai_assisted_20261026/adjudicated_uncertainty_requests.csv",
+      "rows": 11,
+      "unique_run_ids": 4,
+      "selected_new_run_ids": []
+    },
+    {
+      "path": "human_review_package/adjudication/ai_assisted_20261026/adjudicated_events.csv",
+      "rows": 39,
+      "unique_run_ids": 4,
+      "selected_new_run_ids": []
+    },
+    {
+      "path": "human_review_package/adjudication/ai_assisted_20261026/complete_adjudication_decisions.csv",
+      "rows": 90,
+      "unique_run_ids": 4,
+      "selected_new_run_ids": []
+    },
+    {
+      "path": "human_review_package/adjudication/ai_private_20261026/adjudication_decisions.csv",
+      "rows": 90,
+      "unique_run_ids": 4,
+      "selected_new_run_ids": []
+    },
+    {
+      "path": "human_review_package/adjudication/proposed_20261026/provisional_uncertainty_requests.csv",
+      "rows": 11,
+      "unique_run_ids": 4,
+      "selected_new_run_ids": []
+    },
+    {
+      "path": "human_review_package/adjudication/proposed_20261026/provisional_initial_support.csv",
+      "rows": 20,
+      "unique_run_ids": 4,
+      "selected_new_run_ids": []
+    },
+    {
+      "path": "human_review_package/adjudication/proposed_20261026/adjudication_decisions.csv",
+      "rows": 90,
+      "unique_run_ids": 4,
+      "selected_new_run_ids": []
+    },
+    {
+      "path": "human_review_package/adjudication/proposed_20261026/provisional_requirement_interpretation.csv",
+      "rows": 20,
+      "unique_run_ids": 4,
+      "selected_new_run_ids": []
+    },
+    {
+      "path": "human_review_package/adjudication/proposed_20261026/provisional_events.csv",
+      "rows": 39,
+      "unique_run_ids": 4,
+      "selected_new_run_ids": []
+    },
+    {
+      "path": "human_review_package/reviewer_2/initial_support.csv",
+      "rows": 20,
+      "unique_run_ids": 4,
+      "selected_new_run_ids": []
+    },
+    {
+      "path": "human_review_package/reviewer_2/uncertainty_requests.csv",
+      "rows": 9,
+      "unique_run_ids": 4,
+      "selected_new_run_ids": []
+    },
+    {
+      "path": "human_review_package/reviewer_2/events.csv",
+      "rows": 27,
+      "unique_run_ids": 4,
+      "selected_new_run_ids": []
+    },
+    {
+      "path": "human_review_package/reviewer_2/requirement_interpretation.csv",
+      "rows": 20,
+      "unique_run_ids": 4,
+      "selected_new_run_ids": []
+    },
+    {
+      "path": "human_review_package/reviewer_1/initial_support.csv",
+      "rows": 20,
+      "unique_run_ids": 4,
+      "selected_new_run_ids": []
+    },
+    {
+      "path": "human_review_package/reviewer_1/uncertainty_requests.csv",
+      "rows": 2,
+      "unique_run_ids": 2,
+      "selected_new_run_ids": []
+    },
+    {
+      "path": "human_review_package/reviewer_1/events.csv",
+      "rows": 42,
+      "unique_run_ids": 4,
+      "selected_new_run_ids": []
+    },
+    {
+      "path": "human_review_package/reviewer_1/requirement_interpretation.csv",
+      "rows": 20,
+      "unique_run_ids": 4,
+      "selected_new_run_ids": []
+    }
+  ],
+  "observed_run_ids": [
+    "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db",
+    "libero_long_openvla_oft_task00_seed1001_trial001_cfafd9ddc3db",
+    "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+    "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db"
+  ],
+  "matching_new_run_sources": [],
+  "new_independently_approved_reference_available": false,
+  "accuracy_evaluation": "pending independent review"
+}

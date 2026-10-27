@@ -1,0 +1,46 @@
+test_disjoint_coverage_not_bridged (test_checker.EventTests) ... ok
+test_duplicate_frames_rejected (test_checker.EventTests) ... ok
+test_fall_not_erased_by_later_robot_catch (test_checker.EventTests) ... ok
+test_incomplete_intervals_do_not_become_negative (test_checker.EventTests) ... ok
+test_one_contact_gap_preserves_physical_uncertainty (test_checker.EventTests) ... ok
+test_positive_negative_evidence_not_missing_candidates (test_checker.EventTests) ... ok
+test_post_lift_drop_and_recovery_retained (test_checker.EventTests) ... ok
+test_robot_incidental_contact_not_carrying (test_checker.EventTests) ... ok
+test_rotation_alone_not_unsupported_fall (test_checker.EventTests) ... ok
+test_setup_departure_landing_after_boundary (test_checker.EventTests) ... ok
+test_supported_tipping_not_fall (test_checker.EventTests) ... ok
+test_true_in_scope_fall_no_floor_required (test_checker.EventTests) ... ok
+test_absent_contact_near_table_not_absence_proof (test_checker.SupportTests) ... ok
+test_coordinate_changes_are_not_stationary (test_checker.SupportTests) ... ok
+test_direct_stable_support (test_checker.SupportTests) ... ok
+test_established_absence (test_checker.SupportTests) ... ok
+test_incidental_robot_contact_does_not_make_stable_support (test_checker.SupportTests) ... ok
+test_indirect_incidental_contact_not_support (test_checker.SupportTests) ... ok
+test_indirect_stable_support (test_checker.SupportTests) ... ok
+test_invalid_timing_abstains (test_checker.SupportTests) ... ok
+test_missing_ambiguous_or_unknown_geometry (test_checker.SupportTests) ... ok
+test_support_cycle_rejected (test_checker.SupportTests) ... ok
+test_unstable_support_chain_abstains (test_checker.SupportTests) ... ok
+test_held_cream_drop_retained_without_full_domain_pass (test_evaluation.RecordedRegressions) ... ok
+test_no_missing_output_or_false_scope_claim (test_evaluation.RecordedRegressions) ... ok
+test_orange_motion_uncertainty_not_fall (test_evaluation.RecordedRegressions) ... ok
+test_setup_cream_departure_not_policy_landing_alarm (test_evaluation.RecordedRegressions) ... ok
+test_actual_denominators_no_nonscope_TNs (test_evaluation.ScoreTests) ... ok
+test_nonscope_alarm_is_scope_error_not_binary_FP (test_evaluation.ScoreTests) ... ok
+test_score_reproduces_saved_result (test_evaluation.ScoreTests) ... ok
+test_strict_and_one_frame_localization (test_evaluation.ScoreTests) ... ok
+test_tamper_rejected_before_any_reference_read (test_evaluation.ScoreTests) ... ok
+test_uncovered_domain_cannot_become_TN (test_evaluation.ScoreTests) ... ok
+test_incomplete_contacts_rejected (test_measurements.FaceEvidenceTests) ... skipped 'numpy/h5py integration runs on Hestia'
+test_inconsistent_contact_distance_not_support (test_measurements.FaceEvidenceTests) ... skipped 'numpy/h5py integration runs on Hestia'
+test_indirect_upper_face_chain (test_measurements.FaceEvidenceTests) ... skipped 'numpy/h5py integration runs on Hestia'
+test_nonfinite_contact_rejected (test_measurements.FaceEvidenceTests) ... skipped 'numpy/h5py integration runs on Hestia'
+test_side_contact_not_upward_support (test_measurements.FaceEvidenceTests) ... skipped 'numpy/h5py integration runs on Hestia'
+test_signed_penetration_consistent_face (test_measurements.FaceEvidenceTests) ... skipped 'numpy/h5py integration runs on Hestia'
+test_true_upper_face (test_measurements.FaceEvidenceTests) ... skipped 'numpy/h5py integration runs on Hestia'
+test_unknown_native_geometry_rejected (test_measurements.FaceEvidenceTests) ... skipped 'numpy/h5py integration runs on Hestia'
+
+----------------------------------------------------------------------
+Ran 41 tests in 0.067s
+
+OK (skipped=8)

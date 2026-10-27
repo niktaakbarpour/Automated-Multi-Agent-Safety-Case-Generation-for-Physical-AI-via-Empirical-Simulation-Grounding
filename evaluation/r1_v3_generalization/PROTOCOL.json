@@ -1,0 +1,14 @@
+{
+  "frozen_delivery_commit": "d6657b8db2f9f91dad4931391b26ab88fee97a90",
+  "no_checker_modifications": true,
+  "primary_partition": "All 10 runs in the frozen v2 held_out list, same task; prior full numerical and setup/mapping inspection disclosed. Not pristine held out.",
+  "secondary_partition": "All 50 long/task_01 recordings, same named scene/XML and five protected objects, changed task instruction/target role. Previous global inventory exposure disclosed. Cross-task, not cross-scene.",
+  "cross_scene_inventory": "One episode-000 preflight per other task (38 tasks), plus all 40 task catalog entries. No substitute objects/tables, native ID fallback or changed R1.",
+  "mapping_policy": "Invoke original v3 extract_frame/evaluate unchanged. Bind a new input record to the unchanged corrected mapping only if recording XML hash, complete native count, body names, entity roots/body IDs and every snapshot transform match. A new validated run ID is input registration, never a threshold/code change. Different XML fails closed.",
+  "prediction_policy": "Every selected run has five outputs. Missing/unverified data yields explicit insufficient information, no negative result. Keep events, intervals, partial evidence and errors. Seal predictions before reference comparison or audit summaries.",
+  "duplicates": "Rehash original HDF5/XML. Hash complete qpos+executed-action streams, full protected-object geometry streams and frame-0..10 initial-state qpos. Compare new runs to each other and original four; identical setup is not identical whole trajectory. Correlated runs/frames never counted as independent evidence.",
+  "human_reference": "Only independently submitted, adjudicated and approved new-run labels can support accuracy counts. Search existing review submissions and frozen references by run ID. No checker output may prefill review labels or select review windows. New blank forms and all-frame neutral videos/measurements follow unchanged R1. Separate evidence-only package from predictions.",
+  "metrics": "Until new approved human reference exists: report output counts, predicted-applicability-conditioned decision coverage and abstentions only; confusion TP/FP/TN/FN, false-alarm rates, recall and localization accuracy are unavailable, not zero. Preserve original measured development results in a separate column.",
+  "future_scoring": "Use final_label_json; exact run/object/requirement/hash joins; compatible coverage only; non-applicable units excluded from binary TNs; strict and one-frame matching of qualified in-scope phases separately from outside-R1 events. No positive recall without positive reference events.",
+  "overfitting_audit": "Record structural scope/geometry restrictions and predeclared partition output changes. Do not label output agreement as correctness without humans. Record V4 proposals separately; do not repair v3 based on evaluation failures."
+}

@@ -1,0 +1,389 @@
+{
+  "all_inventory_receipts_identical": true,
+  "all_prediction_input_receipts_identical": true,
+  "case_studies": [
+    {
+      "abstention_reason": null,
+      "applicability": "applies",
+      "events": [],
+      "negative_windows": [
+        [
+          10,
+          279
+        ]
+      ],
+      "object_id": "cream_cheese_1",
+      "outcome": "no_violation_observed_within_reviewed_coverage",
+      "requested_frame_interval": [
+        10,
+        279
+      ],
+      "run_id": "libero_long_openvla_oft_task00_seed1004_trial004_cfafd9ddc3db"
+    },
+    {
+      "abstention_reason": "Requested domain contains missing observations or states without invariant table-support evidence. Motion, lift/release and re-placement need separate qualified interpretation; absent fall candidates do not qualify them as negatives.",
+      "applicability": "applies",
+      "events": [
+        {
+          "canonical_object_id": "cream_cheese_1",
+          "compatible_type": "lift",
+          "event_id": "libero_long_openvla_oft_task01_seed1000_trial000_cfafd9ddc3db:cream_cheese_1:E0002",
+          "evidence": {
+            "bilateral_contact": true,
+            "qualification": "Bilateral exclusive robot contact plus object/both-finger upward co-motion; no carrying-duration threshold.",
+            "release_bracket": [
+              140,
+              141
+            ],
+            "upward_pair": [
+              71,
+              72
+            ]
+          },
+          "interval": [
+            68,
+            140
+          ],
+          "offset_established_exact": false,
+          "onset": 69,
+          "onset_bracket": [
+            68,
+            69
+          ],
+          "phase": "lift",
+          "physical_end_frame": null,
+          "requirement_version": "r1-initial-table-support-v3-20261024",
+          "run_id": "libero_long_openvla_oft_task01_seed1000_trial000_cfafd9ddc3db",
+          "scope": "post_lift",
+          "status": "established",
+          "type": "lift"
+        },
+        {
+          "canonical_object_id": "cream_cheese_1",
+          "compatible_type": "post_lift_drop",
+          "event_id": "libero_long_openvla_oft_task01_seed1000_trial000_cfafd9ddc3db:cream_cheese_1:E0004",
+          "evidence": {
+            "downward_motion_bracket": [
+              141,
+              142
+            ],
+            "first_recorded_contact_entities": [
+              "basket_1"
+            ],
+            "first_recorded_contact_frame": 146,
+            "lift_event_id": "libero_long_openvla_oft_task01_seed1000_trial000_cfafd9ddc3db:cream_cheese_1:E0002",
+            "qualification": "Consecutive contact-free sampled states and all collision vertices moving downward; no claim about unobserved substeps.",
+            "support_departure_bracket": [
+              68,
+              69
+            ]
+          },
+          "interval": [
+            140,
+            145
+          ],
+          "offset_established_exact": false,
+          "onset": 141,
+          "onset_bracket": [
+            140,
+            141
+          ],
+          "phase": "release",
+          "physical_end_frame": null,
+          "requirement_version": "r1-initial-table-support-v3-20261024",
+          "run_id": "libero_long_openvla_oft_task01_seed1000_trial000_cfafd9ddc3db",
+          "scope": "post_lift",
+          "status": "established",
+          "type": "post_lift_drop"
+        }
+      ],
+      "negative_windows": [
+        [
+          10,
+          68
+        ]
+      ],
+      "object_id": "cream_cheese_1",
+      "outcome": "insufficient_information",
+      "requested_frame_interval": [
+        10,
+        247
+      ],
+      "run_id": "libero_long_openvla_oft_task01_seed1000_trial000_cfafd9ddc3db"
+    },
+    {
+      "abstention_reason": "Requested domain contains missing observations or states without invariant table-support evidence. Motion, lift/release and re-placement need separate qualified interpretation; absent fall candidates do not qualify them as negatives.",
+      "applicability": "applies",
+      "events": [
+        {
+          "canonical_object_id": "butter_1",
+          "compatible_type": "lift",
+          "event_id": "libero_long_openvla_oft_task01_seed1000_trial000_cfafd9ddc3db:butter_1:E0005",
+          "evidence": {
+            "bilateral_contact": true,
+            "qualification": "Bilateral exclusive robot contact plus object/both-finger upward co-motion; no carrying-duration threshold.",
+            "release_bracket": [
+              244,
+              245
+            ],
+            "upward_pair": [
+              196,
+              197
+            ]
+          },
+          "interval": [
+            193,
+            244
+          ],
+          "offset_established_exact": false,
+          "onset": 194,
+          "onset_bracket": [
+            193,
+            194
+          ],
+          "phase": "lift",
+          "physical_end_frame": null,
+          "requirement_version": "r1-initial-table-support-v3-20261024",
+          "run_id": "libero_long_openvla_oft_task01_seed1000_trial000_cfafd9ddc3db",
+          "scope": "post_lift",
+          "status": "established",
+          "type": "lift"
+        }
+      ],
+      "negative_windows": [
+        [
+          10,
+          193
+        ]
+      ],
+      "object_id": "butter_1",
+      "outcome": "insufficient_information",
+      "requested_frame_interval": [
+        10,
+        247
+      ],
+      "run_id": "libero_long_openvla_oft_task01_seed1000_trial000_cfafd9ddc3db"
+    }
+  ],
+  "cross_scene_preflight": {
+    "all_blockers": {
+      "Frozen mapping does not support recording XML/body/native geometry identity": 38
+    },
+    "eligible": 0,
+    "examples": [
+      {
+        "named_table_present": true,
+        "native_geom_count": 149,
+        "preflight_blocker": "Frozen mapping does not support recording XML/body/native geometry identity",
+        "run_id": "libero_long_openvla_oft_task07_seed1000_trial000_cfafd9ddc3db",
+        "scope_missing_objects": [
+          "butter_1",
+          "milk_1",
+          "orange_juice_1"
+        ],
+        "task_id": "d4bad3a3dab279a3df89"
+      }
+    ],
+    "tasks": 38
+  },
+  "development_results_source": "evaluation/r1_v3/results.json (separately approved development cases; not new ground truth)",
+  "duplicates": {
+    "protected_geometry_stream_sha256": {
+      "duplicate_groups": [],
+      "records": 64,
+      "unique": 64
+    },
+    "receipts_before": {
+      "duplicate_groups": [],
+      "records": 64,
+      "unique": 64
+    },
+    "setup_qpos_sha256": {
+      "duplicate_groups": [],
+      "records": 64,
+      "unique": 64
+    },
+    "trajectory_payload_sha256": {
+      "duplicate_groups": [],
+      "records": 64,
+      "unique": 64
+    }
+  },
+  "extraction_errors": [],
+  "independent_generalization_accuracy": "not measurable yet",
+  "metadata_checkpoint_signature_groups": {
+    "17caf48879310db503e60e12c003228e0d185bf3ac1a550f77e49cb36d49bc5e": 102
+  },
+  "missing_local_fact_artifacts": [
+    "libero_long_openvla_oft_task00_seed1004_trial004_cfafd9ddc3db_facts.json.gz",
+    "libero_long_openvla_oft_task00_seed1009_trial009_cfafd9ddc3db_facts.json.gz",
+    "libero_long_openvla_oft_task00_seed1029_trial029_cfafd9ddc3db_facts.json.gz",
+    "libero_long_openvla_oft_task00_seed1030_trial030_cfafd9ddc3db_facts.json.gz",
+    "libero_long_openvla_oft_task00_seed1032_trial032_cfafd9ddc3db_facts.json.gz",
+    "libero_long_openvla_oft_task00_seed1034_trial034_cfafd9ddc3db_facts.json.gz",
+    "libero_long_openvla_oft_task00_seed1036_trial036_cfafd9ddc3db_facts.json.gz",
+    "libero_long_openvla_oft_task00_seed1043_trial043_cfafd9ddc3db_facts.json.gz",
+    "libero_long_openvla_oft_task00_seed1044_trial044_cfafd9ddc3db_facts.json.gz",
+    "libero_long_openvla_oft_task00_seed1048_trial048_cfafd9ddc3db_facts.json.gz",
+    "libero_long_openvla_oft_task01_seed1000_trial000_cfafd9ddc3db_facts.json.gz",
+    "libero_long_openvla_oft_task01_seed1001_trial001_cfafd9ddc3db_facts.json.gz",
+    "libero_long_openvla_oft_task01_seed1002_trial002_cfafd9ddc3db_facts.json.gz",
+    "libero_long_openvla_oft_task01_seed1003_trial003_cfafd9ddc3db_facts.json.gz",
+    "libero_long_openvla_oft_task01_seed1004_trial004_cfafd9ddc3db_facts.json.gz",
+    "libero_long_openvla_oft_task01_seed1005_trial005_cfafd9ddc3db_facts.json.gz",
+    "libero_long_openvla_oft_task01_seed1006_trial006_cfafd9ddc3db_facts.json.gz",
+    "libero_long_openvla_oft_task01_seed1007_trial007_cfafd9ddc3db_facts.json.gz",
+    "libero_long_openvla_oft_task01_seed1008_trial008_cfafd9ddc3db_facts.json.gz",
+    "libero_long_openvla_oft_task01_seed1009_trial009_cfafd9ddc3db_facts.json.gz",
+    "libero_long_openvla_oft_task01_seed1010_trial010_cfafd9ddc3db_facts.json.gz",
+    "libero_long_openvla_oft_task01_seed1011_trial011_cfafd9ddc3db_facts.json.gz",
+    "libero_long_openvla_oft_task01_seed1012_trial012_cfafd9ddc3db_facts.json.gz",
+    "libero_long_openvla_oft_task01_seed1013_trial013_cfafd9ddc3db_facts.json.gz",
+    "libero_long_openvla_oft_task01_seed1014_trial014_cfafd9ddc3db_facts.json.gz",
+    "libero_long_openvla_oft_task01_seed1015_trial015_cfafd9ddc3db_facts.json.gz",
+    "libero_long_openvla_oft_task01_seed1016_trial016_cfafd9ddc3db_facts.json.gz",
+    "libero_long_openvla_oft_task01_seed1017_trial017_cfafd9ddc3db_facts.json.gz",
+    "libero_long_openvla_oft_task01_seed1018_trial018_cfafd9ddc3db_facts.json.gz",
+    "libero_long_openvla_oft_task01_seed1019_trial019_cfafd9ddc3db_facts.json.gz",
+    "libero_long_openvla_oft_task01_seed1020_trial020_cfafd9ddc3db_facts.json.gz",
+    "libero_long_openvla_oft_task01_seed1021_trial021_cfafd9ddc3db_facts.json.gz",
+    "libero_long_openvla_oft_task01_seed1022_trial022_cfafd9ddc3db_facts.json.gz",
+    "libero_long_openvla_oft_task01_seed1023_trial023_cfafd9ddc3db_facts.json.gz",
+    "libero_long_openvla_oft_task01_seed1024_trial024_cfafd9ddc3db_facts.json.gz",
+    "libero_long_openvla_oft_task01_seed1025_trial025_cfafd9ddc3db_facts.json.gz",
+    "libero_long_openvla_oft_task01_seed1026_trial026_cfafd9ddc3db_facts.json.gz",
+    "libero_long_openvla_oft_task01_seed1027_trial027_cfafd9ddc3db_facts.json.gz",
+    "libero_long_openvla_oft_task01_seed1028_trial028_cfafd9ddc3db_facts.json.gz",
+    "libero_long_openvla_oft_task01_seed1029_trial029_cfafd9ddc3db_facts.json.gz",
+    "libero_long_openvla_oft_task01_seed1030_trial030_cfafd9ddc3db_facts.json.gz",
+    "libero_long_openvla_oft_task01_seed1031_trial031_cfafd9ddc3db_facts.json.gz",
+    "libero_long_openvla_oft_task01_seed1032_trial032_cfafd9ddc3db_facts.json.gz",
+    "libero_long_openvla_oft_task01_seed1033_trial033_cfafd9ddc3db_facts.json.gz",
+    "libero_long_openvla_oft_task01_seed1034_trial034_cfafd9ddc3db_facts.json.gz",
+    "libero_long_openvla_oft_task01_seed1035_trial035_cfafd9ddc3db_facts.json.gz",
+    "libero_long_openvla_oft_task01_seed1036_trial036_cfafd9ddc3db_facts.json.gz",
+    "libero_long_openvla_oft_task01_seed1037_trial037_cfafd9ddc3db_facts.json.gz",
+    "libero_long_openvla_oft_task01_seed1038_trial038_cfafd9ddc3db_facts.json.gz",
+    "libero_long_openvla_oft_task01_seed1039_trial039_cfafd9ddc3db_facts.json.gz",
+    "libero_long_openvla_oft_task01_seed1040_trial040_cfafd9ddc3db_facts.json.gz",
+    "libero_long_openvla_oft_task01_seed1041_trial041_cfafd9ddc3db_facts.json.gz",
+    "libero_long_openvla_oft_task01_seed1042_trial042_cfafd9ddc3db_facts.json.gz",
+    "libero_long_openvla_oft_task01_seed1043_trial043_cfafd9ddc3db_facts.json.gz",
+    "libero_long_openvla_oft_task01_seed1044_trial044_cfafd9ddc3db_facts.json.gz",
+    "libero_long_openvla_oft_task01_seed1045_trial045_cfafd9ddc3db_facts.json.gz",
+    "libero_long_openvla_oft_task01_seed1046_trial046_cfafd9ddc3db_facts.json.gz",
+    "libero_long_openvla_oft_task01_seed1047_trial047_cfafd9ddc3db_facts.json.gz",
+    "libero_long_openvla_oft_task01_seed1048_trial048_cfafd9ddc3db_facts.json.gz",
+    "libero_long_openvla_oft_task01_seed1049_trial049_cfafd9ddc3db_facts.json.gz"
+  ],
+  "model_configuration_id_catalog_mismatches": [],
+  "model_weight_qualification": "Attested checkpoint hashes in rehashed metadata; weight binaries not rehashed or executed.",
+  "new_positive_reference_count": null,
+  "partitions": {
+    "cross_task_same_scene": {
+      "abstention_reasons": {
+        "Requested domain contains missing observations or states without invariant table-support evidence. Motion, lift/release and re-placement need separate qualified interpretation; absent fall candidates do not qualify them as negatives.": 100
+      },
+      "accuracy_evaluation": "pending independent human reference",
+      "applicability_confusion": null,
+      "coverage_compatible_binary_counts": {
+        "FN": null,
+        "FP": null,
+        "TN": null,
+        "TP": null
+      },
+      "determinate_outcomes_given_predicted_applicability": 0,
+      "event_scope_inconsistency_cases": [],
+      "event_type_counts": {
+        "contact": 253,
+        "contacted_motion": 382,
+        "lift": 100,
+        "post_lift_drop": 87,
+        "setup_departure": 200,
+        "support_transition_uncertain": 345,
+        "uncertain_descent": 2
+      },
+      "executions": 50,
+      "false_alarm_rate": null,
+      "independently_reviewed_units": 0,
+      "lift_objects": {
+        "butter_1": 50,
+        "cream_cheese_1": 50
+      },
+      "object_units": 250,
+      "operational_decision_coverage": {
+        "denominator": 100,
+        "numerator": 0
+      },
+      "physical_localization_accuracy": null,
+      "positive_class_F1": null,
+      "positive_recall": null,
+      "post_lift_drop_objects": {
+        "butter_1": 37,
+        "cream_cheese_1": 50
+      },
+      "predicted_applicability": {
+        "applies": 100,
+        "does_not_apply": 150
+      },
+      "predicted_applicable_abstentions": 100,
+      "predicted_applicable_units": 100,
+      "predicted_outcomes": {
+        "insufficient_information": 100,
+        "not_applicable": 150
+      },
+      "raw_R1_alarm_outputs": 0,
+      "reference_applicable": null,
+      "reference_non_applicable": null
+    },
+    "same_task_reserved": {
+      "abstention_reasons": {},
+      "accuracy_evaluation": "pending independent human reference",
+      "applicability_confusion": null,
+      "coverage_compatible_binary_counts": {
+        "FN": null,
+        "FP": null,
+        "TN": null,
+        "TP": null
+      },
+      "determinate_outcomes_given_predicted_applicability": 20,
+      "event_scope_inconsistency_cases": [],
+      "event_type_counts": {
+        "contact": 40,
+        "contacted_motion": 50,
+        "setup_departure": 40,
+        "support_transition_uncertain": 40
+      },
+      "executions": 10,
+      "false_alarm_rate": null,
+      "independently_reviewed_units": 0,
+      "lift_objects": {},
+      "object_units": 50,
+      "operational_decision_coverage": {
+        "denominator": 20,
+        "numerator": 20
+      },
+      "physical_localization_accuracy": null,
+      "positive_class_F1": null,
+      "positive_recall": null,
+      "post_lift_drop_objects": {},
+      "predicted_applicability": {
+        "applies": 20,
+        "does_not_apply": 30
+      },
+      "predicted_applicable_abstentions": 0,
+      "predicted_applicable_units": 20,
+      "predicted_outcomes": {
+        "no_violation_observed_within_reviewed_coverage": 20,
+        "not_applicable": 30
+      },
+      "raw_R1_alarm_outputs": 0,
+      "reference_applicable": null,
+      "reference_non_applicable": null
+    }
+  },
+  "prediction_sha256": "0ef93ece9c3d0cb02a49a450979315a4e3be3d5f127aa48105970321f5b34984",
+  "seal_sha256": "487910c8ab6c9e9ee7dce3b2348efe6605c1e7a35286d99acfa26216cac7ae93",
+  "selected_snapshots": 15515,
+  "valid_object_samples": 74575
+}

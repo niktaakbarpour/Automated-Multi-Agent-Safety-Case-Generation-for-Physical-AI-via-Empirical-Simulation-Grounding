@@ -1,0 +1,24 @@
+\subsection{Frozen-checker transfer and overfitting audit}
+We evaluated the unchanged R1 v3 checker on ten reserved executions of the original task and fifty executions of a second task in the same scene. The second task manipulates cream cheese and butter, which were protected distractors in the development task. All 60 recordings passed identity and checksum checks; inference produced 300 sealed object--execution predictions from 15,515 snapshots without extraction errors. No duplicate complete trajectories were found among these executions and the original four. Prior numerical/setup inspection and global inventory exposure prevent calling these sets pristine held-out data.
+
+The checker predicted 20 applicable units in the reserved same-task set and issued 20 coverage-qualified negative outputs. In the changed-task set it predicted 100 applicable units but abstained on all 100, despite complete measurements. This exposes a task-dependent decision-coverage limitation of its full-domain static-support proof. These numbers describe predictions, not independently verified accuracy: no human reference exists yet for the new executions. Applicability confusion, false-alarm rates, R1 recall and event-localization accuracy therefore remain pending. An independently generated evidence-only package provides full videos, neutral measurements and blank forms for two reviewers. The frozen mapping rejected 38 other task preflights, so empirical cross-scene performance is not established.
+
+\begin{table}[t]
+\centering
+\small
+\begin{tabular}{lrrr}
+\hline
+Measure & Dev. & Same task & New task \\
+\hline
+Executions & 4 & 10 & 50 \\
+Object units & 20 & 50 & 250 \\
+Predicted applicable & 7 & 20 & 100 \\
+Qualified negative outputs & 6 & 20 & 0 \\
+Applicable-case abstentions & 1 & 0 & 100 \\
+Operational coverage & 6/7 & 20/20 & 0/100 \\
+Human-reviewed units & 20 & 0 & 0 \\
+\hline
+\end{tabular}
+\caption{Frozen-v3 output behavior. Operational coverage is conditioned on predicted applicability; new-run outputs are unreviewed. The new task shares the original XML/scene. Zero raw R1 alarms does not establish absence of violations or false alarms. Positive-class recall is not estimable from the original zero-positive reference and awaits independent labels for the new cases.}
+\label{tab:r1-frozen-transfer}
+\end{table}

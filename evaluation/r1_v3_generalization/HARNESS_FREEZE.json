@@ -1,0 +1,12 @@
+{
+  "files": {
+    "run.py": "fcd1e1f3bed3483f5d3f9389f7c2eadeb1a1914315702f789c27cb86a30fe134",
+    "PROTOCOL.json": "62a4116113657e29f7f14fa9c728e227be091c309bb45b1fc4f74120ea5d5099",
+    "INPUTS.json": "df80c6be759e12bf25564463561fcc480275189fb7348b6669309045c2e05dcb",
+    "catalog.json": "33aa26b84950e6a0cf601cb32029d45465093721623f3cfe2c4f3c5da8c3759c",
+    "FREEZE.json": "27fb5b87a21b40eedf154975777b462b591739fcfb20ef08ed2b7d8c81c524e3"
+  },
+  "source_commit": "d6657b8db2f9f91dad4931391b26ab88fee97a90",
+  "checker_code_changed": false,
+  "predictions_generated": false
+}
