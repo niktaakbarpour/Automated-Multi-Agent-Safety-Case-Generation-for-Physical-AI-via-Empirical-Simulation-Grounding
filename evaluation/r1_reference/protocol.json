@@ -1,0 +1,29 @@
+{
+  "schema_version": "r1-reference-evaluation-v1",
+  "adapter_version": "r1-requirement-adapter-v1",
+  "requirement_version": "r1-initial-table-support-v3-20261024",
+  "evaluation_kind": "development; prior case exposure and handoff scope facts known",
+  "baseline": "unchanged dev-v2 checker.analyze and physical config; only execution selection restricted to four requested runs",
+  "applicability_policy": "Baseline direct/indirect support and absence-of-support outputs are provisional. Without established frame-10 support or established absence, return unknown; never substitute reference support labels.",
+  "outcome_policy": "Provisional candidates, including lift candidates, cannot establish an R1 violation or scope-F exclusion. Baseline provides no validated requirement-level negative evidence. Return insufficient_information with specific evidence gaps, even if no events occur.",
+  "coverage_policy": "Saved geometry/contact endpoint observations at 20 Hz, nominal geometry lag 0.002 s; not continuous observation or validated camera synchronization. Reference video coverage is not automatically equivalent. Compare binary outcomes only when applicability and outcome are determinate and a validated compatible observation domain is recorded. Retain per-object valid frame intervals and reference reviewed fragments separately.",
+  "event_protocol": {
+    "partition": ["run_id", "canonical_object_id", "requirement_version", "phase", "scope", "compatible_type"],
+    "compatible_types": {
+      "r1_fall": ["r1_fall"],
+      "setup_departure": ["setup_departure"],
+      "post_lift_drop": ["post_lift_drop"],
+      "grasp": ["grasp"],
+      "lift": ["lift"],
+      "release": ["release"],
+      "contact": ["contact"]
+    },
+    "candidate_policy": "Unvalidated candidate types and unresolved origin/scope remain unscorable; retain all original fields, unconfirmed sequences and compound reference subevents. They are not positive R1 predictions.",
+    "strict": "Inclusive interval overlap AND predicted onset inside annotated onset bracket; unknown onset/offset bounds remain unknown.",
+    "sensitivity_saved_frames": [0, 1],
+    "sensitivity_nominal_seconds": 0.05,
+    "assignment": "Deterministic one-to-one maximum cardinality, then total inclusive interval IoU, then minimum onset distance, then stable event IDs. Partition phases and scope before matching. No frame TNs.",
+    "negative_windows": "Retain disjoint reviewed windows; require the entire predicted claim interval to lie in their union before unmatched predictions can be FP. Unknown or uncovered claims unscorable."
+  },
+  "metrics": "All 20 applicability rows with an unknown column; binary outcomes exclude non-applicable and abstaining/incompatible cases. Zero denominator metrics undefined; positive recall and F1 not estimable with zero reference positives. Unresolved-component-free sensitivity separately, without discarding known non-applicability due to unrelated event uncertainty."
+}

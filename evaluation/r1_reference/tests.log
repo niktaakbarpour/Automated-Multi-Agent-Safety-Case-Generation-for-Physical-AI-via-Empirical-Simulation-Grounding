@@ -1,0 +1,22 @@
+test_missing_events_never_imply_a_negative (test_pipeline.AdapterTests) ... ok
+test_no_support_candidate_does_not_prove_non_applicability (test_pipeline.AdapterTests) ... ok
+test_disjoint_windows_not_collapsed (test_pipeline.MatchingTests) ... ok
+test_max_cardinality_beats_greedy (test_pipeline.MatchingTests) ... ok
+test_stable_ids_and_duplicate_predictions (test_pipeline.MatchingTests) ... ok
+test_tolerance_and_scope_and_candidates (test_pipeline.MatchingTests) ... ok
+test_unknown_endpoints_do_not_become_errors (test_pipeline.MatchingTests) ... ok
+test_actual_reference_denominators_and_abstentions (test_pipeline.ScoringTests) ... ok
+test_checker_and_protocol_drift_rejected (test_pipeline.ScoringTests) ... ok
+test_compound_subevents_keep_group_and_contact_semantics (test_pipeline.ScoringTests) ... ok
+test_duplicate_and_missing_units_rejected (test_pipeline.ScoringTests) ... ok
+test_final_label_json_is_authoritative (test_pipeline.ScoringTests) ... ok
+test_missing_reference_event_is_not_a_negative_window (test_pipeline.ScoringTests) ... ok
+test_provisional_events_cannot_be_promoted (test_pipeline.ScoringTests) ... ok
+test_unknown_run_object_and_requirement_rejected (test_pipeline.ScoringTests) ... ok
+test_valid_frozen_predictions (test_pipeline.ScoringTests) ... ok
+test_tampered_predictions_rejected_before_reference_loading (test_pipeline.SealTests) ... ok
+
+----------------------------------------------------------------------
+Ran 17 tests in 0.085s
+
+OK

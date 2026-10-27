@@ -1,0 +1,24 @@
+{
+  "files": {
+    "original_receipts_after.json": "14f67ae6a51f5e41f6202d7e50911d8996880f63e0482ce4d3f25bd0f7060b07",
+    "original_receipts_before.json": "14f67ae6a51f5e41f6202d7e50911d8996880f63e0482ce4d3f25bd0f7060b07",
+    "predictions.json": "688d154e7d1b3dd2a0d39c08a1a5db23c3932ff7df1ecc6f46e8a35ffcb080e9",
+    "raw/access_log.json": "927a3cf1d524b532b476fa25f97f17984ea1b02879ed20209b512177c98c8bf9",
+    "raw/episode_000.json": "73e579d789a26e8a176897685d3829e30f1890577f73ab3a261a6c20f67edeb8",
+    "raw/episode_000_geometry_contacts.json.gz": "52a5e6bdb8675d3fd9827d521d1262c8110b4f6180f5aae47a4ffd0680bc09b0",
+    "raw/episode_000_observations.json.gz": "2c5e733440c45f1259a02258614daaf2fe8f1d9fb76efa848c156aea0a74b6ab",
+    "raw/episode_001.json": "49b3b848f958e5182cf92a4b30a1d84f43cf488d5035c56ac5435ed9b3aa23ec",
+    "raw/episode_001_geometry_contacts.json.gz": "9c3f6b1b7882b673b1226a02d2ad49b3d7664c81516117e5cdd8494f05d4e3c0",
+    "raw/episode_001_observations.json.gz": "ca2155c26e7f567d96c99f497582c963caeacd76c11c33b5080805d5a074cfb3",
+    "raw/episode_002.json": "4287be559249a380f8a1d37706388b892ffdc27d0ccfd9735cc3f2b86ea56256",
+    "raw/episode_002_geometry_contacts.json.gz": "935e4b2e32428e846684e8088e6c9a2d05254d4327f15964c2c6875ae7d64c69",
+    "raw/episode_002_observations.json.gz": "672f2592355ea70b2da7b5efd5b44da3b59a95c5520de1559c2c3cf58ef5f705",
+    "raw/episode_014.json": "bb76db9bd7fbe14b36e6ff50f384a9d5d22324a68276de895e2d5dd778f70f0c",
+    "raw/episode_014_geometry_contacts.json.gz": "1836cf2bab64cab64489a371840bff4cbc7263b98560e49d90dc35fbd3764c50",
+    "raw/episode_014_observations.json.gz": "6bb6db4bfc584da2f7ce8a39c19eaab758de8276c61ba58f385926eabd235449",
+    "raw/sensitivity.json": "2981de16c702f3198acc82aa48efcda807b9312aa520cf93c0fc1a0ec53a4838",
+    "raw/summary.json": "4e4f45588f0231df1b80aa638cd41bb9fc78433466076d77d313b117f8bd53bf",
+    "runtime.json": "96487dd976e3a4cf83928498770b3ad62be13d9245878d5fbde5f375c980f370"
+  },
+  "reference_answers_loaded": false
+}
