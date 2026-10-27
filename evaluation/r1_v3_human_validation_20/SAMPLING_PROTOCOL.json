@@ -1,0 +1,13 @@
+{
+  "version": "r1-independent-human-20-v1",
+  "seed": "r1-v3-independent-human-validation-20-v1",
+  "source": "Existing 60-run evidence manifest and input partition identities only. No predictions, outcomes, abstention counts or reference answers are read.",
+  "strata": {"reserved_same_task": {"runs": 10, "units": 10}, "changed_task": {"runs": 10, "units": 10}},
+  "run_selection": "Sort SHA256(seed|runs|stratum|run_id); choose first 10 per stratum. The reserved stratum has exactly ten runs, so all are included.",
+  "object_assignment": "Sort the five object names by SHA256(seed|objects|stratum|object_id); assign that permutation cyclically to ranked runs. Exactly two units per object per stratum, one unit per run.",
+  "neutral_identifiers": "Sort selected units by SHA256(seed|display|run_id|object_id), assign NV01..NV20. Both reviewers receive all twenty identical cases, with reviewer-specific form metadata only.",
+  "exposure_limit": "This is prediction-blinded human annotation of known audit cohorts, not a claim that recordings or reviewers are fully unseen. Original partition exposure disclosures are retained privately.",
+  "scope": "r1-initial-table-support-v3-20261024; unchanged; original four annotation categories and definitions.",
+  "reviewer_equivalence": "Identical videos, measurements, object assignments, protocol, case summaries and order. Only reviewer identifier and return-archive name differ.",
+  "prediction_seal": "The already sealed 300-case V3 predictions will be compared only after independent submissions, adjudication, explicit human approval and reference freeze. No accuracy is reported now."
+}
