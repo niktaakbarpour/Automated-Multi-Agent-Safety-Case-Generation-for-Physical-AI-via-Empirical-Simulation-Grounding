@@ -1,0 +1,19 @@
+{
+  "argv": [
+    "/disk/1/data/niktakbr/r1-checker-v3-20261027/evaluation/r1_v3/execute.py",
+    "--release",
+    "/disk/1/data/niktakbr/r1-reference-evaluation-20261027/reports/fall_checker_dev_v2_20261017",
+    "--output",
+    "/disk/1/data/niktakbr/r1-checker-v3-20261027/execution"
+  ],
+  "executable": "/local/home/niktakbr/rdt-1b-libero/.venv/bin/python",
+  "h5py": "3.16.0",
+  "numpy": "2.5.3",
+  "original_recordings_opened": true,
+  "physics_stepped": false,
+  "platform": "Linux-6.12.0-211.49.1.el10_2.x86_64-x86_64-with-glibc2.39",
+  "previous_reference_exposure": "Development-selected cases and approved reference known from v2 task and regression scenario requirements. No labels are checker inputs. One v3 empirical execution after code/config freeze; no tuning against its scores.",
+  "python": "3.12.14 (main, Aug 13 2026, 00:00:00) [GCC 14.3.1 20251022 (Red Hat 14.3.1-4)]",
+  "reference_answers_loaded": false,
+  "source_commit": "a357557aac457a5cecb1ee8372f70fb12d796cdd"
+}

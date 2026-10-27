@@ -1,0 +1,108 @@
+{
+  "facts_and_all_artifact_hashes_verified": true,
+  "replayed_units": 20,
+  "all_core_outputs_identical": true,
+  "units": [
+    {
+      "run_id": "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db",
+      "object_id": "cream_cheese_1",
+      "core_output_identical": true
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db",
+      "object_id": "ketchup_1",
+      "core_output_identical": true
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db",
+      "object_id": "orange_juice_1",
+      "core_output_identical": true
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db",
+      "object_id": "milk_1",
+      "core_output_identical": true
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db",
+      "object_id": "butter_1",
+      "core_output_identical": true
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task00_seed1001_trial001_cfafd9ddc3db",
+      "object_id": "cream_cheese_1",
+      "core_output_identical": true
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task00_seed1001_trial001_cfafd9ddc3db",
+      "object_id": "ketchup_1",
+      "core_output_identical": true
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task00_seed1001_trial001_cfafd9ddc3db",
+      "object_id": "orange_juice_1",
+      "core_output_identical": true
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task00_seed1001_trial001_cfafd9ddc3db",
+      "object_id": "milk_1",
+      "core_output_identical": true
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task00_seed1001_trial001_cfafd9ddc3db",
+      "object_id": "butter_1",
+      "core_output_identical": true
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+      "object_id": "cream_cheese_1",
+      "core_output_identical": true
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+      "object_id": "ketchup_1",
+      "core_output_identical": true
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+      "object_id": "orange_juice_1",
+      "core_output_identical": true
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+      "object_id": "milk_1",
+      "core_output_identical": true
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+      "object_id": "butter_1",
+      "core_output_identical": true
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db",
+      "object_id": "cream_cheese_1",
+      "core_output_identical": true
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db",
+      "object_id": "ketchup_1",
+      "core_output_identical": true
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db",
+      "object_id": "orange_juice_1",
+      "core_output_identical": true
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db",
+      "object_id": "milk_1",
+      "core_output_identical": true
+    },
+    {
+      "run_id": "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db",
+      "object_id": "butter_1",
+      "core_output_identical": true
+    }
+  ],
+  "reference_answers_loaded": false
+}

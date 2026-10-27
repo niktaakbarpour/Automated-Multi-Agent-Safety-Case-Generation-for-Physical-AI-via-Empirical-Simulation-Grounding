@@ -1,0 +1,27 @@
+\subsection{Development evaluation of the R1 checker}
+The frozen v2 checker generated physical-event candidates but returned unknown applicability for all 20 object--execution units and abstained on all seven R1-applicable units. We implemented v3 using native geometry identities, complete recorded contacts, geometrically qualified support faces, and adjacent invariant collision poses to infer initial support. The checker preserves setup history across the policy boundary, separates established robot lifting and post-lift drops, and requires explicit support evidence for coverage-qualified negative decisions. It adds no physical distance or carrying-duration threshold.
+
+On four development-selected executions, v3 agreed with all seven applicable and thirteen non-applicable reference labels. Under a predeclared shared saved-frame projection, it issued six compatible coverage-qualified negative decisions, with no R1 alarms, and abstained on the remaining applicable unit because its lift/re-placement interval lacked full negative evidence. The thirteen non-applicable units were excluded from binary outcome counts. These results concern recorded coverage, not continuous-time safety. Implementation and configuration were frozen before predictions were generated and hashed; the approved reference had already informed development, so this comparison is not held-out performance.
+
+The reference contains no confirmed positive R1 violations. Positive-class recall and F1 are therefore not estimable; precision is undefined because the checker issued no positive predictions. Synthetic tests and outside-R1 event matches verify software behavior and localization on these cases, but do not establish positive-class detection accuracy or generalization.
+
+\begin{table}[t]
+\centering
+\small
+\begin{tabular}{lcc}
+\hline
+Measure & Frozen v2 & v3 \\
+\hline
+Applicability decisions & 0/20 & 20/20 \\
+Correct applicable & 0/7 & 7/7 \\
+Correct non-applicable & 0/13 & 13/13 \\
+Unknown applicability & 20 & 0 \\
+Binary decision coverage & 0/7 & 6/7 \\
+False R1 alarms & 0/0 & 0/6 \\
+Applicable-case abstentions & 7/7 & 1/7 \\
+Positive R1 recall & n/a & n/a \\
+\hline
+\end{tabular}
+\caption{Development comparison on the frozen human reference. False-alarm entries give counts over compatible evaluated negative units; 0/0 denotes an empty comparison, not a defined rate. Binary coverage uses the shared saved-frame domain. Positive recall is not estimable because the reference has zero positive R1 violations.}
+\label{tab:r1-v2-v3}
+\end{table}
