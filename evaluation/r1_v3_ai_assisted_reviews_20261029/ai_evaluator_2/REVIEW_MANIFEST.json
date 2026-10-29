@@ -1,0 +1,16 @@
+{
+  "review_id": "ai_evaluator_2_20261029",
+  "independent": false,
+  "disclosure": "AI Evaluator 2, same conversation after viewing Evaluator 1. Non-blinded second assessment; inherited physical observations and prior visual coverage are explicitly reused. No claim of independent reviewer agreement. Rechecked all 20 pose/contact summaries and re-inspected detailed NV05, NV12, NV16 images. No checker predictions consulted.",
+  "source_evidence_comparison": {
+    "files": 580,
+    "equal": true
+  },
+  "human_approval": false,
+  "scoring_performed": false,
+  "counts": {
+    "not_applicable": 12,
+    "no_violation_observed_within_reviewed_coverage": 7,
+    "insufficient_information": 1
+  }
+}

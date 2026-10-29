@@ -1,0 +1,1 @@
+AI-generated draft by Codex, AI Evaluator 1. User supplied project-level V3 coverage discussion and previous package handoff; no case-level checker predictions, prior answers, coordinator mapping or reviewer_2 package opened during this evaluation. This is AI-assisted review, not independent human annotation.
