@@ -1,0 +1,3 @@
+# Keep checksum-bound CSV export bytes, including standard CRLF record endings.
+blinded_review/*.csv -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+blinded_review/reviewer_*/*.csv -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

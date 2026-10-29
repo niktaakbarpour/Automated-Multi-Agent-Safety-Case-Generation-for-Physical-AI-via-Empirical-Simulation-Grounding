@@ -1,0 +1,22 @@
+{
+  "argv": [
+    "/disk/1/data/niktakbr/r1-v3-generalization-20261027/run.py",
+    "run",
+    "--v3",
+    "/disk/1/data/niktakbr/r1-checker-v3-20261027/evaluation/r1_v3",
+    "--release",
+    "/disk/1/data/niktakbr/r1-reference-evaluation-20261027/reports/fall_checker_dev_v2_20261017",
+    "--inventory",
+    "/disk/1/data/niktakbr/r1-v3-generalization-20261027/inventory",
+    "--output",
+    "/disk/1/data/niktakbr/r1-v3-generalization-20261027/execution"
+  ],
+  "checker_sha256": "d2914d64596f585a60021f426eb761439d604907450ebf318ca48590db0fc94f",
+  "config_sha256": "fd3464dc0ee0ac44ee81c325e951832896eab489517aeed0a715f8e4d0088375",
+  "extractor_sha256": "e94ad1c34c47826a6e8a2a1b4b90543268a19d41045611c17a45287c45497cbc",
+  "harness_sha256": "fcd1e1f3bed3483f5d3f9389f7c2eadeb1a1914315702f789c27cb86a30fe134",
+  "platform": "Linux-6.12.0-211.49.1.el10_2.x86_64-x86_64-with-glibc2.39",
+  "python": "3.12.14 (main, Aug 13 2026, 00:00:00) [GCC 14.3.1 20251022 (Red Hat 14.3.1-4)]",
+  "reference_answers_loaded": false,
+  "simulation_stepped": false
+}

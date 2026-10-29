@@ -1,0 +1,10 @@
+{
+  "files": {
+    "build_review.py": "f235cabb694c80a2a7fc4d852dc24db4125231203a213bf010ef44740d62486b",
+    "REVIEW_INSTRUCTIONS.md": "fa53d48549cafca208fe9a7b0842fdc7277de9c1b5a0ff32f57a9ae5e6b5e22c",
+    "OBJECT_GUIDE.md": "2023ea0efd178ef6a717c728637eaa6ae94ba273cb6a094046db8ea83d83202b"
+  },
+  "source_only": true,
+  "checker_output_input": false,
+  "answers_prefilled": false
+}

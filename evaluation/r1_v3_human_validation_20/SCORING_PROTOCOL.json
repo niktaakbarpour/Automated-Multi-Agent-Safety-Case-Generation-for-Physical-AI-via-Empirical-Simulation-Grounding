@@ -1,0 +1,16 @@
+{
+  "version": "r1-human20-scoring-v1",
+  "prediction_sha256": "0ef93ece9c3d0cb02a49a450979315a4e3be3d5f127aa48105970321f5b34984",
+  "checker_sha256": "d2914d64596f585a60021f426eb761439d604907450ebf318ca48590db0fc94f",
+  "configuration_sha256": "fd3464dc0ee0ac44ee81c325e951832896eab489517aeed0a715f8e4d0088375",
+  "requirement_version": "r1-initial-table-support-v3-20261024",
+  "approval_gate": "Before predictions are read: verify reference seal, exact human-approved CSV hashes, explicit approval metadata, both independent source-submission receipts, selected recording hashes and selected identities. Unapproved/missing/modified references are rejected.",
+  "primary_unit": "One sampled run/object with determinate applicable approved reference. Never include non-applicable units as TNs. Unknown reference labels remain excluded and counted explicitly.",
+  "coverage": "Shared saved-frame projection only, not continuous/video synchronization equivalence. All approved actual reviewed intervals must be covered by recorded measurement intervals. A determinate negative also requires frozen negative proof coverage over those intervals. A positive must localize an R1 event within reviewed intervals. Frozen insufficient_information/not_applicable outputs never become negatives from partial proof or absent events.",
+  "events": "Retain all final_label_json and compound subevents. Only explicit human-approved evaluation_mapping phases with compatible_type, phase and scope enter matching. Unmapped/uncertain components stay unscorable; no automatic interpretation of free text. Known no-event fragments provide adjudicable negative windows; unannotated frames never become TNs or event FPs.",
+  "compatible_types": ["r1_fall", "setup_departure", "post_lift_drop", "grasp", "lift", "contact"],
+  "matching": "Reuse immutable maximum-cardinality one-to-one matching: inclusive saved-frame overlap AND onset-bracket compatibility; ties by total IoU, minimum onset distance and stable IDs. Partition run/object/version/type/phase/scope. Tolerance sensitivity 0 and 1 saved frame, nominal 0.05 s. Unknown/censored endpoints do not become exact errors.",
+  "metrics": "Applicability confusion over all 20; binary TP/FP/FN/TN conditional on compatible determinate applicable cases; decision coverage and abstentions; scope alarms on non-applicable cases separately. Precision undefined with zero positive predictions. Recall and positive F1 not estimable with zero positive reference units. End-to-end recall counts abstentions as missed positives when positive eligible references exist.",
+  "uncertainty": "Primary eligibility per adjudicated claim, not blanket deletion because an unrelated event is uncertain. Also report sensitivity excluding any selected unit linked to partially unresolved requests/unresolved components.",
+  "limitations": "Four-case development answers are never reviewer inputs or new reference labels. No current accuracy computation; new labels must come from the two independent humans and approved adjudication. Sampling prior exposure remains disclosed."
+}

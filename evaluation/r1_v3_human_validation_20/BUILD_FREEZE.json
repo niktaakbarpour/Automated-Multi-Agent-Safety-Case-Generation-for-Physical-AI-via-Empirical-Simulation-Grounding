@@ -1,0 +1,13 @@
+{
+  "files": {
+    "build_packages.py": "865bdd5090f20552f88728f10d9dc438b6666ac20a6c004ca3f8bc7cc48e553c",
+    "sample_cases.py": "fd5ee475395f47f1a41d3b25ca000ff8ebc7f576c066e68437cedb64f305efab",
+    "SAMPLING_PROTOCOL.json": "a307d978fede561c8c263f7a3ec982704b38d6d78c0383234c8200db635dcc48",
+    "COORDINATOR_ASSIGNMENTS.json": "bc5e9faa529df943f3904c6695976d31894759d65945e3e4437fe7d50cd0ffab",
+    "FORM_HEADERS.json": "8f050d8ad36049858369723fc60d3a107675e382cf37fb7ad38dba58eb0de5ec",
+    "START_HERE.md": "49f888feed16f8924f151fcc2c26a3424eeb4d6265ed4e8c0ce60c41321e04d6",
+    "PROVENANCE_FREEZE.json": "14d18ca8f74e693be3ef2709196076f2bb307c3aa03bd8a9b5eed78bdf8a159f"
+  },
+  "prediction_inputs": false,
+  "human_answers_created": false
+}

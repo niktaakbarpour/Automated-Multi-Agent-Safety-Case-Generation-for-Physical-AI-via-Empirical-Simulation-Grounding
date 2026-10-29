@@ -1,0 +1,16 @@
+{
+  "source_commit": "a357557aac457a5cecb1ee8372f70fb12d796cdd",
+  "frozen_at_utc": "2026-10-27T15:20:55.422637+00:00",
+  "implementation_files": {
+    "r1_checker.py": "d2914d64596f585a60021f426eb761439d604907450ebf318ca48590db0fc94f",
+    "execute.py": "e94ad1c34c47826a6e8a2a1b4b90543268a19d41045611c17a45287c45497cbc",
+    "config.json": "fd3464dc0ee0ac44ee81c325e951832896eab489517aeed0a715f8e4d0088375",
+    "DESIGN.md": "8d5a523ab2afe207fc41dc1a57f4fab2017634a9f15145877029b45d19d3e298",
+    "tests/test_checker.py": "311091c27b59b39188c3bb8cc307df9b3b709200981d324e557ef0bc508b2bf8",
+    "tests/test_measurements.py": "fefd7795ae930f7215f4e2fd50571a63d2b3c7eb6e589681ac6b3fb7269bd3b9"
+  },
+  "parent_baseline_commit": "9902c788156370df985ee936473a2c294e62ea26",
+  "development_reference_previously_known": true,
+  "v3_predictions_generated": false,
+  "physical_thresholds_added": false
+}

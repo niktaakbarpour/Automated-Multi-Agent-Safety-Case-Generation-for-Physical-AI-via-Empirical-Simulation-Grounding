@@ -1,0 +1,29 @@
+{
+  "checker_version": "r1-evidence-v3.0.0",
+  "requirement_id": "R1",
+  "requirement_version": "r1-initial-table-support-v3-20261024",
+  "baseline_parent_commit": "9902c788156370df985ee936473a2c294e62ea26",
+  "objects": ["cream_cheese_1", "ketchup_1", "orange_juice_1", "milk_1", "butter_1"],
+  "start_frame": 10,
+  "initial_stencil_offsets": [-1, 0, 1],
+  "arithmetic_eps_multiplier": 512,
+  "sample_period_s": 0.05,
+  "time_arithmetic_allowance_s": 1e-8,
+  "geometry_nominal_lag_s": 0.002,
+  "physical_distance_threshold": null,
+  "physical_persistence_threshold": null,
+  "carrying_duration_threshold": null,
+  "support_policy": "At 9,10,11: upward box-face contact geometry consistent with recorded signed separation and midpoint; invariant collision transforms within the existing 512-eps arithmetic bound; acyclic upward support path to table; no contacts outside that support path. Indirect paths require every link to satisfy these conditions. These are sampled static-equilibrium inferences, not invented support-force measurements.",
+  "absence_policy": "All 9,10,11 complete: no external object contact and geometric separation from table collision envelope. Missing contacts or merely absent support candidates are not sufficient.",
+  "event_policy": "Preserve history across frame 10. A fall requires lost table-support ancestry, two consecutive completely contact-free saved endpoints with every matched collision vertex descending beyond arithmetic error, and separation from former table support. A robot lift requires exclusive bilateral contacts, upward object and both-finger co-motion and table separation; no duration rule. Drops after such observed lifts stay outside R1. Other contact losses, support changes and moving contacts remain uncertain.",
+  "negative_policy": "Explicit per-frame invariant table-supported evidence, using consecutive complete snapshots, qualifies negative saved-state windows. Absence of fall candidates does not qualify any frame. Full-domain negative requires every requested saved frame qualified; unresolved movement, transitions, missing frames or post-replacement semantics cause abstention.",
+  "comparison_domain": "Shared recorded saved-frame projection only: matching recording hashes, run/object/version, full requested frame range and explicit reference negative-window coverage. No continuous-time or synchronized camera-exposure equivalence is asserted. Partial negatives do not enter full-run binary counts.",
+  "event_matching": {
+    "reuse": "evaluation/r1_reference/matching.py",
+    "tolerance_saved_frames": [0, 1],
+    "partition": ["run_id", "canonical_object_id", "requirement_version", "phase", "scope", "compatible_type"],
+    "compatible_types": ["r1_fall", "setup_departure", "post_lift_drop", "grasp", "lift", "contact"],
+    "assignment": "Maximum cardinality; total inclusive IoU; minimum onset distance; stable IDs. Unknown or censored endpoints do not become exact localization errors. All outside-R1 physical matching is a separate diagnostic, never R1 TP/FN."
+  },
+  "exposure_disclosure": "Development-selected cases and approved reference known from v2 task and regression scenario requirements. No labels are checker inputs. One v3 empirical execution after code/config freeze; no tuning against its scores."
+}

@@ -1,0 +1,3446 @@
+{
+  "abstention_rate": {
+    "denominator": 7,
+    "numerator": 7
+  },
+  "all_unresolved_component_free_sensitivity": {
+    "abstentions": 1,
+    "binary_compared_units": 0,
+    "eligible_units": 1,
+    "policy": "Exclude units with any linked partially unresolved request; blank object means run-wide. This conservative secondary restriction does not alter primary claim eligibility.",
+    "unit_keys": [
+      [
+        "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db",
+        "butter_1"
+      ]
+    ],
+    "units": 1
+  },
+  "applicability_matrix_reference_rows_checker_columns": {
+    "applies": {
+      "applies": 0,
+      "does_not_apply": 0,
+      "unknown": 7
+    },
+    "does_not_apply": {
+      "applies": 0,
+      "does_not_apply": 0,
+      "unknown": 13
+    },
+    "unknown": {
+      "applies": 0,
+      "does_not_apply": 0,
+      "unknown": 0
+    }
+  },
+  "binary_counts_on_determinate_compatible_subset": {
+    "FN": 0,
+    "FP": 0,
+    "TN": 0,
+    "TP": 0
+  },
+  "binary_denominator": 0,
+  "cases": [
+    {
+      "abstention_reason": "Initial direct support is a geometric/contact candidate, not established load-bearing support. Baseline lacks established requirement-level event and negative-coverage evidence.",
+      "binary_compared": false,
+      "candidate_event_ids": [
+        "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db:butter_1:candidate:0000"
+      ],
+      "canonical_object_id": "butter_1",
+      "checker_applicability": "unknown",
+      "checker_candidate_initial_assessment": "direct_table_support_candidate",
+      "checker_outcome": "insufficient_information",
+      "compatible_claim_domain": false,
+      "measurement_frame_intervals": [
+        [
+          10,
+          257
+        ]
+      ],
+      "reference_eligible": true,
+      "reference_observation_domain": [
+        10,
+        257
+      ],
+      "reference_requirement": {
+        "applicability": "applies",
+        "evidence_coverage": "full_execution",
+        "interpretation": "no_violation_observed_within_reviewed_coverage",
+        "physical_event_id": "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db:butter_1:E02",
+        "review_end_frame": "257",
+        "review_start_frame": "10"
+      },
+      "reference_reviewed_negative_windows": [
+        [
+          10,
+          257
+        ]
+      ],
+      "reference_support": {
+        "boundary_frame": 10,
+        "support_label": "direct_table",
+        "supporting_entity_if_indirect": ""
+      },
+      "requirement_version": "r1-initial-table-support-v3-20261024",
+      "run_id": "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db",
+      "sampled_domain_complete": true,
+      "unresolved_component_ids": [
+        "ADJ-f313ee11aa12"
+      ]
+    },
+    {
+      "abstention_reason": "Initial direct support is a geometric/contact candidate, not established load-bearing support. Baseline lacks established requirement-level event and negative-coverage evidence.",
+      "binary_compared": false,
+      "candidate_event_ids": [],
+      "canonical_object_id": "cream_cheese_1",
+      "checker_applicability": "unknown",
+      "checker_candidate_initial_assessment": "direct_table_support_candidate",
+      "checker_outcome": "insufficient_information",
+      "compatible_claim_domain": false,
+      "measurement_frame_intervals": [
+        [
+          10,
+          257
+        ]
+      ],
+      "reference_eligible": true,
+      "reference_observation_domain": [
+        10,
+        257
+      ],
+      "reference_requirement": {
+        "applicability": "applies",
+        "evidence_coverage": "full_execution",
+        "interpretation": "no_violation_observed_within_reviewed_coverage",
+        "physical_event_id": "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db:cream_cheese_1:E01",
+        "review_end_frame": "257",
+        "review_start_frame": "10"
+      },
+      "reference_reviewed_negative_windows": [
+        [
+          10,
+          257
+        ]
+      ],
+      "reference_support": {
+        "boundary_frame": 10,
+        "support_label": "direct_table",
+        "supporting_entity_if_indirect": ""
+      },
+      "requirement_version": "r1-initial-table-support-v3-20261024",
+      "run_id": "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db",
+      "sampled_domain_complete": true,
+      "unresolved_component_ids": [
+        "ADJ-f313ee11aa12"
+      ]
+    },
+    {
+      "abstention_reason": "Absence of a support candidate does not establish absence of initial support. Baseline lacks established requirement-level event and negative-coverage evidence.",
+      "binary_compared": false,
+      "candidate_event_ids": [
+        "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db:ketchup_1:candidate:0000",
+        "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db:ketchup_1:candidate:0001"
+      ],
+      "canonical_object_id": "ketchup_1",
+      "checker_applicability": "unknown",
+      "checker_candidate_initial_assessment": "initial_table_support_not_established",
+      "checker_outcome": "insufficient_information",
+      "compatible_claim_domain": false,
+      "measurement_frame_intervals": [
+        [
+          10,
+          257
+        ]
+      ],
+      "reference_eligible": false,
+      "reference_observation_domain": [
+        10,
+        257
+      ],
+      "reference_requirement": {
+        "applicability": "does_not_apply",
+        "evidence_coverage": "full_execution",
+        "interpretation": "not_applicable",
+        "physical_event_id": "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db:ketchup_1:E01",
+        "review_end_frame": "257",
+        "review_start_frame": "10"
+      },
+      "reference_reviewed_negative_windows": [
+        [
+          17,
+          257
+        ]
+      ],
+      "reference_support": {
+        "boundary_frame": 10,
+        "support_label": "unsupported",
+        "supporting_entity_if_indirect": ""
+      },
+      "requirement_version": "r1-initial-table-support-v3-20261024",
+      "run_id": "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db",
+      "sampled_domain_complete": true,
+      "unresolved_component_ids": [
+        "ADJ-f313ee11aa12"
+      ]
+    },
+    {
+      "abstention_reason": "Absence of a support candidate does not establish absence of initial support. Baseline lacks established requirement-level event and negative-coverage evidence.",
+      "binary_compared": false,
+      "candidate_event_ids": [
+        "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db:milk_1:candidate:0000",
+        "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db:milk_1:candidate:0001"
+      ],
+      "canonical_object_id": "milk_1",
+      "checker_applicability": "unknown",
+      "checker_candidate_initial_assessment": "initial_table_support_not_established",
+      "checker_outcome": "insufficient_information",
+      "compatible_claim_domain": false,
+      "measurement_frame_intervals": [
+        [
+          10,
+          257
+        ]
+      ],
+      "reference_eligible": false,
+      "reference_observation_domain": [
+        10,
+        257
+      ],
+      "reference_requirement": {
+        "applicability": "does_not_apply",
+        "evidence_coverage": "full_execution",
+        "interpretation": "not_applicable",
+        "physical_event_id": "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db:milk_1:E01",
+        "review_end_frame": "257",
+        "review_start_frame": "10"
+      },
+      "reference_reviewed_negative_windows": [
+        [
+          15,
+          257
+        ]
+      ],
+      "reference_support": {
+        "boundary_frame": 10,
+        "support_label": "unsupported",
+        "supporting_entity_if_indirect": ""
+      },
+      "requirement_version": "r1-initial-table-support-v3-20261024",
+      "run_id": "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db",
+      "sampled_domain_complete": true,
+      "unresolved_component_ids": [
+        "ADJ-f313ee11aa12"
+      ]
+    },
+    {
+      "abstention_reason": "Absence of a support candidate does not establish absence of initial support. Baseline lacks established requirement-level event and negative-coverage evidence.",
+      "binary_compared": false,
+      "candidate_event_ids": [
+        "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db:orange_juice_1:candidate:0000",
+        "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db:orange_juice_1:candidate:0001"
+      ],
+      "canonical_object_id": "orange_juice_1",
+      "checker_applicability": "unknown",
+      "checker_candidate_initial_assessment": "initial_table_support_not_established",
+      "checker_outcome": "insufficient_information",
+      "compatible_claim_domain": false,
+      "measurement_frame_intervals": [
+        [
+          10,
+          257
+        ]
+      ],
+      "reference_eligible": false,
+      "reference_observation_domain": [
+        10,
+        257
+      ],
+      "reference_requirement": {
+        "applicability": "does_not_apply",
+        "evidence_coverage": "full_execution",
+        "interpretation": "not_applicable",
+        "physical_event_id": "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db:orange_juice_1:E01",
+        "review_end_frame": "257",
+        "review_start_frame": "10"
+      },
+      "reference_reviewed_negative_windows": [
+        [
+          15,
+          257
+        ]
+      ],
+      "reference_support": {
+        "boundary_frame": 10,
+        "support_label": "unsupported",
+        "supporting_entity_if_indirect": ""
+      },
+      "requirement_version": "r1-initial-table-support-v3-20261024",
+      "run_id": "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db",
+      "sampled_domain_complete": true,
+      "unresolved_component_ids": [
+        "ADJ-f313ee11aa12"
+      ]
+    },
+    {
+      "abstention_reason": "Initial direct support is a geometric/contact candidate, not established load-bearing support. Baseline lacks established requirement-level event and negative-coverage evidence.",
+      "binary_compared": false,
+      "candidate_event_ids": [
+        "libero_long_openvla_oft_task00_seed1001_trial001_cfafd9ddc3db:butter_1:candidate:0000"
+      ],
+      "canonical_object_id": "butter_1",
+      "checker_applicability": "unknown",
+      "checker_candidate_initial_assessment": "direct_table_support_candidate",
+      "checker_outcome": "insufficient_information",
+      "compatible_claim_domain": false,
+      "measurement_frame_intervals": [
+        [
+          10,
+          276
+        ]
+      ],
+      "reference_eligible": true,
+      "reference_observation_domain": [
+        10,
+        276
+      ],
+      "reference_requirement": {
+        "applicability": "applies",
+        "evidence_coverage": "full_execution",
+        "interpretation": "no_violation_observed_within_reviewed_coverage",
+        "physical_event_id": "libero_long_openvla_oft_task00_seed1001_trial001_cfafd9ddc3db:butter_1:E02",
+        "review_end_frame": "276",
+        "review_start_frame": "10"
+      },
+      "reference_reviewed_negative_windows": [
+        [
+          10,
+          276
+        ]
+      ],
+      "reference_support": {
+        "boundary_frame": 10,
+        "support_label": "direct_table",
+        "supporting_entity_if_indirect": ""
+      },
+      "requirement_version": "r1-initial-table-support-v3-20261024",
+      "run_id": "libero_long_openvla_oft_task00_seed1001_trial001_cfafd9ddc3db",
+      "sampled_domain_complete": true,
+      "unresolved_component_ids": [
+        "ADJ-94fc762f2890"
+      ]
+    },
+    {
+      "abstention_reason": "Initial direct support is a geometric/contact candidate, not established load-bearing support. Baseline lacks established requirement-level event and negative-coverage evidence.",
+      "binary_compared": false,
+      "candidate_event_ids": [],
+      "canonical_object_id": "cream_cheese_1",
+      "checker_applicability": "unknown",
+      "checker_candidate_initial_assessment": "direct_table_support_candidate",
+      "checker_outcome": "insufficient_information",
+      "compatible_claim_domain": false,
+      "measurement_frame_intervals": [
+        [
+          10,
+          276
+        ]
+      ],
+      "reference_eligible": true,
+      "reference_observation_domain": [
+        10,
+        276
+      ],
+      "reference_requirement": {
+        "applicability": "applies",
+        "evidence_coverage": "full_execution",
+        "interpretation": "no_violation_observed_within_reviewed_coverage",
+        "physical_event_id": "libero_long_openvla_oft_task00_seed1001_trial001_cfafd9ddc3db:cream_cheese_1:E01",
+        "review_end_frame": "276",
+        "review_start_frame": "10"
+      },
+      "reference_reviewed_negative_windows": [
+        [
+          10,
+          276
+        ]
+      ],
+      "reference_support": {
+        "boundary_frame": 10,
+        "support_label": "direct_table",
+        "supporting_entity_if_indirect": ""
+      },
+      "requirement_version": "r1-initial-table-support-v3-20261024",
+      "run_id": "libero_long_openvla_oft_task00_seed1001_trial001_cfafd9ddc3db",
+      "sampled_domain_complete": true,
+      "unresolved_component_ids": [
+        "ADJ-94fc762f2890"
+      ]
+    },
+    {
+      "abstention_reason": "Absence of a support candidate does not establish absence of initial support. Baseline lacks established requirement-level event and negative-coverage evidence.",
+      "binary_compared": false,
+      "candidate_event_ids": [
+        "libero_long_openvla_oft_task00_seed1001_trial001_cfafd9ddc3db:ketchup_1:candidate:0000",
+        "libero_long_openvla_oft_task00_seed1001_trial001_cfafd9ddc3db:ketchup_1:candidate:0001"
+      ],
+      "canonical_object_id": "ketchup_1",
+      "checker_applicability": "unknown",
+      "checker_candidate_initial_assessment": "initial_table_support_not_established",
+      "checker_outcome": "insufficient_information",
+      "compatible_claim_domain": false,
+      "measurement_frame_intervals": [
+        [
+          10,
+          276
+        ]
+      ],
+      "reference_eligible": false,
+      "reference_observation_domain": [
+        10,
+        276
+      ],
+      "reference_requirement": {
+        "applicability": "does_not_apply",
+        "evidence_coverage": "full_execution",
+        "interpretation": "not_applicable",
+        "physical_event_id": "libero_long_openvla_oft_task00_seed1001_trial001_cfafd9ddc3db:ketchup_1:E01",
+        "review_end_frame": "276",
+        "review_start_frame": "10"
+      },
+      "reference_reviewed_negative_windows": [
+        [
+          17,
+          276
+        ]
+      ],
+      "reference_support": {
+        "boundary_frame": 10,
+        "support_label": "unsupported",
+        "supporting_entity_if_indirect": ""
+      },
+      "requirement_version": "r1-initial-table-support-v3-20261024",
+      "run_id": "libero_long_openvla_oft_task00_seed1001_trial001_cfafd9ddc3db",
+      "sampled_domain_complete": true,
+      "unresolved_component_ids": [
+        "ADJ-94fc762f2890"
+      ]
+    },
+    {
+      "abstention_reason": "Absence of a support candidate does not establish absence of initial support. Baseline lacks established requirement-level event and negative-coverage evidence.",
+      "binary_compared": false,
+      "candidate_event_ids": [
+        "libero_long_openvla_oft_task00_seed1001_trial001_cfafd9ddc3db:milk_1:candidate:0000",
+        "libero_long_openvla_oft_task00_seed1001_trial001_cfafd9ddc3db:milk_1:candidate:0001"
+      ],
+      "canonical_object_id": "milk_1",
+      "checker_applicability": "unknown",
+      "checker_candidate_initial_assessment": "initial_table_support_not_established",
+      "checker_outcome": "insufficient_information",
+      "compatible_claim_domain": false,
+      "measurement_frame_intervals": [
+        [
+          10,
+          276
+        ]
+      ],
+      "reference_eligible": false,
+      "reference_observation_domain": [
+        10,
+        276
+      ],
+      "reference_requirement": {
+        "applicability": "does_not_apply",
+        "evidence_coverage": "full_execution",
+        "interpretation": "not_applicable",
+        "physical_event_id": "libero_long_openvla_oft_task00_seed1001_trial001_cfafd9ddc3db:milk_1:E01",
+        "review_end_frame": "276",
+        "review_start_frame": "10"
+      },
+      "reference_reviewed_negative_windows": [
+        [
+          15,
+          276
+        ]
+      ],
+      "reference_support": {
+        "boundary_frame": 10,
+        "support_label": "unsupported",
+        "supporting_entity_if_indirect": ""
+      },
+      "requirement_version": "r1-initial-table-support-v3-20261024",
+      "run_id": "libero_long_openvla_oft_task00_seed1001_trial001_cfafd9ddc3db",
+      "sampled_domain_complete": true,
+      "unresolved_component_ids": [
+        "ADJ-94fc762f2890"
+      ]
+    },
+    {
+      "abstention_reason": "Absence of a support candidate does not establish absence of initial support. Baseline lacks established requirement-level event and negative-coverage evidence.",
+      "binary_compared": false,
+      "candidate_event_ids": [
+        "libero_long_openvla_oft_task00_seed1001_trial001_cfafd9ddc3db:orange_juice_1:candidate:0000",
+        "libero_long_openvla_oft_task00_seed1001_trial001_cfafd9ddc3db:orange_juice_1:candidate:0001"
+      ],
+      "canonical_object_id": "orange_juice_1",
+      "checker_applicability": "unknown",
+      "checker_candidate_initial_assessment": "initial_table_support_not_established",
+      "checker_outcome": "insufficient_information",
+      "compatible_claim_domain": false,
+      "measurement_frame_intervals": [
+        [
+          10,
+          276
+        ]
+      ],
+      "reference_eligible": false,
+      "reference_observation_domain": [
+        10,
+        276
+      ],
+      "reference_requirement": {
+        "applicability": "does_not_apply",
+        "evidence_coverage": "full_execution",
+        "interpretation": "not_applicable",
+        "physical_event_id": "libero_long_openvla_oft_task00_seed1001_trial001_cfafd9ddc3db:orange_juice_1:E01",
+        "review_end_frame": "276",
+        "review_start_frame": "10"
+      },
+      "reference_reviewed_negative_windows": [
+        [
+          15,
+          276
+        ]
+      ],
+      "reference_support": {
+        "boundary_frame": 10,
+        "support_label": "unsupported",
+        "supporting_entity_if_indirect": ""
+      },
+      "requirement_version": "r1-initial-table-support-v3-20261024",
+      "run_id": "libero_long_openvla_oft_task00_seed1001_trial001_cfafd9ddc3db",
+      "sampled_domain_complete": true,
+      "unresolved_component_ids": [
+        "ADJ-94fc762f2890"
+      ]
+    },
+    {
+      "abstention_reason": "Initial direct support is a geometric/contact candidate, not established load-bearing support. Baseline lacks established requirement-level event and negative-coverage evidence.",
+      "binary_compared": false,
+      "candidate_event_ids": [
+        "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db:butter_1:candidate:0000"
+      ],
+      "canonical_object_id": "butter_1",
+      "checker_applicability": "unknown",
+      "checker_candidate_initial_assessment": "direct_table_support_candidate",
+      "checker_outcome": "insufficient_information",
+      "compatible_claim_domain": false,
+      "measurement_frame_intervals": [
+        [
+          10,
+          245
+        ]
+      ],
+      "reference_eligible": true,
+      "reference_observation_domain": [
+        10,
+        245
+      ],
+      "reference_requirement": {
+        "applicability": "applies",
+        "evidence_coverage": "full_execution",
+        "interpretation": "no_violation_observed_within_reviewed_coverage",
+        "physical_event_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db:butter_1:E02",
+        "review_end_frame": "245",
+        "review_start_frame": "10"
+      },
+      "reference_reviewed_negative_windows": [
+        [
+          10,
+          245
+        ]
+      ],
+      "reference_support": {
+        "boundary_frame": 10,
+        "support_label": "direct_table",
+        "supporting_entity_if_indirect": ""
+      },
+      "requirement_version": "r1-initial-table-support-v3-20261024",
+      "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+      "sampled_domain_complete": true,
+      "unresolved_component_ids": [
+        "ADJ-61a621bdb57c"
+      ]
+    },
+    {
+      "abstention_reason": "Absence of a support candidate does not establish absence of initial support. Baseline lacks established requirement-level event and negative-coverage evidence.",
+      "binary_compared": false,
+      "candidate_event_ids": [
+        "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db:cream_cheese_1:candidate:0000"
+      ],
+      "canonical_object_id": "cream_cheese_1",
+      "checker_applicability": "unknown",
+      "checker_candidate_initial_assessment": "initial_table_support_not_established",
+      "checker_outcome": "insufficient_information",
+      "compatible_claim_domain": false,
+      "measurement_frame_intervals": [
+        [
+          10,
+          245
+        ]
+      ],
+      "reference_eligible": false,
+      "reference_observation_domain": [
+        10,
+        245
+      ],
+      "reference_requirement": {
+        "applicability": "does_not_apply",
+        "evidence_coverage": "full_execution",
+        "interpretation": "not_applicable",
+        "physical_event_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db:cream_cheese_1:E01",
+        "review_end_frame": "245",
+        "review_start_frame": "10"
+      },
+      "reference_reviewed_negative_windows": [],
+      "reference_support": {
+        "boundary_frame": 10,
+        "support_label": "unsupported",
+        "supporting_entity_if_indirect": ""
+      },
+      "requirement_version": "r1-initial-table-support-v3-20261024",
+      "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+      "sampled_domain_complete": true,
+      "unresolved_component_ids": [
+        "ADJ-46a7cc2663ea",
+        "ADJ-986bb2350b1d",
+        "ADJ-61a621bdb57c"
+      ]
+    },
+    {
+      "abstention_reason": "Absence of a support candidate does not establish absence of initial support. Baseline lacks established requirement-level event and negative-coverage evidence.",
+      "binary_compared": false,
+      "candidate_event_ids": [
+        "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db:ketchup_1:candidate:0000",
+        "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db:ketchup_1:candidate:0001"
+      ],
+      "canonical_object_id": "ketchup_1",
+      "checker_applicability": "unknown",
+      "checker_candidate_initial_assessment": "initial_table_support_not_established",
+      "checker_outcome": "insufficient_information",
+      "compatible_claim_domain": false,
+      "measurement_frame_intervals": [
+        [
+          10,
+          245
+        ]
+      ],
+      "reference_eligible": false,
+      "reference_observation_domain": [
+        10,
+        245
+      ],
+      "reference_requirement": {
+        "applicability": "does_not_apply",
+        "evidence_coverage": "full_execution",
+        "interpretation": "not_applicable",
+        "physical_event_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db:ketchup_1:E01",
+        "review_end_frame": "245",
+        "review_start_frame": "10"
+      },
+      "reference_reviewed_negative_windows": [
+        [
+          17,
+          245
+        ]
+      ],
+      "reference_support": {
+        "boundary_frame": 10,
+        "support_label": "unsupported",
+        "supporting_entity_if_indirect": ""
+      },
+      "requirement_version": "r1-initial-table-support-v3-20261024",
+      "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+      "sampled_domain_complete": true,
+      "unresolved_component_ids": [
+        "ADJ-61a621bdb57c"
+      ]
+    },
+    {
+      "abstention_reason": "Absence of a support candidate does not establish absence of initial support. Baseline lacks established requirement-level event and negative-coverage evidence.",
+      "binary_compared": false,
+      "candidate_event_ids": [
+        "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db:milk_1:candidate:0000",
+        "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db:milk_1:candidate:0001"
+      ],
+      "canonical_object_id": "milk_1",
+      "checker_applicability": "unknown",
+      "checker_candidate_initial_assessment": "initial_table_support_not_established",
+      "checker_outcome": "insufficient_information",
+      "compatible_claim_domain": false,
+      "measurement_frame_intervals": [
+        [
+          10,
+          245
+        ]
+      ],
+      "reference_eligible": false,
+      "reference_observation_domain": [
+        10,
+        245
+      ],
+      "reference_requirement": {
+        "applicability": "does_not_apply",
+        "evidence_coverage": "full_execution",
+        "interpretation": "not_applicable",
+        "physical_event_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db:milk_1:E01",
+        "review_end_frame": "245",
+        "review_start_frame": "10"
+      },
+      "reference_reviewed_negative_windows": [
+        [
+          15,
+          245
+        ]
+      ],
+      "reference_support": {
+        "boundary_frame": 10,
+        "support_label": "unsupported",
+        "supporting_entity_if_indirect": ""
+      },
+      "requirement_version": "r1-initial-table-support-v3-20261024",
+      "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+      "sampled_domain_complete": true,
+      "unresolved_component_ids": [
+        "ADJ-61a621bdb57c"
+      ]
+    },
+    {
+      "abstention_reason": "Absence of a support candidate does not establish absence of initial support. Baseline lacks established requirement-level event and negative-coverage evidence.",
+      "binary_compared": false,
+      "candidate_event_ids": [
+        "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db:orange_juice_1:candidate:0000",
+        "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db:orange_juice_1:candidate:0001"
+      ],
+      "canonical_object_id": "orange_juice_1",
+      "checker_applicability": "unknown",
+      "checker_candidate_initial_assessment": "initial_table_support_not_established",
+      "checker_outcome": "insufficient_information",
+      "compatible_claim_domain": false,
+      "measurement_frame_intervals": [
+        [
+          10,
+          245
+        ]
+      ],
+      "reference_eligible": false,
+      "reference_observation_domain": [
+        10,
+        245
+      ],
+      "reference_requirement": {
+        "applicability": "does_not_apply",
+        "evidence_coverage": "full_execution",
+        "interpretation": "not_applicable",
+        "physical_event_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db:orange_juice_1:E01",
+        "review_end_frame": "245",
+        "review_start_frame": "10"
+      },
+      "reference_reviewed_negative_windows": [
+        [
+          25,
+          245
+        ]
+      ],
+      "reference_support": {
+        "boundary_frame": 10,
+        "support_label": "unsupported",
+        "supporting_entity_if_indirect": ""
+      },
+      "requirement_version": "r1-initial-table-support-v3-20261024",
+      "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+      "sampled_domain_complete": true,
+      "unresolved_component_ids": [
+        "ADJ-d40b5be065ca",
+        "ADJ-61a621bdb57c"
+      ]
+    },
+    {
+      "abstention_reason": "Initial direct support is a geometric/contact candidate, not established load-bearing support. Baseline lacks established requirement-level event and negative-coverage evidence.",
+      "binary_compared": false,
+      "candidate_event_ids": [
+        "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db:butter_1:candidate:0000"
+      ],
+      "canonical_object_id": "butter_1",
+      "checker_applicability": "unknown",
+      "checker_candidate_initial_assessment": "direct_table_support_candidate",
+      "checker_outcome": "insufficient_information",
+      "compatible_claim_domain": false,
+      "measurement_frame_intervals": [
+        [
+          10,
+          530
+        ]
+      ],
+      "reference_eligible": true,
+      "reference_observation_domain": [
+        10,
+        530
+      ],
+      "reference_requirement": {
+        "applicability": "applies",
+        "evidence_coverage": "full_execution",
+        "interpretation": "no_violation_observed_within_reviewed_coverage",
+        "physical_event_id": "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db:butter_1:E02",
+        "review_end_frame": "530",
+        "review_start_frame": "10"
+      },
+      "reference_reviewed_negative_windows": [
+        [
+          10,
+          530
+        ]
+      ],
+      "reference_support": {
+        "boundary_frame": 10,
+        "support_label": "direct_table",
+        "supporting_entity_if_indirect": ""
+      },
+      "requirement_version": "r1-initial-table-support-v3-20261024",
+      "run_id": "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db",
+      "sampled_domain_complete": true,
+      "unresolved_component_ids": []
+    },
+    {
+      "abstention_reason": "Initial direct support is a geometric/contact candidate, not established load-bearing support. Baseline lacks established requirement-level event and negative-coverage evidence.",
+      "binary_compared": false,
+      "candidate_event_ids": [],
+      "canonical_object_id": "cream_cheese_1",
+      "checker_applicability": "unknown",
+      "checker_candidate_initial_assessment": "direct_table_support_candidate",
+      "checker_outcome": "insufficient_information",
+      "compatible_claim_domain": false,
+      "measurement_frame_intervals": [
+        [
+          10,
+          530
+        ]
+      ],
+      "reference_eligible": true,
+      "reference_observation_domain": [
+        10,
+        530
+      ],
+      "reference_requirement": {
+        "applicability": "applies",
+        "evidence_coverage": "full_execution",
+        "interpretation": "no_violation_observed_within_reviewed_coverage",
+        "physical_event_id": "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db:cream_cheese_1:E01;libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db:cream_cheese_1:E02;libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db:cream_cheese_1:E03",
+        "review_end_frame": "530",
+        "review_start_frame": "10"
+      },
+      "reference_reviewed_negative_windows": [
+        [
+          10,
+          269
+        ],
+        [
+          286,
+          530
+        ]
+      ],
+      "reference_support": {
+        "boundary_frame": 10,
+        "support_label": "direct_table",
+        "supporting_entity_if_indirect": ""
+      },
+      "requirement_version": "r1-initial-table-support-v3-20261024",
+      "run_id": "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db",
+      "sampled_domain_complete": true,
+      "unresolved_component_ids": [
+        "ADJ-68c29faedddf"
+      ]
+    },
+    {
+      "abstention_reason": "Absence of a support candidate does not establish absence of initial support. Baseline lacks established requirement-level event and negative-coverage evidence.",
+      "binary_compared": false,
+      "candidate_event_ids": [
+        "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db:ketchup_1:candidate:0000",
+        "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db:ketchup_1:candidate:0001"
+      ],
+      "canonical_object_id": "ketchup_1",
+      "checker_applicability": "unknown",
+      "checker_candidate_initial_assessment": "initial_table_support_not_established",
+      "checker_outcome": "insufficient_information",
+      "compatible_claim_domain": false,
+      "measurement_frame_intervals": [
+        [
+          10,
+          530
+        ]
+      ],
+      "reference_eligible": false,
+      "reference_observation_domain": [
+        10,
+        530
+      ],
+      "reference_requirement": {
+        "applicability": "does_not_apply",
+        "evidence_coverage": "full_execution",
+        "interpretation": "not_applicable",
+        "physical_event_id": "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db:ketchup_1:E01",
+        "review_end_frame": "530",
+        "review_start_frame": "10"
+      },
+      "reference_reviewed_negative_windows": [
+        [
+          17,
+          530
+        ]
+      ],
+      "reference_support": {
+        "boundary_frame": 10,
+        "support_label": "unsupported",
+        "supporting_entity_if_indirect": ""
+      },
+      "requirement_version": "r1-initial-table-support-v3-20261024",
+      "run_id": "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db",
+      "sampled_domain_complete": true,
+      "unresolved_component_ids": [
+        "ADJ-c025bfd1f9bd"
+      ]
+    },
+    {
+      "abstention_reason": "Absence of a support candidate does not establish absence of initial support. Baseline lacks established requirement-level event and negative-coverage evidence.",
+      "binary_compared": false,
+      "candidate_event_ids": [
+        "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db:milk_1:candidate:0000",
+        "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db:milk_1:candidate:0001"
+      ],
+      "canonical_object_id": "milk_1",
+      "checker_applicability": "unknown",
+      "checker_candidate_initial_assessment": "initial_table_support_not_established",
+      "checker_outcome": "insufficient_information",
+      "compatible_claim_domain": false,
+      "measurement_frame_intervals": [
+        [
+          10,
+          530
+        ]
+      ],
+      "reference_eligible": false,
+      "reference_observation_domain": [
+        10,
+        530
+      ],
+      "reference_requirement": {
+        "applicability": "does_not_apply",
+        "evidence_coverage": "full_execution",
+        "interpretation": "not_applicable",
+        "physical_event_id": "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db:milk_1:E01",
+        "review_end_frame": "530",
+        "review_start_frame": "10"
+      },
+      "reference_reviewed_negative_windows": [
+        [
+          15,
+          243
+        ],
+        [
+          283,
+          530
+        ]
+      ],
+      "reference_support": {
+        "boundary_frame": 10,
+        "support_label": "unsupported",
+        "supporting_entity_if_indirect": ""
+      },
+      "requirement_version": "r1-initial-table-support-v3-20261024",
+      "run_id": "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db",
+      "sampled_domain_complete": true,
+      "unresolved_component_ids": [
+        "ADJ-ab9b5280fb54"
+      ]
+    },
+    {
+      "abstention_reason": "Absence of a support candidate does not establish absence of initial support. Baseline lacks established requirement-level event and negative-coverage evidence.",
+      "binary_compared": false,
+      "candidate_event_ids": [
+        "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db:orange_juice_1:candidate:0000",
+        "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db:orange_juice_1:candidate:0001"
+      ],
+      "canonical_object_id": "orange_juice_1",
+      "checker_applicability": "unknown",
+      "checker_candidate_initial_assessment": "initial_table_support_not_established",
+      "checker_outcome": "insufficient_information",
+      "compatible_claim_domain": false,
+      "measurement_frame_intervals": [
+        [
+          10,
+          530
+        ]
+      ],
+      "reference_eligible": false,
+      "reference_observation_domain": [
+        10,
+        530
+      ],
+      "reference_requirement": {
+        "applicability": "does_not_apply",
+        "evidence_coverage": "full_execution",
+        "interpretation": "not_applicable",
+        "physical_event_id": "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db:orange_juice_1:E01",
+        "review_end_frame": "530",
+        "review_start_frame": "10"
+      },
+      "reference_reviewed_negative_windows": [
+        [
+          15,
+          57
+        ],
+        [
+          265,
+          530
+        ]
+      ],
+      "reference_support": {
+        "boundary_frame": 10,
+        "support_label": "unsupported",
+        "supporting_entity_if_indirect": ""
+      },
+      "requirement_version": "r1-initial-table-support-v3-20261024",
+      "run_id": "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db",
+      "sampled_domain_complete": true,
+      "unresolved_component_ids": [
+        "ADJ-575221c85fbd"
+      ]
+    }
+  ],
+  "checker_decision_coverage": {
+    "denominator": 7,
+    "numerator": 0
+  },
+  "counts": {
+    "applicability_determinate_errors": 0,
+    "binary_compared_units": 0,
+    "clean_binary_compared_units": 0,
+    "clean_eligible_units": 1,
+    "clean_units": 1,
+    "compatible_domains": 0,
+    "eligible_abstentions": 7,
+    "eligible_reference_units": 7,
+    "non_applicable_units": 13,
+    "reference_positives": 0,
+    "sampled_complete_units": 20,
+    "scope_errors": 0
+  },
+  "eligible_abstention_reasons": {
+    "Initial direct support is a geometric/contact candidate, not established load-bearing support. Baseline lacks established requirement-level event and negative-coverage evidence.": 7
+  },
+  "event_localization": {
+    "candidate_phase_counts": {
+      "policy": 12,
+      "setup": 17
+    },
+    "candidate_type_counts": {
+      "ambiguous_contact_departure_descent_candidate": 17,
+      "unsupported_descent_unknown_origin": 12
+    },
+    "established_R1_prediction_events": 0,
+    "established_R1_reference_events": 0,
+    "interpretation": "0 eligible R1 pairs at both tolerances; localization performance is not estimable. No physical-event candidate is counted as an R1 false positive. No event TNs.",
+    "strict_and_one_frame": {
+      "0": {
+        "matches": [],
+        "unmatched_predictions": [],
+        "unmatched_references": []
+      },
+      "1": {
+        "matches": [],
+        "unmatched_predictions": [],
+        "unmatched_references": []
+      }
+    },
+    "unscorable_candidates": [
+      {
+        "canonical_object_id": "ketchup_1",
+        "event_id": "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db:ketchup_1:candidate:0000",
+        "interval": [
+          7,
+          9
+        ],
+        "phase": "setup",
+        "reason": "Provisional classification and unresolved scope; not a definitive R1 alarm",
+        "run_id": "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db",
+        "type": "ambiguous_contact_departure_descent_candidate"
+      },
+      {
+        "canonical_object_id": "ketchup_1",
+        "event_id": "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db:ketchup_1:candidate:0001",
+        "interval": [
+          10,
+          16
+        ],
+        "phase": "policy",
+        "reason": "Provisional classification and unresolved scope; not a definitive R1 alarm",
+        "run_id": "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db",
+        "type": "unsupported_descent_unknown_origin"
+      },
+      {
+        "canonical_object_id": "orange_juice_1",
+        "event_id": "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db:orange_juice_1:candidate:0000",
+        "interval": [
+          7,
+          9
+        ],
+        "phase": "setup",
+        "reason": "Provisional classification and unresolved scope; not a definitive R1 alarm",
+        "run_id": "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db",
+        "type": "ambiguous_contact_departure_descent_candidate"
+      },
+      {
+        "canonical_object_id": "orange_juice_1",
+        "event_id": "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db:orange_juice_1:candidate:0001",
+        "interval": [
+          10,
+          14
+        ],
+        "phase": "policy",
+        "reason": "Provisional classification and unresolved scope; not a definitive R1 alarm",
+        "run_id": "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db",
+        "type": "unsupported_descent_unknown_origin"
+      },
+      {
+        "canonical_object_id": "milk_1",
+        "event_id": "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db:milk_1:candidate:0000",
+        "interval": [
+          7,
+          9
+        ],
+        "phase": "setup",
+        "reason": "Provisional classification and unresolved scope; not a definitive R1 alarm",
+        "run_id": "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db",
+        "type": "ambiguous_contact_departure_descent_candidate"
+      },
+      {
+        "canonical_object_id": "milk_1",
+        "event_id": "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db:milk_1:candidate:0001",
+        "interval": [
+          10,
+          14
+        ],
+        "phase": "policy",
+        "reason": "Provisional classification and unresolved scope; not a definitive R1 alarm",
+        "run_id": "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db",
+        "type": "unsupported_descent_unknown_origin"
+      },
+      {
+        "canonical_object_id": "butter_1",
+        "event_id": "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db:butter_1:candidate:0000",
+        "interval": [
+          1,
+          4
+        ],
+        "phase": "setup",
+        "reason": "Provisional classification and unresolved scope; not a definitive R1 alarm",
+        "run_id": "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db",
+        "type": "ambiguous_contact_departure_descent_candidate"
+      },
+      {
+        "canonical_object_id": "ketchup_1",
+        "event_id": "libero_long_openvla_oft_task00_seed1001_trial001_cfafd9ddc3db:ketchup_1:candidate:0000",
+        "interval": [
+          7,
+          9
+        ],
+        "phase": "setup",
+        "reason": "Provisional classification and unresolved scope; not a definitive R1 alarm",
+        "run_id": "libero_long_openvla_oft_task00_seed1001_trial001_cfafd9ddc3db",
+        "type": "ambiguous_contact_departure_descent_candidate"
+      },
+      {
+        "canonical_object_id": "ketchup_1",
+        "event_id": "libero_long_openvla_oft_task00_seed1001_trial001_cfafd9ddc3db:ketchup_1:candidate:0001",
+        "interval": [
+          10,
+          16
+        ],
+        "phase": "policy",
+        "reason": "Provisional classification and unresolved scope; not a definitive R1 alarm",
+        "run_id": "libero_long_openvla_oft_task00_seed1001_trial001_cfafd9ddc3db",
+        "type": "unsupported_descent_unknown_origin"
+      },
+      {
+        "canonical_object_id": "orange_juice_1",
+        "event_id": "libero_long_openvla_oft_task00_seed1001_trial001_cfafd9ddc3db:orange_juice_1:candidate:0000",
+        "interval": [
+          7,
+          9
+        ],
+        "phase": "setup",
+        "reason": "Provisional classification and unresolved scope; not a definitive R1 alarm",
+        "run_id": "libero_long_openvla_oft_task00_seed1001_trial001_cfafd9ddc3db",
+        "type": "ambiguous_contact_departure_descent_candidate"
+      },
+      {
+        "canonical_object_id": "orange_juice_1",
+        "event_id": "libero_long_openvla_oft_task00_seed1001_trial001_cfafd9ddc3db:orange_juice_1:candidate:0001",
+        "interval": [
+          10,
+          14
+        ],
+        "phase": "policy",
+        "reason": "Provisional classification and unresolved scope; not a definitive R1 alarm",
+        "run_id": "libero_long_openvla_oft_task00_seed1001_trial001_cfafd9ddc3db",
+        "type": "unsupported_descent_unknown_origin"
+      },
+      {
+        "canonical_object_id": "milk_1",
+        "event_id": "libero_long_openvla_oft_task00_seed1001_trial001_cfafd9ddc3db:milk_1:candidate:0000",
+        "interval": [
+          7,
+          9
+        ],
+        "phase": "setup",
+        "reason": "Provisional classification and unresolved scope; not a definitive R1 alarm",
+        "run_id": "libero_long_openvla_oft_task00_seed1001_trial001_cfafd9ddc3db",
+        "type": "ambiguous_contact_departure_descent_candidate"
+      },
+      {
+        "canonical_object_id": "milk_1",
+        "event_id": "libero_long_openvla_oft_task00_seed1001_trial001_cfafd9ddc3db:milk_1:candidate:0001",
+        "interval": [
+          10,
+          14
+        ],
+        "phase": "policy",
+        "reason": "Provisional classification and unresolved scope; not a definitive R1 alarm",
+        "run_id": "libero_long_openvla_oft_task00_seed1001_trial001_cfafd9ddc3db",
+        "type": "unsupported_descent_unknown_origin"
+      },
+      {
+        "canonical_object_id": "butter_1",
+        "event_id": "libero_long_openvla_oft_task00_seed1001_trial001_cfafd9ddc3db:butter_1:candidate:0000",
+        "interval": [
+          1,
+          4
+        ],
+        "phase": "setup",
+        "reason": "Provisional classification and unresolved scope; not a definitive R1 alarm",
+        "run_id": "libero_long_openvla_oft_task00_seed1001_trial001_cfafd9ddc3db",
+        "type": "ambiguous_contact_departure_descent_candidate"
+      },
+      {
+        "canonical_object_id": "cream_cheese_1",
+        "event_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db:cream_cheese_1:candidate:0000",
+        "interval": [
+          4,
+          9
+        ],
+        "phase": "setup",
+        "reason": "Provisional classification and unresolved scope; not a definitive R1 alarm",
+        "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+        "type": "ambiguous_contact_departure_descent_candidate"
+      },
+      {
+        "canonical_object_id": "ketchup_1",
+        "event_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db:ketchup_1:candidate:0000",
+        "interval": [
+          7,
+          9
+        ],
+        "phase": "setup",
+        "reason": "Provisional classification and unresolved scope; not a definitive R1 alarm",
+        "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+        "type": "ambiguous_contact_departure_descent_candidate"
+      },
+      {
+        "canonical_object_id": "ketchup_1",
+        "event_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db:ketchup_1:candidate:0001",
+        "interval": [
+          10,
+          16
+        ],
+        "phase": "policy",
+        "reason": "Provisional classification and unresolved scope; not a definitive R1 alarm",
+        "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+        "type": "unsupported_descent_unknown_origin"
+      },
+      {
+        "canonical_object_id": "orange_juice_1",
+        "event_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db:orange_juice_1:candidate:0000",
+        "interval": [
+          7,
+          9
+        ],
+        "phase": "setup",
+        "reason": "Provisional classification and unresolved scope; not a definitive R1 alarm",
+        "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+        "type": "ambiguous_contact_departure_descent_candidate"
+      },
+      {
+        "canonical_object_id": "orange_juice_1",
+        "event_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db:orange_juice_1:candidate:0001",
+        "interval": [
+          10,
+          16
+        ],
+        "phase": "policy",
+        "reason": "Provisional classification and unresolved scope; not a definitive R1 alarm",
+        "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+        "type": "unsupported_descent_unknown_origin"
+      },
+      {
+        "canonical_object_id": "milk_1",
+        "event_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db:milk_1:candidate:0000",
+        "interval": [
+          7,
+          9
+        ],
+        "phase": "setup",
+        "reason": "Provisional classification and unresolved scope; not a definitive R1 alarm",
+        "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+        "type": "ambiguous_contact_departure_descent_candidate"
+      },
+      {
+        "canonical_object_id": "milk_1",
+        "event_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db:milk_1:candidate:0001",
+        "interval": [
+          10,
+          14
+        ],
+        "phase": "policy",
+        "reason": "Provisional classification and unresolved scope; not a definitive R1 alarm",
+        "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+        "type": "unsupported_descent_unknown_origin"
+      },
+      {
+        "canonical_object_id": "butter_1",
+        "event_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db:butter_1:candidate:0000",
+        "interval": [
+          1,
+          4
+        ],
+        "phase": "setup",
+        "reason": "Provisional classification and unresolved scope; not a definitive R1 alarm",
+        "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+        "type": "ambiguous_contact_departure_descent_candidate"
+      },
+      {
+        "canonical_object_id": "ketchup_1",
+        "event_id": "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db:ketchup_1:candidate:0000",
+        "interval": [
+          7,
+          9
+        ],
+        "phase": "setup",
+        "reason": "Provisional classification and unresolved scope; not a definitive R1 alarm",
+        "run_id": "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db",
+        "type": "ambiguous_contact_departure_descent_candidate"
+      },
+      {
+        "canonical_object_id": "ketchup_1",
+        "event_id": "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db:ketchup_1:candidate:0001",
+        "interval": [
+          10,
+          16
+        ],
+        "phase": "policy",
+        "reason": "Provisional classification and unresolved scope; not a definitive R1 alarm",
+        "run_id": "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db",
+        "type": "unsupported_descent_unknown_origin"
+      },
+      {
+        "canonical_object_id": "orange_juice_1",
+        "event_id": "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db:orange_juice_1:candidate:0000",
+        "interval": [
+          7,
+          9
+        ],
+        "phase": "setup",
+        "reason": "Provisional classification and unresolved scope; not a definitive R1 alarm",
+        "run_id": "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db",
+        "type": "ambiguous_contact_departure_descent_candidate"
+      },
+      {
+        "canonical_object_id": "orange_juice_1",
+        "event_id": "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db:orange_juice_1:candidate:0001",
+        "interval": [
+          10,
+          14
+        ],
+        "phase": "policy",
+        "reason": "Provisional classification and unresolved scope; not a definitive R1 alarm",
+        "run_id": "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db",
+        "type": "unsupported_descent_unknown_origin"
+      },
+      {
+        "canonical_object_id": "milk_1",
+        "event_id": "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db:milk_1:candidate:0000",
+        "interval": [
+          7,
+          9
+        ],
+        "phase": "setup",
+        "reason": "Provisional classification and unresolved scope; not a definitive R1 alarm",
+        "run_id": "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db",
+        "type": "ambiguous_contact_departure_descent_candidate"
+      },
+      {
+        "canonical_object_id": "milk_1",
+        "event_id": "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db:milk_1:candidate:0001",
+        "interval": [
+          10,
+          14
+        ],
+        "phase": "policy",
+        "reason": "Provisional classification and unresolved scope; not a definitive R1 alarm",
+        "run_id": "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db",
+        "type": "unsupported_descent_unknown_origin"
+      },
+      {
+        "canonical_object_id": "butter_1",
+        "event_id": "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db:butter_1:candidate:0000",
+        "interval": [
+          1,
+          4
+        ],
+        "phase": "setup",
+        "reason": "Provisional classification and unresolved scope; not a definitive R1 alarm",
+        "run_id": "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db",
+        "type": "ambiguous_contact_departure_descent_candidate"
+      }
+    ]
+  },
+  "metric_explanation": "No determinate compatible predictions; precision undefined. Zero reference R1 positives: positive-class recall and F1 not estimable, including end-to-end recall.",
+  "positive_class_F1": null,
+  "positive_class_recall": null,
+  "precision": null,
+  "provenance": {
+    "matcher_sha256": "b3a08b849d02c61a7020781979e5ccb61fe68eac7a472575a00710959c3374d9",
+    "not_copied_from_remote": [
+      "raw/episode_000_geometry_contacts.json.gz",
+      "raw/episode_000_observations.json.gz",
+      "raw/episode_001_geometry_contacts.json.gz",
+      "raw/episode_001_observations.json.gz",
+      "raw/episode_002_geometry_contacts.json.gz",
+      "raw/episode_002_observations.json.gz",
+      "raw/episode_014_geometry_contacts.json.gz",
+      "raw/episode_014_observations.json.gz"
+    ],
+    "prediction_seal_sha256": "f84e46efad091242efd27be2066545ce56c41b352d761cf1660f8db05deb9288",
+    "prediction_sha256": "688d154e7d1b3dd2a0d39c08a1a5db23c3932ff7df1ecc6f46e8a35ffcb080e9",
+    "reference_directory": "human_review_package/adjudication/approved_reference/r1-reference-be76abc531f5c716efca",
+    "reference_final_csv_sha256": {
+      "adjudicated_events.csv": "e0e45d6cd352689ff451791bdc91603e6e2c946eb8395d9bb641b13347dd23f7",
+      "adjudicated_initial_support.csv": "3aa15d5ef7b0213bb32a988aae8a4daf5d02aac9d998a4803226386491bb52c6",
+      "adjudicated_requirement_interpretation.csv": "d968bcec6801bda9eda5ea99817c971c6ec8e2af4cb257e5fc39562c54f328b4",
+      "adjudicated_uncertainty_requests.csv": "4cfdff23b0f1a31ae9b3d6990d94a712de16fd30129cc9fa31b5b17c805cb4fa"
+    },
+    "remote_execution_root": "/disk/1/data/niktakbr/r1-reference-evaluation-20261027/predictions",
+    "scorer_sha256": "442796b061a3209ba5f2a1895db0786d50edf03398811981020ddb2c294740da"
+  },
+  "reference_eligibility_coverage": {
+    "denominator": 20,
+    "numerator": 7
+  },
+  "reference_events": [
+    {
+      "canonical_object_id": "butter_1",
+      "event_id": "ADJ-b3f938ae8e86",
+      "final_label": {
+        "coverage_qualification": "Explicit reviewer interval fragments; visibility qualified; omission by the other reviewer is not a negative vote.",
+        "event_type": "none",
+        "evidence_coverage": "full_execution",
+        "observation_status": "no_event_observed_in_window",
+        "reviewed_intervals": [
+          [
+            10,
+            257
+          ]
+        ]
+      },
+      "phases": [],
+      "reference_group_id": "ADJ-b3f938ae8e86",
+      "requirement_version": "r1-initial-table-support-v3-20261024",
+      "reviewed_intervals": [
+        [
+          10,
+          257
+        ]
+      ],
+      "run_id": "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db",
+      "scoring_status": "explicit_reviewed_negative_fragments"
+    },
+    {
+      "canonical_object_id": "butter_1",
+      "event_id": "ADJ-464292e39951",
+      "final_label": {
+        "departure_frame": "",
+        "earliest_onset_frame": 0,
+        "end_frame": "",
+        "evaluation_interval_relation": "setup_departure_before_frame_10; later contact does not change onset",
+        "event_type": "setup_bounce",
+        "exact_physical_contact_time_s": "",
+        "first_recorded_contact_surface": "living_room_table",
+        "landing_contact_frame": 4,
+        "landing_semantics": "first_recorded_contact_not_exact_physical_landing",
+        "latest_onset_frame": 1,
+        "observation_status": "observed",
+        "review_end_frame": 30,
+        "review_start_frame": 0,
+        "visual_contact_or_settling_estimates_in_source_prose": [
+          4
+        ]
+      },
+      "phases": [
+        {
+          "canonical_object_id": "butter_1",
+          "compatible_type": "setup_departure",
+          "endpoint_semantics": "annotated sampled bounds; no exact physical endpoint inferred",
+          "event_id": "ADJ-464292e39951:departure",
+          "interval": [
+            0,
+            4
+          ],
+          "offset_established_exact": false,
+          "onset_bracket": [
+            0,
+            1
+          ],
+          "phase": "departure",
+          "physical_end_frame": null,
+          "reference_group_id": "ADJ-464292e39951",
+          "requirement_version": "r1-initial-table-support-v3-20261024",
+          "run_id": "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db",
+          "scope": "setup",
+          "status": "established"
+        },
+        {
+          "canonical_object_id": "butter_1",
+          "compatible_type": "contact",
+          "endpoint_semantics": "first recorded contact sample; not exact physical landing",
+          "event_id": "ADJ-464292e39951:recorded_contact",
+          "interval": [
+            4,
+            4
+          ],
+          "offset_established_exact": true,
+          "onset_bracket": [
+            4,
+            4
+          ],
+          "phase": "contact",
+          "physical_end_frame": null,
+          "reference_group_id": "ADJ-464292e39951",
+          "requirement_version": "r1-initial-table-support-v3-20261024",
+          "run_id": "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db",
+          "scope": "setup",
+          "status": "established"
+        }
+      ],
+      "reference_group_id": "ADJ-464292e39951",
+      "requirement_version": "r1-initial-table-support-v3-20261024",
+      "reviewed_intervals": [],
+      "run_id": "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db",
+      "scoring_status": "physical_observation_outside_R1"
+    },
+    {
+      "canonical_object_id": "cream_cheese_1",
+      "event_id": "ADJ-853538b07d27",
+      "final_label": {
+        "coverage_qualification": "Explicit reviewer interval fragments; visibility qualified; omission by the other reviewer is not a negative vote.",
+        "event_type": "none",
+        "evidence_coverage": "full_execution",
+        "observation_status": "no_event_observed_in_window",
+        "reviewed_intervals": [
+          [
+            10,
+            257
+          ]
+        ]
+      },
+      "phases": [],
+      "reference_group_id": "ADJ-853538b07d27",
+      "requirement_version": "r1-initial-table-support-v3-20261024",
+      "reviewed_intervals": [
+        [
+          10,
+          257
+        ]
+      ],
+      "run_id": "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db",
+      "scoring_status": "explicit_reviewed_negative_fragments"
+    },
+    {
+      "canonical_object_id": "ketchup_1",
+      "event_id": "ADJ-e7a9ea4382e2",
+      "final_label": {
+        "coverage_qualification": "Explicit reviewer interval fragments; visibility qualified; omission by the other reviewer is not a negative vote.",
+        "event_type": "none",
+        "evidence_coverage": "partial_execution",
+        "observation_status": "no_event_observed_in_window",
+        "reviewed_intervals": [
+          [
+            17,
+            257
+          ]
+        ]
+      },
+      "phases": [],
+      "reference_group_id": "ADJ-e7a9ea4382e2",
+      "requirement_version": "r1-initial-table-support-v3-20261024",
+      "reviewed_intervals": [
+        [
+          17,
+          257
+        ]
+      ],
+      "run_id": "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db",
+      "scoring_status": "explicit_reviewed_negative_fragments"
+    },
+    {
+      "canonical_object_id": "ketchup_1",
+      "event_id": "ADJ-91e4483d9e89",
+      "final_label": {
+        "departure_frame": "",
+        "earliest_onset_frame": 0,
+        "end_frame": "",
+        "evaluation_interval_relation": "setup_departure_before_frame_10; later contact does not change onset",
+        "event_type": "setup_rise_and_return",
+        "exact_physical_contact_time_s": "",
+        "first_recorded_contact_surface": "living_room_table",
+        "landing_contact_frame": 16,
+        "landing_semantics": "first_recorded_contact_not_exact_physical_landing",
+        "latest_onset_frame": 1,
+        "observation_status": "observed",
+        "review_end_frame": 30,
+        "review_start_frame": 0,
+        "visual_contact_or_settling_estimates_in_source_prose": [
+          15
+        ]
+      },
+      "phases": [
+        {
+          "canonical_object_id": "ketchup_1",
+          "compatible_type": "setup_departure",
+          "endpoint_semantics": "annotated sampled bounds; no exact physical endpoint inferred",
+          "event_id": "ADJ-91e4483d9e89:departure",
+          "interval": [
+            0,
+            16
+          ],
+          "offset_established_exact": false,
+          "onset_bracket": [
+            0,
+            1
+          ],
+          "phase": "departure",
+          "physical_end_frame": null,
+          "reference_group_id": "ADJ-91e4483d9e89",
+          "requirement_version": "r1-initial-table-support-v3-20261024",
+          "run_id": "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db",
+          "scope": "setup",
+          "status": "established"
+        },
+        {
+          "canonical_object_id": "ketchup_1",
+          "compatible_type": "contact",
+          "endpoint_semantics": "first recorded contact sample; not exact physical landing",
+          "event_id": "ADJ-91e4483d9e89:recorded_contact",
+          "interval": [
+            16,
+            16
+          ],
+          "offset_established_exact": true,
+          "onset_bracket": [
+            16,
+            16
+          ],
+          "phase": "contact",
+          "physical_end_frame": null,
+          "reference_group_id": "ADJ-91e4483d9e89",
+          "requirement_version": "r1-initial-table-support-v3-20261024",
+          "run_id": "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db",
+          "scope": "setup",
+          "status": "established"
+        }
+      ],
+      "reference_group_id": "ADJ-91e4483d9e89",
+      "requirement_version": "r1-initial-table-support-v3-20261024",
+      "reviewed_intervals": [],
+      "run_id": "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db",
+      "scoring_status": "physical_observation_outside_R1"
+    },
+    {
+      "canonical_object_id": "milk_1",
+      "event_id": "ADJ-bc4051b6adfe",
+      "final_label": {
+        "coverage_qualification": "Explicit reviewer interval fragments; visibility qualified; omission by the other reviewer is not a negative vote.",
+        "event_type": "none",
+        "evidence_coverage": "partial_execution",
+        "observation_status": "no_event_observed_in_window",
+        "reviewed_intervals": [
+          [
+            15,
+            257
+          ]
+        ]
+      },
+      "phases": [],
+      "reference_group_id": "ADJ-bc4051b6adfe",
+      "requirement_version": "r1-initial-table-support-v3-20261024",
+      "reviewed_intervals": [
+        [
+          15,
+          257
+        ]
+      ],
+      "run_id": "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db",
+      "scoring_status": "explicit_reviewed_negative_fragments"
+    },
+    {
+      "canonical_object_id": "milk_1",
+      "event_id": "ADJ-9902fa3c111b",
+      "final_label": {
+        "departure_frame": "",
+        "earliest_onset_frame": 0,
+        "end_frame": "",
+        "evaluation_interval_relation": "setup_departure_before_frame_10; later contact does not change onset",
+        "event_type": "setup_rise_and_return",
+        "exact_physical_contact_time_s": "",
+        "first_recorded_contact_surface": "living_room_table",
+        "landing_contact_frame": 14,
+        "landing_semantics": "first_recorded_contact_not_exact_physical_landing",
+        "latest_onset_frame": 1,
+        "observation_status": "observed",
+        "review_end_frame": 30,
+        "review_start_frame": 0,
+        "visual_contact_or_settling_estimates_in_source_prose": [
+          14
+        ]
+      },
+      "phases": [
+        {
+          "canonical_object_id": "milk_1",
+          "compatible_type": "setup_departure",
+          "endpoint_semantics": "annotated sampled bounds; no exact physical endpoint inferred",
+          "event_id": "ADJ-9902fa3c111b:departure",
+          "interval": [
+            0,
+            14
+          ],
+          "offset_established_exact": false,
+          "onset_bracket": [
+            0,
+            1
+          ],
+          "phase": "departure",
+          "physical_end_frame": null,
+          "reference_group_id": "ADJ-9902fa3c111b",
+          "requirement_version": "r1-initial-table-support-v3-20261024",
+          "run_id": "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db",
+          "scope": "setup",
+          "status": "established"
+        },
+        {
+          "canonical_object_id": "milk_1",
+          "compatible_type": "contact",
+          "endpoint_semantics": "first recorded contact sample; not exact physical landing",
+          "event_id": "ADJ-9902fa3c111b:recorded_contact",
+          "interval": [
+            14,
+            14
+          ],
+          "offset_established_exact": true,
+          "onset_bracket": [
+            14,
+            14
+          ],
+          "phase": "contact",
+          "physical_end_frame": null,
+          "reference_group_id": "ADJ-9902fa3c111b",
+          "requirement_version": "r1-initial-table-support-v3-20261024",
+          "run_id": "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db",
+          "scope": "setup",
+          "status": "established"
+        }
+      ],
+      "reference_group_id": "ADJ-9902fa3c111b",
+      "requirement_version": "r1-initial-table-support-v3-20261024",
+      "reviewed_intervals": [],
+      "run_id": "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db",
+      "scoring_status": "physical_observation_outside_R1"
+    },
+    {
+      "canonical_object_id": "orange_juice_1",
+      "event_id": "ADJ-b23fe3c40c99",
+      "final_label": {
+        "coverage_qualification": "Explicit reviewer interval fragments; visibility qualified; omission by the other reviewer is not a negative vote.",
+        "event_type": "none",
+        "evidence_coverage": "partial_execution",
+        "observation_status": "no_event_observed_in_window",
+        "reviewed_intervals": [
+          [
+            15,
+            257
+          ]
+        ]
+      },
+      "phases": [],
+      "reference_group_id": "ADJ-b23fe3c40c99",
+      "requirement_version": "r1-initial-table-support-v3-20261024",
+      "reviewed_intervals": [
+        [
+          15,
+          257
+        ]
+      ],
+      "run_id": "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db",
+      "scoring_status": "explicit_reviewed_negative_fragments"
+    },
+    {
+      "canonical_object_id": "orange_juice_1",
+      "event_id": "ADJ-f41d9c2b0902",
+      "final_label": {
+        "departure_frame": "",
+        "earliest_onset_frame": 0,
+        "end_frame": "",
+        "evaluation_interval_relation": "setup_departure_before_frame_10; later contact does not change onset",
+        "event_type": "setup_rise_and_return",
+        "exact_physical_contact_time_s": "",
+        "first_recorded_contact_surface": "living_room_table",
+        "landing_contact_frame": 14,
+        "landing_semantics": "first_recorded_contact_not_exact_physical_landing",
+        "latest_onset_frame": 1,
+        "observation_status": "observed",
+        "review_end_frame": 30,
+        "review_start_frame": 0,
+        "visual_contact_or_settling_estimates_in_source_prose": [
+          14
+        ]
+      },
+      "phases": [
+        {
+          "canonical_object_id": "orange_juice_1",
+          "compatible_type": "setup_departure",
+          "endpoint_semantics": "annotated sampled bounds; no exact physical endpoint inferred",
+          "event_id": "ADJ-f41d9c2b0902:departure",
+          "interval": [
+            0,
+            14
+          ],
+          "offset_established_exact": false,
+          "onset_bracket": [
+            0,
+            1
+          ],
+          "phase": "departure",
+          "physical_end_frame": null,
+          "reference_group_id": "ADJ-f41d9c2b0902",
+          "requirement_version": "r1-initial-table-support-v3-20261024",
+          "run_id": "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db",
+          "scope": "setup",
+          "status": "established"
+        },
+        {
+          "canonical_object_id": "orange_juice_1",
+          "compatible_type": "contact",
+          "endpoint_semantics": "first recorded contact sample; not exact physical landing",
+          "event_id": "ADJ-f41d9c2b0902:recorded_contact",
+          "interval": [
+            14,
+            14
+          ],
+          "offset_established_exact": true,
+          "onset_bracket": [
+            14,
+            14
+          ],
+          "phase": "contact",
+          "physical_end_frame": null,
+          "reference_group_id": "ADJ-f41d9c2b0902",
+          "requirement_version": "r1-initial-table-support-v3-20261024",
+          "run_id": "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db",
+          "scope": "setup",
+          "status": "established"
+        }
+      ],
+      "reference_group_id": "ADJ-f41d9c2b0902",
+      "requirement_version": "r1-initial-table-support-v3-20261024",
+      "reviewed_intervals": [],
+      "run_id": "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db",
+      "scoring_status": "physical_observation_outside_R1"
+    },
+    {
+      "canonical_object_id": "butter_1",
+      "event_id": "ADJ-4ba4e13a4c54",
+      "final_label": {
+        "coverage_qualification": "Explicit reviewer interval fragments; visibility qualified; omission by the other reviewer is not a negative vote.",
+        "event_type": "none",
+        "evidence_coverage": "full_execution",
+        "observation_status": "no_event_observed_in_window",
+        "reviewed_intervals": [
+          [
+            10,
+            276
+          ]
+        ]
+      },
+      "phases": [],
+      "reference_group_id": "ADJ-4ba4e13a4c54",
+      "requirement_version": "r1-initial-table-support-v3-20261024",
+      "reviewed_intervals": [
+        [
+          10,
+          276
+        ]
+      ],
+      "run_id": "libero_long_openvla_oft_task00_seed1001_trial001_cfafd9ddc3db",
+      "scoring_status": "explicit_reviewed_negative_fragments"
+    },
+    {
+      "canonical_object_id": "butter_1",
+      "event_id": "ADJ-d999b0acb277",
+      "final_label": {
+        "departure_frame": "",
+        "earliest_onset_frame": 0,
+        "end_frame": "",
+        "evaluation_interval_relation": "setup_departure_before_frame_10; later contact does not change onset",
+        "event_type": "setup_bounce",
+        "exact_physical_contact_time_s": "",
+        "first_recorded_contact_surface": "living_room_table",
+        "landing_contact_frame": 4,
+        "landing_semantics": "first_recorded_contact_not_exact_physical_landing",
+        "latest_onset_frame": 1,
+        "observation_status": "observed",
+        "review_end_frame": 30,
+        "review_start_frame": 0,
+        "visual_contact_or_settling_estimates_in_source_prose": [
+          3,
+          4
+        ]
+      },
+      "phases": [
+        {
+          "canonical_object_id": "butter_1",
+          "compatible_type": "setup_departure",
+          "endpoint_semantics": "annotated sampled bounds; no exact physical endpoint inferred",
+          "event_id": "ADJ-d999b0acb277:departure",
+          "interval": [
+            0,
+            4
+          ],
+          "offset_established_exact": false,
+          "onset_bracket": [
+            0,
+            1
+          ],
+          "phase": "departure",
+          "physical_end_frame": null,
+          "reference_group_id": "ADJ-d999b0acb277",
+          "requirement_version": "r1-initial-table-support-v3-20261024",
+          "run_id": "libero_long_openvla_oft_task00_seed1001_trial001_cfafd9ddc3db",
+          "scope": "setup",
+          "status": "established"
+        },
+        {
+          "canonical_object_id": "butter_1",
+          "compatible_type": "contact",
+          "endpoint_semantics": "first recorded contact sample; not exact physical landing",
+          "event_id": "ADJ-d999b0acb277:recorded_contact",
+          "interval": [
+            4,
+            4
+          ],
+          "offset_established_exact": true,
+          "onset_bracket": [
+            4,
+            4
+          ],
+          "phase": "contact",
+          "physical_end_frame": null,
+          "reference_group_id": "ADJ-d999b0acb277",
+          "requirement_version": "r1-initial-table-support-v3-20261024",
+          "run_id": "libero_long_openvla_oft_task00_seed1001_trial001_cfafd9ddc3db",
+          "scope": "setup",
+          "status": "established"
+        }
+      ],
+      "reference_group_id": "ADJ-d999b0acb277",
+      "requirement_version": "r1-initial-table-support-v3-20261024",
+      "reviewed_intervals": [],
+      "run_id": "libero_long_openvla_oft_task00_seed1001_trial001_cfafd9ddc3db",
+      "scoring_status": "physical_observation_outside_R1"
+    },
+    {
+      "canonical_object_id": "cream_cheese_1",
+      "event_id": "ADJ-770e27d09b01",
+      "final_label": {
+        "coverage_qualification": "Explicit reviewer interval fragments; visibility qualified; omission by the other reviewer is not a negative vote.",
+        "event_type": "none",
+        "evidence_coverage": "full_execution",
+        "observation_status": "no_event_observed_in_window",
+        "reviewed_intervals": [
+          [
+            10,
+            276
+          ]
+        ]
+      },
+      "phases": [],
+      "reference_group_id": "ADJ-770e27d09b01",
+      "requirement_version": "r1-initial-table-support-v3-20261024",
+      "reviewed_intervals": [
+        [
+          10,
+          276
+        ]
+      ],
+      "run_id": "libero_long_openvla_oft_task00_seed1001_trial001_cfafd9ddc3db",
+      "scoring_status": "explicit_reviewed_negative_fragments"
+    },
+    {
+      "canonical_object_id": "ketchup_1",
+      "event_id": "ADJ-8f451164fce9",
+      "final_label": {
+        "coverage_qualification": "Explicit reviewer interval fragments; visibility qualified; omission by the other reviewer is not a negative vote.",
+        "event_type": "none",
+        "evidence_coverage": "partial_execution",
+        "observation_status": "no_event_observed_in_window",
+        "reviewed_intervals": [
+          [
+            17,
+            276
+          ]
+        ]
+      },
+      "phases": [],
+      "reference_group_id": "ADJ-8f451164fce9",
+      "requirement_version": "r1-initial-table-support-v3-20261024",
+      "reviewed_intervals": [
+        [
+          17,
+          276
+        ]
+      ],
+      "run_id": "libero_long_openvla_oft_task00_seed1001_trial001_cfafd9ddc3db",
+      "scoring_status": "explicit_reviewed_negative_fragments"
+    },
+    {
+      "canonical_object_id": "ketchup_1",
+      "event_id": "ADJ-de88b75d4b43",
+      "final_label": {
+        "departure_frame": "",
+        "earliest_onset_frame": 0,
+        "end_frame": "",
+        "evaluation_interval_relation": "setup_departure_before_frame_10; later contact does not change onset",
+        "event_type": "setup_rise_and_return",
+        "exact_physical_contact_time_s": "",
+        "first_recorded_contact_surface": "living_room_table",
+        "landing_contact_frame": 16,
+        "landing_semantics": "first_recorded_contact_not_exact_physical_landing",
+        "latest_onset_frame": 1,
+        "observation_status": "observed",
+        "review_end_frame": 30,
+        "review_start_frame": 0,
+        "visual_contact_or_settling_estimates_in_source_prose": [
+          15,
+          16
+        ]
+      },
+      "phases": [
+        {
+          "canonical_object_id": "ketchup_1",
+          "compatible_type": "setup_departure",
+          "endpoint_semantics": "annotated sampled bounds; no exact physical endpoint inferred",
+          "event_id": "ADJ-de88b75d4b43:departure",
+          "interval": [
+            0,
+            16
+          ],
+          "offset_established_exact": false,
+          "onset_bracket": [
+            0,
+            1
+          ],
+          "phase": "departure",
+          "physical_end_frame": null,
+          "reference_group_id": "ADJ-de88b75d4b43",
+          "requirement_version": "r1-initial-table-support-v3-20261024",
+          "run_id": "libero_long_openvla_oft_task00_seed1001_trial001_cfafd9ddc3db",
+          "scope": "setup",
+          "status": "established"
+        },
+        {
+          "canonical_object_id": "ketchup_1",
+          "compatible_type": "contact",
+          "endpoint_semantics": "first recorded contact sample; not exact physical landing",
+          "event_id": "ADJ-de88b75d4b43:recorded_contact",
+          "interval": [
+            16,
+            16
+          ],
+          "offset_established_exact": true,
+          "onset_bracket": [
+            16,
+            16
+          ],
+          "phase": "contact",
+          "physical_end_frame": null,
+          "reference_group_id": "ADJ-de88b75d4b43",
+          "requirement_version": "r1-initial-table-support-v3-20261024",
+          "run_id": "libero_long_openvla_oft_task00_seed1001_trial001_cfafd9ddc3db",
+          "scope": "setup",
+          "status": "established"
+        }
+      ],
+      "reference_group_id": "ADJ-de88b75d4b43",
+      "requirement_version": "r1-initial-table-support-v3-20261024",
+      "reviewed_intervals": [],
+      "run_id": "libero_long_openvla_oft_task00_seed1001_trial001_cfafd9ddc3db",
+      "scoring_status": "physical_observation_outside_R1"
+    },
+    {
+      "canonical_object_id": "milk_1",
+      "event_id": "ADJ-5eec06c3da16",
+      "final_label": {
+        "coverage_qualification": "Explicit reviewer interval fragments; visibility qualified; omission by the other reviewer is not a negative vote.",
+        "event_type": "none",
+        "evidence_coverage": "partial_execution",
+        "observation_status": "no_event_observed_in_window",
+        "reviewed_intervals": [
+          [
+            15,
+            276
+          ]
+        ]
+      },
+      "phases": [],
+      "reference_group_id": "ADJ-5eec06c3da16",
+      "requirement_version": "r1-initial-table-support-v3-20261024",
+      "reviewed_intervals": [
+        [
+          15,
+          276
+        ]
+      ],
+      "run_id": "libero_long_openvla_oft_task00_seed1001_trial001_cfafd9ddc3db",
+      "scoring_status": "explicit_reviewed_negative_fragments"
+    },
+    {
+      "canonical_object_id": "milk_1",
+      "event_id": "ADJ-55c6d6a50035",
+      "final_label": {
+        "departure_frame": "",
+        "earliest_onset_frame": 0,
+        "end_frame": "",
+        "evaluation_interval_relation": "setup_departure_before_frame_10; later contact does not change onset",
+        "event_type": "setup_rise_and_return",
+        "exact_physical_contact_time_s": "",
+        "first_recorded_contact_surface": "living_room_table",
+        "landing_contact_frame": 14,
+        "landing_semantics": "first_recorded_contact_not_exact_physical_landing",
+        "latest_onset_frame": 1,
+        "observation_status": "observed",
+        "review_end_frame": 30,
+        "review_start_frame": 0,
+        "visual_contact_or_settling_estimates_in_source_prose": [
+          14
+        ]
+      },
+      "phases": [
+        {
+          "canonical_object_id": "milk_1",
+          "compatible_type": "setup_departure",
+          "endpoint_semantics": "annotated sampled bounds; no exact physical endpoint inferred",
+          "event_id": "ADJ-55c6d6a50035:departure",
+          "interval": [
+            0,
+            14
+          ],
+          "offset_established_exact": false,
+          "onset_bracket": [
+            0,
+            1
+          ],
+          "phase": "departure",
+          "physical_end_frame": null,
+          "reference_group_id": "ADJ-55c6d6a50035",
+          "requirement_version": "r1-initial-table-support-v3-20261024",
+          "run_id": "libero_long_openvla_oft_task00_seed1001_trial001_cfafd9ddc3db",
+          "scope": "setup",
+          "status": "established"
+        },
+        {
+          "canonical_object_id": "milk_1",
+          "compatible_type": "contact",
+          "endpoint_semantics": "first recorded contact sample; not exact physical landing",
+          "event_id": "ADJ-55c6d6a50035:recorded_contact",
+          "interval": [
+            14,
+            14
+          ],
+          "offset_established_exact": true,
+          "onset_bracket": [
+            14,
+            14
+          ],
+          "phase": "contact",
+          "physical_end_frame": null,
+          "reference_group_id": "ADJ-55c6d6a50035",
+          "requirement_version": "r1-initial-table-support-v3-20261024",
+          "run_id": "libero_long_openvla_oft_task00_seed1001_trial001_cfafd9ddc3db",
+          "scope": "setup",
+          "status": "established"
+        }
+      ],
+      "reference_group_id": "ADJ-55c6d6a50035",
+      "requirement_version": "r1-initial-table-support-v3-20261024",
+      "reviewed_intervals": [],
+      "run_id": "libero_long_openvla_oft_task00_seed1001_trial001_cfafd9ddc3db",
+      "scoring_status": "physical_observation_outside_R1"
+    },
+    {
+      "canonical_object_id": "orange_juice_1",
+      "event_id": "ADJ-6d3cd013ecfa",
+      "final_label": {
+        "coverage_qualification": "Explicit reviewer interval fragments; visibility qualified; omission by the other reviewer is not a negative vote.",
+        "event_type": "none",
+        "evidence_coverage": "partial_execution",
+        "observation_status": "no_event_observed_in_window",
+        "reviewed_intervals": [
+          [
+            15,
+            276
+          ]
+        ]
+      },
+      "phases": [],
+      "reference_group_id": "ADJ-6d3cd013ecfa",
+      "requirement_version": "r1-initial-table-support-v3-20261024",
+      "reviewed_intervals": [
+        [
+          15,
+          276
+        ]
+      ],
+      "run_id": "libero_long_openvla_oft_task00_seed1001_trial001_cfafd9ddc3db",
+      "scoring_status": "explicit_reviewed_negative_fragments"
+    },
+    {
+      "canonical_object_id": "orange_juice_1",
+      "event_id": "ADJ-2e87e89775b8",
+      "final_label": {
+        "departure_frame": "",
+        "earliest_onset_frame": 0,
+        "end_frame": "",
+        "evaluation_interval_relation": "setup_departure_before_frame_10; later contact does not change onset",
+        "event_type": "setup_rise_and_return",
+        "exact_physical_contact_time_s": "",
+        "first_recorded_contact_surface": "living_room_table",
+        "landing_contact_frame": 14,
+        "landing_semantics": "first_recorded_contact_not_exact_physical_landing",
+        "latest_onset_frame": 1,
+        "observation_status": "observed",
+        "review_end_frame": 30,
+        "review_start_frame": 0,
+        "visual_contact_or_settling_estimates_in_source_prose": [
+          14
+        ]
+      },
+      "phases": [
+        {
+          "canonical_object_id": "orange_juice_1",
+          "compatible_type": "setup_departure",
+          "endpoint_semantics": "annotated sampled bounds; no exact physical endpoint inferred",
+          "event_id": "ADJ-2e87e89775b8:departure",
+          "interval": [
+            0,
+            14
+          ],
+          "offset_established_exact": false,
+          "onset_bracket": [
+            0,
+            1
+          ],
+          "phase": "departure",
+          "physical_end_frame": null,
+          "reference_group_id": "ADJ-2e87e89775b8",
+          "requirement_version": "r1-initial-table-support-v3-20261024",
+          "run_id": "libero_long_openvla_oft_task00_seed1001_trial001_cfafd9ddc3db",
+          "scope": "setup",
+          "status": "established"
+        },
+        {
+          "canonical_object_id": "orange_juice_1",
+          "compatible_type": "contact",
+          "endpoint_semantics": "first recorded contact sample; not exact physical landing",
+          "event_id": "ADJ-2e87e89775b8:recorded_contact",
+          "interval": [
+            14,
+            14
+          ],
+          "offset_established_exact": true,
+          "onset_bracket": [
+            14,
+            14
+          ],
+          "phase": "contact",
+          "physical_end_frame": null,
+          "reference_group_id": "ADJ-2e87e89775b8",
+          "requirement_version": "r1-initial-table-support-v3-20261024",
+          "run_id": "libero_long_openvla_oft_task00_seed1001_trial001_cfafd9ddc3db",
+          "scope": "setup",
+          "status": "established"
+        }
+      ],
+      "reference_group_id": "ADJ-2e87e89775b8",
+      "requirement_version": "r1-initial-table-support-v3-20261024",
+      "reviewed_intervals": [],
+      "run_id": "libero_long_openvla_oft_task00_seed1001_trial001_cfafd9ddc3db",
+      "scoring_status": "physical_observation_outside_R1"
+    },
+    {
+      "canonical_object_id": "butter_1",
+      "event_id": "ADJ-94425947d58e",
+      "final_label": {
+        "coverage_qualification": "Explicit reviewer interval fragments; visibility qualified; omission by the other reviewer is not a negative vote.",
+        "event_type": "none",
+        "evidence_coverage": "full_execution",
+        "observation_status": "no_event_observed_in_window",
+        "reviewed_intervals": [
+          [
+            10,
+            245
+          ]
+        ]
+      },
+      "phases": [],
+      "reference_group_id": "ADJ-94425947d58e",
+      "requirement_version": "r1-initial-table-support-v3-20261024",
+      "reviewed_intervals": [
+        [
+          10,
+          245
+        ]
+      ],
+      "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+      "scoring_status": "explicit_reviewed_negative_fragments"
+    },
+    {
+      "canonical_object_id": "butter_1",
+      "event_id": "ADJ-3b34abbd45b1",
+      "final_label": {
+        "departure_frame": "",
+        "earliest_onset_frame": 0,
+        "end_frame": "",
+        "evaluation_interval_relation": "setup_departure_before_frame_10; later contact does not change onset",
+        "event_type": "setup_bounce",
+        "exact_physical_contact_time_s": "",
+        "first_recorded_contact_surface": "living_room_table",
+        "landing_contact_frame": 4,
+        "landing_semantics": "first_recorded_contact_not_exact_physical_landing",
+        "latest_onset_frame": 1,
+        "observation_status": "observed",
+        "review_end_frame": 30,
+        "review_start_frame": 0,
+        "visual_contact_or_settling_estimates_in_source_prose": [
+          3,
+          4
+        ]
+      },
+      "phases": [
+        {
+          "canonical_object_id": "butter_1",
+          "compatible_type": "setup_departure",
+          "endpoint_semantics": "annotated sampled bounds; no exact physical endpoint inferred",
+          "event_id": "ADJ-3b34abbd45b1:departure",
+          "interval": [
+            0,
+            4
+          ],
+          "offset_established_exact": false,
+          "onset_bracket": [
+            0,
+            1
+          ],
+          "phase": "departure",
+          "physical_end_frame": null,
+          "reference_group_id": "ADJ-3b34abbd45b1",
+          "requirement_version": "r1-initial-table-support-v3-20261024",
+          "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+          "scope": "setup",
+          "status": "established"
+        },
+        {
+          "canonical_object_id": "butter_1",
+          "compatible_type": "contact",
+          "endpoint_semantics": "first recorded contact sample; not exact physical landing",
+          "event_id": "ADJ-3b34abbd45b1:recorded_contact",
+          "interval": [
+            4,
+            4
+          ],
+          "offset_established_exact": true,
+          "onset_bracket": [
+            4,
+            4
+          ],
+          "phase": "contact",
+          "physical_end_frame": null,
+          "reference_group_id": "ADJ-3b34abbd45b1",
+          "requirement_version": "r1-initial-table-support-v3-20261024",
+          "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+          "scope": "setup",
+          "status": "established"
+        }
+      ],
+      "reference_group_id": "ADJ-3b34abbd45b1",
+      "requirement_version": "r1-initial-table-support-v3-20261024",
+      "reviewed_intervals": [],
+      "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+      "scoring_status": "physical_observation_outside_R1"
+    },
+    {
+      "canonical_object_id": "cream_cheese_1",
+      "event_id": "ADJ-0ed0f47985aa",
+      "final_label": {
+        "departure_frame": "",
+        "downward_motion_onset_interval": [
+          4,
+          5
+        ],
+        "earliest_onset_frame": 0,
+        "end_frame": "",
+        "evaluation_interval_relation": "setup_departure_before_frame_10; later contact does not change onset",
+        "event_type": "setup_departure_and_fall_to_floor",
+        "exact_physical_contact_time_s": "",
+        "first_recorded_contact_surface": "floor",
+        "landing_contact_frame": 12,
+        "landing_semantics": "first_recorded_contact_not_exact_physical_landing",
+        "latest_onset_frame": 1,
+        "observation_status": "observed",
+        "review_end_frame": 30,
+        "review_start_frame": 0,
+        "visual_contact_or_settling_estimates_in_source_prose": [
+          7,
+          12,
+          15
+        ]
+      },
+      "phases": [
+        {
+          "canonical_object_id": "cream_cheese_1",
+          "compatible_type": "setup_departure",
+          "endpoint_semantics": "annotated sampled bounds; no exact physical endpoint inferred",
+          "event_id": "ADJ-0ed0f47985aa:departure",
+          "interval": [
+            0,
+            12
+          ],
+          "offset_established_exact": false,
+          "onset_bracket": [
+            0,
+            1
+          ],
+          "phase": "departure",
+          "physical_end_frame": null,
+          "reference_group_id": "ADJ-0ed0f47985aa",
+          "requirement_version": "r1-initial-table-support-v3-20261024",
+          "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+          "scope": "setup",
+          "status": "established"
+        },
+        {
+          "canonical_object_id": "cream_cheese_1",
+          "compatible_type": "contact",
+          "endpoint_semantics": "first recorded contact sample; not exact physical landing",
+          "event_id": "ADJ-0ed0f47985aa:recorded_contact",
+          "interval": [
+            12,
+            12
+          ],
+          "offset_established_exact": true,
+          "onset_bracket": [
+            12,
+            12
+          ],
+          "phase": "contact",
+          "physical_end_frame": null,
+          "reference_group_id": "ADJ-0ed0f47985aa",
+          "requirement_version": "r1-initial-table-support-v3-20261024",
+          "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+          "scope": "setup",
+          "status": "established"
+        }
+      ],
+      "reference_group_id": "ADJ-0ed0f47985aa",
+      "requirement_version": "r1-initial-table-support-v3-20261024",
+      "reviewed_intervals": [],
+      "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+      "scoring_status": "physical_observation_outside_R1"
+    },
+    {
+      "canonical_object_id": "ketchup_1",
+      "event_id": "ADJ-f306e1872b19",
+      "final_label": {
+        "coverage_qualification": "Explicit reviewer interval fragments; visibility qualified; omission by the other reviewer is not a negative vote.",
+        "event_type": "none",
+        "evidence_coverage": "partial_execution",
+        "observation_status": "no_event_observed_in_window",
+        "reviewed_intervals": [
+          [
+            17,
+            245
+          ]
+        ]
+      },
+      "phases": [],
+      "reference_group_id": "ADJ-f306e1872b19",
+      "requirement_version": "r1-initial-table-support-v3-20261024",
+      "reviewed_intervals": [
+        [
+          17,
+          245
+        ]
+      ],
+      "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+      "scoring_status": "explicit_reviewed_negative_fragments"
+    },
+    {
+      "canonical_object_id": "ketchup_1",
+      "event_id": "ADJ-86f3afd1f4e9",
+      "final_label": {
+        "departure_frame": "",
+        "earliest_onset_frame": 0,
+        "end_frame": "",
+        "evaluation_interval_relation": "setup_departure_before_frame_10; later contact does not change onset",
+        "event_type": "setup_rise_and_return",
+        "exact_physical_contact_time_s": "",
+        "first_recorded_contact_surface": "living_room_table",
+        "landing_contact_frame": 16,
+        "landing_semantics": "first_recorded_contact_not_exact_physical_landing",
+        "latest_onset_frame": 1,
+        "observation_status": "observed",
+        "review_end_frame": 30,
+        "review_start_frame": 0,
+        "visual_contact_or_settling_estimates_in_source_prose": [
+          15,
+          16
+        ]
+      },
+      "phases": [
+        {
+          "canonical_object_id": "ketchup_1",
+          "compatible_type": "setup_departure",
+          "endpoint_semantics": "annotated sampled bounds; no exact physical endpoint inferred",
+          "event_id": "ADJ-86f3afd1f4e9:departure",
+          "interval": [
+            0,
+            16
+          ],
+          "offset_established_exact": false,
+          "onset_bracket": [
+            0,
+            1
+          ],
+          "phase": "departure",
+          "physical_end_frame": null,
+          "reference_group_id": "ADJ-86f3afd1f4e9",
+          "requirement_version": "r1-initial-table-support-v3-20261024",
+          "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+          "scope": "setup",
+          "status": "established"
+        },
+        {
+          "canonical_object_id": "ketchup_1",
+          "compatible_type": "contact",
+          "endpoint_semantics": "first recorded contact sample; not exact physical landing",
+          "event_id": "ADJ-86f3afd1f4e9:recorded_contact",
+          "interval": [
+            16,
+            16
+          ],
+          "offset_established_exact": true,
+          "onset_bracket": [
+            16,
+            16
+          ],
+          "phase": "contact",
+          "physical_end_frame": null,
+          "reference_group_id": "ADJ-86f3afd1f4e9",
+          "requirement_version": "r1-initial-table-support-v3-20261024",
+          "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+          "scope": "setup",
+          "status": "established"
+        }
+      ],
+      "reference_group_id": "ADJ-86f3afd1f4e9",
+      "requirement_version": "r1-initial-table-support-v3-20261024",
+      "reviewed_intervals": [],
+      "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+      "scoring_status": "physical_observation_outside_R1"
+    },
+    {
+      "canonical_object_id": "milk_1",
+      "event_id": "ADJ-3efad66c50fd",
+      "final_label": {
+        "coverage_qualification": "Explicit reviewer interval fragments; visibility qualified; omission by the other reviewer is not a negative vote.",
+        "event_type": "none",
+        "evidence_coverage": "partial_execution",
+        "observation_status": "no_event_observed_in_window",
+        "reviewed_intervals": [
+          [
+            15,
+            245
+          ]
+        ]
+      },
+      "phases": [],
+      "reference_group_id": "ADJ-3efad66c50fd",
+      "requirement_version": "r1-initial-table-support-v3-20261024",
+      "reviewed_intervals": [
+        [
+          15,
+          245
+        ]
+      ],
+      "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+      "scoring_status": "explicit_reviewed_negative_fragments"
+    },
+    {
+      "canonical_object_id": "milk_1",
+      "event_id": "ADJ-3c569546072b",
+      "final_label": {
+        "departure_frame": "",
+        "earliest_onset_frame": 0,
+        "end_frame": "",
+        "evaluation_interval_relation": "setup_departure_before_frame_10; later contact does not change onset",
+        "event_type": "setup_rise_and_return",
+        "exact_physical_contact_time_s": "",
+        "first_recorded_contact_surface": "living_room_table",
+        "landing_contact_frame": 14,
+        "landing_semantics": "first_recorded_contact_not_exact_physical_landing",
+        "latest_onset_frame": 1,
+        "observation_status": "observed",
+        "review_end_frame": 30,
+        "review_start_frame": 0,
+        "visual_contact_or_settling_estimates_in_source_prose": [
+          14
+        ]
+      },
+      "phases": [
+        {
+          "canonical_object_id": "milk_1",
+          "compatible_type": "setup_departure",
+          "endpoint_semantics": "annotated sampled bounds; no exact physical endpoint inferred",
+          "event_id": "ADJ-3c569546072b:departure",
+          "interval": [
+            0,
+            14
+          ],
+          "offset_established_exact": false,
+          "onset_bracket": [
+            0,
+            1
+          ],
+          "phase": "departure",
+          "physical_end_frame": null,
+          "reference_group_id": "ADJ-3c569546072b",
+          "requirement_version": "r1-initial-table-support-v3-20261024",
+          "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+          "scope": "setup",
+          "status": "established"
+        },
+        {
+          "canonical_object_id": "milk_1",
+          "compatible_type": "contact",
+          "endpoint_semantics": "first recorded contact sample; not exact physical landing",
+          "event_id": "ADJ-3c569546072b:recorded_contact",
+          "interval": [
+            14,
+            14
+          ],
+          "offset_established_exact": true,
+          "onset_bracket": [
+            14,
+            14
+          ],
+          "phase": "contact",
+          "physical_end_frame": null,
+          "reference_group_id": "ADJ-3c569546072b",
+          "requirement_version": "r1-initial-table-support-v3-20261024",
+          "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+          "scope": "setup",
+          "status": "established"
+        }
+      ],
+      "reference_group_id": "ADJ-3c569546072b",
+      "requirement_version": "r1-initial-table-support-v3-20261024",
+      "reviewed_intervals": [],
+      "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+      "scoring_status": "physical_observation_outside_R1"
+    },
+    {
+      "canonical_object_id": "orange_juice_1",
+      "event_id": "ADJ-f7f711d22a84",
+      "final_label": {
+        "coverage_qualification": "Explicit reviewer interval fragments; visibility qualified; omission by the other reviewer is not a negative vote.",
+        "event_type": "none",
+        "evidence_coverage": "partial_execution",
+        "observation_status": "no_event_observed_in_window",
+        "reviewed_intervals": [
+          [
+            25,
+            245
+          ]
+        ]
+      },
+      "phases": [],
+      "reference_group_id": "ADJ-f7f711d22a84",
+      "requirement_version": "r1-initial-table-support-v3-20261024",
+      "reviewed_intervals": [
+        [
+          25,
+          245
+        ]
+      ],
+      "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+      "scoring_status": "explicit_reviewed_negative_fragments"
+    },
+    {
+      "canonical_object_id": "orange_juice_1",
+      "event_id": "ADJ-828897864ab0",
+      "final_label": {
+        "departure_frame": "",
+        "earliest_onset_frame": 0,
+        "end_frame": "",
+        "evaluation_interval_relation": "setup_departure_before_frame_10; later contact does not change onset",
+        "event_type": "setup_rise_and_return",
+        "exact_physical_contact_time_s": "",
+        "first_recorded_contact_surface": "living_room_table",
+        "landing_contact_frame": 16,
+        "landing_semantics": "first_recorded_contact_not_exact_physical_landing",
+        "latest_onset_frame": 1,
+        "observation_status": "observed",
+        "review_end_frame": 30,
+        "review_start_frame": 0,
+        "visual_contact_or_settling_estimates_in_source_prose": [
+          30
+        ]
+      },
+      "phases": [
+        {
+          "canonical_object_id": "orange_juice_1",
+          "compatible_type": "setup_departure",
+          "endpoint_semantics": "annotated sampled bounds; no exact physical endpoint inferred",
+          "event_id": "ADJ-828897864ab0:departure",
+          "interval": [
+            0,
+            16
+          ],
+          "offset_established_exact": false,
+          "onset_bracket": [
+            0,
+            1
+          ],
+          "phase": "departure",
+          "physical_end_frame": null,
+          "reference_group_id": "ADJ-828897864ab0",
+          "requirement_version": "r1-initial-table-support-v3-20261024",
+          "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+          "scope": "setup",
+          "status": "established"
+        },
+        {
+          "canonical_object_id": "orange_juice_1",
+          "compatible_type": "contact",
+          "endpoint_semantics": "first recorded contact sample; not exact physical landing",
+          "event_id": "ADJ-828897864ab0:recorded_contact",
+          "interval": [
+            16,
+            16
+          ],
+          "offset_established_exact": true,
+          "onset_bracket": [
+            16,
+            16
+          ],
+          "phase": "contact",
+          "physical_end_frame": null,
+          "reference_group_id": "ADJ-828897864ab0",
+          "requirement_version": "r1-initial-table-support-v3-20261024",
+          "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+          "scope": "setup",
+          "status": "established"
+        }
+      ],
+      "reference_group_id": "ADJ-828897864ab0",
+      "requirement_version": "r1-initial-table-support-v3-20261024",
+      "reviewed_intervals": [],
+      "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+      "scoring_status": "physical_observation_outside_R1"
+    },
+    {
+      "canonical_object_id": "butter_1",
+      "event_id": "ADJ-98c9fdb62f7f",
+      "final_label": {
+        "coverage_qualification": "Explicit reviewer interval fragments; visibility qualified; omission by the other reviewer is not a negative vote.",
+        "event_type": "none",
+        "evidence_coverage": "full_execution",
+        "observation_status": "no_event_observed_in_window",
+        "reviewed_intervals": [
+          [
+            10,
+            530
+          ]
+        ]
+      },
+      "phases": [],
+      "reference_group_id": "ADJ-98c9fdb62f7f",
+      "requirement_version": "r1-initial-table-support-v3-20261024",
+      "reviewed_intervals": [
+        [
+          10,
+          530
+        ]
+      ],
+      "run_id": "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db",
+      "scoring_status": "explicit_reviewed_negative_fragments"
+    },
+    {
+      "canonical_object_id": "butter_1",
+      "event_id": "ADJ-a2916f1d72bb",
+      "final_label": {
+        "departure_frame": "",
+        "earliest_onset_frame": 0,
+        "end_frame": "",
+        "evaluation_interval_relation": "setup_departure_before_frame_10; later contact does not change onset",
+        "event_type": "setup_bounce",
+        "exact_physical_contact_time_s": "",
+        "first_recorded_contact_surface": "living_room_table",
+        "landing_contact_frame": 4,
+        "landing_semantics": "first_recorded_contact_not_exact_physical_landing",
+        "latest_onset_frame": 1,
+        "observation_status": "observed",
+        "review_end_frame": 30,
+        "review_start_frame": 0,
+        "visual_contact_or_settling_estimates_in_source_prose": [
+          3,
+          4
+        ]
+      },
+      "phases": [
+        {
+          "canonical_object_id": "butter_1",
+          "compatible_type": "setup_departure",
+          "endpoint_semantics": "annotated sampled bounds; no exact physical endpoint inferred",
+          "event_id": "ADJ-a2916f1d72bb:departure",
+          "interval": [
+            0,
+            4
+          ],
+          "offset_established_exact": false,
+          "onset_bracket": [
+            0,
+            1
+          ],
+          "phase": "departure",
+          "physical_end_frame": null,
+          "reference_group_id": "ADJ-a2916f1d72bb",
+          "requirement_version": "r1-initial-table-support-v3-20261024",
+          "run_id": "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db",
+          "scope": "setup",
+          "status": "established"
+        },
+        {
+          "canonical_object_id": "butter_1",
+          "compatible_type": "contact",
+          "endpoint_semantics": "first recorded contact sample; not exact physical landing",
+          "event_id": "ADJ-a2916f1d72bb:recorded_contact",
+          "interval": [
+            4,
+            4
+          ],
+          "offset_established_exact": true,
+          "onset_bracket": [
+            4,
+            4
+          ],
+          "phase": "contact",
+          "physical_end_frame": null,
+          "reference_group_id": "ADJ-a2916f1d72bb",
+          "requirement_version": "r1-initial-table-support-v3-20261024",
+          "run_id": "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db",
+          "scope": "setup",
+          "status": "established"
+        }
+      ],
+      "reference_group_id": "ADJ-a2916f1d72bb",
+      "requirement_version": "r1-initial-table-support-v3-20261024",
+      "reviewed_intervals": [],
+      "run_id": "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db",
+      "scoring_status": "physical_observation_outside_R1"
+    },
+    {
+      "canonical_object_id": "cream_cheese_1",
+      "event_id": "ADJ-ec6201fe6490",
+      "final_label": {
+        "departure_frame": "",
+        "earliest_onset_frame": 269,
+        "end_frame": "",
+        "evaluation_interval_relation": "policy_interval; post-lift phase proposed outside R1 under scope F",
+        "event_type": "held_lift_then_drop_after_lift",
+        "landing_contact_frame": 284,
+        "landing_semantics": "first_recorded_table_contact_not_exact_landing",
+        "latest_onset_frame": 270,
+        "observation_status": "observed",
+        "review_end_frame": 285,
+        "review_start_frame": 269,
+        "subevents": [
+          {
+            "earliest_onset_frame": 269,
+            "event_type": "grasp_contact",
+            "latest_onset_frame": 270
+          },
+          {
+            "earliest_onset_frame": 272,
+            "event_type": "held_lift",
+            "last_sampled_holding_frame": 281,
+            "latest_onset_frame": 273
+          },
+          {
+            "earliest_onset_frame": 281,
+            "event_type": "drop_after_lift",
+            "first_recorded_table_contact_frame": 284,
+            "latest_onset_frame": 282
+          }
+        ]
+      },
+      "phases": [
+        {
+          "canonical_object_id": "cream_cheese_1",
+          "compatible_type": "grasp",
+          "endpoint_semantics": "annotated sampled bounds; no exact physical endpoint inferred",
+          "event_id": "ADJ-ec6201fe6490:subevent-0",
+          "interval": [
+            269,
+            270
+          ],
+          "offset_established_exact": false,
+          "onset_bracket": [
+            269,
+            270
+          ],
+          "phase": "grasp",
+          "physical_end_frame": null,
+          "reference_group_id": "ADJ-ec6201fe6490",
+          "requirement_version": "r1-initial-table-support-v3-20261024",
+          "run_id": "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db",
+          "scope": "post_lift",
+          "status": "established"
+        },
+        {
+          "canonical_object_id": "cream_cheese_1",
+          "compatible_type": "lift",
+          "endpoint_semantics": "annotated sampled bounds; no exact physical endpoint inferred",
+          "event_id": "ADJ-ec6201fe6490:subevent-1",
+          "interval": [
+            272,
+            281
+          ],
+          "offset_established_exact": false,
+          "onset_bracket": [
+            272,
+            273
+          ],
+          "phase": "lift",
+          "physical_end_frame": null,
+          "reference_group_id": "ADJ-ec6201fe6490",
+          "requirement_version": "r1-initial-table-support-v3-20261024",
+          "run_id": "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db",
+          "scope": "post_lift",
+          "status": "established"
+        },
+        {
+          "canonical_object_id": "cream_cheese_1",
+          "compatible_type": "post_lift_drop",
+          "endpoint_semantics": "annotated sampled bounds; no exact physical endpoint inferred",
+          "event_id": "ADJ-ec6201fe6490:subevent-2",
+          "interval": [
+            281,
+            284
+          ],
+          "offset_established_exact": false,
+          "onset_bracket": [
+            281,
+            282
+          ],
+          "phase": "release",
+          "physical_end_frame": null,
+          "reference_group_id": "ADJ-ec6201fe6490",
+          "requirement_version": "r1-initial-table-support-v3-20261024",
+          "run_id": "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db",
+          "scope": "post_lift",
+          "status": "established"
+        },
+        {
+          "canonical_object_id": "cream_cheese_1",
+          "compatible_type": "contact",
+          "endpoint_semantics": "first recorded table contact sample; not exact physical landing",
+          "event_id": "ADJ-ec6201fe6490:recorded_contact",
+          "interval": [
+            284,
+            284
+          ],
+          "offset_established_exact": true,
+          "onset_bracket": [
+            284,
+            284
+          ],
+          "phase": "contact",
+          "physical_end_frame": null,
+          "reference_group_id": "ADJ-ec6201fe6490",
+          "requirement_version": "r1-initial-table-support-v3-20261024",
+          "run_id": "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db",
+          "scope": "post_lift",
+          "status": "established"
+        }
+      ],
+      "reference_group_id": "ADJ-ec6201fe6490",
+      "requirement_version": "r1-initial-table-support-v3-20261024",
+      "reviewed_intervals": [],
+      "run_id": "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db",
+      "scoring_status": "physical_observation_outside_R1"
+    },
+    {
+      "canonical_object_id": "cream_cheese_1",
+      "event_id": "ADJ-a2f005e3baad",
+      "final_label": {
+        "coverage_qualification": "Explicit reviewer interval fragments; visibility qualified; omission by the other reviewer is not a negative vote.",
+        "event_type": "none",
+        "evidence_coverage": "partial_execution",
+        "observation_status": "no_event_observed_in_window",
+        "reviewed_intervals": [
+          [
+            10,
+            269
+          ],
+          [
+            286,
+            530
+          ]
+        ]
+      },
+      "phases": [],
+      "reference_group_id": "ADJ-a2f005e3baad",
+      "requirement_version": "r1-initial-table-support-v3-20261024",
+      "reviewed_intervals": [
+        [
+          10,
+          269
+        ],
+        [
+          286,
+          530
+        ]
+      ],
+      "run_id": "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db",
+      "scoring_status": "explicit_reviewed_negative_fragments"
+    },
+    {
+      "canonical_object_id": "ketchup_1",
+      "event_id": "ADJ-3a080350d47a",
+      "final_label": {
+        "coverage_qualification": "Explicit reviewer interval fragments; visibility qualified; omission by the other reviewer is not a negative vote.",
+        "event_type": "none",
+        "evidence_coverage": "partial_execution",
+        "observation_status": "no_event_observed_in_window",
+        "reviewed_intervals": [
+          [
+            17,
+            530
+          ]
+        ]
+      },
+      "phases": [],
+      "reference_group_id": "ADJ-3a080350d47a",
+      "requirement_version": "r1-initial-table-support-v3-20261024",
+      "reviewed_intervals": [
+        [
+          17,
+          530
+        ]
+      ],
+      "run_id": "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db",
+      "scoring_status": "explicit_reviewed_negative_fragments"
+    },
+    {
+      "canonical_object_id": "ketchup_1",
+      "event_id": "ADJ-99c86e86dbd4",
+      "final_label": {
+        "departure_frame": "",
+        "earliest_onset_frame": 0,
+        "end_frame": "",
+        "evaluation_interval_relation": "setup_departure_before_frame_10; later contact does not change onset",
+        "event_type": "setup_rise_and_return",
+        "exact_physical_contact_time_s": "",
+        "first_recorded_contact_surface": "living_room_table",
+        "landing_contact_frame": 16,
+        "landing_semantics": "first_recorded_contact_not_exact_physical_landing",
+        "latest_onset_frame": 1,
+        "observation_status": "observed",
+        "review_end_frame": 30,
+        "review_start_frame": 0,
+        "visual_contact_or_settling_estimates_in_source_prose": [
+          15
+        ]
+      },
+      "phases": [
+        {
+          "canonical_object_id": "ketchup_1",
+          "compatible_type": "setup_departure",
+          "endpoint_semantics": "annotated sampled bounds; no exact physical endpoint inferred",
+          "event_id": "ADJ-99c86e86dbd4:departure",
+          "interval": [
+            0,
+            16
+          ],
+          "offset_established_exact": false,
+          "onset_bracket": [
+            0,
+            1
+          ],
+          "phase": "departure",
+          "physical_end_frame": null,
+          "reference_group_id": "ADJ-99c86e86dbd4",
+          "requirement_version": "r1-initial-table-support-v3-20261024",
+          "run_id": "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db",
+          "scope": "setup",
+          "status": "established"
+        },
+        {
+          "canonical_object_id": "ketchup_1",
+          "compatible_type": "contact",
+          "endpoint_semantics": "first recorded contact sample; not exact physical landing",
+          "event_id": "ADJ-99c86e86dbd4:recorded_contact",
+          "interval": [
+            16,
+            16
+          ],
+          "offset_established_exact": true,
+          "onset_bracket": [
+            16,
+            16
+          ],
+          "phase": "contact",
+          "physical_end_frame": null,
+          "reference_group_id": "ADJ-99c86e86dbd4",
+          "requirement_version": "r1-initial-table-support-v3-20261024",
+          "run_id": "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db",
+          "scope": "setup",
+          "status": "established"
+        }
+      ],
+      "reference_group_id": "ADJ-99c86e86dbd4",
+      "requirement_version": "r1-initial-table-support-v3-20261024",
+      "reviewed_intervals": [],
+      "run_id": "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db",
+      "scoring_status": "physical_observation_outside_R1"
+    },
+    {
+      "canonical_object_id": "milk_1",
+      "event_id": "ADJ-4970049b5b8a",
+      "final_label": {
+        "coverage_qualification": "Explicit reviewer interval fragments; visibility qualified; omission by the other reviewer is not a negative vote.",
+        "event_type": "none",
+        "evidence_coverage": "partial_execution",
+        "observation_status": "no_event_observed_in_window",
+        "reviewed_intervals": [
+          [
+            15,
+            243
+          ],
+          [
+            283,
+            530
+          ]
+        ]
+      },
+      "phases": [],
+      "reference_group_id": "ADJ-4970049b5b8a",
+      "requirement_version": "r1-initial-table-support-v3-20261024",
+      "reviewed_intervals": [
+        [
+          15,
+          243
+        ],
+        [
+          283,
+          530
+        ]
+      ],
+      "run_id": "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db",
+      "scoring_status": "explicit_reviewed_negative_fragments"
+    },
+    {
+      "canonical_object_id": "milk_1",
+      "event_id": "ADJ-366d49e47823",
+      "final_label": {
+        "causal_responsibility": "not_established",
+        "earliest_onset_frame": 243,
+        "end_frame": "",
+        "event_type": "rock_and_shift_with_recorded_gripper_contacts",
+        "fall_status": "not_established",
+        "latest_onset_frame": 244,
+        "observation_status": "observed",
+        "recorded_gripper_contact_ranges": [
+          [
+            244,
+            244
+          ],
+          [
+            247,
+            247
+          ],
+          [
+            257,
+            257
+          ],
+          [
+            268,
+            268
+          ],
+          [
+            278,
+            278
+          ]
+        ],
+        "review_end_frame": 282,
+        "review_start_frame": 243
+      },
+      "phases": [],
+      "reference_group_id": "ADJ-366d49e47823",
+      "requirement_version": "r1-initial-table-support-v3-20261024",
+      "reviewed_intervals": [],
+      "run_id": "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db",
+      "scoring_status": "physical_observation_without_established_fall"
+    },
+    {
+      "canonical_object_id": "milk_1",
+      "event_id": "ADJ-4f3e92e546c3",
+      "final_label": {
+        "departure_frame": "",
+        "earliest_onset_frame": 0,
+        "end_frame": "",
+        "evaluation_interval_relation": "setup_departure_before_frame_10; later contact does not change onset",
+        "event_type": "setup_rise_and_return",
+        "exact_physical_contact_time_s": "",
+        "first_recorded_contact_surface": "living_room_table",
+        "landing_contact_frame": 14,
+        "landing_semantics": "first_recorded_contact_not_exact_physical_landing",
+        "latest_onset_frame": 1,
+        "observation_status": "observed",
+        "review_end_frame": 30,
+        "review_start_frame": 0,
+        "visual_contact_or_settling_estimates_in_source_prose": [
+          14
+        ]
+      },
+      "phases": [
+        {
+          "canonical_object_id": "milk_1",
+          "compatible_type": "setup_departure",
+          "endpoint_semantics": "annotated sampled bounds; no exact physical endpoint inferred",
+          "event_id": "ADJ-4f3e92e546c3:departure",
+          "interval": [
+            0,
+            14
+          ],
+          "offset_established_exact": false,
+          "onset_bracket": [
+            0,
+            1
+          ],
+          "phase": "departure",
+          "physical_end_frame": null,
+          "reference_group_id": "ADJ-4f3e92e546c3",
+          "requirement_version": "r1-initial-table-support-v3-20261024",
+          "run_id": "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db",
+          "scope": "setup",
+          "status": "established"
+        },
+        {
+          "canonical_object_id": "milk_1",
+          "compatible_type": "contact",
+          "endpoint_semantics": "first recorded contact sample; not exact physical landing",
+          "event_id": "ADJ-4f3e92e546c3:recorded_contact",
+          "interval": [
+            14,
+            14
+          ],
+          "offset_established_exact": true,
+          "onset_bracket": [
+            14,
+            14
+          ],
+          "phase": "contact",
+          "physical_end_frame": null,
+          "reference_group_id": "ADJ-4f3e92e546c3",
+          "requirement_version": "r1-initial-table-support-v3-20261024",
+          "run_id": "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db",
+          "scope": "setup",
+          "status": "established"
+        }
+      ],
+      "reference_group_id": "ADJ-4f3e92e546c3",
+      "requirement_version": "r1-initial-table-support-v3-20261024",
+      "reviewed_intervals": [],
+      "run_id": "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db",
+      "scoring_status": "physical_observation_outside_R1"
+    },
+    {
+      "canonical_object_id": "orange_juice_1",
+      "event_id": "ADJ-085263f011f6",
+      "final_label": {
+        "coverage_qualification": "Explicit reviewer interval fragments; visibility qualified; omission by the other reviewer is not a negative vote.",
+        "event_type": "none",
+        "evidence_coverage": "partial_execution",
+        "observation_status": "no_event_observed_in_window",
+        "reviewed_intervals": [
+          [
+            15,
+            57
+          ],
+          [
+            265,
+            530
+          ]
+        ]
+      },
+      "phases": [],
+      "reference_group_id": "ADJ-085263f011f6",
+      "requirement_version": "r1-initial-table-support-v3-20261024",
+      "reviewed_intervals": [
+        [
+          15,
+          57
+        ],
+        [
+          265,
+          530
+        ]
+      ],
+      "run_id": "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db",
+      "scoring_status": "explicit_reviewed_negative_fragments"
+    },
+    {
+      "canonical_object_id": "orange_juice_1",
+      "event_id": "ADJ-382a82e1a446",
+      "final_label": {
+        "departure_frame": "",
+        "earliest_onset_frame": 0,
+        "end_frame": "",
+        "evaluation_interval_relation": "setup_departure_before_frame_10; later contact does not change onset",
+        "event_type": "setup_rise_and_return",
+        "exact_physical_contact_time_s": "",
+        "first_recorded_contact_surface": "living_room_table",
+        "landing_contact_frame": 14,
+        "landing_semantics": "first_recorded_contact_not_exact_physical_landing",
+        "latest_onset_frame": 1,
+        "observation_status": "observed",
+        "review_end_frame": 30,
+        "review_start_frame": 0,
+        "visual_contact_or_settling_estimates_in_source_prose": [
+          14
+        ]
+      },
+      "phases": [
+        {
+          "canonical_object_id": "orange_juice_1",
+          "compatible_type": "setup_departure",
+          "endpoint_semantics": "annotated sampled bounds; no exact physical endpoint inferred",
+          "event_id": "ADJ-382a82e1a446:departure",
+          "interval": [
+            0,
+            14
+          ],
+          "offset_established_exact": false,
+          "onset_bracket": [
+            0,
+            1
+          ],
+          "phase": "departure",
+          "physical_end_frame": null,
+          "reference_group_id": "ADJ-382a82e1a446",
+          "requirement_version": "r1-initial-table-support-v3-20261024",
+          "run_id": "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db",
+          "scope": "setup",
+          "status": "established"
+        },
+        {
+          "canonical_object_id": "orange_juice_1",
+          "compatible_type": "contact",
+          "endpoint_semantics": "first recorded contact sample; not exact physical landing",
+          "event_id": "ADJ-382a82e1a446:recorded_contact",
+          "interval": [
+            14,
+            14
+          ],
+          "offset_established_exact": true,
+          "onset_bracket": [
+            14,
+            14
+          ],
+          "phase": "contact",
+          "physical_end_frame": null,
+          "reference_group_id": "ADJ-382a82e1a446",
+          "requirement_version": "r1-initial-table-support-v3-20261024",
+          "run_id": "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db",
+          "scope": "setup",
+          "status": "established"
+        }
+      ],
+      "reference_group_id": "ADJ-382a82e1a446",
+      "requirement_version": "r1-initial-table-support-v3-20261024",
+      "reviewed_intervals": [],
+      "run_id": "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db",
+      "scoring_status": "physical_observation_outside_R1"
+    },
+    {
+      "canonical_object_id": "orange_juice_1",
+      "event_id": "ADJ-b5532c4f3f32",
+      "final_label": {
+        "causal_responsibility": "not_established",
+        "earliest_onset_frame": 57,
+        "end_frame": "",
+        "event_type": "tip_and_slide",
+        "fall_status": "insufficient_information",
+        "last_minor_adjustment_review_window": [
+          258,
+          265
+        ],
+        "latest_onset_frame": 58,
+        "observation_status": "observed",
+        "recorded_table_contact_gap": [
+          246,
+          246
+        ],
+        "review_end_frame": 265,
+        "review_start_frame": 57,
+        "visual_tip_boundary_range": [
+          245,
+          248
+        ]
+      },
+      "phases": [],
+      "reference_group_id": "ADJ-b5532c4f3f32",
+      "requirement_version": "r1-initial-table-support-v3-20261024",
+      "reviewed_intervals": [],
+      "run_id": "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db",
+      "scoring_status": "physical_observation_without_established_fall"
+    }
+  ],
+  "total_units": 20
+}

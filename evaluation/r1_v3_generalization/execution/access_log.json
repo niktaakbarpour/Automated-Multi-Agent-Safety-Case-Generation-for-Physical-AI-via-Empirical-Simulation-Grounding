@@ -1,0 +1,3542 @@
+[
+  {
+    "errors": [],
+    "frames": 280,
+    "mapping_registration": "Identical XML/native count/body names, entity roots/IDs and every-frame transforms checked; only run-ID input registration extended.",
+    "partition": "same_task_reserved",
+    "receipts_after": [
+      {
+        "mtime_ns": 1791716199754814837,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_004/trajectory.h5",
+        "sha256": "7bfebc079b3364f95bc479be3b584effe9167758396eeaf68cb2187e8fc72588",
+        "size": 137517869
+      },
+      {
+        "mtime_ns": 1791716178417727262,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_004/simulator.xml",
+        "sha256": "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542",
+        "size": 66723
+      },
+      {
+        "mtime_ns": 1791716176585980640,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_004/metadata.json",
+        "sha256": "c1d5f1f1a874b7716b4986485db515730864105316b6422c51b63d3a4329d001",
+        "size": 113976
+      },
+      {
+        "mtime_ns": 1791716178515130385,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_004/simulator_index.json",
+        "sha256": "a286f0b3b70eb763374a8d8063b03846b49d2a5592c2bea121993e5f47d420c1",
+        "size": 6147
+      }
+    ],
+    "receipts_before": [
+      {
+        "mtime_ns": 1791716199754814837,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_004/trajectory.h5",
+        "sha256": "7bfebc079b3364f95bc479be3b584effe9167758396eeaf68cb2187e8fc72588",
+        "size": 137517869
+      },
+      {
+        "mtime_ns": 1791716178417727262,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_004/simulator.xml",
+        "sha256": "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542",
+        "size": 66723
+      },
+      {
+        "mtime_ns": 1791716176585980640,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_004/metadata.json",
+        "sha256": "c1d5f1f1a874b7716b4986485db515730864105316b6422c51b63d3a4329d001",
+        "size": 113976
+      },
+      {
+        "mtime_ns": 1791716178515130385,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_004/simulator_index.json",
+        "sha256": "a286f0b3b70eb763374a8d8063b03846b49d2a5592c2bea121993e5f47d420c1",
+        "size": 6147
+      }
+    ],
+    "run_id": "libero_long_openvla_oft_task00_seed1004_trial004_cfafd9ddc3db"
+  },
+  {
+    "errors": [],
+    "frames": 264,
+    "mapping_registration": "Identical XML/native count/body names, entity roots/IDs and every-frame transforms checked; only run-ID input registration extended.",
+    "partition": "same_task_reserved",
+    "receipts_after": [
+      {
+        "mtime_ns": 1791716313185634206,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_009/trajectory.h5",
+        "sha256": "d76c6a5c7daeee97c624f260cd69d747ac26a40112cc1b262744a1185a6072ff",
+        "size": 131463124
+      },
+      {
+        "mtime_ns": 1791716292822475451,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_009/simulator.xml",
+        "sha256": "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542",
+        "size": 66723
+      },
+      {
+        "mtime_ns": 1791716290985330699,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_009/metadata.json",
+        "sha256": "5c4a1501b9201594b62405eca3375a399b1c0338de5cab620fd765d701c51127",
+        "size": 113976
+      },
+      {
+        "mtime_ns": 1791716292919518651,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_009/simulator_index.json",
+        "sha256": "a286f0b3b70eb763374a8d8063b03846b49d2a5592c2bea121993e5f47d420c1",
+        "size": 6147
+      }
+    ],
+    "receipts_before": [
+      {
+        "mtime_ns": 1791716313185634206,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_009/trajectory.h5",
+        "sha256": "d76c6a5c7daeee97c624f260cd69d747ac26a40112cc1b262744a1185a6072ff",
+        "size": 131463124
+      },
+      {
+        "mtime_ns": 1791716292822475451,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_009/simulator.xml",
+        "sha256": "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542",
+        "size": 66723
+      },
+      {
+        "mtime_ns": 1791716290985330699,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_009/metadata.json",
+        "sha256": "5c4a1501b9201594b62405eca3375a399b1c0338de5cab620fd765d701c51127",
+        "size": 113976
+      },
+      {
+        "mtime_ns": 1791716292919518651,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_009/simulator_index.json",
+        "sha256": "a286f0b3b70eb763374a8d8063b03846b49d2a5592c2bea121993e5f47d420c1",
+        "size": 6147
+      }
+    ],
+    "run_id": "libero_long_openvla_oft_task00_seed1009_trial009_cfafd9ddc3db"
+  },
+  {
+    "errors": [],
+    "frames": 264,
+    "mapping_registration": "Identical XML/native count/body names, entity roots/IDs and every-frame transforms checked; only run-ID input registration extended.",
+    "partition": "same_task_reserved",
+    "receipts_after": [
+      {
+        "mtime_ns": 1791716815057986152,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_029/trajectory.h5",
+        "sha256": "f5d19e43b01ac0ce2ffb5d069c9793c7a33e354c9c1a1875ae76904fd9ce8c81",
+        "size": 130770748
+      },
+      {
+        "mtime_ns": 1791716794766061704,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_029/simulator.xml",
+        "sha256": "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542",
+        "size": 66723
+      },
+      {
+        "mtime_ns": 1791716792950037075,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_029/metadata.json",
+        "sha256": "d1c7024b88d01f185d04b12259d7451031804f85efd8e870b696a0c7715c30bf",
+        "size": 113978
+      },
+      {
+        "mtime_ns": 1791716794864177148,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_029/simulator_index.json",
+        "sha256": "a286f0b3b70eb763374a8d8063b03846b49d2a5592c2bea121993e5f47d420c1",
+        "size": 6147
+      }
+    ],
+    "receipts_before": [
+      {
+        "mtime_ns": 1791716815057986152,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_029/trajectory.h5",
+        "sha256": "f5d19e43b01ac0ce2ffb5d069c9793c7a33e354c9c1a1875ae76904fd9ce8c81",
+        "size": 130770748
+      },
+      {
+        "mtime_ns": 1791716794766061704,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_029/simulator.xml",
+        "sha256": "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542",
+        "size": 66723
+      },
+      {
+        "mtime_ns": 1791716792950037075,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_029/metadata.json",
+        "sha256": "d1c7024b88d01f185d04b12259d7451031804f85efd8e870b696a0c7715c30bf",
+        "size": 113978
+      },
+      {
+        "mtime_ns": 1791716794864177148,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_029/simulator_index.json",
+        "sha256": "a286f0b3b70eb763374a8d8063b03846b49d2a5592c2bea121993e5f47d420c1",
+        "size": 6147
+      }
+    ],
+    "run_id": "libero_long_openvla_oft_task00_seed1029_trial029_cfafd9ddc3db"
+  },
+  {
+    "errors": [],
+    "frames": 279,
+    "mapping_registration": "Identical XML/native count/body names, entity roots/IDs and every-frame transforms checked; only run-ID input registration extended.",
+    "partition": "same_task_reserved",
+    "receipts_after": [
+      {
+        "mtime_ns": 1791716838805529638,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_030/trajectory.h5",
+        "sha256": "b6569cd8d8b9478589695d507f1b8a4c530d505527b023b5a6cd4ca141905b84",
+        "size": 137883077
+      },
+      {
+        "mtime_ns": 1791716817130079893,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_030/simulator.xml",
+        "sha256": "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542",
+        "size": 66723
+      },
+      {
+        "mtime_ns": 1791716815280978620,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_030/metadata.json",
+        "sha256": "6b7676e4b1ff39a9ee08735e4f6cba44db0d1ed2ead6109a9aadce7012fd3569",
+        "size": 113978
+      },
+      {
+        "mtime_ns": 1791716817228379180,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_030/simulator_index.json",
+        "sha256": "a286f0b3b70eb763374a8d8063b03846b49d2a5592c2bea121993e5f47d420c1",
+        "size": 6147
+      }
+    ],
+    "receipts_before": [
+      {
+        "mtime_ns": 1791716838805529638,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_030/trajectory.h5",
+        "sha256": "b6569cd8d8b9478589695d507f1b8a4c530d505527b023b5a6cd4ca141905b84",
+        "size": 137883077
+      },
+      {
+        "mtime_ns": 1791716817130079893,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_030/simulator.xml",
+        "sha256": "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542",
+        "size": 66723
+      },
+      {
+        "mtime_ns": 1791716815280978620,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_030/metadata.json",
+        "sha256": "6b7676e4b1ff39a9ee08735e4f6cba44db0d1ed2ead6109a9aadce7012fd3569",
+        "size": 113978
+      },
+      {
+        "mtime_ns": 1791716817228379180,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_030/simulator_index.json",
+        "sha256": "a286f0b3b70eb763374a8d8063b03846b49d2a5592c2bea121993e5f47d420c1",
+        "size": 6147
+      }
+    ],
+    "run_id": "libero_long_openvla_oft_task00_seed1030_trial030_cfafd9ddc3db"
+  },
+  {
+    "errors": [],
+    "frames": 294,
+    "mapping_registration": "Identical XML/native count/body names, entity roots/IDs and every-frame transforms checked; only run-ID input registration extended.",
+    "partition": "same_task_reserved",
+    "receipts_after": [
+      {
+        "mtime_ns": 1791716889961546232,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_032/trajectory.h5",
+        "sha256": "d5160b2694f3245336cb8cb6243774cdb1dba187850aec7328070f4c78c0392a",
+        "size": 146041569
+      },
+      {
+        "mtime_ns": 1791716867525412765,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_032/simulator.xml",
+        "sha256": "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542",
+        "size": 66723
+      },
+      {
+        "mtime_ns": 1791716865617888149,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_032/metadata.json",
+        "sha256": "f02a43bab1a74799a3f2ce3921227072b26fdd2e781bbd41ca239c22c8068959",
+        "size": 113978
+      },
+      {
+        "mtime_ns": 1791716867622996917,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_032/simulator_index.json",
+        "sha256": "a286f0b3b70eb763374a8d8063b03846b49d2a5592c2bea121993e5f47d420c1",
+        "size": 6147
+      }
+    ],
+    "receipts_before": [
+      {
+        "mtime_ns": 1791716889961546232,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_032/trajectory.h5",
+        "sha256": "d5160b2694f3245336cb8cb6243774cdb1dba187850aec7328070f4c78c0392a",
+        "size": 146041569
+      },
+      {
+        "mtime_ns": 1791716867525412765,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_032/simulator.xml",
+        "sha256": "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542",
+        "size": 66723
+      },
+      {
+        "mtime_ns": 1791716865617888149,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_032/metadata.json",
+        "sha256": "f02a43bab1a74799a3f2ce3921227072b26fdd2e781bbd41ca239c22c8068959",
+        "size": 113978
+      },
+      {
+        "mtime_ns": 1791716867622996917,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_032/simulator_index.json",
+        "sha256": "a286f0b3b70eb763374a8d8063b03846b49d2a5592c2bea121993e5f47d420c1",
+        "size": 6147
+      }
+    ],
+    "run_id": "libero_long_openvla_oft_task00_seed1032_trial032_cfafd9ddc3db"
+  },
+  {
+    "errors": [],
+    "frames": 261,
+    "mapping_registration": "Identical XML/native count/body names, entity roots/IDs and every-frame transforms checked; only run-ID input registration extended.",
+    "partition": "same_task_reserved",
+    "receipts_after": [
+      {
+        "mtime_ns": 1791716934087697967,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_034/trajectory.h5",
+        "sha256": "fe7b3dcb2a230f681d44f26b2694659a2a77dc207a42962781e00d1962910c8b",
+        "size": 129481402
+      },
+      {
+        "mtime_ns": 1791716914059439831,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_034/simulator.xml",
+        "sha256": "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542",
+        "size": 66723
+      },
+      {
+        "mtime_ns": 1791716912125059985,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_034/metadata.json",
+        "sha256": "e3c2b1290ef93f8c1b339df6b8e1b28c6be2a59121fff8c4b849d3a16582ad89",
+        "size": 113978
+      },
+      {
+        "mtime_ns": 1791716914157963097,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_034/simulator_index.json",
+        "sha256": "a286f0b3b70eb763374a8d8063b03846b49d2a5592c2bea121993e5f47d420c1",
+        "size": 6147
+      }
+    ],
+    "receipts_before": [
+      {
+        "mtime_ns": 1791716934087697967,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_034/trajectory.h5",
+        "sha256": "fe7b3dcb2a230f681d44f26b2694659a2a77dc207a42962781e00d1962910c8b",
+        "size": 129481402
+      },
+      {
+        "mtime_ns": 1791716914059439831,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_034/simulator.xml",
+        "sha256": "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542",
+        "size": 66723
+      },
+      {
+        "mtime_ns": 1791716912125059985,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_034/metadata.json",
+        "sha256": "e3c2b1290ef93f8c1b339df6b8e1b28c6be2a59121fff8c4b849d3a16582ad89",
+        "size": 113978
+      },
+      {
+        "mtime_ns": 1791716914157963097,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_034/simulator_index.json",
+        "sha256": "a286f0b3b70eb763374a8d8063b03846b49d2a5592c2bea121993e5f47d420c1",
+        "size": 6147
+      }
+    ],
+    "run_id": "libero_long_openvla_oft_task00_seed1034_trial034_cfafd9ddc3db"
+  },
+  {
+    "errors": [],
+    "frames": 295,
+    "mapping_registration": "Identical XML/native count/body names, entity roots/IDs and every-frame transforms checked; only run-ID input registration extended.",
+    "partition": "same_task_reserved",
+    "receipts_after": [
+      {
+        "mtime_ns": 1791716982843760697,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_036/trajectory.h5",
+        "sha256": "db5dc3c4277d20f410de21153794a5820e32a7782788cfef7916d7fb9299374c",
+        "size": 147731565
+      },
+      {
+        "mtime_ns": 1791716959334237824,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_036/simulator.xml",
+        "sha256": "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542",
+        "size": 66723
+      },
+      {
+        "mtime_ns": 1791716957408412724,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_036/metadata.json",
+        "sha256": "83fed9b96d6feb095c379b04de0f72f88237bec96ba46d301fcfa09eb721a7ff",
+        "size": 113978
+      },
+      {
+        "mtime_ns": 1791716959433002236,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_036/simulator_index.json",
+        "sha256": "a286f0b3b70eb763374a8d8063b03846b49d2a5592c2bea121993e5f47d420c1",
+        "size": 6147
+      }
+    ],
+    "receipts_before": [
+      {
+        "mtime_ns": 1791716982843760697,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_036/trajectory.h5",
+        "sha256": "db5dc3c4277d20f410de21153794a5820e32a7782788cfef7916d7fb9299374c",
+        "size": 147731565
+      },
+      {
+        "mtime_ns": 1791716959334237824,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_036/simulator.xml",
+        "sha256": "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542",
+        "size": 66723
+      },
+      {
+        "mtime_ns": 1791716957408412724,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_036/metadata.json",
+        "sha256": "83fed9b96d6feb095c379b04de0f72f88237bec96ba46d301fcfa09eb721a7ff",
+        "size": 113978
+      },
+      {
+        "mtime_ns": 1791716959433002236,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_036/simulator_index.json",
+        "sha256": "a286f0b3b70eb763374a8d8063b03846b49d2a5592c2bea121993e5f47d420c1",
+        "size": 6147
+      }
+    ],
+    "run_id": "libero_long_openvla_oft_task00_seed1036_trial036_cfafd9ddc3db"
+  },
+  {
+    "errors": [],
+    "frames": 290,
+    "mapping_registration": "Identical XML/native count/body names, entity roots/IDs and every-frame transforms checked; only run-ID input registration extended.",
+    "partition": "same_task_reserved",
+    "receipts_after": [
+      {
+        "mtime_ns": 1791717147293599370,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_043/trajectory.h5",
+        "sha256": "e53e70c591076edd59eea12116fd7906ac02fcaa0a51165194d7f0564dec5ba3",
+        "size": 143853706
+      },
+      {
+        "mtime_ns": 1791717124492466575,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_043/simulator.xml",
+        "sha256": "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542",
+        "size": 66723
+      },
+      {
+        "mtime_ns": 1791717122501007199,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_043/metadata.json",
+        "sha256": "3c9f54d896ad479f6d6fffca3f2be63ace68aebc4a4f0cce50ee00ae769fe099",
+        "size": 113978
+      },
+      {
+        "mtime_ns": 1791717124594142315,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_043/simulator_index.json",
+        "sha256": "a286f0b3b70eb763374a8d8063b03846b49d2a5592c2bea121993e5f47d420c1",
+        "size": 6147
+      }
+    ],
+    "receipts_before": [
+      {
+        "mtime_ns": 1791717147293599370,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_043/trajectory.h5",
+        "sha256": "e53e70c591076edd59eea12116fd7906ac02fcaa0a51165194d7f0564dec5ba3",
+        "size": 143853706
+      },
+      {
+        "mtime_ns": 1791717124492466575,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_043/simulator.xml",
+        "sha256": "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542",
+        "size": 66723
+      },
+      {
+        "mtime_ns": 1791717122501007199,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_043/metadata.json",
+        "sha256": "3c9f54d896ad479f6d6fffca3f2be63ace68aebc4a4f0cce50ee00ae769fe099",
+        "size": 113978
+      },
+      {
+        "mtime_ns": 1791717124594142315,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_043/simulator_index.json",
+        "sha256": "a286f0b3b70eb763374a8d8063b03846b49d2a5592c2bea121993e5f47d420c1",
+        "size": 6147
+      }
+    ],
+    "run_id": "libero_long_openvla_oft_task00_seed1043_trial043_cfafd9ddc3db"
+  },
+  {
+    "errors": [],
+    "frames": 269,
+    "mapping_registration": "Identical XML/native count/body names, entity roots/IDs and every-frame transforms checked; only run-ID input registration extended.",
+    "partition": "same_task_reserved",
+    "receipts_after": [
+      {
+        "mtime_ns": 1791717170330156523,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_044/trajectory.h5",
+        "sha256": "59b16af60fa463808da8e2c5467d8272bdcd517e2d995112fa6c844fec9e2034",
+        "size": 134158195
+      },
+      {
+        "mtime_ns": 1791717149559674256,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_044/simulator.xml",
+        "sha256": "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542",
+        "size": 66723
+      },
+      {
+        "mtime_ns": 1791717147539071664,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_044/metadata.json",
+        "sha256": "16152ee9df46b9183807d37ec74fb1d0c3754a285436a0598de4cfb2d8d1511b",
+        "size": 113978
+      },
+      {
+        "mtime_ns": 1791717149658813620,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_044/simulator_index.json",
+        "sha256": "a286f0b3b70eb763374a8d8063b03846b49d2a5592c2bea121993e5f47d420c1",
+        "size": 6147
+      }
+    ],
+    "receipts_before": [
+      {
+        "mtime_ns": 1791717170330156523,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_044/trajectory.h5",
+        "sha256": "59b16af60fa463808da8e2c5467d8272bdcd517e2d995112fa6c844fec9e2034",
+        "size": 134158195
+      },
+      {
+        "mtime_ns": 1791717149559674256,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_044/simulator.xml",
+        "sha256": "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542",
+        "size": 66723
+      },
+      {
+        "mtime_ns": 1791717147539071664,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_044/metadata.json",
+        "sha256": "16152ee9df46b9183807d37ec74fb1d0c3754a285436a0598de4cfb2d8d1511b",
+        "size": 113978
+      },
+      {
+        "mtime_ns": 1791717149658813620,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_044/simulator_index.json",
+        "sha256": "a286f0b3b70eb763374a8d8063b03846b49d2a5592c2bea121993e5f47d420c1",
+        "size": 6147
+      }
+    ],
+    "run_id": "libero_long_openvla_oft_task00_seed1044_trial044_cfafd9ddc3db"
+  },
+  {
+    "errors": [],
+    "frames": 310,
+    "mapping_registration": "Identical XML/native count/body names, entity roots/IDs and every-frame transforms checked; only run-ID input registration extended.",
+    "partition": "same_task_reserved",
+    "receipts_after": [
+      {
+        "mtime_ns": 1791717269095258265,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_048/trajectory.h5",
+        "sha256": "a4a67d3817798a59d16a234eea4cdfa2fd13990d1c11754364c2a3cfdc525b2e",
+        "size": 155906900
+      },
+      {
+        "mtime_ns": 1791717244061888038,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_048/simulator.xml",
+        "sha256": "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542",
+        "size": 66723
+      },
+      {
+        "mtime_ns": 1791717242132091151,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_048/metadata.json",
+        "sha256": "5baa9b86403642afe7665c7dc71263bad5695b95c9b7c63907cd3c39283da6be",
+        "size": 113978
+      },
+      {
+        "mtime_ns": 1791717244160278829,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_048/simulator_index.json",
+        "sha256": "a286f0b3b70eb763374a8d8063b03846b49d2a5592c2bea121993e5f47d420c1",
+        "size": 6147
+      }
+    ],
+    "receipts_before": [
+      {
+        "mtime_ns": 1791717269095258265,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_048/trajectory.h5",
+        "sha256": "a4a67d3817798a59d16a234eea4cdfa2fd13990d1c11754364c2a3cfdc525b2e",
+        "size": 155906900
+      },
+      {
+        "mtime_ns": 1791717244061888038,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_048/simulator.xml",
+        "sha256": "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542",
+        "size": 66723
+      },
+      {
+        "mtime_ns": 1791717242132091151,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_048/metadata.json",
+        "sha256": "5baa9b86403642afe7665c7dc71263bad5695b95c9b7c63907cd3c39283da6be",
+        "size": 113978
+      },
+      {
+        "mtime_ns": 1791717244160278829,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_00/episode_048/simulator_index.json",
+        "sha256": "a286f0b3b70eb763374a8d8063b03846b49d2a5592c2bea121993e5f47d420c1",
+        "size": 6147
+      }
+    ],
+    "run_id": "libero_long_openvla_oft_task00_seed1048_trial048_cfafd9ddc3db"
+  },
+  {
+    "errors": [],
+    "frames": 248,
+    "mapping_registration": "Identical XML/native count/body names, entity roots/IDs and every-frame transforms checked; only run-ID input registration extended.",
+    "partition": "cross_task_same_scene",
+    "receipts_after": [
+      {
+        "mtime_ns": 1791717315614364186,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_000/trajectory.h5",
+        "sha256": "6c9d9c78ba9feacbab6df7c8426f705bfa6942db459fd6ed550e870ba7951569",
+        "size": 121861910
+      },
+      {
+        "mtime_ns": 1791717296830188677,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_000/simulator.xml",
+        "sha256": "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542",
+        "size": 66723
+      },
+      {
+        "mtime_ns": 1791717295215864575,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_000/metadata.json",
+        "sha256": "ca9afac06608b02302cd229d85ba5c795fdd417871d4f42446a1c4b28735b01d",
+        "size": 113970
+      },
+      {
+        "mtime_ns": 1791717296927896162,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_000/simulator_index.json",
+        "sha256": "a286f0b3b70eb763374a8d8063b03846b49d2a5592c2bea121993e5f47d420c1",
+        "size": 6147
+      }
+    ],
+    "receipts_before": [
+      {
+        "mtime_ns": 1791717315614364186,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_000/trajectory.h5",
+        "sha256": "6c9d9c78ba9feacbab6df7c8426f705bfa6942db459fd6ed550e870ba7951569",
+        "size": 121861910
+      },
+      {
+        "mtime_ns": 1791717296830188677,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_000/simulator.xml",
+        "sha256": "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542",
+        "size": 66723
+      },
+      {
+        "mtime_ns": 1791717295215864575,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_000/metadata.json",
+        "sha256": "ca9afac06608b02302cd229d85ba5c795fdd417871d4f42446a1c4b28735b01d",
+        "size": 113970
+      },
+      {
+        "mtime_ns": 1791717296927896162,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_000/simulator_index.json",
+        "sha256": "a286f0b3b70eb763374a8d8063b03846b49d2a5592c2bea121993e5f47d420c1",
+        "size": 6147
+      }
+    ],
+    "run_id": "libero_long_openvla_oft_task01_seed1000_trial000_cfafd9ddc3db"
+  },
+  {
+    "errors": [],
+    "frames": 252,
+    "mapping_registration": "Identical XML/native count/body names, entity roots/IDs and every-frame transforms checked; only run-ID input registration extended.",
+    "partition": "cross_task_same_scene",
+    "receipts_after": [
+      {
+        "mtime_ns": 1791717337311947167,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_001/trajectory.h5",
+        "sha256": "997f207ff4224db6384b4939971ac4b330e16b3df10c4a1342ca7bc5204ba265",
+        "size": 123825210
+      },
+      {
+        "mtime_ns": 1791717317765615438,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_001/simulator.xml",
+        "sha256": "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542",
+        "size": 66723
+      },
+      {
+        "mtime_ns": 1791717315822908136,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_001/metadata.json",
+        "sha256": "b6cead4695e4a2eb8b6032680dbec3de7734479ce19fa725b72b2b53dbdf11ce",
+        "size": 113970
+      },
+      {
+        "mtime_ns": 1791717317867272438,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_001/simulator_index.json",
+        "sha256": "a286f0b3b70eb763374a8d8063b03846b49d2a5592c2bea121993e5f47d420c1",
+        "size": 6147
+      }
+    ],
+    "receipts_before": [
+      {
+        "mtime_ns": 1791717337311947167,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_001/trajectory.h5",
+        "sha256": "997f207ff4224db6384b4939971ac4b330e16b3df10c4a1342ca7bc5204ba265",
+        "size": 123825210
+      },
+      {
+        "mtime_ns": 1791717317765615438,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_001/simulator.xml",
+        "sha256": "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542",
+        "size": 66723
+      },
+      {
+        "mtime_ns": 1791717315822908136,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_001/metadata.json",
+        "sha256": "b6cead4695e4a2eb8b6032680dbec3de7734479ce19fa725b72b2b53dbdf11ce",
+        "size": 113970
+      },
+      {
+        "mtime_ns": 1791717317867272438,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_001/simulator_index.json",
+        "sha256": "a286f0b3b70eb763374a8d8063b03846b49d2a5592c2bea121993e5f47d420c1",
+        "size": 6147
+      }
+    ],
+    "run_id": "libero_long_openvla_oft_task01_seed1001_trial001_cfafd9ddc3db"
+  },
+  {
+    "errors": [],
+    "frames": 253,
+    "mapping_registration": "Identical XML/native count/body names, entity roots/IDs and every-frame transforms checked; only run-ID input registration extended.",
+    "partition": "cross_task_same_scene",
+    "receipts_after": [
+      {
+        "mtime_ns": 1791717359408522481,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_002/trajectory.h5",
+        "sha256": "59c79edbb0ba2fbf505b695f4c83d83c22f61b8150686b9fb23938873935ccec",
+        "size": 124097002
+      },
+      {
+        "mtime_ns": 1791717339544272903,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_002/simulator.xml",
+        "sha256": "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542",
+        "size": 66723
+      },
+      {
+        "mtime_ns": 1791717337526140528,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_002/metadata.json",
+        "sha256": "39c36ec33b209132b7f9cca5ae3b1f68f777c03dcb6be603bcae998b3c27995f",
+        "size": 113970
+      },
+      {
+        "mtime_ns": 1791717339645399683,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_002/simulator_index.json",
+        "sha256": "a286f0b3b70eb763374a8d8063b03846b49d2a5592c2bea121993e5f47d420c1",
+        "size": 6147
+      }
+    ],
+    "receipts_before": [
+      {
+        "mtime_ns": 1791717359408522481,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_002/trajectory.h5",
+        "sha256": "59c79edbb0ba2fbf505b695f4c83d83c22f61b8150686b9fb23938873935ccec",
+        "size": 124097002
+      },
+      {
+        "mtime_ns": 1791717339544272903,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_002/simulator.xml",
+        "sha256": "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542",
+        "size": 66723
+      },
+      {
+        "mtime_ns": 1791717337526140528,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_002/metadata.json",
+        "sha256": "39c36ec33b209132b7f9cca5ae3b1f68f777c03dcb6be603bcae998b3c27995f",
+        "size": 113970
+      },
+      {
+        "mtime_ns": 1791717339645399683,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_002/simulator_index.json",
+        "sha256": "a286f0b3b70eb763374a8d8063b03846b49d2a5592c2bea121993e5f47d420c1",
+        "size": 6147
+      }
+    ],
+    "run_id": "libero_long_openvla_oft_task01_seed1002_trial002_cfafd9ddc3db"
+  },
+  {
+    "errors": [],
+    "frames": 262,
+    "mapping_registration": "Identical XML/native count/body names, entity roots/IDs and every-frame transforms checked; only run-ID input registration extended.",
+    "partition": "cross_task_same_scene",
+    "receipts_after": [
+      {
+        "mtime_ns": 1791717381806092009,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_003/trajectory.h5",
+        "sha256": "7f8dc6f929354acf22c7e6137ef7013115e81ea16c2c6f8bb9eefa3c4223e960",
+        "size": 128715675
+      },
+      {
+        "mtime_ns": 1791717361642790339,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_003/simulator.xml",
+        "sha256": "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542",
+        "size": 66723
+      },
+      {
+        "mtime_ns": 1791717359619452356,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_003/metadata.json",
+        "sha256": "ec074bedbe9a79473da068a46dd9158c447cffd07c4d98ea1a91e9b9f1b7fb42",
+        "size": 113970
+      },
+      {
+        "mtime_ns": 1791717361743877907,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_003/simulator_index.json",
+        "sha256": "a286f0b3b70eb763374a8d8063b03846b49d2a5592c2bea121993e5f47d420c1",
+        "size": 6147
+      }
+    ],
+    "receipts_before": [
+      {
+        "mtime_ns": 1791717381806092009,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_003/trajectory.h5",
+        "sha256": "7f8dc6f929354acf22c7e6137ef7013115e81ea16c2c6f8bb9eefa3c4223e960",
+        "size": 128715675
+      },
+      {
+        "mtime_ns": 1791717361642790339,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_003/simulator.xml",
+        "sha256": "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542",
+        "size": 66723
+      },
+      {
+        "mtime_ns": 1791717359619452356,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_003/metadata.json",
+        "sha256": "ec074bedbe9a79473da068a46dd9158c447cffd07c4d98ea1a91e9b9f1b7fb42",
+        "size": 113970
+      },
+      {
+        "mtime_ns": 1791717361743877907,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_003/simulator_index.json",
+        "sha256": "a286f0b3b70eb763374a8d8063b03846b49d2a5592c2bea121993e5f47d420c1",
+        "size": 6147
+      }
+    ],
+    "run_id": "libero_long_openvla_oft_task01_seed1003_trial003_cfafd9ddc3db"
+  },
+  {
+    "errors": [],
+    "frames": 255,
+    "mapping_registration": "Identical XML/native count/body names, entity roots/IDs and every-frame transforms checked; only run-ID input registration extended.",
+    "partition": "cross_task_same_scene",
+    "receipts_after": [
+      {
+        "mtime_ns": 1791717403891667533,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_004/trajectory.h5",
+        "sha256": "69d8cd802c23ce0d821b93c2036b3c6cc4ae5bd12c16591362d3c445d6aadb61",
+        "size": 125109820
+      },
+      {
+        "mtime_ns": 1791717384049691318,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_004/simulator.xml",
+        "sha256": "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542",
+        "size": 66723
+      },
+      {
+        "mtime_ns": 1791717382027388018,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_004/metadata.json",
+        "sha256": "daa636852a39b98691b28c1173d9ab2a5c810d85f63595e122d27d231c0c4ed7",
+        "size": 113970
+      },
+      {
+        "mtime_ns": 1791717384148217164,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_004/simulator_index.json",
+        "sha256": "a286f0b3b70eb763374a8d8063b03846b49d2a5592c2bea121993e5f47d420c1",
+        "size": 6147
+      }
+    ],
+    "receipts_before": [
+      {
+        "mtime_ns": 1791717403891667533,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_004/trajectory.h5",
+        "sha256": "69d8cd802c23ce0d821b93c2036b3c6cc4ae5bd12c16591362d3c445d6aadb61",
+        "size": 125109820
+      },
+      {
+        "mtime_ns": 1791717384049691318,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_004/simulator.xml",
+        "sha256": "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542",
+        "size": 66723
+      },
+      {
+        "mtime_ns": 1791717382027388018,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_004/metadata.json",
+        "sha256": "daa636852a39b98691b28c1173d9ab2a5c810d85f63595e122d27d231c0c4ed7",
+        "size": 113970
+      },
+      {
+        "mtime_ns": 1791717384148217164,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_004/simulator_index.json",
+        "sha256": "a286f0b3b70eb763374a8d8063b03846b49d2a5592c2bea121993e5f47d420c1",
+        "size": 6147
+      }
+    ],
+    "run_id": "libero_long_openvla_oft_task01_seed1004_trial004_cfafd9ddc3db"
+  },
+  {
+    "errors": [],
+    "frames": 253,
+    "mapping_registration": "Identical XML/native count/body names, entity roots/IDs and every-frame transforms checked; only run-ID input registration extended.",
+    "partition": "cross_task_same_scene",
+    "receipts_after": [
+      {
+        "mtime_ns": 1791717425230257414,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_005/trajectory.h5",
+        "sha256": "e9aba8556e4a4d0418e475f2bae84b6eef6797b57eff2f7cd8cb4304c34d5e91",
+        "size": 123836292
+      },
+      {
+        "mtime_ns": 1791717406078010507,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_005/simulator.xml",
+        "sha256": "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542",
+        "size": 66723
+      },
+      {
+        "mtime_ns": 1791717404109462964,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_005/metadata.json",
+        "sha256": "eb1a68eb3ec69280c126567d63bb5e9ce5c2554f622c374d7263b9c72f75f08c",
+        "size": 113970
+      },
+      {
+        "mtime_ns": 1791717406177666693,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_005/simulator_index.json",
+        "sha256": "a286f0b3b70eb763374a8d8063b03846b49d2a5592c2bea121993e5f47d420c1",
+        "size": 6147
+      }
+    ],
+    "receipts_before": [
+      {
+        "mtime_ns": 1791717425230257414,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_005/trajectory.h5",
+        "sha256": "e9aba8556e4a4d0418e475f2bae84b6eef6797b57eff2f7cd8cb4304c34d5e91",
+        "size": 123836292
+      },
+      {
+        "mtime_ns": 1791717406078010507,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_005/simulator.xml",
+        "sha256": "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542",
+        "size": 66723
+      },
+      {
+        "mtime_ns": 1791717404109462964,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_005/metadata.json",
+        "sha256": "eb1a68eb3ec69280c126567d63bb5e9ce5c2554f622c374d7263b9c72f75f08c",
+        "size": 113970
+      },
+      {
+        "mtime_ns": 1791717406177666693,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_005/simulator_index.json",
+        "sha256": "a286f0b3b70eb763374a8d8063b03846b49d2a5592c2bea121993e5f47d420c1",
+        "size": 6147
+      }
+    ],
+    "run_id": "libero_long_openvla_oft_task01_seed1005_trial005_cfafd9ddc3db"
+  },
+  {
+    "errors": [],
+    "frames": 275,
+    "mapping_registration": "Identical XML/native count/body names, entity roots/IDs and every-frame transforms checked; only run-ID input registration extended.",
+    "partition": "cross_task_same_scene",
+    "receipts_after": [
+      {
+        "mtime_ns": 1791717448986800822,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_006/trajectory.h5",
+        "sha256": "805bf18f9ddb70ef7b18ad87bb867ac67de68a66512fa48259ace45f544d2c9b",
+        "size": 135258417
+      },
+      {
+        "mtime_ns": 1791717427416455378,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_006/simulator.xml",
+        "sha256": "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542",
+        "size": 66723
+      },
+      {
+        "mtime_ns": 1791717425442259462,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_006/metadata.json",
+        "sha256": "a087c39e4c0da2b8c67eda324aa2b9016561fe014d3e97199e08752781a41796",
+        "size": 113970
+      },
+      {
+        "mtime_ns": 1791717427515010802,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_006/simulator_index.json",
+        "sha256": "a286f0b3b70eb763374a8d8063b03846b49d2a5592c2bea121993e5f47d420c1",
+        "size": 6147
+      }
+    ],
+    "receipts_before": [
+      {
+        "mtime_ns": 1791717448986800822,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_006/trajectory.h5",
+        "sha256": "805bf18f9ddb70ef7b18ad87bb867ac67de68a66512fa48259ace45f544d2c9b",
+        "size": 135258417
+      },
+      {
+        "mtime_ns": 1791717427416455378,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_006/simulator.xml",
+        "sha256": "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542",
+        "size": 66723
+      },
+      {
+        "mtime_ns": 1791717425442259462,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_006/metadata.json",
+        "sha256": "a087c39e4c0da2b8c67eda324aa2b9016561fe014d3e97199e08752781a41796",
+        "size": 113970
+      },
+      {
+        "mtime_ns": 1791717427515010802,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_006/simulator_index.json",
+        "sha256": "a286f0b3b70eb763374a8d8063b03846b49d2a5592c2bea121993e5f47d420c1",
+        "size": 6147
+      }
+    ],
+    "run_id": "libero_long_openvla_oft_task01_seed1006_trial006_cfafd9ddc3db"
+  },
+  {
+    "errors": [],
+    "frames": 245,
+    "mapping_registration": "Identical XML/native count/body names, entity roots/IDs and every-frame transforms checked; only run-ID input registration extended.",
+    "partition": "cross_task_same_scene",
+    "receipts_after": [
+      {
+        "mtime_ns": 1791717470450388301,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_007/trajectory.h5",
+        "sha256": "42cd3ccf478b747a7768861a9732303b279d7a9b583026aa9f9e7290a6810245",
+        "size": 120792667
+      },
+      {
+        "mtime_ns": 1791717451227179559,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_007/simulator.xml",
+        "sha256": "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542",
+        "size": 66723
+      },
+      {
+        "mtime_ns": 1791717449214524600,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_007/metadata.json",
+        "sha256": "40ec7479373f047130d40e15995789174b68b2a1e3f349e298e61293f5958424",
+        "size": 113970
+      },
+      {
+        "mtime_ns": 1791717451326460580,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_007/simulator_index.json",
+        "sha256": "a286f0b3b70eb763374a8d8063b03846b49d2a5592c2bea121993e5f47d420c1",
+        "size": 6147
+      }
+    ],
+    "receipts_before": [
+      {
+        "mtime_ns": 1791717470450388301,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_007/trajectory.h5",
+        "sha256": "42cd3ccf478b747a7768861a9732303b279d7a9b583026aa9f9e7290a6810245",
+        "size": 120792667
+      },
+      {
+        "mtime_ns": 1791717451227179559,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_007/simulator.xml",
+        "sha256": "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542",
+        "size": 66723
+      },
+      {
+        "mtime_ns": 1791717449214524600,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_007/metadata.json",
+        "sha256": "40ec7479373f047130d40e15995789174b68b2a1e3f349e298e61293f5958424",
+        "size": 113970
+      },
+      {
+        "mtime_ns": 1791717451326460580,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_007/simulator_index.json",
+        "sha256": "a286f0b3b70eb763374a8d8063b03846b49d2a5592c2bea121993e5f47d420c1",
+        "size": 6147
+      }
+    ],
+    "run_id": "libero_long_openvla_oft_task01_seed1007_trial007_cfafd9ddc3db"
+  },
+  {
+    "errors": [],
+    "frames": 250,
+    "mapping_registration": "Identical XML/native count/body names, entity roots/IDs and every-frame transforms checked; only run-ID input registration extended.",
+    "partition": "cross_task_same_scene",
+    "receipts_after": [
+      {
+        "mtime_ns": 1791717491986974376,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_008/trajectory.h5",
+        "sha256": "920fc40f8847c743e87ad76ca7ee56e7034853a79bb0b9f9a28654d457d11255",
+        "size": 121716077
+      },
+      {
+        "mtime_ns": 1791717472613487638,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_008/simulator.xml",
+        "sha256": "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542",
+        "size": 66723
+      },
+      {
+        "mtime_ns": 1791717470657317519,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_008/metadata.json",
+        "sha256": "33c6fb30683e3cefbf692ae93a3c318cca8d622e413dd6b2cb9a4d9ce499a463",
+        "size": 113970
+      },
+      {
+        "mtime_ns": 1791717472713555219,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_008/simulator_index.json",
+        "sha256": "a286f0b3b70eb763374a8d8063b03846b49d2a5592c2bea121993e5f47d420c1",
+        "size": 6147
+      }
+    ],
+    "receipts_before": [
+      {
+        "mtime_ns": 1791717491986974376,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_008/trajectory.h5",
+        "sha256": "920fc40f8847c743e87ad76ca7ee56e7034853a79bb0b9f9a28654d457d11255",
+        "size": 121716077
+      },
+      {
+        "mtime_ns": 1791717472613487638,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_008/simulator.xml",
+        "sha256": "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542",
+        "size": 66723
+      },
+      {
+        "mtime_ns": 1791717470657317519,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_008/metadata.json",
+        "sha256": "33c6fb30683e3cefbf692ae93a3c318cca8d622e413dd6b2cb9a4d9ce499a463",
+        "size": 113970
+      },
+      {
+        "mtime_ns": 1791717472713555219,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_008/simulator_index.json",
+        "sha256": "a286f0b3b70eb763374a8d8063b03846b49d2a5592c2bea121993e5f47d420c1",
+        "size": 6147
+      }
+    ],
+    "run_id": "libero_long_openvla_oft_task01_seed1008_trial008_cfafd9ddc3db"
+  },
+  {
+    "errors": [],
+    "frames": 251,
+    "mapping_registration": "Identical XML/native count/body names, entity roots/IDs and every-frame transforms checked; only run-ID input registration extended.",
+    "partition": "cross_task_same_scene",
+    "receipts_after": [
+      {
+        "mtime_ns": 1791717512899572445,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_009/trajectory.h5",
+        "sha256": "a9bf9ceccbae4845a3bfc7ccf680bd228f9a23720f9bf61813deca7831a03943",
+        "size": 122691350
+      },
+      {
+        "mtime_ns": 1791717494029027799,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_009/simulator.xml",
+        "sha256": "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542",
+        "size": 66723
+      },
+      {
+        "mtime_ns": 1791717492195970360,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_009/metadata.json",
+        "sha256": "50f424e3c4e1cb29651a574b9605e432e4fbfe7075c758d56ea352e231328516",
+        "size": 113970
+      },
+      {
+        "mtime_ns": 1791717494127550892,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_009/simulator_index.json",
+        "sha256": "a286f0b3b70eb763374a8d8063b03846b49d2a5592c2bea121993e5f47d420c1",
+        "size": 6147
+      }
+    ],
+    "receipts_before": [
+      {
+        "mtime_ns": 1791717512899572445,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_009/trajectory.h5",
+        "sha256": "a9bf9ceccbae4845a3bfc7ccf680bd228f9a23720f9bf61813deca7831a03943",
+        "size": 122691350
+      },
+      {
+        "mtime_ns": 1791717494029027799,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_009/simulator.xml",
+        "sha256": "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542",
+        "size": 66723
+      },
+      {
+        "mtime_ns": 1791717492195970360,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_009/metadata.json",
+        "sha256": "50f424e3c4e1cb29651a574b9605e432e4fbfe7075c758d56ea352e231328516",
+        "size": 113970
+      },
+      {
+        "mtime_ns": 1791717494127550892,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_009/simulator_index.json",
+        "sha256": "a286f0b3b70eb763374a8d8063b03846b49d2a5592c2bea121993e5f47d420c1",
+        "size": 6147
+      }
+    ],
+    "run_id": "libero_long_openvla_oft_task01_seed1009_trial009_cfafd9ddc3db"
+  },
+  {
+    "errors": [],
+    "frames": 247,
+    "mapping_registration": "Identical XML/native count/body names, entity roots/IDs and every-frame transforms checked; only run-ID input registration extended.",
+    "partition": "cross_task_same_scene",
+    "receipts_after": [
+      {
+        "mtime_ns": 1791717533498176548,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_010/trajectory.h5",
+        "sha256": "94b886ed58375e10d0a244a354c3e6a42d4bf9f5d283fbd561807f22805a1db8",
+        "size": 120918567
+      },
+      {
+        "mtime_ns": 1791717514846352385,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_010/simulator.xml",
+        "sha256": "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542",
+        "size": 66723
+      },
+      {
+        "mtime_ns": 1791717513111610306,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_010/metadata.json",
+        "sha256": "d1e59feebc170bda06a03c5bbaea2dc8aed4a285883b6e41d96dd0f128b23e6b",
+        "size": 113972
+      },
+      {
+        "mtime_ns": 1791717514944943241,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_010/simulator_index.json",
+        "sha256": "a286f0b3b70eb763374a8d8063b03846b49d2a5592c2bea121993e5f47d420c1",
+        "size": 6147
+      }
+    ],
+    "receipts_before": [
+      {
+        "mtime_ns": 1791717533498176548,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_010/trajectory.h5",
+        "sha256": "94b886ed58375e10d0a244a354c3e6a42d4bf9f5d283fbd561807f22805a1db8",
+        "size": 120918567
+      },
+      {
+        "mtime_ns": 1791717514846352385,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_010/simulator.xml",
+        "sha256": "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542",
+        "size": 66723
+      },
+      {
+        "mtime_ns": 1791717513111610306,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_010/metadata.json",
+        "sha256": "d1e59feebc170bda06a03c5bbaea2dc8aed4a285883b6e41d96dd0f128b23e6b",
+        "size": 113972
+      },
+      {
+        "mtime_ns": 1791717514944943241,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_010/simulator_index.json",
+        "sha256": "a286f0b3b70eb763374a8d8063b03846b49d2a5592c2bea121993e5f47d420c1",
+        "size": 6147
+      }
+    ],
+    "run_id": "libero_long_openvla_oft_task01_seed1010_trial010_cfafd9ddc3db"
+  },
+  {
+    "errors": [],
+    "frames": 250,
+    "mapping_registration": "Identical XML/native count/body names, entity roots/IDs and every-frame transforms checked; only run-ID input registration extended.",
+    "partition": "cross_task_same_scene",
+    "receipts_after": [
+      {
+        "mtime_ns": 1791717554520772503,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_011/trajectory.h5",
+        "sha256": "28f1023ceb6ead9c9352ada83565fc75d649ed505663244cda0f4e23f71bd5db",
+        "size": 122460548
+      },
+      {
+        "mtime_ns": 1791717535504130942,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_011/simulator.xml",
+        "sha256": "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542",
+        "size": 66723
+      },
+      {
+        "mtime_ns": 1791717533708852350,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_011/metadata.json",
+        "sha256": "ba2cc3e0a78d8e41720649cc5ed38eaae91dd57240e344e5ba32fcd191cce1c1",
+        "size": 113972
+      },
+      {
+        "mtime_ns": 1791717535602382167,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_011/simulator_index.json",
+        "sha256": "a286f0b3b70eb763374a8d8063b03846b49d2a5592c2bea121993e5f47d420c1",
+        "size": 6147
+      }
+    ],
+    "receipts_before": [
+      {
+        "mtime_ns": 1791717554520772503,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_011/trajectory.h5",
+        "sha256": "28f1023ceb6ead9c9352ada83565fc75d649ed505663244cda0f4e23f71bd5db",
+        "size": 122460548
+      },
+      {
+        "mtime_ns": 1791717535504130942,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_011/simulator.xml",
+        "sha256": "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542",
+        "size": 66723
+      },
+      {
+        "mtime_ns": 1791717533708852350,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_011/metadata.json",
+        "sha256": "ba2cc3e0a78d8e41720649cc5ed38eaae91dd57240e344e5ba32fcd191cce1c1",
+        "size": 113972
+      },
+      {
+        "mtime_ns": 1791717535602382167,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_011/simulator_index.json",
+        "sha256": "a286f0b3b70eb763374a8d8063b03846b49d2a5592c2bea121993e5f47d420c1",
+        "size": 6147
+      }
+    ],
+    "run_id": "libero_long_openvla_oft_task01_seed1011_trial011_cfafd9ddc3db"
+  },
+  {
+    "errors": [],
+    "frames": 247,
+    "mapping_registration": "Identical XML/native count/body names, entity roots/IDs and every-frame transforms checked; only run-ID input registration extended.",
+    "partition": "cross_task_same_scene",
+    "receipts_after": [
+      {
+        "mtime_ns": 1791717575268373742,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_012/trajectory.h5",
+        "sha256": "ce2af26c7319edbf1e93b3bd73a77ac1684850dcd7c17644bc3be57fe25259d6",
+        "size": 122090886
+      },
+      {
+        "mtime_ns": 1791717556643887630,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_012/simulator.xml",
+        "sha256": "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542",
+        "size": 66723
+      },
+      {
+        "mtime_ns": 1791717554729555111,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_012/metadata.json",
+        "sha256": "e25857b3dcd3b001c4237e2b6bd927ccf8e51115e71e7c304d51634121af5a9e",
+        "size": 113972
+      },
+      {
+        "mtime_ns": 1791717556742101933,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_012/simulator_index.json",
+        "sha256": "a286f0b3b70eb763374a8d8063b03846b49d2a5592c2bea121993e5f47d420c1",
+        "size": 6147
+      }
+    ],
+    "receipts_before": [
+      {
+        "mtime_ns": 1791717575268373742,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_012/trajectory.h5",
+        "sha256": "ce2af26c7319edbf1e93b3bd73a77ac1684850dcd7c17644bc3be57fe25259d6",
+        "size": 122090886
+      },
+      {
+        "mtime_ns": 1791717556643887630,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_012/simulator.xml",
+        "sha256": "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542",
+        "size": 66723
+      },
+      {
+        "mtime_ns": 1791717554729555111,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_012/metadata.json",
+        "sha256": "e25857b3dcd3b001c4237e2b6bd927ccf8e51115e71e7c304d51634121af5a9e",
+        "size": 113972
+      },
+      {
+        "mtime_ns": 1791717556742101933,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_012/simulator_index.json",
+        "sha256": "a286f0b3b70eb763374a8d8063b03846b49d2a5592c2bea121993e5f47d420c1",
+        "size": 6147
+      }
+    ],
+    "run_id": "libero_long_openvla_oft_task01_seed1012_trial012_cfafd9ddc3db"
+  },
+  {
+    "errors": [],
+    "frames": 239,
+    "mapping_registration": "Identical XML/native count/body names, entity roots/IDs and every-frame transforms checked; only run-ID input registration extended.",
+    "partition": "cross_task_same_scene",
+    "receipts_after": [
+      {
+        "mtime_ns": 1791717595528984341,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_013/trajectory.h5",
+        "sha256": "f63869cffd3adb364799b2a99fd1a4832e3b05957d0737b6e6db7d87fef3ef1c",
+        "size": 117277473
+      },
+      {
+        "mtime_ns": 1791717577381890811,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_013/simulator.xml",
+        "sha256": "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542",
+        "size": 66723
+      },
+      {
+        "mtime_ns": 1791717575474659918,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_013/metadata.json",
+        "sha256": "ab11af808a570e2f3f51255ad1161c25ce3c56ce8698c58a2d55d05cda3b822a",
+        "size": 113972
+      },
+      {
+        "mtime_ns": 1791717577484523234,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_013/simulator_index.json",
+        "sha256": "a286f0b3b70eb763374a8d8063b03846b49d2a5592c2bea121993e5f47d420c1",
+        "size": 6147
+      }
+    ],
+    "receipts_before": [
+      {
+        "mtime_ns": 1791717595528984341,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_013/trajectory.h5",
+        "sha256": "f63869cffd3adb364799b2a99fd1a4832e3b05957d0737b6e6db7d87fef3ef1c",
+        "size": 117277473
+      },
+      {
+        "mtime_ns": 1791717577381890811,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_013/simulator.xml",
+        "sha256": "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542",
+        "size": 66723
+      },
+      {
+        "mtime_ns": 1791717575474659918,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_013/metadata.json",
+        "sha256": "ab11af808a570e2f3f51255ad1161c25ce3c56ce8698c58a2d55d05cda3b822a",
+        "size": 113972
+      },
+      {
+        "mtime_ns": 1791717577484523234,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_013/simulator_index.json",
+        "sha256": "a286f0b3b70eb763374a8d8063b03846b49d2a5592c2bea121993e5f47d420c1",
+        "size": 6147
+      }
+    ],
+    "run_id": "libero_long_openvla_oft_task01_seed1013_trial013_cfafd9ddc3db"
+  },
+  {
+    "errors": [],
+    "frames": 262,
+    "mapping_registration": "Identical XML/native count/body names, entity roots/IDs and every-frame transforms checked; only run-ID input registration extended.",
+    "partition": "cross_task_same_scene",
+    "receipts_after": [
+      {
+        "mtime_ns": 1791717617441563192,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_014/trajectory.h5",
+        "sha256": "d0ef3af8798b5e9b9e1af6706620f0583e93039a15a53fc436b5109c04094439",
+        "size": 128878037
+      },
+      {
+        "mtime_ns": 1791717597681220543,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_014/simulator.xml",
+        "sha256": "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542",
+        "size": 66723
+      },
+      {
+        "mtime_ns": 1791717595730880839,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_014/metadata.json",
+        "sha256": "66be79ee21d7650b1c4105c9291800828c83f711bdb8c91fcbf347a48b74a267",
+        "size": 113972
+      },
+      {
+        "mtime_ns": 1791717597786138642,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_014/simulator_index.json",
+        "sha256": "a286f0b3b70eb763374a8d8063b03846b49d2a5592c2bea121993e5f47d420c1",
+        "size": 6147
+      }
+    ],
+    "receipts_before": [
+      {
+        "mtime_ns": 1791717617441563192,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_014/trajectory.h5",
+        "sha256": "d0ef3af8798b5e9b9e1af6706620f0583e93039a15a53fc436b5109c04094439",
+        "size": 128878037
+      },
+      {
+        "mtime_ns": 1791717597681220543,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_014/simulator.xml",
+        "sha256": "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542",
+        "size": 66723
+      },
+      {
+        "mtime_ns": 1791717595730880839,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_014/metadata.json",
+        "sha256": "66be79ee21d7650b1c4105c9291800828c83f711bdb8c91fcbf347a48b74a267",
+        "size": 113972
+      },
+      {
+        "mtime_ns": 1791717597786138642,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_014/simulator_index.json",
+        "sha256": "a286f0b3b70eb763374a8d8063b03846b49d2a5592c2bea121993e5f47d420c1",
+        "size": 6147
+      }
+    ],
+    "run_id": "libero_long_openvla_oft_task01_seed1014_trial014_cfafd9ddc3db"
+  },
+  {
+    "errors": [],
+    "frames": 251,
+    "mapping_registration": "Identical XML/native count/body names, entity roots/IDs and every-frame transforms checked; only run-ID input registration extended.",
+    "partition": "cross_task_same_scene",
+    "receipts_after": [
+      {
+        "mtime_ns": 1791717638748153688,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_015/trajectory.h5",
+        "sha256": "1c8af189c70e321266bf4b2033c6fea03c215ecd311ddc3f11ca5b91266e62e4",
+        "size": 122994759
+      },
+      {
+        "mtime_ns": 1791717619634478954,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_015/simulator.xml",
+        "sha256": "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542",
+        "size": 66723
+      },
+      {
+        "mtime_ns": 1791717617659655669,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_015/metadata.json",
+        "sha256": "541cef55115b5360b277ae71dc70da0a23655800027305a9dc4c0b0e1b3d4835",
+        "size": 113972
+      },
+      {
+        "mtime_ns": 1791717619733244772,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_015/simulator_index.json",
+        "sha256": "a286f0b3b70eb763374a8d8063b03846b49d2a5592c2bea121993e5f47d420c1",
+        "size": 6147
+      }
+    ],
+    "receipts_before": [
+      {
+        "mtime_ns": 1791717638748153688,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_015/trajectory.h5",
+        "sha256": "1c8af189c70e321266bf4b2033c6fea03c215ecd311ddc3f11ca5b91266e62e4",
+        "size": 122994759
+      },
+      {
+        "mtime_ns": 1791717619634478954,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_015/simulator.xml",
+        "sha256": "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542",
+        "size": 66723
+      },
+      {
+        "mtime_ns": 1791717617659655669,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_015/metadata.json",
+        "sha256": "541cef55115b5360b277ae71dc70da0a23655800027305a9dc4c0b0e1b3d4835",
+        "size": 113972
+      },
+      {
+        "mtime_ns": 1791717619733244772,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_015/simulator_index.json",
+        "sha256": "a286f0b3b70eb763374a8d8063b03846b49d2a5592c2bea121993e5f47d420c1",
+        "size": 6147
+      }
+    ],
+    "run_id": "libero_long_openvla_oft_task01_seed1015_trial015_cfafd9ddc3db"
+  },
+  {
+    "errors": [],
+    "frames": 255,
+    "mapping_registration": "Identical XML/native count/body names, entity roots/IDs and every-frame transforms checked; only run-ID input registration extended.",
+    "partition": "cross_task_same_scene",
+    "receipts_after": [
+      {
+        "mtime_ns": 1791717660249740436,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_016/trajectory.h5",
+        "sha256": "07314cb18ebf5ef9838b5139349e994d5dcb967217840c02f0c78abab7df02a2",
+        "size": 126024699
+      },
+      {
+        "mtime_ns": 1791717640875642228,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_016/simulator.xml",
+        "sha256": "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542",
+        "size": 66723
+      },
+      {
+        "mtime_ns": 1791717638957285829,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_016/metadata.json",
+        "sha256": "a56e198ed4898cae9d72a9556a72e476d4b3f0505e88f0cc2caae380f278ef57",
+        "size": 113972
+      },
+      {
+        "mtime_ns": 1791717640973312610,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_016/simulator_index.json",
+        "sha256": "a286f0b3b70eb763374a8d8063b03846b49d2a5592c2bea121993e5f47d420c1",
+        "size": 6147
+      }
+    ],
+    "receipts_before": [
+      {
+        "mtime_ns": 1791717660249740436,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_016/trajectory.h5",
+        "sha256": "07314cb18ebf5ef9838b5139349e994d5dcb967217840c02f0c78abab7df02a2",
+        "size": 126024699
+      },
+      {
+        "mtime_ns": 1791717640875642228,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_016/simulator.xml",
+        "sha256": "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542",
+        "size": 66723
+      },
+      {
+        "mtime_ns": 1791717638957285829,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_016/metadata.json",
+        "sha256": "a56e198ed4898cae9d72a9556a72e476d4b3f0505e88f0cc2caae380f278ef57",
+        "size": 113972
+      },
+      {
+        "mtime_ns": 1791717640973312610,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_016/simulator_index.json",
+        "sha256": "a286f0b3b70eb763374a8d8063b03846b49d2a5592c2bea121993e5f47d420c1",
+        "size": 6147
+      }
+    ],
+    "run_id": "libero_long_openvla_oft_task01_seed1016_trial016_cfafd9ddc3db"
+  },
+  {
+    "errors": [],
+    "frames": 251,
+    "mapping_registration": "Identical XML/native count/body names, entity roots/IDs and every-frame transforms checked; only run-ID input registration extended.",
+    "partition": "cross_task_same_scene",
+    "receipts_after": [
+      {
+        "mtime_ns": 1791717681231337179,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_017/trajectory.h5",
+        "sha256": "13835556e5eeb5654d348b106dec5b0fd93c47d7ccb3359dacd49dc1b402e558",
+        "size": 122785832
+      },
+      {
+        "mtime_ns": 1791717662444045278,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_017/simulator.xml",
+        "sha256": "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542",
+        "size": 66723
+      },
+      {
+        "mtime_ns": 1791717660464799775,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_017/metadata.json",
+        "sha256": "e6ab481132078f0d4c940e823204dccb4b8a44f024a05ee437aab0c3f4cc2e99",
+        "size": 113972
+      },
+      {
+        "mtime_ns": 1791717662541720011,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_017/simulator_index.json",
+        "sha256": "a286f0b3b70eb763374a8d8063b03846b49d2a5592c2bea121993e5f47d420c1",
+        "size": 6147
+      }
+    ],
+    "receipts_before": [
+      {
+        "mtime_ns": 1791717681231337179,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_017/trajectory.h5",
+        "sha256": "13835556e5eeb5654d348b106dec5b0fd93c47d7ccb3359dacd49dc1b402e558",
+        "size": 122785832
+      },
+      {
+        "mtime_ns": 1791717662444045278,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_017/simulator.xml",
+        "sha256": "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542",
+        "size": 66723
+      },
+      {
+        "mtime_ns": 1791717660464799775,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_017/metadata.json",
+        "sha256": "e6ab481132078f0d4c940e823204dccb4b8a44f024a05ee437aab0c3f4cc2e99",
+        "size": 113972
+      },
+      {
+        "mtime_ns": 1791717662541720011,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_017/simulator_index.json",
+        "sha256": "a286f0b3b70eb763374a8d8063b03846b49d2a5592c2bea121993e5f47d420c1",
+        "size": 6147
+      }
+    ],
+    "run_id": "libero_long_openvla_oft_task01_seed1017_trial017_cfafd9ddc3db"
+  },
+  {
+    "errors": [],
+    "frames": 251,
+    "mapping_registration": "Identical XML/native count/body names, entity roots/IDs and every-frame transforms checked; only run-ID input registration extended.",
+    "partition": "cross_task_same_scene",
+    "receipts_after": [
+      {
+        "mtime_ns": 1791717702501929749,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_018/trajectory.h5",
+        "sha256": "272204ee9217458c48fb3e14e03e3534c7f2c264979475745f50391e7bf54b31",
+        "size": 122633370
+      },
+      {
+        "mtime_ns": 1791717683445473728,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_018/simulator.xml",
+        "sha256": "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542",
+        "size": 66723
+      },
+      {
+        "mtime_ns": 1791717681442834196,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_018/metadata.json",
+        "sha256": "7579a955f297db4e003fc223e45d4b4b6eac3cb316960692250391acbfc8df9e",
+        "size": 113972
+      },
+      {
+        "mtime_ns": 1791717683543619844,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_018/simulator_index.json",
+        "sha256": "a286f0b3b70eb763374a8d8063b03846b49d2a5592c2bea121993e5f47d420c1",
+        "size": 6147
+      }
+    ],
+    "receipts_before": [
+      {
+        "mtime_ns": 1791717702501929749,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_018/trajectory.h5",
+        "sha256": "272204ee9217458c48fb3e14e03e3534c7f2c264979475745f50391e7bf54b31",
+        "size": 122633370
+      },
+      {
+        "mtime_ns": 1791717683445473728,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_018/simulator.xml",
+        "sha256": "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542",
+        "size": 66723
+      },
+      {
+        "mtime_ns": 1791717681442834196,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_018/metadata.json",
+        "sha256": "7579a955f297db4e003fc223e45d4b4b6eac3cb316960692250391acbfc8df9e",
+        "size": 113972
+      },
+      {
+        "mtime_ns": 1791717683543619844,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_018/simulator_index.json",
+        "sha256": "a286f0b3b70eb763374a8d8063b03846b49d2a5592c2bea121993e5f47d420c1",
+        "size": 6147
+      }
+    ],
+    "run_id": "libero_long_openvla_oft_task01_seed1018_trial018_cfafd9ddc3db"
+  },
+  {
+    "errors": [],
+    "frames": 260,
+    "mapping_registration": "Identical XML/native count/body names, entity roots/IDs and every-frame transforms checked; only run-ID input registration extended.",
+    "partition": "cross_task_same_scene",
+    "receipts_after": [
+      {
+        "mtime_ns": 1791717724332514307,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_019/trajectory.h5",
+        "sha256": "3f18f7bed4e6e19af72d48d0389a47d64bc0c8eac9f1f494fba2e44e3bfcf696",
+        "size": 127694780
+      },
+      {
+        "mtime_ns": 1791717704683745506,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_019/simulator.xml",
+        "sha256": "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542",
+        "size": 66723
+      },
+      {
+        "mtime_ns": 1791717702711437598,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_019/metadata.json",
+        "sha256": "514a72bbfcb80847c2812501c7cea2408cfe2748a2e6f2ebbf31f7644d2bf757",
+        "size": 113972
+      },
+      {
+        "mtime_ns": 1791717704781523941,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_019/simulator_index.json",
+        "sha256": "a286f0b3b70eb763374a8d8063b03846b49d2a5592c2bea121993e5f47d420c1",
+        "size": 6147
+      }
+    ],
+    "receipts_before": [
+      {
+        "mtime_ns": 1791717724332514307,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_019/trajectory.h5",
+        "sha256": "3f18f7bed4e6e19af72d48d0389a47d64bc0c8eac9f1f494fba2e44e3bfcf696",
+        "size": 127694780
+      },
+      {
+        "mtime_ns": 1791717704683745506,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_019/simulator.xml",
+        "sha256": "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542",
+        "size": 66723
+      },
+      {
+        "mtime_ns": 1791717702711437598,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_019/metadata.json",
+        "sha256": "514a72bbfcb80847c2812501c7cea2408cfe2748a2e6f2ebbf31f7644d2bf757",
+        "size": 113972
+      },
+      {
+        "mtime_ns": 1791717704781523941,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_019/simulator_index.json",
+        "sha256": "a286f0b3b70eb763374a8d8063b03846b49d2a5592c2bea121993e5f47d420c1",
+        "size": 6147
+      }
+    ],
+    "run_id": "libero_long_openvla_oft_task01_seed1019_trial019_cfafd9ddc3db"
+  },
+  {
+    "errors": [],
+    "frames": 259,
+    "mapping_registration": "Identical XML/native count/body names, entity roots/IDs and every-frame transforms checked; only run-ID input registration extended.",
+    "partition": "cross_task_same_scene",
+    "receipts_after": [
+      {
+        "mtime_ns": 1791717746499092469,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_020/trajectory.h5",
+        "sha256": "b92a2eae5d560cb41bd138d9e7504bd62266342b721b435d6d49468fecef3f89",
+        "size": 126811011
+      },
+      {
+        "mtime_ns": 1791717726535896363,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_020/simulator.xml",
+        "sha256": "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542",
+        "size": 66723
+      },
+      {
+        "mtime_ns": 1791717724552364273,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_020/metadata.json",
+        "sha256": "8ccd7f7ae0027e705ef04ee05ffce14f9e0b8b05d98561fa9e1e249888f4c71c",
+        "size": 113972
+      },
+      {
+        "mtime_ns": 1791717726633488494,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_020/simulator_index.json",
+        "sha256": "a286f0b3b70eb763374a8d8063b03846b49d2a5592c2bea121993e5f47d420c1",
+        "size": 6147
+      }
+    ],
+    "receipts_before": [
+      {
+        "mtime_ns": 1791717746499092469,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_020/trajectory.h5",
+        "sha256": "b92a2eae5d560cb41bd138d9e7504bd62266342b721b435d6d49468fecef3f89",
+        "size": 126811011
+      },
+      {
+        "mtime_ns": 1791717726535896363,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_020/simulator.xml",
+        "sha256": "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542",
+        "size": 66723
+      },
+      {
+        "mtime_ns": 1791717724552364273,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_020/metadata.json",
+        "sha256": "8ccd7f7ae0027e705ef04ee05ffce14f9e0b8b05d98561fa9e1e249888f4c71c",
+        "size": 113972
+      },
+      {
+        "mtime_ns": 1791717726633488494,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_020/simulator_index.json",
+        "sha256": "a286f0b3b70eb763374a8d8063b03846b49d2a5592c2bea121993e5f47d420c1",
+        "size": 6147
+      }
+    ],
+    "run_id": "libero_long_openvla_oft_task01_seed1020_trial020_cfafd9ddc3db"
+  },
+  {
+    "errors": [],
+    "frames": 258,
+    "mapping_registration": "Identical XML/native count/body names, entity roots/IDs and every-frame transforms checked; only run-ID input registration extended.",
+    "partition": "cross_task_same_scene",
+    "receipts_after": [
+      {
+        "mtime_ns": 1791717768536673086,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_021/trajectory.h5",
+        "sha256": "c5efc7489ecb964854b96ffa5b05b75b24825e4cf896bbbcd2a0fb7e88fc8559",
+        "size": 126096814
+      },
+      {
+        "mtime_ns": 1791717748720791883,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_021/simulator.xml",
+        "sha256": "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542",
+        "size": 66723
+      },
+      {
+        "mtime_ns": 1791717746716081068,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_021/metadata.json",
+        "sha256": "73a7f4ba22767763d29ba5fa25ef4179ea73e43d76077c18328ee95e8ead8dc7",
+        "size": 113972
+      },
+      {
+        "mtime_ns": 1791717748822908765,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_021/simulator_index.json",
+        "sha256": "a286f0b3b70eb763374a8d8063b03846b49d2a5592c2bea121993e5f47d420c1",
+        "size": 6147
+      }
+    ],
+    "receipts_before": [
+      {
+        "mtime_ns": 1791717768536673086,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_021/trajectory.h5",
+        "sha256": "c5efc7489ecb964854b96ffa5b05b75b24825e4cf896bbbcd2a0fb7e88fc8559",
+        "size": 126096814
+      },
+      {
+        "mtime_ns": 1791717748720791883,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_021/simulator.xml",
+        "sha256": "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542",
+        "size": 66723
+      },
+      {
+        "mtime_ns": 1791717746716081068,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_021/metadata.json",
+        "sha256": "73a7f4ba22767763d29ba5fa25ef4179ea73e43d76077c18328ee95e8ead8dc7",
+        "size": 113972
+      },
+      {
+        "mtime_ns": 1791717748822908765,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_021/simulator_index.json",
+        "sha256": "a286f0b3b70eb763374a8d8063b03846b49d2a5592c2bea121993e5f47d420c1",
+        "size": 6147
+      }
+    ],
+    "run_id": "libero_long_openvla_oft_task01_seed1021_trial021_cfafd9ddc3db"
+  },
+  {
+    "errors": [],
+    "frames": 259,
+    "mapping_registration": "Identical XML/native count/body names, entity roots/IDs and every-frame transforms checked; only run-ID input registration extended.",
+    "partition": "cross_task_same_scene",
+    "receipts_after": [
+      {
+        "mtime_ns": 1791717790208260669,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_022/trajectory.h5",
+        "sha256": "dd7b23d507bf50299e70e79fdf9b07f828f2e00e39891b856ea7a12a29b977d6",
+        "size": 126224925
+      },
+      {
+        "mtime_ns": 1791717770682448722,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_022/simulator.xml",
+        "sha256": "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542",
+        "size": 66723
+      },
+      {
+        "mtime_ns": 1791717768754575826,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_022/metadata.json",
+        "sha256": "c097800df0edaf3b876d8d77bf14ad07a73163acd97cd4786472b56b656a13b2",
+        "size": 113972
+      },
+      {
+        "mtime_ns": 1791717770780417054,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_022/simulator_index.json",
+        "sha256": "a286f0b3b70eb763374a8d8063b03846b49d2a5592c2bea121993e5f47d420c1",
+        "size": 6147
+      }
+    ],
+    "receipts_before": [
+      {
+        "mtime_ns": 1791717790208260669,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_022/trajectory.h5",
+        "sha256": "dd7b23d507bf50299e70e79fdf9b07f828f2e00e39891b856ea7a12a29b977d6",
+        "size": 126224925
+      },
+      {
+        "mtime_ns": 1791717770682448722,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_022/simulator.xml",
+        "sha256": "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542",
+        "size": 66723
+      },
+      {
+        "mtime_ns": 1791717768754575826,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_022/metadata.json",
+        "sha256": "c097800df0edaf3b876d8d77bf14ad07a73163acd97cd4786472b56b656a13b2",
+        "size": 113972
+      },
+      {
+        "mtime_ns": 1791717770780417054,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_022/simulator_index.json",
+        "sha256": "a286f0b3b70eb763374a8d8063b03846b49d2a5592c2bea121993e5f47d420c1",
+        "size": 6147
+      }
+    ],
+    "run_id": "libero_long_openvla_oft_task01_seed1022_trial022_cfafd9ddc3db"
+  },
+  {
+    "errors": [],
+    "frames": 248,
+    "mapping_registration": "Identical XML/native count/body names, entity roots/IDs and every-frame transforms checked; only run-ID input registration extended.",
+    "partition": "cross_task_same_scene",
+    "receipts_after": [
+      {
+        "mtime_ns": 1791717811148862161,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_023/trajectory.h5",
+        "sha256": "17a5ccb3e68794b5fdc1f4088da757cb978f78047c9254c42ab57e171d70157b",
+        "size": 122950428
+      },
+      {
+        "mtime_ns": 1791717792326348447,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_023/simulator.xml",
+        "sha256": "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542",
+        "size": 66723
+      },
+      {
+        "mtime_ns": 1791717790425261971,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_023/metadata.json",
+        "sha256": "47a6edaca2da731c7076d6da499963e52c81301d89c6d1e0617d40e606ce2454",
+        "size": 113972
+      },
+      {
+        "mtime_ns": 1791717792424403554,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_023/simulator_index.json",
+        "sha256": "a286f0b3b70eb763374a8d8063b03846b49d2a5592c2bea121993e5f47d420c1",
+        "size": 6147
+      }
+    ],
+    "receipts_before": [
+      {
+        "mtime_ns": 1791717811148862161,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_023/trajectory.h5",
+        "sha256": "17a5ccb3e68794b5fdc1f4088da757cb978f78047c9254c42ab57e171d70157b",
+        "size": 122950428
+      },
+      {
+        "mtime_ns": 1791717792326348447,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_023/simulator.xml",
+        "sha256": "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542",
+        "size": 66723
+      },
+      {
+        "mtime_ns": 1791717790425261971,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_023/metadata.json",
+        "sha256": "47a6edaca2da731c7076d6da499963e52c81301d89c6d1e0617d40e606ce2454",
+        "size": 113972
+      },
+      {
+        "mtime_ns": 1791717792424403554,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_023/simulator_index.json",
+        "sha256": "a286f0b3b70eb763374a8d8063b03846b49d2a5592c2bea121993e5f47d420c1",
+        "size": 6147
+      }
+    ],
+    "run_id": "libero_long_openvla_oft_task01_seed1023_trial023_cfafd9ddc3db"
+  },
+  {
+    "errors": [],
+    "frames": 252,
+    "mapping_registration": "Identical XML/native count/body names, entity roots/IDs and every-frame transforms checked; only run-ID input registration extended.",
+    "partition": "cross_task_same_scene",
+    "receipts_after": [
+      {
+        "mtime_ns": 1791717832359458517,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_024/trajectory.h5",
+        "sha256": "221e6ab3b71d40938768302e903f4dba88003cce2ed5e5b89b14d90a91e8880e",
+        "size": 123748676
+      },
+      {
+        "mtime_ns": 1791717813259082591,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_024/simulator.xml",
+        "sha256": "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542",
+        "size": 66723
+      },
+      {
+        "mtime_ns": 1791717811359058074,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_024/metadata.json",
+        "sha256": "ea9f4e5c061cc14de2bb8e78494eac51d8130097bfbc295fc7375f20fdaaf095",
+        "size": 113972
+      },
+      {
+        "mtime_ns": 1791717813357153625,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_024/simulator_index.json",
+        "sha256": "a286f0b3b70eb763374a8d8063b03846b49d2a5592c2bea121993e5f47d420c1",
+        "size": 6147
+      }
+    ],
+    "receipts_before": [
+      {
+        "mtime_ns": 1791717832359458517,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_024/trajectory.h5",
+        "sha256": "221e6ab3b71d40938768302e903f4dba88003cce2ed5e5b89b14d90a91e8880e",
+        "size": 123748676
+      },
+      {
+        "mtime_ns": 1791717813259082591,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_024/simulator.xml",
+        "sha256": "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542",
+        "size": 66723
+      },
+      {
+        "mtime_ns": 1791717811359058074,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_024/metadata.json",
+        "sha256": "ea9f4e5c061cc14de2bb8e78494eac51d8130097bfbc295fc7375f20fdaaf095",
+        "size": 113972
+      },
+      {
+        "mtime_ns": 1791717813357153625,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_024/simulator_index.json",
+        "sha256": "a286f0b3b70eb763374a8d8063b03846b49d2a5592c2bea121993e5f47d420c1",
+        "size": 6147
+      }
+    ],
+    "run_id": "libero_long_openvla_oft_task01_seed1024_trial024_cfafd9ddc3db"
+  },
+  {
+    "errors": [],
+    "frames": 261,
+    "mapping_registration": "Identical XML/native count/body names, entity roots/IDs and every-frame transforms checked; only run-ID input registration extended.",
+    "partition": "cross_task_same_scene",
+    "receipts_after": [
+      {
+        "mtime_ns": 1791717854279041380,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_025/trajectory.h5",
+        "sha256": "10b71e9f8ca517371a40d129812a72010d40ff152215094a59cb3a6e5a5631ab",
+        "size": 128055354
+      },
+      {
+        "mtime_ns": 1791717834503488163,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_025/simulator.xml",
+        "sha256": "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542",
+        "size": 66723
+      },
+      {
+        "mtime_ns": 1791717832572195977,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_025/metadata.json",
+        "sha256": "eaeba9d08ae3a4ef4ff02675ff8173d7659631b0691fea9aedaf355f04796f64",
+        "size": 113972
+      },
+      {
+        "mtime_ns": 1791717834601453879,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_025/simulator_index.json",
+        "sha256": "a286f0b3b70eb763374a8d8063b03846b49d2a5592c2bea121993e5f47d420c1",
+        "size": 6147
+      }
+    ],
+    "receipts_before": [
+      {
+        "mtime_ns": 1791717854279041380,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_025/trajectory.h5",
+        "sha256": "10b71e9f8ca517371a40d129812a72010d40ff152215094a59cb3a6e5a5631ab",
+        "size": 128055354
+      },
+      {
+        "mtime_ns": 1791717834503488163,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_025/simulator.xml",
+        "sha256": "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542",
+        "size": 66723
+      },
+      {
+        "mtime_ns": 1791717832572195977,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_025/metadata.json",
+        "sha256": "eaeba9d08ae3a4ef4ff02675ff8173d7659631b0691fea9aedaf355f04796f64",
+        "size": 113972
+      },
+      {
+        "mtime_ns": 1791717834601453879,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_025/simulator_index.json",
+        "sha256": "a286f0b3b70eb763374a8d8063b03846b49d2a5592c2bea121993e5f47d420c1",
+        "size": 6147
+      }
+    ],
+    "run_id": "libero_long_openvla_oft_task01_seed1025_trial025_cfafd9ddc3db"
+  },
+  {
+    "errors": [],
+    "frames": 237,
+    "mapping_registration": "Identical XML/native count/body names, entity roots/IDs and every-frame transforms checked; only run-ID input registration extended.",
+    "partition": "cross_task_same_scene",
+    "receipts_after": [
+      {
+        "mtime_ns": 1791717874336659297,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_026/trajectory.h5",
+        "sha256": "a44281e5784776af821d20c31edc551a8379ee6fb058aac5b7325eabafbee456",
+        "size": 116437677
+      },
+      {
+        "mtime_ns": 1791717856430111959,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_026/simulator.xml",
+        "sha256": "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542",
+        "size": 66723
+      },
+      {
+        "mtime_ns": 1791717854500455461,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_026/metadata.json",
+        "sha256": "9544ff54e5d27c1c55bf6d93a1cf0e7e19cfe415dc7263342d97aaf3a03b576f",
+        "size": 113972
+      },
+      {
+        "mtime_ns": 1791717856527739170,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_026/simulator_index.json",
+        "sha256": "a286f0b3b70eb763374a8d8063b03846b49d2a5592c2bea121993e5f47d420c1",
+        "size": 6147
+      }
+    ],
+    "receipts_before": [
+      {
+        "mtime_ns": 1791717874336659297,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_026/trajectory.h5",
+        "sha256": "a44281e5784776af821d20c31edc551a8379ee6fb058aac5b7325eabafbee456",
+        "size": 116437677
+      },
+      {
+        "mtime_ns": 1791717856430111959,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_026/simulator.xml",
+        "sha256": "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542",
+        "size": 66723
+      },
+      {
+        "mtime_ns": 1791717854500455461,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_026/metadata.json",
+        "sha256": "9544ff54e5d27c1c55bf6d93a1cf0e7e19cfe415dc7263342d97aaf3a03b576f",
+        "size": 113972
+      },
+      {
+        "mtime_ns": 1791717856527739170,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_026/simulator_index.json",
+        "sha256": "a286f0b3b70eb763374a8d8063b03846b49d2a5592c2bea121993e5f47d420c1",
+        "size": 6147
+      }
+    ],
+    "run_id": "libero_long_openvla_oft_task01_seed1026_trial026_cfafd9ddc3db"
+  },
+  {
+    "errors": [],
+    "frames": 245,
+    "mapping_registration": "Identical XML/native count/body names, entity roots/IDs and every-frame transforms checked; only run-ID input registration extended.",
+    "partition": "cross_task_same_scene",
+    "receipts_after": [
+      {
+        "mtime_ns": 1791717895078260806,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_027/trajectory.h5",
+        "sha256": "796517ef18e83a50b0046bb73edd25b6c6c29d380da27438380bb29cd9833c3c",
+        "size": 120096599
+      },
+      {
+        "mtime_ns": 1791717876346823988,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_027/simulator.xml",
+        "sha256": "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542",
+        "size": 66723
+      },
+      {
+        "mtime_ns": 1791717874536812162,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_027/metadata.json",
+        "sha256": "d2b832236cdd5bb312e43ff9822570142dbbbb7a7c6f37b653ddb6295078e229",
+        "size": 113972
+      },
+      {
+        "mtime_ns": 1791717876444769470,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_027/simulator_index.json",
+        "sha256": "a286f0b3b70eb763374a8d8063b03846b49d2a5592c2bea121993e5f47d420c1",
+        "size": 6147
+      }
+    ],
+    "receipts_before": [
+      {
+        "mtime_ns": 1791717895078260806,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_027/trajectory.h5",
+        "sha256": "796517ef18e83a50b0046bb73edd25b6c6c29d380da27438380bb29cd9833c3c",
+        "size": 120096599
+      },
+      {
+        "mtime_ns": 1791717876346823988,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_027/simulator.xml",
+        "sha256": "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542",
+        "size": 66723
+      },
+      {
+        "mtime_ns": 1791717874536812162,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_027/metadata.json",
+        "sha256": "d2b832236cdd5bb312e43ff9822570142dbbbb7a7c6f37b653ddb6295078e229",
+        "size": 113972
+      },
+      {
+        "mtime_ns": 1791717876444769470,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_027/simulator_index.json",
+        "sha256": "a286f0b3b70eb763374a8d8063b03846b49d2a5592c2bea121993e5f47d420c1",
+        "size": 6147
+      }
+    ],
+    "run_id": "libero_long_openvla_oft_task01_seed1027_trial027_cfafd9ddc3db"
+  },
+  {
+    "errors": [],
+    "frames": 252,
+    "mapping_registration": "Identical XML/native count/body names, entity roots/IDs and every-frame transforms checked; only run-ID input registration extended.",
+    "partition": "cross_task_same_scene",
+    "receipts_after": [
+      {
+        "mtime_ns": 1791717916062857646,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_028/trajectory.h5",
+        "sha256": "0e27f1c1f7853b4522af75300c8335aad931926d16f3cf5937172d6dd04ad0c3",
+        "size": 124332042
+      },
+      {
+        "mtime_ns": 1791717897103713785,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_028/simulator.xml",
+        "sha256": "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542",
+        "size": 66723
+      },
+      {
+        "mtime_ns": 1791717895286546263,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_028/metadata.json",
+        "sha256": "c4476e1c6480a799291049a73166e3581438eab1c619cfb984aa8d2edd9c46a5",
+        "size": 113972
+      },
+      {
+        "mtime_ns": 1791717897201699437,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_028/simulator_index.json",
+        "sha256": "a286f0b3b70eb763374a8d8063b03846b49d2a5592c2bea121993e5f47d420c1",
+        "size": 6147
+      }
+    ],
+    "receipts_before": [
+      {
+        "mtime_ns": 1791717916062857646,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_028/trajectory.h5",
+        "sha256": "0e27f1c1f7853b4522af75300c8335aad931926d16f3cf5937172d6dd04ad0c3",
+        "size": 124332042
+      },
+      {
+        "mtime_ns": 1791717897103713785,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_028/simulator.xml",
+        "sha256": "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542",
+        "size": 66723
+      },
+      {
+        "mtime_ns": 1791717895286546263,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_028/metadata.json",
+        "sha256": "c4476e1c6480a799291049a73166e3581438eab1c619cfb984aa8d2edd9c46a5",
+        "size": 113972
+      },
+      {
+        "mtime_ns": 1791717897201699437,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_028/simulator_index.json",
+        "sha256": "a286f0b3b70eb763374a8d8063b03846b49d2a5592c2bea121993e5f47d420c1",
+        "size": 6147
+      }
+    ],
+    "run_id": "libero_long_openvla_oft_task01_seed1028_trial028_cfafd9ddc3db"
+  },
+  {
+    "errors": [],
+    "frames": 254,
+    "mapping_registration": "Identical XML/native count/body names, entity roots/IDs and every-frame transforms checked; only run-ID input registration extended.",
+    "partition": "cross_task_same_scene",
+    "receipts_after": [
+      {
+        "mtime_ns": 1791717937554444747,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_029/trajectory.h5",
+        "sha256": "122e560e4112bf2d1d7d50a34f2d4680708d22e7302c7ec5ff67517784260c9d",
+        "size": 124220319
+      },
+      {
+        "mtime_ns": 1791717918126806343,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_029/simulator.xml",
+        "sha256": "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542",
+        "size": 66723
+      },
+      {
+        "mtime_ns": 1791717916276846635,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_029/metadata.json",
+        "sha256": "5bbcfb466a11598d5d5f2ce5d71f2f9a1f4b2c0960d6b2e806011ced420061ea",
+        "size": 113972
+      },
+      {
+        "mtime_ns": 1791717918224909705,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_029/simulator_index.json",
+        "sha256": "a286f0b3b70eb763374a8d8063b03846b49d2a5592c2bea121993e5f47d420c1",
+        "size": 6147
+      }
+    ],
+    "receipts_before": [
+      {
+        "mtime_ns": 1791717937554444747,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_029/trajectory.h5",
+        "sha256": "122e560e4112bf2d1d7d50a34f2d4680708d22e7302c7ec5ff67517784260c9d",
+        "size": 124220319
+      },
+      {
+        "mtime_ns": 1791717918126806343,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_029/simulator.xml",
+        "sha256": "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542",
+        "size": 66723
+      },
+      {
+        "mtime_ns": 1791717916276846635,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_029/metadata.json",
+        "sha256": "5bbcfb466a11598d5d5f2ce5d71f2f9a1f4b2c0960d6b2e806011ced420061ea",
+        "size": 113972
+      },
+      {
+        "mtime_ns": 1791717918224909705,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_029/simulator_index.json",
+        "sha256": "a286f0b3b70eb763374a8d8063b03846b49d2a5592c2bea121993e5f47d420c1",
+        "size": 6147
+      }
+    ],
+    "run_id": "libero_long_openvla_oft_task01_seed1029_trial029_cfafd9ddc3db"
+  },
+  {
+    "errors": [],
+    "frames": 271,
+    "mapping_registration": "Identical XML/native count/body names, entity roots/IDs and every-frame transforms checked; only run-ID input registration extended.",
+    "partition": "cross_task_same_scene",
+    "receipts_after": [
+      {
+        "mtime_ns": 1791717960263008466,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_030/trajectory.h5",
+        "sha256": "0c44e24f88693bc80649a0a0fb52bc23a40d0a54748910248993026d1ac4aa06",
+        "size": 133786520
+      },
+      {
+        "mtime_ns": 1791717939757670454,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_030/simulator.xml",
+        "sha256": "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542",
+        "size": 66723
+      },
+      {
+        "mtime_ns": 1791717937768760760,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_030/metadata.json",
+        "sha256": "a402258719d932f724e3527dfd85bc245aef7d1c759c5943664f9e6a767ea047",
+        "size": 113972
+      },
+      {
+        "mtime_ns": 1791717939856390662,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_030/simulator_index.json",
+        "sha256": "a286f0b3b70eb763374a8d8063b03846b49d2a5592c2bea121993e5f47d420c1",
+        "size": 6147
+      }
+    ],
+    "receipts_before": [
+      {
+        "mtime_ns": 1791717960263008466,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_030/trajectory.h5",
+        "sha256": "0c44e24f88693bc80649a0a0fb52bc23a40d0a54748910248993026d1ac4aa06",
+        "size": 133786520
+      },
+      {
+        "mtime_ns": 1791717939757670454,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_030/simulator.xml",
+        "sha256": "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542",
+        "size": 66723
+      },
+      {
+        "mtime_ns": 1791717937768760760,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_030/metadata.json",
+        "sha256": "a402258719d932f724e3527dfd85bc245aef7d1c759c5943664f9e6a767ea047",
+        "size": 113972
+      },
+      {
+        "mtime_ns": 1791717939856390662,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_030/simulator_index.json",
+        "sha256": "a286f0b3b70eb763374a8d8063b03846b49d2a5592c2bea121993e5f47d420c1",
+        "size": 6147
+      }
+    ],
+    "run_id": "libero_long_openvla_oft_task01_seed1030_trial030_cfafd9ddc3db"
+  },
+  {
+    "errors": [],
+    "frames": 255,
+    "mapping_registration": "Identical XML/native count/body names, entity roots/IDs and every-frame transforms checked; only run-ID input registration extended.",
+    "partition": "cross_task_same_scene",
+    "receipts_after": [
+      {
+        "mtime_ns": 1791717981703596545,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_031/trajectory.h5",
+        "sha256": "758a001fe94e8695dda37f2c649f8b48dd5e7da2f2a9ab27c9a06eee2a0b75ce",
+        "size": 124474362
+      },
+      {
+        "mtime_ns": 1791717962430864327,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_031/simulator.xml",
+        "sha256": "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542",
+        "size": 66723
+      },
+      {
+        "mtime_ns": 1791717960490786760,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_031/metadata.json",
+        "sha256": "7b719cb0852ad6dfbac87b4c3394989f8c33e8b3aa83dc0e21b75a1b036a564d",
+        "size": 113972
+      },
+      {
+        "mtime_ns": 1791717962530658486,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_031/simulator_index.json",
+        "sha256": "a286f0b3b70eb763374a8d8063b03846b49d2a5592c2bea121993e5f47d420c1",
+        "size": 6147
+      }
+    ],
+    "receipts_before": [
+      {
+        "mtime_ns": 1791717981703596545,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_031/trajectory.h5",
+        "sha256": "758a001fe94e8695dda37f2c649f8b48dd5e7da2f2a9ab27c9a06eee2a0b75ce",
+        "size": 124474362
+      },
+      {
+        "mtime_ns": 1791717962430864327,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_031/simulator.xml",
+        "sha256": "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542",
+        "size": 66723
+      },
+      {
+        "mtime_ns": 1791717960490786760,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_031/metadata.json",
+        "sha256": "7b719cb0852ad6dfbac87b4c3394989f8c33e8b3aa83dc0e21b75a1b036a564d",
+        "size": 113972
+      },
+      {
+        "mtime_ns": 1791717962530658486,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_031/simulator_index.json",
+        "sha256": "a286f0b3b70eb763374a8d8063b03846b49d2a5592c2bea121993e5f47d420c1",
+        "size": 6147
+      }
+    ],
+    "run_id": "libero_long_openvla_oft_task01_seed1031_trial031_cfafd9ddc3db"
+  },
+  {
+    "errors": [],
+    "frames": 237,
+    "mapping_registration": "Identical XML/native count/body names, entity roots/IDs and every-frame transforms checked; only run-ID input registration extended.",
+    "partition": "cross_task_same_scene",
+    "receipts_after": [
+      {
+        "mtime_ns": 1791718001890208717,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_032/trajectory.h5",
+        "sha256": "d8be0d6735782b3e4f56898f42d488e15585a943611dcbd24731b4cb92e67ddb",
+        "size": 116124697
+      },
+      {
+        "mtime_ns": 1791717983887272484,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_032/simulator.xml",
+        "sha256": "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542",
+        "size": 66723
+      },
+      {
+        "mtime_ns": 1791717981917806248,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_032/metadata.json",
+        "sha256": "af352e7ab7ebe8e4b54a76c35da659b2ed4a8bc9c830f2ddbee2fb432eceefa9",
+        "size": 113972
+      },
+      {
+        "mtime_ns": 1791717983985801032,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_032/simulator_index.json",
+        "sha256": "a286f0b3b70eb763374a8d8063b03846b49d2a5592c2bea121993e5f47d420c1",
+        "size": 6147
+      }
+    ],
+    "receipts_before": [
+      {
+        "mtime_ns": 1791718001890208717,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_032/trajectory.h5",
+        "sha256": "d8be0d6735782b3e4f56898f42d488e15585a943611dcbd24731b4cb92e67ddb",
+        "size": 116124697
+      },
+      {
+        "mtime_ns": 1791717983887272484,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_032/simulator.xml",
+        "sha256": "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542",
+        "size": 66723
+      },
+      {
+        "mtime_ns": 1791717981917806248,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_032/metadata.json",
+        "sha256": "af352e7ab7ebe8e4b54a76c35da659b2ed4a8bc9c830f2ddbee2fb432eceefa9",
+        "size": 113972
+      },
+      {
+        "mtime_ns": 1791717983985801032,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_032/simulator_index.json",
+        "sha256": "a286f0b3b70eb763374a8d8063b03846b49d2a5592c2bea121993e5f47d420c1",
+        "size": 6147
+      }
+    ],
+    "run_id": "libero_long_openvla_oft_task01_seed1032_trial032_cfafd9ddc3db"
+  },
+  {
+    "errors": [],
+    "frames": 266,
+    "mapping_registration": "Identical XML/native count/body names, entity roots/IDs and every-frame transforms checked; only run-ID input registration extended.",
+    "partition": "cross_task_same_scene",
+    "receipts_after": [
+      {
+        "mtime_ns": 1791718024240779314,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_033/trajectory.h5",
+        "sha256": "c121f0c708f6afd3ceeae3044b5c6f5c15710d6e6624e47d9d5f27ef2323f07c",
+        "size": 129246196
+      },
+      {
+        "mtime_ns": 1791718004016952121,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_033/simulator.xml",
+        "sha256": "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542",
+        "size": 66723
+      },
+      {
+        "mtime_ns": 1791718002091142274,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_033/metadata.json",
+        "sha256": "0bb2da16ff232979695abfa71989adb33304f8a9fd871fc80104cd615077bab8",
+        "size": 113972
+      },
+      {
+        "mtime_ns": 1791718004117683275,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_033/simulator_index.json",
+        "sha256": "a286f0b3b70eb763374a8d8063b03846b49d2a5592c2bea121993e5f47d420c1",
+        "size": 6147
+      }
+    ],
+    "receipts_before": [
+      {
+        "mtime_ns": 1791718024240779314,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_033/trajectory.h5",
+        "sha256": "c121f0c708f6afd3ceeae3044b5c6f5c15710d6e6624e47d9d5f27ef2323f07c",
+        "size": 129246196
+      },
+      {
+        "mtime_ns": 1791718004016952121,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_033/simulator.xml",
+        "sha256": "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542",
+        "size": 66723
+      },
+      {
+        "mtime_ns": 1791718002091142274,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_033/metadata.json",
+        "sha256": "0bb2da16ff232979695abfa71989adb33304f8a9fd871fc80104cd615077bab8",
+        "size": 113972
+      },
+      {
+        "mtime_ns": 1791718004117683275,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_033/simulator_index.json",
+        "sha256": "a286f0b3b70eb763374a8d8063b03846b49d2a5592c2bea121993e5f47d420c1",
+        "size": 6147
+      }
+    ],
+    "run_id": "libero_long_openvla_oft_task01_seed1033_trial033_cfafd9ddc3db"
+  },
+  {
+    "errors": [],
+    "frames": 252,
+    "mapping_registration": "Identical XML/native count/body names, entity roots/IDs and every-frame transforms checked; only run-ID input registration extended.",
+    "partition": "cross_task_same_scene",
+    "receipts_after": [
+      {
+        "mtime_ns": 1791718045625368470,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_034/trajectory.h5",
+        "sha256": "f7fc52aba0be5b6dee37a3aa4547b06d793a8c51ddac2cd2823d5935839f130e",
+        "size": 123693042
+      },
+      {
+        "mtime_ns": 1791718026374628612,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_034/simulator.xml",
+        "sha256": "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542",
+        "size": 66723
+      },
+      {
+        "mtime_ns": 1791718024461317850,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_034/metadata.json",
+        "sha256": "d63461431bcdd2fb440e96247c8627cfc5d4c77c4c1dc16371dfcd024958877f",
+        "size": 113972
+      },
+      {
+        "mtime_ns": 1791718026472638907,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_034/simulator_index.json",
+        "sha256": "a286f0b3b70eb763374a8d8063b03846b49d2a5592c2bea121993e5f47d420c1",
+        "size": 6147
+      }
+    ],
+    "receipts_before": [
+      {
+        "mtime_ns": 1791718045625368470,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_034/trajectory.h5",
+        "sha256": "f7fc52aba0be5b6dee37a3aa4547b06d793a8c51ddac2cd2823d5935839f130e",
+        "size": 123693042
+      },
+      {
+        "mtime_ns": 1791718026374628612,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_034/simulator.xml",
+        "sha256": "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542",
+        "size": 66723
+      },
+      {
+        "mtime_ns": 1791718024461317850,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_034/metadata.json",
+        "sha256": "d63461431bcdd2fb440e96247c8627cfc5d4c77c4c1dc16371dfcd024958877f",
+        "size": 113972
+      },
+      {
+        "mtime_ns": 1791718026472638907,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_034/simulator_index.json",
+        "sha256": "a286f0b3b70eb763374a8d8063b03846b49d2a5592c2bea121993e5f47d420c1",
+        "size": 6147
+      }
+    ],
+    "run_id": "libero_long_openvla_oft_task01_seed1034_trial034_cfafd9ddc3db"
+  },
+  {
+    "errors": [],
+    "frames": 254,
+    "mapping_registration": "Identical XML/native count/body names, entity roots/IDs and every-frame transforms checked; only run-ID input registration extended.",
+    "partition": "cross_task_same_scene",
+    "receipts_after": [
+      {
+        "mtime_ns": 1791718067029957241,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_035/trajectory.h5",
+        "sha256": "739e21655d963601956b652d43530b0b9916e5dced7dcd1460bd1cc9e1a52fa5",
+        "size": 124865083
+      },
+      {
+        "mtime_ns": 1791718047738792365,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_035/simulator.xml",
+        "sha256": "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542",
+        "size": 66723
+      },
+      {
+        "mtime_ns": 1791718045840203520,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_035/metadata.json",
+        "sha256": "bb7412dcb62b61aeb1b5c0958d04453ffab507a7547f9b5a1ae2d88f47749256",
+        "size": 113972
+      },
+      {
+        "mtime_ns": 1791718047839278487,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_035/simulator_index.json",
+        "sha256": "a286f0b3b70eb763374a8d8063b03846b49d2a5592c2bea121993e5f47d420c1",
+        "size": 6147
+      }
+    ],
+    "receipts_before": [
+      {
+        "mtime_ns": 1791718067029957241,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_035/trajectory.h5",
+        "sha256": "739e21655d963601956b652d43530b0b9916e5dced7dcd1460bd1cc9e1a52fa5",
+        "size": 124865083
+      },
+      {
+        "mtime_ns": 1791718047738792365,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_035/simulator.xml",
+        "sha256": "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542",
+        "size": 66723
+      },
+      {
+        "mtime_ns": 1791718045840203520,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_035/metadata.json",
+        "sha256": "bb7412dcb62b61aeb1b5c0958d04453ffab507a7547f9b5a1ae2d88f47749256",
+        "size": 113972
+      },
+      {
+        "mtime_ns": 1791718047839278487,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_035/simulator_index.json",
+        "sha256": "a286f0b3b70eb763374a8d8063b03846b49d2a5592c2bea121993e5f47d420c1",
+        "size": 6147
+      }
+    ],
+    "run_id": "libero_long_openvla_oft_task01_seed1035_trial035_cfafd9ddc3db"
+  },
+  {
+    "errors": [],
+    "frames": 261,
+    "mapping_registration": "Identical XML/native count/body names, entity roots/IDs and every-frame transforms checked; only run-ID input registration extended.",
+    "partition": "cross_task_same_scene",
+    "receipts_after": [
+      {
+        "mtime_ns": 1791718089742520884,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_036/trajectory.h5",
+        "sha256": "b0625877b9ad457cd9606c44b9ac79729ed5bc50546b9c285c559f2111b5d21f",
+        "size": 128097164
+      },
+      {
+        "mtime_ns": 1791718069243196094,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_036/simulator.xml",
+        "sha256": "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542",
+        "size": 66723
+      },
+      {
+        "mtime_ns": 1791718067244471209,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_036/metadata.json",
+        "sha256": "71ad0edccbdf0bc86b49d48cf5aa5a692f701c4563571b623d31b5b299204803",
+        "size": 113972
+      },
+      {
+        "mtime_ns": 1791718069342034114,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_036/simulator_index.json",
+        "sha256": "a286f0b3b70eb763374a8d8063b03846b49d2a5592c2bea121993e5f47d420c1",
+        "size": 6147
+      }
+    ],
+    "receipts_before": [
+      {
+        "mtime_ns": 1791718089742520884,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_036/trajectory.h5",
+        "sha256": "b0625877b9ad457cd9606c44b9ac79729ed5bc50546b9c285c559f2111b5d21f",
+        "size": 128097164
+      },
+      {
+        "mtime_ns": 1791718069243196094,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_036/simulator.xml",
+        "sha256": "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542",
+        "size": 66723
+      },
+      {
+        "mtime_ns": 1791718067244471209,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_036/metadata.json",
+        "sha256": "71ad0edccbdf0bc86b49d48cf5aa5a692f701c4563571b623d31b5b299204803",
+        "size": 113972
+      },
+      {
+        "mtime_ns": 1791718069342034114,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_036/simulator_index.json",
+        "sha256": "a286f0b3b70eb763374a8d8063b03846b49d2a5592c2bea121993e5f47d420c1",
+        "size": 6147
+      }
+    ],
+    "run_id": "libero_long_openvla_oft_task01_seed1036_trial036_cfafd9ddc3db"
+  },
+  {
+    "errors": [],
+    "frames": 245,
+    "mapping_registration": "Identical XML/native count/body names, entity roots/IDs and every-frame transforms checked; only run-ID input registration extended.",
+    "partition": "cross_task_same_scene",
+    "receipts_after": [
+      {
+        "mtime_ns": 1791718111149109617,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_037/trajectory.h5",
+        "sha256": "5f7e25d4a20b9e308d1f8051ac27766308cec44e4f56c33ca2e330280b608018",
+        "size": 120223257
+      },
+      {
+        "mtime_ns": 1791718091924191227,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_037/simulator.xml",
+        "sha256": "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542",
+        "size": 66723
+      },
+      {
+        "mtime_ns": 1791718089963179002,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_037/metadata.json",
+        "sha256": "efabb7627a3ceb78de457490d48e78ad76cce5331829b4b2e29dfed0c08a0928",
+        "size": 113972
+      },
+      {
+        "mtime_ns": 1791718092024233251,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_037/simulator_index.json",
+        "sha256": "a286f0b3b70eb763374a8d8063b03846b49d2a5592c2bea121993e5f47d420c1",
+        "size": 6147
+      }
+    ],
+    "receipts_before": [
+      {
+        "mtime_ns": 1791718111149109617,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_037/trajectory.h5",
+        "sha256": "5f7e25d4a20b9e308d1f8051ac27766308cec44e4f56c33ca2e330280b608018",
+        "size": 120223257
+      },
+      {
+        "mtime_ns": 1791718091924191227,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_037/simulator.xml",
+        "sha256": "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542",
+        "size": 66723
+      },
+      {
+        "mtime_ns": 1791718089963179002,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_037/metadata.json",
+        "sha256": "efabb7627a3ceb78de457490d48e78ad76cce5331829b4b2e29dfed0c08a0928",
+        "size": 113972
+      },
+      {
+        "mtime_ns": 1791718092024233251,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_037/simulator_index.json",
+        "sha256": "a286f0b3b70eb763374a8d8063b03846b49d2a5592c2bea121993e5f47d420c1",
+        "size": 6147
+      }
+    ],
+    "run_id": "libero_long_openvla_oft_task01_seed1037_trial037_cfafd9ddc3db"
+  },
+  {
+    "errors": [],
+    "frames": 231,
+    "mapping_registration": "Identical XML/native count/body names, entity roots/IDs and every-frame transforms checked; only run-ID input registration extended.",
+    "partition": "cross_task_same_scene",
+    "receipts_after": [
+      {
+        "mtime_ns": 1791718130884730454,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_038/trajectory.h5",
+        "sha256": "32733ba9b3439776e4a78d5c7b3818060b7ec5600dd17675dbd9bc70b54fdd7e",
+        "size": 113361964
+      },
+      {
+        "mtime_ns": 1791718113394072996,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_038/simulator.xml",
+        "sha256": "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542",
+        "size": 66723
+      },
+      {
+        "mtime_ns": 1791718111361648947,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_038/metadata.json",
+        "sha256": "042f8abd2fdfcedf2acf842d5c6e4a8fc9acb17de14c6fe4a1ea5b78d9ad6b05",
+        "size": 113972
+      },
+      {
+        "mtime_ns": 1791718113492883866,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_038/simulator_index.json",
+        "sha256": "a286f0b3b70eb763374a8d8063b03846b49d2a5592c2bea121993e5f47d420c1",
+        "size": 6147
+      }
+    ],
+    "receipts_before": [
+      {
+        "mtime_ns": 1791718130884730454,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_038/trajectory.h5",
+        "sha256": "32733ba9b3439776e4a78d5c7b3818060b7ec5600dd17675dbd9bc70b54fdd7e",
+        "size": 113361964
+      },
+      {
+        "mtime_ns": 1791718113394072996,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_038/simulator.xml",
+        "sha256": "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542",
+        "size": 66723
+      },
+      {
+        "mtime_ns": 1791718111361648947,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_038/metadata.json",
+        "sha256": "042f8abd2fdfcedf2acf842d5c6e4a8fc9acb17de14c6fe4a1ea5b78d9ad6b05",
+        "size": 113972
+      },
+      {
+        "mtime_ns": 1791718113492883866,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_038/simulator_index.json",
+        "sha256": "a286f0b3b70eb763374a8d8063b03846b49d2a5592c2bea121993e5f47d420c1",
+        "size": 6147
+      }
+    ],
+    "run_id": "libero_long_openvla_oft_task01_seed1038_trial038_cfafd9ddc3db"
+  },
+  {
+    "errors": [],
+    "frames": 274,
+    "mapping_registration": "Identical XML/native count/body names, entity roots/IDs and every-frame transforms checked; only run-ID input registration extended.",
+    "partition": "cross_task_same_scene",
+    "receipts_after": [
+      {
+        "mtime_ns": 1791718154059285220,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_039/trajectory.h5",
+        "sha256": "e0074e7cdd18b57c1e605f1cb8fe8034c2bc5f36f024163cf52df6565d881c2a",
+        "size": 133816424
+      },
+      {
+        "mtime_ns": 1791718133095864754,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_039/simulator.xml",
+        "sha256": "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542",
+        "size": 66723
+      },
+      {
+        "mtime_ns": 1791718131090358761,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_039/metadata.json",
+        "sha256": "6c6ebd79786a9993aa4326a011ef2f603089ca2036fa03bb3dcecb714c75b3cf",
+        "size": 113972
+      },
+      {
+        "mtime_ns": 1791718133193657450,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_039/simulator_index.json",
+        "sha256": "a286f0b3b70eb763374a8d8063b03846b49d2a5592c2bea121993e5f47d420c1",
+        "size": 6147
+      }
+    ],
+    "receipts_before": [
+      {
+        "mtime_ns": 1791718154059285220,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_039/trajectory.h5",
+        "sha256": "e0074e7cdd18b57c1e605f1cb8fe8034c2bc5f36f024163cf52df6565d881c2a",
+        "size": 133816424
+      },
+      {
+        "mtime_ns": 1791718133095864754,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_039/simulator.xml",
+        "sha256": "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542",
+        "size": 66723
+      },
+      {
+        "mtime_ns": 1791718131090358761,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_039/metadata.json",
+        "sha256": "6c6ebd79786a9993aa4326a011ef2f603089ca2036fa03bb3dcecb714c75b3cf",
+        "size": 113972
+      },
+      {
+        "mtime_ns": 1791718133193657450,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_039/simulator_index.json",
+        "sha256": "a286f0b3b70eb763374a8d8063b03846b49d2a5592c2bea121993e5f47d420c1",
+        "size": 6147
+      }
+    ],
+    "run_id": "libero_long_openvla_oft_task01_seed1039_trial039_cfafd9ddc3db"
+  },
+  {
+    "errors": [],
+    "frames": 250,
+    "mapping_registration": "Identical XML/native count/body names, entity roots/IDs and every-frame transforms checked; only run-ID input registration extended.",
+    "partition": "cross_task_same_scene",
+    "receipts_after": [
+      {
+        "mtime_ns": 1791718175199879064,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_040/trajectory.h5",
+        "sha256": "52e212263b902bd72b9d9d756456e04871ee9979eef10de7ff515f17a6308817",
+        "size": 122445810
+      },
+      {
+        "mtime_ns": 1791718156315633605,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_040/simulator.xml",
+        "sha256": "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542",
+        "size": 66723
+      },
+      {
+        "mtime_ns": 1791718154289650731,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_040/metadata.json",
+        "sha256": "6b0eb7c9caf648896d17c894b678c8a579f0554ddf57f5c2d817554d9a4da9e5",
+        "size": 113972
+      },
+      {
+        "mtime_ns": 1791718156413598744,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_040/simulator_index.json",
+        "sha256": "a286f0b3b70eb763374a8d8063b03846b49d2a5592c2bea121993e5f47d420c1",
+        "size": 6147
+      }
+    ],
+    "receipts_before": [
+      {
+        "mtime_ns": 1791718175199879064,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_040/trajectory.h5",
+        "sha256": "52e212263b902bd72b9d9d756456e04871ee9979eef10de7ff515f17a6308817",
+        "size": 122445810
+      },
+      {
+        "mtime_ns": 1791718156315633605,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_040/simulator.xml",
+        "sha256": "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542",
+        "size": 66723
+      },
+      {
+        "mtime_ns": 1791718154289650731,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_040/metadata.json",
+        "sha256": "6b0eb7c9caf648896d17c894b678c8a579f0554ddf57f5c2d817554d9a4da9e5",
+        "size": 113972
+      },
+      {
+        "mtime_ns": 1791718156413598744,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_040/simulator_index.json",
+        "sha256": "a286f0b3b70eb763374a8d8063b03846b49d2a5592c2bea121993e5f47d420c1",
+        "size": 6147
+      }
+    ],
+    "run_id": "libero_long_openvla_oft_task01_seed1040_trial040_cfafd9ddc3db"
+  },
+  {
+    "errors": [],
+    "frames": 294,
+    "mapping_registration": "Identical XML/native count/body names, entity roots/IDs and every-frame transforms checked; only run-ID input registration extended.",
+    "partition": "cross_task_same_scene",
+    "receipts_after": [
+      {
+        "mtime_ns": 1791718199917404187,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_041/trajectory.h5",
+        "sha256": "62d5bd22a7c82b73180a1a95c5d4197d371517a730a2bccac023661e6d9c2827",
+        "size": 144018048
+      },
+      {
+        "mtime_ns": 1791718177361363305,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_041/simulator.xml",
+        "sha256": "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542",
+        "size": 66723
+      },
+      {
+        "mtime_ns": 1791718175411629930,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_041/metadata.json",
+        "sha256": "e6333b7311d31dfeac79c7ef5aa376726d41c83e1a4a1e1df4f5d0e3d5f64d9a",
+        "size": 113972
+      },
+      {
+        "mtime_ns": 1791718177459434835,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_041/simulator_index.json",
+        "sha256": "a286f0b3b70eb763374a8d8063b03846b49d2a5592c2bea121993e5f47d420c1",
+        "size": 6147
+      }
+    ],
+    "receipts_before": [
+      {
+        "mtime_ns": 1791718199917404187,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_041/trajectory.h5",
+        "sha256": "62d5bd22a7c82b73180a1a95c5d4197d371517a730a2bccac023661e6d9c2827",
+        "size": 144018048
+      },
+      {
+        "mtime_ns": 1791718177361363305,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_041/simulator.xml",
+        "sha256": "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542",
+        "size": 66723
+      },
+      {
+        "mtime_ns": 1791718175411629930,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_041/metadata.json",
+        "sha256": "e6333b7311d31dfeac79c7ef5aa376726d41c83e1a4a1e1df4f5d0e3d5f64d9a",
+        "size": 113972
+      },
+      {
+        "mtime_ns": 1791718177459434835,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_041/simulator_index.json",
+        "sha256": "a286f0b3b70eb763374a8d8063b03846b49d2a5592c2bea121993e5f47d420c1",
+        "size": 6147
+      }
+    ],
+    "run_id": "libero_long_openvla_oft_task01_seed1041_trial041_cfafd9ddc3db"
+  },
+  {
+    "errors": [],
+    "frames": 242,
+    "mapping_registration": "Identical XML/native count/body names, entity roots/IDs and every-frame transforms checked; only run-ID input registration extended.",
+    "partition": "cross_task_same_scene",
+    "receipts_after": [
+      {
+        "mtime_ns": 1791718220680006403,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_042/trajectory.h5",
+        "sha256": "0c74e81faf49296b49c7d06324807edb671ba5f1aa3ea058126d275f3191bd40",
+        "size": 117977294
+      },
+      {
+        "mtime_ns": 1791718202186019977,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_042/simulator.xml",
+        "sha256": "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542",
+        "size": 66723
+      },
+      {
+        "mtime_ns": 1791718200162331237,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_042/metadata.json",
+        "sha256": "32ed854c8f51f3fd377fe7e7ac5ad4741311ea071651a27e5ab12efcb58742e5",
+        "size": 113972
+      },
+      {
+        "mtime_ns": 1791718202283711311,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_042/simulator_index.json",
+        "sha256": "a286f0b3b70eb763374a8d8063b03846b49d2a5592c2bea121993e5f47d420c1",
+        "size": 6147
+      }
+    ],
+    "receipts_before": [
+      {
+        "mtime_ns": 1791718220680006403,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_042/trajectory.h5",
+        "sha256": "0c74e81faf49296b49c7d06324807edb671ba5f1aa3ea058126d275f3191bd40",
+        "size": 117977294
+      },
+      {
+        "mtime_ns": 1791718202186019977,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_042/simulator.xml",
+        "sha256": "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542",
+        "size": 66723
+      },
+      {
+        "mtime_ns": 1791718200162331237,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_042/metadata.json",
+        "sha256": "32ed854c8f51f3fd377fe7e7ac5ad4741311ea071651a27e5ab12efcb58742e5",
+        "size": 113972
+      },
+      {
+        "mtime_ns": 1791718202283711311,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_042/simulator_index.json",
+        "sha256": "a286f0b3b70eb763374a8d8063b03846b49d2a5592c2bea121993e5f47d420c1",
+        "size": 6147
+      }
+    ],
+    "run_id": "libero_long_openvla_oft_task01_seed1042_trial042_cfafd9ddc3db"
+  },
+  {
+    "errors": [],
+    "frames": 249,
+    "mapping_registration": "Identical XML/native count/body names, entity roots/IDs and every-frame transforms checked; only run-ID input registration extended.",
+    "partition": "cross_task_same_scene",
+    "receipts_after": [
+      {
+        "mtime_ns": 1791718241865601360,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_043/trajectory.h5",
+        "sha256": "bf6a5ac09754fd93dccc7e9d4d74d470d4f9812864b1921182d28c207fe8938a",
+        "size": 122614697
+      },
+      {
+        "mtime_ns": 1791718222877086508,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_043/simulator.xml",
+        "sha256": "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542",
+        "size": 66723
+      },
+      {
+        "mtime_ns": 1791718220887116478,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_043/metadata.json",
+        "sha256": "57412367e7028a569a528db1ca0fda5a2f9a79a404f4aa436d57db50ac57fbe5",
+        "size": 113972
+      },
+      {
+        "mtime_ns": 1791718222976041552,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_043/simulator_index.json",
+        "sha256": "a286f0b3b70eb763374a8d8063b03846b49d2a5592c2bea121993e5f47d420c1",
+        "size": 6147
+      }
+    ],
+    "receipts_before": [
+      {
+        "mtime_ns": 1791718241865601360,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_043/trajectory.h5",
+        "sha256": "bf6a5ac09754fd93dccc7e9d4d74d470d4f9812864b1921182d28c207fe8938a",
+        "size": 122614697
+      },
+      {
+        "mtime_ns": 1791718222877086508,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_043/simulator.xml",
+        "sha256": "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542",
+        "size": 66723
+      },
+      {
+        "mtime_ns": 1791718220887116478,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_043/metadata.json",
+        "sha256": "57412367e7028a569a528db1ca0fda5a2f9a79a404f4aa436d57db50ac57fbe5",
+        "size": 113972
+      },
+      {
+        "mtime_ns": 1791718222976041552,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_043/simulator_index.json",
+        "sha256": "a286f0b3b70eb763374a8d8063b03846b49d2a5592c2bea121993e5f47d420c1",
+        "size": 6147
+      }
+    ],
+    "run_id": "libero_long_openvla_oft_task01_seed1043_trial043_cfafd9ddc3db"
+  },
+  {
+    "errors": [],
+    "frames": 252,
+    "mapping_registration": "Identical XML/native count/body names, entity roots/IDs and every-frame transforms checked; only run-ID input registration extended.",
+    "partition": "cross_task_same_scene",
+    "receipts_after": [
+      {
+        "mtime_ns": 1791718263187193717,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_044/trajectory.h5",
+        "sha256": "0722657cbb9094a10a62d53e812ca3733ee020e7c92d74c0c714be5d2c030418",
+        "size": 123963501
+      },
+      {
+        "mtime_ns": 1791718244032290864,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_044/simulator.xml",
+        "sha256": "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542",
+        "size": 66723
+      },
+      {
+        "mtime_ns": 1791718242078371668,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_044/metadata.json",
+        "sha256": "4533ad8bb5974449712111b261b3cec33fe3e7ab84cf75c91ca9b741322c0875",
+        "size": 113972
+      },
+      {
+        "mtime_ns": 1791718244129841906,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_044/simulator_index.json",
+        "sha256": "a286f0b3b70eb763374a8d8063b03846b49d2a5592c2bea121993e5f47d420c1",
+        "size": 6147
+      }
+    ],
+    "receipts_before": [
+      {
+        "mtime_ns": 1791718263187193717,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_044/trajectory.h5",
+        "sha256": "0722657cbb9094a10a62d53e812ca3733ee020e7c92d74c0c714be5d2c030418",
+        "size": 123963501
+      },
+      {
+        "mtime_ns": 1791718244032290864,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_044/simulator.xml",
+        "sha256": "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542",
+        "size": 66723
+      },
+      {
+        "mtime_ns": 1791718242078371668,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_044/metadata.json",
+        "sha256": "4533ad8bb5974449712111b261b3cec33fe3e7ab84cf75c91ca9b741322c0875",
+        "size": 113972
+      },
+      {
+        "mtime_ns": 1791718244129841906,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_044/simulator_index.json",
+        "sha256": "a286f0b3b70eb763374a8d8063b03846b49d2a5592c2bea121993e5f47d420c1",
+        "size": 6147
+      }
+    ],
+    "run_id": "libero_long_openvla_oft_task01_seed1044_trial044_cfafd9ddc3db"
+  },
+  {
+    "errors": [],
+    "frames": 250,
+    "mapping_registration": "Identical XML/native count/body names, entity roots/IDs and every-frame transforms checked; only run-ID input registration extended.",
+    "partition": "cross_task_same_scene",
+    "receipts_after": [
+      {
+        "mtime_ns": 1791718284171792517,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_045/trajectory.h5",
+        "sha256": "40a92178381646a42f3862897eec5e411e56708f80d2ac5f5a3e661bdfe7607e",
+        "size": 122590553
+      },
+      {
+        "mtime_ns": 1791718265328425450,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_045/simulator.xml",
+        "sha256": "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542",
+        "size": 66723
+      },
+      {
+        "mtime_ns": 1791718263401224759,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_045/metadata.json",
+        "sha256": "751c048a8b8fa0fe6ee612a5065242b2bd8d8a17a195d11f6624e154e26cdc9a",
+        "size": 113972
+      },
+      {
+        "mtime_ns": 1791718265426650321,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_045/simulator_index.json",
+        "sha256": "a286f0b3b70eb763374a8d8063b03846b49d2a5592c2bea121993e5f47d420c1",
+        "size": 6147
+      }
+    ],
+    "receipts_before": [
+      {
+        "mtime_ns": 1791718284171792517,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_045/trajectory.h5",
+        "sha256": "40a92178381646a42f3862897eec5e411e56708f80d2ac5f5a3e661bdfe7607e",
+        "size": 122590553
+      },
+      {
+        "mtime_ns": 1791718265328425450,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_045/simulator.xml",
+        "sha256": "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542",
+        "size": 66723
+      },
+      {
+        "mtime_ns": 1791718263401224759,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_045/metadata.json",
+        "sha256": "751c048a8b8fa0fe6ee612a5065242b2bd8d8a17a195d11f6624e154e26cdc9a",
+        "size": 113972
+      },
+      {
+        "mtime_ns": 1791718265426650321,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_045/simulator_index.json",
+        "sha256": "a286f0b3b70eb763374a8d8063b03846b49d2a5592c2bea121993e5f47d420c1",
+        "size": 6147
+      }
+    ],
+    "run_id": "libero_long_openvla_oft_task01_seed1045_trial045_cfafd9ddc3db"
+  },
+  {
+    "errors": [],
+    "frames": 259,
+    "mapping_registration": "Identical XML/native count/body names, entity roots/IDs and every-frame transforms checked; only run-ID input registration extended.",
+    "partition": "cross_task_same_scene",
+    "receipts_after": [
+      {
+        "mtime_ns": 1791718306042374379,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_046/trajectory.h5",
+        "sha256": "80cd4865fcba1b309973fc8acb2698a85de729e2ebabb93cad690cd7cb0fdf70",
+        "size": 127600071
+      },
+      {
+        "mtime_ns": 1791718286315896489,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_046/simulator.xml",
+        "sha256": "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542",
+        "size": 66723
+      },
+      {
+        "mtime_ns": 1791718284382107746,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_046/metadata.json",
+        "sha256": "17cbe3a2c48a050f4313edb59d439fc7bf63182a989c9cde04525ac78aea22c0",
+        "size": 113972
+      },
+      {
+        "mtime_ns": 1791718286414313759,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_046/simulator_index.json",
+        "sha256": "a286f0b3b70eb763374a8d8063b03846b49d2a5592c2bea121993e5f47d420c1",
+        "size": 6147
+      }
+    ],
+    "receipts_before": [
+      {
+        "mtime_ns": 1791718306042374379,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_046/trajectory.h5",
+        "sha256": "80cd4865fcba1b309973fc8acb2698a85de729e2ebabb93cad690cd7cb0fdf70",
+        "size": 127600071
+      },
+      {
+        "mtime_ns": 1791718286315896489,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_046/simulator.xml",
+        "sha256": "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542",
+        "size": 66723
+      },
+      {
+        "mtime_ns": 1791718284382107746,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_046/metadata.json",
+        "sha256": "17cbe3a2c48a050f4313edb59d439fc7bf63182a989c9cde04525ac78aea22c0",
+        "size": 113972
+      },
+      {
+        "mtime_ns": 1791718286414313759,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_046/simulator_index.json",
+        "sha256": "a286f0b3b70eb763374a8d8063b03846b49d2a5592c2bea121993e5f47d420c1",
+        "size": 6147
+      }
+    ],
+    "run_id": "libero_long_openvla_oft_task01_seed1046_trial046_cfafd9ddc3db"
+  },
+  {
+    "errors": [],
+    "frames": 266,
+    "mapping_registration": "Identical XML/native count/body names, entity roots/IDs and every-frame transforms checked; only run-ID input registration extended.",
+    "partition": "cross_task_same_scene",
+    "receipts_after": [
+      {
+        "mtime_ns": 1791718328356947751,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_047/trajectory.h5",
+        "sha256": "02697649251b32285bc3c8837a2882f059aa195de7970dafcf6146f5b740d753",
+        "size": 130298421
+      },
+      {
+        "mtime_ns": 1791718308203860731,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_047/simulator.xml",
+        "sha256": "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542",
+        "size": 66723
+      },
+      {
+        "mtime_ns": 1791718306264112309,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_047/metadata.json",
+        "sha256": "6f48d9a2559f11a2c540f7c860f8ba20c5e39993d6ad80ddb45ea31e29b0ba01",
+        "size": 113972
+      },
+      {
+        "mtime_ns": 1791718308301943272,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_047/simulator_index.json",
+        "sha256": "a286f0b3b70eb763374a8d8063b03846b49d2a5592c2bea121993e5f47d420c1",
+        "size": 6147
+      }
+    ],
+    "receipts_before": [
+      {
+        "mtime_ns": 1791718328356947751,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_047/trajectory.h5",
+        "sha256": "02697649251b32285bc3c8837a2882f059aa195de7970dafcf6146f5b740d753",
+        "size": 130298421
+      },
+      {
+        "mtime_ns": 1791718308203860731,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_047/simulator.xml",
+        "sha256": "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542",
+        "size": 66723
+      },
+      {
+        "mtime_ns": 1791718306264112309,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_047/metadata.json",
+        "sha256": "6f48d9a2559f11a2c540f7c860f8ba20c5e39993d6ad80ddb45ea31e29b0ba01",
+        "size": 113972
+      },
+      {
+        "mtime_ns": 1791718308301943272,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_047/simulator_index.json",
+        "sha256": "a286f0b3b70eb763374a8d8063b03846b49d2a5592c2bea121993e5f47d420c1",
+        "size": 6147
+      }
+    ],
+    "run_id": "libero_long_openvla_oft_task01_seed1047_trial047_cfafd9ddc3db"
+  },
+  {
+    "errors": [],
+    "frames": 261,
+    "mapping_registration": "Identical XML/native count/body names, entity roots/IDs and every-frame transforms checked; only run-ID input registration extended.",
+    "partition": "cross_task_same_scene",
+    "receipts_after": [
+      {
+        "mtime_ns": 1791718350663521277,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_048/trajectory.h5",
+        "sha256": "0ac6938bcdd4e06d80e4e43efcd0f8b976320cd02004559f5220d8363e40f2e2",
+        "size": 128094809
+      },
+      {
+        "mtime_ns": 1791718330552543227,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_048/simulator.xml",
+        "sha256": "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542",
+        "size": 66723
+      },
+      {
+        "mtime_ns": 1791718328583737003,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_048/metadata.json",
+        "sha256": "9f78ed9bb2bfbe5254743f055dd5cc89902226aea737b2cf07bbc357b14c4e95",
+        "size": 113972
+      },
+      {
+        "mtime_ns": 1791718330651577537,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_048/simulator_index.json",
+        "sha256": "a286f0b3b70eb763374a8d8063b03846b49d2a5592c2bea121993e5f47d420c1",
+        "size": 6147
+      }
+    ],
+    "receipts_before": [
+      {
+        "mtime_ns": 1791718350663521277,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_048/trajectory.h5",
+        "sha256": "0ac6938bcdd4e06d80e4e43efcd0f8b976320cd02004559f5220d8363e40f2e2",
+        "size": 128094809
+      },
+      {
+        "mtime_ns": 1791718330552543227,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_048/simulator.xml",
+        "sha256": "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542",
+        "size": 66723
+      },
+      {
+        "mtime_ns": 1791718328583737003,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_048/metadata.json",
+        "sha256": "9f78ed9bb2bfbe5254743f055dd5cc89902226aea737b2cf07bbc357b14c4e95",
+        "size": 113972
+      },
+      {
+        "mtime_ns": 1791718330651577537,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_048/simulator_index.json",
+        "sha256": "a286f0b3b70eb763374a8d8063b03846b49d2a5592c2bea121993e5f47d420c1",
+        "size": 6147
+      }
+    ],
+    "run_id": "libero_long_openvla_oft_task01_seed1048_trial048_cfafd9ddc3db"
+  },
+  {
+    "errors": [],
+    "frames": 258,
+    "mapping_registration": "Identical XML/native count/body names, entity roots/IDs and every-frame transforms checked; only run-ID input registration extended.",
+    "partition": "cross_task_same_scene",
+    "receipts_after": [
+      {
+        "mtime_ns": 1791718372282107956,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_049/trajectory.h5",
+        "sha256": "af892ebb6ee3bb0caf3adf98c640b9982284e1d55c7109810ad8ab2a74aed872",
+        "size": 126594184
+      },
+      {
+        "mtime_ns": 1791718352748752011,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_049/simulator.xml",
+        "sha256": "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542",
+        "size": 66723
+      },
+      {
+        "mtime_ns": 1791718350883877239,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_049/metadata.json",
+        "sha256": "199e26fc7ba36a6d957d69052e684fefd5983956e3974d1aa4f9c243a4a4c670",
+        "size": 113972
+      },
+      {
+        "mtime_ns": 1791718352847801836,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_049/simulator_index.json",
+        "sha256": "a286f0b3b70eb763374a8d8063b03846b49d2a5592c2bea121993e5f47d420c1",
+        "size": 6147
+      }
+    ],
+    "receipts_before": [
+      {
+        "mtime_ns": 1791718372282107956,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_049/trajectory.h5",
+        "sha256": "af892ebb6ee3bb0caf3adf98c640b9982284e1d55c7109810ad8ab2a74aed872",
+        "size": 126594184
+      },
+      {
+        "mtime_ns": 1791718352748752011,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_049/simulator.xml",
+        "sha256": "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542",
+        "size": 66723
+      },
+      {
+        "mtime_ns": 1791718350883877239,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_049/metadata.json",
+        "sha256": "199e26fc7ba36a6d957d69052e684fefd5983956e3974d1aa4f9c243a4a4c670",
+        "size": 113972
+      },
+      {
+        "mtime_ns": 1791718352847801836,
+        "path": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_049/simulator_index.json",
+        "sha256": "a286f0b3b70eb763374a8d8063b03846b49d2a5592c2bea121993e5f47d420c1",
+        "size": 6147
+      }
+    ],
+    "run_id": "libero_long_openvla_oft_task01_seed1049_trial049_cfafd9ddc3db"
+  }
+]

@@ -1,0 +1,44 @@
+{
+  "ready_to_distribute": true,
+  "unavailable_or_inadequate_evidence": [],
+  "equivalent_information_for_both_reviewers": true,
+  "source_archive_sha256": "b693f26844fa0cfbf4dd264a55cd8c1c302ea5be1af61f79eb85343b32239200",
+  "selected_source_files_preserved": true,
+  "archives": [
+    {
+      "reviewer_id": "reviewer_1",
+      "archive_path": "/disk/1/data/niktakbr/r1-v3-human-validation-20-20261027/packages/reviewer_1_R1_20.tar.gz",
+      "sha256": "9baf33da88eb4cb5bc40c8d17aecaaa0bbe214fbd2356050d3d797814cfb3389",
+      "bytes": 231095183,
+      "case_count": 20,
+      "distinct_recordings": 20,
+      "videos": 180,
+      "full_videos": 60,
+      "preview_videos": 120,
+      "verified_files": 598,
+      "all_answers_blank": true,
+      "all_selected_evidence_present": true,
+      "original_protocol_byte_identical": true,
+      "neutral_identifiers_verified": true
+    },
+    {
+      "reviewer_id": "reviewer_2",
+      "archive_path": "/disk/1/data/niktakbr/r1-v3-human-validation-20-20261027/packages/reviewer_2_R1_20.tar.gz",
+      "sha256": "830d9db04c3ed1602ec19c9c6396748130eff61916cd046fa92cfb567342b338",
+      "bytes": 231095189,
+      "case_count": 20,
+      "distinct_recordings": 20,
+      "videos": 180,
+      "full_videos": 60,
+      "preview_videos": 120,
+      "verified_files": 598,
+      "all_answers_blank": true,
+      "all_selected_evidence_present": true,
+      "original_protocol_byte_identical": true,
+      "neutral_identifiers_verified": true
+    }
+  ],
+  "predictions_and_previous_reference_answers_included": false,
+  "actual_reviews_completed": false,
+  "accuracy_computed": false
+}

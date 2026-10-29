@@ -1,0 +1,4 @@
+private_validation/
+*_return.zip
+*.tar.gz
+__pycache__/

@@ -1,0 +1,11 @@
+{
+  "status": "passed",
+  "cases": 20,
+  "unique_physical_events": 64,
+  "checks": [
+    "20 case forms",
+    "valid physical links",
+    "blank human decisions and approvals",
+    "explicit non-independence and inherited coverage"
+  ]
+}

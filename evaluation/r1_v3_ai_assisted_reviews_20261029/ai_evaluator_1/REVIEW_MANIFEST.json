@@ -1,0 +1,30 @@
+{
+  "review_id": "ai_evaluator_1_20261029",
+  "evaluator_type": "AI",
+  "identity": "AI Evaluator 1 (Codex)",
+  "review_status": "draft_pending_human_review",
+  "human_review_method": "AI-assisted accept/reject verification requested by user",
+  "independent_human_annotation": false,
+  "human_approval": false,
+  "scoring_performed": false,
+  "source_archive_sha256": "9baf33da88eb4cb5bc40c8d17aecaaa0bbe214fbd2356050d3d797814cfb3389",
+  "source_files_hash_verified": 597,
+  "source_files_total_including_checksum_list": 598,
+  "cases": 20,
+  "counts": {
+    "not_applicable": 12,
+    "no_violation_observed_within_reviewed_coverage": 7,
+    "insufficient_information": 1
+  },
+  "active_physical_snapshot": "annotations/physical_stage_v2",
+  "original_physical_snapshot_preserved": "annotations/physical_stage",
+  "coverage": "Complete saved contacts/poses and collision bounds; sampled visual sequences plus dense transition windows; no timed playback",
+  "workflow_compatibility": "Not submitted to original independent-human collection or freeze workflow. HUMAN_REVIEW.csv is a separate verification record, not reference approval. A revised protocol and explicit human approval are required before any downstream scoring under this changed methodology.",
+  "excluded_sources": [
+    "reviewer_2 package",
+    "checker predictions",
+    "previous human labels",
+    "coordinator mapping",
+    "other recordings"
+  ]
+}

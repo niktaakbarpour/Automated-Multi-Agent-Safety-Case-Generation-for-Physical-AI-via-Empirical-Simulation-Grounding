@@ -1,0 +1,24 @@
+{
+  "status": "passed",
+  "cases": 20,
+  "physical_events": 64,
+  "uncertainty_requests": 23,
+  "complete_measurement_snapshots": 5347,
+  "interpretation_counts": {
+    "not_applicable": 12,
+    "no_violation_observed_within_reviewed_coverage": 7,
+    "insufficient_information": 1
+  },
+  "checks": [
+    "Original package 597 listed hashes unchanged",
+    "20 matching case IDs in all case forms",
+    "Unique event IDs and valid R1 event references",
+    "Blank human decisions and approval fields",
+    "AI identity in all proposal forms",
+    "Exact bounded visual coverage and full numeric frame coverage",
+    "All case evidence and report links exist",
+    "Both physical-stage seals valid and original snapshot preserved",
+    "Active v2 physical snapshot matches current physical forms",
+    "No scoring or reference approval generated"
+  ]
+}

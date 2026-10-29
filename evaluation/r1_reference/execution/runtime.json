@@ -1,0 +1,24 @@
+{
+  "adapter_sha256": "812664fd6dab238af811a7c3d6199e0129d4f904ed942099e1c30b5c53c08e18",
+  "argv": [
+    "/disk/1/data/niktakbr/r1-reference-evaluation-20261027/evaluation/r1_reference/run_frozen.py",
+    "--release",
+    "/disk/1/data/niktakbr/r1-reference-evaluation-20261027/reports/fall_checker_dev_v2_20261017",
+    "--output",
+    "/disk/1/data/niktakbr/r1-reference-evaluation-20261027/predictions"
+  ],
+  "checker_commit": "0d9802a100012413c8930c985f565147b76b7322",
+  "checker_config_sha256": "5cb89418e08ecfa193d45315516d7d543f150dbce77d36a45f284dac4c558b30",
+  "checker_sha256": "d365947673071431fa2a5ed6a3cbd0e6b7b96a689a6303afc872b7f94343460d",
+  "evaluation_config_sha256": "ad493aec9527cfa50c93de6786419827fd495067742c8daaa0dba82d5f4b774f",
+  "executable": "/local/home/niktakbr/rdt-1b-libero/.venv/bin/python",
+  "h5py": "3.16.0",
+  "native_geometry_policy": "Each run validated against its XML hash, native geometry count, per-run inventory and per-frame body/geometry transforms. Reuse mapping only after these identity guards pass.",
+  "numpy": "2.5.3",
+  "original_recordings_opened": true,
+  "physics_stepped": false,
+  "platform": "Linux-6.12.0-211.49.1.el10_2.x86_64-x86_64-with-glibc2.39",
+  "python": "3.12.14 (main, Aug 13 2026, 00:00:00) [GCC 14.3.1 20251022 (Red Hat 14.3.1-4)]",
+  "reference_answers_loaded": false,
+  "repository_frozen_head": "68acd6c6784ef2b0759f356fbdaa3a46fe75e758"
+}

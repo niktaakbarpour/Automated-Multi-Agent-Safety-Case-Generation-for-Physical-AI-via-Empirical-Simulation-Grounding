@@ -1,0 +1,20 @@
+{
+  "all_prediction_artifacts_verified": 63,
+  "all_review_package_checksums_verified": 1214,
+  "review_answer_fields_blank": true,
+  "review_form_row_counts": {
+    "reviewer_1/initial_support.csv": 300,
+    "reviewer_1/events.csv": 300,
+    "reviewer_1/requirement_interpretation.csv": 300,
+    "reviewer_1/uncertainty_requests.csv": 0,
+    "reviewer_2/initial_support.csv": 300,
+    "reviewer_2/events.csv": 300,
+    "reviewer_2/requirement_interpretation.csv": 300,
+    "reviewer_2/uncertainty_requests.csv": 0
+  },
+  "review_package_runs": 60,
+  "archive_path": "/disk/1/data/niktakbr/r1-v3-generalization-20261027/blinded-review-20261027.tar.gz",
+  "archive_bytes": 316311367,
+  "archive_sha256": "b693f26844fa0cfbf4dd264a55cd8c1c302ea5be1af61f79eb85343b32239200",
+  "predictions_not_in_review_package": true
+}
