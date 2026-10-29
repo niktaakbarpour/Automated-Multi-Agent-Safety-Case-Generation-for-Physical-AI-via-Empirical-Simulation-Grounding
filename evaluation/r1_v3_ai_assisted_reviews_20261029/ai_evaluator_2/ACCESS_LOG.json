@@ -1,0 +1,34 @@
+{
+  "source_root": "/disk/1/data/niktakbr/r1-v3-human-validation-20-20261027/packages/reviewer_2_R1_20",
+  "output_root": "/disk/1/data/niktakbr/r1-v3-human-validation-20-20261027/ai_evaluator_2_blind_20261029",
+  "events": [
+    {
+      "phase": "pre_migration",
+      "access": "Only isolated neutral reviewer_2_R1_20 research package and own derivatives",
+      "files": "START_HERE.md;RETURN_INSTRUCTIONS.md;protocol/REQUIREMENT_FOR_REVIEW.md;protocol/REQUIREMENT_SCOPE_DECISION.md;protocol/requirement_scope.v3.json;protocol/REVIEW_INSTRUCTIONS.md;protocol/OBJECT_GUIDE.md;protocol/schemas/README.md;ASSIGNMENTS.csv;all20 EVIDENCE.md;native_geometry.csv;all20 contacts.csv,object_poses.csv,recorded_geometry.json.gz;boundary PNGs all20;side-by-side derivatives as COVERAGE.json",
+      "limitation": "Retrospective log from retained own context; original local artifacts deleted by user."
+    },
+    {
+      "phase": "migration",
+      "access": "Transport-only SSH; Hestia hostname verified, cwd /",
+      "limitation": "Parent PTY inaccessible from agent context; dedicated authenticated SSH used. No credentials saved. No remote home symlinks or other reviews inspected."
+    },
+    {
+      "phase": "remote",
+      "access": "Neutral source_root and own output only",
+      "files": "START_HERE.md;RETURN_INSTRUCTIONS.md;current protocol definitions/schema;OBJECT_GUIDE.md;ASSIGNMENTS.csv;NV16/EVIDENCE.md;four original templates;native_geometry.csv;all contacts/poses/geometry;side-by-side NV10,NV14-20 and targetedNV05,NV06,NV12,NV16,NV20;SHA256SUMS.txt and597 listed source files for hashing",
+      "limitation": "Hash reads do not imply substantive/visual review of every file. Large protocol reread output partly truncated; complete prior reading retained."
+    },
+    {
+      "phase": "physical_stage",
+      "access": "Saved three physical forms and snapshot/hash before requirement answers",
+      "reference": "PHYSICAL_STAGE.json"
+    },
+    {
+      "phase": "interpretation_stage",
+      "access": "Applied currentR1 to own saved physical evidence only",
+      "reference": "INTERPRETATION_STAGE.json",
+      "limitation": "No human adjudication, scoring, checker predictions or Evaluator1 comparison."
+    }
+  ]
+}

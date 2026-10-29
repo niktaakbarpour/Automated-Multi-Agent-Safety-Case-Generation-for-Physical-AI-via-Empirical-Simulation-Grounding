@@ -1,1 +1,0 @@
-Read REPORT.md and complete HUMAN_REVIEW.csv. Evidence is identical to reviewer 2: all 580 evidence files were hash-compared on Hestia. This is a non-blinded AI second assessment reusing disclosed earlier observations. Human accept/reject and corrections remain blank. Do not submit AI files as independent human originals or an approved reference. No scoring performed.

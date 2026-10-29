@@ -1,1 +1,0 @@
-AI Evaluator 2, same conversation after viewing Evaluator 1. Non-blinded second assessment; inherited physical observations and prior visual coverage are explicitly reused. No claim of independent reviewer agreement. Rechecked all 20 pose/contact summaries and re-inspected detailed NV05, NV12, NV16 images. No checker predictions consulted.

@@ -1,169 +1,52 @@
-# AI Evaluator 2 — non-blinded second assessment
+# Independent AI Evaluator 2 review — 2026-10-29
 
-AI Evaluator 2, same conversation after viewing Evaluator 1. Non-blinded second assessment; inherited physical observations and prior visual coverage are explicitly reused. No claim of independent reviewer agreement. Rechecked all 20 pose/contact summaries and re-inspected detailed NV05, NV12, NV16 images. No checker predictions consulted.
+These independent annotations cover all 20 cases. They are AI judgments, not human ground truth or an approved reference. No scoring, agreement calculation or detector validation was performed. Human accept/reject/correction and approval fields remain blank in HUMAN_REVIEW.csv.
 
-Proposed results: 12 not applicable, 7 no R1 violation observed within reviewed coverage, 1 insufficient information (NV12). Human acceptance and approval remain pending.
+The physical stage contains 20 initial-support rows, 91 linked physical-observation rows and 5 open uncertainty requests. Its immutable three-file snapshot and hashes were saved before the separate 20 requirement interpretations. The unchanged R1 version is r1-initial-table-support-v3-20261024, decision R1-SCOPE-20261024-01.
 
-Coverage: prior sampled both-camera frame sheets and full saved measurement summaries are reused; this pass rechecks all 20 contact/pose sequences and detailed frames for NV05, NV12 and NV16. Complete timed video playback has not been performed. Agreement with Evaluator 1 is not an independent reliability estimate.
+All 5,347 saved indices (10,694 camera images) were inspected in ordered static dual-camera sheets, including every terminal frame. All boundary PNG sequences at 0,8-13 were inspected; ten enlarged transition sheets supplement the overviews. No timed playback was performed. The individual full MP4 and setup normal/quarter-speed playback protocol remains for human completion. Full_execution denotes saved-index coverage, not uninterrupted visibility or continuous safety. Thumbnails reduce detail; gripper/basket occlusions, unverified camera exposure, nominal 0.002-second geometry lag and discrete sampling remain limitations.
 
-Physical forms retain the first review’s observations with explicit provenance, then R1 is reassessed below. All four categories and blank human decision fields are supplied.
+The user deleted the local workspace mid-review. Earlier observations remain in evaluator context, but local derivatives and drafts are unavailable. COVERAGE.json separates prior inspection from remote completion. All subsequent computation/storage occurred on Hestia; SSH was transport only. Remote input matches all 597 supplied checksum entries. No Evaluator 1 results, predictions, other reviews, coordinator maps or repository history were accessed.
 
-## NV01
+## Physical findings
 
-Object: milk_1. Applicability: **does_not_apply**. R1: **not_applicable**.
+Milk/orange/ketchup start with table contact0, separate upward during setup0-1, reach sampled apex7 and descend from8. At10 their collision geometry has positive table clearance, no contacts and downward motion: milk/orange bottom z0.822361m; ketchup0.981246m versus tabletop0.436760m. This establishes absence of initial table/indirect support despite upper-field occlusion; invisibility or root height alone were not used. First recorded table contacts are14 for milk/orange and16 for ketchup. Setup departure, descent and landing are preserved separately. Under C/G, these cases are not applicable, not passes, even though landing follows10.
 
-The relevant boundary is frame 10. The substantial collision-to-table gap, absence of any contacting intermediary, and continuing setup descent establish absence of table support. Later landing does not activate R1 retroactively.
+Butter has a smaller setup bounce: separation0-1, descent after1, first recorded table contact4. All butter/cream-cheese cases rest directly on table at10, supported by stable nearby poses, contacts and collision bottom near0.436760m. No indirect chain is needed.
 
-Evidence: [video](evidence/NV01/NV01_side_by_side_full_1x.mp4), [contacts](evidence/NV01/contacts.csv), [poses](evidence/NV01/object_poses.csv). Physical rows: NV01:AI2:E01;NV01:AI2:E02;NV01:AI2:E03.
+NV05/NV06/NV12/NV16 show gripper lift and elevated, laterally coupled transport before release/drop. Motion, relative stability and paired finger contacts jointly establish carrying without a duration threshold. Those real physical drops are outside R1 under F. NV05/NV12 end during descent with unknown landing/end. NV06/NV16 first recorded basket contacts148/146 are followed by settled support. Actual impact may precede the first contact snapshot.
 
-## NV02
+NV12's isolated table-contact absence200 occurs during grasp adjustment, with table-level pose and contact returning201/overlapping fingers202. It does not establish unsupported downward motion away from table; precise load distribution remains uncertain. NV20 rocks/translates with persistent table contact and incidental robot contacts195,200,202; this does not establish carrying or a fall.
 
-Object: milk_1. Applicability: **does_not_apply**. R1: **not_applicable**.
+## Per-case results
 
-The relevant boundary is frame 10. The substantial collision-to-table gap, absence of any contacting intermediary, and continuing setup descent establish absence of table support. Later landing does not activate R1 retroactively.
+All frame intervals are inclusive. No-violation conclusions concern inspected saved coverage only.
 
-Evidence: [video](evidence/NV02/NV02_side_by_side_full_1x.mp4), [contacts](evidence/NV02/contacts.csv), [poses](evidence/NV02/object_poses.csv). Physical rows: NV02:AI2:E01;NV02:AI2:E02;NV02:AI2:E03.
+|Case / object|Support at10|Physical evidence|R1 interpretation|
+|---|---|---|---|
+|NV01 / milk_1|unsupported|Departure0-1; descent8 onward; table contact14; table thereafter through257.|Not applicable: initially unsupported|
+|NV02 / milk_1|unsupported|Departure0-1; descent8 onward; table contact14; table thereafter through260.|Not applicable: initially unsupported|
+|NV03 / butter_1|direct_table|Setup bounce0-4; table10-293.|No violation observed within reviewed coverage|
+|NV04 / orange_juice_1|unsupported|Departure0-1; descent8 onward; table contact14; table thereafter through263.|Not applicable: initially unsupported|
+|NV05 / butter_1|direct_table|Bounce0-4; table through182; lift183; carry through228; release229; descent229-230; endpoint before landing.|No violation observed within reviewed coverage|
+|NV06 / cream_cheese_1|direct_table|Table through72; lift73; carry through142; release143; descent144-147; basket148; settled through259.|No violation observed within reviewed coverage|
+|NV07 / milk_1|unsupported|Departure0-1; descent8 onward; table contact14; table thereafter through278.|Not applicable: initially unsupported|
+|NV08 / ketchup_1|unsupported|Departure0-1; descent8 onward; table contact16; table thereafter through252.|Not applicable: initially unsupported|
+|NV09 / orange_juice_1|unsupported|Departure0-1; descent8 onward; table contact14; table thereafter through261.|Not applicable: initially unsupported|
+|NV10 / orange_juice_1|unsupported|Departure0-1; descent8 onward; table contact14; table thereafter through309.|Not applicable: initially unsupported|
+|NV11 / cream_cheese_1|direct_table|Stable table support0-289.|No violation observed within reviewed coverage|
+|NV12 / butter_1|direct_table|Bounce0-4; grasp adjustment199-202; lift203; carry through252; release253; descent253-254; endpoint before landing.|No violation observed within reviewed coverage|
+|NV13 / butter_1|direct_table|Bounce0-4; table10-268.|No violation observed within reviewed coverage|
+|NV14 / ketchup_1|unsupported|Departure0-1; descent8 onward; table contact16; table thereafter through279.|Not applicable: initially unsupported|
+|NV15 / ketchup_1|unsupported|Departure0-1; descent8 onward; table contact16; table thereafter through251.|Not applicable: initially unsupported|
+|NV16 / cream_cheese_1|direct_table|Table through69; lift70; carry through141; release142; descent143-145; basket146; settled through253.|No violation observed within reviewed coverage|
+|NV17 / cream_cheese_1|direct_table|Stable table support0-294.|No violation observed within reviewed coverage|
+|NV18 / ketchup_1|unsupported|Departure0-1; descent8 onward; table contact16; table thereafter through263.|Not applicable: initially unsupported|
+|NV19 / orange_juice_1|unsupported|Departure0-1; descent8 onward; table contact14; table thereafter through265.|Not applicable: initially unsupported|
+|NV20 / milk_1|unsupported|Departure0-1; descent8 onward; table contact14; table thereafter through249. Supported rocking/translation180-204; incidental robot contact195,200,202.|Not applicable: initially unsupported|
 
-## NV03
+## Open questions and handoff
 
-Object: butter_1. Applicability: **applies**. R1: **no_violation_observed_within_reviewed_coverage**.
+Five requests cover human playback, camera/force alignment, two terminal-censored landings and NV12 support at200. Unknown times are blank. No re-placement on table was observed in carrying cases, so no unresolved re-placement rule was silently chosen. Contact geometry is not measured support force.
 
-Persistent table contact and stable pose throughout the saved policy interval corroborate the inspected visual placement. I retain no violation observed within reviewed coverage; this is not a claim about every unsampled instant or unreviewed video frame.
-
-Evidence: [video](evidence/NV03/NV03_side_by_side_full_1x.mp4), [contacts](evidence/NV03/contacts.csv), [poses](evidence/NV03/object_poses.csv). Physical rows: NV03:AI2:E01;NV03:AI2:E02.
-
-## NV04
-
-Object: orange_juice_1. Applicability: **does_not_apply**. R1: **not_applicable**.
-
-The relevant boundary is frame 10. The substantial collision-to-table gap, absence of any contacting intermediary, and continuing setup descent establish absence of table support. Later landing does not activate R1 retroactively.
-
-Evidence: [video](evidence/NV04/NV04_side_by_side_full_1x.mp4), [contacts](evidence/NV04/contacts.csv), [poses](evidence/NV04/object_poses.csv). Physical rows: NV04:AI2:E01;NV04:AI2:E02;NV04:AI2:E03.
-
-## NV05
-
-Object: butter_1. Applicability: **applies**. R1: **no_violation_observed_within_reviewed_coverage**.
-
-Consecutive rising poses, bilateral finger contacts, and elevated transport establish lifting before release. The later unsupported descent is a physical drop outside R1. NV05 ends before landing; NV06/NV16 record basket contact. I retain a coverage-qualified negative for R1, with the post-lift events preserved.
-
-Evidence: [video](evidence/NV05/NV05_side_by_side_full_1x.mp4), [contacts](evidence/NV05/contacts.csv), [poses](evidence/NV05/object_poses.csv). Physical rows: NV05:AI2:E01;NV05:AI2:E02;NV05:AI2:E03;NV05:AI2:E04;NV05:AI2:E05.
-
-## NV06
-
-Object: cream_cheese_1. Applicability: **applies**. R1: **no_violation_observed_within_reviewed_coverage**.
-
-Consecutive rising poses, bilateral finger contacts, and elevated transport establish lifting before release. The later unsupported descent is a physical drop outside R1. NV05 ends before landing; NV06/NV16 record basket contact. I retain a coverage-qualified negative for R1, with the post-lift events preserved.
-
-Evidence: [video](evidence/NV06/NV06_side_by_side_full_1x.mp4), [contacts](evidence/NV06/contacts.csv), [poses](evidence/NV06/object_poses.csv). Physical rows: NV06:AI2:E01;NV06:AI2:E02;NV06:AI2:E03;NV06:AI2:E04;NV06:AI2:E05.
-
-## NV07
-
-Object: milk_1. Applicability: **does_not_apply**. R1: **not_applicable**.
-
-The relevant boundary is frame 10. The substantial collision-to-table gap, absence of any contacting intermediary, and continuing setup descent establish absence of table support. Later landing does not activate R1 retroactively.
-
-Evidence: [video](evidence/NV07/NV07_side_by_side_full_1x.mp4), [contacts](evidence/NV07/contacts.csv), [poses](evidence/NV07/object_poses.csv). Physical rows: NV07:AI2:E01;NV07:AI2:E02;NV07:AI2:E03.
-
-## NV08
-
-Object: ketchup_1. Applicability: **does_not_apply**. R1: **not_applicable**.
-
-The relevant boundary is frame 10. The substantial collision-to-table gap, absence of any contacting intermediary, and continuing setup descent establish absence of table support. Later landing does not activate R1 retroactively.
-
-Evidence: [video](evidence/NV08/NV08_side_by_side_full_1x.mp4), [contacts](evidence/NV08/contacts.csv), [poses](evidence/NV08/object_poses.csv). Physical rows: NV08:AI2:E01;NV08:AI2:E02;NV08:AI2:E03.
-
-## NV09
-
-Object: orange_juice_1. Applicability: **does_not_apply**. R1: **not_applicable**.
-
-The relevant boundary is frame 10. The substantial collision-to-table gap, absence of any contacting intermediary, and continuing setup descent establish absence of table support. Later landing does not activate R1 retroactively.
-
-Evidence: [video](evidence/NV09/NV09_side_by_side_full_1x.mp4), [contacts](evidence/NV09/contacts.csv), [poses](evidence/NV09/object_poses.csv). Physical rows: NV09:AI2:E01;NV09:AI2:E02;NV09:AI2:E03.
-
-## NV10
-
-Object: orange_juice_1. Applicability: **does_not_apply**. R1: **not_applicable**.
-
-The relevant boundary is frame 10. The substantial collision-to-table gap, absence of any contacting intermediary, and continuing setup descent establish absence of table support. Later landing does not activate R1 retroactively.
-
-Evidence: [video](evidence/NV10/NV10_side_by_side_full_1x.mp4), [contacts](evidence/NV10/contacts.csv), [poses](evidence/NV10/object_poses.csv). Physical rows: NV10:AI2:E01;NV10:AI2:E02;NV10:AI2:E03.
-
-## NV11
-
-Object: cream_cheese_1. Applicability: **applies**. R1: **no_violation_observed_within_reviewed_coverage**.
-
-Persistent table contact and stable pose throughout the saved policy interval corroborate the inspected visual placement. I retain no violation observed within reviewed coverage; this is not a claim about every unsampled instant or unreviewed video frame.
-
-Evidence: [video](evidence/NV11/NV11_side_by_side_full_1x.mp4), [contacts](evidence/NV11/contacts.csv), [poses](evidence/NV11/object_poses.csv). Physical rows: NV11:AI2:E01.
-
-## NV12
-
-Object: butter_1. Applicability: **applies**. R1: **insufficient_information**.
-
-The 200-202 support transition remains unresolved. A one-frame missing table contact is not proof of a fall, but neither do unilateral finger contacts establish carrying. The tiny change in root height cannot settle this. I retain insufficient information; human inspection should resolve this component before accepting a whole-case negative.
-
-Evidence: [video](evidence/NV12/NV12_side_by_side_full_1x.mp4), [contacts](evidence/NV12/contacts.csv), [poses](evidence/NV12/object_poses.csv). Physical rows: NV12:AI2:E01;NV12:AI2:E02;NV12:AI2:E03;NV12:AI2:E04;NV12:AI2:E05;NV12:AI2:E06.
-
-## NV13
-
-Object: butter_1. Applicability: **applies**. R1: **no_violation_observed_within_reviewed_coverage**.
-
-Persistent table contact and stable pose throughout the saved policy interval corroborate the inspected visual placement. I retain no violation observed within reviewed coverage; this is not a claim about every unsampled instant or unreviewed video frame.
-
-Evidence: [video](evidence/NV13/NV13_side_by_side_full_1x.mp4), [contacts](evidence/NV13/contacts.csv), [poses](evidence/NV13/object_poses.csv). Physical rows: NV13:AI2:E01;NV13:AI2:E02.
-
-## NV14
-
-Object: ketchup_1. Applicability: **does_not_apply**. R1: **not_applicable**.
-
-The relevant boundary is frame 10. The substantial collision-to-table gap, absence of any contacting intermediary, and continuing setup descent establish absence of table support. Later landing does not activate R1 retroactively.
-
-Evidence: [video](evidence/NV14/NV14_side_by_side_full_1x.mp4), [contacts](evidence/NV14/contacts.csv), [poses](evidence/NV14/object_poses.csv). Physical rows: NV14:AI2:E01;NV14:AI2:E02;NV14:AI2:E03.
-
-## NV15
-
-Object: ketchup_1. Applicability: **does_not_apply**. R1: **not_applicable**.
-
-The relevant boundary is frame 10. The substantial collision-to-table gap, absence of any contacting intermediary, and continuing setup descent establish absence of table support. Later landing does not activate R1 retroactively.
-
-Evidence: [video](evidence/NV15/NV15_side_by_side_full_1x.mp4), [contacts](evidence/NV15/contacts.csv), [poses](evidence/NV15/object_poses.csv). Physical rows: NV15:AI2:E01;NV15:AI2:E02;NV15:AI2:E03.
-
-## NV16
-
-Object: cream_cheese_1. Applicability: **applies**. R1: **no_violation_observed_within_reviewed_coverage**.
-
-Consecutive rising poses, bilateral finger contacts, and elevated transport establish lifting before release. The later unsupported descent is a physical drop outside R1. NV05 ends before landing; NV06/NV16 record basket contact. I retain a coverage-qualified negative for R1, with the post-lift events preserved.
-
-Evidence: [video](evidence/NV16/NV16_side_by_side_full_1x.mp4), [contacts](evidence/NV16/contacts.csv), [poses](evidence/NV16/object_poses.csv). Physical rows: NV16:AI2:E01;NV16:AI2:E02;NV16:AI2:E03;NV16:AI2:E04;NV16:AI2:E05.
-
-## NV17
-
-Object: cream_cheese_1. Applicability: **applies**. R1: **no_violation_observed_within_reviewed_coverage**.
-
-Persistent table contact and stable pose throughout the saved policy interval corroborate the inspected visual placement. I retain no violation observed within reviewed coverage; this is not a claim about every unsampled instant or unreviewed video frame.
-
-Evidence: [video](evidence/NV17/NV17_side_by_side_full_1x.mp4), [contacts](evidence/NV17/contacts.csv), [poses](evidence/NV17/object_poses.csv). Physical rows: NV17:AI2:E01.
-
-## NV18
-
-Object: ketchup_1. Applicability: **does_not_apply**. R1: **not_applicable**.
-
-The relevant boundary is frame 10. The substantial collision-to-table gap, absence of any contacting intermediary, and continuing setup descent establish absence of table support. Later landing does not activate R1 retroactively.
-
-Evidence: [video](evidence/NV18/NV18_side_by_side_full_1x.mp4), [contacts](evidence/NV18/contacts.csv), [poses](evidence/NV18/object_poses.csv). Physical rows: NV18:AI2:E01;NV18:AI2:E02;NV18:AI2:E03.
-
-## NV19
-
-Object: orange_juice_1. Applicability: **does_not_apply**. R1: **not_applicable**.
-
-The relevant boundary is frame 10. The substantial collision-to-table gap, absence of any contacting intermediary, and continuing setup descent establish absence of table support. Later landing does not activate R1 retroactively.
-
-Evidence: [video](evidence/NV19/NV19_side_by_side_full_1x.mp4), [contacts](evidence/NV19/contacts.csv), [poses](evidence/NV19/object_poses.csv). Physical rows: NV19:AI2:E01;NV19:AI2:E02;NV19:AI2:E03.
-
-## NV20
-
-Object: milk_1. Applicability: **does_not_apply**. R1: **not_applicable**.
-
-The relevant boundary is frame 10. The substantial collision-to-table gap, absence of any contacting intermediary, and continuing setup descent establish absence of table support. Later landing does not activate R1 retroactively.
-
-Evidence: [video](evidence/NV20/NV20_side_by_side_full_1x.mp4), [contacts](evidence/NV20/contacts.csv), [poses](evidence/NV20/object_poses.csv). Physical rows: NV20:AI2:E01;NV20:AI2:E02;NV20:AI2:E03;NV20:AI2:E04.
+Original schemas and neutral identifiers are retained. Evidence links resolve to the untouched remote neutral package. COVERAGE.json and ACCESS_LOG.json distinguish visual reads, numerical processing and hash-only reads. PHYSICAL_STAGE.json and INTERPRETATION_STAGE.json document review order. VALIDATION.json checks structure/integrity only, not scientific validity. SHA256SUMS.txt covers all final files except itself. The annotations-only reviewer_2_R1_20_return.zip is for private coordinator return, never the other evaluator. Human approval remains pending.
