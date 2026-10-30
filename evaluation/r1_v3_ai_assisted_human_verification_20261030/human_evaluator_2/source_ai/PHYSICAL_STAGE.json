@@ -1,0 +1,11 @@
+{
+  "stage": "physical_saved_before_requirement_interpretation",
+  "saved_utc": "2026-10-29T18:11:06.717852+00:00",
+  "reviewer_identity": "AI Evaluator 2 (Codex; independent isolated context; not human)",
+  "requirement_answers_blank_at_snapshot": true,
+  "sha256": {
+    "initial_support.csv": "a67459b635207d86c50cb8cab7776624b762a336b60b3116b2b5411043eae73a",
+    "events.csv": "132e8ccf76367fcdb8892b54fb9e948c155ceb5a17c51afdd84d6aba85409087",
+    "uncertainty_requests.csv": "83592e194ea5cd1c0d01e94572001df29ea4549f99ab3fb8aba8bb90cd32ab18"
+  }
+}

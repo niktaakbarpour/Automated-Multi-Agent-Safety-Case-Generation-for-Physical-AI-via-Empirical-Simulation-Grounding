@@ -1,0 +1,48 @@
+Command: python3 -m unittest discover -s evaluation/r1_v3_human_validation_20/tests -v
+Isolated unmodified Git archive of 87a8221
+test_actual_archives_are_complete_and_equivalent (test_validation.SelectionAndPackages) ... ok
+test_all_original_protected_bytes_unchanged (test_validation.SelectionAndPackages) ... ERROR
+test_original_four_headers_preserved (test_validation.SelectionAndPackages) ... ok
+test_prereview_scoring_freeze_matches_code_and_selection (test_validation.SelectionAndPackages) ... ok
+test_sampler_never_opens_predictions (test_validation.SelectionAndPackages) ... ok
+test_selection_reproduces_without_prediction_inputs (test_validation.SelectionAndPackages) ... ok
+test_disjoint_negative_windows_not_collapsed (test_validation.SyntheticScoringTests) ... ok
+test_established_subevent_survives_parent_uncertainty (test_validation.SyntheticScoringTests) ... ok
+test_event_matching_and_explicit_negative_FP_window (test_validation.SyntheticScoringTests) ... ok
+test_missing_measurement_domain_excludes_negative (test_validation.SyntheticScoringTests) ... ok
+test_partial_coverage_does_not_make_an_abstention_a_negative (test_validation.SyntheticScoringTests) ... ok
+test_positive_capable_counts_and_abstentions (test_validation.SyntheticScoringTests) ... ok
+test_run_wide_uncertainty_is_retained_in_secondary_analysis (test_validation.SyntheticScoringTests) ... ok
+test_unknown_event_bounds_stay_unscorable (test_validation.SyntheticScoringTests) ... ok
+test_unknown_reference_is_not_a_known_wrong_applicability (test_validation.SyntheticScoringTests) ... ok
+test_zero_positive_recall_and_F1_not_estimable (test_validation.SyntheticScoringTests) ... ok
+test_approved_but_wrong_sample_is_rejected_before_prediction_read (test_validation.WorkflowRoundTrip) ... ok
+test_blank_approval_cannot_freeze (test_validation.WorkflowRoundTrip) ... ok
+test_blank_or_incomplete_submission_is_preserved_but_rejected (test_validation.WorkflowRoundTrip) ... ok
+test_collect_preserves_original_return_bytes (test_validation.WorkflowRoundTrip) ... ok
+test_freeze_and_gate_roundtrip_without_checker_inputs (test_validation.WorkflowRoundTrip) ... ok
+test_no_overwrite_of_original_submission (test_validation.WorkflowRoundTrip) ... ok
+test_nonboolean_exact_endpoint_flag_rejected (test_validation.WorkflowRoundTrip) ... ok
+test_original_human_tamper_rejected (test_validation.WorkflowRoundTrip) ... ok
+test_original_run_wide_uncertainty_question_is_accepted (test_validation.WorkflowRoundTrip) ... ok
+test_reference_tamper_is_rejected (test_validation.WorkflowRoundTrip) ... ok
+test_unapproved_reference_rejected_before_prediction_read (test_validation.WorkflowRoundTrip) ... ok
+
+======================================================================
+ERROR: test_all_original_protected_bytes_unchanged (test_validation.SelectionAndPackages)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/var/folders/fh/tf9qxlln2dj2ft22g_w3xj000000gn/T/trustworthy-base-87a8221-wqcfltaw/evaluation/r1_v3_human_validation_20/tests/test_validation.py", line 50, in test_all_original_protected_bytes_unchanged
+    for n,h in f['protected_files'].items():self.assertEqual(hashlib.sha256((repo/n).read_bytes()).hexdigest(),h,n)
+  File "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/pathlib.py", line 1249, in read_bytes
+    with self.open(mode='rb') as f:
+  File "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/pathlib.py", line 1242, in open
+    return io.open(self, mode, buffering, encoding, errors, newline,
+  File "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/pathlib.py", line 1110, in _opener
+    return self._accessor.open(self, flags, mode)
+FileNotFoundError: [Errno 2] No such file or directory: '/private/var/folders/fh/tf9qxlln2dj2ft22g_w3xj000000gn/T/trustworthy-base-87a8221-wqcfltaw/human_review_package/adjudication/test_results_final_baseline_20261026.txt'
+
+----------------------------------------------------------------------
+Ran 27 tests in 0.150s
+
+FAILED (errors=1)

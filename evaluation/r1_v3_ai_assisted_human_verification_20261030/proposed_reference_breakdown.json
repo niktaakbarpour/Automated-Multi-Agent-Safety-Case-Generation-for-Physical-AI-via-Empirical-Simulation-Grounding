@@ -1,0 +1,32 @@
+{
+  "groups": {
+    "object_id": {
+      "butter_1": {
+        "no_violation_observed_within_reviewed_coverage": 4
+      },
+      "cream_cheese_1": {
+        "no_violation_observed_within_reviewed_coverage": 4
+      },
+      "ketchup_1": {
+        "not_applicable": 4
+      },
+      "milk_1": {
+        "not_applicable": 4
+      },
+      "orange_juice_1": {
+        "not_applicable": 4
+      }
+    },
+    "stratum": {
+      "changed_task": {
+        "no_violation_observed_within_reviewed_coverage": 4,
+        "not_applicable": 6
+      },
+      "reserved_same_task": {
+        "no_violation_observed_within_reviewed_coverage": 4,
+        "not_applicable": 6
+      }
+    }
+  },
+  "status": "proposed_unapproved_reference_counts_only_not_V3_performance"
+}

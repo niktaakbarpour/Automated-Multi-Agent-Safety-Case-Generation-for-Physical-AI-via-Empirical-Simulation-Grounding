@@ -1,0 +1,10 @@
+{
+  "stage": "AI physical observations saved before AI requirement interpretation",
+  "created_utc": "2026-10-29T16:58:21.224500+00:00",
+  "files": {
+    "initial_support.csv": "2b59b74510bebc7421dbdb53de8fcd7a372d22c06c40588794870c05e480510b",
+    "events.csv": "c4cbc84874087240a6616aace94864dcf64931654b16b3f92d554209960daade",
+    "uncertainty_requests.csv": "0985acd42b24bf3a5279bc031ca5c95ce717b1d7d51ec1e3917840f7448e76e0"
+  },
+  "human_approval": false
+}

@@ -1,0 +1,27 @@
+{
+  "approved_four_recording_reference_unchanged": true,
+  "assignment_sha256": "bc5e9faa529df943f3904c6695976d31894759d65945e3e4437fe7d50cd0ffab",
+  "base_commit": "87a8221d0c62eb62077a066f0a333de2aac4a7e5",
+  "copied_non_media_source_files": {
+    "1": 39,
+    "2": 27
+  },
+  "formal_approval": false,
+  "frozen": false,
+  "human_actual_coverage_supplied": false,
+  "human_decision_source": "User reports human acceptance and third-human selection in this task",
+  "human_identity_or_signature_supplied": false,
+  "human_review_dates_supplied": false,
+  "independent_human_annotation": false,
+  "method": "AI-assisted human verification with human adjudication",
+  "prediction_file_not_read_by_this_pathway": true,
+  "prediction_inputs_used_for_reference_selection": false,
+  "remote_media_policy": "All 718 source files hash-inventoried; non-media source files copied byte-for-byte. Original media/evidence remain on Hestia; raw relative links retain original context.",
+  "remote_sources": {
+    "1": "/disk/1/data/niktakbr/r1-v3-human-validation-20-20261027/ai_evaluator_1_20261029",
+    "2": "/disk/1/data/niktakbr/r1-v3-human-validation-20-20261027/ai_evaluator_2_blind_20261029"
+  },
+  "report_received_date": "2026-10-30",
+  "schema": "r1-ai-assisted-human-verification-v1",
+  "superseded_exposed_evaluator_2_excluded": true
+}

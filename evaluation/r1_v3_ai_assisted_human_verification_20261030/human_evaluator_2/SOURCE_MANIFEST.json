@@ -1,0 +1,301 @@
+{
+  "manifest": {
+    "ACCESS_LOG.json": {
+      "bytes": 2235,
+      "sha256": "e68c0fae4c991a0b8b15311743a5f3642e35c7f2c9b1e46a5f0ccbbe2450f877"
+    },
+    "COVERAGE.json": {
+      "bytes": 36523,
+      "sha256": "6b3894fb792c7566f54cab0c1bd6fd6076cd91848c1256f57132e77702b8f3e0"
+    },
+    "HUMAN_REVIEW.csv": {
+      "bytes": 1629,
+      "sha256": "120daaa31cab97f8afa708061bca0821c72c0e10a66ebae47934672df23cb2d0"
+    },
+    "INPUT_CHECKSUM_VERIFICATION.json": {
+      "bytes": 142834,
+      "sha256": "3000ce74d46a987bc7637b7f1c863d30c053cd3695a31563dceb39e20d16df1d"
+    },
+    "INTERPRETATION_STAGE.json": {
+      "bytes": 194,
+      "sha256": "524b53651bc7f3b0a1ee079658fb6de662e8b8e6f146e9d2db1afff318d22571"
+    },
+    "PHYSICAL_STAGE.json": {
+      "bytes": 554,
+      "sha256": "88a9871a56991278262894eeee043e9bffb8e454a5dc271fb92223c7041be1a0"
+    },
+    "PROVENANCE.md": {
+      "bytes": 1518,
+      "sha256": "03473530b512bf81bdaeb1201c0743ce7067396781d1a10fc00a5cd876ae18c2"
+    },
+    "REPORT.md": {
+      "bytes": 7651,
+      "sha256": "0099865d0e463bfb82282993c23e25eed0f8265ed6bfc14109267b3361337843"
+    },
+    "SHA256SUMS.txt": {
+      "bytes": 6623,
+      "sha256": "cd825d50274dac2b8cd2141de6fa16e78caeb300a6804f0b57bff339ca6ef224"
+    },
+    "VALIDATION.json": {
+      "bytes": 1685,
+      "sha256": "58558ff162a8bd363b0adc78a4f66c76c931c93ff602af18a366e1de51f20211"
+    },
+    "annotations/events.csv": {
+      "bytes": 151297,
+      "sha256": "132e8ccf76367fcdb8892b54fb9e948c155ceb5a17c51afdd84d6aba85409087"
+    },
+    "annotations/initial_support.csv": {
+      "bytes": 28917,
+      "sha256": "a67459b635207d86c50cb8cab7776624b762a336b60b3116b2b5411043eae73a"
+    },
+    "annotations/physical_stage/events.csv": {
+      "bytes": 151297,
+      "sha256": "132e8ccf76367fcdb8892b54fb9e948c155ceb5a17c51afdd84d6aba85409087"
+    },
+    "annotations/physical_stage/initial_support.csv": {
+      "bytes": 28917,
+      "sha256": "a67459b635207d86c50cb8cab7776624b762a336b60b3116b2b5411043eae73a"
+    },
+    "annotations/physical_stage/uncertainty_requests.csv": {
+      "bytes": 1990,
+      "sha256": "83592e194ea5cd1c0d01e94572001df29ea4549f99ab3fb8aba8bb90cd32ab18"
+    },
+    "annotations/requirement_interpretation.csv": {
+      "bytes": 35467,
+      "sha256": "ff598cd62a34e0769fd76117467eef146f23246a9b3625728231c4ca52e46dbe"
+    },
+    "annotations/uncertainty_requests.csv": {
+      "bytes": 1990,
+      "sha256": "83592e194ea5cd1c0d01e94572001df29ea4549f99ab3fb8aba8bb90cd32ab18"
+    },
+    "decode.log": {
+      "bytes": 601,
+      "sha256": "838bc1a279720275e563cbd9da32b263780fbdcf5f1a0015d6d5da9debbc47fe"
+    },
+    "detail_windows.json": {
+      "bytes": 166,
+      "sha256": "0b9281e9e843f27835bba86a9c869fbf966ef330c9cf74b4208bb9eaeb7584e0"
+    },
+    "generate_remaining.py": {
+      "bytes": 787,
+      "sha256": "0fff18ad5bda72b663eba52ff98174fa427ac496d62619a282e269f6d1149bd8"
+    },
+    "geometry_bounds.json": {
+      "bytes": 379203,
+      "sha256": "39e3096d40b2bf9b37acbd4f5bb9afcc4fce163200499f37d8bc22494aadc3b8"
+    },
+    "measurement_summary.json": {
+      "bytes": 595755,
+      "sha256": "8dc457428504a141497cbd01947284b487ed5d49ccd12cada1245ac4cdd20f7e"
+    },
+    "reviewer_2_R1_20_return.zip": {
+      "bytes": 23033,
+      "sha256": "ba7f1469c7cb1a7ec626f9b509c2cc3681853ff2881b173e2449f8cc5306ab77"
+    },
+    "validate.py": {
+      "bytes": 4894,
+      "sha256": "bc10faddc383b87fd42dda254e0d78d7782566be16f1c5393e4a9fbab94d751b"
+    },
+    "visual/NV05_detail_179_186.jpg": {
+      "bytes": 177408,
+      "sha256": "e83e05be797fbf464db2bc07f510a5b0ffb323ea97127ab6b852029532bf0a5f"
+    },
+    "visual/NV05_detail_223_230.jpg": {
+      "bytes": 214367,
+      "sha256": "5817ae67cced9fe917e93f461c6040d5abeac3e6d5adafee3d9f8f0485874754"
+    },
+    "visual/NV06_detail_140_149.jpg": {
+      "bytes": 251545,
+      "sha256": "ca1a27684c81f8958c3f843824695853e8a3ad1efafbe8c364f57fcecba39daa"
+    },
+    "visual/NV06_detail_69_76.jpg": {
+      "bytes": 175730,
+      "sha256": "ac65bbb38b59aac8ddec298cf254391f890a404fca3e2170465c2daa63cc87c6"
+    },
+    "visual/NV10_240_299.jpg": {
+      "bytes": 383420,
+      "sha256": "ea6bbfae8b951842e0003d870704d4ea052eb795a019b391a651900c77dbbd7c"
+    },
+    "visual/NV10_300_309.jpg": {
+      "bytes": 99224,
+      "sha256": "2c7d265f29c82a330d6da96fc767bc4a24e1dc4513e60b5530976330a57db4f4"
+    },
+    "visual/NV12_detail_198_205.jpg": {
+      "bytes": 178379,
+      "sha256": "aaeb6c12a9d5e900b38fcb04e9972717aecbd6e722ec26992841a5bdeef078ca"
+    },
+    "visual/NV12_detail_247_254.jpg": {
+      "bytes": 219922,
+      "sha256": "67a3254ce7703173ab64fbff18f5192f2c563c5259211c24172fa2175e7705b1"
+    },
+    "visual/NV14_0_59.jpg": {
+      "bytes": 364997,
+      "sha256": "65aa87d2b2e78e75f06769f3ad7ce0b8056e062c2ebab785415996dd003404e9"
+    },
+    "visual/NV14_120_179.jpg": {
+      "bytes": 391285,
+      "sha256": "a80cf368e4acac9ade4e570f9b86df41f386c24856f64745beb3d37d771e5f43"
+    },
+    "visual/NV14_180_239.jpg": {
+      "bytes": 353362,
+      "sha256": "ffff561449918f760be872da6f512e3aad79eabb9b5744bde6398d28990b7c58"
+    },
+    "visual/NV14_240_279.jpg": {
+      "bytes": 277491,
+      "sha256": "003c1f393616a54cd90e59bf548fab9b5880022eb792d710aeb7d40b10964923"
+    },
+    "visual/NV14_60_119.jpg": {
+      "bytes": 361847,
+      "sha256": "c1f5bab56d630fd6cdc45380c3c2c49e890270aeea49fd126c978d2d8d48e35c"
+    },
+    "visual/NV15_0_59.jpg": {
+      "bytes": 354352,
+      "sha256": "0bccc18534f6616e655d31dcfc30cf0c3700426c9f14edf1f0fe13cf2d59fa46"
+    },
+    "visual/NV15_120_179.jpg": {
+      "bytes": 388075,
+      "sha256": "5d848bd15f4dc7029177602d4b42be95d8489bb4008547a805eae7ff5cf7bda1"
+    },
+    "visual/NV15_180_239.jpg": {
+      "bytes": 376605,
+      "sha256": "1ea614c79d1b13cb91c5913ffbb38138793344ce6b83a4cec375bf6b909cb412"
+    },
+    "visual/NV15_240_251.jpg": {
+      "bytes": 122679,
+      "sha256": "649fbb84fe19d25b0ad756b5958d7b1c4ca7efb880b354fb49e3f9aa67d2d6f9"
+    },
+    "visual/NV15_60_119.jpg": {
+      "bytes": 362274,
+      "sha256": "97079a2ce78dd8151966475f06481106bfeb5b546afcc040e8bb61c9c9e48ebd"
+    },
+    "visual/NV16_0_59.jpg": {
+      "bytes": 353831,
+      "sha256": "d976c142884210eb50cd2bb8666358550f25545f321318c93d2250dfcad329db"
+    },
+    "visual/NV16_120_179.jpg": {
+      "bytes": 385208,
+      "sha256": "dcb7f6036253ef06442b6e7111feaf001b4d16288e8c83cee1598e94b6f934a7"
+    },
+    "visual/NV16_180_239.jpg": {
+      "bytes": 364770,
+      "sha256": "17b1353a7bf6eb60596d66347a38dfb1690afdee35c83e46ffc83de933f33f2d"
+    },
+    "visual/NV16_240_253.jpg": {
+      "bytes": 128511,
+      "sha256": "da5b33512f5ea749134975af95834566d85e2a717b8cd5e2d34a59a42cd4af5e"
+    },
+    "visual/NV16_60_119.jpg": {
+      "bytes": 361475,
+      "sha256": "da30866ec219610966309942b9639a3839a2a9b7f472c1bcd9754367c40ef05b"
+    },
+    "visual/NV16_detail_139_148.jpg": {
+      "bytes": 250818,
+      "sha256": "0ef392678761d77ece4f73acc1030706486ee3bedeea2e3b67a67a76be777d5b"
+    },
+    "visual/NV16_detail_67_74.jpg": {
+      "bytes": 174342,
+      "sha256": "8ab9cb7ed41b64c1c4d36a66cf7b80f8ac65d87979682c3926139ffc0200ba68"
+    },
+    "visual/NV17_0_59.jpg": {
+      "bytes": 365901,
+      "sha256": "88fb0b4a0bfa8ca7c640c84dbbd6976106e536415b92a4be0d2e5ec94da60cb9"
+    },
+    "visual/NV17_120_179.jpg": {
+      "bytes": 435393,
+      "sha256": "3b41cce8e968928c849f3f6078d05962a1729f9fe7975acfca74f2a0a8a7a21a"
+    },
+    "visual/NV17_180_239.jpg": {
+      "bytes": 376783,
+      "sha256": "ece63a3342ac913b74ae3bbb4f823f2f0025571f489d7151d8d6e1a3794abad1"
+    },
+    "visual/NV17_240_294.jpg": {
+      "bytes": 367824,
+      "sha256": "fb70aef7c9c7c9668f994509b9ecf321ca7f6e10bf4e113987a6958ad0adae19"
+    },
+    "visual/NV17_60_119.jpg": {
+      "bytes": 357187,
+      "sha256": "a4c4c65cfe18489687d380b81545acce99757124b4ae0944eeb1a4c7b92e4d23"
+    },
+    "visual/NV18_0_59.jpg": {
+      "bytes": 368034,
+      "sha256": "9ea7dc3f847d363a232089096f05fa28e17a7abf1fd73b2476bfd436ca328868"
+    },
+    "visual/NV18_120_179.jpg": {
+      "bytes": 410668,
+      "sha256": "078b90141fb3ea16fc4e0893809acda5bba36e313b6faaf3fe2b9ef4826427e7"
+    },
+    "visual/NV18_180_239.jpg": {
+      "bytes": 363595,
+      "sha256": "51aa5daee00dd8ec3b24793d9096efa4c6e0281c283a813cc16ee028611821e5"
+    },
+    "visual/NV18_240_263.jpg": {
+      "bytes": 185506,
+      "sha256": "b12033f5da8b76d2bfed74b275b027c8b1b3f182cebdabb5fb18247362d357a3"
+    },
+    "visual/NV18_60_119.jpg": {
+      "bytes": 366515,
+      "sha256": "62a56f3b34f88de950ccb2b59ab3f4536b60e0c004bfc744831792374995ccba"
+    },
+    "visual/NV19_0_59.jpg": {
+      "bytes": 354205,
+      "sha256": "aacf5a77c93ddb3da41e4a07602b1e5c187c60421dd040343ac59752f9eeb2b0"
+    },
+    "visual/NV19_120_179.jpg": {
+      "bytes": 397439,
+      "sha256": "54b0c2975319ff711553f3bcd7060c2dfcb40ac45205f74f3eba1ded7ca6016e"
+    },
+    "visual/NV19_180_239.jpg": {
+      "bytes": 364080,
+      "sha256": "62515381fba54d6d3664b11aa5319dcdbadf0c4e44a428fdc10e6fc4aed5e568"
+    },
+    "visual/NV19_240_265.jpg": {
+      "bytes": 217222,
+      "sha256": "cd65fb67782dc6a9616d5f786d7bbba63f2dcce27ac6426e54273fea739a4f78"
+    },
+    "visual/NV19_60_119.jpg": {
+      "bytes": 356492,
+      "sha256": "912b6a74ac47ead8f3af2bd4b8fe749d471991d1715b76296b4318df36d73801"
+    },
+    "visual/NV20_0_59.jpg": {
+      "bytes": 358237,
+      "sha256": "88db1d5dff468f0ca062cdae9f421f23f645152dd4eef152100a6b14e473b7d3"
+    },
+    "visual/NV20_120_179.jpg": {
+      "bytes": 381500,
+      "sha256": "97cc75a1b166527dd7657d390bea3008a95a108962fd10a571e306dc546ba35d"
+    },
+    "visual/NV20_180_239.jpg": {
+      "bytes": 379142,
+      "sha256": "a0014447370543f4def4bd3b1b2547bb37e0af970022247b3ac47e76d5369271"
+    },
+    "visual/NV20_240_249.jpg": {
+      "bytes": 102635,
+      "sha256": "a7746225d56c88a8bfc1cda23084dfb413738b78e7c4e99200f2bde7b087404d"
+    },
+    "visual/NV20_60_119.jpg": {
+      "bytes": 377766,
+      "sha256": "c42607dc5f24710f6ece7eee902ff69122bc88d82af18e675ee8b566e7fc355e"
+    },
+    "visual/NV20_detail_180_187.jpg": {
+      "bytes": 177267,
+      "sha256": "90392a93f97a501679af5f14255a4e3533492a67883fe42a44ec6b5eff4c3207"
+    },
+    "visual/NV20_detail_193_204.jpg": {
+      "bytes": 265389,
+      "sha256": "1ce4f5ec04944fdd7b6ac1e866c385680ad4255c6dcc44dd5b1e70bf9800f673"
+    },
+    "write_interpretation.py": {
+      "bytes": 4799,
+      "sha256": "fac85ddbe615e4b8bdfb242022dc895659a787d590010887eb56cf810ddd0aef"
+    },
+    "write_physical.py": {
+      "bytes": 12606,
+      "sha256": "19ba21641b1f327f94146e5c4737c8342aea4067de7f413b6d8c0b5d8493e6cc"
+    },
+    "write_provenance.py": {
+      "bytes": 7047,
+      "sha256": "d6e9a5a3067337663557a46296fd6754c873a260750726ca40349b22069c640d"
+    }
+  },
+  "source_root": "/disk/1/data/niktakbr/r1-v3-human-validation-20-20261027/ai_evaluator_2_blind_20261029"
+}

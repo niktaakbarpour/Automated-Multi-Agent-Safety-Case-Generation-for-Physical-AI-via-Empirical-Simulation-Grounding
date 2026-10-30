@@ -1,0 +1,52 @@
+{
+  "V3_metrics": null,
+  "ai_annotation_row_counts": {
+    "1": {
+      "events": 64,
+      "initial_support": 20,
+      "requirement_interpretation": 20,
+      "uncertainty_requests": 23
+    },
+    "2": {
+      "events": 91,
+      "initial_support": 20,
+      "requirement_interpretation": 20,
+      "uncertainty_requests": 5
+    }
+  },
+  "ai_outcome_counts": {
+    "1": {
+      "insufficient_information": 1,
+      "no_violation_observed_within_reviewed_coverage": 7,
+      "not_applicable": 12
+    },
+    "2": {
+      "no_violation_observed_within_reviewed_coverage": 8,
+      "not_applicable": 12
+    }
+  },
+  "applicability_label_agreement": 20,
+  "by_category": {
+    "descriptive_detail_or_uncertainty_difference": 280,
+    "evidence_coverage_difference": 212,
+    "exact_agreement": 447,
+    "outcome_disagreement": 1,
+    "potential_substantive_or_structural_difference": 422,
+    "source_identifier_or_provenance_difference": 338
+  },
+  "compared_fields": 1700,
+  "differing_fields": 1253,
+  "human_acceptance_of_ai_proposals": {
+    "evaluator_1": "20/20 user-reported",
+    "evaluator_2": "20/20 user-reported"
+  },
+  "independent_interannotator_reliability": null,
+  "initial_support_label_agreement": 20,
+  "outcome_label_agreement": 19,
+  "proposed_outcome_counts": {
+    "no_violation_observed_within_reviewed_coverage": 8,
+    "not_applicable": 12
+  },
+  "scoring_status": "not_run_missing_formal_approval_and_confirmed_comparison_domains",
+  "total_cases": 20
+}
