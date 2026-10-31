@@ -1,0 +1,142 @@
+{
+  "data/requirement_inputs/v2-confirmed/provenance.json": {
+    "baseline_identical": true,
+    "bytes": 172855,
+    "sha256": "1c9bc3eb8520e6a9f6eb2ca70f63712e3f743cc4a24001afeec79b7bd3e86f0d"
+  },
+  "data/runs.json": {
+    "baseline_identical": true,
+    "bytes": 81649344,
+    "sha256": "a3ef8102a622a379b115287ec9b882d8d8b88829954115970347d17c0c8994f6"
+  },
+  "data/tasks.json": {
+    "baseline_identical": true,
+    "bytes": 4268524,
+    "sha256": "0b395be1692fadec92f0ebdb4e7370afe2b0a4bcd114993d7b9c19628865879a"
+  },
+  "evaluation/r1_v3/execute.py": {
+    "baseline_identical": true,
+    "bytes": 11465,
+    "sha256": "e94ad1c34c47826a6e8a2a1b4b90543268a19d41045611c17a45287c45497cbc"
+  },
+  "evaluation/r1_v3/r1_checker.py": {
+    "baseline_identical": true,
+    "bytes": 14559,
+    "sha256": "d2914d64596f585a60021f426eb761439d604907450ebf318ca48590db0fc94f"
+  },
+  "evaluation/r1_v3_generalization/V4_PROPOSALS.md": {
+    "baseline_identical": true,
+    "bytes": 2842,
+    "sha256": "5ba3d78736ecf8a9112b855eaa604be876dcbd2ebb9744a80f9e6c42d71c477a"
+  },
+  "evaluation/r1_v3_human_validation_20/COORDINATOR_ASSIGNMENTS.json": {
+    "baseline_identical": true,
+    "bytes": 20083,
+    "sha256": "bc5e9faa529df943f3904c6695976d31894759d65945e3e4437fe7d50cd0ffab"
+  },
+  "evidence/geometry_v2/simulator.xml": {
+    "baseline_identical": true,
+    "bytes": 66723,
+    "sha256": "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542"
+  },
+  "evidence/task_definitions/2448c758145ae5ad500f.bddl": {
+    "baseline_identical": true,
+    "bytes": 3284,
+    "sha256": "2e661058917f683a25bce480015197f0a2c1911bcbc2b9dd9d947199069c9618"
+  },
+  "reports/fall_checker_dev_20261017/outputs/episode_000_geometry_contacts.json.gz": {
+    "baseline_identical": true,
+    "bytes": 3691970,
+    "sha256": "ae6f629331a4dea78328ff29631f564bf2da76f6ddf1c23122de4b43b8748d6f"
+  },
+  "reports/fall_checker_dev_20261017/outputs/episode_001_geometry_contacts.json.gz": {
+    "baseline_identical": true,
+    "bytes": 3952276,
+    "sha256": "ffd8a7178a92f574097d3f697b15218c15a362ec49cb7a307e82b0c9998a1754"
+  },
+  "reports/fall_checker_dev_20261017/outputs/episode_002_geometry_contacts.json.gz": {
+    "baseline_identical": true,
+    "bytes": 3539570,
+    "sha256": "fe0524b8f6a5d72ce0f2c6e160814cedf31cbbbea8562c87a156a2cedf9f7216"
+  },
+  "reports/fall_checker_dev_20261017/outputs/episode_014_geometry_contacts.json.gz": {
+    "baseline_identical": true,
+    "bytes": 7602717,
+    "sha256": "1f68f03076e298de88b3554496de135f55f94f8802bb29c3cca8c5e606e522f8"
+  },
+  "reports/fall_review_20261016/measurement_audit.md": {
+    "baseline_identical": true,
+    "bytes": 14620,
+    "sha256": "8875781e7066788d1e4e4b6b36c493f6667185b97bca99585e000a14c1fceab4"
+  },
+  "reports/fall_review_20261016/source_evidence/recording_base.py": {
+    "baseline_identical": true,
+    "bytes": 23765,
+    "sha256": "7ce898669c01fd3a6b7a7c3217a6326464ff9343aab32c25fe4a16b08b1f5268"
+  },
+  "reports/fall_review_20261016/source_evidence/run_oft.py": {
+    "baseline_identical": true,
+    "bytes": 22761,
+    "sha256": "418a48ad136d0734039eef6b4f394d28c0ee8f14daea26035e475b4ad94f9bfc"
+  },
+  "reports/fall_review_20261016/source_evidence/semantic_scene.py": {
+    "baseline_identical": true,
+    "bytes": 6788,
+    "sha256": "08a865289687fd2332d527d375b85342011d754d2595632223ac0b044cb13858"
+  },
+  "reports/fall_review_v2_20261016/constraints_and_identities.json": {
+    "baseline_identical": true,
+    "bytes": 2939,
+    "sha256": "38b0384d5f17f0068133e54266f41d0a6728b60c1d4f1f96b3e14a7cd6fd7e3b"
+  },
+  "reports/fall_review_v2_20261016/corrected_native_geometry_v2.json": {
+    "baseline_identical": true,
+    "bytes": 294466,
+    "sha256": "a6d32b025a4e4ad495216d07faa093d42d93797d03626516653d62d1ec7a2be1"
+  },
+  "reports/fall_review_v2_20261016/example_manifest.json": {
+    "baseline_identical": true,
+    "bytes": 20409,
+    "sha256": "ab9b2004db2ac82d54a6f9879ee9c426ff45e20d2428d22f9e85aa8c7705e683"
+  },
+  "reports/fall_review_v2_20261016/initial_sites_vs_collision_geometry.json": {
+    "baseline_identical": true,
+    "bytes": 2016,
+    "sha256": "bac958b11e79f32b063709ff836dcb9b76c56062fb0f6d0b922fcc1cd91e6e1b"
+  },
+  "reports/fall_review_v2_20261016/measurement_findings_v2.md": {
+    "baseline_identical": true,
+    "bytes": 17506,
+    "sha256": "8cbaee52accd06195f8845c1f6acf088b1a4659bdf68b31627f8db8a99475d83"
+  },
+  "reports/fall_review_v2_20261016/prepolicy_static_endpoint_geometry.json": {
+    "baseline_identical": true,
+    "bytes": 147347,
+    "sha256": "6eff4b02b0920def7f785d5e1876035284a806d1ac53c48b8838a156a27b24e6"
+  },
+  "reports/fall_review_v2_20261016/proposed_split.json": {
+    "baseline_identical": true,
+    "bytes": 3946,
+    "sha256": "0b6720d53f0f405afd3d646fed1cc855a57169bfdafd3ce4991142ee693d656c"
+  },
+  "reports/fall_review_v2_20261016/source_provenance.json": {
+    "baseline_identical": true,
+    "bytes": 4388,
+    "sha256": "710e409da42ca1803c0bc08a9016e232b2e53aadcb6d69acc00197ab8b734671"
+  },
+  "reports/fall_review_v2_20261016/targeted_measurements.json": {
+    "baseline_identical": true,
+    "bytes": 16570261,
+    "sha256": "e9b3d6ff4eece00c8d50a1c826f154a2c32bc582d9e79f793a544ade22ba12ac"
+  },
+  "requirements/r1_generalized_v2/EVIDENCE_CONTRACT.md": {
+    "baseline_identical": true,
+    "bytes": 10628,
+    "sha256": "91cc3ee0d6265c477f4affd359476179f1dc6d17d68dabe5153390b7b9a0b129"
+  },
+  "requirements/r1_generalized_v2/FALL_DEFINITION.md": {
+    "baseline_identical": true,
+    "bytes": 6347,
+    "sha256": "4d41cd987d35dbc0f3dbd32528dbbf58f32fa98191e59f4826768a38b3fd5b34"
+  }
+}

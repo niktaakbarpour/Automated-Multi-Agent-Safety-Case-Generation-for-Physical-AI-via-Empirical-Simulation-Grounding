@@ -1,0 +1,9 @@
+{
+  "all_csv_rectangular": true,
+  "all_json_parsed": true,
+  "empirical_admission_enabled": false,
+  "original_paths_absent": 38,
+  "passed": true,
+  "physical_verdicts_issued": 0,
+  "source_hashes_verified": 28
+}
