@@ -1,0 +1,50 @@
+test_cache_identity_is_hypothesis_only (test_profile.ContactAndTime.test_cache_identity_is_hypothesis_only) ... ok
+test_clock_gaps_remain_visible (test_profile.ContactAndTime.test_clock_gaps_remain_visible) ... ok
+test_contact_alone_does_not_prove_support (test_profile.ContactAndTime.test_contact_alone_does_not_prove_support) ... ok
+test_incomplete_clock_rejected (test_profile.ContactAndTime.test_incomplete_clock_rejected) ... ok
+test_missing_contact_is_not_absence_certificate (test_profile.ContactAndTime.test_missing_contact_is_not_absence_certificate) ... ok
+test_missing_phase_input_stays_unknown (test_profile.ContactAndTime.test_missing_phase_input_stays_unknown) ... ok
+test_nonmonotonic_clock_not_repaired (test_profile.ContactAndTime.test_nonmonotonic_clock_not_repaired) ... ok
+test_raw_phase_not_camera_phase (test_profile.ContactAndTime.test_raw_phase_not_camera_phase) ... ok
+test_camera_exposure_never_invented (test_profile.GatesAndProvenance.test_camera_exposure_never_invented) ... ok
+test_computational_success_cannot_enable_physical_gates (test_profile.GatesAndProvenance.test_computational_success_cannot_enable_physical_gates) ... ok
+test_machine_gate_statuses_closed_set (test_profile.GatesAndProvenance.test_machine_gate_statuses_closed_set) ... ok
+test_no_heldout_reference_source (test_profile.GatesAndProvenance.test_no_heldout_reference_source) ... /disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/measurement_profile_validation/tests/test_profile.py:70: ResourceWarning: unclosed file <_io.TextIOWrapper name='/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/measurement_profile_validation/DEVELOPMENT_REFERENCE_CANDIDATES.csv' mode='r' encoding='UTF-8'>
+  episodes={int(r['episode']) for r in csv.DictReader((HERE/'DEVELOPMENT_REFERENCE_CANDIDATES.csv').open()) if r['episode']};self.assertEqual(episodes,{0,2,14})
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+ok
+test_no_runtime_judgments (test_profile.GatesAndProvenance.test_no_runtime_judgments) ... ok
+test_physical_parameters_have_no_invented_bound (test_profile.GatesAndProvenance.test_physical_parameters_have_no_invented_bound) ... /disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/measurement_profile_validation/tests/test_profile.py:61: ResourceWarning: unclosed file <_io.TextIOWrapper name='/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/measurement_profile_validation/CALIBRATION_PARAMETERS.csv' mode='r' encoding='UTF-8'>
+  for r in csv.DictReader((HERE/'CALIBRATION_PARAMETERS.csv').open()):
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+ok
+test_reference_proposals_not_ground_truth (test_profile.GatesAndProvenance.test_reference_proposals_not_ground_truth) ... /disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/measurement_profile_validation/tests/test_profile.py:65: ResourceWarning: unclosed file <_io.TextIOWrapper name='/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/measurement_profile_validation/DEVELOPMENT_REFERENCE_CANDIDATES.csv' mode='r' encoding='UTF-8'>
+  proposals=list(csv.DictReader((HERE/'DEVELOPMENT_REFERENCE_CANDIDATES.csv').open()));self.assertEqual(len(proposals),11)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+ok
+test_sliding_category_not_fabricated (test_profile.GatesAndProvenance.test_sliding_category_not_fabricated) ... /disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/measurement_profile_validation/tests/test_profile.py:68: ResourceWarning: unclosed file <_io.TextIOWrapper name='/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/measurement_profile_validation/DEVELOPMENT_REFERENCE_CANDIDATES.csv' mode='r' encoding='UTF-8'>
+  r=next(r for r in csv.DictReader((HERE/'DEVELOPMENT_REFERENCE_CANDIDATES.csv').open()) if r['category']=='sliding');self.assertEqual(r['source_path'],'');self.assertEqual(r['proposal_status'],'NO_VERIFIED_EXAMPLE_PREPARED')
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+ok
+test_source_bindings_current (test_profile.GatesAndProvenance.test_source_bindings_current) ... ok
+test_source_proof_required_for_native_gate (test_profile.GatesAndProvenance.test_source_proof_required_for_native_gate) ... ok
+test_collision_union_keeps_all_pieces (test_profile.Geometry.test_collision_union_keeps_all_pieces) ... ok
+test_correspondence_required (test_profile.Geometry.test_correspondence_required) ... ok
+test_downward_indicator_is_not_witness (test_profile.Geometry.test_downward_indicator_is_not_witness) ... ok
+test_exact_rational_enclosures (test_profile.Geometry.test_exact_rational_enclosures) ... ok
+test_identical_samples_do_not_certify_rest (test_profile.Geometry.test_identical_samples_do_not_certify_rest) ... ok
+test_identity_box_dimensions (test_profile.Geometry.test_identity_box_dimensions) ... ok
+test_invalid_size (test_profile.Geometry.test_invalid_size) ... ok
+test_missing_union (test_profile.Geometry.test_missing_union) ... ok
+test_root_height_is_not_collision_bottom (test_profile.Geometry.test_root_height_is_not_collision_bottom) ... ok
+test_rotated_box (test_profile.Geometry.test_rotated_box) ... ok
+test_wrong_shape (test_profile.Geometry.test_wrong_shape) ... ok
+test_new_review_forms_have_no_prefilled_decisions (test_profile.ReferenceSafeguards.test_new_review_forms_have_no_prefilled_decisions) ... /disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/measurement_profile_validation/tests/test_profile.py:81: ResourceWarning: unclosed file <_io.TextIOWrapper name='/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/measurement_profile_validation/REFERENCE_REVIEW_FORM.csv' mode='r' encoding='UTF-8'>
+  forms=list(csv.DictReader((HERE/'REFERENCE_REVIEW_FORM.csv').open()));self.assertEqual(len(forms),10)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+ok
+
+----------------------------------------------------------------------
+Ran 30 tests in 0.561s
+
+OK

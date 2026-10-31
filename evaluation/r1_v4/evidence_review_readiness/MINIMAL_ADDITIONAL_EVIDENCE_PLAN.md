@@ -1,0 +1,31 @@
+# Minimal additional evidence plan — proposed, not executed
+
+Start with the existing sources; do not automatically request a larger dataset or a new robot run. Independent confirmation and calibrated contracts are separate obligations. A human judgment alone does not establish a missing measurement uncertainty bound.
+
+| Critical gate | Smallest useful additional evidence | Use existing data first | Exit condition |
+|---|---|---|---|
+| G03 geometry admission | Native shape/local-transform metadata or a justified version-specific serialization bound for the exact model; verified support-face roles | Reconcile original XML/assets and pinned producer/backend provenance without advancing physics | Hash-bound shape/pose uncertainty components and validated transformations; no zero-by-default bound |
+| G04 support/applicability | Independent review of C01/C03 support, C02 initial-unsupported and C10 competing-contact cases; a validated load-bearing alternative and t0 contract | Existing contact/geometry/constraint and robot-interaction evidence | Explicit direct/indirect support/exclusion assumptions validated for this scope; necessary uncertainty resolved |
+| G05 falling | Independently verified initially-supported, unsupported downward departure with origin/handling/boundary evidence; matched confound controls | No genuine R1 positive is verified among the current proposals | Positive reference and proposed inference profile validated independently; setup/post-lift cases remain distinct |
+| G06 negative certificates | A qualified support and transition witness for every cell of a prospectively fixed requested domain | C03 can inform static-profile development, not certify its full original execution | Validated full-domain cell/transition certificates; no post-hoc interval shortening or missing-to-negative rule |
+| G07 static joins | Compatible admitted cells plus independently qualified join transitions | Reuse one clock/model/source scope; retain shared dependencies | Joins pass scope/clock/uncertainty/conflict checks; overlap creates no independence |
+| G09 contact-based inference | Force-free model assumptions or an independently validated aggregate/load witness; competing supports excluded | Existing raw contacts, known constraints and body/robot measurements | Contact roles and completeness validated at the required times; no invented normals/forces |
+| G10 uncertainty | Justified shape, pose/motion and timing bounds with dependency-aware propagation | Existing rational arithmetic and source precision audits provide only computation components | All necessary physical components have supported bounds or the claim abstains |
+| G11 temporal admission | Matched recorder/engine/observable provenance establishing phase, or a separately authorized timing-reference capture | Reproduce source-specific endpoint/cache checks; keep cameras qualitative if optional | Phase/boundary contract is validated; no fitted universal lag/window |
+| G12 independent references | Independent source review/adjudication and frozen protocol/reference hashes, with disjoint evaluation | Ten cited proposals can become reviewed development cases after actual review | Reference claims justified without checker-generated truth; exposure and strata retained |
+
+G01/G02 need no extra evidence for their already narrow measurement/arithmetic statements. G08 dynamic/handling composition needs a separately approved contract/profile; more images do not change its unsupported status.
+
+## Minimal reference study
+
+1. Approve reviewer instructions, source access and uncertainty vocabulary. Keep existing human forms unchanged. Use new versioned forms for an actual future study; reviewers inspect measured evidence before AI proposals/checker outputs. Record coverage and disagreements, then adjudicate independently. These eleven entries are development material, not prospective performance validation.
+2. Reuse C01/C03 for support hypotheses, C02 for unsupported setup, C10 for competing contacts, C05/C06/C09 for handling confounds, and C11 for origin/boundary scope. These examples are dependent and do not fill every reference category. C04 remains a real gap.
+3. If a separately authorized natural-development search cannot supply a genuine in-scope positive and verified sliding/rotation controls, propose a small controlled rigid-BOX calibration set: support-preserving slide/rotation versus unsupported departure from established designated support, plus held-release confounds where needed. Capture source/model identity, native collision metadata, complete contact role/force information where the chosen model needs it, exact phase/event order and boundaries. No such experiment is authorized or run here.
+4. One verified trace per missing mechanism may establish feasibility, not accuracy or generality. Required repetitions and validation sample size must follow the chosen uncertainty/detection-limit and statistical protocol; no adequate N or numerical threshold is guessed here.
+5. Keep natural development, controlled calibration and prospective held-out validation separate by execution/source lineage. Do not tune against NV01–NV20 or alter historical labels/seals. Freeze candidate contracts/calibration and selection rules before evaluation. Independently verified positives, eligible negatives, NA and U are all required.
+
+## Bounded decision sequence
+
+Resolve source/model assumptions and independent support references before expanding the classifier. Resolve timing using version-bound producer evidence; optional cameras need not block an independently valid state route. Request new captures only for quantities that existing records cannot recover. Missing native force/exposure/substep fields cannot be reconstructed by AI agreement or image overlap.
+
+All future computation must remain on Hestia with disk1 working artifacts; Alliance is storage only. Additional restoration, image transfer, instrumentation or experiments need their own explicit scope/authorization. This phase implements none of them. In parallel, proceed toward the safety-case framework with typed evidence/argument infrastructure that preserves blocked claims, as specified in NEXT_RESEARCH_MILESTONES.md.

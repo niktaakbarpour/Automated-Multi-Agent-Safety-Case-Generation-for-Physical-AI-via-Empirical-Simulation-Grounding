@@ -1,0 +1,18 @@
+{
+  "all_existing_tracked_files_unchanged": true,
+  "audited_sources": 16,
+  "baseline": "609ac744b1b2fb899c783de5bb3df3c39943f57e",
+  "human_freeze_sha256": "6a9b6d2f39422e010ad8a13bf29278ac2255da673473ce8d5a4e8c0301cb23ff",
+  "human_scoring_protected_files": 8,
+  "live_frozen_hashes": {
+    "/disk/1/data/niktakbr/r1-checker-v3-20261027/evaluation/r1_v3/config.json": "fd3464dc0ee0ac44ee81c325e951832896eab489517aeed0a715f8e4d0088375",
+    "/disk/1/data/niktakbr/r1-checker-v3-20261027/evaluation/r1_v3/execute.py": "e94ad1c34c47826a6e8a2a1b4b90543268a19d41045611c17a45287c45497cbc",
+    "/disk/1/data/niktakbr/r1-checker-v3-20261027/evaluation/r1_v3/r1_checker.py": "d2914d64596f585a60021f426eb761439d604907450ebf318ca48590db0fc94f",
+    "/disk/1/data/niktakbr/r1-v3-generalization-20261027/execution/predictions.json": "0ef93ece9c3d0cb02a49a450979315a4e3be3d5f127aa48105970321f5b34984",
+    "/disk/1/data/niktakbr/trustworthy-ai3-preserved-20261030/assessment/AI_EVALUATOR_3_SEAL.json": "52d84dc7440ba256b87e9f5a59f1df201da291c04fedf368da4474ebb5711c73",
+    "/disk/1/data/niktakbr/trustworthy-ai3-preserved-20261030/comparison/AI_REFERENCE_SEAL.json": "6351e474de196fb7d0c801989921765b9e66686c54c003e0b15372db4e7cca4b"
+  },
+  "new_v4_tracked_files": 206,
+  "passed": true,
+  "sealed_members_verified": 12
+}

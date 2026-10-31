@@ -1,0 +1,130 @@
+{
+  "AI_REFERENCE_REVIEWS.csv": {
+    "bytes": 13007,
+    "sha256": "7abcaca74fc867f74b22cc8d44deb78d4bc0dec203c06ea8d21cdd28f4dd7703"
+  },
+  "AUTHORIZED_VISUAL_EVIDENCE.json": {
+    "bytes": 38789,
+    "sha256": "c187c0405855c65e2eea47fef30fb9f8dd09c20543b8f14a527c8eb4e39dc52e"
+  },
+  "DISAGREEMENTS_AND_UNCERTAINTY.md": {
+    "bytes": 3771,
+    "sha256": "f2c12839751ef53cee10243f1196a1a1e958bb3fe4645729f97be99f86460a03"
+  },
+  "EMPIRICAL_READINESS.md": {
+    "bytes": 3107,
+    "sha256": "45f8ea3184b1dfa3e23a83ce2aa5ef779afdafd92e4cf6a48db0e10630548898"
+  },
+  "EVIDENCE_LEDGER.csv": {
+    "bytes": 31503,
+    "sha256": "aa974b96e1dbc63db9c54aaf85e228ad933e26ecf74924e773cfd2aeeffc24a5"
+  },
+  "MINIMAL_ADDITIONAL_EVIDENCE_PLAN.md": {
+    "bytes": 6235,
+    "sha256": "6f48d1eafbba450426a9a6508bff644274010f4e13395ba1fdb09a7226dbee69"
+  },
+  "NEXT_RESEARCH_MILESTONES.md": {
+    "bytes": 10426,
+    "sha256": "2e680977616d8bc75177d9a82c8c1ac769e6076fed0e1950940f2f7ae14dc084"
+  },
+  "NUMERICAL_REVIEW_SUMMARY.json": {
+    "bytes": 24124,
+    "sha256": "2e11b959de060815bb3383717c212213dfc7494af1c36dcb991f27c490b86733"
+  },
+  "READINESS_STATUS.json": {
+    "bytes": 10821,
+    "sha256": "beec15f090e30dd027c9f09f4ff261d9ffd9828f1e53808cd0997bf094e9f45d"
+  },
+  "REPRODUCIBILITY.md": {
+    "bytes": 2597,
+    "sha256": "894ddca9d58b989047f609b4c861ef38a5a2cefa0999540d6a4e55ff128dbb9e"
+  },
+  "REVIEW_PROTOCOL.md": {
+    "bytes": 3962,
+    "sha256": "bfd0050d165f0401ab4b1360da719c9e3763183e942b9a0ee458e35bc382a52e"
+  },
+  "REVIEW_PROVENANCE.json": {
+    "bytes": 732,
+    "sha256": "9b59dcf679f752e3300784482bf99978eb3e5eaad660e6abbee8dc442b6a3570"
+  },
+  "SOURCE_BINDINGS.json": {
+    "bytes": 8818,
+    "sha256": "6cd21ca8aeb52a3958f373f9e3276d44372c8b75a53dae73b0c29248e2fbc79c"
+  },
+  "UPDATED_EVIDENCE_GATES.csv": {
+    "bytes": 7127,
+    "sha256": "9a42784f1fb6daf9fa342b2a6d8c3d4210ecbcc41d60d8dbdb23dca8f81f7f87"
+  },
+  "VALIDATION_REPORT.md": {
+    "bytes": 4531,
+    "sha256": "1a54c9d574b5356ceb8384e2e9145947368e6d212650ce9336d196113af9b634"
+  },
+  "assessments.py": {
+    "bytes": 11886,
+    "sha256": "21fe7bf9d2c8fd00b8e5efca4aba09dee38c019c0606b92f4644ee063e7141be"
+  },
+  "review_sources.py": {
+    "bytes": 7484,
+    "sha256": "b4d47ab931afe1401e451f5113bdef2cae466e7182d0269718de5fbf1fa54e90"
+  },
+  "tests/test_review.py": {
+    "bytes": 5134,
+    "sha256": "dc7882aa92ec48de056874bc78a1c9c30a39f55f1aa095cdc7e7f08e9486e444"
+  },
+  "update_gates.py": {
+    "bytes": 3433,
+    "sha256": "c376db5894f5d88f46b83837fe0d2c446b1e77ed2487c3c270bd2f454adbf809"
+  },
+  "validate.py": {
+    "bytes": 2470,
+    "sha256": "7874a5b9edb6eef47133de45081f69741fd403d96ba23526ccbe5a86eb63601c"
+  },
+  "validation/ARTIFACT_QA.json": {
+    "bytes": 573,
+    "sha256": "8a4b07001571c622a7a645080222453f17f49f4fe278c2d446c73a77cdf11bdc"
+  },
+  "validation/FINAL_INTEGRITY.json": {
+    "bytes": 1313,
+    "sha256": "7cdd785156d0eee703cf3a2d7889de93a897ac9a164b45f3c88699135c551155"
+  },
+  "validation/FROZEN_AFTER.json": {
+    "bytes": 1313,
+    "sha256": "7cdd785156d0eee703cf3a2d7889de93a897ac9a164b45f3c88699135c551155"
+  },
+  "validation/FROZEN_BEFORE.json": {
+    "bytes": 1313,
+    "sha256": "7cdd785156d0eee703cf3a2d7889de93a897ac9a164b45f3c88699135c551155"
+  },
+  "validation/RESULTS.json": {
+    "bytes": 5373,
+    "sha256": "4d4bc0adb4ae14e8e51856a88864dcfb6427e16019f5244a0d23c7f836ffc285"
+  },
+  "validation/frozen_v3.log": {
+    "bytes": 4922,
+    "sha256": "0152be9f6f8dac251dd0a789d535b9788a29ca9d0df7a69a5782e01831f90993"
+  },
+  "validation/generalization.log": {
+    "bytes": 1861,
+    "sha256": "41eb026396762b4637fc93c46bddb783a21832a34b2c79e623e4c6f3644e4b84"
+  },
+  "validation/phase2a.log": {
+    "bytes": 12083,
+    "sha256": "ec3a93d065b35e706a89f6818e39b94172989ec46caf638e2b3633c8784e1a4d"
+  },
+  "validation/profile.log": {
+    "bytes": 5978,
+    "sha256": "063f96c07e51c8af4ae7b00e35764667bab09efc5e878a088303f7c0f84ca0a6"
+  },
+  "validation/reader.log": {
+    "bytes": 4457,
+    "sha256": "1fff8bd9c0edd70b06dc333aa5a61b60557448727c74c29ef83dacd27b622461"
+  },
+  "validation/reference.log": {
+    "bytes": 2241,
+    "sha256": "958e443d4febd9497a058cd6f11687bf014adcff56303a2c6c7998c5b6420f93"
+  },
+  "validation/review.log": {
+    "bytes": 3853,
+    "sha256": "e5af67544c9d1e70e6a3dfc5af8d69fadecd37a9fac08eb17f8ce59a9fc0cd2c"
+  }
+}

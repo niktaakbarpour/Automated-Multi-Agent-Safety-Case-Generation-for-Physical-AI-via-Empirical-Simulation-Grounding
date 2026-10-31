@@ -1,0 +1,1020 @@
+[
+  {
+    "available": true,
+    "body_id": 22,
+    "candidate_id": "C01",
+    "checkpoint": "moojink/openvla-7b-oft-finetuned-libero-spatial-object-goal-10",
+    "checkpoint_revision": "638918f3d1c2e43a39a8a20772bdb8b91835e4b7",
+    "co_motion_measurement_is_not_holding_proof": true,
+    "collision_geom_ids": [
+      104
+    ],
+    "collision_min_z_range": [
+      0.43675992152000004,
+      0.43675992152000004
+    ],
+    "contact_count_range": [
+      4,
+      4
+    ],
+    "endpoint_time_range": [
+      0.4000000000000003,
+      0.5500000000000004
+    ],
+    "episode": 0,
+    "execution_id": "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db",
+    "finger_geometry_groups": [
+      [
+        76,
+        77
+      ],
+      [
+        79,
+        80
+      ]
+    ],
+    "frames_with_floor_contacts": 0,
+    "frames_with_other_contacts": 0,
+    "frames_with_robot_contacts": 0,
+    "frames_with_table_contacts": 4,
+    "frames_with_two_finger_groups": 0,
+    "max_corresponding_vertex_displacement": 0.0,
+    "measurement_status": "verified recorded structure and model-bound numerical agreement",
+    "nominal_adjacent_pairs_with_three_upward_z_components": 0,
+    "numerical_frames_inspected": [
+      8,
+      9,
+      10,
+      11
+    ],
+    "object_id": "cream_cheese_1",
+    "original_candidate_frames": [
+      9,
+      10,
+      11
+    ],
+    "pairs_with_all_nominal_vertex_dz_negative": 0,
+    "physical_event_admitted": false,
+    "physical_support_validated": false,
+    "root_to_finger_collision_center_distance_ranges": [
+      [
+        0.32844956599011893,
+        0.32903953234652256
+      ],
+      [
+        0.3782999913319495,
+        0.37884824617806623
+      ]
+    ],
+    "source_path": "/disk/1/data/niktakbr/r1-v4-phase2b2-development-evidence/long/task_00/episode_000/trajectory.h5",
+    "source_sha256": "b32c8bd571d7d7191ed3fae6493572fdfc226ba9c283582a80a8e6c8bfa46803",
+    "task_configuration_id": "2448c758145ae5ad500f",
+    "task_name": "LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket"
+  },
+  {
+    "available": true,
+    "body_id": 24,
+    "candidate_id": "C02",
+    "checkpoint": "moojink/openvla-7b-oft-finetuned-libero-spatial-object-goal-10",
+    "checkpoint_revision": "638918f3d1c2e43a39a8a20772bdb8b91835e4b7",
+    "co_motion_measurement_is_not_holding_proof": true,
+    "collision_geom_ids": [
+      131,
+      132,
+      133,
+      134,
+      135,
+      136,
+      137,
+      138,
+      139,
+      140,
+      141,
+      142
+    ],
+    "collision_min_z_range": [
+      0.9040242751266492,
+      1.0627560087201988
+    ],
+    "contact_count_range": [
+      0,
+      0
+    ],
+    "endpoint_time_range": [
+      0.4000000000000003,
+      0.5500000000000004
+    ],
+    "episode": 0,
+    "execution_id": "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db",
+    "finger_geometry_groups": [
+      [
+        76,
+        77
+      ],
+      [
+        79,
+        80
+      ]
+    ],
+    "frames_with_floor_contacts": 0,
+    "frames_with_other_contacts": 0,
+    "frames_with_robot_contacts": 0,
+    "frames_with_table_contacts": 0,
+    "frames_with_two_finger_groups": 0,
+    "max_corresponding_vertex_displacement": 0.07722322996300816,
+    "measurement_status": "verified recorded structure and model-bound numerical agreement",
+    "nominal_adjacent_pairs_with_three_upward_z_components": 0,
+    "numerical_frames_inspected": [
+      8,
+      9,
+      10,
+      11
+    ],
+    "object_id": "ketchup_1",
+    "original_candidate_frames": [
+      9,
+      10,
+      11
+    ],
+    "pairs_with_all_nominal_vertex_dz_negative": 3,
+    "physical_event_admitted": false,
+    "physical_support_validated": false,
+    "root_to_finger_collision_center_distance_ranges": [
+      [
+        0.3581815804480248,
+        0.4866226479091088
+      ],
+      [
+        0.3940471148972191,
+        0.513269167379563
+      ]
+    ],
+    "source_path": "/disk/1/data/niktakbr/r1-v4-phase2b2-development-evidence/long/task_00/episode_000/trajectory.h5",
+    "source_sha256": "b32c8bd571d7d7191ed3fae6493572fdfc226ba9c283582a80a8e6c8bfa46803",
+    "task_configuration_id": "2448c758145ae5ad500f",
+    "task_name": "LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket"
+  },
+  {
+    "available": true,
+    "body_id": 22,
+    "candidate_id": "C03",
+    "checkpoint": "moojink/openvla-7b-oft-finetuned-libero-spatial-object-goal-10",
+    "checkpoint_revision": "638918f3d1c2e43a39a8a20772bdb8b91835e4b7",
+    "co_motion_measurement_is_not_holding_proof": true,
+    "collision_geom_ids": [
+      104
+    ],
+    "collision_min_z_range": [
+      0.43675992152000004,
+      0.4367599215200001
+    ],
+    "contact_count_range": [
+      4,
+      4
+    ],
+    "endpoint_time_range": [
+      0.45000000000000034,
+      13.00000000000101
+    ],
+    "episode": 14,
+    "execution_id": "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db",
+    "finger_geometry_groups": [
+      [
+        76,
+        77
+      ],
+      [
+        79,
+        80
+      ]
+    ],
+    "frames_with_floor_contacts": 0,
+    "frames_with_other_contacts": 0,
+    "frames_with_robot_contacts": 0,
+    "frames_with_table_contacts": 252,
+    "frames_with_two_finger_groups": 0,
+    "max_corresponding_vertex_displacement": 5.551115123125783e-17,
+    "measurement_status": "verified recorded structure and model-bound numerical agreement",
+    "nominal_adjacent_pairs_with_three_upward_z_components": 0,
+    "numerical_frames_inspected": [
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49,
+      50,
+      51,
+      52,
+      53,
+      54,
+      55,
+      56,
+      57,
+      58,
+      59,
+      60,
+      61,
+      62,
+      63,
+      64,
+      65,
+      66,
+      67,
+      68,
+      69,
+      70,
+      71,
+      72,
+      73,
+      74,
+      75,
+      76,
+      77,
+      78,
+      79,
+      80,
+      81,
+      82,
+      83,
+      84,
+      85,
+      86,
+      87,
+      88,
+      89,
+      90,
+      91,
+      92,
+      93,
+      94,
+      95,
+      96,
+      97,
+      98,
+      99,
+      100,
+      101,
+      102,
+      103,
+      104,
+      105,
+      106,
+      107,
+      108,
+      109,
+      110,
+      111,
+      112,
+      113,
+      114,
+      115,
+      116,
+      117,
+      118,
+      119,
+      120,
+      121,
+      122,
+      123,
+      124,
+      125,
+      126,
+      127,
+      128,
+      129,
+      130,
+      131,
+      132,
+      133,
+      134,
+      135,
+      136,
+      137,
+      138,
+      139,
+      140,
+      141,
+      142,
+      143,
+      144,
+      145,
+      146,
+      147,
+      148,
+      149,
+      150,
+      151,
+      152,
+      153,
+      154,
+      155,
+      156,
+      157,
+      158,
+      159,
+      160,
+      161,
+      162,
+      163,
+      164,
+      165,
+      166,
+      167,
+      168,
+      169,
+      170,
+      171,
+      172,
+      173,
+      174,
+      175,
+      176,
+      177,
+      178,
+      179,
+      180,
+      181,
+      182,
+      183,
+      184,
+      185,
+      186,
+      187,
+      188,
+      189,
+      190,
+      191,
+      192,
+      193,
+      194,
+      195,
+      196,
+      197,
+      198,
+      199,
+      200,
+      201,
+      202,
+      203,
+      204,
+      205,
+      206,
+      207,
+      208,
+      209,
+      210,
+      211,
+      212,
+      213,
+      214,
+      215,
+      216,
+      217,
+      218,
+      219,
+      220,
+      221,
+      222,
+      223,
+      224,
+      225,
+      226,
+      227,
+      228,
+      229,
+      230,
+      231,
+      232,
+      233,
+      234,
+      235,
+      236,
+      237,
+      238,
+      239,
+      240,
+      241,
+      242,
+      243,
+      244,
+      245,
+      246,
+      247,
+      248,
+      249,
+      250,
+      251,
+      252,
+      253,
+      254,
+      255,
+      256,
+      257,
+      258,
+      259,
+      260
+    ],
+    "object_id": "cream_cheese_1",
+    "original_candidate_frames": [
+      10,
+      260
+    ],
+    "pairs_with_all_nominal_vertex_dz_negative": 0,
+    "physical_event_admitted": false,
+    "physical_support_validated": false,
+    "root_to_finger_collision_center_distance_ranges": [
+      [
+        0.06439998367726721,
+        0.3238081658439026
+      ],
+      [
+        0.07749519518487798,
+        0.37157535215127474
+      ]
+    ],
+    "source_path": "/disk/1/data/niktakbr/r1-v4-phase2b2-development-evidence/long/task_00/episode_014/trajectory.h5",
+    "source_sha256": "28e3a77611656554d1706b09e93d0c2bc2bd203ab8d1810eb5cf20c24fb23a9d",
+    "task_configuration_id": "2448c758145ae5ad500f",
+    "task_name": "LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket"
+  },
+  {
+    "available": false,
+    "candidate_id": "C04",
+    "numerical_frames_inspected": [],
+    "reason": "No verified sliding example exists in the prepared candidate set"
+  },
+  {
+    "available": true,
+    "body_id": 22,
+    "candidate_id": "C05",
+    "checkpoint": "moojink/openvla-7b-oft-finetuned-libero-spatial-object-goal-10",
+    "checkpoint_revision": "638918f3d1c2e43a39a8a20772bdb8b91835e4b7",
+    "co_motion_measurement_is_not_holding_proof": true,
+    "collision_geom_ids": [
+      104
+    ],
+    "collision_min_z_range": [
+      0.4364254336133239,
+      0.47771904482910255
+    ],
+    "contact_count_range": [
+      1,
+      5
+    ],
+    "endpoint_time_range": [
+      13.450000000001161,
+      14.000000000001345
+    ],
+    "episode": 14,
+    "execution_id": "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db",
+    "finger_geometry_groups": [
+      [
+        76,
+        77
+      ],
+      [
+        79,
+        80
+      ]
+    ],
+    "frames_with_floor_contacts": 0,
+    "frames_with_other_contacts": 0,
+    "frames_with_robot_contacts": 9,
+    "frames_with_table_contacts": 4,
+    "frames_with_two_finger_groups": 8,
+    "max_corresponding_vertex_displacement": 0.008692092355487522,
+    "measurement_status": "verified recorded structure and model-bound numerical agreement",
+    "nominal_adjacent_pairs_with_three_upward_z_components": 9,
+    "numerical_frames_inspected": [
+      269,
+      270,
+      271,
+      272,
+      273,
+      274,
+      275,
+      276,
+      277,
+      278,
+      279,
+      280
+    ],
+    "object_id": "cream_cheese_1",
+    "original_candidate_frames": [
+      270,
+      274,
+      276,
+      280
+    ],
+    "pairs_with_all_nominal_vertex_dz_negative": 0,
+    "physical_event_admitted": false,
+    "physical_support_validated": false,
+    "root_to_finger_collision_center_distance_ranges": [
+      [
+        0.04956733351612234,
+        0.052049153296739877
+      ],
+      [
+        0.05603290008432103,
+        0.0690213815063644
+      ]
+    ],
+    "source_path": "/disk/1/data/niktakbr/r1-v4-phase2b2-development-evidence/long/task_00/episode_014/trajectory.h5",
+    "source_sha256": "28e3a77611656554d1706b09e93d0c2bc2bd203ab8d1810eb5cf20c24fb23a9d",
+    "task_configuration_id": "2448c758145ae5ad500f",
+    "task_name": "LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket"
+  },
+  {
+    "available": true,
+    "body_id": 22,
+    "candidate_id": "C06",
+    "checkpoint": "moojink/openvla-7b-oft-finetuned-libero-spatial-object-goal-10",
+    "checkpoint_revision": "638918f3d1c2e43a39a8a20772bdb8b91835e4b7",
+    "co_motion_measurement_is_not_holding_proof": true,
+    "collision_geom_ids": [
+      104
+    ],
+    "collision_min_z_range": [
+      0.4422564530598145,
+      0.48126940440956495
+    ],
+    "contact_count_range": [
+      4,
+      5
+    ],
+    "endpoint_time_range": [
+      13.750000000001261,
+      14.050000000001361
+    ],
+    "episode": 14,
+    "execution_id": "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db",
+    "finger_geometry_groups": [
+      [
+        76,
+        77
+      ],
+      [
+        79,
+        80
+      ]
+    ],
+    "frames_with_floor_contacts": 0,
+    "frames_with_other_contacts": 0,
+    "frames_with_robot_contacts": 7,
+    "frames_with_table_contacts": 0,
+    "frames_with_two_finger_groups": 7,
+    "max_corresponding_vertex_displacement": 0.008692092355487522,
+    "measurement_status": "verified recorded structure and model-bound numerical agreement",
+    "nominal_adjacent_pairs_with_three_upward_z_components": 6,
+    "numerical_frames_inspected": [
+      275,
+      276,
+      277,
+      278,
+      279,
+      280,
+      281
+    ],
+    "object_id": "cream_cheese_1",
+    "original_candidate_frames": [
+      276,
+      280,
+      281
+    ],
+    "pairs_with_all_nominal_vertex_dz_negative": 0,
+    "physical_event_admitted": false,
+    "physical_support_validated": false,
+    "root_to_finger_collision_center_distance_ranges": [
+      [
+        0.05156728503421731,
+        0.05222251994597706
+      ],
+      [
+        0.056106472831804,
+        0.05632170594115412
+      ]
+    ],
+    "source_path": "/disk/1/data/niktakbr/r1-v4-phase2b2-development-evidence/long/task_00/episode_014/trajectory.h5",
+    "source_sha256": "28e3a77611656554d1706b09e93d0c2bc2bd203ab8d1810eb5cf20c24fb23a9d",
+    "task_configuration_id": "2448c758145ae5ad500f",
+    "task_name": "LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket"
+  },
+  {
+    "available": true,
+    "body_id": 22,
+    "candidate_id": "C07",
+    "checkpoint": "moojink/openvla-7b-oft-finetuned-libero-spatial-object-goal-10",
+    "checkpoint_revision": "638918f3d1c2e43a39a8a20772bdb8b91835e4b7",
+    "co_motion_measurement_is_not_holding_proof": true,
+    "collision_geom_ids": [
+      104
+    ],
+    "collision_min_z_range": [
+      0.4364254336133239,
+      0.43852077442139137
+    ],
+    "contact_count_range": [
+      1,
+      5
+    ],
+    "endpoint_time_range": [
+      13.450000000001161,
+      13.700000000001245
+    ],
+    "episode": 14,
+    "execution_id": "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db",
+    "finger_geometry_groups": [
+      [
+        76,
+        77
+      ],
+      [
+        79,
+        80
+      ]
+    ],
+    "frames_with_floor_contacts": 0,
+    "frames_with_other_contacts": 0,
+    "frames_with_robot_contacts": 3,
+    "frames_with_table_contacts": 4,
+    "frames_with_two_finger_groups": 2,
+    "max_corresponding_vertex_displacement": 0.003364327833097761,
+    "measurement_status": "verified recorded structure and model-bound numerical agreement",
+    "nominal_adjacent_pairs_with_three_upward_z_components": 3,
+    "numerical_frames_inspected": [
+      269,
+      270,
+      271,
+      272,
+      273,
+      274
+    ],
+    "object_id": "cream_cheese_1",
+    "original_candidate_frames": [
+      270,
+      274
+    ],
+    "pairs_with_all_nominal_vertex_dz_negative": 0,
+    "physical_event_admitted": false,
+    "physical_support_validated": false,
+    "root_to_finger_collision_center_distance_ranges": [
+      [
+        0.04956733351612234,
+        0.05155562729777044
+      ],
+      [
+        0.05603290008432103,
+        0.0690213815063644
+      ]
+    ],
+    "source_path": "/disk/1/data/niktakbr/r1-v4-phase2b2-development-evidence/long/task_00/episode_014/trajectory.h5",
+    "source_sha256": "28e3a77611656554d1706b09e93d0c2bc2bd203ab8d1810eb5cf20c24fb23a9d",
+    "task_configuration_id": "2448c758145ae5ad500f",
+    "task_name": "LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket"
+  },
+  {
+    "available": true,
+    "body_id": 22,
+    "candidate_id": "C08",
+    "checkpoint": "moojink/openvla-7b-oft-finetuned-libero-spatial-object-goal-10",
+    "checkpoint_revision": "638918f3d1c2e43a39a8a20772bdb8b91835e4b7",
+    "co_motion_measurement_is_not_holding_proof": true,
+    "collision_geom_ids": [
+      104
+    ],
+    "collision_min_z_range": [
+      0.43670891692379754,
+      0.48126940440956495
+    ],
+    "contact_count_range": [
+      0,
+      5
+    ],
+    "endpoint_time_range": [
+      14.000000000001345,
+      14.200000000001411
+    ],
+    "episode": 14,
+    "execution_id": "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db",
+    "finger_geometry_groups": [
+      [
+        76,
+        77
+      ],
+      [
+        79,
+        80
+      ]
+    ],
+    "frames_with_floor_contacts": 0,
+    "frames_with_other_contacts": 0,
+    "frames_with_robot_contacts": 2,
+    "frames_with_table_contacts": 1,
+    "frames_with_two_finger_groups": 2,
+    "max_corresponding_vertex_displacement": 0.02689979059031386,
+    "measurement_status": "verified recorded structure and model-bound numerical agreement",
+    "nominal_adjacent_pairs_with_three_upward_z_components": 1,
+    "numerical_frames_inspected": [
+      280,
+      281,
+      282,
+      283,
+      284
+    ],
+    "object_id": "cream_cheese_1",
+    "original_candidate_frames": [
+      281,
+      282,
+      283,
+      284
+    ],
+    "pairs_with_all_nominal_vertex_dz_negative": 3,
+    "physical_event_admitted": false,
+    "physical_support_validated": false,
+    "root_to_finger_collision_center_distance_ranges": [
+      [
+        0.052049153296739877,
+        0.09748675286250398
+      ],
+      [
+        0.05620577641269244,
+        0.09928032400873325
+      ]
+    ],
+    "source_path": "/disk/1/data/niktakbr/r1-v4-phase2b2-development-evidence/long/task_00/episode_014/trajectory.h5",
+    "source_sha256": "28e3a77611656554d1706b09e93d0c2bc2bd203ab8d1810eb5cf20c24fb23a9d",
+    "task_configuration_id": "2448c758145ae5ad500f",
+    "task_name": "LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket"
+  },
+  {
+    "available": true,
+    "body_id": 22,
+    "candidate_id": "C09",
+    "checkpoint": "moojink/openvla-7b-oft-finetuned-libero-spatial-object-goal-10",
+    "checkpoint_revision": "638918f3d1c2e43a39a8a20772bdb8b91835e4b7",
+    "co_motion_measurement_is_not_holding_proof": true,
+    "collision_geom_ids": [
+      104
+    ],
+    "collision_min_z_range": [
+      0.43670891692379754,
+      0.48126940440956495
+    ],
+    "contact_count_range": [
+      0,
+      5
+    ],
+    "endpoint_time_range": [
+      13.650000000001228,
+      14.200000000001411
+    ],
+    "episode": 14,
+    "execution_id": "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db",
+    "finger_geometry_groups": [
+      [
+        76,
+        77
+      ],
+      [
+        79,
+        80
+      ]
+    ],
+    "frames_with_floor_contacts": 0,
+    "frames_with_other_contacts": 0,
+    "frames_with_robot_contacts": 9,
+    "frames_with_table_contacts": 1,
+    "frames_with_two_finger_groups": 9,
+    "max_corresponding_vertex_displacement": 0.02689979059031386,
+    "measurement_status": "verified recorded structure and model-bound numerical agreement",
+    "nominal_adjacent_pairs_with_three_upward_z_components": 8,
+    "numerical_frames_inspected": [
+      273,
+      274,
+      275,
+      276,
+      277,
+      278,
+      279,
+      280,
+      281,
+      282,
+      283,
+      284
+    ],
+    "object_id": "cream_cheese_1",
+    "original_candidate_frames": [
+      274,
+      276,
+      281,
+      282,
+      283,
+      284
+    ],
+    "pairs_with_all_nominal_vertex_dz_negative": 3,
+    "physical_event_admitted": false,
+    "physical_support_validated": false,
+    "root_to_finger_collision_center_distance_ranges": [
+      [
+        0.05131293112378317,
+        0.09748675286250398
+      ],
+      [
+        0.05603290008432103,
+        0.09928032400873325
+      ]
+    ],
+    "source_path": "/disk/1/data/niktakbr/r1-v4-phase2b2-development-evidence/long/task_00/episode_014/trajectory.h5",
+    "source_sha256": "28e3a77611656554d1706b09e93d0c2bc2bd203ab8d1810eb5cf20c24fb23a9d",
+    "task_configuration_id": "2448c758145ae5ad500f",
+    "task_name": "LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket"
+  },
+  {
+    "available": true,
+    "body_id": 22,
+    "candidate_id": "C10",
+    "checkpoint": "moojink/openvla-7b-oft-finetuned-libero-spatial-object-goal-10",
+    "checkpoint_revision": "638918f3d1c2e43a39a8a20772bdb8b91835e4b7",
+    "co_motion_measurement_is_not_holding_proof": true,
+    "collision_geom_ids": [
+      104
+    ],
+    "collision_min_z_range": [
+      0.436064,
+      0.5086804907436115
+    ],
+    "contact_count_range": [
+      0,
+      8
+    ],
+    "endpoint_time_range": [
+      0.0,
+      0.05000000000000003
+    ],
+    "episode": 2,
+    "execution_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+    "finger_geometry_groups": [
+      [
+        76,
+        77
+      ],
+      [
+        79,
+        80
+      ]
+    ],
+    "frames_with_floor_contacts": 0,
+    "frames_with_other_contacts": 1,
+    "frames_with_robot_contacts": 0,
+    "frames_with_table_contacts": 1,
+    "frames_with_two_finger_groups": 0,
+    "max_corresponding_vertex_displacement": 0.10168723913853751,
+    "measurement_status": "verified recorded structure and model-bound numerical agreement",
+    "nominal_adjacent_pairs_with_three_upward_z_components": 0,
+    "numerical_frames_inspected": [
+      0,
+      1
+    ],
+    "object_id": "cream_cheese_1",
+    "original_candidate_frames": [
+      0,
+      1
+    ],
+    "pairs_with_all_nominal_vertex_dz_negative": 0,
+    "physical_event_admitted": false,
+    "physical_support_validated": false,
+    "root_to_finger_collision_center_distance_ranges": [
+      [
+        0.2846375569090597,
+        0.324637645093791
+      ],
+      [
+        0.31578499136908816,
+        0.3526279201311263
+      ]
+    ],
+    "source_path": "/disk/1/data/niktakbr/r1-v4-phase2b2-development-evidence/long/task_00/episode_002/trajectory.h5",
+    "source_sha256": "f670b832b1ff5ba3f6de452e3b2cf613e7455c13add4355adf1c1c1df9ee0b1e",
+    "task_configuration_id": "2448c758145ae5ad500f",
+    "task_name": "LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket"
+  },
+  {
+    "available": true,
+    "body_id": 22,
+    "candidate_id": "C11",
+    "checkpoint": "moojink/openvla-7b-oft-finetuned-libero-spatial-object-goal-10",
+    "checkpoint_revision": "638918f3d1c2e43a39a8a20772bdb8b91835e4b7",
+    "co_motion_measurement_is_not_holding_proof": true,
+    "collision_geom_ids": [
+      104
+    ],
+    "collision_min_z_range": [
+      -0.0023335381973526286,
+      0.6073472581180185
+    ],
+    "contact_count_range": [
+      0,
+      8
+    ],
+    "endpoint_time_range": [
+      0.0,
+      0.6000000000000004
+    ],
+    "episode": 2,
+    "execution_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+    "finger_geometry_groups": [
+      [
+        76,
+        77
+      ],
+      [
+        79,
+        80
+      ]
+    ],
+    "frames_with_floor_contacts": 1,
+    "frames_with_other_contacts": 1,
+    "frames_with_robot_contacts": 0,
+    "frames_with_table_contacts": 1,
+    "frames_with_two_finger_groups": 0,
+    "max_corresponding_vertex_displacement": 0.15434030462016574,
+    "measurement_status": "verified recorded structure and model-bound numerical agreement",
+    "nominal_adjacent_pairs_with_three_upward_z_components": 0,
+    "numerical_frames_inspected": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "object_id": "cream_cheese_1",
+    "original_candidate_frames": [
+      0,
+      7,
+      8,
+      10,
+      12
+    ],
+    "pairs_with_all_nominal_vertex_dz_negative": 8,
+    "physical_event_admitted": false,
+    "physical_support_validated": false,
+    "root_to_finger_collision_center_distance_ranges": [
+      [
+        0.28178474241140566,
+        0.9255755695725117
+      ],
+      [
+        0.31445625262252486,
+        0.9355343644927927
+      ]
+    ],
+    "source_path": "/disk/1/data/niktakbr/r1-v4-phase2b2-development-evidence/long/task_00/episode_002/trajectory.h5",
+    "source_sha256": "f670b832b1ff5ba3f6de452e3b2cf613e7455c13add4355adf1c1c1df9ee0b1e",
+    "task_configuration_id": "2448c758145ae5ad500f",
+    "task_name": "LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket"
+  }
+]

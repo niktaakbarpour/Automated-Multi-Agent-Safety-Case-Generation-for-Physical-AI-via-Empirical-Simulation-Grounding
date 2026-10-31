@@ -1,0 +1,46 @@
+test_disjoint_coverage_not_bridged (test_checker.EventTests.test_disjoint_coverage_not_bridged) ... ok
+test_duplicate_frames_rejected (test_checker.EventTests.test_duplicate_frames_rejected) ... ok
+test_fall_not_erased_by_later_robot_catch (test_checker.EventTests.test_fall_not_erased_by_later_robot_catch) ... ok
+test_incomplete_intervals_do_not_become_negative (test_checker.EventTests.test_incomplete_intervals_do_not_become_negative) ... ok
+test_one_contact_gap_preserves_physical_uncertainty (test_checker.EventTests.test_one_contact_gap_preserves_physical_uncertainty) ... ok
+test_positive_negative_evidence_not_missing_candidates (test_checker.EventTests.test_positive_negative_evidence_not_missing_candidates) ... ok
+test_post_lift_drop_and_recovery_retained (test_checker.EventTests.test_post_lift_drop_and_recovery_retained) ... ok
+test_robot_incidental_contact_not_carrying (test_checker.EventTests.test_robot_incidental_contact_not_carrying) ... ok
+test_rotation_alone_not_unsupported_fall (test_checker.EventTests.test_rotation_alone_not_unsupported_fall) ... ok
+test_setup_departure_landing_after_boundary (test_checker.EventTests.test_setup_departure_landing_after_boundary) ... ok
+test_supported_tipping_not_fall (test_checker.EventTests.test_supported_tipping_not_fall) ... ok
+test_true_in_scope_fall_no_floor_required (test_checker.EventTests.test_true_in_scope_fall_no_floor_required) ... ok
+test_absent_contact_near_table_not_absence_proof (test_checker.SupportTests.test_absent_contact_near_table_not_absence_proof) ... ok
+test_coordinate_changes_are_not_stationary (test_checker.SupportTests.test_coordinate_changes_are_not_stationary) ... ok
+test_direct_stable_support (test_checker.SupportTests.test_direct_stable_support) ... ok
+test_established_absence (test_checker.SupportTests.test_established_absence) ... ok
+test_incidental_robot_contact_does_not_make_stable_support (test_checker.SupportTests.test_incidental_robot_contact_does_not_make_stable_support) ... ok
+test_indirect_incidental_contact_not_support (test_checker.SupportTests.test_indirect_incidental_contact_not_support) ... ok
+test_indirect_stable_support (test_checker.SupportTests.test_indirect_stable_support) ... ok
+test_invalid_timing_abstains (test_checker.SupportTests.test_invalid_timing_abstains) ... ok
+test_missing_ambiguous_or_unknown_geometry (test_checker.SupportTests.test_missing_ambiguous_or_unknown_geometry) ... ok
+test_support_cycle_rejected (test_checker.SupportTests.test_support_cycle_rejected) ... ok
+test_unstable_support_chain_abstains (test_checker.SupportTests.test_unstable_support_chain_abstains) ... ok
+test_held_cream_drop_retained_without_full_domain_pass (test_evaluation.RecordedRegressions.test_held_cream_drop_retained_without_full_domain_pass) ... ok
+test_no_missing_output_or_false_scope_claim (test_evaluation.RecordedRegressions.test_no_missing_output_or_false_scope_claim) ... ok
+test_orange_motion_uncertainty_not_fall (test_evaluation.RecordedRegressions.test_orange_motion_uncertainty_not_fall) ... ok
+test_setup_cream_departure_not_policy_landing_alarm (test_evaluation.RecordedRegressions.test_setup_cream_departure_not_policy_landing_alarm) ... ok
+test_actual_denominators_no_nonscope_TNs (test_evaluation.ScoreTests.test_actual_denominators_no_nonscope_TNs) ... ok
+test_nonscope_alarm_is_scope_error_not_binary_FP (test_evaluation.ScoreTests.test_nonscope_alarm_is_scope_error_not_binary_FP) ... ok
+test_score_reproduces_saved_result (test_evaluation.ScoreTests.test_score_reproduces_saved_result) ... ok
+test_strict_and_one_frame_localization (test_evaluation.ScoreTests.test_strict_and_one_frame_localization) ... ok
+test_tamper_rejected_before_any_reference_read (test_evaluation.ScoreTests.test_tamper_rejected_before_any_reference_read) ... ok
+test_uncovered_domain_cannot_become_TN (test_evaluation.ScoreTests.test_uncovered_domain_cannot_become_TN) ... ok
+test_incomplete_contacts_rejected (test_measurements.FaceEvidenceTests.test_incomplete_contacts_rejected) ... ok
+test_inconsistent_contact_distance_not_support (test_measurements.FaceEvidenceTests.test_inconsistent_contact_distance_not_support) ... ok
+test_indirect_upper_face_chain (test_measurements.FaceEvidenceTests.test_indirect_upper_face_chain) ... ok
+test_nonfinite_contact_rejected (test_measurements.FaceEvidenceTests.test_nonfinite_contact_rejected) ... ok
+test_side_contact_not_upward_support (test_measurements.FaceEvidenceTests.test_side_contact_not_upward_support) ... ok
+test_signed_penetration_consistent_face (test_measurements.FaceEvidenceTests.test_signed_penetration_consistent_face) ... ok
+test_true_upper_face (test_measurements.FaceEvidenceTests.test_true_upper_face) ... ok
+test_unknown_native_geometry_rejected (test_measurements.FaceEvidenceTests.test_unknown_native_geometry_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 41 tests in 0.127s
+
+OK
