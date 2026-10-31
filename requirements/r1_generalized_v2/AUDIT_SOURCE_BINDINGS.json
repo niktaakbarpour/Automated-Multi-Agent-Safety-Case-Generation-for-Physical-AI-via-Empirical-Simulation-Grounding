@@ -1,0 +1,21 @@
+{
+  "baseline_commit": "30b4ac9cc8e2a1d0e83f72ee74d31f77829e62c1",
+  "files": {
+    "evaluation/r1_v3/config.json": "fd3464dc0ee0ac44ee81c325e951832896eab489517aeed0a715f8e4d0088375",
+    "evaluation/r1_v3/execute.py": "e94ad1c34c47826a6e8a2a1b4b90543268a19d41045611c17a45287c45497cbc",
+    "evaluation/r1_v3/r1_checker.py": "d2914d64596f585a60021f426eb761439d604907450ebf318ca48590db0fc94f",
+    "evaluation/r1_v3/tests/test_checker.py": "311091c27b59b39188c3bb8cc307df9b3b709200981d324e557ef0bc508b2bf8",
+    "evaluation/r1_v3/tests/test_evaluation.py": "392bf8fbe686f15f5ea8bce9f5c98f7efb5baf61fd2222aa60994fdb785d4f04",
+    "evaluation/r1_v3/tests/test_measurements.py": "fefd7795ae930f7215f4e2fd50571a63d2b3c7eb6e589681ac6b3fb7269bd3b9",
+    "evaluation/r1_v3_ai_only_adjudication_20261030/preserved_evidence/assessment/PROVENANCE.json": "74eb0c8bb786785381461fd46904c8208fa3349b322e34b408e46795a4ea583b",
+    "evaluation/r1_v3_ai_only_adjudication_20261030/preserved_evidence/comparison/EXPLORATORY_V3_SCORES.json": "8c8c91dc1e4d2249942cd0694b48bd1d8d6de815892798dac148632d642ddaa1",
+    "evaluation/r1_v3_generalization/V4_PROPOSALS.md": "5ba3d78736ecf8a9112b855eaa604be876dcbd2ebb9744a80f9e6c42d71c477a",
+    "evaluation/r1_v3_generalization/run.py": "fcd1e1f3bed3483f5d3f9389f7c2eadeb1a1914315702f789c27cb86a30fe134",
+    "human_review_package/REQUIREMENT_FOR_REVIEW.md": "2f269e18ac0724268e0aa48c9604ea8dd50a2e7a159c0d823256e7d6ebaa5682",
+    "human_review_package/history/20261023-v1/REQUIREMENT_FOR_REVIEW.md.txt": "29e68a227667ae7405764f961a2798a6b58d1625f900c5d34f03c3bf7caf53f7",
+    "reports/fall_checker_dev_v2_20261017/config.json": "5cb89418e08ecfa193d45315516d7d543f150dbce77d36a45f284dac4c558b30",
+    "reports/fall_checker_dev_v2_20261017/src/native_geometry_v2.py": "3d582b66656751a59bd981bbf007270dabf0d431822acd065114c3c38e51407c",
+    "reports/fall_checker_dev_v2_20261017/src/run_development.py": "ad4137fd5289ebd2f7f54007e12bd1b4eb9d5802a457c13fdce65ff5d17fb68d",
+    "src/pipeline.py": "9b26d181efdca2a173fbd69c0b0e98627ef552bd1ef6983f07a475cbd4754ea5"
+  }
+}

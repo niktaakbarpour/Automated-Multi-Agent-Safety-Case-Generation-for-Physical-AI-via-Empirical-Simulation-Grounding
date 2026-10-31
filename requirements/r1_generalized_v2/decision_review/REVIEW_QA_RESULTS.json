@@ -1,0 +1,243 @@
+{
+  "V4_implemented": false,
+  "approvals_recorded": false,
+  "checked_at_utc": "2026-10-31T05:15:31.261086+00:00",
+  "checks": [
+    "All required review deliverables and exact proposed amendments exist",
+    "D01-D11 unique, exact original questions, all review fields and legal dispositions/subdecisions",
+    "Markdown and CSV contain identical recommendation fields; planned test IDs resolve",
+    "Summary matches primary dispositions; all approval boxes pending; eight amendments present",
+    "All review relative links resolve",
+    "All pre-existing Phase 1 file hashes unchanged",
+    "Fresh Phase 1 QA, frozen V3/predictions, both evaluation seals/members and eight protected files pass"
+  ],
+  "decision_count": 11,
+  "empirical_calibration_performed": false,
+  "host": "hestia",
+  "manual_review": "Normative/formal/applicability/fall/evidence/aggregation/plan/test consistency reviewed; A01-A11 proposals identified, originals not edited. Automated checks do not establish scientific validity.",
+  "new_experiments": false,
+  "passed": true,
+  "phase1_and_frozen_verification": {
+    "V4_implemented": false,
+    "V4_physical_tests_run": false,
+    "audited_source_files": 16,
+    "baseline_commit": "30b4ac9cc8e2a1d0e83f72ee74d31f77829e62c1",
+    "checked_at_utc": "2026-10-31T05:15:31.218211+00:00",
+    "checks": [
+      "Required Phase 1 deliverables exist",
+      "Draft 2020-12 schema meta-validation",
+      "All three illustrative examples pass schema and semantic-reference linting",
+      "Analytical configuration acceptance/rejection fixtures only; no V4 event tests executed",
+      "Internal relative links and source-line anchor bounds",
+      "Audited source snapshots match baseline hashes",
+      "Normative outcome vocabulary and D01-D11 register consistency",
+      "Live Hestia V3 artifacts, historical seals and eight human-scoring protected files"
+    ],
+    "configuration_fixture_count": 23,
+    "configuration_fixtures": [
+      {
+        "expected": "accept_structure_only",
+        "name": "cardinality_0",
+        "passed": true
+      },
+      {
+        "expected": "accept_structure_only",
+        "name": "cardinality_1",
+        "passed": true
+      },
+      {
+        "expected": "accept_structure_only",
+        "name": "cardinality_3",
+        "passed": true
+      },
+      {
+        "expected": "accept_structure_only",
+        "name": "cardinality_5",
+        "passed": true
+      },
+      {
+        "expected": "reject",
+        "name": "duplicate_object",
+        "passed": true
+      },
+      {
+        "expected": "reject",
+        "name": "duplicate_surface",
+        "passed": true
+      },
+      {
+        "expected": "reject",
+        "name": "missing_mapping",
+        "passed": true
+      },
+      {
+        "expected": "reject",
+        "name": "extra_mapping",
+        "passed": true
+      },
+      {
+        "expected": "reject",
+        "name": "empty_surface_set",
+        "passed": true
+      },
+      {
+        "expected": "reject",
+        "name": "dangling_surface",
+        "passed": true
+      },
+      {
+        "expected": "reject",
+        "name": "wrong_axis",
+        "passed": true
+      },
+      {
+        "expected": "reject",
+        "name": "reversed_interval",
+        "passed": true
+      },
+      {
+        "expected": "reject",
+        "name": "negative_frame",
+        "passed": true
+      },
+      {
+        "expected": "reject",
+        "name": "wrong_start_anchor",
+        "passed": true
+      },
+      {
+        "expected": "reject",
+        "name": "unjustified_physical_tolerance",
+        "passed": true
+      },
+      {
+        "expected": "reject",
+        "name": "false_validated_contract",
+        "passed": true
+      },
+      {
+        "expected": "reject",
+        "name": "intersample_claim",
+        "passed": true
+      },
+      {
+        "expected": "reject",
+        "name": "missing_as_negative",
+        "passed": true
+      },
+      {
+        "expected": "reject",
+        "name": "missing_as_nonapplicable",
+        "passed": true
+      },
+      {
+        "expected": "reject",
+        "name": "unknown_property",
+        "passed": true
+      },
+      {
+        "expected": "reject",
+        "name": "unsupported_version",
+        "passed": true
+      },
+      {
+        "expected": "reject",
+        "name": "robot_surface_role",
+        "passed": true
+      },
+      {
+        "expected": "reject",
+        "name": "legacy_stencil_drift",
+        "passed": true
+      }
+    ],
+    "errors": [],
+    "examples_checked": 3,
+    "frozen_hestia_checks": {
+      "/disk/1/data/niktakbr/r1-checker-v3-20261027/evaluation/r1_v3/config.json": {
+        "matches": true,
+        "sha256": "fd3464dc0ee0ac44ee81c325e951832896eab489517aeed0a715f8e4d0088375"
+      },
+      "/disk/1/data/niktakbr/r1-checker-v3-20261027/evaluation/r1_v3/execute.py": {
+        "matches": true,
+        "sha256": "e94ad1c34c47826a6e8a2a1b4b90543268a19d41045611c17a45287c45497cbc"
+      },
+      "/disk/1/data/niktakbr/r1-checker-v3-20261027/evaluation/r1_v3/r1_checker.py": {
+        "matches": true,
+        "sha256": "d2914d64596f585a60021f426eb761439d604907450ebf318ca48590db0fc94f"
+      },
+      "/disk/1/data/niktakbr/r1-v3-generalization-20261027/execution/predictions.json": {
+        "matches": true,
+        "sha256": "0ef93ece9c3d0cb02a49a450979315a4e3be3d5f127aa48105970321f5b34984"
+      },
+      "/disk/1/data/niktakbr/trustworthy-ai3-preserved-20261030/assessment/AI_EVALUATOR_3_SEAL.json": {
+        "members_verified": 7,
+        "sha256": "52d84dc7440ba256b87e9f5a59f1df201da291c04fedf368da4474ebb5711c73"
+      },
+      "/disk/1/data/niktakbr/trustworthy-ai3-preserved-20261030/comparison/AI_REFERENCE_SEAL.json": {
+        "members_verified": 5,
+        "sha256": "6351e474de196fb7d0c801989921765b9e66686c54c003e0b15372db4e7cca4b"
+      }
+    },
+    "host": "hestia",
+    "human_scoring_protected_files_verified": 8,
+    "new_empirical_evaluation_run": false,
+    "passed": true,
+    "relative_links_checked": 80,
+    "semantic_review": "Manual review of proposed definitions/precedence and open decisions; automated checks do not prove physical semantics.",
+    "source_package_sha256": {
+      "APPLICABILITY_RULES.md": "3331493f5a784c6adc8bb2a8f4c8fafe48d676b1505a4d1281ac15fa27b9cd5c",
+      "AUDIT_SOURCE_BINDINGS.json": "6a5e95608b87f96f4149284c3766dc79010e59144d28714acf043480b0dc5173",
+      "CURRENT_R1_AUDIT.md": "288be4310f227b0509669a02ba5691ddceb81f03cc8d7f4d8c256c8c61c4110c",
+      "EVIDENCE_CONTRACT.md": "651f266197842708747164488e9f11582b753593bd6daf61f103a86a8f564f75",
+      "EXAMPLE_CONFIGS/A_LIBERO_FIVE_OBJECTS.json": "6bcec12535dec49276da1266a3f291a6dac822ae882068877ea897878790220d",
+      "EXAMPLE_CONFIGS/B_SYNTHETIC_THREE_OBJECTS.json": "6bd501a5ec18b0cc86ac86fe97737d2aa03c35025f69b089a13638038d6f6d0f",
+      "EXAMPLE_CONFIGS/C_SYNTHETIC_MULTIPLE_SURFACES.json": "264695894bfe9d60b43a77cea5ab9b5a23cd289af1fb95c41424172a4c3c4da9",
+      "EXAMPLE_CONFIGS/README.md": "c450ef334added65f1e941710db2b814246f43800fc33cdbe38aa82239d26a86",
+      "FALL_DEFINITION.md": "a398a5921eec6364dace02926dfc814fc2be914f0461aa6014c1d13a1f7acf3e",
+      "FORMAL_SEMANTICS.md": "cfa34ac030c3cb9849b57801b78199780ae91e9ccbaf3021a748bd1e54784ee8",
+      "OPEN_DECISIONS.md": "ca7b9279e616d3bdbac305326f5b42e45aea58f16989f84c9d8f14cbff7c9809",
+      "QA_REPORT.md": "ec74cd5c6832b91bb0d16d23710cb578e4af6d5d3bbc56ad0f2d8fc0b9fb1f5c",
+      "QA_RESULTS.json": "f78fa778f92526ede18ff7de98ea2587a6618a5d48d243795669c98f4dcddabf",
+      "R1_V2_CONFIG_SCHEMA.json": "5707e5a2af687ec1cf8355012f0372417a108c392b89a29a81427f0fddf90189",
+      "R1_V2_SPECIFICATION.md": "4c5dee3f62d2cc125d28b4ee601601b373815cf0bd04c3a93099896859417cd9",
+      "README.md": "f70c5de63d9ae33c559075393cd29177d2279f4f30a918eb87d88d6204a745e8",
+      "V3_COMPATIBILITY.md": "f74cb4d74d7793ba9ec972bac495f38e2525205f5b0a08c7ec4dfecfbb6b9ffd",
+      "V4_IMPLEMENTATION_PLAN.md": "3108a87a9a155f714b0d90dd4ee3bea430ef4ee8371c0e353d0c48f130f5e2ce",
+      "V4_TEST_MATRIX.md": "392d767502e9ec5c87290536ab015ae8f2f895c62faae1391f0ab2bf3e51d621",
+      "VALIDITY_THREATS.md": "e1acced166a5b7ee5960c5810c2802876a6cd511a4963dc4ffec2bb9400c42bd",
+      "decision_review/APPROVAL_CHECKLIST.md": "551a8f9ec324882d43d0e32daa40046bd9175257c360e4a7949217127fb785e5",
+      "decision_review/D01_D11_DECISION_MATRIX.md": "1d92fb7005663ed9510d54d7ac873120add2433994fcd41d7af7b17cff2a8541",
+      "decision_review/DEFERRED_FEATURES.md": "b8add586d063eeacf9b79a1b6e87d87c2d35d5da41006ce61132252e91006e2b",
+      "decision_review/EVIDENCE_AND_CALIBRATION_GAPS.md": "f26eb3e1fc870c59acf3eb9dab62818a3824d6166a4a92ae84095462dd14f6b3",
+      "decision_review/PHASE1_SOURCE_BINDINGS.json": "00eda09c055873a956b0ea103d761225413d5fd49b5dcdaa2c9d84cd5bbeeddf",
+      "decision_review/PROPOSED_AMENDMENTS.md": "9990b0db436b8dfff4b014e7cc35360ac77d667bfa7f33e541e05908c503fb16",
+      "decision_review/RECOMMENDED_DECISIONS.md": "6384c4f512c31fef80f758e4464aabfdc44f013e2297d209a277651c3301e5c2",
+      "decision_review/V3_COMPATIBILITY_IMPACT.md": "ab47a9f231526dbf2d96dabc1ef67c9939d3306714773f3e606a26bd982c2b64",
+      "decision_review/V4_IMPLEMENTATION_READINESS.md": "91e0586cb6dd3cdb3c165d919bd8db09853e6cb56bb3c9c469c44dbabad410e7",
+      "decision_review/VALIDATION_REPORT.md": "78d9730763d7a5f92ff23fa82324e1a4f8839ed1b92753e85b5001f974a0efc7",
+      "decision_review/build_review.py": "d7f4db3f993f7ef0ae60ade2c5850127402783eb42c6972ab514beff39d75147",
+      "decision_review/validate_review.py": "00b834807d0afb9ef368265f1ed06641db459c21a0fd08432dbf6656e4789b30",
+      "validate_spec.py": "a52f3bc8a174ec241ee100485d3f08af2a1289f918bd9a692cf20d618879bb83"
+    }
+  },
+  "physical_tests_executed": false,
+  "relative_links_checked": 12,
+  "review_baseline_commit": "3d235bc69d2c23bf16803cd417f51deb7bbd2d94",
+  "source_review_sha256": {
+    "APPROVAL_CHECKLIST.md": "551a8f9ec324882d43d0e32daa40046bd9175257c360e4a7949217127fb785e5",
+    "D01_D11_DECISION_MATRIX.csv": "d1e4fc6fb4084d9cbd5ef5fae2f8e19a4db512f5c114603af66d5a1d71f9105d",
+    "D01_D11_DECISION_MATRIX.md": "1d92fb7005663ed9510d54d7ac873120add2433994fcd41d7af7b17cff2a8541",
+    "DEFERRED_FEATURES.md": "b8add586d063eeacf9b79a1b6e87d87c2d35d5da41006ce61132252e91006e2b",
+    "EVIDENCE_AND_CALIBRATION_GAPS.md": "f26eb3e1fc870c59acf3eb9dab62818a3824d6166a4a92ae84095462dd14f6b3",
+    "PHASE1_SOURCE_BINDINGS.json": "00eda09c055873a956b0ea103d761225413d5fd49b5dcdaa2c9d84cd5bbeeddf",
+    "PROPOSED_AMENDMENTS.md": "9990b0db436b8dfff4b014e7cc35360ac77d667bfa7f33e541e05908c503fb16",
+    "RECOMMENDED_DECISIONS.md": "6384c4f512c31fef80f758e4464aabfdc44f013e2297d209a277651c3301e5c2",
+    "V3_COMPATIBILITY_IMPACT.md": "ab47a9f231526dbf2d96dabc1ef67c9939d3306714773f3e606a26bd982c2b64",
+    "V4_IMPLEMENTATION_READINESS.md": "91e0586cb6dd3cdb3c165d919bd8db09853e6cb56bb3c9c469c44dbabad410e7",
+    "VALIDATION_REPORT.md": "78d9730763d7a5f92ff23fa82324e1a4f8839ed1b92753e85b5001f974a0efc7",
+    "build_review.py": "d7f4db3f993f7ef0ae60ade2c5850127402783eb42c6972ab514beff39d75147",
+    "validate_review.py": "00b834807d0afb9ef368265f1ed06641db459c21a0fd08432dbf6656e4789b30"
+  },
+  "unchanged_phase1_files": 21
+}

@@ -1,0 +1,190 @@
+{
+  "V4_implemented": false,
+  "V4_physical_tests_run": false,
+  "audited_source_files": 16,
+  "baseline_commit": "30b4ac9cc8e2a1d0e83f72ee74d31f77829e62c1",
+  "checked_at_utc": "2026-10-31T04:43:58.475780+00:00",
+  "checks": [
+    "Required Phase 1 deliverables exist",
+    "Draft 2020-12 schema meta-validation",
+    "All three illustrative examples pass schema and semantic-reference linting",
+    "Analytical configuration acceptance/rejection fixtures only; no V4 event tests executed",
+    "Internal relative links and source-line anchor bounds",
+    "Audited source snapshots match baseline hashes",
+    "Normative outcome vocabulary and D01-D11 register consistency",
+    "Live Hestia V3 artifacts, historical seals and eight human-scoring protected files"
+  ],
+  "configuration_fixture_count": 23,
+  "configuration_fixtures": [
+    {
+      "expected": "accept_structure_only",
+      "name": "cardinality_0",
+      "passed": true
+    },
+    {
+      "expected": "accept_structure_only",
+      "name": "cardinality_1",
+      "passed": true
+    },
+    {
+      "expected": "accept_structure_only",
+      "name": "cardinality_3",
+      "passed": true
+    },
+    {
+      "expected": "accept_structure_only",
+      "name": "cardinality_5",
+      "passed": true
+    },
+    {
+      "expected": "reject",
+      "name": "duplicate_object",
+      "passed": true
+    },
+    {
+      "expected": "reject",
+      "name": "duplicate_surface",
+      "passed": true
+    },
+    {
+      "expected": "reject",
+      "name": "missing_mapping",
+      "passed": true
+    },
+    {
+      "expected": "reject",
+      "name": "extra_mapping",
+      "passed": true
+    },
+    {
+      "expected": "reject",
+      "name": "empty_surface_set",
+      "passed": true
+    },
+    {
+      "expected": "reject",
+      "name": "dangling_surface",
+      "passed": true
+    },
+    {
+      "expected": "reject",
+      "name": "wrong_axis",
+      "passed": true
+    },
+    {
+      "expected": "reject",
+      "name": "reversed_interval",
+      "passed": true
+    },
+    {
+      "expected": "reject",
+      "name": "negative_frame",
+      "passed": true
+    },
+    {
+      "expected": "reject",
+      "name": "wrong_start_anchor",
+      "passed": true
+    },
+    {
+      "expected": "reject",
+      "name": "unjustified_physical_tolerance",
+      "passed": true
+    },
+    {
+      "expected": "reject",
+      "name": "false_validated_contract",
+      "passed": true
+    },
+    {
+      "expected": "reject",
+      "name": "intersample_claim",
+      "passed": true
+    },
+    {
+      "expected": "reject",
+      "name": "missing_as_negative",
+      "passed": true
+    },
+    {
+      "expected": "reject",
+      "name": "missing_as_nonapplicable",
+      "passed": true
+    },
+    {
+      "expected": "reject",
+      "name": "unknown_property",
+      "passed": true
+    },
+    {
+      "expected": "reject",
+      "name": "unsupported_version",
+      "passed": true
+    },
+    {
+      "expected": "reject",
+      "name": "robot_surface_role",
+      "passed": true
+    },
+    {
+      "expected": "reject",
+      "name": "legacy_stencil_drift",
+      "passed": true
+    }
+  ],
+  "errors": [],
+  "examples_checked": 3,
+  "frozen_hestia_checks": {
+    "/disk/1/data/niktakbr/r1-checker-v3-20261027/evaluation/r1_v3/config.json": {
+      "matches": true,
+      "sha256": "fd3464dc0ee0ac44ee81c325e951832896eab489517aeed0a715f8e4d0088375"
+    },
+    "/disk/1/data/niktakbr/r1-checker-v3-20261027/evaluation/r1_v3/execute.py": {
+      "matches": true,
+      "sha256": "e94ad1c34c47826a6e8a2a1b4b90543268a19d41045611c17a45287c45497cbc"
+    },
+    "/disk/1/data/niktakbr/r1-checker-v3-20261027/evaluation/r1_v3/r1_checker.py": {
+      "matches": true,
+      "sha256": "d2914d64596f585a60021f426eb761439d604907450ebf318ca48590db0fc94f"
+    },
+    "/disk/1/data/niktakbr/r1-v3-generalization-20261027/execution/predictions.json": {
+      "matches": true,
+      "sha256": "0ef93ece9c3d0cb02a49a450979315a4e3be3d5f127aa48105970321f5b34984"
+    },
+    "/disk/1/data/niktakbr/trustworthy-ai3-preserved-20261030/assessment/AI_EVALUATOR_3_SEAL.json": {
+      "members_verified": 7,
+      "sha256": "52d84dc7440ba256b87e9f5a59f1df201da291c04fedf368da4474ebb5711c73"
+    },
+    "/disk/1/data/niktakbr/trustworthy-ai3-preserved-20261030/comparison/AI_REFERENCE_SEAL.json": {
+      "members_verified": 5,
+      "sha256": "6351e474de196fb7d0c801989921765b9e66686c54c003e0b15372db4e7cca4b"
+    }
+  },
+  "host": "hestia",
+  "human_scoring_protected_files_verified": 8,
+  "new_empirical_evaluation_run": false,
+  "passed": true,
+  "relative_links_checked": 68,
+  "semantic_review": "Manual review of proposed definitions/precedence and open decisions; automated checks do not prove physical semantics.",
+  "source_package_sha256": {
+    "APPLICABILITY_RULES.md": "3331493f5a784c6adc8bb2a8f4c8fafe48d676b1505a4d1281ac15fa27b9cd5c",
+    "AUDIT_SOURCE_BINDINGS.json": "6a5e95608b87f96f4149284c3766dc79010e59144d28714acf043480b0dc5173",
+    "CURRENT_R1_AUDIT.md": "288be4310f227b0509669a02ba5691ddceb81f03cc8d7f4d8c256c8c61c4110c",
+    "EVIDENCE_CONTRACT.md": "651f266197842708747164488e9f11582b753593bd6daf61f103a86a8f564f75",
+    "EXAMPLE_CONFIGS/A_LIBERO_FIVE_OBJECTS.json": "6bcec12535dec49276da1266a3f291a6dac822ae882068877ea897878790220d",
+    "EXAMPLE_CONFIGS/B_SYNTHETIC_THREE_OBJECTS.json": "6bd501a5ec18b0cc86ac86fe97737d2aa03c35025f69b089a13638038d6f6d0f",
+    "EXAMPLE_CONFIGS/C_SYNTHETIC_MULTIPLE_SURFACES.json": "264695894bfe9d60b43a77cea5ab9b5a23cd289af1fb95c41424172a4c3c4da9",
+    "EXAMPLE_CONFIGS/README.md": "c450ef334added65f1e941710db2b814246f43800fc33cdbe38aa82239d26a86",
+    "FALL_DEFINITION.md": "a398a5921eec6364dace02926dfc814fc2be914f0461aa6014c1d13a1f7acf3e",
+    "FORMAL_SEMANTICS.md": "cfa34ac030c3cb9849b57801b78199780ae91e9ccbaf3021a748bd1e54784ee8",
+    "OPEN_DECISIONS.md": "ca7b9279e616d3bdbac305326f5b42e45aea58f16989f84c9d8f14cbff7c9809",
+    "R1_V2_CONFIG_SCHEMA.json": "5707e5a2af687ec1cf8355012f0372417a108c392b89a29a81427f0fddf90189",
+    "R1_V2_SPECIFICATION.md": "4c5dee3f62d2cc125d28b4ee601601b373815cf0bd04c3a93099896859417cd9",
+    "README.md": "f70c5de63d9ae33c559075393cd29177d2279f4f30a918eb87d88d6204a745e8",
+    "V3_COMPATIBILITY.md": "f74cb4d74d7793ba9ec972bac495f38e2525205f5b0a08c7ec4dfecfbb6b9ffd",
+    "V4_IMPLEMENTATION_PLAN.md": "3108a87a9a155f714b0d90dd4ee3bea430ef4ee8371c0e353d0c48f130f5e2ce",
+    "V4_TEST_MATRIX.md": "392d767502e9ec5c87290536ab015ae8f2f895c62faae1391f0ab2bf3e51d621",
+    "VALIDITY_THREATS.md": "e1acced166a5b7ee5960c5810c2802876a6cd511a4963dc4ffec2bb9400c42bd",
+    "validate_spec.py": "a52f3bc8a174ec241ee100485d3f08af2a1289f918bd9a692cf20d618879bb83"
+  }
+}
