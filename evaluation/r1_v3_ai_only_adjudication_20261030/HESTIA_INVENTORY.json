@@ -1,0 +1,1542 @@
+{
+  "hash_verified_package_files": 597,
+  "checksum_failures": [],
+  "original_complete_cases": 0,
+  "original_cases_requiring_restoration": 20,
+  "all_seven_original_files_checked_missing_per_case": true,
+  "disk0_available_bytes": 386032922624,
+  "disk1_available_bytes": 1663988498432,
+  "cases": [
+    {
+      "case": "NV01",
+      "expected_frames": 258,
+      "decoded_agentview_frames": 258,
+      "decoded_wrist_frames": 258,
+      "fps": "20/1",
+      "frame_reference_rows": 258,
+      "contacts_rows": 8214,
+      "object_pose_rows": 2064,
+      "capture_note": "Transcribed from first CASE_VALIDATION output"
+    },
+    {
+      "case": "NV02",
+      "expected_frames": 261,
+      "videos": {
+        "agentview": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "r_frame_rate": "20/1",
+              "nb_read_frames": "261"
+            }
+          ]
+        },
+        "wrist": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "r_frame_rate": "20/1",
+              "nb_read_frames": "261"
+            }
+          ]
+        }
+      },
+      "measurements": {
+        "frame_references.csv": {
+          "rows": 261,
+          "fields": [
+            "﻿frame",
+            "simulator_time_s",
+            "recorded_stage",
+            "source"
+          ],
+          "first": {
+            "﻿frame": "0",
+            "simulator_time_s": "0.0",
+            "recorded_stage": "before_settling",
+            "source": "trajectory.h5:frames/000000"
+          },
+          "last": {
+            "﻿frame": "260",
+            "simulator_time_s": "13.00000000000101",
+            "recorded_stage": "terminal",
+            "source": "trajectory.h5:frames/000260"
+          }
+        },
+        "contacts.csv": {
+          "rows": 8409,
+          "fields": [
+            "﻿frame",
+            "simulator_time_s",
+            "contact_index",
+            "geom1",
+            "geom2",
+            "owner1",
+            "owner2",
+            "recorded_signed_distance_m",
+            "position_xyz_m",
+            "source"
+          ],
+          "first": null,
+          "last": null
+        },
+        "object_poses.csv": {
+          "rows": 2088,
+          "fields": [
+            "﻿frame",
+            "simulator_time_s",
+            "object_id",
+            "body_native_id",
+            "xyz_m",
+            "quat_wxyz",
+            "source"
+          ],
+          "first": null,
+          "last": null
+        }
+      }
+    },
+    {
+      "case": "NV03",
+      "expected_frames": 294,
+      "videos": {
+        "agentview": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "r_frame_rate": "20/1",
+              "nb_read_frames": "294"
+            }
+          ]
+        },
+        "wrist": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "r_frame_rate": "20/1",
+              "nb_read_frames": "294"
+            }
+          ]
+        }
+      },
+      "measurements": {
+        "frame_references.csv": {
+          "rows": 294,
+          "fields": [
+            "﻿frame",
+            "simulator_time_s",
+            "recorded_stage",
+            "source"
+          ],
+          "first": {
+            "﻿frame": "0",
+            "simulator_time_s": "0.0",
+            "recorded_stage": "before_settling",
+            "source": "trajectory.h5:frames/000000"
+          },
+          "last": {
+            "﻿frame": "293",
+            "simulator_time_s": "14.650000000001562",
+            "recorded_stage": "terminal",
+            "source": "trajectory.h5:frames/000293"
+          }
+        },
+        "contacts.csv": {
+          "rows": 9150,
+          "fields": [
+            "﻿frame",
+            "simulator_time_s",
+            "contact_index",
+            "geom1",
+            "geom2",
+            "owner1",
+            "owner2",
+            "recorded_signed_distance_m",
+            "position_xyz_m",
+            "source"
+          ],
+          "first": null,
+          "last": null
+        },
+        "object_poses.csv": {
+          "rows": 2352,
+          "fields": [
+            "﻿frame",
+            "simulator_time_s",
+            "object_id",
+            "body_native_id",
+            "xyz_m",
+            "quat_wxyz",
+            "source"
+          ],
+          "first": null,
+          "last": null
+        }
+      }
+    },
+    {
+      "case": "NV04",
+      "expected_frames": 264,
+      "videos": {
+        "agentview": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "r_frame_rate": "20/1",
+              "nb_read_frames": "264"
+            }
+          ]
+        },
+        "wrist": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "r_frame_rate": "20/1",
+              "nb_read_frames": "264"
+            }
+          ]
+        }
+      },
+      "measurements": {
+        "frame_references.csv": {
+          "rows": 264,
+          "fields": [
+            "﻿frame",
+            "simulator_time_s",
+            "recorded_stage",
+            "source"
+          ],
+          "first": {
+            "﻿frame": "0",
+            "simulator_time_s": "0.0",
+            "recorded_stage": "before_settling",
+            "source": "trajectory.h5:frames/000000"
+          },
+          "last": {
+            "﻿frame": "263",
+            "simulator_time_s": "13.15000000000106",
+            "recorded_stage": "terminal",
+            "source": "trajectory.h5:frames/000263"
+          }
+        },
+        "contacts.csv": {
+          "rows": 8726,
+          "fields": [
+            "﻿frame",
+            "simulator_time_s",
+            "contact_index",
+            "geom1",
+            "geom2",
+            "owner1",
+            "owner2",
+            "recorded_signed_distance_m",
+            "position_xyz_m",
+            "source"
+          ],
+          "first": null,
+          "last": null
+        },
+        "object_poses.csv": {
+          "rows": 2112,
+          "fields": [
+            "﻿frame",
+            "simulator_time_s",
+            "object_id",
+            "body_native_id",
+            "xyz_m",
+            "quat_wxyz",
+            "source"
+          ],
+          "first": null,
+          "last": null
+        }
+      }
+    },
+    {
+      "case": "NV05",
+      "expected_frames": 231,
+      "videos": {
+        "agentview": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "r_frame_rate": "20/1",
+              "nb_read_frames": "231"
+            }
+          ]
+        },
+        "wrist": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "r_frame_rate": "20/1",
+              "nb_read_frames": "231"
+            }
+          ]
+        }
+      },
+      "measurements": {
+        "frame_references.csv": {
+          "rows": 231,
+          "fields": [
+            "﻿frame",
+            "simulator_time_s",
+            "recorded_stage",
+            "source"
+          ],
+          "first": {
+            "﻿frame": "0",
+            "simulator_time_s": "0.0",
+            "recorded_stage": "before_settling",
+            "source": "trajectory.h5:frames/000000"
+          },
+          "last": {
+            "﻿frame": "230",
+            "simulator_time_s": "11.50000000000051",
+            "recorded_stage": "terminal",
+            "source": "trajectory.h5:frames/000230"
+          }
+        },
+        "contacts.csv": {
+          "rows": 7360,
+          "fields": [
+            "﻿frame",
+            "simulator_time_s",
+            "contact_index",
+            "geom1",
+            "geom2",
+            "owner1",
+            "owner2",
+            "recorded_signed_distance_m",
+            "position_xyz_m",
+            "source"
+          ],
+          "first": null,
+          "last": null
+        },
+        "object_poses.csv": {
+          "rows": 1848,
+          "fields": [
+            "﻿frame",
+            "simulator_time_s",
+            "object_id",
+            "body_native_id",
+            "xyz_m",
+            "quat_wxyz",
+            "source"
+          ],
+          "first": null,
+          "last": null
+        }
+      }
+    },
+    {
+      "case": "NV06",
+      "expected_frames": 260,
+      "videos": {
+        "agentview": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "r_frame_rate": "20/1",
+              "nb_read_frames": "260"
+            }
+          ]
+        },
+        "wrist": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "r_frame_rate": "20/1",
+              "nb_read_frames": "260"
+            }
+          ]
+        }
+      },
+      "measurements": {
+        "frame_references.csv": {
+          "rows": 260,
+          "fields": [
+            "﻿frame",
+            "simulator_time_s",
+            "recorded_stage",
+            "source"
+          ],
+          "first": {
+            "﻿frame": "0",
+            "simulator_time_s": "0.0",
+            "recorded_stage": "before_settling",
+            "source": "trajectory.h5:frames/000000"
+          },
+          "last": {
+            "﻿frame": "259",
+            "simulator_time_s": "12.950000000000994",
+            "recorded_stage": "terminal",
+            "source": "trajectory.h5:frames/000259"
+          }
+        },
+        "contacts.csv": {
+          "rows": 8210,
+          "fields": [
+            "﻿frame",
+            "simulator_time_s",
+            "contact_index",
+            "geom1",
+            "geom2",
+            "owner1",
+            "owner2",
+            "recorded_signed_distance_m",
+            "position_xyz_m",
+            "source"
+          ],
+          "first": null,
+          "last": null
+        },
+        "object_poses.csv": {
+          "rows": 2080,
+          "fields": [
+            "﻿frame",
+            "simulator_time_s",
+            "object_id",
+            "body_native_id",
+            "xyz_m",
+            "quat_wxyz",
+            "source"
+          ],
+          "first": null,
+          "last": null
+        }
+      }
+    },
+    {
+      "case": "NV07",
+      "expected_frames": 279,
+      "videos": {
+        "agentview": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "r_frame_rate": "20/1",
+              "nb_read_frames": "279"
+            }
+          ]
+        },
+        "wrist": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "r_frame_rate": "20/1",
+              "nb_read_frames": "279"
+            }
+          ]
+        }
+      },
+      "measurements": {
+        "frame_references.csv": {
+          "rows": 279,
+          "fields": [
+            "﻿frame",
+            "simulator_time_s",
+            "recorded_stage",
+            "source"
+          ],
+          "first": {
+            "﻿frame": "0",
+            "simulator_time_s": "0.0",
+            "recorded_stage": "before_settling",
+            "source": "trajectory.h5:frames/000000"
+          },
+          "last": {
+            "﻿frame": "278",
+            "simulator_time_s": "13.900000000001311",
+            "recorded_stage": "terminal",
+            "source": "trajectory.h5:frames/000278"
+          }
+        },
+        "contacts.csv": {
+          "rows": 9090,
+          "fields": [
+            "﻿frame",
+            "simulator_time_s",
+            "contact_index",
+            "geom1",
+            "geom2",
+            "owner1",
+            "owner2",
+            "recorded_signed_distance_m",
+            "position_xyz_m",
+            "source"
+          ],
+          "first": null,
+          "last": null
+        },
+        "object_poses.csv": {
+          "rows": 2232,
+          "fields": [
+            "﻿frame",
+            "simulator_time_s",
+            "object_id",
+            "body_native_id",
+            "xyz_m",
+            "quat_wxyz",
+            "source"
+          ],
+          "first": null,
+          "last": null
+        }
+      }
+    },
+    {
+      "case": "NV08",
+      "expected_frames": 253,
+      "videos": {
+        "agentview": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "r_frame_rate": "20/1",
+              "nb_read_frames": "253"
+            }
+          ]
+        },
+        "wrist": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "r_frame_rate": "20/1",
+              "nb_read_frames": "253"
+            }
+          ]
+        }
+      },
+      "measurements": {
+        "frame_references.csv": {
+          "rows": 253,
+          "fields": [
+            "﻿frame",
+            "simulator_time_s",
+            "recorded_stage",
+            "source"
+          ],
+          "first": {
+            "﻿frame": "0",
+            "simulator_time_s": "0.0",
+            "recorded_stage": "before_settling",
+            "source": "trajectory.h5:frames/000000"
+          },
+          "last": {
+            "﻿frame": "252",
+            "simulator_time_s": "12.600000000000877",
+            "recorded_stage": "terminal",
+            "source": "trajectory.h5:frames/000252"
+          }
+        },
+        "contacts.csv": {
+          "rows": 8041,
+          "fields": [
+            "﻿frame",
+            "simulator_time_s",
+            "contact_index",
+            "geom1",
+            "geom2",
+            "owner1",
+            "owner2",
+            "recorded_signed_distance_m",
+            "position_xyz_m",
+            "source"
+          ],
+          "first": null,
+          "last": null
+        },
+        "object_poses.csv": {
+          "rows": 2024,
+          "fields": [
+            "﻿frame",
+            "simulator_time_s",
+            "object_id",
+            "body_native_id",
+            "xyz_m",
+            "quat_wxyz",
+            "source"
+          ],
+          "first": null,
+          "last": null
+        }
+      }
+    },
+    {
+      "case": "NV09",
+      "expected_frames": 262,
+      "videos": {
+        "agentview": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "r_frame_rate": "20/1",
+              "nb_read_frames": "262"
+            }
+          ]
+        },
+        "wrist": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "r_frame_rate": "20/1",
+              "nb_read_frames": "262"
+            }
+          ]
+        }
+      },
+      "measurements": {
+        "frame_references.csv": {
+          "rows": 262,
+          "fields": [
+            "﻿frame",
+            "simulator_time_s",
+            "recorded_stage",
+            "source"
+          ],
+          "first": {
+            "﻿frame": "0",
+            "simulator_time_s": "0.0",
+            "recorded_stage": "before_settling",
+            "source": "trajectory.h5:frames/000000"
+          },
+          "last": {
+            "﻿frame": "261",
+            "simulator_time_s": "13.050000000001027",
+            "recorded_stage": "terminal",
+            "source": "trajectory.h5:frames/000261"
+          }
+        },
+        "contacts.csv": {
+          "rows": 8274,
+          "fields": [
+            "﻿frame",
+            "simulator_time_s",
+            "contact_index",
+            "geom1",
+            "geom2",
+            "owner1",
+            "owner2",
+            "recorded_signed_distance_m",
+            "position_xyz_m",
+            "source"
+          ],
+          "first": null,
+          "last": null
+        },
+        "object_poses.csv": {
+          "rows": 2096,
+          "fields": [
+            "﻿frame",
+            "simulator_time_s",
+            "object_id",
+            "body_native_id",
+            "xyz_m",
+            "quat_wxyz",
+            "source"
+          ],
+          "first": null,
+          "last": null
+        }
+      }
+    },
+    {
+      "case": "NV10",
+      "expected_frames": 310,
+      "videos": {
+        "agentview": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "r_frame_rate": "20/1",
+              "nb_read_frames": "310"
+            }
+          ]
+        },
+        "wrist": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "r_frame_rate": "20/1",
+              "nb_read_frames": "310"
+            }
+          ]
+        }
+      },
+      "measurements": {
+        "frame_references.csv": {
+          "rows": 310,
+          "fields": [
+            "﻿frame",
+            "simulator_time_s",
+            "recorded_stage",
+            "source"
+          ],
+          "first": {
+            "﻿frame": "0",
+            "simulator_time_s": "0.0",
+            "recorded_stage": "before_settling",
+            "source": "trajectory.h5:frames/000000"
+          },
+          "last": {
+            "﻿frame": "309",
+            "simulator_time_s": "15.450000000001829",
+            "recorded_stage": "terminal",
+            "source": "trajectory.h5:frames/000309"
+          }
+        },
+        "contacts.csv": {
+          "rows": 10753,
+          "fields": [
+            "﻿frame",
+            "simulator_time_s",
+            "contact_index",
+            "geom1",
+            "geom2",
+            "owner1",
+            "owner2",
+            "recorded_signed_distance_m",
+            "position_xyz_m",
+            "source"
+          ],
+          "first": null,
+          "last": null
+        },
+        "object_poses.csv": {
+          "rows": 2480,
+          "fields": [
+            "﻿frame",
+            "simulator_time_s",
+            "object_id",
+            "body_native_id",
+            "xyz_m",
+            "quat_wxyz",
+            "source"
+          ],
+          "first": null,
+          "last": null
+        }
+      }
+    },
+    {
+      "case": "NV11",
+      "expected_frames": 290,
+      "videos": {
+        "agentview": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "r_frame_rate": "20/1",
+              "nb_read_frames": "290"
+            }
+          ]
+        },
+        "wrist": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "r_frame_rate": "20/1",
+              "nb_read_frames": "290"
+            }
+          ]
+        }
+      },
+      "measurements": {
+        "frame_references.csv": {
+          "rows": 290,
+          "fields": [
+            "﻿frame",
+            "simulator_time_s",
+            "recorded_stage",
+            "source"
+          ],
+          "first": {
+            "﻿frame": "0",
+            "simulator_time_s": "0.0",
+            "recorded_stage": "before_settling",
+            "source": "trajectory.h5:frames/000000"
+          },
+          "last": {
+            "﻿frame": "289",
+            "simulator_time_s": "14.450000000001495",
+            "recorded_stage": "terminal",
+            "source": "trajectory.h5:frames/000289"
+          }
+        },
+        "contacts.csv": {
+          "rows": 9164,
+          "fields": [
+            "﻿frame",
+            "simulator_time_s",
+            "contact_index",
+            "geom1",
+            "geom2",
+            "owner1",
+            "owner2",
+            "recorded_signed_distance_m",
+            "position_xyz_m",
+            "source"
+          ],
+          "first": null,
+          "last": null
+        },
+        "object_poses.csv": {
+          "rows": 2320,
+          "fields": [
+            "﻿frame",
+            "simulator_time_s",
+            "object_id",
+            "body_native_id",
+            "xyz_m",
+            "quat_wxyz",
+            "source"
+          ],
+          "first": null,
+          "last": null
+        }
+      }
+    },
+    {
+      "case": "NV12",
+      "expected_frames": 255,
+      "videos": {
+        "agentview": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "r_frame_rate": "20/1",
+              "nb_read_frames": "255"
+            }
+          ]
+        },
+        "wrist": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "r_frame_rate": "20/1",
+              "nb_read_frames": "255"
+            }
+          ]
+        }
+      },
+      "measurements": {
+        "frame_references.csv": {
+          "rows": 255,
+          "fields": [
+            "﻿frame",
+            "simulator_time_s",
+            "recorded_stage",
+            "source"
+          ],
+          "first": {
+            "﻿frame": "0",
+            "simulator_time_s": "0.0",
+            "recorded_stage": "before_settling",
+            "source": "trajectory.h5:frames/000000"
+          },
+          "last": {
+            "﻿frame": "254",
+            "simulator_time_s": "12.70000000000091",
+            "recorded_stage": "terminal",
+            "source": "trajectory.h5:frames/000254"
+          }
+        },
+        "contacts.csv": {
+          "rows": 8064,
+          "fields": [
+            "﻿frame",
+            "simulator_time_s",
+            "contact_index",
+            "geom1",
+            "geom2",
+            "owner1",
+            "owner2",
+            "recorded_signed_distance_m",
+            "position_xyz_m",
+            "source"
+          ],
+          "first": null,
+          "last": null
+        },
+        "object_poses.csv": {
+          "rows": 2040,
+          "fields": [
+            "﻿frame",
+            "simulator_time_s",
+            "object_id",
+            "body_native_id",
+            "xyz_m",
+            "quat_wxyz",
+            "source"
+          ],
+          "first": null,
+          "last": null
+        }
+      }
+    },
+    {
+      "case": "NV13",
+      "expected_frames": 269,
+      "videos": {
+        "agentview": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "r_frame_rate": "20/1",
+              "nb_read_frames": "269"
+            }
+          ]
+        },
+        "wrist": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "r_frame_rate": "20/1",
+              "nb_read_frames": "269"
+            }
+          ]
+        }
+      },
+      "measurements": {
+        "frame_references.csv": {
+          "rows": 269,
+          "fields": [
+            "﻿frame",
+            "simulator_time_s",
+            "recorded_stage",
+            "source"
+          ],
+          "first": {
+            "﻿frame": "0",
+            "simulator_time_s": "0.0",
+            "recorded_stage": "before_settling",
+            "source": "trajectory.h5:frames/000000"
+          },
+          "last": {
+            "﻿frame": "268",
+            "simulator_time_s": "13.400000000001144",
+            "recorded_stage": "terminal",
+            "source": "trajectory.h5:frames/000268"
+          }
+        },
+        "contacts.csv": {
+          "rows": 8593,
+          "fields": [
+            "﻿frame",
+            "simulator_time_s",
+            "contact_index",
+            "geom1",
+            "geom2",
+            "owner1",
+            "owner2",
+            "recorded_signed_distance_m",
+            "position_xyz_m",
+            "source"
+          ],
+          "first": null,
+          "last": null
+        },
+        "object_poses.csv": {
+          "rows": 2152,
+          "fields": [
+            "﻿frame",
+            "simulator_time_s",
+            "object_id",
+            "body_native_id",
+            "xyz_m",
+            "quat_wxyz",
+            "source"
+          ],
+          "first": null,
+          "last": null
+        }
+      }
+    },
+    {
+      "case": "NV14",
+      "expected_frames": 280,
+      "videos": {
+        "agentview": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "r_frame_rate": "20/1",
+              "nb_read_frames": "280"
+            }
+          ]
+        },
+        "wrist": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "r_frame_rate": "20/1",
+              "nb_read_frames": "280"
+            }
+          ]
+        }
+      },
+      "measurements": {
+        "frame_references.csv": {
+          "rows": 280,
+          "fields": [
+            "﻿frame",
+            "simulator_time_s",
+            "recorded_stage",
+            "source"
+          ],
+          "first": {
+            "﻿frame": "0",
+            "simulator_time_s": "0.0",
+            "recorded_stage": "before_settling",
+            "source": "trajectory.h5:frames/000000"
+          },
+          "last": {
+            "﻿frame": "279",
+            "simulator_time_s": "13.950000000001328",
+            "recorded_stage": "terminal",
+            "source": "trajectory.h5:frames/000279"
+          }
+        },
+        "contacts.csv": {
+          "rows": 9166,
+          "fields": [
+            "﻿frame",
+            "simulator_time_s",
+            "contact_index",
+            "geom1",
+            "geom2",
+            "owner1",
+            "owner2",
+            "recorded_signed_distance_m",
+            "position_xyz_m",
+            "source"
+          ],
+          "first": null,
+          "last": null
+        },
+        "object_poses.csv": {
+          "rows": 2240,
+          "fields": [
+            "﻿frame",
+            "simulator_time_s",
+            "object_id",
+            "body_native_id",
+            "xyz_m",
+            "quat_wxyz",
+            "source"
+          ],
+          "first": null,
+          "last": null
+        }
+      }
+    },
+    {
+      "case": "NV15",
+      "expected_frames": 252,
+      "videos": {
+        "agentview": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "r_frame_rate": "20/1",
+              "nb_read_frames": "252"
+            }
+          ]
+        },
+        "wrist": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "r_frame_rate": "20/1",
+              "nb_read_frames": "252"
+            }
+          ]
+        }
+      },
+      "measurements": {
+        "frame_references.csv": {
+          "rows": 252,
+          "fields": [
+            "﻿frame",
+            "simulator_time_s",
+            "recorded_stage",
+            "source"
+          ],
+          "first": {
+            "﻿frame": "0",
+            "simulator_time_s": "0.0",
+            "recorded_stage": "before_settling",
+            "source": "trajectory.h5:frames/000000"
+          },
+          "last": {
+            "﻿frame": "251",
+            "simulator_time_s": "12.55000000000086",
+            "recorded_stage": "terminal",
+            "source": "trajectory.h5:frames/000251"
+          }
+        },
+        "contacts.csv": {
+          "rows": 7981,
+          "fields": [
+            "﻿frame",
+            "simulator_time_s",
+            "contact_index",
+            "geom1",
+            "geom2",
+            "owner1",
+            "owner2",
+            "recorded_signed_distance_m",
+            "position_xyz_m",
+            "source"
+          ],
+          "first": null,
+          "last": null
+        },
+        "object_poses.csv": {
+          "rows": 2016,
+          "fields": [
+            "﻿frame",
+            "simulator_time_s",
+            "object_id",
+            "body_native_id",
+            "xyz_m",
+            "quat_wxyz",
+            "source"
+          ],
+          "first": null,
+          "last": null
+        }
+      }
+    },
+    {
+      "case": "NV16",
+      "expected_frames": 254,
+      "videos": {
+        "agentview": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "r_frame_rate": "20/1",
+              "nb_read_frames": "254"
+            }
+          ]
+        },
+        "wrist": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "r_frame_rate": "20/1",
+              "nb_read_frames": "254"
+            }
+          ]
+        }
+      },
+      "measurements": {
+        "frame_references.csv": {
+          "rows": 254,
+          "fields": [
+            "﻿frame",
+            "simulator_time_s",
+            "recorded_stage",
+            "source"
+          ],
+          "first": {
+            "﻿frame": "0",
+            "simulator_time_s": "0.0",
+            "recorded_stage": "before_settling",
+            "source": "trajectory.h5:frames/000000"
+          },
+          "last": {
+            "﻿frame": "253",
+            "simulator_time_s": "12.650000000000894",
+            "recorded_stage": "terminal",
+            "source": "trajectory.h5:frames/000253"
+          }
+        },
+        "contacts.csv": {
+          "rows": 8121,
+          "fields": [
+            "﻿frame",
+            "simulator_time_s",
+            "contact_index",
+            "geom1",
+            "geom2",
+            "owner1",
+            "owner2",
+            "recorded_signed_distance_m",
+            "position_xyz_m",
+            "source"
+          ],
+          "first": null,
+          "last": null
+        },
+        "object_poses.csv": {
+          "rows": 2032,
+          "fields": [
+            "﻿frame",
+            "simulator_time_s",
+            "object_id",
+            "body_native_id",
+            "xyz_m",
+            "quat_wxyz",
+            "source"
+          ],
+          "first": null,
+          "last": null
+        }
+      }
+    },
+    {
+      "case": "NV17",
+      "expected_frames": 295,
+      "videos": {
+        "agentview": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "r_frame_rate": "20/1",
+              "nb_read_frames": "295"
+            }
+          ]
+        },
+        "wrist": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "r_frame_rate": "20/1",
+              "nb_read_frames": "295"
+            }
+          ]
+        }
+      },
+      "measurements": {
+        "frame_references.csv": {
+          "rows": 295,
+          "fields": [
+            "﻿frame",
+            "simulator_time_s",
+            "recorded_stage",
+            "source"
+          ],
+          "first": {
+            "﻿frame": "0",
+            "simulator_time_s": "0.0",
+            "recorded_stage": "before_settling",
+            "source": "trajectory.h5:frames/000000"
+          },
+          "last": {
+            "﻿frame": "294",
+            "simulator_time_s": "14.700000000001578",
+            "recorded_stage": "terminal",
+            "source": "trajectory.h5:frames/000294"
+          }
+        },
+        "contacts.csv": {
+          "rows": 9321,
+          "fields": [
+            "﻿frame",
+            "simulator_time_s",
+            "contact_index",
+            "geom1",
+            "geom2",
+            "owner1",
+            "owner2",
+            "recorded_signed_distance_m",
+            "position_xyz_m",
+            "source"
+          ],
+          "first": null,
+          "last": null
+        },
+        "object_poses.csv": {
+          "rows": 2360,
+          "fields": [
+            "﻿frame",
+            "simulator_time_s",
+            "object_id",
+            "body_native_id",
+            "xyz_m",
+            "quat_wxyz",
+            "source"
+          ],
+          "first": null,
+          "last": null
+        }
+      }
+    },
+    {
+      "case": "NV18",
+      "expected_frames": 264,
+      "videos": {
+        "agentview": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "r_frame_rate": "20/1",
+              "nb_read_frames": "264"
+            }
+          ]
+        },
+        "wrist": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "r_frame_rate": "20/1",
+              "nb_read_frames": "264"
+            }
+          ]
+        }
+      },
+      "measurements": {
+        "frame_references.csv": {
+          "rows": 264,
+          "fields": [
+            "﻿frame",
+            "simulator_time_s",
+            "recorded_stage",
+            "source"
+          ],
+          "first": {
+            "﻿frame": "0",
+            "simulator_time_s": "0.0",
+            "recorded_stage": "before_settling",
+            "source": "trajectory.h5:frames/000000"
+          },
+          "last": {
+            "﻿frame": "263",
+            "simulator_time_s": "13.15000000000106",
+            "recorded_stage": "terminal",
+            "source": "trajectory.h5:frames/000263"
+          }
+        },
+        "contacts.csv": {
+          "rows": 8434,
+          "fields": [
+            "﻿frame",
+            "simulator_time_s",
+            "contact_index",
+            "geom1",
+            "geom2",
+            "owner1",
+            "owner2",
+            "recorded_signed_distance_m",
+            "position_xyz_m",
+            "source"
+          ],
+          "first": null,
+          "last": null
+        },
+        "object_poses.csv": {
+          "rows": 2112,
+          "fields": [
+            "﻿frame",
+            "simulator_time_s",
+            "object_id",
+            "body_native_id",
+            "xyz_m",
+            "quat_wxyz",
+            "source"
+          ],
+          "first": null,
+          "last": null
+        }
+      }
+    },
+    {
+      "case": "NV19",
+      "expected_frames": 266,
+      "videos": {
+        "agentview": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "r_frame_rate": "20/1",
+              "nb_read_frames": "266"
+            }
+          ]
+        },
+        "wrist": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "r_frame_rate": "20/1",
+              "nb_read_frames": "266"
+            }
+          ]
+        }
+      },
+      "measurements": {
+        "frame_references.csv": {
+          "rows": 266,
+          "fields": [
+            "﻿frame",
+            "simulator_time_s",
+            "recorded_stage",
+            "source"
+          ],
+          "first": {
+            "﻿frame": "0",
+            "simulator_time_s": "0.0",
+            "recorded_stage": "before_settling",
+            "source": "trajectory.h5:frames/000000"
+          },
+          "last": {
+            "﻿frame": "265",
+            "simulator_time_s": "13.250000000001094",
+            "recorded_stage": "terminal",
+            "source": "trajectory.h5:frames/000265"
+          }
+        },
+        "contacts.csv": {
+          "rows": 8537,
+          "fields": [
+            "﻿frame",
+            "simulator_time_s",
+            "contact_index",
+            "geom1",
+            "geom2",
+            "owner1",
+            "owner2",
+            "recorded_signed_distance_m",
+            "position_xyz_m",
+            "source"
+          ],
+          "first": null,
+          "last": null
+        },
+        "object_poses.csv": {
+          "rows": 2128,
+          "fields": [
+            "﻿frame",
+            "simulator_time_s",
+            "object_id",
+            "body_native_id",
+            "xyz_m",
+            "quat_wxyz",
+            "source"
+          ],
+          "first": null,
+          "last": null
+        }
+      }
+    },
+    {
+      "case": "NV20",
+      "expected_frames": 250,
+      "videos": {
+        "agentview": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "r_frame_rate": "20/1",
+              "nb_read_frames": "250"
+            }
+          ]
+        },
+        "wrist": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "r_frame_rate": "20/1",
+              "nb_read_frames": "250"
+            }
+          ]
+        }
+      },
+      "measurements": {
+        "frame_references.csv": {
+          "rows": 250,
+          "fields": [
+            "﻿frame",
+            "simulator_time_s",
+            "recorded_stage",
+            "source"
+          ],
+          "first": {
+            "﻿frame": "0",
+            "simulator_time_s": "0.0",
+            "recorded_stage": "before_settling",
+            "source": "trajectory.h5:frames/000000"
+          },
+          "last": {
+            "﻿frame": "249",
+            "simulator_time_s": "12.450000000000827",
+            "recorded_stage": "terminal",
+            "source": "trajectory.h5:frames/000249"
+          }
+        },
+        "contacts.csv": {
+          "rows": 7812,
+          "fields": [
+            "﻿frame",
+            "simulator_time_s",
+            "contact_index",
+            "geom1",
+            "geom2",
+            "owner1",
+            "owner2",
+            "recorded_signed_distance_m",
+            "position_xyz_m",
+            "source"
+          ],
+          "first": null,
+          "last": null
+        },
+        "object_poses.csv": {
+          "rows": 2000,
+          "fields": [
+            "﻿frame",
+            "simulator_time_s",
+            "object_id",
+            "body_native_id",
+            "xyz_m",
+            "quat_wxyz",
+            "source"
+          ],
+          "first": null,
+          "last": null
+        }
+      }
+    }
+  ]
+}
