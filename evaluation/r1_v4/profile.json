@@ -1,0 +1,8 @@
+{
+  "assumptions": "Exact source-bound declared synthetic facts; no physical inference",
+  "coverage": "explicit_static_cells_and_joins",
+  "id": "analytical-static-box",
+  "purpose": "analytical_fixture",
+  "temporal_uncertainty": "unresolved_values_abstain",
+  "version": "1.0.0"
+}

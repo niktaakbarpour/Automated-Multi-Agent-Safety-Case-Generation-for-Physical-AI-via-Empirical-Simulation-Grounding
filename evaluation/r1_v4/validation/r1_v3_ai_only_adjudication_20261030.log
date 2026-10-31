@@ -1,0 +1,13 @@
+test_all_23_imported_bytes_match_hestia (test_imported_reports.ImportedReports.test_all_23_imported_bytes_match_hestia) ... ok
+test_all_original_uncertainty_fields_preserved (test_imported_reports.ImportedReports.test_all_original_uncertainty_fields_preserved) ... ok
+test_both_seals_and_report_manifest (test_imported_reports.ImportedReports.test_both_seals_and_report_manifest) ... ok
+test_case_identity_completeness (test_imported_reports.ImportedReports.test_case_identity_completeness) ... ok
+test_frozen_prediction_hash_binding (test_imported_reports.ImportedReports.test_frozen_prediction_hash_binding) ... ok
+test_human_scoring_protected_files_unchanged (test_imported_reports.ImportedReports.test_human_scoring_protected_files_unchanged) ... ok
+test_reported_denominators_and_undefined_metrics (test_imported_reports.ImportedReports.test_reported_denominators_and_undefined_metrics) ... ok
+test_seal_chain_and_disclosed_limits (test_imported_reports.ImportedReports.test_seal_chain_and_disclosed_limits) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.007s
+
+OK

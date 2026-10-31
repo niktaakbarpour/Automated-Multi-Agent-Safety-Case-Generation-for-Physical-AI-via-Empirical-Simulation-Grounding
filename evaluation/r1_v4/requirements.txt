@@ -1,0 +1,2 @@
+# Existing Hestia installation used; no environment installation performed in Phase 2A.
+jsonschema==4.19.1

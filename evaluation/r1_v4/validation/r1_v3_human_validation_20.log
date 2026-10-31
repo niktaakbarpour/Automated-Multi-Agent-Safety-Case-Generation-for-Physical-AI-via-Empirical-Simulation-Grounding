@@ -1,0 +1,47 @@
+test_actual_archives_are_complete_and_equivalent (test_validation.SelectionAndPackages.test_actual_archives_are_complete_and_equivalent) ... ok
+test_all_original_protected_bytes_unchanged (test_validation.SelectionAndPackages.test_all_original_protected_bytes_unchanged) ... ERROR
+test_original_four_headers_preserved (test_validation.SelectionAndPackages.test_original_four_headers_preserved) ... ok
+test_prereview_scoring_freeze_matches_code_and_selection (test_validation.SelectionAndPackages.test_prereview_scoring_freeze_matches_code_and_selection) ... ok
+test_sampler_never_opens_predictions (test_validation.SelectionAndPackages.test_sampler_never_opens_predictions) ... ok
+test_selection_reproduces_without_prediction_inputs (test_validation.SelectionAndPackages.test_selection_reproduces_without_prediction_inputs) ... ok
+test_disjoint_negative_windows_not_collapsed (test_validation.SyntheticScoringTests.test_disjoint_negative_windows_not_collapsed) ... ok
+test_established_subevent_survives_parent_uncertainty (test_validation.SyntheticScoringTests.test_established_subevent_survives_parent_uncertainty) ... ok
+test_event_matching_and_explicit_negative_FP_window (test_validation.SyntheticScoringTests.test_event_matching_and_explicit_negative_FP_window) ... ok
+test_missing_measurement_domain_excludes_negative (test_validation.SyntheticScoringTests.test_missing_measurement_domain_excludes_negative) ... ok
+test_partial_coverage_does_not_make_an_abstention_a_negative (test_validation.SyntheticScoringTests.test_partial_coverage_does_not_make_an_abstention_a_negative) ... ok
+test_positive_capable_counts_and_abstentions (test_validation.SyntheticScoringTests.test_positive_capable_counts_and_abstentions) ... ok
+test_run_wide_uncertainty_is_retained_in_secondary_analysis (test_validation.SyntheticScoringTests.test_run_wide_uncertainty_is_retained_in_secondary_analysis) ... ok
+test_unknown_event_bounds_stay_unscorable (test_validation.SyntheticScoringTests.test_unknown_event_bounds_stay_unscorable) ... ok
+test_unknown_reference_is_not_a_known_wrong_applicability (test_validation.SyntheticScoringTests.test_unknown_reference_is_not_a_known_wrong_applicability) ... ok
+test_zero_positive_recall_and_F1_not_estimable (test_validation.SyntheticScoringTests.test_zero_positive_recall_and_F1_not_estimable) ... ok
+test_approved_but_wrong_sample_is_rejected_before_prediction_read (test_validation.WorkflowRoundTrip.test_approved_but_wrong_sample_is_rejected_before_prediction_read) ... ok
+test_blank_approval_cannot_freeze (test_validation.WorkflowRoundTrip.test_blank_approval_cannot_freeze) ... ok
+test_blank_or_incomplete_submission_is_preserved_but_rejected (test_validation.WorkflowRoundTrip.test_blank_or_incomplete_submission_is_preserved_but_rejected) ... ok
+test_collect_preserves_original_return_bytes (test_validation.WorkflowRoundTrip.test_collect_preserves_original_return_bytes) ... ok
+test_freeze_and_gate_roundtrip_without_checker_inputs (test_validation.WorkflowRoundTrip.test_freeze_and_gate_roundtrip_without_checker_inputs) ... ok
+test_no_overwrite_of_original_submission (test_validation.WorkflowRoundTrip.test_no_overwrite_of_original_submission) ... ok
+test_nonboolean_exact_endpoint_flag_rejected (test_validation.WorkflowRoundTrip.test_nonboolean_exact_endpoint_flag_rejected) ... ok
+test_original_human_tamper_rejected (test_validation.WorkflowRoundTrip.test_original_human_tamper_rejected) ... ok
+test_original_run_wide_uncertainty_question_is_accepted (test_validation.WorkflowRoundTrip.test_original_run_wide_uncertainty_question_is_accepted) ... ok
+test_reference_tamper_is_rejected (test_validation.WorkflowRoundTrip.test_reference_tamper_is_rejected) ... ok
+test_unapproved_reference_rejected_before_prediction_read (test_validation.WorkflowRoundTrip.test_unapproved_reference_rejected_before_prediction_read) ... ok
+
+======================================================================
+ERROR: test_all_original_protected_bytes_unchanged (test_validation.SelectionAndPackages.test_all_original_protected_bytes_unchanged)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v3_human_validation_20/tests/test_validation.py", line 50, in test_all_original_protected_bytes_unchanged
+    for n,h in f['protected_files'].items():self.assertEqual(hashlib.sha256((repo/n).read_bytes()).hexdigest(),h,n)
+                                                                            ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib64/python3.12/pathlib.py", line 1019, in read_bytes
+    with self.open(mode='rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib64/python3.12/pathlib.py", line 1013, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/disk/1/data/niktakbr/trustworthy-phase16/human_review_package/adjudication/test_results_final_baseline_20261026.txt'
+
+----------------------------------------------------------------------
+Ran 27 tests in 0.122s
+
+FAILED (errors=1)
