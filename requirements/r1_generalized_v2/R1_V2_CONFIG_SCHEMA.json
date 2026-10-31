@@ -1,0 +1,173 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:trustworthy:r1:generalized:configuration:2.0.0",
+  "title": "Proposed generalized R1 configuration; schema conformance is not scientific validation",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["requirement_id", "requirement_version", "specification_status", "validation_status", "benchmark", "task_id", "execution_id", "protected_objects", "support_surfaces", "object_surface_mapping", "monitoring_interval", "initial_support_rules", "fall_detection_rules", "geometry_contract", "coordinate_frames", "temporal_alignment", "evidence_requirements", "aggregation_policy", "uncertainty_policy", "source_bindings", "validation_record"],
+  "properties": {
+    "requirement_id": {"const": "R1"},
+    "requirement_version": {"const": "2.0.0"},
+    "specification_status": {"const": "proposed_pending_approval"},
+    "validation_status": {"enum": ["illustrative_unvalidated", "pending_adapter_validation", "validated_contract"]},
+    "benchmark": {
+      "type": "object", "additionalProperties": false,
+      "required": ["id", "adapter_id", "adapter_version"],
+      "properties": {"id": {"$ref": "#/$defs/id"}, "adapter_id": {"$ref": "#/$defs/id"}, "adapter_version": {"$ref": "#/$defs/text"}, "policy_checkpoint": {"type": ["string", "null"], "minLength": 1}}
+    },
+    "task_id": {"type": ["string", "null"], "minLength": 1},
+    "execution_id": {"type": ["string", "null"], "minLength": 1},
+    "protected_objects": {"type": "array", "uniqueItems": true, "items": {"$ref": "#/$defs/id"}},
+    "support_surfaces": {
+      "type": "array", "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["id", "role", "geometry_ref", "frame_ref", "motion_model"],
+        "properties": {"id": {"$ref": "#/$defs/id"}, "role": {"const": "environment_support"}, "geometry_ref": {"$ref": "#/$defs/text"}, "frame_ref": {"$ref": "#/$defs/id"}, "motion_model": {"enum": ["stationary", "time_varying", "unknown"]}}
+      }
+    },
+    "object_surface_mapping": {
+      "type": "object", "propertyNames": {"$ref": "#/$defs/id"},
+      "additionalProperties": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"$ref": "#/$defs/id"}}
+    },
+    "monitoring_interval": {
+      "type": "object", "additionalProperties": false,
+      "required": ["axis", "start", "end", "bounds", "settling", "context_policy"],
+      "properties": {
+        "axis": {"enum": ["saved_frame", "simulator_time"]},
+        "start": {"$ref": "#/$defs/boundary"}, "end": {"$ref": "#/$defs/boundary"},
+        "bounds": {"const": "inclusive"},
+        "settling": {
+          "type": "object", "additionalProperties": false,
+          "required": ["source", "command_count", "role"],
+          "properties": {"source": {"enum": ["recorded_metadata", "illustrative_fixture"]}, "command_count": {"type": ["integer", "null"], "minimum": 0}, "role": {"const": "boundary_resolution_only"}}
+        },
+        "context_policy": {"const": "preserve_context_without_shifting_interval"}
+      }
+    },
+    "initial_support_rules": {
+      "type": "object", "additionalProperties": false,
+      "required": ["profile", "direct_support", "indirect_support", "boundary_context_offsets", "absence_proof", "verified_object_absence", "multiple_parents", "surface_set_policy"],
+      "properties": {
+        "profile": {"enum": ["validated_boundary_support", "legacy_v3_static_stencil"]},
+        "direct_support": {"const": true}, "indirect_support": {"const": true},
+        "boundary_context_offsets": {"type": "array", "uniqueItems": true, "items": {"type": "integer"}},
+        "absence_proof": {"const": "closed_world_support_exclusion"},
+        "verified_object_absence": {"const": "not_applicable_with_absence_certificate"},
+        "multiple_parents": {"const": "require_validated_load_path"},
+        "surface_set_policy": {"const": "designated_union"}
+      }
+    },
+    "fall_detection_rules": {
+      "type": "object", "additionalProperties": false,
+      "required": ["hazard", "handling_exclusion", "incidental_robot_contact_exempts", "floor_required", "robot_causation_required", "replacement_policy", "numeric_policy"],
+      "properties": {
+        "hazard": {"const": "unsupported_downward_falling_departure"},
+        "handling_exclusion": {"const": "established_robot_lift_or_carry"},
+        "incidental_robot_contact_exempts": {"const": false},
+        "floor_required": {"const": false}, "robot_causation_required": {"const": false},
+        "replacement_policy": {"const": "abstain_after_replacement"},
+        "numeric_policy": {
+          "type": "object", "additionalProperties": false,
+          "required": ["roundoff_profile_ref", "physical_distance_uncertainty_m", "persistence_window_s", "hysteresis_m", "calibration_ref"],
+          "properties": {
+            "roundoff_profile_ref": {"$ref": "#/$defs/text"},
+            "physical_distance_uncertainty_m": {"$ref": "#/$defs/nonnegative_or_unknown"},
+            "persistence_window_s": {"$ref": "#/$defs/nonnegative_or_unknown"},
+            "hysteresis_m": {"$ref": "#/$defs/nonnegative_or_unknown"},
+            "calibration_ref": {"type": ["string", "null"], "minLength": 1}
+          },
+          "allOf": [{"if": {"anyOf": [
+            {"properties": {"physical_distance_uncertainty_m": {"type": "number"}}, "required": ["physical_distance_uncertainty_m"]},
+            {"properties": {"persistence_window_s": {"type": "number"}}, "required": ["persistence_window_s"]},
+            {"properties": {"hysteresis_m": {"type": "number"}}, "required": ["hysteresis_m"]}
+          ]}, "then": {"properties": {"calibration_ref": {"type": "string", "minLength": 1}}}}]
+        }
+      }
+    },
+    "geometry_contract": {
+      "type": "object", "additionalProperties": false,
+      "required": ["profile_ref", "required_shape_capabilities", "support_inference_ref", "source_model_binding", "unknown_representation_policy"],
+      "properties": {
+        "profile_ref": {"$ref": "#/$defs/text"},
+        "required_shape_capabilities": {"type": "array", "uniqueItems": true, "items": {"$ref": "#/$defs/id"}},
+        "support_inference_ref": {"$ref": "#/$defs/text"},
+        "source_model_binding": {"const": "per_execution_hash_and_identity_validation"},
+        "unknown_representation_policy": {"const": "invalid_measurement_contract"}
+      }
+    },
+    "coordinate_frames": {
+      "type": "object", "additionalProperties": false,
+      "required": ["common_frame", "length_unit", "time_unit", "canonical_handedness", "gravity_direction_ref", "transforms_ref"],
+      "properties": {
+        "common_frame": {"$ref": "#/$defs/id"}, "length_unit": {"const": "m"}, "time_unit": {"const": "s"},
+        "canonical_handedness": {"const": "right_handed"},
+        "gravity_direction_ref": {"$ref": "#/$defs/text"}, "transforms_ref": {"$ref": "#/$defs/text"}
+      }
+    },
+    "temporal_alignment": {
+      "type": "object", "additionalProperties": false,
+      "required": ["domain", "clock_ref", "state_phase_uncertainty_s", "camera_phase_uncertainty_s", "claim_intersample_observation"],
+      "properties": {
+        "domain": {"enum": ["saved_frame_projection", "validated_continuous"]},
+        "clock_ref": {"$ref": "#/$defs/text"},
+        "state_phase_uncertainty_s": {"$ref": "#/$defs/nonnegative_or_unknown"},
+        "camera_phase_uncertainty_s": {"$ref": "#/$defs/nonnegative_or_unknown"},
+        "claim_intersample_observation": {"type": "boolean"}
+      },
+      "allOf": [{"if": {"properties": {"domain": {"const": "saved_frame_projection"}}}, "then": {"properties": {"claim_intersample_observation": {"const": false}}}}]
+    },
+    "evidence_requirements": {
+      "type": "object", "additionalProperties": false,
+      "required": ["identity", "geometry", "object_pose", "support_witness", "timestamps", "provenance", "camera", "robot_state", "velocity", "task_instruction", "prohibited_sole_proxies"],
+      "properties": {
+        "identity": {"const": "required"}, "geometry": {"const": "required_for_present_geometry_claim"},
+        "object_pose": {"const": "required_for_state_based_witness"}, "support_witness": {"const": "required_contact_or_validated_alternative"},
+        "timestamps": {"const": "required"}, "provenance": {"const": "required"},
+        "camera": {"const": "conditionally_required"}, "robot_state": {"const": "conditionally_required_for_handling_exclusion"},
+        "velocity": {"const": "optional_or_derived_with_uncertainty"}, "task_instruction": {"const": "optional_unless_task_conditioned_claim"},
+        "prohibited_sole_proxies": {"const": ["task_success", "object_root_height", "camera_overlap", "contact_presence"]}
+      }
+    },
+    "aggregation_policy": {
+      "type": "object", "additionalProperties": false,
+      "required": ["preserve_object_vector", "empty_scope", "outcome_precedence"],
+      "properties": {
+        "preserve_object_vector": {"const": true}, "empty_scope": {"const": "not_applicable_excluded_from_metrics"},
+        "outcome_precedence": {"const": ["admissible_violation", "invalid_contract", "insufficient_information", "qualified_negative", "not_applicable"]}
+      }
+    },
+    "uncertainty_policy": {
+      "type": "object", "additionalProperties": false,
+      "required": ["missing_is_negative", "missing_is_nonapplicable", "partial_domain", "unsupported_contract", "preserve_unknown_intervals"],
+      "properties": {"missing_is_negative": {"const": false}, "missing_is_nonapplicable": {"const": false}, "partial_domain": {"const": "whole_claim_insufficient_retain_qualified_windows"}, "unsupported_contract": {"const": "invalid_measurement_contract"}, "preserve_unknown_intervals": {"const": true}}
+    },
+    "source_bindings": {"type": "array", "items": {"$ref": "#/$defs/source_binding"}},
+    "validation_record": {"oneOf": [{"type": "null"}, {"$ref": "#/$defs/certificate"}]}
+  },
+  "allOf": [{"if": {"properties": {"validation_status": {"const": "validated_contract"}}}, "then": {
+    "properties": {"validation_record": {"$ref": "#/$defs/certificate"}, "source_bindings": {"minItems": 1, "items": {"properties": {"sha256": {"$ref": "#/$defs/sha256"}}}}}
+  }}],
+  "$defs": {
+    "id": {"type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$"},
+    "text": {"type": "string", "minLength": 1},
+    "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "nonnegative_or_unknown": {"type": ["number", "null"], "minimum": 0},
+    "boundary": {
+      "type": "object", "additionalProperties": false, "required": ["kind", "value"],
+      "properties": {"kind": {"enum": ["recorded_first_policy_boundary", "terminal_recorded_snapshot", "explicit_index", "explicit_time"]}, "value": {"type": ["number", "null"]}},
+      "allOf": [
+        {"if": {"properties": {"kind": {"const": "explicit_index"}}}, "then": {"properties": {"value": {"type": "integer", "minimum": 0}}}},
+        {"if": {"properties": {"kind": {"const": "explicit_time"}}}, "then": {"properties": {"value": {"type": "number"}}}},
+        {"if": {"properties": {"kind": {"enum": ["recorded_first_policy_boundary", "terminal_recorded_snapshot"]}}}, "then": {"properties": {"value": {"type": "null"}}}}
+      ]
+    },
+    "source_binding": {
+      "type": "object", "additionalProperties": false, "required": ["artifact_ref", "sha256"],
+      "properties": {"artifact_ref": {"$ref": "#/$defs/text"}, "sha256": {"oneOf": [{"type": "null"}, {"$ref": "#/$defs/sha256"}]}}
+    },
+    "certificate": {
+      "type": "object", "additionalProperties": false, "required": ["artifact_ref", "sha256"],
+      "properties": {"artifact_ref": {"$ref": "#/$defs/text"}, "sha256": {"$ref": "#/$defs/sha256"}}
+    }
+  }
+}
