@@ -1,0 +1,7 @@
+{
+  "BOX_cases": 27,
+  "exact_rational_coordinate_checks": 648,
+  "passed": true,
+  "physical_uncertainty_bound": null,
+  "scope": "Computational enclosure of exact finite binary64 inputs only"
+}

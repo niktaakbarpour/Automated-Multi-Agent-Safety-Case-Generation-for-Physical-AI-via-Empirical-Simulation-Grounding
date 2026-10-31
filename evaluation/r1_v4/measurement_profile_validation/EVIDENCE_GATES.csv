@@ -1,0 +1,13 @@
+gate_id,status,conditions,evidence,remaining,empirical_admission_enabled
+G01_native_BOX_measurements,VERIFIED,"Four hash-bound runs, complete native mapping and raw transforms",SOURCE_BINDINGS.json; DIAGNOSTIC_SUMMARY.json,Only this model; not load-bearing or full empirical geometry admission,False
+G02_numerical_corner_enclosure,VERIFIED,Exact-rational oracle passes; computational inputs treated exact,NUMERICAL_ORACLE.json; geometry.py,Input/model/physical uncertainties remain unknown,False
+G03_geometry_empirical_admission,CONDITIONALLY_SUPPORTED,Identity/BOX arithmetic established; uncertainty profile incomplete,GEOMETRY_CALIBRATION.md,Independent geometry and physical uncertainty validation,False
+G04_initial_support_applicability,BLOCKED_ON_EVIDENCE,Need validated support/absence and t0 inference,SUPPORT_INFERENCE.md,Independent load-bearing/absence references and calibrated profile,False
+G05_validated_falling_witness,BLOCKED_ON_EVIDENCE,Need support origin/loss/downward/handling/boundary proof,DEVELOPMENT_REFERENCE_CANDIDATES.csv,No independent in-scope R1 positive; physical uncertainties unresolved,False
+G06_qualified_negative_certificate,BLOCKED_ON_EVIDENCE,Need qualified support and transition cells over requested domain,TEMPORAL_VALIDITY.md,Static-looking poses/contact alone do not qualify clear coverage,False
+G07_static_coverage_composition,BLOCKED_ON_EVIDENCE,Need admitted compatible cells and independently qualified joins,UNCERTAINTY_REGISTER.md,No empirical negative cell profile admitted,False
+G08_dynamic_coverage_composition,UNSUPPORTED,Restricted contract defers dynamic/handling/replacement composition,requirements/r1_generalized_v2/FORMAL_SEMANTICS.md,Separate approved semantics/profile required,False
+G09_contact_based_physical_evidence,CONDITIONALLY_SUPPORTED,Raw native contacts complete at samples; physical role unresolved,SUPPORT_INFERENCE.md,Validated load-bearing or force-free alternative; no contact-only rule,False
+G10_uncertainty_propagation,BLOCKED_ON_EVIDENCE,"Arithmetic enclosures known, necessary physical components null",CALIBRATION_PARAMETERS.csv,Independent bounds and dependency-aware propagation,False
+G11_temporal_empirical_admission,BLOCKED_ON_EVIDENCE,Saved indices verified; cache/exposure bounds uncalibrated,TEMPORAL_VALIDITY.md,Source-specific boundary/phase uncertainty contract,False
+G12_independent_reference_validation,BLOCKED_ON_EVIDENCE,"Proposals are one exposed AI analysis, no human review",REFERENCE_REVIEW_PROTOCOL.md,Independent review/adjudication and frozen prospective evaluation protocol,False

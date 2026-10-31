@@ -1,0 +1,103 @@
+{
+  "empirical_admission_enabled": false,
+  "gates": [
+    {
+      "conditions": "Four hash-bound runs, complete native mapping and raw transforms",
+      "empirical_admission_enabled": false,
+      "evidence": "SOURCE_BINDINGS.json; DIAGNOSTIC_SUMMARY.json",
+      "gate_id": "G01_native_BOX_measurements",
+      "remaining": "Only this model; not load-bearing or full empirical geometry admission",
+      "status": "VERIFIED"
+    },
+    {
+      "conditions": "Exact-rational oracle passes; computational inputs treated exact",
+      "empirical_admission_enabled": false,
+      "evidence": "NUMERICAL_ORACLE.json; geometry.py",
+      "gate_id": "G02_numerical_corner_enclosure",
+      "remaining": "Input/model/physical uncertainties remain unknown",
+      "status": "VERIFIED"
+    },
+    {
+      "conditions": "Identity/BOX arithmetic established; uncertainty profile incomplete",
+      "empirical_admission_enabled": false,
+      "evidence": "GEOMETRY_CALIBRATION.md",
+      "gate_id": "G03_geometry_empirical_admission",
+      "remaining": "Independent geometry and physical uncertainty validation",
+      "status": "CONDITIONALLY_SUPPORTED"
+    },
+    {
+      "conditions": "Need validated support/absence and t0 inference",
+      "empirical_admission_enabled": false,
+      "evidence": "SUPPORT_INFERENCE.md",
+      "gate_id": "G04_initial_support_applicability",
+      "remaining": "Independent load-bearing/absence references and calibrated profile",
+      "status": "BLOCKED_ON_EVIDENCE"
+    },
+    {
+      "conditions": "Need support origin/loss/downward/handling/boundary proof",
+      "empirical_admission_enabled": false,
+      "evidence": "DEVELOPMENT_REFERENCE_CANDIDATES.csv",
+      "gate_id": "G05_validated_falling_witness",
+      "remaining": "No independent in-scope R1 positive; physical uncertainties unresolved",
+      "status": "BLOCKED_ON_EVIDENCE"
+    },
+    {
+      "conditions": "Need qualified support and transition cells over requested domain",
+      "empirical_admission_enabled": false,
+      "evidence": "TEMPORAL_VALIDITY.md",
+      "gate_id": "G06_qualified_negative_certificate",
+      "remaining": "Static-looking poses/contact alone do not qualify clear coverage",
+      "status": "BLOCKED_ON_EVIDENCE"
+    },
+    {
+      "conditions": "Need admitted compatible cells and independently qualified joins",
+      "empirical_admission_enabled": false,
+      "evidence": "UNCERTAINTY_REGISTER.md",
+      "gate_id": "G07_static_coverage_composition",
+      "remaining": "No empirical negative cell profile admitted",
+      "status": "BLOCKED_ON_EVIDENCE"
+    },
+    {
+      "conditions": "Restricted contract defers dynamic/handling/replacement composition",
+      "empirical_admission_enabled": false,
+      "evidence": "requirements/r1_generalized_v2/FORMAL_SEMANTICS.md",
+      "gate_id": "G08_dynamic_coverage_composition",
+      "remaining": "Separate approved semantics/profile required",
+      "status": "UNSUPPORTED"
+    },
+    {
+      "conditions": "Raw native contacts complete at samples; physical role unresolved",
+      "empirical_admission_enabled": false,
+      "evidence": "SUPPORT_INFERENCE.md",
+      "gate_id": "G09_contact_based_physical_evidence",
+      "remaining": "Validated load-bearing or force-free alternative; no contact-only rule",
+      "status": "CONDITIONALLY_SUPPORTED"
+    },
+    {
+      "conditions": "Arithmetic enclosures known, necessary physical components null",
+      "empirical_admission_enabled": false,
+      "evidence": "CALIBRATION_PARAMETERS.csv",
+      "gate_id": "G10_uncertainty_propagation",
+      "remaining": "Independent bounds and dependency-aware propagation",
+      "status": "BLOCKED_ON_EVIDENCE"
+    },
+    {
+      "conditions": "Saved indices verified; cache/exposure bounds uncalibrated",
+      "empirical_admission_enabled": false,
+      "evidence": "TEMPORAL_VALIDITY.md",
+      "gate_id": "G11_temporal_empirical_admission",
+      "remaining": "Source-specific boundary/phase uncertainty contract",
+      "status": "BLOCKED_ON_EVIDENCE"
+    },
+    {
+      "conditions": "Proposals are one exposed AI analysis, no human review",
+      "empirical_admission_enabled": false,
+      "evidence": "REFERENCE_REVIEW_PROTOCOL.md",
+      "gate_id": "G12_independent_reference_validation",
+      "remaining": "Independent review/adjudication and frozen prospective evaluation protocol",
+      "status": "BLOCKED_ON_EVIDENCE"
+    }
+  ],
+  "independent_reference_cases": 0,
+  "physical_judgments_issued": 0
+}

@@ -1,0 +1,178 @@
+{
+  "baseline": "51cf76ad47bccff9f6a4de1c3651141f1e5c954b",
+  "full_diagnostics": {
+    "path": "/disk/1/data/niktakbr/r1-v4-phase2b3-working/object_geometry_contacts.csv",
+    "sha256": "c64ddbd0f7581f7cad5bd1145b721eece281e6ac587c4eac80d25faad1d5ecc1"
+  },
+  "prior_files": {
+    "evaluation/r1_v4/libero_measurement_reader/RESTORED_SOURCES.json": "847bc125337554c6c1d0873d88b2fa89a838d01547401fd3d50684760f81c5dd",
+    "human_review_package/supporting_measurements/README.md": "8d3116874fad8994a9c37e43acb4c083fdd8315df9d7263ec6c52c1b493d4030",
+    "reports/fall_checker_dev_v2_20261017/src/native_geometry_v2.py": "3d582b66656751a59bd981bbf007270dabf0d431822acd065114c3c38e51407c",
+    "reports/fall_review_v2_20261016/constraints_and_identities.json": "38b0384d5f17f0068133e54266f41d0a6728b60c1d4f1f96b3e14a7cd6fd7e3b",
+    "reports/fall_review_v2_20261016/corrected_native_geometry_v2.json": "a6d32b025a4e4ad495216d07faa093d42d93797d03626516653d62d1ec7a2be1",
+    "reports/fall_review_v2_20261016/example_interpretations_provisional.json": "7f956086439965143cc3a5a800d58d50f46d5cb93f81aba12ab35d0106ccd84e",
+    "reports/fall_review_v2_20261016/example_manifest.json": "ab9b2004db2ac82d54a6f9879ee9c426ff45e20d2428d22f9e85aa8c7705e683",
+    "reports/fall_review_v2_20261016/initial_sites_vs_collision_geometry.json": "bac958b11e79f32b063709ff836dcb9b76c56062fb0f6d0b922fcc1cd91e6e1b",
+    "reports/fall_review_v2_20261016/measurement_findings_v2.md": "8cbaee52accd06195f8845c1f6acf088b1a4659bdf68b31627f8db8a99475d83",
+    "reports/fall_review_v2_20261016/rotation_serialization_evidence.json": "42c93a3912cadc2d50342979e8cadf07bd93306cdc5ef589c36c77507bd0bce7",
+    "requirements/r1_generalized_v2/EVIDENCE_CONTRACT.md": "91cc3ee0d6265c477f4affd359476179f1dc6d17d68dabe5153390b7b9a0b129",
+    "requirements/r1_generalized_v2/FALL_DEFINITION.md": "4d41cd987d35dbc0f3dbd32528dbbf58f32fa98191e59f4826768a38b3fd5b34",
+    "requirements/r1_generalized_v2/FORMAL_SEMANTICS.md": "8366833c53ff525969d92b965361b2a7e192281619975e5d15b1bd48c0121a51",
+    "requirements/r1_generalized_v2/R1_V2_SPECIFICATION.md": "3b0c9bbb45db09548789099554f26b3dff7f5aca0df98253adf0361e0699c4a3",
+    "requirements/r1_generalized_v2/finalization/EMPIRICAL_GATES.md": "89d17884e937e03e21b57ae42d6d7d0b39941b46b6c9cc282ce8b35e825c90ec"
+  },
+  "recordings": [
+    {
+      "path": "/disk/1/data/niktakbr/r1-v4-phase2b2-development-evidence/long/task_00/benchmark_initial_states.init",
+      "sha256": "1899fe54c51e24a41d5f9e32254730d6777f4894ab68e0e873f1fa7ae2062030"
+    },
+    {
+      "path": "/disk/1/data/niktakbr/r1-v4-phase2b2-development-evidence/long/task_00/episode_000/trajectory.h5",
+      "sha256": "b32c8bd571d7d7191ed3fae6493572fdfc226ba9c283582a80a8e6c8bfa46803"
+    },
+    {
+      "path": "/disk/1/data/niktakbr/r1-v4-phase2b2-development-evidence/long/task_00/episode_000/run_metadata.json",
+      "sha256": "934b149ca320638ee3bdecde6c66b81d55b181ac0f33f9fb5db125e0a9d771bc"
+    },
+    {
+      "path": "/disk/1/data/niktakbr/r1-v4-phase2b2-development-evidence/long/task_00/episode_000/semantic_initial_conditions.json",
+      "sha256": "25dadee6f021fc60d1502b13b66fd867d31e52c69b1c593a5b677417d739b330"
+    },
+    {
+      "path": "/disk/1/data/niktakbr/r1-v4-phase2b2-development-evidence/long/task_00/episode_000/simulator.xml",
+      "sha256": "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542"
+    },
+    {
+      "path": "/disk/1/data/niktakbr/r1-v4-phase2b2-development-evidence/long/task_00/episode_000/simulator_asset_manifest.json",
+      "sha256": "3c266eab533d15a67532afcfed84f51a77464a632432cd56956425ad98b950e4"
+    },
+    {
+      "path": "/disk/1/data/niktakbr/r1-v4-phase2b2-development-evidence/long/task_00/episode_000/simulator_index.json",
+      "sha256": "a286f0b3b70eb763374a8d8063b03846b49d2a5592c2bea121993e5f47d420c1"
+    },
+    {
+      "path": "/disk/1/data/niktakbr/r1-v4-phase2b2-development-evidence/long/task_00/episode_000/evaluator_version.json",
+      "sha256": "8c568392306be9058a3142dd02731f2bb3c714e6b36291cf463d163f5e587b04"
+    },
+    {
+      "path": "/disk/1/data/niktakbr/r1-v4-phase2b2-development-evidence/long/task_00/episode_000/integrity_manifest.json",
+      "sha256": "887fdd9d4a9bfa973200213a475345bf157ddc70243915f21f3d2e2d40795234"
+    },
+    {
+      "path": "/disk/1/data/niktakbr/r1-v4-phase2b2-development-evidence/long/task_00/episode_000/completion.json",
+      "sha256": "f075ec812d7b1796006df264ceecb8b1d7096c36519038654982c7c260fd5ffd"
+    },
+    {
+      "path": "/disk/1/data/niktakbr/r1-v4-phase2b2-development-evidence/long/task_00/episode_001/trajectory.h5",
+      "sha256": "9db5ee8df1f1a47218325cb5cfa874d57973dcf4fe6914765f246acdeaba483a"
+    },
+    {
+      "path": "/disk/1/data/niktakbr/r1-v4-phase2b2-development-evidence/long/task_00/episode_001/run_metadata.json",
+      "sha256": "203b4f3acc3a531b5df302965f311f80dd64ae62b44305565379fad889d01e5e"
+    },
+    {
+      "path": "/disk/1/data/niktakbr/r1-v4-phase2b2-development-evidence/long/task_00/episode_001/semantic_initial_conditions.json",
+      "sha256": "412c43e668061c667da678eae4c5a61fc2639beb5392be567c1408b93feec9b2"
+    },
+    {
+      "path": "/disk/1/data/niktakbr/r1-v4-phase2b2-development-evidence/long/task_00/episode_001/simulator.xml",
+      "sha256": "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542"
+    },
+    {
+      "path": "/disk/1/data/niktakbr/r1-v4-phase2b2-development-evidence/long/task_00/episode_001/simulator_asset_manifest.json",
+      "sha256": "3c266eab533d15a67532afcfed84f51a77464a632432cd56956425ad98b950e4"
+    },
+    {
+      "path": "/disk/1/data/niktakbr/r1-v4-phase2b2-development-evidence/long/task_00/episode_001/simulator_index.json",
+      "sha256": "a286f0b3b70eb763374a8d8063b03846b49d2a5592c2bea121993e5f47d420c1"
+    },
+    {
+      "path": "/disk/1/data/niktakbr/r1-v4-phase2b2-development-evidence/long/task_00/episode_001/evaluator_version.json",
+      "sha256": "8c568392306be9058a3142dd02731f2bb3c714e6b36291cf463d163f5e587b04"
+    },
+    {
+      "path": "/disk/1/data/niktakbr/r1-v4-phase2b2-development-evidence/long/task_00/episode_001/integrity_manifest.json",
+      "sha256": "5f4220f396e8deed5b241a0f3ae2bbabde747da1764ffe699015a3ec60095e55"
+    },
+    {
+      "path": "/disk/1/data/niktakbr/r1-v4-phase2b2-development-evidence/long/task_00/episode_001/completion.json",
+      "sha256": "28c6389ba221d25813a2a6cf2726de2274d23559e99db558daa209757f39ab85"
+    },
+    {
+      "path": "/disk/1/data/niktakbr/r1-v4-phase2b2-development-evidence/long/task_00/episode_002/trajectory.h5",
+      "sha256": "f670b832b1ff5ba3f6de452e3b2cf613e7455c13add4355adf1c1c1df9ee0b1e"
+    },
+    {
+      "path": "/disk/1/data/niktakbr/r1-v4-phase2b2-development-evidence/long/task_00/episode_002/run_metadata.json",
+      "sha256": "c2e10ed58f0d3b80283bb1d4c45f483e6142af9628e8bffb1634725c8b218607"
+    },
+    {
+      "path": "/disk/1/data/niktakbr/r1-v4-phase2b2-development-evidence/long/task_00/episode_002/semantic_initial_conditions.json",
+      "sha256": "e3ea8c39323168066abaaf21b5f43a933fc3cd432563a58dd6446223a62402ff"
+    },
+    {
+      "path": "/disk/1/data/niktakbr/r1-v4-phase2b2-development-evidence/long/task_00/episode_002/simulator.xml",
+      "sha256": "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542"
+    },
+    {
+      "path": "/disk/1/data/niktakbr/r1-v4-phase2b2-development-evidence/long/task_00/episode_002/simulator_asset_manifest.json",
+      "sha256": "3c266eab533d15a67532afcfed84f51a77464a632432cd56956425ad98b950e4"
+    },
+    {
+      "path": "/disk/1/data/niktakbr/r1-v4-phase2b2-development-evidence/long/task_00/episode_002/simulator_index.json",
+      "sha256": "a286f0b3b70eb763374a8d8063b03846b49d2a5592c2bea121993e5f47d420c1"
+    },
+    {
+      "path": "/disk/1/data/niktakbr/r1-v4-phase2b2-development-evidence/long/task_00/episode_002/evaluator_version.json",
+      "sha256": "8c568392306be9058a3142dd02731f2bb3c714e6b36291cf463d163f5e587b04"
+    },
+    {
+      "path": "/disk/1/data/niktakbr/r1-v4-phase2b2-development-evidence/long/task_00/episode_002/integrity_manifest.json",
+      "sha256": "65ad1a9410ead6e1af9ef7eda9b77a45981e8965ef3fa8eb9ad701f1f8a1127d"
+    },
+    {
+      "path": "/disk/1/data/niktakbr/r1-v4-phase2b2-development-evidence/long/task_00/episode_002/completion.json",
+      "sha256": "1ce7fb9b67c1d1bbc143cc503b7fb4a8830ff2b97780b35b10eb5f79a1688bd5"
+    },
+    {
+      "path": "/disk/1/data/niktakbr/r1-v4-phase2b2-development-evidence/long/task_00/episode_014/trajectory.h5",
+      "sha256": "28e3a77611656554d1706b09e93d0c2bc2bd203ab8d1810eb5cf20c24fb23a9d"
+    },
+    {
+      "path": "/disk/1/data/niktakbr/r1-v4-phase2b2-development-evidence/long/task_00/episode_014/run_metadata.json",
+      "sha256": "83f6c06f44f91adcfcafb8038e1ccb3428f235edc96119a053e3646e443b9a94"
+    },
+    {
+      "path": "/disk/1/data/niktakbr/r1-v4-phase2b2-development-evidence/long/task_00/episode_014/semantic_initial_conditions.json",
+      "sha256": "edad82a0ace2314acaa861b9a8f611635679114a79e0fd0951ec507c38476c62"
+    },
+    {
+      "path": "/disk/1/data/niktakbr/r1-v4-phase2b2-development-evidence/long/task_00/episode_014/simulator.xml",
+      "sha256": "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542"
+    },
+    {
+      "path": "/disk/1/data/niktakbr/r1-v4-phase2b2-development-evidence/long/task_00/episode_014/simulator_asset_manifest.json",
+      "sha256": "3c266eab533d15a67532afcfed84f51a77464a632432cd56956425ad98b950e4"
+    },
+    {
+      "path": "/disk/1/data/niktakbr/r1-v4-phase2b2-development-evidence/long/task_00/episode_014/simulator_index.json",
+      "sha256": "a286f0b3b70eb763374a8d8063b03846b49d2a5592c2bea121993e5f47d420c1"
+    },
+    {
+      "path": "/disk/1/data/niktakbr/r1-v4-phase2b2-development-evidence/long/task_00/episode_014/evaluator_version.json",
+      "sha256": "8c568392306be9058a3142dd02731f2bb3c714e6b36291cf463d163f5e587b04"
+    },
+    {
+      "path": "/disk/1/data/niktakbr/r1-v4-phase2b2-development-evidence/long/task_00/episode_014/integrity_manifest.json",
+      "sha256": "4075d69eb8bf09b5c89a53bd2b60945a5ceb4aa47f2eea9b5ca2fdb805d630c4"
+    },
+    {
+      "path": "/disk/1/data/niktakbr/r1-v4-phase2b2-development-evidence/long/task_00/episode_014/completion.json",
+      "sha256": "c0cc14e9246625af4ebf568e3466b455bbf5cf61d61fbaa5b3651a537a6fca4b"
+    },
+    {
+      "path": "/disk/1/data/niktakbr/r1-v4-phase2b2-development-evidence/long/task_00/task.bddl",
+      "sha256": "2e661058917f683a25bce480015197f0a2c1911bcbc2b9dd9d947199069c9618"
+    }
+  ]
+}
