@@ -1,0 +1,28 @@
+{
+  "AI3_seal_sha256": "52d84dc7440ba256b87e9f5a59f1df201da291c04fedf368da4474ebb5711c73",
+  "alignment_claim": "CSV/geometry nominal timestamps agree; exposure/physics phase remains unverified",
+  "assessed_cases": 20,
+  "camera_streams": 40,
+  "complete_raw_cases": 0,
+  "fresh_context_independence_claimed": false,
+  "human_approval_gate_modified": false,
+  "human_scoring_freeze_files_verified": 8,
+  "package_source_files_verified": 597,
+  "passed": true,
+  "prediction_sha256": "0ef93ece9c3d0cb02a49a450979315a4e3be3d5f127aa48105970321f5b34984",
+  "raw_restoration_performed": false,
+  "reference_seal_sha256": "6351e474de196fb7d0c801989921765b9e66686c54c003e0b15372db4e7cca4b",
+  "research_execution_host": "hestia",
+  "saved_camera_frames": 5347,
+  "tests": [
+    "nonapplicability_not_TN",
+    "unknown_reference_excluded",
+    "abstention_not_negative",
+    "zero_positive_metrics_undefined",
+    "disjoint_gap_not_covered",
+    "tampered_seal_rejected",
+    "case_identity_and_denominator_checks",
+    "source_timestamp_joins"
+  ],
+  "timestamp_rows_compared": 214196
+}

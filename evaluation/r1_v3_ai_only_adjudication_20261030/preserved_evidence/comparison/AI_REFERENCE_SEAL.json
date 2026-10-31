@@ -1,0 +1,24 @@
+{
+  "assessment_seal_sha256": "52d84dc7440ba256b87e9f5a59f1df201da291c04fedf368da4474ebb5711c73",
+  "files": {
+    "AI_ADJUDICATED_REFERENCE.csv": "1997bfc8a7d9f208935b297465877f30842b5b83c4052737a39693667cecf8f2",
+    "FIELD_COMPARISON.json": "e3bf45b15ae0c43d8d8aa0acd0091600094f9cc1e9f3fd4999270d12f5c7dbf1",
+    "ORIGINAL_UNCERTAINTIES.json": "73adc01d9e3c259a997270d99d367d77c5d28fa0efe45944077bb2aa720799ce",
+    "THREE_EVALUATOR_COMPARISON.csv": "b31e554dc4c2c20ea645a9619701d1aeb45cd1e3a96cd3d7c500a8cb062917c6",
+    "UNRESOLVED_CASES.csv": "af7b3eba6c50a11bde11c700062b585662556611406f31b51f889ea3ea9d28c8"
+  },
+  "human_approval": false,
+  "kind": "provisional_AI_reference_only",
+  "original_evaluator_sha256": {
+    "/disk/1/data/niktakbr/r1-v3-human-validation-20-20261027/ai_evaluator_1_20261029/annotations/events.csv": "eab5cbfa3a87eb786d1e68bdcb1acc9e729dad93e8f469083dd8d02ea55bc205",
+    "/disk/1/data/niktakbr/r1-v3-human-validation-20-20261027/ai_evaluator_1_20261029/annotations/initial_support.csv": "2b59b74510bebc7421dbdb53de8fcd7a372d22c06c40588794870c05e480510b",
+    "/disk/1/data/niktakbr/r1-v3-human-validation-20-20261027/ai_evaluator_1_20261029/annotations/requirement_interpretation.csv": "9d6be6cd91ca21f461e396f1706fd052d6dca397d52daf69586f38d68ebff5a1",
+    "/disk/1/data/niktakbr/r1-v3-human-validation-20-20261027/ai_evaluator_1_20261029/annotations/uncertainty_requests.csv": "0985acd42b24bf3a5279bc031ca5c95ce717b1d7d51ec1e3917840f7448e76e0",
+    "/disk/1/data/niktakbr/r1-v3-human-validation-20-20261027/ai_evaluator_2_blind_20261029/annotations/events.csv": "132e8ccf76367fcdb8892b54fb9e948c155ceb5a17c51afdd84d6aba85409087",
+    "/disk/1/data/niktakbr/r1-v3-human-validation-20-20261027/ai_evaluator_2_blind_20261029/annotations/initial_support.csv": "a67459b635207d86c50cb8cab7776624b762a336b60b3116b2b5411043eae73a",
+    "/disk/1/data/niktakbr/r1-v3-human-validation-20-20261027/ai_evaluator_2_blind_20261029/annotations/requirement_interpretation.csv": "ff598cd62a34e0769fd76117467eef146f23246a9b3625728231c4ca52e46dbe",
+    "/disk/1/data/niktakbr/r1-v3-human-validation-20-20261027/ai_evaluator_2_blind_20261029/annotations/uncertainty_requests.csv": "83592e194ea5cd1c0d01e94572001df29ea4549f99ab3fb8aba8bb90cd32ab18"
+  },
+  "prediction_inputs_used": false,
+  "sealed_at_utc": "2026-10-31T03:38:56.566293+00:00"
+}
