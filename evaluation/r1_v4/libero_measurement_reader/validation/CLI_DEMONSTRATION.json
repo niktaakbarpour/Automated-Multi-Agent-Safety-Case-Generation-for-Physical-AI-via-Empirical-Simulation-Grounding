@@ -1,0 +1,21 @@
+{
+  "byte_identical_to_library": true,
+  "command": [
+    "/usr/bin/python3",
+    "-S",
+    "-m",
+    "evaluation.r1_v4.libero_measurement_reader",
+    "--root",
+    "/disk/1/data/niktakbr/r1-v4-phase2b2-development-evidence",
+    "--episode",
+    "0",
+    "--frames",
+    "0",
+    "10",
+    "--output",
+    "/disk/1/data/niktakbr/r1-v4-phase2b2-working/cli-example-bound.json"
+  ],
+  "empirical_admission_enabled": false,
+  "output": "/disk/1/data/niktakbr/r1-v4-phase2b2-working/cli-example-bound.json",
+  "sha256": "38eaf7e044460d8992ee7c18512d54af753432f9a95356cb2dedf552ad13bc49"
+}

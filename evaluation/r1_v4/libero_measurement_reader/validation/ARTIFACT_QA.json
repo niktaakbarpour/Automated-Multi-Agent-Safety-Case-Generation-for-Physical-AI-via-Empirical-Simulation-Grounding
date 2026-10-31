@@ -1,0 +1,11 @@
+{
+  "all_tests_passed": 220,
+  "disk0_free_bytes": 385945391104,
+  "disk1_free_bytes": 1662438690816,
+  "empirical_judgments_issued": 0,
+  "heldout_execution_overlap": 0,
+  "original_baseline_unchanged": true,
+  "passed": true,
+  "required_artifacts_present": true,
+  "restored_files_freshly_verified": 38
+}
