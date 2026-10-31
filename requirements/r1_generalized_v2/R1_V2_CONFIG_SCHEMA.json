@@ -1,14 +1,14 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "urn:trustworthy:r1:generalized:configuration:2.0.0",
-  "title": "Proposed generalized R1 configuration; schema conformance is not scientific validation",
+  "$id": "urn:trustworthy:r1:generalized:configuration:2.0.1",
+  "title": "Restricted R1 approved design configuration; structural conformance is not empirical validation",
   "type": "object",
   "additionalProperties": false,
-  "required": ["requirement_id", "requirement_version", "specification_status", "validation_status", "benchmark", "task_id", "execution_id", "protected_objects", "support_surfaces", "object_surface_mapping", "monitoring_interval", "initial_support_rules", "fall_detection_rules", "geometry_contract", "coordinate_frames", "temporal_alignment", "evidence_requirements", "aggregation_policy", "uncertainty_policy", "source_bindings", "validation_record"],
+  "required": ["requirement_id", "requirement_version", "specification_status", "validation_status", "benchmark", "task_id", "execution_id", "protected_objects", "support_surfaces", "object_surface_mapping", "monitoring_interval", "initial_support_rules", "fall_detection_rules", "geometry_contract", "coordinate_frames", "temporal_alignment", "evidence_requirements", "aggregation_policy", "uncertainty_policy", "source_bindings", "validation_record", "assessment_manifest"],
   "properties": {
     "requirement_id": {"const": "R1"},
     "requirement_version": {"const": "2.0.0"},
-    "specification_status": {"const": "proposed_pending_approval"},
+    "specification_status": {"const": "approved_restricted_design"},
     "validation_status": {"enum": ["illustrative_unvalidated", "pending_adapter_validation", "validated_contract"]},
     "benchmark": {
       "type": "object", "additionalProperties": false,
@@ -142,12 +142,141 @@
       "properties": {"missing_is_negative": {"const": false}, "missing_is_nonapplicable": {"const": false}, "partial_domain": {"const": "whole_claim_insufficient_retain_qualified_windows"}, "unsupported_contract": {"const": "invalid_measurement_contract"}, "preserve_unknown_intervals": {"const": true}}
     },
     "source_bindings": {"type": "array", "items": {"$ref": "#/$defs/source_binding"}},
+    "assessment_manifest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "requirement",
+        "configuration_schema",
+        "evidence_schema",
+        "adapter",
+        "inference_profile",
+        "checker",
+        "capability_record",
+        "manifest_version",
+        "purpose",
+        "calibration_records",
+        "source_model_bindings",
+        "requested_domain",
+        "validity_scope_ref",
+        "validation_status"
+      ],
+      "properties": {
+        "requirement": {
+          "$ref": "#/$defs/contract_binding"
+        },
+        "configuration_schema": {
+          "$ref": "#/$defs/contract_binding"
+        },
+        "evidence_schema": {
+          "$ref": "#/$defs/contract_binding"
+        },
+        "adapter": {
+          "$ref": "#/$defs/contract_binding"
+        },
+        "inference_profile": {
+          "$ref": "#/$defs/contract_binding"
+        },
+        "checker": {
+          "$ref": "#/$defs/contract_binding"
+        },
+        "capability_record": {
+          "$ref": "#/$defs/contract_binding"
+        },
+        "manifest_version": {
+          "const": "1.0.0"
+        },
+        "purpose": {
+          "enum": [
+            "analytical_fixture",
+            "legacy_comparison",
+            "empirical_assessment"
+          ]
+        },
+        "calibration_records": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/contract_binding"
+          }
+        },
+        "source_model_bindings": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/source_binding"
+          }
+        },
+        "requested_domain": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "projection",
+            "interval_ref",
+            "cells_ref"
+          ],
+          "properties": {
+            "projection": {
+              "enum": [
+                "saved_frame_projection",
+                "validated_continuous"
+              ]
+            },
+            "interval_ref": {
+              "const": "#/monitoring_interval"
+            },
+            "cells_ref": {
+              "$ref": "#/$defs/text"
+            }
+          }
+        },
+        "validity_scope_ref": {
+          "$ref": "#/$defs/text"
+        },
+        "validation_status": {
+          "enum": [
+            "pending",
+            "capability_tested",
+            "empirically_validated"
+          ]
+        }
+      }
+    },
     "validation_record": {"oneOf": [{"type": "null"}, {"$ref": "#/$defs/certificate"}]}
   },
   "allOf": [{"if": {"properties": {"validation_status": {"const": "validated_contract"}}}, "then": {
     "properties": {"validation_record": {"$ref": "#/$defs/certificate"}, "source_bindings": {"minItems": 1, "items": {"properties": {"sha256": {"$ref": "#/$defs/sha256"}}}}}
   }}],
   "$defs": {
+    "contract_binding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "version",
+        "artifact_ref",
+        "sha256"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/id"
+        },
+        "version": {
+          "$ref": "#/$defs/text"
+        },
+        "artifact_ref": {
+          "$ref": "#/$defs/text"
+        },
+        "sha256": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "$ref": "#/$defs/sha256"
+            }
+          ]
+        }
+      }
+    },
     "id": {"type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$"},
     "text": {"type": "string", "minLength": 1},
     "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},

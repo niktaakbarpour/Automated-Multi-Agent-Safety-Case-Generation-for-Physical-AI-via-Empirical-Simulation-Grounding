@@ -1,4 +1,4 @@
-# Formal semantics — normative proposal
+# Formal semantics — finalized restricted contract
 
 Use this with [R1_V2_SPECIFICATION.md](R1_V2_SPECIFICATION.md),
 [APPLICABILITY_RULES.md](APPLICABILITY_RULES.md), and
@@ -72,6 +72,14 @@ episode, and u the verified unsupported downward-motion subinterval. Let:
 - InInterval(d,u,I): the departure and the relevant falling phase are established
   within I. An onset bracket spanning an interval boundary is not automatically T.
 
+A positive requires a support-departure onset bracket wholly within I and an
+admitted unsupported downward-motion witness within I. If onset/phase evidence
+straddles either boundary or is terminal-censored, this candidate is U unless other
+evidence resolves it; it cannot qualify negative coverage. Evidence outside I may
+narrow an in-I fact but may not manufacture an in-I falling phase. Departures
+established before t0 remain outside this initial-support scope. A positive already
+admitted elsewhere in I retains its outcome.
+
 Let App(o) be T for A=T, F for A=NA and U for A=U; foundational IC is
 handled by the object outcome rule, not converted to F. Let Ev(q,W) be T for an
 admitted valid witness and U for insufficient/local-invalid evidence. Locally invalid
@@ -108,11 +116,41 @@ Let ClearCover(o,I) mean that qualified negative/exclusion witnesses jointly cov
 every requested cell of D(I,profile), with no unresolved safety-relevant transition
 or contradiction in that domain. A sampled profile cannot certify unobserved time.
 
+ClearCover additionally requires the scope condition in R1-G06: an excluded
+episode never clears an unresolved re-placement/replacement suffix. Initial V4
+admits static-negative profiles only; dynamic/handling negative composition is deferred.
+
+Composition operates on claim-qualified domain cells, not raw file availability.
+Certificates may join only when execution/object/surface identity, requirement,
+profile scope, clocks/transforms and uncertainty are compatible, and all requested
+transition cells at joins are independently qualified. Overlap neither doubles
+coverage nor creates independence. Copies sharing a producer remain dependent.
+Unresolved contradictory admissible evidence blocks negative admission on affected
+cells. Interval union never closes a missing cell or changes the observation
+projection. Independence is not required to cover different cells and is never
+inferred from filenames/camera labels. These are admission obligations, not an
+enabled general cross-profile composition algorithm in initial V4.
+
+Classify validity before outcome precedence. Missing observations under a supported
+contract yield U on the affected domain. Unresolved contradictory admissible
+observations yield U for affected predicates and suspend witnesses relying on them.
+Proven incompatible essential identity/clock/geometry/provenance foundations yield
+IC for all dependent claims (including initial applicability if dependent). A
+positive is admitted only after its full dependency set, applicability, scope and
+event evidence remain valid. Credible same-event contradictions require investigation;
+they cannot be declared unrelated to preserve an alarm. Retain both records,
+dependency scope and resolution status. Majority or weak visual cues cannot resolve
+the conflict. An admitted positive survives only genuinely unrelated gaps/invalid
+optional sources. Thus the rule below separately checks necessary event/coverage contracts
+after testing fully admitted positives, as well as initial applicability before them. A coverage-only failure is not necessary to an
+independently admitted positive; valid unrelated witness routes remain admissible. A shared essential foundation cannot be isolated away by aggregation.
+
 ```
 O(o) = invalid_measurement_contract      if A(o)=IC
        not_applicable                  if A(o)=NA
        insufficient_information        if A(o)=U
        violation_observed              if some F(o,d,u)=T
+       invalid_measurement_contract      if an essential remaining assessment contract is invalid/unsupported
        no_violation_observed_within_validated_coverage
                                         if ClearCover(o,I)=T
        insufficient_information        otherwise
@@ -126,7 +164,7 @@ positive by simple majority. Preserve both records and their admissibility statu
 Partial C- windows are emitted even when O(o) is insufficient. Never shorten the
 requested interval after seeing the result to manufacture a full-domain negative.
 
-## Execution aggregation (proposed D05)
+## Execution aggregation (approved D05 design)
 
 Emit the full vector (A(o),O(o),coverage,reasons) plus counts; no universal scalar
 applicability assertion is substituted for it. Execution applicability summary:
@@ -147,8 +185,20 @@ For a valid global configuration, execution outcome precedence is:
 5. Otherwise => `not_applicable` (separate `empty_scope` reason for zero objects).
 
 Thus one unsupported object never exempts other applicable objects. No vacuous
-zero-object pass or NA-as-TN is allowed. Configuration-invalid executions carry
-`configuration_status=invalid`, diagnostic IC outcome and no assessed units/metrics.
+zero-object pass or NA-as-TN is allowed. Configuration-invalid inputs are rejected
+before object assessment. Emit configuration_status=invalid, assessed=false,
+object_assessments=[], execution_outcome=null and configuration diagnostics. Do not
+encode input rejection as an assessed object/execution invalid_measurement_contract;
+exclude it from assessed outcome metrics and count input rejections separately.
 Object-level binary evaluation excludes NA, unresolved, IC and incompatible domains;
 abstentions and coverage remain separate denominators. Execution-level metrics
 require a separately frozen aggregation/evaluation protocol.
+
+Evidence completeness is reported separately from the primary outcome. It is false
+if any configured object's necessary requested domain has unresolved gaps, scope,
+conflicts or invalidity, including gaps outside an admitted positive window. NA rows
+need only their admitted applicability/absence proof. Empty scope has no eligible
+assessed units and never implies completeness of a safety claim. Emit explicit
+missing/invalid/contradictory/verified statuses and affected dependency IDs, not a
+single Boolean validity flag. Requirement bindings must hash the complete normative
+package manifest (all normative/formal/evidence/schema rules), not an isolated title.

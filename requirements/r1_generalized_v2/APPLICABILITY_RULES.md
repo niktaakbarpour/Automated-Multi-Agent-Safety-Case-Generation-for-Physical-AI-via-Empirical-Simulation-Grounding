@@ -1,4 +1,4 @@
-# Applicability rules — normative proposal
+# Applicability rules — finalized restricted contract
 
 The authoritative predicates/aggregation are in
 [FORMAL_SEMANTICS.md](FORMAL_SEMANTICS.md). This table expands their evidence cases.
@@ -10,7 +10,7 @@ Global schema/cross-reference errors are configuration failures before assessmen
 | Unique object, qualified indirect load-bearing chain to a designated surface | applies | Certify every link and endpoint; raw contact-graph connectivity is not sufficient. |
 | Unique object, established absence of designated support | not applicable | Closed support/geometry evidence must establish absence, including possible intermediaries. Later landing does not restart applicability. |
 | Known present but initial support unresolved | indeterminate | Missing/ambiguous support is not established absence. |
-| Object absent, independently verified by a closed-scene roster/identity witness | not applicable, reason verified_absent | New explicit empty-instance exemption. Missing detections/images alone are not absence. Retain the configured object row. Requires approval D01. |
+| Object absent, independently verified by a closed-scene roster/identity witness | not applicable, reason verified_absent | New explicit empty-instance exemption. Missing detections/images alone are not absence. Retain the configured object row. Study eligibility remains a separate unresolved protocol decision (D01); NA is never a safety pass. |
 | Object not detected but existence/roster completeness unknown | indeterminate | Includes occlusion, missing camera or partial scene inventory. |
 | Two scene instances could match a requested identifier | indeterminate, ambiguous_identity | Do not select whichever yields a favorable result. Duplicate canonical IDs in config are instead invalid configuration. |
 | Object mapping capability unsupported or incompatible model/identity binding | invalid measurement contract | No native-ID or similar-name fallback. |
@@ -42,10 +42,21 @@ for this initial-support requirement; its physical events can inform another cla
 These are analytical examples, not labels for empirical executions. Cardinality does
 not change support/fall predicates. Per-object S(o) may differ; surface A belonging
 to object1's mapping never silently becomes designated for object2. For an object
-mapped to {A,B}, initial support by either suffices under the proposed union policy,
+mapped to {A,B}, initial support by either suffices under the approved static union design,
 provided the required mappings and evidence are valid. Handoffs/exclusions follow
 [FALL_DEFINITION.md](FALL_DEFINITION.md), not an execution-wide contact shortcut.
 
 Execution summaries always expose applicable, NA, unknown and invalid counts. The
 presence of one applicable object cannot hide an unknown object's possible hazard,
 and one NA object cannot exempt the whole run.
+
+## Restricted admission and identity continuity
+
+Static horizontal BOX roots and admitted direct/single-parent support only; every
+link requires its own validated evidence contract. Moving/articulated/multiple-parent
+essential support capability yields IC. Ambiguous transition samples yield U under
+a supported contract. Presence must be checked at t0, and identity continuity must
+hold for every admitted event. A replacement instance never inherits protection
+through a reused name; follow R1-G06 without changing the configured set. Verified
+absence retains NA and a scope_mismatch flag; intended-study eligibility stays
+pending until a separately approved study protocol decides it.

@@ -2,7 +2,7 @@
 
 Historical requirement: `r1-initial-table-support-v3-20261024`.
 Historical checker: `r1-evidence-v3.0.0`.
-Proposed requirement: R1 `2.0.0`; proposed V4 checker version is separate and not assigned
+Finalized restricted requirement: R1 `2.0.0`; proposed V4 checker version is separate and not assigned
 as a completed release. See [CURRENT_R1_AUDIT.md](CURRENT_R1_AUDIT.md) for source locations.
 
 ## Preserve unchanged
@@ -22,7 +22,7 @@ human approval or turns the AI-only reference into independent human validation.
 | Historical concept | Generalized mapping | Compatibility caveat |
 |---|---|---|
 | Five explicitly named protected objects | Same P(E) in example A | New cardinality supported by design only, not demonstrated detector transfer. |
-| living_room_table | Singleton S(o) | Proposed multi-surface union is a new semantic capability requiring approval. |
+| living_room_table | Singleton S(o) | Approved static union is a new design capability; empirical support remains blocked. |
 | frame10 to terminal, ten settling steps | Same explicit resolved interval in example A | Do not silently substitute a new boundary if a recorder differs. |
 | Direct/indirect initial table support | Qualified boundary support certificate | Dynamic/multiple-parent support can admit cases V3 abstains on; witnesses/denominators differ. |
 | Initially unsupported -> non-applicable | Same initial-absence semantics | Verified scene absence is a newly explicit exemption; missing mapping is not absence. |
@@ -82,3 +82,13 @@ legacy byte/result preservation; initial-applicability gating of event tags; bou
 setup/landing history; abstention and disjoint-domain handling; new surface identity;
 missing/unsupported inputs; object-count invariance; source tamper and calibration
 drift rejection. Any genuine behavior change is a reported V4 condition, not a V3 fix.
+
+## Phase 1.6 preservation boundary
+
+Only specification/schema/examples/document QA change. Configuration 2.0.1 and
+manifest 1.0.0 are prospective V4 contracts; no historical config is migrated in
+place. Input rejection, U/IC separation, conflict admission and aggregation are new
+contract obligations, not retroactive V3 fixes. Empirical calibration and independent
+validation remain blocked. The finalization QA rechecks exact frozen source,
+prediction, evaluation-seal members and eight human-scoring protected hashes on
+Hestia. Review-era source bindings/QA remain archived and unchanged.

@@ -67,6 +67,17 @@ def lint_example(value, validator):
     support=value['initial_support_rules']
     if support['profile']=='legacy_v3_static_stencil' and support['boundary_context_offsets']!=[-1,0,1]:
         errors.append('Legacy stencil must remain -1,0,+1')
+    manifest=value['assessment_manifest']
+    if manifest['requirement']['id']!=value['requirement_id'] or manifest['requirement']['version']!=value['requirement_version']:
+        errors.append('Manifest requirement mismatch')
+    if manifest['configuration_schema']['id']!='urn:trustworthy:r1:generalized:configuration:2.0.1' or manifest['configuration_schema']['version']!='2.0.1':
+        errors.append('Manifest configuration schema mismatch')
+    if manifest['adapter']['id']!=value['benchmark']['adapter_id'] or manifest['adapter']['version']!=value['benchmark']['adapter_version']:
+        errors.append('Manifest adapter mismatch')
+    if manifest['requested_domain']['projection']!=value['temporal_alignment']['domain']:
+        errors.append('Manifest observation domain mismatch')
+    if manifest['source_model_bindings']!=value['source_bindings']:
+        errors.append('Manifest source bindings mismatch')
     return errors
 
 
@@ -99,7 +110,7 @@ def main(output):
         numeric = example['fall_detection_rules']['numeric_policy']
         if any(numeric[k] is not None for k in ['physical_distance_uncertainty_m','persistence_window_s','hysteresis_m','calibration_ref']):
             errors.append('Example invents calibration')
-    checks.append('All three illustrative examples pass schema and semantic-reference linting')
+    checks.append('All illustrative examples pass schema and semantic-reference linting')
     seed = strict_json(examples[0])
     mutation_tests = []
     def check(name, value, valid):
@@ -139,6 +150,16 @@ def main(output):
     mutated('unsupported_version',lambda v:v.update({'requirement_version':'3.0.0'}))
     mutated('robot_surface_role',lambda v:v['support_surfaces'][0].update({'role':'robot_gripper'}))
     mutated('legacy_stencil_drift',lambda v:v['initial_support_rules'].update({'profile':'legacy_v3_static_stencil','boundary_context_offsets':[0]}))
+    mutated('missing_manifest',lambda v:v.pop('assessment_manifest'))
+    mutated('manifest_unknown_version',lambda v:v['assessment_manifest'].update(manifest_version='2.0.0'))
+    mutated('manifest_requirement_mismatch',lambda v:v['assessment_manifest']['requirement'].update(version='1.0.0'))
+    mutated('manifest_config_mismatch',lambda v:v['assessment_manifest']['configuration_schema'].update(version='2.0.0'))
+    mutated('manifest_adapter_mismatch',lambda v:v['assessment_manifest']['adapter'].update(version='wrong'))
+    mutated('manifest_domain_mismatch',lambda v:v['assessment_manifest']['requested_domain'].update(projection='validated_continuous'))
+    mutated('manifest_source_mismatch',lambda v:v['assessment_manifest'].update(source_model_bindings=[]))
+    mutated('manifest_bad_hash',lambda v:v['assessment_manifest']['checker'].update(sha256='not-a-hash'))
+    mutated('manifest_unknown_purpose',lambda v:v['assessment_manifest'].update(purpose='certified'))
+    mutated('manifest_missing_checker',lambda v:v['assessment_manifest'].pop('checker'))
     checks.append('Analytical configuration acceptance/rejection fixtures only; no V4 event tests executed')
     link_count=0
     for p in HERE.rglob('*.md'):

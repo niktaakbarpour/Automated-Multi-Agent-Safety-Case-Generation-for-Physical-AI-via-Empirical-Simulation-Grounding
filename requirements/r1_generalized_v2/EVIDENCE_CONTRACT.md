@@ -1,4 +1,4 @@
-# Evidence contract — normative proposal
+# Evidence contract — finalized restricted contract
 
 This contract specifies what an adapter must substantiate, not a promise that all
 simulators record it. Interpretation follows [FORMAL_SEMANTICS.md](FORMAL_SEMANTICS.md).
@@ -68,3 +68,59 @@ Freeze configuration, adapter/inference code, source inventory and evaluation pr
 before new empirical evaluation. Per-object outputs bind all relevant versions and
 evidence. Source preservation receipts are separate from scientific validity. No
 V4 reference may be generated from V4 predictions and then called independent truth.
+
+## Purpose, boundaries and restricted adapter admission (A06)
+
+Every profile declares purpose analytical_fixture, legacy_comparison or
+empirical_assessment. Exact analytical inputs and legacy V3 conformance never admit
+an empirical profile. Initial empirical scope uses existing LIBERO recorded-state
+evidence with explicit model/recorder/task bindings, rigid BOX geometry and verified
+static horizontal roots. Task00/01 are development provenance, not validation of all
+LIBERO scenes or any other benchmark. No empirical profile is admitted by Phase 1.6.
+
+Initial support is evaluated at t0. Declared context corroborates it only through an
+admitted boundary inference with phase uncertainty. Unchanged snapshots around t0
+alone do not prove absence of an intervening policy event. Never move t0 to a first
+usable observation or first policy endpoint. Contact alone is not load-bearing proof.
+Forces are not universally mandatory: a force-free alternative must substantiate
+its own assumptions. Unvalidated necessary inference yields IC; missing samples in
+an otherwise supported contract yield U. D07 remains BLOCKED_ON_EVIDENCE.
+
+## Contract binding and runtime resolution (A11)
+
+Configuration schema revision 2.0.1 retains requirement meaning 2.0.0, adds required
+assessment_manifest and uses specification_status=approved_restricted_design.
+The manifest is embedded and versioned as 1.0.0. It binds requirement ID/version,
+configuration-schema ID/hash, evidence-schema ID/version/hash, adapter ID/version/hash,
+inference-profile ID/version/hash, intended checker ID/version/hash, purpose,
+capability record, calibration records/validity scope, source/model hashes and the
+requested observation domain. Each artifact binding carries an artifact_ref.
+Null hash/version bindings in illustrative examples are explicit unresolved values;
+they are never executable admission. The evidence/checker versions are prospective
+bindings, not claims that those schemas or implementations already exist.
+
+Runtime MUST resolve every necessary record, verify exact bytes/hashes, check the
+declared compatible version set and capability/validity scope, and bind resolved
+observation cells to the configured interval without shifting it. Manifest and
+top-level requirement/adapter/schema/source/domain fields must agree. An absent or
+unsupported required version/capability blocks dependent claims as IC; malformed or
+internally inconsistent configuration is rejected before assessment. Source tampering
+is an evidence/provenance IC, never physical absence. Unknown optional records do
+not invalidate independent claims. A calibration record is required for every
+channel/inference needing it; [] means none supplied, never no uncertainty.
+
+JSON conformance is not empirical validation. validation_status=validated_contract,
+a capability flag, certificate string or hash alone cannot admit any witness. Runtime
+must distinguish pending, capability-tested and empirically validated scope using
+resolved evidence. No certification is granted here. See
+[EMPIRICAL_GATES.md](finalization/EMPIRICAL_GATES.md).
+
+## Evidence admission (A01/A08/A09)
+
+Input rejection has assessed=false, empty object_assessments and null
+execution_outcome; it is not assessed IC. Formal semantics require dependency/conflict
+admission before object precedence and qualified cells/joins before coverage union.
+Missing, local invalid, contradictory and verified evidence remain separate records;
+invalid observations cannot prove negation. Retain conflicts and their resolution
+history; no source deletion or majority shortcut. The initial profile supports only
+admitted static-negative certificates, not dynamic/handling coverage composition.

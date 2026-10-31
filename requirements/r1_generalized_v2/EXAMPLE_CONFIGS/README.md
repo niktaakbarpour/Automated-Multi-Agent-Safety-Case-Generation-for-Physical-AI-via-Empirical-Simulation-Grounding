@@ -28,3 +28,18 @@ Before a future runtime admits a profile: resolve source hashes, actual recorded
 boundaries, model/object/surface bindings, units/transforms, capability certificates,
 coverage and calibration as specified in [EVIDENCE_CONTRACT.md](../EVIDENCE_CONTRACT.md).
 Setting `validation_status` in JSON does not validate an adapter or establish safety.
+
+## Phase 1.6 schema revision
+
+All examples now use configuration schema 2.0.1 with a required manifest 1.0.0;
+requirement remains R1 2.0.0. Their binding versions/hashes are unresolved and their
+purpose is analytical_fixture; none is an admitted empirical configuration. Original
+example versions remain in Git at the Phase 1.5 baseline.
+
+Example C describes deferred moving-support capabilities and is outside restricted
+V4. Example B requests non-BOX shapes and is also outside that profile. Neither is
+evidence of implemented support. [D_STATIC_TWO_ROOT_BOX.json](D_STATIC_TWO_ROOT_BOX.json)
+is a separate structural fixture: two static BOX roots, explicit singleton/union
+mappings, no handoff trajectory. It tests schema design only, not physical validity.
+A's BOX request is within intended capability shape but remains empirically blocked.
+Legacy comparison purpose is separate; fixture purpose never authorizes empirical use.

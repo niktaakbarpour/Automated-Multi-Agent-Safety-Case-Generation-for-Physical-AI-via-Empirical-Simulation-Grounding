@@ -1,4 +1,4 @@
-# Fall/departure definition — normative proposal
+# Fall/departure definition — finalized restricted contract
 
 R1 concerns **verified unsupported downward falling departure from initially
 established designated support**, not every surface departure and not attribution
@@ -47,7 +47,7 @@ in-scope fall. Floor contact is neither required nor sufficient.
 | Already unsupported at t0; descent/landing after t0 | Verified initial absence makes R1 NA; retain setup/airborne history. |
 | Object is occluded, poses inconsistent, contact stream incomplete | Evidence-dependent unknown or invalid contract; do not infer a safe departure. |
 | Supported handoff within the designated surface union | No support-system loss if the chain is continuously qualified in the chosen domain; no re-applicability reset. |
-| Placement after handling, or ambiguous/non-designated handoff | Subsequent claim domain remains unresolved under the proposed default; no silent restart or global pass. |
+| Placement after handling, or ambiguous/non-designated handoff | Subsequent claim domain remains unresolved under the restricted policy; no silent restart or global pass. |
 
 ## Time, tolerances and negative evidence
 
@@ -67,12 +67,12 @@ clock and correspondence must distinguish displacement from sensor/numeric error
 If displacement bounds overlap the decision boundary, return U. Arithmetic roundoff
 is separate from physical uncertainty. A proposed hysteresis/persistence rule requires
 calibration, sensitivity analysis and explicit loss-of-detection disclosure before
-approval D07; no arbitrary numeric default is supplied.
+empirical gate D07; no arbitrary numeric default is supplied.
 
 Negative coverage requires explicit qualification of support and all safety-relevant
-transitions in the requested domain. Composing stationary windows with established
-handling exclusions is a proposed V4 profile decision D08, not permission to treat
-every manipulated/post-lift frame as negative. A saved-sample conclusion is limited
+transitions in the requested domain. Dynamic/handling negative composition is deferred under D08. A recorded excluded
+episode does not certify manipulated/post-lift frames or an unresolved suffix as clear.
+R1-G06 governs re-placement, replacement and handoff scope. A saved-sample conclusion is limited
 to that projection even if every video frame decoded successfully.
 
 ## Separate future requirements
@@ -81,3 +81,7 @@ Use distinct IDs for surface containment/edge approach, arbitrary unsupported fl
 post-grasp retention/release, prohibited contacts, collision forces/damage and causal
 robot responsibility. Their positives, thresholds and denominators must not be merged
 into this R1's historical scores.
+
+The interval admission and censoring rule is defined in FORMAL_SEMANTICS.md
+(A03). The initial static union profile does not implement complex handoffs or
+moving support reasoning; the abstract handoff row is a semantic statement only.

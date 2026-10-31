@@ -1,7 +1,7 @@
 {
   "requirement_id": "R1",
   "requirement_version": "2.0.0",
-  "specification_status": "proposed_pending_approval",
+  "specification_status": "approved_restricted_design",
   "validation_status": "illustrative_unvalidated",
   "benchmark": {
     "id": "synthetic-multi-surface",
@@ -155,5 +155,65 @@
       "bench_A",
       "tray_B"
     ]
+  },
+  "assessment_manifest": {
+    "manifest_version": "1.0.0",
+    "purpose": "analytical_fixture",
+    "requirement": {
+      "id": "R1",
+      "version": "2.0.0",
+      "artifact_ref": "spec:R1_V2_SPECIFICATION.md",
+      "sha256": null
+    },
+    "configuration_schema": {
+      "id": "urn:trustworthy:r1:generalized:configuration:2.0.1",
+      "version": "2.0.1",
+      "artifact_ref": "spec:R1_V2_CONFIG_SCHEMA.json",
+      "sha256": null
+    },
+    "evidence_schema": {
+      "id": "r1-evidence-schema",
+      "version": "unresolved",
+      "artifact_ref": "unresolved:r1-evidence-schema",
+      "sha256": null
+    },
+    "adapter": {
+      "id": "synthetic-contract-proposed",
+      "version": "not_implemented",
+      "artifact_ref": "unresolved:synthetic-contract-proposed",
+      "sha256": null
+    },
+    "inference_profile": {
+      "id": "restricted-static-box",
+      "version": "unresolved",
+      "artifact_ref": "unresolved:restricted-static-box",
+      "sha256": null
+    },
+    "checker": {
+      "id": "r1-v4-not-implemented",
+      "version": "unresolved",
+      "artifact_ref": "unresolved:r1-v4-not-implemented",
+      "sha256": null
+    },
+    "capability_record": {
+      "id": "unvalidated-capabilities",
+      "version": "unresolved",
+      "artifact_ref": "unresolved:unvalidated-capabilities",
+      "sha256": null
+    },
+    "calibration_records": [],
+    "source_model_bindings": [
+      {
+        "artifact_ref": "illustrative:multi_surface_definition",
+        "sha256": null
+      }
+    ],
+    "requested_domain": {
+      "projection": "saved_frame_projection",
+      "interval_ref": "#/monitoring_interval",
+      "cells_ref": "unresolved:requested-cells"
+    },
+    "validity_scope_ref": "illustrative:unvalidated",
+    "validation_status": "pending"
   }
 }

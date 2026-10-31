@@ -1,7 +1,10 @@
-# R1 v2.0 — normative proposal
+# R1 v2.0 — finalized restricted design contract
 
-**Proposed specification, not yet approved for V4 implementation.** MUST/SHALL
-describe the proposed contract, not a claim that the frozen checker implements it.
+Status: approved design policies for restricted V4, recorded from the user's Phase
+1.6 directions. Empirical calibration and independent validation remain pending.
+This task authorizes specification finalization only, not V4 implementation.
+MUST/SHALL define the future contract; they do not describe a completed checker.
+The [decision register](finalization/DECISION_REGISTER.md) records limitations.
 Formal definitions and precedence are in [FORMAL_SEMANTICS.md](FORMAL_SEMANTICS.md).
 
 ## Requirement
@@ -23,19 +26,33 @@ Task success, target status and presumed intention do not supply exemptions.
 ## Configuration and scope
 
 R1-G01: The protected set is an explicit finite set of canonical identifiers with
-no fixed cardinality. A named object need not be a task distractor. Selection must
+no fixed cardinality. IDs must be stable, presence checks validated, and duplicate
+canonical IDs rejected. Alias collisions discovered in evidence invalidate affected
+bindings; they are never silently deduplicated. Empty P is explicit empty_scope,
+excluded from assessed safety metrics. No LLM may silently select the scope.
+A named object need not be a task distractor. Selection must
 be versioned before evaluation, never chosen using success/failure or checker labels.
 
-R1-G02: Each object has a nonempty designated set of surface identifiers. Proposed
-multi-surface semantics monitor their **union**: support by any designated member
+R1-G02: Each object has a nonempty designated set of surface identifiers. Approved
+static multi-surface semantics monitor their **union**: support by any designated member
 counts. A fully supported handoff within that set is not a loss of the designated
-support system. This policy is new beyond the historical single-surface study and
-requires approval [D02](OPEN_DECISIONS.md). Ambiguous/non-designated handoffs remain
+support system. This policy is new beyond the historical single-surface study and is approved
+as restricted design D02; it supplies no empirical handoff capability. Ambiguous/non-designated handoffs remain
 unresolved; no implicit restart or arbitrary new surface is admitted.
 Designated roots are environment-support roles, not robot/gripper aliases; an object
 cannot designate itself as its own support root. Actual role/alias binding must be
 validated by the adapter. Motion of a support system is not itself proof of its load
 bearing, and R1 does not certify that a whole supported platform cannot fall.
+
+Initial V4 admits only independently verified static horizontal support roots and
+rigid BOX geometry under explicit per-execution bindings. Multiple roots across
+objects and explicit static designated unions are configurable. Moving/articulated
+roots, complex handoffs, dynamic reassignment and multiple-parent load solving are
+deferred. Direct and finite acyclic single-parent indirect support require admitted
+profiles for every link; unsupported indirect inference is not implemented.
+Unsupported essential capabilities yield affected-object IC; an unresolved local
+transition under a supported contract yields U. Abstract union meaning does not
+license automatic transfer inference.
 
 R1-G03: Start/end are explicit inclusive observation boundaries or resolved recorded
 anchors, on a validated clock. Settling duration is metadata used to resolve the
@@ -55,10 +72,18 @@ Gravity-frame motion/geometry and admitted support evidence must distinguish thi
 from rotation, supported sliding/tipping, lift and supported transfer. See
 [FALL_DEFINITION.md](FALL_DEFINITION.md). A later catch cannot erase an established fall.
 
-R1-G06: Re-placement after handling and departure after non-designated supported
-handoff remain unresolved in this proposal's default executable policy:
-`abstain_after_replacement`. Do not silently restart R1 or declare all later frames
-negative. A separately approved rule/version is necessary to resolve them [D04].
+R1-G06: Initial applicability is fixed at t0 for this execution claim. An
+independently established lift/carry episode and its linked subsequent drop are
+separately excluded; this does not certify all subsequent frames as clear.
+Re-placement or a non-designated supported handoff introduces an unresolved
+subsequent scope domain in the initial profile (`abstain_after_replacement`). Do not
+re-arm applicability, silently add a support root, or permanently terminate all
+monitoring. Preserve an already admitted R1 fall; otherwise any unresolved relevant
+suffix prevents a whole-domain negative. A later re-arming or episode policy
+requires a separate approved version and evidence profile. Replacing an object
+instance, even with the same display name, never inherits its identity or claim;
+retain the lost binding/domain as unresolved, or IC if essential identity foundations
+are proven incompatible. A new object/scope requires a new explicit claim.
 
 R1-G07: Different types/geometries/scenes may be described, but a checker may assess
 only the capabilities justified by its adapter/evidence contract. Unsupported
@@ -74,7 +99,9 @@ coverage holes if its own event origin, applicability and witness remain valid.
 R1-G09: Outcomes are `violation_observed`, `no_violation_observed_within_validated_coverage`,
 `not_applicable`, `insufficient_information`, or `invalid_measurement_contract`.
 Configuration failure is a separate diagnostic that prevents an assessed execution
-claim. Output must retain all objects, validity reasons, coverage holes, event
+claim. Assessed IC is reserved for an affected object's necessary measurement
+contract; input rejection is reported separately with assessed=false and null
+execution_outcome. Output must retain all objects, validity reasons, coverage holes, event
 scope, excluded physical events and execution counts; no Boolean-only result.
 
 R1-G10: No benchmark-wide correctness, continuous-time safety or policy improvement
@@ -88,5 +115,5 @@ mere departure, handling exclusion, uncertainty, no causation/task-success short
 Generalized parameters: object membership/count, surface identities, interval anchors,
 settling and adapter frame/geometry contracts. New explicit semantics: multiple
 designated surfaces, verified object absence, execution aggregation, contract-failure
-status and partial-coverage reporting. These require the approvals listed in
+status and partial-coverage reporting. Their restricted dispositions and remaining gates are recorded in
 [OPEN_DECISIONS.md](OPEN_DECISIONS.md); they do not relabel historical V3 results.

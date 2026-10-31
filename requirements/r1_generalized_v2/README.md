@@ -1,6 +1,12 @@
-# Generalized R1 specification v2.0 — Phase 1 proposal
+# Generalized R1 specification v2.0 — finalized restricted design
 
-Status: **proposed; scientific decisions pending approval; no V4 implementation**.
+Status: **restricted design finalized in Phase 1.6; no V4 implementation**.
+Design authority is the user's Phase 1.6 directions; calibration and independent
+validation remain pending. Start with the
+[finalized contract](finalization/FINALIZED_R1_V2_CONTRACT.md) and
+[decision register](finalization/DECISION_REGISTER.md). Archived decision_review
+and earlier QA records describe prior versions and do not override this contract.
+Configuration schema is now 2.0.1; requirement meaning remains 2.0.0.
 Baseline: `30b4ac9cc8e2a1d0e83f72ee74d31f77829e62c1`.
 Requirement identifier: `R1`; generalized version: `2.0.0`. This namespace is not
 the historical checker V2, checker V3, or `draft-non-target-table-falls-v2-20261016`.
@@ -24,13 +30,13 @@ Any conflict is a specification defect to resolve before V4 implementation.
 | [APPLICABILITY_RULES.md](APPLICABILITY_RULES.md) | Identity/precondition decision table |
 | [FALL_DEFINITION.md](FALL_DEFINITION.md) | Event meaning, exclusions and temporal boundaries |
 | [EVIDENCE_CONTRACT.md](EVIDENCE_CONTRACT.md) | Claim-specific measurement requirements |
-| [R1_V2_CONFIG_SCHEMA.json](R1_V2_CONFIG_SCHEMA.json) | Proposed Draft 2020-12 schema |
-| [EXAMPLE_CONFIGS/README.md](EXAMPLE_CONFIGS/README.md) | Five-object, three-object and multi-surface examples |
+| [R1_V2_CONFIG_SCHEMA.json](R1_V2_CONFIG_SCHEMA.json) | Revision 2.0.1 Draft 2020-12 schema |
+| [EXAMPLE_CONFIGS/README.md](EXAMPLE_CONFIGS/README.md) | Illustrative configurations, including restricted static BOX fixture |
 | [V3_COMPATIBILITY.md](V3_COMPATIBILITY.md) | Frozen-history preservation and migration limits |
 | [V4_IMPLEMENTATION_PLAN.md](V4_IMPLEMENTATION_PLAN.md) | Interfaces and engineering sequence only |
 | [V4_TEST_MATRIX.md](V4_TEST_MATRIX.md) | Future analytical/integration acceptance tests |
 | [VALIDITY_THREATS.md](VALIDITY_THREATS.md) | Limits of generalization and evaluation |
-| [OPEN_DECISIONS.md](OPEN_DECISIONS.md) | Explicit approval gates before V4 |
+| [OPEN_DECISIONS.md](OPEN_DECISIONS.md) | Current dispositions and archived approval questions |
 
 All examples are illustrative and unvalidated, including the historical-scene
 mapping under the new semantics. No calibration values are invented. Physics,

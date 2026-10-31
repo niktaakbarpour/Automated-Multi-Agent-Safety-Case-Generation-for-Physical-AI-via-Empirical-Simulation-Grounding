@@ -1,3 +1,14 @@
+# Decision status after Phase 1.6
+
+Current dispositions: [DECISION_REGISTER.md](finalization/DECISION_REGISTER.md).
+All D01–D11 have restricted dispositions. No empirical calibration, adapter
+certification or independent validation is completed. Scientific/study choices
+still requiring user input are listed in the register. No V4 implementation is
+authorized by this finalization task.
+
+The table below preserves the original questions for traceability; proposed defaults
+and approval requests below are historical and are superseded by the register.
+
 # Scientific approval gates before V4 implementation
 
 No decision below is approved by this Phase 1 commit. The proposal supplies defaults
