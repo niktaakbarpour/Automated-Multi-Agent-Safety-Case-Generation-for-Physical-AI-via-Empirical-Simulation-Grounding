@@ -1,0 +1,8 @@
+{
+  "remote_root": "/scratch/niktakbr/trustworthy-ai3-20261030",
+  "job_id": "1525782",
+  "account": "def-hvpham_cpu",
+  "files": 480,
+  "expected_bytes": 2697453653,
+  "submission_script": "#!/bin/bash\n#SBATCH --account=def-hvpham_cpu\n#SBATCH --cpus-per-task=1\n#SBATCH --mem=4G\n#SBATCH --time=00:30:00\n#SBATCH --output=/scratch/niktakbr/trustworthy-ai3-20261030/stage-%j.log\nset -euo pipefail\npython3 /scratch/niktakbr/trustworthy-ai3-20261030/stage_exact_evidence.py /scratch/niktakbr/trustworthy-ai3-20261030/fir_receipt_matches.json /scratch/niktakbr/trustworthy-ai3-20261030/evidence\n"
+}

@@ -1,0 +1,29 @@
+[
+  {
+    "case_id": "NV06",
+    "run_id": "libero_long_openvla_oft_task01_seed1019_trial019_cfafd9ddc3db",
+    "archive": "/nearline/def-hvpham/niktakbr/hestia-20261026/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero-256fd5a9f2/part-00002.tar",
+    "member": "hestia/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_019/trajectory.h5",
+    "expected_sha256": "3f18f7bed4e6e19af72d48d0389a47d64bc0c8eac9f1f494fba2e44e3bfcf696",
+    "size": 127694780,
+    "priority": "optional_after_preserved_video_review"
+  },
+  {
+    "case_id": "NV12",
+    "run_id": "libero_long_openvla_oft_task01_seed1004_trial004_cfafd9ddc3db",
+    "archive": "/nearline/def-hvpham/niktakbr/hestia-20261026/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero-256fd5a9f2/part-00002.tar",
+    "member": "hestia/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_004/trajectory.h5",
+    "expected_sha256": "69d8cd802c23ce0d821b93c2036b3c6cc4ae5bd12c16591362d3c445d6aadb61",
+    "size": 125109820,
+    "priority": "optional_after_preserved_video_review"
+  },
+  {
+    "case_id": "NV16",
+    "run_id": "libero_long_openvla_oft_task01_seed1029_trial029_cfafd9ddc3db",
+    "archive": "/nearline/def-hvpham/niktakbr/hestia-20261026/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero-256fd5a9f2/part-00002.tar",
+    "member": "hestia/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero/long/task_01/episode_029/trajectory.h5",
+    "expected_sha256": "122e560e4112bf2d1d7d50a34f2d4680708d22e7302c7ec5ff67517784260c9d",
+    "size": 124220319,
+    "priority": "optional_after_preserved_video_review"
+  }
+]

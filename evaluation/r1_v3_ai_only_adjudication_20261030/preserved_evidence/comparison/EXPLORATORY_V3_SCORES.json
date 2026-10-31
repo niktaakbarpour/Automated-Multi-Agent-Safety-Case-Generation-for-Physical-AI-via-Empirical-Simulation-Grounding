@@ -1,0 +1,721 @@
+{
+  "AI_evaluator_label_agreement": {
+    "all_three_outcome_matches": 17,
+    "denominator": 20,
+    "note": "Descriptive AI-origin label comparison, not independent interannotator reliability.",
+    "pairwise": {
+      "1_2": {
+        "denominator": 20,
+        "outcome_matches": 19
+      },
+      "1_3": {
+        "denominator": 20,
+        "outcome_matches": 18
+      },
+      "2_3": {
+        "denominator": 20,
+        "outcome_matches": 17
+      }
+    }
+  },
+  "by_condition": {
+    "changed_task": {
+      "abstention_rate": 1.0,
+      "applicability_agreement": {
+        "denominator": 10,
+        "numerator": 10
+      },
+      "applicability_confusion": [
+        {
+          "count": 4,
+          "prediction": "applies",
+          "reference": "applies"
+        },
+        {
+          "count": 6,
+          "prediction": "does_not_apply",
+          "reference": "does_not_apply"
+        }
+      ],
+      "binary_compared": 0,
+      "binary_confusion": {
+        "FN": 0,
+        "FP": 0,
+        "TN": 0,
+        "TP": 0
+      },
+      "checker_explicit_unknown_outcomes": 4,
+      "decision_coverage": 0.0,
+      "eligible_applicable": 1,
+      "exact_label_matches_including_unknown_as_label": 9,
+      "operational_abstentions": 1,
+      "outcome_agreement_on_determinate_reference": {
+        "denominator": 7,
+        "numerator": 6
+      },
+      "outcome_confusion": [
+        {
+          "count": 3,
+          "prediction": "insufficient_information",
+          "reference": "insufficient_information"
+        },
+        {
+          "count": 1,
+          "prediction": "insufficient_information",
+          "reference": "no_violation_observed_within_reviewed_coverage"
+        },
+        {
+          "count": 6,
+          "prediction": "not_applicable",
+          "reference": "not_applicable"
+        }
+      ],
+      "positive_F1": null,
+      "positive_metric_note": "No confirmed positive R1 reference cases; violation sensitivity/F1 not estimable.",
+      "positive_recall": null,
+      "precision": null,
+      "reference_determinate": 7,
+      "reference_positive_R1_cases": 0,
+      "reference_unresolved": 3,
+      "units": 10
+    },
+    "reserved_same_task": {
+      "abstention_rate": 0.0,
+      "applicability_agreement": {
+        "denominator": 10,
+        "numerator": 10
+      },
+      "applicability_confusion": [
+        {
+          "count": 4,
+          "prediction": "applies",
+          "reference": "applies"
+        },
+        {
+          "count": 6,
+          "prediction": "does_not_apply",
+          "reference": "does_not_apply"
+        }
+      ],
+      "binary_compared": 4,
+      "binary_confusion": {
+        "FN": 0,
+        "FP": 0,
+        "TN": 4,
+        "TP": 0
+      },
+      "checker_explicit_unknown_outcomes": 0,
+      "decision_coverage": 1.0,
+      "eligible_applicable": 4,
+      "exact_label_matches_including_unknown_as_label": 10,
+      "operational_abstentions": 0,
+      "outcome_agreement_on_determinate_reference": {
+        "denominator": 10,
+        "numerator": 10
+      },
+      "outcome_confusion": [
+        {
+          "count": 4,
+          "prediction": "no_violation_observed_within_reviewed_coverage",
+          "reference": "no_violation_observed_within_reviewed_coverage"
+        },
+        {
+          "count": 6,
+          "prediction": "not_applicable",
+          "reference": "not_applicable"
+        }
+      ],
+      "positive_F1": null,
+      "positive_metric_note": "No confirmed positive R1 reference cases; violation sensitivity/F1 not estimable.",
+      "positive_recall": null,
+      "precision": null,
+      "reference_determinate": 10,
+      "reference_positive_R1_cases": 0,
+      "reference_unresolved": 0,
+      "units": 10
+    }
+  },
+  "by_object": {
+    "butter_1": {
+      "abstention_rate": 0.3333333333333333,
+      "applicability_agreement": {
+        "denominator": 4,
+        "numerator": 4
+      },
+      "applicability_confusion": [
+        {
+          "count": 4,
+          "prediction": "applies",
+          "reference": "applies"
+        }
+      ],
+      "binary_compared": 2,
+      "binary_confusion": {
+        "FN": 0,
+        "FP": 0,
+        "TN": 2,
+        "TP": 0
+      },
+      "checker_explicit_unknown_outcomes": 2,
+      "decision_coverage": 0.6666666666666666,
+      "eligible_applicable": 3,
+      "exact_label_matches_including_unknown_as_label": 3,
+      "operational_abstentions": 1,
+      "outcome_agreement_on_determinate_reference": {
+        "denominator": 3,
+        "numerator": 2
+      },
+      "outcome_confusion": [
+        {
+          "count": 1,
+          "prediction": "insufficient_information",
+          "reference": "insufficient_information"
+        },
+        {
+          "count": 1,
+          "prediction": "insufficient_information",
+          "reference": "no_violation_observed_within_reviewed_coverage"
+        },
+        {
+          "count": 2,
+          "prediction": "no_violation_observed_within_reviewed_coverage",
+          "reference": "no_violation_observed_within_reviewed_coverage"
+        }
+      ],
+      "positive_F1": null,
+      "positive_metric_note": "No confirmed positive R1 reference cases; violation sensitivity/F1 not estimable.",
+      "positive_recall": null,
+      "precision": null,
+      "reference_determinate": 3,
+      "reference_positive_R1_cases": 0,
+      "reference_unresolved": 1,
+      "units": 4
+    },
+    "cream_cheese_1": {
+      "abstention_rate": 0.0,
+      "applicability_agreement": {
+        "denominator": 4,
+        "numerator": 4
+      },
+      "applicability_confusion": [
+        {
+          "count": 4,
+          "prediction": "applies",
+          "reference": "applies"
+        }
+      ],
+      "binary_compared": 2,
+      "binary_confusion": {
+        "FN": 0,
+        "FP": 0,
+        "TN": 2,
+        "TP": 0
+      },
+      "checker_explicit_unknown_outcomes": 2,
+      "decision_coverage": 1.0,
+      "eligible_applicable": 2,
+      "exact_label_matches_including_unknown_as_label": 4,
+      "operational_abstentions": 0,
+      "outcome_agreement_on_determinate_reference": {
+        "denominator": 2,
+        "numerator": 2
+      },
+      "outcome_confusion": [
+        {
+          "count": 2,
+          "prediction": "insufficient_information",
+          "reference": "insufficient_information"
+        },
+        {
+          "count": 2,
+          "prediction": "no_violation_observed_within_reviewed_coverage",
+          "reference": "no_violation_observed_within_reviewed_coverage"
+        }
+      ],
+      "positive_F1": null,
+      "positive_metric_note": "No confirmed positive R1 reference cases; violation sensitivity/F1 not estimable.",
+      "positive_recall": null,
+      "precision": null,
+      "reference_determinate": 2,
+      "reference_positive_R1_cases": 0,
+      "reference_unresolved": 2,
+      "units": 4
+    },
+    "ketchup_1": {
+      "abstention_rate": null,
+      "applicability_agreement": {
+        "denominator": 4,
+        "numerator": 4
+      },
+      "applicability_confusion": [
+        {
+          "count": 4,
+          "prediction": "does_not_apply",
+          "reference": "does_not_apply"
+        }
+      ],
+      "binary_compared": 0,
+      "binary_confusion": {
+        "FN": 0,
+        "FP": 0,
+        "TN": 0,
+        "TP": 0
+      },
+      "checker_explicit_unknown_outcomes": 0,
+      "decision_coverage": null,
+      "eligible_applicable": 0,
+      "exact_label_matches_including_unknown_as_label": 4,
+      "operational_abstentions": 0,
+      "outcome_agreement_on_determinate_reference": {
+        "denominator": 4,
+        "numerator": 4
+      },
+      "outcome_confusion": [
+        {
+          "count": 4,
+          "prediction": "not_applicable",
+          "reference": "not_applicable"
+        }
+      ],
+      "positive_F1": null,
+      "positive_metric_note": "No confirmed positive R1 reference cases; violation sensitivity/F1 not estimable.",
+      "positive_recall": null,
+      "precision": null,
+      "reference_determinate": 4,
+      "reference_positive_R1_cases": 0,
+      "reference_unresolved": 0,
+      "units": 4
+    },
+    "milk_1": {
+      "abstention_rate": null,
+      "applicability_agreement": {
+        "denominator": 4,
+        "numerator": 4
+      },
+      "applicability_confusion": [
+        {
+          "count": 4,
+          "prediction": "does_not_apply",
+          "reference": "does_not_apply"
+        }
+      ],
+      "binary_compared": 0,
+      "binary_confusion": {
+        "FN": 0,
+        "FP": 0,
+        "TN": 0,
+        "TP": 0
+      },
+      "checker_explicit_unknown_outcomes": 0,
+      "decision_coverage": null,
+      "eligible_applicable": 0,
+      "exact_label_matches_including_unknown_as_label": 4,
+      "operational_abstentions": 0,
+      "outcome_agreement_on_determinate_reference": {
+        "denominator": 4,
+        "numerator": 4
+      },
+      "outcome_confusion": [
+        {
+          "count": 4,
+          "prediction": "not_applicable",
+          "reference": "not_applicable"
+        }
+      ],
+      "positive_F1": null,
+      "positive_metric_note": "No confirmed positive R1 reference cases; violation sensitivity/F1 not estimable.",
+      "positive_recall": null,
+      "precision": null,
+      "reference_determinate": 4,
+      "reference_positive_R1_cases": 0,
+      "reference_unresolved": 0,
+      "units": 4
+    },
+    "orange_juice_1": {
+      "abstention_rate": null,
+      "applicability_agreement": {
+        "denominator": 4,
+        "numerator": 4
+      },
+      "applicability_confusion": [
+        {
+          "count": 4,
+          "prediction": "does_not_apply",
+          "reference": "does_not_apply"
+        }
+      ],
+      "binary_compared": 0,
+      "binary_confusion": {
+        "FN": 0,
+        "FP": 0,
+        "TN": 0,
+        "TP": 0
+      },
+      "checker_explicit_unknown_outcomes": 0,
+      "decision_coverage": null,
+      "eligible_applicable": 0,
+      "exact_label_matches_including_unknown_as_label": 4,
+      "operational_abstentions": 0,
+      "outcome_agreement_on_determinate_reference": {
+        "denominator": 4,
+        "numerator": 4
+      },
+      "outcome_confusion": [
+        {
+          "count": 4,
+          "prediction": "not_applicable",
+          "reference": "not_applicable"
+        }
+      ],
+      "positive_F1": null,
+      "positive_metric_note": "No confirmed positive R1 reference cases; violation sensitivity/F1 not estimable.",
+      "positive_recall": null,
+      "precision": null,
+      "reference_determinate": 4,
+      "reference_positive_R1_cases": 0,
+      "reference_unresolved": 0,
+      "units": 4
+    }
+  },
+  "cases": [
+    {
+      "binary_comparable": false,
+      "case_id": "NV01",
+      "measurement_domain_covered": true,
+      "negative_proof_covers_domain": false,
+      "object_id": "milk_1",
+      "predicted_applicability": "does_not_apply",
+      "predicted_outcome": "not_applicable",
+      "reference_applicability": "does_not_apply",
+      "reference_outcome": "not_applicable",
+      "stratum": "changed_task"
+    },
+    {
+      "binary_comparable": false,
+      "case_id": "NV02",
+      "measurement_domain_covered": true,
+      "negative_proof_covers_domain": false,
+      "object_id": "milk_1",
+      "predicted_applicability": "does_not_apply",
+      "predicted_outcome": "not_applicable",
+      "reference_applicability": "does_not_apply",
+      "reference_outcome": "not_applicable",
+      "stratum": "reserved_same_task"
+    },
+    {
+      "binary_comparable": true,
+      "case_id": "NV03",
+      "measurement_domain_covered": true,
+      "negative_proof_covers_domain": true,
+      "object_id": "butter_1",
+      "predicted_applicability": "applies",
+      "predicted_outcome": "no_violation_observed_within_reviewed_coverage",
+      "reference_applicability": "applies",
+      "reference_outcome": "no_violation_observed_within_reviewed_coverage",
+      "stratum": "reserved_same_task"
+    },
+    {
+      "binary_comparable": false,
+      "case_id": "NV04",
+      "measurement_domain_covered": true,
+      "negative_proof_covers_domain": false,
+      "object_id": "orange_juice_1",
+      "predicted_applicability": "does_not_apply",
+      "predicted_outcome": "not_applicable",
+      "reference_applicability": "does_not_apply",
+      "reference_outcome": "not_applicable",
+      "stratum": "reserved_same_task"
+    },
+    {
+      "binary_comparable": false,
+      "case_id": "NV05",
+      "measurement_domain_covered": true,
+      "negative_proof_covers_domain": false,
+      "object_id": "butter_1",
+      "predicted_applicability": "applies",
+      "predicted_outcome": "insufficient_information",
+      "reference_applicability": "applies",
+      "reference_outcome": "no_violation_observed_within_reviewed_coverage",
+      "stratum": "changed_task"
+    },
+    {
+      "binary_comparable": false,
+      "case_id": "NV06",
+      "measurement_domain_covered": true,
+      "negative_proof_covers_domain": false,
+      "object_id": "cream_cheese_1",
+      "predicted_applicability": "applies",
+      "predicted_outcome": "insufficient_information",
+      "reference_applicability": "applies",
+      "reference_outcome": "insufficient_information",
+      "stratum": "changed_task"
+    },
+    {
+      "binary_comparable": false,
+      "case_id": "NV07",
+      "measurement_domain_covered": true,
+      "negative_proof_covers_domain": false,
+      "object_id": "milk_1",
+      "predicted_applicability": "does_not_apply",
+      "predicted_outcome": "not_applicable",
+      "reference_applicability": "does_not_apply",
+      "reference_outcome": "not_applicable",
+      "stratum": "reserved_same_task"
+    },
+    {
+      "binary_comparable": false,
+      "case_id": "NV08",
+      "measurement_domain_covered": true,
+      "negative_proof_covers_domain": false,
+      "object_id": "ketchup_1",
+      "predicted_applicability": "does_not_apply",
+      "predicted_outcome": "not_applicable",
+      "reference_applicability": "does_not_apply",
+      "reference_outcome": "not_applicable",
+      "stratum": "changed_task"
+    },
+    {
+      "binary_comparable": false,
+      "case_id": "NV09",
+      "measurement_domain_covered": true,
+      "negative_proof_covers_domain": false,
+      "object_id": "orange_juice_1",
+      "predicted_applicability": "does_not_apply",
+      "predicted_outcome": "not_applicable",
+      "reference_applicability": "does_not_apply",
+      "reference_outcome": "not_applicable",
+      "stratum": "changed_task"
+    },
+    {
+      "binary_comparable": false,
+      "case_id": "NV10",
+      "measurement_domain_covered": true,
+      "negative_proof_covers_domain": false,
+      "object_id": "orange_juice_1",
+      "predicted_applicability": "does_not_apply",
+      "predicted_outcome": "not_applicable",
+      "reference_applicability": "does_not_apply",
+      "reference_outcome": "not_applicable",
+      "stratum": "reserved_same_task"
+    },
+    {
+      "binary_comparable": true,
+      "case_id": "NV11",
+      "measurement_domain_covered": true,
+      "negative_proof_covers_domain": true,
+      "object_id": "cream_cheese_1",
+      "predicted_applicability": "applies",
+      "predicted_outcome": "no_violation_observed_within_reviewed_coverage",
+      "reference_applicability": "applies",
+      "reference_outcome": "no_violation_observed_within_reviewed_coverage",
+      "stratum": "reserved_same_task"
+    },
+    {
+      "binary_comparable": false,
+      "case_id": "NV12",
+      "measurement_domain_covered": true,
+      "negative_proof_covers_domain": false,
+      "object_id": "butter_1",
+      "predicted_applicability": "applies",
+      "predicted_outcome": "insufficient_information",
+      "reference_applicability": "applies",
+      "reference_outcome": "insufficient_information",
+      "stratum": "changed_task"
+    },
+    {
+      "binary_comparable": true,
+      "case_id": "NV13",
+      "measurement_domain_covered": true,
+      "negative_proof_covers_domain": true,
+      "object_id": "butter_1",
+      "predicted_applicability": "applies",
+      "predicted_outcome": "no_violation_observed_within_reviewed_coverage",
+      "reference_applicability": "applies",
+      "reference_outcome": "no_violation_observed_within_reviewed_coverage",
+      "stratum": "reserved_same_task"
+    },
+    {
+      "binary_comparable": false,
+      "case_id": "NV14",
+      "measurement_domain_covered": true,
+      "negative_proof_covers_domain": false,
+      "object_id": "ketchup_1",
+      "predicted_applicability": "does_not_apply",
+      "predicted_outcome": "not_applicable",
+      "reference_applicability": "does_not_apply",
+      "reference_outcome": "not_applicable",
+      "stratum": "reserved_same_task"
+    },
+    {
+      "binary_comparable": false,
+      "case_id": "NV15",
+      "measurement_domain_covered": true,
+      "negative_proof_covers_domain": false,
+      "object_id": "ketchup_1",
+      "predicted_applicability": "does_not_apply",
+      "predicted_outcome": "not_applicable",
+      "reference_applicability": "does_not_apply",
+      "reference_outcome": "not_applicable",
+      "stratum": "changed_task"
+    },
+    {
+      "binary_comparable": false,
+      "case_id": "NV16",
+      "measurement_domain_covered": true,
+      "negative_proof_covers_domain": false,
+      "object_id": "cream_cheese_1",
+      "predicted_applicability": "applies",
+      "predicted_outcome": "insufficient_information",
+      "reference_applicability": "applies",
+      "reference_outcome": "insufficient_information",
+      "stratum": "changed_task"
+    },
+    {
+      "binary_comparable": true,
+      "case_id": "NV17",
+      "measurement_domain_covered": true,
+      "negative_proof_covers_domain": true,
+      "object_id": "cream_cheese_1",
+      "predicted_applicability": "applies",
+      "predicted_outcome": "no_violation_observed_within_reviewed_coverage",
+      "reference_applicability": "applies",
+      "reference_outcome": "no_violation_observed_within_reviewed_coverage",
+      "stratum": "reserved_same_task"
+    },
+    {
+      "binary_comparable": false,
+      "case_id": "NV18",
+      "measurement_domain_covered": true,
+      "negative_proof_covers_domain": false,
+      "object_id": "ketchup_1",
+      "predicted_applicability": "does_not_apply",
+      "predicted_outcome": "not_applicable",
+      "reference_applicability": "does_not_apply",
+      "reference_outcome": "not_applicable",
+      "stratum": "reserved_same_task"
+    },
+    {
+      "binary_comparable": false,
+      "case_id": "NV19",
+      "measurement_domain_covered": true,
+      "negative_proof_covers_domain": false,
+      "object_id": "orange_juice_1",
+      "predicted_applicability": "does_not_apply",
+      "predicted_outcome": "not_applicable",
+      "reference_applicability": "does_not_apply",
+      "reference_outcome": "not_applicable",
+      "stratum": "changed_task"
+    },
+    {
+      "binary_comparable": false,
+      "case_id": "NV20",
+      "measurement_domain_covered": true,
+      "negative_proof_covers_domain": false,
+      "object_id": "milk_1",
+      "predicted_applicability": "does_not_apply",
+      "predicted_outcome": "not_applicable",
+      "reference_applicability": "does_not_apply",
+      "reference_outcome": "not_applicable",
+      "stratum": "changed_task"
+    }
+  ],
+  "event_localization": "not_scored_unapproved_and_unresolved_phase_alignment",
+  "kind": "exploratory_AI_reference_agreement_not_human_validated_accuracy",
+  "limitations": "Prior conversation exposure, related AI reviewers, no independent human validation, no positive R1 cases, sampled visual review, unverified camera exposure, no raw HDF5 regeneration.",
+  "overall": {
+    "abstention_rate": 0.2,
+    "applicability_agreement": {
+      "denominator": 20,
+      "numerator": 20
+    },
+    "applicability_confusion": [
+      {
+        "count": 8,
+        "prediction": "applies",
+        "reference": "applies"
+      },
+      {
+        "count": 12,
+        "prediction": "does_not_apply",
+        "reference": "does_not_apply"
+      }
+    ],
+    "binary_compared": 4,
+    "binary_confusion": {
+      "FN": 0,
+      "FP": 0,
+      "TN": 4,
+      "TP": 0
+    },
+    "checker_explicit_unknown_outcomes": 4,
+    "decision_coverage": 0.8,
+    "eligible_applicable": 5,
+    "exact_label_matches_including_unknown_as_label": 19,
+    "operational_abstentions": 1,
+    "outcome_agreement_on_determinate_reference": {
+      "denominator": 17,
+      "numerator": 16
+    },
+    "outcome_confusion": [
+      {
+        "count": 3,
+        "prediction": "insufficient_information",
+        "reference": "insufficient_information"
+      },
+      {
+        "count": 1,
+        "prediction": "insufficient_information",
+        "reference": "no_violation_observed_within_reviewed_coverage"
+      },
+      {
+        "count": 4,
+        "prediction": "no_violation_observed_within_reviewed_coverage",
+        "reference": "no_violation_observed_within_reviewed_coverage"
+      },
+      {
+        "count": 12,
+        "prediction": "not_applicable",
+        "reference": "not_applicable"
+      }
+    ],
+    "positive_F1": null,
+    "positive_metric_note": "No confirmed positive R1 reference cases; violation sensitivity/F1 not estimable.",
+    "positive_recall": null,
+    "precision": null,
+    "reference_determinate": 17,
+    "reference_positive_R1_cases": 0,
+    "reference_unresolved": 3,
+    "units": 20
+  },
+  "prediction_sha256": "0ef93ece9c3d0cb02a49a450979315a4e3be3d5f127aa48105970321f5b34984",
+  "reference_seal_sha256": "6351e474de196fb7d0c801989921765b9e66686c54c003e0b15372db4e7cca4b",
+  "sensitivity": {
+    "source_1_label_only": {
+      "determinate_reference": 19,
+      "note": "Label sensitivity only; no substituted observation domains or extra binary scores.",
+      "outcome_label_matches": 16,
+      "positive_cases": 0
+    },
+    "source_2_label_only": {
+      "determinate_reference": 20,
+      "note": "Label sensitivity only; no substituted observation domains or extra binary scores.",
+      "outcome_label_matches": 16,
+      "positive_cases": 0
+    },
+    "unresolved_assignment_bounds": {
+      "cases": [
+        "NV06",
+        "NV12",
+        "NV16"
+      ],
+      "if_all_qualified_negative": {
+        "compared": 4,
+        "decision_coverage": 0.5,
+        "eligible_applicable": 8
+      },
+      "if_any_positive": "No empirical positive sensitivity estimate; checker abstentions are operational misses in a hypothetical positive scenario, not observed false negatives.",
+      "observed_positive_reference_cases": 0,
+      "unresolved_are_not_negative": true
+    }
+  }
+}

@@ -1,9 +1,0 @@
-{
-  "created_utc": "2026-10-29T17:09:14.046413+00:00",
-  "source": "Evaluator 1 active v2 observations, reassessed with disclosed exposure",
-  "files": {
-    "initial_support.csv": "2be05c006f4eeaf887880b90130bbe825905360ce55dadbcc51d7868030a0a8c",
-    "uncertainty_requests.csv": "9e757f614cd2bcf20b44d1cacc398a2225c37341bfd3387662631b5d15caef29",
-    "events.csv": "3da551a460c543fc3636ecfc5f2870d60f806b598ac2911a80a05cfa5376efc0"
-  }
-}

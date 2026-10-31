@@ -1,0 +1,16 @@
+{
+  "kind": "provisional_ai3_assessment_not_human_approval",
+  "sealed_at_utc": "2026-10-31T03:36:57.745787+00:00",
+  "files": {
+    "AI_EVALUATOR_3_CONTACT_REGIMES.csv": "0129f345778f85b24fb2a488cf60accaa703131326738326f57936be278dadc9",
+    "AI_EVALUATOR_3_DECISIONS.csv": "9ad34e573c249f69e44503260c30a58945f0e22e7e87f431fae3faa74463a6ba",
+    "AI_EVALUATOR_3_REPORT.md": "14e744464386e3eb1129c39705d6b67375efd9b02be6dc4922ea3b8b58457d84",
+    "EVIDENCE_LEDGER.csv": "3ce790b3994a56566a692c495677b1715f8a42a57b14773aef1ba4f0be887e63",
+    "EVIDENCE_SUFFICIENCY.csv": "af2561d5a908425ef659c36a9dc1bb26c4bab5fe5589637b1cb5354e71001a5e",
+    "PROVENANCE.json": "74eb0c8bb786785381461fd46904c8208fa3349b322e34b408e46795a4ea583b",
+    "RESTORATION_REQUIREMENTS.csv": "f9aad999ab49b03846d150a63f5a70d84fc4adabe5776e61efe1d76f7038aed7"
+  },
+  "previous_evaluator_files_opened": false,
+  "prediction_inputs_used": false,
+  "cases": 20
+}

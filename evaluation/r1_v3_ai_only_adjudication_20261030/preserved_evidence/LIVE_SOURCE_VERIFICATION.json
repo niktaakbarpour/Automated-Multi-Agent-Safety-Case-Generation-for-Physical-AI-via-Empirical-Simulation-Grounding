@@ -1,0 +1,21 @@
+{
+  "passed": true,
+  "protected_files": {
+    "workflow.py": "189039aa1700c2c89f851b8493ceb7f14d9ca26895161c71bd759bcf2ee42f2b",
+    "score_after_approval.py": "ebaf68b7fe9d278a53c420232affcc88549c4d7260f4daa249b72cf73d65878b",
+    "SCORING_PROTOCOL.json": "a6034a75f11f25e9982599a594719499706ade2a7f1720d5b0d1c7c9926bc00a",
+    "scoring_support/matching.py": "b3a08b849d02c61a7020781979e5ccb61fe68eac7a472575a00710959c3374d9",
+    "COORDINATOR_ASSIGNMENTS.json": "bc5e9faa529df943f3904c6695976d31894759d65945e3e4437fe7d50cd0ffab",
+    "SAMPLING_PROTOCOL.json": "a307d978fede561c8c263f7a3ec982704b38d6d78c0383234c8200db635dcc48",
+    "FORM_HEADERS.json": "8f050d8ad36049858369723fc60d3a107675e382cf37fb7ad38dba58eb0de5ec",
+    "ADJUDICATION_AND_REFERENCE.md": "5a4dbfe1af3f445450c788a1cfa679fa8f5a161878cc030c55872284d3a674dd"
+  },
+  "export_files_live_matches": 23,
+  "prediction_sha256": "0ef93ece9c3d0cb02a49a450979315a4e3be3d5f127aa48105970321f5b34984",
+  "uncertainty_counts": {
+    "1": 23,
+    "2": 5
+  },
+  "original_annotations_unchanged": true,
+  "assessment_and_reference_seals_valid": true
+}

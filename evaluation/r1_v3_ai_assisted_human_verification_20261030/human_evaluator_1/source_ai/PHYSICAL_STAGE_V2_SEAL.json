@@ -1,0 +1,13 @@
+{
+  "stage": "Corrected physical stage, before requirement interpretation",
+  "created_utc": "2026-10-29T17:00:01.601976+00:00",
+  "reason": "Restrict NV12 initial-supported no-event interval to 10-199, excluding uncertain frames 200-202. First snapshot and seal remain unchanged.",
+  "supersedes": "PHYSICAL_STAGE_SEAL.json",
+  "active_snapshot": "annotations/physical_stage_v2",
+  "files": {
+    "initial_support.csv": "2b59b74510bebc7421dbdb53de8fcd7a372d22c06c40588794870c05e480510b",
+    "events.csv": "eab5cbfa3a87eb786d1e68bdcb1acc9e729dad93e8f469083dd8d02ea55bc205",
+    "uncertainty_requests.csv": "0985acd42b24bf3a5279bc031ca5c95ce717b1d7d51ec1e3917840f7448e76e0"
+  },
+  "human_approval": false
+}

@@ -1,11 +1,48 @@
 {
-  "status": "passed",
-  "cases": 20,
-  "unique_physical_events": 64,
-  "checks": [
-    "20 case forms",
-    "valid physical links",
-    "blank human decisions and approvals",
-    "explicit non-independence and inherited coverage"
-  ]
+  "validated_utc": "2026-10-29T18:17:46.156172+00:00",
+  "structural_checks_only_not_scientific_validation": true,
+  "all_pass": true,
+  "checks": {
+    "initial_support_original_header": true,
+    "initial_support_well_formed": true,
+    "initial_support_ai_identity": true,
+    "events_original_header": true,
+    "events_well_formed": true,
+    "events_ai_identity": true,
+    "requirement_interpretation_original_header": true,
+    "requirement_interpretation_well_formed": true,
+    "requirement_interpretation_ai_identity": true,
+    "uncertainty_requests_original_header": true,
+    "uncertainty_requests_well_formed": true,
+    "uncertainty_requests_ai_identity": true,
+    "all_evidence_links_resolve": true,
+    "initial_support_all20": true,
+    "initial_support_human_approval_blank": true,
+    "requirement_interpretation_all20": true,
+    "requirement_interpretation_human_approval_blank": true,
+    "unique_event_ids": true,
+    "unique_record_ids": true,
+    "physical_references_valid": true,
+    "event_frame_bounds": true,
+    "support_vocabulary": true,
+    "event_vocabulary": true,
+    "interpretation_vocabulary": true,
+    "immutable_physical_snapshot": true,
+    "physical_precedes_interpretation": true,
+    "coverage_all20": true,
+    "coverage_saved_frame_counts": true,
+    "remote_derivatives_exist": true,
+    "no_playback_claims": true,
+    "human_form_blank": true,
+    "source_manifest_unchanged": true,
+    "zip_annotations_only": true
+  },
+  "rows": {
+    "initial_support": 20,
+    "events": 91,
+    "requirement_interpretation": 20,
+    "uncertainty_requests": 5
+  },
+  "human_approval_pending": true,
+  "protocol_timed_playback_pending": true
 }

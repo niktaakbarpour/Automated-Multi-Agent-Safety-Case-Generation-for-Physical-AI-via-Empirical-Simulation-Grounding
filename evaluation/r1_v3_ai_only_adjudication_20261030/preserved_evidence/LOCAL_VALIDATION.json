@@ -1,0 +1,17 @@
+{
+  "scope": "Local delivery/provenance validation; research processing remains Hestia-only",
+  "suites": [
+    {
+      "suite": "AI-only imported artifacts",
+      "exit_code": 0,
+      "output": "test_all_23_imported_bytes_match_hestia (test_imported_reports.ImportedReports) ... ok\ntest_all_original_uncertainty_fields_preserved (test_imported_reports.ImportedReports) ... ok\ntest_both_seals_and_report_manifest (test_imported_reports.ImportedReports) ... ok\ntest_case_identity_completeness (test_imported_reports.ImportedReports) ... ok\ntest_frozen_prediction_hash_binding (test_imported_reports.ImportedReports) ... ok\ntest_human_scoring_protected_files_unchanged (test_imported_reports.ImportedReports) ... ok\ntest_reported_denominators_and_undefined_metrics (test_imported_reports.ImportedReports) ... ok\ntest_seal_chain_and_disclosed_limits (test_imported_reports.ImportedReports) ... ok\n\n----------------------------------------------------------------------\nRan 8 tests in 0.007s\n\nOK\n"
+    },
+    {
+      "suite": "Existing AI-assisted human-verification safeguards",
+      "exit_code": 0,
+      "output": "test_blank_approval_rejected_before_prediction_access (test_verification.VerificationTests) ... ok\ntest_complete_test_declarations_still_cannot_freeze_or_score (test_verification.VerificationTests) ... ok\ntest_every_field_and_event_accounted_for (test_verification.VerificationTests) ... ok\ntest_exact_transfer_and_all_twenty_cases (test_verification.VerificationTests) ... ok\ntest_fake_human_authorship_or_coverage_detected (test_verification.VerificationTests) ... ok\ntest_missing_case_or_changed_outcome_detected (test_verification.VerificationTests) ... ok\ntest_nv12_exact_rationale_and_uncertainties_retained (test_verification.VerificationTests) ... ok\ntest_omitted_uncertainty_detected (test_verification.VerificationTests) ... ok\ntest_outcome_acceptance_does_not_clear_other_disagreements (test_verification.VerificationTests) ... ok\ntest_prepare_never_overwrites_existing_human_records (test_verification.VerificationTests) ... ok\ntest_source_annotation_tamper_detected (test_verification.VerificationTests) ... ok\n\n----------------------------------------------------------------------\nRan 11 tests in 0.819s\n\nOK\n"
+    }
+  ],
+  "passed": true,
+  "tests_passed": 19
+}

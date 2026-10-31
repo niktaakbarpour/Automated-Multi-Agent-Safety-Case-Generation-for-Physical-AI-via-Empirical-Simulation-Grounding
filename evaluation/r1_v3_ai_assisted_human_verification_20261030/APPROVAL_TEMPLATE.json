@@ -1,0 +1,45 @@
+{
+  "ai_assisted_nonindependent_method_acknowledged": false,
+  "approval_date": "",
+  "approval_decision": "",
+  "approval_statement": "",
+  "authorized_approver_identity": "",
+  "comparison_domain_by_case": {},
+  "discrepancy_report_sha256": "b8c6dec0cc13925c1f177091f07c89f4e31775075d013e3f4287397a8cb047b7",
+  "discrepancy_resolutions": [],
+  "method": "AI-assisted human verification with human adjudication",
+  "note": "Do not assert independent annotation. Domains and unresolved event differences require explicit decisions before freezing/scoring.",
+  "proposed_reference_sha256": "4e0a920dde6ae3b3ae83ca7b1a8ec4899dfd29bf7afe376e0ca6c2914b67bea6",
+  "reviewer_confirmations": {
+    "1": {
+      "actual_review_date": "",
+      "ai_explanations_remain_ai_authored": false,
+      "confirmation_statement": "",
+      "human_inspected_evidence_description": "",
+      "identity": "",
+      "user_report_is_accurate": null,
+      "verified_human_frame_intervals_by_case": {}
+    },
+    "2": {
+      "actual_review_date": "",
+      "ai_explanations_remain_ai_authored": false,
+      "confirmation_statement": "",
+      "human_inspected_evidence_description": "",
+      "identity": "",
+      "user_report_is_accurate": null,
+      "verified_human_frame_intervals_by_case": {}
+    }
+  },
+  "schema": "r1-ai-assisted-approval-v1",
+  "source_acceptance_sha256": {
+    "1": "c6b71cc49ff22e996bf95a53fc779653fa0c311bf3f75f378ceb1c68a88f9b76",
+    "2": "e2738adcf3be88faab487317f5f67d89b018b5a00d3399d91fff29e54d5ac4fa"
+  },
+  "third_reviewer": {
+    "actual_adjudication_date": "",
+    "confirmation_statement": "",
+    "identity": "",
+    "nv12_outcome_selection_confirmed": false
+  },
+  "unresolved_evidence_limits_accepted": false
+}

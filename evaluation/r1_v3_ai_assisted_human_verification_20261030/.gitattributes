@@ -1,0 +1,2 @@
+# Preserve exact source CRLF CSV bytes while checking other whitespace normally.
+*.csv whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

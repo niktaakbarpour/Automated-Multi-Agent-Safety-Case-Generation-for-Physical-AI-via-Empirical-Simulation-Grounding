@@ -1,0 +1,16 @@
+Traceback (most recent call last):
+  File "/scratch/niktakbr/trustworthy-ai3-20261030/stage_exact_evidence.py", line 61, in <module>
+    main(Path(sys.argv[1]), Path(sys.argv[2]))
+  File "/scratch/niktakbr/trustworthy-ai3-20261030/stage_exact_evidence.py", line 27, in main
+    with tarfile.open(archive, 'r:') as tf:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/cvmfs/soft.computecanada.ca/gentoo/2023/x86-64-v3/usr/lib/python3.11/tarfile.py", line 1817, in open
+    return func(name, filemode, fileobj, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/cvmfs/soft.computecanada.ca/gentoo/2023/x86-64-v3/usr/lib/python3.11/tarfile.py", line 1847, in taropen
+    return cls(name, mode, fileobj, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/cvmfs/soft.computecanada.ca/gentoo/2023/x86-64-v3/usr/lib/python3.11/tarfile.py", line 1659, in __init__
+    fileobj = bltn_open(name, self._mode)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/nearline/def-hvpham/niktakbr/hestia-20261026/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero-256fd5a9f2/part-00001.tar'

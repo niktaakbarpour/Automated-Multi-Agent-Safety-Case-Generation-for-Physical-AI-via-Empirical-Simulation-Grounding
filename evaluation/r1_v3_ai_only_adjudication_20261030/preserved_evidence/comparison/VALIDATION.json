@@ -1,0 +1,12 @@
+{
+  "AI3_seal_verified": true,
+  "assessment_precedes_comparison": true,
+  "cases": 20,
+  "human_scorer_modified": false,
+  "original_evaluator_files_unchanged": true,
+  "original_prediction_sha256": "0ef93ece9c3d0cb02a49a450979315a4e3be3d5f127aa48105970321f5b34984",
+  "original_uncertainty_requests_preserved": 28,
+  "passed": true,
+  "reference_precedes_prediction_reads": true,
+  "reference_seal_verified": true
+}

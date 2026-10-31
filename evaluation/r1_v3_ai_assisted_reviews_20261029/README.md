@@ -1,13 +1,11 @@
 # AI-assisted review drafts
 
-All 20 cases are covered. Both drafts propose 12 non-applicable, 7 coverage-qualified
-no-violation, and 1 insufficient-information outcome (NV12). Human decisions remain blank.
-Evaluator 2 was performed in the same conversation after exposure to Evaluator 1,
-reusing disclosed observations and prior image coverage. These are not two independent
-annotations; agreement cannot support an independent reliability estimate.
+Evaluator 1 is preserved in ai_evaluator_1/. The exposed second assessment was withdrawn at the user's request. Its replacement in ai_evaluator_2/ was produced by a fresh evaluator context using only the neutral Reviewer 2 package and protocol, without providing Evaluator 1 decisions or checker predictions.
 
-Humans record accept/reject, corrections, reasons and actual coverage in HUMAN_REVIEW.csv.
-Complete saved measurements and sampled images were reviewed, not full timed playback.
-No scoring or reference approval was performed. Do not submit these AI files as independent
-human returns to the original collect/freeze workflow. Full evidence resides on Hestia;
-see EVIDENCE_LOCATION.md in each directory. Physical snapshots and seals are preserved.
+These are AI proposals awaiting human verification, not approved human reference labels. Consult each review's own coverage, uncertainty, and provenance records. Complete frame-sheet inspection is distinct from timed playback. Agreement alone does not establish independent-model reliability or checker accuracy.
+
+Human accept/reject decisions, corrections, reasons and reviewed coverage belong in HUMAN_REVIEW.csv. No reference approval or scoring was performed. The original independent-human collection and freeze workflow is unchanged.
+
+All replacement artifacts were finalized on Hestia after the user prohibited further local work. Earlier local derivatives were deleted by the user; the replacement evaluator documents that interruption and the visual observations retained in its own isolated context. See EVIDENCE_LOCATION.md for the remote bundle.
+
+The earlier exposed assessment is removed from the current tree. It remains in Git history; no history rewrite or force-push was performed.

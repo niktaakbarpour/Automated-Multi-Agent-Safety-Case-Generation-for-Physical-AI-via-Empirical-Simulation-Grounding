@@ -1,0 +1,20 @@
+{
+  "disposition": "retain source-specific methods; human coverage requires confirmation",
+  "evaluator_1_format": "Top-level per-case dictionary; complete case objects compared in field_comparison.json",
+  "evaluator_1_global_metadata": null,
+  "evaluator_2_global_metadata": {
+    "coverage_definition": "Every saved index inspected as ordered static sheets containing both cameras; no timed playback or fully visible interfaces claimed. Full execution denotes index coverage only.",
+    "date": "2026-10-29",
+    "excluded_attempts": "Blank local decodes/displays excluded. NV02 terminal and NV11 initially blank pages later successfully inspected locally. NV10 frames240-terminal first successfully inspected remotely.",
+    "measurements": {
+      "all20_contacts_and_poses": "All rows parsed; assigned-object contact intervals, boundary values and transition values inspected. Not every numeric row manually read.",
+      "all20_geometry": "All frames processed for assigned-object collision box z extents; frame10 results inspected for all20. Processing is not visual inspection.",
+      "uninspected_modalities": "No direct playback of individual-view or setup MP4s. Hash verification is not substantive review."
+    },
+    "migration": "User deleted local workspace; retained own observations in context. Local derivatives/logs unavailable for new hashes. Prior coverage is retrospective access declaration, not reconstructed file audit. Remote package matches its own597-entry manifest; no surviving local checksum comparison asserted. No local research/computation/storage after remote-only instruction.",
+    "protocol_playback_deviation": true,
+    "reviewer": "AI Evaluator 2; not human",
+    "total_camera_images_at_unique_frames": 10694,
+    "total_unique_original_frames": 5347
+  }
+}
