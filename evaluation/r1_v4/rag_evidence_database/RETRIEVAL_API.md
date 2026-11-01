@@ -1,0 +1,11 @@
+# Retrieval API
+
+`search(Store(database), Query(...))` accepts exact execution_id, object_id, task_id, requirement_id/version, evidence_types, inclusive saved-frame interval, validation_status, exact required capability statuses, uncertainty text, optional literal text and limit 1–100. Task IDs are reader task-configuration identifiers. Unsupported time/camera clock joins are not attempted; float intervals are rejected by this frame-domain API. Timestamp records expose declared source endpoints and uncertainty.
+
+Metadata filters precede validation/ranking. FTS5 unicode61 literal token conjunction uses BM25 then stable ID. No generated synonyms or LLM ranking are used. Requests over 10,000 candidates must be narrowed. Hashes are freshly checked per request, deduplicated only within that request. Source/dependency failures and capability restrictions are explicit rejections.
+
+Results retain canonical evidence IDs, source path/hash/selector, execution/object/task, interval, coordinate frame, dependencies, validity, uncertainty and limitations. Provenance retains native/surface IDs, saved indices, endpoint ranges and camera identifiers with unknown exposure times. Top-k truncation does not truncate coverage: missing saved-frame intervals are computed from all valid matches before truncation. Explicit missing intervals are excluded. Discrete availability never proves continuous physical coverage.
+
+Existence, retrieval, valid-measurement count and coverage are distinct fields. `sufficient_for_physical_checking`, `safety_claim_verified` and `empirical_admission_enabled` are always false. `catalog_search(store, execution=None, text=None, limit=20)` offers exact identities and literal instruction FTS over 2,000 historical entries. Catalog results state `valid_measurements_implied=false` and verify data/runs.json. No frozen safety outcomes/scoring labels are exposed. AI interpretations remain provisional; no human ground truth is present.
+
+Optional vectors are not implemented. Metadata/FTS found the evaluated source/instruction targets, and no approved embedding model contract or demonstrated semantic retrieval gap justifies one here. No external embedding API is used. Paraphrase retrieval has not been validated.
