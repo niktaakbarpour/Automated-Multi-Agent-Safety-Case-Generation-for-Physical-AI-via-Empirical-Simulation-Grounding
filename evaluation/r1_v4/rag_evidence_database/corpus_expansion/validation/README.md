@@ -1,0 +1,1 @@
+The 408-test RESULTS.json is the initial audit checkpoint before new-profile authorization. Current completed-batch validation (436 tests) is in ../task_profile/validation/VALIDATION_RESULTS.json. MILESTONE_STATUS.json records the current completed state. Historical checkpoint reports are retained, not reused as expanded-scale metrics.

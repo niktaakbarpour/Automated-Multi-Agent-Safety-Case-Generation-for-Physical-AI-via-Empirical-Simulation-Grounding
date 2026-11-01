@@ -39,7 +39,7 @@ def array(group,name,shape,integer=False):
  return np.asarray(a)
 def run_id(ep):return f'libero_long_openvla_oft_task00_seed{1000+ep}_trial{ep:03d}_cfafd9ddc3db'
 
-def read(root,episode,frames=None,*,expected=None,geometry=None,coordinates=None,synthetic=False,development_profile=None):
+def read(root,episode,frames=None,*,expected=None,geometry=None,coordinates=None,synthetic=False,development_profile=None,task_profile=None):
  """Production pins restored hashes; injected contracts require synthetic=True."""
  if socket.gethostname().lower()!='hestia':raise RuntimeError('Research inspection requires Hestia')
  result=ReadResult(synthetic=synthetic)
@@ -50,32 +50,38 @@ def read(root,episode,frames=None,*,expected=None,geometry=None,coordinates=None
    if synthetic or expected is not None or geometry is not None or coordinates is not None:raise Unsupported('profile_does_not_accept_injected_measurements')
    from evaluation.r1_v4.rag_evidence_database.expansion.profile import approved_profile
    extension=approved_profile(development_profile,root,episode)
+  if task_profile is not None:
+   if extension is not None or synthetic or expected is not None or geometry is not None or coordinates is not None:raise Unsupported('task_profile_rejects_injected_or_synthetic_contract')
+   from evaluation.r1_v4.rag_evidence_database.corpus_expansion.task_profile.profile import approved_profile
+   extension=approved_profile(task_profile,root,episode)
   if extension is None and episode not in (0,1,2,14):raise Unsupported('execution_outside_development_scope')
   if (expected is not None or geometry is not None or coordinates is not None) and not synthetic:raise Unsupported('custom_contract_requires_synthetic_fixture')
   contract=load(HERE/'SOURCE_CONTRACT.json')
   result.reader_binding=dict(version='1.0.0',purpose='measurement_only',source_contract_sha256=sha(HERE/'SOURCE_CONTRACT.json'),files={n:sha(HERE/n) for n in ('reader.py','models.py','bridge.py','__main__.py')})
   if extension is not None:
-   result.reader_version='1.1.0';result.reader_binding.update(version='1.1.0',development_profile=development_profile,profile_sha256=extension['profile_sha256'])
+   result.reader_version=extension['version'];result.reader_binding.update(version=extension['version'],development_profile=development_profile,task_profile=task_profile,profile_sha256=extension['profile_sha256'])
   for n,h in contract['bindings'].items():
    if sha(REPO/n)!=h:raise Invalid('retained_dependency_hash:'+n)
   coords=COORDINATES if coordinates is None else coordinates
   if coords!=COORDINATES:raise Invalid('coordinate_contract_mismatch')
   root=Path(root)
   if not root.resolve().is_relative_to('/disk/1/data/niktakbr'):raise Unsupported('source_root_outside_owned_disk1')
-  ep=root/'long/task_00'/f'episode_{episode:03d}'
+  relative=extension.get('relative_task','long/task_00') if extension is not None else 'long/task_00'
+  ep=root/relative/f'episode_{episode:03d}'
   bindings=extension['bindings'] if extension is not None else load(HERE/'RESTORED_SOURCES.json') if expected is None else expected
   required=[r for r in bindings if Path(r['restored_path']).parent.name==ep.name or Path(r['restored_path']).name in ('task.bddl','benchmark_initial_states.init')]
   if len(required)!=11:raise Invalid('source_manifest_incomplete')
   paths={}
   for r in required:
-   rel=Path(r['restored_path']).parts;rel=Path(*rel[rel.index('long'):]);p=root/rel
+   rel=Path(r['restored_path']).parts;rel=Path(*rel[rel.index(relative.split('/')[0]):]);p=root/rel
    if not p.resolve().is_relative_to(root.resolve()) or p.is_symlink():raise Invalid('source_path_escape')
    if not p.is_file():raise Missing('missing_file:'+p.name)
    actual=sha(p)
    if actual!=r['sha256']:raise Invalid('hash_mismatch:'+p.name)
    paths[p.name]=p;result.source_hashes[p.name]={'path':str(p),'sha256':actual,'bytes':p.stat().st_size}
-  metadata=load(paths['run_metadata.json']);rid=run_id(episode)
+  metadata=load(paths['run_metadata.json']);rid=extension.get('execution_id',run_id(episode)) if extension is not None else run_id(episode)
   expectations={'global_episode_id':rid,'episode':episode,'seed':1000+episode,'model_configuration_id':'85620572476d4a08fc0d','task_configuration_id':'2448c758145ae5ad500f','recorder_schema_version':'4.0','dataset_schema_version':'4.0','task_id':0,'suite_label':'long','task_suite':'libero_10','settling_steps':10,'control_frequency_hz':20,'observation_size':[256,256],'checkpoint':'moojink/openvla-7b-oft-finetuned-libero-spatial-object-goal-10','checkpoint_revision':'638918f3d1c2e43a39a8a20772bdb8b91835e4b7'}
+  if extension is not None:expectations.update(extension.get('metadata_expectations',{}))
   for k,v in expectations.items():
    if k not in metadata:raise Missing('metadata_missing:'+k)
    if metadata[k]!=v or type(metadata[k]) is not type(v):raise Invalid('metadata_identity:'+k)
@@ -88,15 +94,19 @@ def read(root,episode,frames=None,*,expected=None,geometry=None,coordinates=None
   for n in ('run_oft.py','recording_base.py','semantic_scene.py'):
    source=REPO/'reports/fall_review_20261016/source_evidence'/n
    if metadata.get('source_files_sha256',{}).get(n)!=sha(source):raise Invalid('recorder_provenance:'+n)
-  index_record=load(MAP) if geometry is None else geometry;idx=native_index(index_record)
-  idx.validate_recording(rid,sha(paths['simulator.xml']),161)
+  index_record=extension['geometry_index'] if extension is not None and 'geometry_index' in extension else load(MAP) if geometry is None else geometry;idx=native_index(index_record)
+  native_count=index_record['native_geom_count']
+  idx.validate_recording(rid,sha(paths['simulator.xml']),native_count)
   legacy=load(paths['simulator_index.json'])
   if legacy['body_names']!=index_record['body_names']:raise Invalid('body_identity_mismatch')
-  constraints=load(CONSTRAINTS)['objects']
+  constraints=extension['objects'] if extension is not None and 'objects' in extension else load(CONSTRAINTS)['objects']
+  surface_ids=extension.get('surface_ids',list(range(10,16))) if extension is not None else list(range(10,16))
+  shapes={k:tuple(v) for k,v in extension['shapes'].items()} if extension is not None and 'shapes' in extension else SHAPES
+  optional={k:tuple(v) for k,v in extension['optional_shapes'].items()} if extension is not None and 'optional_shapes' in extension else OPTIONAL
   for obj,info in constraints.items():
    if legacy['body_names'][info['body_id']]!=obj+'_main':raise Invalid('object_identity:'+obj)
    if any(idx.by_id(i)['owner_body_id']!=info['body_id'] for i in info['collision_geom_ids']):raise Invalid('object_geometry_ownership:'+obj)
-  result.native_geometry=dict(source_sha256=sha(MAP) if geometry is None else digest(index_record),reader_contract_sha256=sha(HERE/'SOURCE_CONTRACT.json'),native_count=161,complete_anonymous_ids=True,geometries=index_record['geometries'],objects=constraints,table_collision_ids=list(range(10,16)),frame=coords)
+  result.native_geometry=dict(source_sha256=digest(index_record) if extension is not None and 'geometry_index' in extension else sha(MAP) if geometry is None else digest(index_record),reader_contract_sha256=sha(HERE/'SOURCE_CONTRACT.json'),native_count=native_count,complete_anonymous_ids=True,geometries=index_record['geometries'],objects=constraints,table_collision_ids=surface_ids,frame=coords)
   completeness=load(paths['completion.json'])
   if completeness.get('global_episode_id')!=rid or not completeness.get('complete') or completeness.get('integrity_manifest_sha256')!=sha(paths['integrity_manifest.json']):raise Invalid('completion_binding')
   producer=load(paths['integrity_manifest.json'])
@@ -112,7 +122,7 @@ def read(root,episode,frames=None,*,expected=None,geometry=None,coordinates=None
    for k in ['global_episode_id','episode','seed','model_configuration_id','task_configuration_id','recorder_schema_version','dataset_schema_version','task_id']:
     if h.attrs.get(k)!=metadata[k]:raise Invalid('hdf5_identity:'+k)
    if h.attrs.get('schema_version')!='4.0':raise Unsupported('hdf5_schema_version')
-   initial=array(h,'benchmark_initial_state',(123,))
+   initial=array(h,'benchmark_initial_state',shapes['flattened'])
    fg=node(h,'frames');available=sorted(int(k) for k in fg if k.isdigit())
    if any(f'{i:06d}' not in fg for i in available) or len(available)!=len(fg):raise Invalid('frame_identifier_format')
    result.coverage['available']=available
@@ -127,7 +137,7 @@ def read(root,episode,frames=None,*,expected=None,geometry=None,coordinates=None
     try:
      g=node(fg,f'{i:06d}');sim=node(g,'simulator');raw=node(g,'raw_observation')
      sim_fields.update(sim.keys());raw_fields.update(raw.keys())
-     values={n:array(sim,n,shape,n=='ncon') for n,shape in SHAPES.items()}
+     values={n:array(sim,n,shape,n=='ncon') for n,shape in shapes.items()}
      time=float(values['time']);times.append(time)
      if not np.array_equal(values['flattened'],np.concatenate(([time],values['qpos'],values['qvel']))):raise Invalid('flattened_endpoint_state_mismatch')
      if i==0 and not np.array_equal(initial,values['flattened']):raise Invalid('benchmark_initial_state_mismatch')
@@ -140,7 +150,7 @@ def read(root,episode,frames=None,*,expected=None,geometry=None,coordinates=None
       transition=node(transitions,f'{i-11:06d}')
       if int(array(transition,'step',(),True))!=i-11 or float(array(transition,'simulator_time',()))!=time:raise Invalid('transition_time_or_index')
      guard=idx.validate_snapshot_transforms(values['body_xpos'],values['body_xquat'],values['geom_xpos'],values['geom_xmat'])
-     current_root=(values['geom_xpos'][10:16].copy(),values['geom_xmat'][10:16].copy())
+     current_root=(values['geom_xpos'][surface_ids].copy(),values['geom_xmat'][surface_ids].copy())
      if saved_root is None:saved_root=current_root
      elif not all(np.array_equal(a,b) for a,b in zip(saved_root,current_root)):raise Invalid('static_surface_changed')
      contact_node=node(sim,'contacts')
@@ -154,7 +164,7 @@ def read(root,episode,frames=None,*,expected=None,geometry=None,coordinates=None
       a,b=idx.contact_pair(c)
       if type(c['dist']) not in (int,float) or not math.isfinite(c['dist']) or len(c['pos'])!=3 or any(type(x) not in (int,float) or not math.isfinite(x) for x in c['pos']):raise Invalid('contact_numerics')
       records.append(ContactRecord(c['geom1'],c['geom2'],a['owner_body'],b['owner_body'],float(c['dist']),tuple(c['pos'])))
-     for n,shape in OPTIONAL.items():
+     for n,shape in optional.items():
       if n in sim:values[n]=array(sim,n,shape)
       else:diagnostic('missing','optional_native_field:'+n,fpath,i)
      rawvalues={}
@@ -183,7 +193,7 @@ def read(root,episode,frames=None,*,expected=None,geometry=None,coordinates=None
      result.frames.append(Snapshot(i,stage,int(step),time,host,tuple(channels),tuple(records),Contact(tuple((str(c.geom1),str(c.geom2)) for c in records),True,None),tuple(cams),tuple(refs),objects,guard,synthetic))
     except (Missing,Invalid,ValueError,KeyError,TypeError,OSError) as e:
      invalid.append(i);diagnostic('missing' if isinstance(e,Missing) else 'invalid',str(e),fpath,i)
-   result.metadata['field_inventory']={'simulator':sorted(sim_fields),'raw_observation':sorted(raw_fields),'unexposed_simulator':sorted(sim_fields-set(SHAPES)-set(OPTIONAL)-{'contacts'}),'unexposed_raw_observation':sorted(raw_fields-exposed_raw-{'agentview_image','robot0_eye_in_hand_image'})}
+   result.metadata['field_inventory']={'simulator':sorted(sim_fields),'raw_observation':sorted(raw_fields),'unexposed_simulator':sorted(sim_fields-set(shapes)-set(optional)-{'contacts'}),'unexposed_raw_observation':sorted(raw_fields-exposed_raw-{'agentview_image','robot0_eye_in_hand_image'})}
    result.coverage['validated']=valid;result.coverage['invalid']=invalid
    result.coverage['unreturned']=sorted(set(available)-{f.index for f in result.frames})
    if times:result.metadata['observed_time_range']=[min(times),max(times)]

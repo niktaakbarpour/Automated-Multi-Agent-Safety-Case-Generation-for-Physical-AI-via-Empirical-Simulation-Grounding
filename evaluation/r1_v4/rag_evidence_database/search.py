@@ -17,6 +17,7 @@ class Query:
  requirement_id:str='R1'
  requirement_version:str='2.0.0'
  validation_status:str|None=None
+ stratum:str|None=None
  capabilities:dict=field(default_factory=dict)
  uncertainty_contains:str|None=None
  limit:int=20
@@ -31,6 +32,7 @@ class Query:
    if any(type(x)!=int or x<0 for x in self.interval):raise ValueError('saved-frame interval required')
   if self.text is not None and (not isinstance(self.text,str) or not self.text.strip() or len(self.text)>1000):raise ValueError('text query')
   if len(set(self.evidence_types))!=len(self.evidence_types):raise ValueError('duplicate evidence type')
+  if self.stratum not in (None,'development','corpus_expansion'):raise ValueError('stratum filter')
   if self.validation_status not in (None,'verified_measurement','verified_source','provisional','invalid','missing','unsupported'):raise ValueError('validity filter')
   return self
 
@@ -42,6 +44,7 @@ def search(store,query):
  if q.evidence_types:
   where.append('u.type IN ('+','.join('?' for _ in q.evidence_types)+')');args.extend(q.evidence_types)
  if q.interval is not None:where+=['u.hi>=?','u.lo<=?'];args.extend(q.interval)
+ if q.stratum:where.append('u.stratum=?');args.append(q.stratum)
  if q.validation_status:where.append("json_extract(e.body,'$.validation_status')=?");args.append(q.validation_status)
  if q.uncertainty_contains:where.append("lower(json_extract(e.body,'$.uncertainty')) LIKE ?");args.append('%'+q.uncertainty_contains.lower()+'%')
  if q.text:
@@ -92,4 +95,6 @@ def search(store,query):
     for a,b in r['missing_intervals']:available.difference_update(range(a,b+1))
     for frame in sorted(available):cells.append((frame,frame))
    coverage[typ]={'missing_intervals':subtract(tuple(q.interval),cells),'saved_frame_availability_only':True,'physical_coverage_qualified':False}
- return {'schema_version':'1.0.0','query_id':'query:'+digest(asdict(q)),'query':asdict(q),'matching_count':len(matched),'results':matched[:q.limit],'rejected':rejected,'coverage':coverage,'uncertainty':sorted({u for m in matched for u in m['record']['uncertainty']}),'retrieval_rationale':'Exact SQL metadata filters before source and dependency integrity; literal FTS5 token conjunction, BM25 then stable ID. Coverage is over all valid matches before top-k truncation.','evidence_exists':bool(rows),'evidence_retrieved':bool(matched),'measurement_records_valid':sum(m['record']['validation_status']=='verified_measurement' for m in matched),'sufficient_for_physical_checking':False,'safety_claim_verified':False,'empirical_admission_enabled':False}
+ query_metadata=asdict(q)
+ if q.stratum is None:query_metadata.pop('stratum')
+ return {'schema_version':'1.0.0','query_id':'query:'+digest(query_metadata),'query':query_metadata,'matching_count':len(matched),'results':matched[:q.limit],'rejected':rejected,'coverage':coverage,'uncertainty':sorted({u for m in matched for u in m['record']['uncertainty']}),'retrieval_rationale':'Exact SQL metadata filters before source and dependency integrity; literal FTS5 token conjunction, BM25 then stable ID. Coverage is over all valid matches before top-k truncation.','evidence_exists':bool(rows),'evidence_retrieved':bool(matched),'measurement_records_valid':sum(m['record']['validation_status']=='verified_measurement' for m in matched),'sufficient_for_physical_checking':False,'safety_claim_verified':False,'empirical_admission_enabled':False}
