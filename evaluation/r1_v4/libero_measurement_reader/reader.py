@@ -39,16 +39,23 @@ def array(group,name,shape,integer=False):
  return np.asarray(a)
 def run_id(ep):return f'libero_long_openvla_oft_task00_seed{1000+ep}_trial{ep:03d}_cfafd9ddc3db'
 
-def read(root,episode,frames=None,*,expected=None,geometry=None,coordinates=None,synthetic=False):
+def read(root,episode,frames=None,*,expected=None,geometry=None,coordinates=None,synthetic=False,development_profile=None):
  """Production pins restored hashes; injected contracts require synthetic=True."""
  if socket.gethostname().lower()!='hestia':raise RuntimeError('Research inspection requires Hestia')
  result=ReadResult(synthetic=synthetic)
  def diagnostic(status,code,source,frame=None):result.diagnostics.append(Diagnostic(status,code,str(source),frame))
  try:
-  if episode not in (0,1,2,14):raise Unsupported('execution_outside_development_scope')
+  extension=None
+  if development_profile is not None:
+   if synthetic or expected is not None or geometry is not None or coordinates is not None:raise Unsupported('profile_does_not_accept_injected_measurements')
+   from evaluation.r1_v4.rag_evidence_database.expansion.profile import approved_profile
+   extension=approved_profile(development_profile,root,episode)
+  if extension is None and episode not in (0,1,2,14):raise Unsupported('execution_outside_development_scope')
   if (expected is not None or geometry is not None or coordinates is not None) and not synthetic:raise Unsupported('custom_contract_requires_synthetic_fixture')
   contract=load(HERE/'SOURCE_CONTRACT.json')
   result.reader_binding=dict(version='1.0.0',purpose='measurement_only',source_contract_sha256=sha(HERE/'SOURCE_CONTRACT.json'),files={n:sha(HERE/n) for n in ('reader.py','models.py','bridge.py','__main__.py')})
+  if extension is not None:
+   result.reader_version='1.1.0';result.reader_binding.update(version='1.1.0',development_profile=development_profile,profile_sha256=extension['profile_sha256'])
   for n,h in contract['bindings'].items():
    if sha(REPO/n)!=h:raise Invalid('retained_dependency_hash:'+n)
   coords=COORDINATES if coordinates is None else coordinates
@@ -56,7 +63,7 @@ def read(root,episode,frames=None,*,expected=None,geometry=None,coordinates=None
   root=Path(root)
   if not root.resolve().is_relative_to('/disk/1/data/niktakbr'):raise Unsupported('source_root_outside_owned_disk1')
   ep=root/'long/task_00'/f'episode_{episode:03d}'
-  bindings=load(HERE/'RESTORED_SOURCES.json') if expected is None else expected
+  bindings=extension['bindings'] if extension is not None else load(HERE/'RESTORED_SOURCES.json') if expected is None else expected
   required=[r for r in bindings if Path(r['restored_path']).parent.name==ep.name or Path(r['restored_path']).name in ('task.bddl','benchmark_initial_states.init')]
   if len(required)!=11:raise Invalid('source_manifest_incomplete')
   paths={}
@@ -98,7 +105,7 @@ def read(root,episode,frames=None,*,expected=None,geometry=None,coordinates=None
    if n in producer['files'] and producer['files'][n]['sha256']!=sha(p):raise Invalid('producer_hash:'+n)
   fpath=paths['trajectory.h5'];saved_root=None;prior_time=None;valid=[];invalid=[];times=[]
   sim_fields=set();raw_fields=set();exposed_raw=set()
-  expected_count={0:258,1:277,2:246,14:531}[episode]
+  expected_count=extension['frames'] if extension is not None else {0:258,1:277,2:246,14:531}[episode]
   if synthetic:expected_count=metadata['synthetic_expected_frames']
   result.coverage={'requested_saved_frames':list(range(expected_count)),'available':[],'validated':[],'missing':[],'invalid':[],'negative_certificates':[],'projection':'saved_measurement_snapshot','continuous_coverage':False}
   with h5py.File(fpath,'r') as h:

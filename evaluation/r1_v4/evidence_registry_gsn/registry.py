@@ -57,11 +57,15 @@ class Registry:
 
 def dependency_issues(records):
  issues={k:[] for k in records}
+ conflicts={k:set() for k in records}
+ for key,record in records.items():
+  for other in record.conflicts:
+   if other in records:conflicts[key].add(other);conflicts[other].add(key)
  def walk(key,stack):
   if key in stack:return ['dependency_cycle']
   r=records[key];out=[]
-  for other_id,other in records.items():
-   if stack and (other_id in r.conflicts or key in other.conflicts):out.append('dependency_conflict:'+other_id)
+  if stack:
+   out+=['dependency_conflict:'+other_id for other_id in sorted(conflicts[key])]
   for d in r.dependencies:
    if d not in records:out.append('missing_dependency:'+d);continue
    other=records[d]

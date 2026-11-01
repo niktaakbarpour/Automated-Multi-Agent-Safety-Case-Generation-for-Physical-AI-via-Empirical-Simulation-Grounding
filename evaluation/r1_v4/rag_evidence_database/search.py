@@ -52,7 +52,11 @@ def search(store,query):
  sql='SELECT e.body,u.text,'+score+' AS score FROM evidence e JOIN rag_units u ON u.id=e.id JOIN rag_jobs j ON j.execution=e.execution_id'+join+' WHERE '+' AND '.join(where)+' ORDER BY score,e.id LIMIT 10001'
  rows=store.db.execute(sql,args).fetchall()
  if len(rows)>10000:raise ValueError('query too broad; narrow metadata filters')
- cache={};dependency_cache={};rejected=[];matched=[]
+ cache={};dependency_cache={};rejected=[];matched=[];conflict_map={}
+ for key,body in store.db.execute("SELECT id,body FROM evidence WHERE json_array_length(body,'$.conflicts')>0"):
+  record=Record.parse(strict_loads(body))
+  for other in record.conflicts:
+   conflict_map.setdefault(key,set()).add(other);conflict_map.setdefault(other,set()).add(key)
  def check_dep(key,stack=()):
   if key in dependency_cache:return dependency_cache[key]
   if key in stack:return ['dependency_cycle']
@@ -61,7 +65,7 @@ def search(store,query):
   r=Record.parse(strict_loads(row[0]));issues=[]
   if source_status(r,cache)!='verified_source':issues.append('invalid_dependency_source:'+key)
   if r.validation_status in ('invalid','missing','unsupported'):issues.append('invalid_dependency:'+key)
-  conflicts=store.db.execute("SELECT id FROM evidence WHERE id IN (SELECT value FROM json_each(?, '$.conflicts')) OR EXISTS (SELECT 1 FROM json_each(evidence.body,'$.conflicts') WHERE value=?)",(row[0],key)).fetchall()
+  conflicts=conflict_map.get(key,set())
   if conflicts:issues.append('dependency_conflict:'+key)
   for d in r.dependencies:issues+=check_dep(d,stack+(key,))
   dependency_cache[key]=issues;return issues
@@ -72,7 +76,7 @@ def search(store,query):
   for d in r.dependencies:issues+=check_dep(d)
   for name,status in q.capabilities.items():
    if r.capability.get(name)!=status:issues.append('capability:'+name+':'+r.capability.get(name,'missing'))
-  conflicts=store.db.execute("SELECT id FROM evidence WHERE id IN (SELECT value FROM json_each(?, '$.conflicts')) OR EXISTS (SELECT 1 FROM json_each(evidence.body,'$.conflicts') WHERE value=?)",(body,r.id)).fetchall()
+  conflicts=conflict_map.get(r.id,set())
   if conflicts:issues.append('explicit_conflict')
   if issues:rejected.append({'id':r.id,'reasons':sorted(set(issues))});continue
   matched.append({'id':r.id,'record':r.export(),'text':text,'rank':rank})

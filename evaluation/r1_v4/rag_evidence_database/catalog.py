@@ -32,6 +32,9 @@ def catalog_search(store,execution=None,limit=20,text=None):
  results=[strict_loads(r[0]) for r in rows]
  cache={}
  for r in results:
+  job=store.db.execute('SELECT status,records FROM rag_jobs WHERE execution=?',(r['execution_id'],)).fetchone()
+  r['measurement_status_is_historical']=True
+  r['current_index_job']={'status':job[0],'records':job[1],'source_validation_rechecked_by_catalog':False} if job else {'status':'not_indexed','records':0,'source_validation_rechecked_by_catalog':False}
   if r['catalog_source']!=str(REPO/'data/runs.json'):raise ValueError('unapproved catalog source')
   key=(r['catalog_source'],r['catalog_source_sha256'])
   if key not in cache:
