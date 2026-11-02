@@ -1,0 +1,18 @@
+BEGIN IMMEDIATE;
+CREATE TABLE i_meta(key TEXT PRIMARY KEY,value TEXT NOT NULL);
+CREATE TABLE i_nodes(id TEXT PRIMARY KEY,kind TEXT NOT NULL,body TEXT NOT NULL);
+CREATE TABLE i_artifacts(id TEXT PRIMARY KEY REFERENCES i_nodes(id),path TEXT NOT NULL,sha256 TEXT NOT NULL,bytes INTEGER,availability TEXT NOT NULL,UNIQUE(path,sha256));
+CREATE TABLE i_edges(id TEXT PRIMARY KEY,source TEXT NOT NULL REFERENCES i_nodes(id),target TEXT NOT NULL REFERENCES i_nodes(id),relation TEXT NOT NULL,basis TEXT NOT NULL);
+CREATE INDEX i_edges_source ON i_edges(source,relation);
+CREATE INDEX i_edges_target ON i_edges(target,relation);
+CREATE TABLE i_scope_nodes(execution TEXT NOT NULL,node TEXT NOT NULL REFERENCES i_nodes(id),PRIMARY KEY(execution,node));
+CREATE TABLE i_scope_edges(execution TEXT NOT NULL,edge TEXT NOT NULL REFERENCES i_edges(id),PRIMARY KEY(execution,edge));
+CREATE TABLE i_record_scope(node TEXT PRIMARY KEY REFERENCES i_nodes(id),execution TEXT NOT NULL,record_id TEXT NOT NULL,family TEXT NOT NULL);
+CREATE INDEX i_record_execution ON i_record_scope(execution,family);
+CREATE TABLE i_claims(id TEXT PRIMARY KEY REFERENCES i_nodes(id),execution TEXT NOT NULL,property TEXT NOT NULL,category TEXT NOT NULL,historical_attestation TEXT NOT NULL,body TEXT NOT NULL);
+CREATE INDEX i_claim_execution ON i_claims(execution,property);
+CREATE TABLE i_clock_domains(id TEXT PRIMARY KEY,body TEXT NOT NULL);
+CREATE TABLE i_clock_labels(execution TEXT NOT NULL,frame INTEGER NOT NULL,sim_time REAL NOT NULL,wall_ns INTEGER NOT NULL,monotonic_ns INTEGER NOT NULL,utc TEXT NOT NULL,PRIMARY KEY(execution,frame));
+CREATE INDEX i_clock_seconds ON i_clock_labels(execution,sim_time,frame);
+CREATE TABLE i_jobs(execution TEXT PRIMARY KEY,input_digest TEXT NOT NULL,scope_digest TEXT NOT NULL,status TEXT NOT NULL);
+COMMIT;

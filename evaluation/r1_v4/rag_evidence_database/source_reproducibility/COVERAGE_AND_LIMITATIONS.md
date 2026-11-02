@@ -1,0 +1,11 @@
+# Coverage and limitations
+
+All 432 admitted executions / 104 variants retain original evidence. Metadata declares 104 producer files per execution. Available bytes match 103 (100 from a verified local archive plus three preserved recorder/review files). oft_adapter.py is unavailable. Forty-one evaluator files per execution match recorded hashes. ARCHIVE_ENVIRONMENT_AUDIT.json separately inventories 88 unbound build/dependency declarations (including generic upstream Dockerfiles and a process coordination lock); none establishes the image or dependency environment actually used. Archived Python executable entries are symlink-target text, not attested runtime binaries. These are retrospective matches, not executed-byte attestations.
+
+Metadata names commit e4287e94541f459edc4feabc4e181f537cd569a8 and versions MuJoCo 3.8.1, robosuite 1.4.0, hf_libero 0.1.4, NumPy 1.26.4 and h5py 3.16.0. Versions do not prove binaries. No execution has independently attested historical binaries, clean checkout, container digest, trusted creation date or calibrated sensor clocks. Historical binaries/checkpoints are not restored/reexecuted. Resource/video hashes do not establish locally available payloads.
+
+Current dependency snapshots cover selected executable source, shared libraries and metadata, not all resources/transitive dependencies. They do not attest loaded process memory or unselected bytecode caches. Matching wheel RECORD entries show internal consistency, not publisher authenticity. Native/retrieval snapshots are distinct. Restoration covers six executions with current decoder prerequisites, not a hermetic historical runtime.
+
+No world transforms, calibration, contact-pair/force interpretation or synchronized sensor-time claims are added. main_table remains a bounded symbolic table/table_collision relationship, not support/contact/fall evidence. The -0.002-second cache interpretation remains conditional. Missing samples are never interpolated.
+
+Next database-only milestone: recover authenticated original producer/runtime artifacts and original clock/calibration evidence if available. Future instrumentation cannot retroactively attest historical recordings. Empirical R1 admission remains disabled; no checker, labels, predictions or downstream agents changed.

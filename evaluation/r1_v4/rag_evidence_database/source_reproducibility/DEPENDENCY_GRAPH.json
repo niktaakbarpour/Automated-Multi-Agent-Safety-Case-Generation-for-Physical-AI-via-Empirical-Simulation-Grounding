@@ -1,0 +1,254 @@
+{
+  "counts": {
+    "i_artifacts": 8176,
+    "i_claims": 2592,
+    "i_clock_labels": 58075,
+    "i_edges": 642436,
+    "i_nodes": 180672
+  },
+  "database": "/disk/1/data/niktakbr/trustworthy-phase5i-working/expanded.sqlite",
+  "database_sha256": "f6dbea047ad16c5420c34ff002e068e4ade41ab52806c936816aaf7019f303c8",
+  "queries": {
+    "claims": "SELECT * FROM i_claims WHERE execution=?",
+    "clock_labels": "SELECT * FROM i_clock_labels WHERE execution=? ORDER BY frame",
+    "execution_nodes": "SELECT n.* FROM i_scope_nodes s JOIN i_nodes n ON n.id=s.node WHERE s.execution=?",
+    "record_sources": "SELECT a.path,a.sha256 FROM i_edges e JOIN i_artifacts a ON a.id=e.target WHERE e.source=?"
+  },
+  "release_and_extraction_links": {
+    "edges": [
+      {
+        "basis": "These files implement the release assurance API and are hash-bound by the manifest",
+        "relation": "packages_interface",
+        "source": "release:release-provenance-1.0.0",
+        "target": "interface:release-provenance-1.0.0"
+      },
+      {
+        "basis": "The pinned database contains these original declarations unchanged",
+        "relation": "preserves_contract",
+        "source": "release:release-provenance-1.0.0",
+        "target": "extraction_declaration:evidence:phase2b4_exposed_AI_review"
+      },
+      {
+        "basis": "The pinned database contains these original declarations unchanged",
+        "relation": "preserves_contract",
+        "source": "release:release-provenance-1.0.0",
+        "target": "extraction_declaration:evidence:rag-evidence-database:1.0.0"
+      },
+      {
+        "basis": "The pinned database contains these original declarations unchanged",
+        "relation": "preserves_contract",
+        "source": "release:release-provenance-1.0.0",
+        "target": "extraction_declaration:channel:phase5g-channel-1.0.0:085718f1c795206cfaec786daf946ba12b5ca005310772a761979e3ea8f1ae48"
+      },
+      {
+        "basis": "The pinned database contains these original declarations unchanged",
+        "relation": "preserves_contract",
+        "source": "release:release-provenance-1.0.0",
+        "target": "extraction_declaration:channel:phase5g-channel-1.0.0:0b6702184b3519c9d95ada12c789b728ef9adf6ba6e28daa86689397ae8b50d4"
+      },
+      {
+        "basis": "The pinned database contains these original declarations unchanged",
+        "relation": "preserves_contract",
+        "source": "release:release-provenance-1.0.0",
+        "target": "extraction_declaration:channel:phase5g-channel-1.0.0:0c16e7fac3988e4c7f82944edccbe9f7cd6e093dc4179ada1aae8f10310539cc"
+      },
+      {
+        "basis": "The pinned database contains these original declarations unchanged",
+        "relation": "preserves_contract",
+        "source": "release:release-provenance-1.0.0",
+        "target": "extraction_declaration:channel:phase5g-channel-1.0.0:13c31f92f1ab1090537bc4d35054a8ee920fbfe075d05935d15f409f7f8373c7"
+      },
+      {
+        "basis": "The pinned database contains these original declarations unchanged",
+        "relation": "preserves_contract",
+        "source": "release:release-provenance-1.0.0",
+        "target": "extraction_declaration:channel:phase5g-channel-1.0.0:3d592f1beadd1725c9e956150bc3b9e317a5319fefb52a6b61ce335a167cdfa3"
+      },
+      {
+        "basis": "The pinned database contains these original declarations unchanged",
+        "relation": "preserves_contract",
+        "source": "release:release-provenance-1.0.0",
+        "target": "extraction_declaration:channel:phase5g-channel-1.0.0:bc385fd08410b8b989e107c3e6b9e8e98bb4ff2a0b8cc597dc52bbe97db2c31d"
+      },
+      {
+        "basis": "The pinned database contains these original declarations unchanged",
+        "relation": "preserves_contract",
+        "source": "release:release-provenance-1.0.0",
+        "target": "extraction_declaration:interpretation:physical-semantics-1.0.0"
+      }
+    ],
+    "explicit_edges": 10,
+    "explicit_nodes": 11,
+    "nodes": [
+      {
+        "database_sha256": "f6dbea047ad16c5420c34ff002e068e4ade41ab52806c936816aaf7019f303c8",
+        "historical_attestation": "NOT_ATTESTED",
+        "id": "release:release-provenance-1.0.0",
+        "kind": "release_descriptor",
+        "manifest_path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/source_reproducibility/ARTIFACT_MANIFEST.json",
+        "manifest_trust": "Caller must supply external SHA256; omitted here to avoid a content-hash cycle"
+      },
+      {
+        "files": [
+          {
+            "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/source_reproducibility/retrieve.py",
+            "sha256": "d2a07907b712d64a588c00b87f0bfa7963f510b2d6c2d9282c8943bdb964e82e"
+          },
+          {
+            "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/source_reproducibility/store.py",
+            "sha256": "27b0412c36a0694ac0bce4cfe4bd7d65b72f826afe4906c81f02f05e1ad38f51"
+          }
+        ],
+        "historical_attestation": "NOT_APPLICABLE",
+        "id": "interface:release-provenance-1.0.0",
+        "kind": "retrieval_interface"
+      },
+      {
+        "basis": "Verbatim producer or contract identity in preserved database; not a historical simulator producer claim",
+        "classification": "RETROSPECTIVE_DATABASE_METADATA",
+        "declared_identity": "phase2b4_exposed_AI_review",
+        "family": "evidence",
+        "historical_runtime_attested": false,
+        "id": "extraction_declaration:evidence:phase2b4_exposed_AI_review",
+        "kind": "stored_extraction_contract_declaration",
+        "record_count": 10
+      },
+      {
+        "basis": "Verbatim producer or contract identity in preserved database; not a historical simulator producer claim",
+        "classification": "RETROSPECTIVE_DATABASE_METADATA",
+        "declared_identity": "rag-evidence-database:1.0.0",
+        "family": "evidence",
+        "historical_runtime_attested": false,
+        "id": "extraction_declaration:evidence:rag-evidence-database:1.0.0",
+        "kind": "stored_extraction_contract_declaration",
+        "record_count": 80776
+      },
+      {
+        "basis": "Verbatim producer or contract identity in preserved database; not a historical simulator producer claim",
+        "classification": "RETROSPECTIVE_DATABASE_METADATA",
+        "declared_identity": "phase5g-channel-1.0.0:085718f1c795206cfaec786daf946ba12b5ca005310772a761979e3ea8f1ae48",
+        "family": "channel",
+        "historical_runtime_attested": false,
+        "id": "extraction_declaration:channel:phase5g-channel-1.0.0:085718f1c795206cfaec786daf946ba12b5ca005310772a761979e3ea8f1ae48",
+        "kind": "stored_extraction_contract_declaration",
+        "record_count": 432
+      },
+      {
+        "basis": "Verbatim producer or contract identity in preserved database; not a historical simulator producer claim",
+        "classification": "RETROSPECTIVE_DATABASE_METADATA",
+        "declared_identity": "phase5g-channel-1.0.0:0b6702184b3519c9d95ada12c789b728ef9adf6ba6e28daa86689397ae8b50d4",
+        "family": "channel",
+        "historical_runtime_attested": false,
+        "id": "extraction_declaration:channel:phase5g-channel-1.0.0:0b6702184b3519c9d95ada12c789b728ef9adf6ba6e28daa86689397ae8b50d4",
+        "kind": "stored_extraction_contract_declaration",
+        "record_count": 432
+      },
+      {
+        "basis": "Verbatim producer or contract identity in preserved database; not a historical simulator producer claim",
+        "classification": "RETROSPECTIVE_DATABASE_METADATA",
+        "declared_identity": "phase5g-channel-1.0.0:0c16e7fac3988e4c7f82944edccbe9f7cd6e093dc4179ada1aae8f10310539cc",
+        "family": "channel",
+        "historical_runtime_attested": false,
+        "id": "extraction_declaration:channel:phase5g-channel-1.0.0:0c16e7fac3988e4c7f82944edccbe9f7cd6e093dc4179ada1aae8f10310539cc",
+        "kind": "stored_extraction_contract_declaration",
+        "record_count": 432
+      },
+      {
+        "basis": "Verbatim producer or contract identity in preserved database; not a historical simulator producer claim",
+        "classification": "RETROSPECTIVE_DATABASE_METADATA",
+        "declared_identity": "phase5g-channel-1.0.0:13c31f92f1ab1090537bc4d35054a8ee920fbfe075d05935d15f409f7f8373c7",
+        "family": "channel",
+        "historical_runtime_attested": false,
+        "id": "extraction_declaration:channel:phase5g-channel-1.0.0:13c31f92f1ab1090537bc4d35054a8ee920fbfe075d05935d15f409f7f8373c7",
+        "kind": "stored_extraction_contract_declaration",
+        "record_count": 432
+      },
+      {
+        "basis": "Verbatim producer or contract identity in preserved database; not a historical simulator producer claim",
+        "classification": "RETROSPECTIVE_DATABASE_METADATA",
+        "declared_identity": "phase5g-channel-1.0.0:3d592f1beadd1725c9e956150bc3b9e317a5319fefb52a6b61ce335a167cdfa3",
+        "family": "channel",
+        "historical_runtime_attested": false,
+        "id": "extraction_declaration:channel:phase5g-channel-1.0.0:3d592f1beadd1725c9e956150bc3b9e317a5319fefb52a6b61ce335a167cdfa3",
+        "kind": "stored_extraction_contract_declaration",
+        "record_count": 432
+      },
+      {
+        "basis": "Verbatim producer or contract identity in preserved database; not a historical simulator producer claim",
+        "classification": "RETROSPECTIVE_DATABASE_METADATA",
+        "declared_identity": "phase5g-channel-1.0.0:bc385fd08410b8b989e107c3e6b9e8e98bb4ff2a0b8cc597dc52bbe97db2c31d",
+        "family": "channel",
+        "historical_runtime_attested": false,
+        "id": "extraction_declaration:channel:phase5g-channel-1.0.0:bc385fd08410b8b989e107c3e6b9e8e98bb4ff2a0b8cc597dc52bbe97db2c31d",
+        "kind": "stored_extraction_contract_declaration",
+        "record_count": 432
+      },
+      {
+        "basis": "Verbatim producer or contract identity in preserved database; not a historical simulator producer claim",
+        "classification": "RETROSPECTIVE_DATABASE_METADATA",
+        "declared_identity": "physical-semantics-1.0.0",
+        "family": "interpretation",
+        "historical_runtime_attested": false,
+        "id": "extraction_declaration:interpretation:physical-semantics-1.0.0",
+        "kind": "stored_extraction_contract_declaration",
+        "record_count": 2592
+      }
+    ],
+    "relationship_views": [
+      {
+        "basis": "Direct association from the same preserved row; no inferred historical execution edge",
+        "edge_count": 80786,
+        "family": "evidence",
+        "sql": "SELECT 'evidence:'||id AS source, 'extraction_declaration:evidence:'||(coalesce(json_extract(body,'$.producer'),'UNSPECIFIED')) AS target, 'declares_extraction_contract' AS relation FROM evidence ORDER BY id"
+      },
+      {
+        "basis": "Direct association from the same preserved row; no inferred historical execution edge",
+        "edge_count": 2592,
+        "family": "channel",
+        "sql": "SELECT 'channel:'||id AS source, 'extraction_declaration:channel:'||(coalesce(json_extract(body,'$.contract.version'),'UNSPECIFIED')||':'||coalesce(json_extract(body,'$.contract_sha256'),'UNSPECIFIED')) AS target, 'declares_extraction_contract' AS relation FROM rag_channel_records ORDER BY id"
+      },
+      {
+        "basis": "Direct association from the same preserved row; no inferred historical execution edge",
+        "edge_count": 2592,
+        "family": "interpretation",
+        "sql": "SELECT 'interpretation:'||raw_id AS source, 'extraction_declaration:interpretation:'||(coalesce(json_extract(body,'$.version'),(select value from h_meta where key='version'),'UNSPECIFIED')) AS target, 'declares_extraction_contract' AS relation FROM h_semantics ORDER BY raw_id"
+      },
+      {
+        "basis": "Explicit membership in the hash-pinned release database",
+        "edge_count": 85970,
+        "sql": "SELECT node AS source, 'release:release-provenance-1.0.0' AS target, 'release_member' AS relation FROM i_record_scope ORDER BY node"
+      }
+    ],
+    "scope": "Release metadata links; not historical simulator producer attestation",
+    "virtual_edges": 171940
+  },
+  "scope": {
+    "excludes": [
+      "unattested_historical_binaries",
+      "complete_transitive_environment",
+      "unrestored_video_resource_payloads",
+      "physical_clock_synchronization"
+    ],
+    "id": "release-evidence-graph-v1",
+    "meaning": "Complete declared evidence/interpretation lineage and selected current critical decoder ABI artifacts for one execution; not historical producer/environment completeness",
+    "requires": [
+      "source_recording",
+      "variant_binding",
+      "interpretation_proofs",
+      "producer_record_content",
+      "critical_current_decoder_artifacts"
+    ]
+  },
+  "tables": [
+    "i_nodes",
+    "i_artifacts",
+    "i_edges",
+    "i_scope_nodes",
+    "i_scope_edges",
+    "i_record_scope",
+    "i_claims",
+    "i_clock_domains",
+    "i_clock_labels",
+    "i_jobs"
+  ]
+}

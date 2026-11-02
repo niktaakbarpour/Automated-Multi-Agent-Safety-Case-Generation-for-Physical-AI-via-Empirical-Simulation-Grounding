@@ -1,0 +1,53 @@
+{
+  "projections": {
+    "checkpoint_hash_declarations": {
+      "original_json_pointers": [
+        "/checkpoint_weight_sha256"
+      ],
+      "transformation": "single-field identity"
+    },
+    "dependency_version_declarations": {
+      "original_json_pointers": [
+        "/versions"
+      ],
+      "transformation": "single-field identity"
+    },
+    "hardware_backend_declarations": {
+      "original_json_pointers": [
+        "/gpu",
+        "/gpu_driver",
+        "/physical_gpu_index",
+        "/model_family",
+        "/checkpoint_revision"
+      ],
+      "transformation": "named object projection; absent members explicitly represented as null without asserting null was recorded"
+    },
+    "python_declaration": {
+      "original_json_pointers": [
+        "/python"
+      ],
+      "transformation": "single-field identity"
+    },
+    "recording_configuration": {
+      "original_json_pointers": [
+        "/recorder_schema_version",
+        "/dataset_schema_version",
+        "/control_frequency_hz",
+        "/settling_steps",
+        "/observation_size",
+        "/seed",
+        "/inference_configuration",
+        "/resolved_policy_configuration",
+        "/recording_notes"
+      ],
+      "transformation": "named object projection; absent members explicitly represented as null without asserting null was recorded"
+    },
+    "source_commit_declaration": {
+      "original_json_pointers": [
+        "/source_commit"
+      ],
+      "transformation": "single-field identity"
+    }
+  },
+  "selector_namespace": "canonical_projection_id, not literal original JSON pointer"
+}
