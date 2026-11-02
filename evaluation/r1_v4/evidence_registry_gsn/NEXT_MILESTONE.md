@@ -1,0 +1,7 @@
+# Recommended next milestone
+
+Build a bounded drafting and critique prototype using this registry and graph schema. Start with a deterministic retrieval plus single-drafter baseline, requiring every proposed solution to name an existing evidence ID and every unmet physical gate to remain an explicit unresolved claim or defeater. Label all model text as LLM proposals. Do not allow drafting or criticism to change measurement validity, reference provenance or empirical admission.
+
+Then add critic and revision roles with the same frozen retrieval snapshot and versioned prompts. Record shared inputs, producer/model hashes, disagreements and revision lineage. Evaluate traceability, scope correctness, missing-evidence preservation, unsupported claim promotion, contradiction handling and reproducibility against retrieval-only and single-drafter baselines; an ablation can remove provenance or criticism under an explicitly separate research protocol. These are argument-quality evaluations, not checker accuracy.
+
+In parallel, independently verified support references, bounded geometry and recorder phase uncertainty, a genuine in-scope falling reference and qualified temporal certificates are still needed before empirical checking. The present sources and AI-only reviews cannot close these gates. Existing frozen NV01–NV20 artifacts remain excluded from calibration. Any new simulation/reference study needs separate authorization. No agent execution, RAG implementation or additional experiment was started in Phase 5A.

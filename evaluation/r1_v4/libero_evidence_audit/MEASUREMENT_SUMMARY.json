@@ -1,0 +1,58 @@
+[
+  {
+    "contacts": 8557,
+    "first_time": 0.0,
+    "frames": 258,
+    "last_time": 12.85000000000096,
+    "max_reported_position_recomposition_error_m": 2.220446049250313e-16,
+    "max_reported_rotation_recomposition_error": 2.55351295663786e-15,
+    "max_saved_interval_s": 0.0500000000000167,
+    "min_saved_interval_s": 0.04999999999999449,
+    "phase_status": "inherited nominal lag; uncalibrated",
+    "physical_conclusion": null,
+    "raw_ncon_available": false,
+    "run_id": "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db"
+  },
+  {
+    "contacts": 8996,
+    "first_time": 0.0,
+    "frames": 277,
+    "last_time": 13.800000000001278,
+    "max_reported_position_recomposition_error_m": 2.220446049250313e-16,
+    "max_reported_rotation_recomposition_error": 2.55351295663786e-15,
+    "max_saved_interval_s": 0.0500000000000167,
+    "min_saved_interval_s": 0.04999999999999449,
+    "phase_status": "inherited nominal lag; uncalibrated",
+    "physical_conclusion": null,
+    "raw_ncon_available": false,
+    "run_id": "libero_long_openvla_oft_task00_seed1001_trial001_cfafd9ddc3db"
+  },
+  {
+    "contacts": 7687,
+    "first_time": 0.0,
+    "frames": 246,
+    "last_time": 12.25000000000076,
+    "max_reported_position_recomposition_error_m": 2.220446049250313e-16,
+    "max_reported_rotation_recomposition_error": 2.4424906541753444e-15,
+    "max_saved_interval_s": 0.0500000000000167,
+    "min_saved_interval_s": 0.04999999999999449,
+    "phase_status": "inherited nominal lag; uncalibrated",
+    "physical_conclusion": null,
+    "raw_ncon_available": false,
+    "run_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db"
+  },
+  {
+    "contacts": 15788,
+    "first_time": 0.0,
+    "frames": 531,
+    "last_time": 26.49999999999619,
+    "max_reported_position_recomposition_error_m": 2.220446049250313e-16,
+    "max_reported_rotation_recomposition_error": 2.3314683517128287e-15,
+    "max_saved_interval_s": 0.0500000000000167,
+    "min_saved_interval_s": 0.04999999999997229,
+    "phase_status": "inherited nominal lag; uncalibrated",
+    "physical_conclusion": null,
+    "raw_ncon_available": false,
+    "run_id": "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db"
+  }
+]

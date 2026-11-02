@@ -1,0 +1,335 @@
+{
+  "$id": "urn:trustworthy:r1:v4:assessment:1.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "else": {
+        "properties": {
+          "configuration_status": {
+            "const": "valid"
+          },
+          "execution_outcome": {
+            "enum": [
+              "violation_observed",
+              "no_violation_observed_within_validated_coverage",
+              "not_applicable",
+              "insufficient_information",
+              "invalid_measurement_contract"
+            ]
+          }
+        },
+        "required": [
+          "admitted_evidence_ids",
+          "rejected_evidence",
+          "evidence_admission",
+          "missing_requirements",
+          "uncertainty",
+          "provenance",
+          "assessment_hash"
+        ]
+      },
+      "if": {
+        "properties": {
+          "assessed": {
+            "const": false
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "configuration_status": {
+            "const": "invalid"
+          },
+          "execution_outcome": {
+            "type": "null"
+          },
+          "object_assessments": {
+            "maxItems": 0
+          }
+        },
+        "required": [
+          "configuration_diagnostics"
+        ]
+      }
+    }
+  ],
+  "properties": {
+    "assessed": {
+      "type": "boolean"
+    },
+    "assessment_manifest": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "assessment_schema_version": {
+      "const": "1.0.0"
+    },
+    "checker_version": {
+      "const": "4.0.0a1"
+    },
+    "configuration_hash": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "configuration_schema_version": {
+      "const": "2.0.1"
+    },
+    "configuration_status": {
+      "enum": [
+        "valid",
+        "invalid"
+      ]
+    },
+    "empirical_profiles_enabled": {
+      "const": false
+    },
+    "evidence_schema_version": {
+      "const": "1.0.0"
+    },
+    "execution_outcome": {
+      "oneOf": [
+        {
+          "enum": [
+            "violation_observed",
+            "no_violation_observed_within_validated_coverage",
+            "not_applicable",
+            "insufficient_information",
+            "invalid_measurement_contract"
+          ]
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "manifest_version": {
+      "const": "1.0.0"
+    },
+    "object_assessments": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "adapter_version": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "applicability": {
+            "enum": [
+              "applicable",
+              "not_applicable",
+              "indeterminate",
+              "unsupported_evidence_contract"
+            ]
+          },
+          "checker_version": {
+            "const": "4.0.0a1"
+          },
+          "complete": {
+            "type": "boolean"
+          },
+          "coverage": {
+            "additionalProperties": false,
+            "properties": {
+              "admitted": {
+                "items": {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "type": "array",
+                "uniqueItems": true
+              },
+              "available": {
+                "items": {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "type": "array",
+                "uniqueItems": true
+              },
+              "dependencies": {
+                "items": {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "type": "array",
+                "uniqueItems": true
+              },
+              "invalid": {
+                "items": {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "type": "array",
+                "uniqueItems": true
+              },
+              "missing": {
+                "items": {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "type": "array",
+                "uniqueItems": true
+              },
+              "negative": {
+                "items": {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "type": "array",
+                "uniqueItems": true
+              },
+              "requested": {
+                "items": {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "type": "array",
+                "uniqueItems": true
+              },
+              "source_groups": {
+                "type": "array"
+              },
+              "unobserved": {
+                "items": {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "type": "array",
+                "uniqueItems": true
+              }
+            },
+            "required": [
+              "requested",
+              "available",
+              "admitted",
+              "negative",
+              "missing",
+              "dependencies",
+              "invalid",
+              "unobserved",
+              "source_groups"
+            ],
+            "type": "object"
+          },
+          "evidence_ids": {
+            "items": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "type": "array",
+            "uniqueItems": true
+          },
+          "execution_id": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "object_id": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "outcome": {
+            "enum": [
+              "violation_observed",
+              "no_violation_observed_within_validated_coverage",
+              "not_applicable",
+              "insufficient_information",
+              "invalid_measurement_contract"
+            ]
+          },
+          "profile_version": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "reasons": {
+            "items": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "type": "array",
+            "uniqueItems": true
+          },
+          "requirement_version": {
+            "const": "2.0.0"
+          },
+          "scope_mismatch": {
+            "type": "boolean"
+          },
+          "study_eligibility": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "surfaces": {
+            "items": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "type": "array",
+            "uniqueItems": true
+          },
+          "uncertainty": {
+            "items": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "type": "array",
+            "uniqueItems": true
+          },
+          "validation_status": {
+            "const": "synthetic_analytical_only"
+          }
+        },
+        "required": [
+          "object_id",
+          "surfaces",
+          "applicability",
+          "outcome",
+          "reasons",
+          "evidence_ids",
+          "coverage",
+          "uncertainty",
+          "complete",
+          "scope_mismatch",
+          "study_eligibility",
+          "execution_id",
+          "requirement_version",
+          "checker_version",
+          "adapter_version",
+          "profile_version",
+          "validation_status"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "physical_safety_conclusion": {
+      "const": false
+    },
+    "requirement_id": {
+      "const": "R1"
+    },
+    "requirement_version": {
+      "const": "2.0.0"
+    },
+    "synthetic": {
+      "const": true
+    }
+  },
+  "required": [
+    "requirement_id",
+    "requirement_version",
+    "checker_version",
+    "configuration_hash",
+    "assessment_manifest",
+    "configuration_status",
+    "assessed",
+    "object_assessments",
+    "execution_outcome",
+    "physical_safety_conclusion",
+    "empirical_profiles_enabled"
+  ],
+  "type": "object"
+}

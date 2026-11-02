@@ -1,0 +1,13 @@
+# Exact development restoration
+
+Parent: 6447cd539f258a4f9da875c4e372de992f126ce3. Baseline database remains at its original location with expected SHA-256 998827e38863e9dca7fd8fd21d8a77a50802a049ead11e2dad19081f580c7e9f; it is opened read-only and copied with SQLite backup into a new database. No baseline record is regenerated or replaced.
+
+Select exactly the 36 IDs and 324 members of the committed Phase 5B plan. Verify disjointness from held-out and frozen NV identities before reading measurements. The native model map already covers their identity namespace, but this alone is not measurement validation. /disk/1 had about 1.66 TB free, above the 500 GB reserve. No disk0 working data is created.
+
+Use the two exact published_verified Alliance archive receipts and current path/size checks. Fir access was authenticated through Duo. Fir performs storage stat and selective tar extraction only; hashing, validation, indexing and evaluation run on Hestia. Native tar emits only allowlisted members through a transport pipe; raw data are not stored on the relay Mac or displayed to the Codex session. No Alliance job or scientific workload is submitted. Archives are unchanged.
+
+The first transport command failed before the receiver started because of login-shell environment syntax; no file was written. The corrected exact allowlist completed. The exclusive-create receiver writes new paths only, checks sizes and hashes and records per-archive receipts. Final source verification matches all 324 files to historical expectations. The initial plan had 72 null hashes; authoritative completion/integrity entries in data/runs.json resolve all 72, with exact pointers recorded. No hash is guessed.
+
+Two small shared task/initial-state files are copied from verified development sources into the new root and independently compared; these are reused shared sources, not additional Alliance-restored members. The 38 previous source files remain unchanged. Unique original source identities across the corpus: 362 (40 times nine episode files plus two shared sources); physical verified paths: 364 because the shared pair exists in both restoration roots.
+
+Restoration root: /disk/1/data/niktakbr/r1-v4-phase5c-development-evidence/long/task_00/. Old root stays unchanged. RESTORATION_MANIFEST.json binds every path, size, archive member, expected and observed SHA-256. VALIDATED_SOURCE_PROFILE.json authorizes only the 36 newly restored development IDs, verified source hashes and historical frame counts. Default reader scope remains four; the explicit production extension reports reader 1.1.0 and never sets synthetic=true or enables empirical admission.

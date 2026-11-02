@@ -1,0 +1,11 @@
+# Provenance
+
+Production sources are the 38 restored files in `/disk/1/data/niktakbr/r1-v4-phase2b2-development-evidence/long/task_00/`, with hashes from the existing RESTORED_SOURCES manifest. All 38 freshly match before and after validation. The existing reader validates eleven required files per episode including shared task and initial state; no source is overwritten or reconstructed.
+
+Model: moojink/openvla-7b-oft-finetuned-libero-spatial-object-goal-10, revision 638918f3d1c2e43a39a8a20772bdb8b91835e4b7. Recorded checkpoint metadata are verified; model weights are not freshly rehashed/run. Benchmark: libero_10, recorded suite long, task configuration 2448c758145ae5ad500f. Execution IDs retain seeds 1000, 1001, 1002 and 1014 and exact trial IDs. Task instruction: put both the alphabet soup and the tomato sauce in the basket.
+
+Native geometry map and constraints come from the existing hash-bound reports. All anonymous native geometry IDs are retained. The five measurement objects are butter_1, cream_cheese_1, ketchup_1, milk_1 and orange_juice_1. Static table IDs 10–15 are references, not support judgments. Native pose caches and endpoint timestamps have distinct phases. Contact distances/positions and ownership remain source fields; no normals/forces are invented. Camera IDs and frame references remain qualitative with unknown capture times.
+
+Original raw measurements, source documents and derived identity/calibration provenance remain distinct. Ten Phase 2B.4 AI proposals are labeled provisional, non-human and non-independent. No human reference annotation is created or populated. No compatible empirical V4 checker outputs exist because admission remains disabled. Legacy checker outcomes are not relabeled as R1 v2 judgments; the existing Record checker_assessment kind remains available for future explicitly version-compatible attributed results.
+
+The broader catalog binds the exact data/runs.json SHA-256 and archive members from historical transfer receipts. It is metadata, not raw verification. SOURCE_COVERAGE_MANIFEST.json binds inventory and receipt sources; SELECTIVE_RESTORATION_PLAN.json identifies exact missing development archive members. Null expected hashes stay unresolved. Full database integrity verifies source hashes, dependencies, FTS correspondence and SQLite foreign keys.

@@ -1,0 +1,16 @@
+test_blank_approval_rejected_before_prediction_access (test_verification.VerificationTests.test_blank_approval_rejected_before_prediction_access) ... ok
+test_complete_test_declarations_still_cannot_freeze_or_score (test_verification.VerificationTests.test_complete_test_declarations_still_cannot_freeze_or_score) ... ok
+test_every_field_and_event_accounted_for (test_verification.VerificationTests.test_every_field_and_event_accounted_for) ... ok
+test_exact_transfer_and_all_twenty_cases (test_verification.VerificationTests.test_exact_transfer_and_all_twenty_cases) ... ok
+test_fake_human_authorship_or_coverage_detected (test_verification.VerificationTests.test_fake_human_authorship_or_coverage_detected) ... ok
+test_missing_case_or_changed_outcome_detected (test_verification.VerificationTests.test_missing_case_or_changed_outcome_detected) ... ok
+test_nv12_exact_rationale_and_uncertainties_retained (test_verification.VerificationTests.test_nv12_exact_rationale_and_uncertainties_retained) ... ok
+test_omitted_uncertainty_detected (test_verification.VerificationTests.test_omitted_uncertainty_detected) ... ok
+test_outcome_acceptance_does_not_clear_other_disagreements (test_verification.VerificationTests.test_outcome_acceptance_does_not_clear_other_disagreements) ... ok
+test_prepare_never_overwrites_existing_human_records (test_verification.VerificationTests.test_prepare_never_overwrites_existing_human_records) ... ok
+test_source_annotation_tamper_detected (test_verification.VerificationTests.test_source_annotation_tamper_detected) ... ok
+
+----------------------------------------------------------------------
+Ran 11 tests in 0.847s
+
+OK

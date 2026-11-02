@@ -1,0 +1,19 @@
+{
+  "authorized_visual_bytes": 120932,
+  "authorized_visual_files": 3,
+  "candidates_reviewed": 11,
+  "disk0_free_bytes": 385944608768,
+  "disk1_free_bytes": 1662435368960,
+  "empirical_admission_enabled": false,
+  "host_and_endpoint_timestamps_preserved": true,
+  "human_forms_unchanged": true,
+  "independent_human_truth_created": 0,
+  "ledger_entries": 41,
+  "passed": true,
+  "physical_judgments_admitted": 0,
+  "raw_or_unapproved_payload_transferred": false,
+  "source_case_count": 10,
+  "source_files_preserved": 38,
+  "status_promotions": 0,
+  "tests_passed": 265
+}

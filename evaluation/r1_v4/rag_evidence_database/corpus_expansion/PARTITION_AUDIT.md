@@ -1,0 +1,13 @@
+# Partition audit and authorized profile extension
+
+The inventory has 2,000 executions in 40 suite/task partitions, 50 each. Four model-configuration IDs each cover 500: goal 8425d02be3ee81f1f343, spatial 7a5c678b65f5ae21176d, object 497495005f5e820a10c9, long 85620572476d4a08fc0d. Checkpoint: moojink/openvla-7b-oft-finetuned-libero-spatial-object-goal-10, revision 638918f3d1c2e43a39a8a20772bdb8b91835e4b7. Shared weights do not establish identical recording contracts. Weights are not rerun/rehashed.
+
+The initial unchanged-reader audit found no additional eligible execution. Long task 00 had 40 indexed and ten reserved. All 50 task 01 executions are frozen transfer evaluation under PROTOCOL.json, not just its ten NV cases. Other 38 tasks have different XML/layouts; several have 50 XML variants. Inventory envelope 1.0.0 and sampled keys do not establish source recorder schema or complete native identities.
+
+The user explicitly authorized one new measurement-only profile. Selection: nonreserved partitions with a single recorded XML, smallest total nine-file footprint, then partition name. This selects Object task 02. All 38 historical cross-scene preflight examples are additionally excluded. Episode 001 is the lexicographically first remaining pilot; it and 48 further cases form the entire batch. Selection uses identity/storage metadata, not outcomes, predictions or applicability.
+
+The pilot verifies schema 4.0, task/model IDs, checkpoint attestations, hashes, complete compiler/native mappings, joint addresses, shapes/dtypes, poses, contacts, clocks, robot/gripper channels and camera references. The new scene has seven objects and floor geometry, not the old table mapping. It has 58 qpos versus 65, and 26 bodies versus 29; both models have 161 geometries with different identities. Existing MuJoCo 3.8.1 compiles verified XML/assets without MjData, physics steps or rendering. Independent compilation reproduces the profile exactly.
+
+All 49 payloads pass full snapshot validation under object-task02:1.0.0 / reader 1.2.0. Other 37 differing-model tasks remain unregistered. Raw geometry availability does not admit bounds/support: floor-plane/non-BOX physical checking stays unsupported, support/fall/negative gates blocked, exposure alignment unresolved and contact normals/forces absent. Raw-observable conventions remain qualified.
+
+Fresh payload verification is distinct from archive membership. The exact 443-file closure is restored to a new /disk/1 root; the initial-state hash is resolved through hash-verified pilot metadata. Shared initialization archives are task sources, not withheld executed trajectories; no reserved recording or safety reference is used. New corpus data are not silently designated calibration development.

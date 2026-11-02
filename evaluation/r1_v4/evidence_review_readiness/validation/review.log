@@ -1,0 +1,32 @@
+test_all_eleven_candidates_reviewed (test_review.EvidenceReview.test_all_eleven_candidates_reviewed) ... /disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/evidence_review_readiness/tests/test_review.py:6: ResourceWarning: unclosed file <_io.TextIOWrapper name='/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/evidence_review_readiness/AI_REFERENCE_REVIEWS.csv' mode='r' encoding='UTF-8'>
+  def csvrows(name):return list(csv.DictReader((HERE/name).open()))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+ok
+test_camera_identity_and_uncertain_exposure_preserved (test_review.EvidenceReview.test_camera_identity_and_uncertain_exposure_preserved) ... ok
+test_evidence_ledger_references_resolve (test_review.EvidenceReview.test_evidence_ledger_references_resolve) ... /disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/evidence_review_readiness/tests/test_review.py:6: ResourceWarning: unclosed file <_io.TextIOWrapper name='/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/evidence_review_readiness/EVIDENCE_LEDGER.csv' mode='r' encoding='UTF-8'>
+  def csvrows(name):return list(csv.DictReader((HERE/name).open()))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+ok
+test_gate_statuses_not_promoted_by_review (test_review.EvidenceReview.test_gate_statuses_not_promoted_by_review) ... /disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/evidence_review_readiness/tests/test_review.py:6: ResourceWarning: unclosed file <_io.TextIOWrapper name='/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/evidence_review_readiness/UPDATED_EVIDENCE_GATES.csv' mode='r' encoding='UTF-8'>
+  def csvrows(name):return list(csv.DictReader((HERE/name).open()))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+ok
+test_measurement_evidence_not_AI_physical_truth (test_review.EvidenceReview.test_measurement_evidence_not_AI_physical_truth) ... ok
+test_no_heldout_numerical_case (test_review.EvidenceReview.test_no_heldout_numerical_case) ... ok
+test_no_human_truth_or_empirical_witness (test_review.EvidenceReview.test_no_human_truth_or_empirical_witness) ... ok
+test_no_media_or_original_data_in_git_artifacts (test_review.EvidenceReview.test_no_media_or_original_data_in_git_artifacts) ... ok
+test_old_human_review_forms_unchanged_and_blank (test_review.EvidenceReview.test_old_human_review_forms_unchanged_and_blank) ... /disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/evidence_review_readiness/tests/test_review.py:42: ResourceWarning: unclosed file <_io.TextIOWrapper name='/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/measurement_profile_validation/REFERENCE_REVIEW_FORM.csv' mode='r' encoding='UTF-8'>
+  for row in csv.DictReader((PROFILE/'REFERENCE_REVIEW_FORM.csv').open()):self.assertTrue(all(v=='' for k,v in row.items() if k!='candidate_id'))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+ok
+test_readiness_separates_measurements_and_predicates (test_review.EvidenceReview.test_readiness_separates_measurements_and_predicates) ... ok
+test_same_exposed_AI_not_independent_confirmation (test_review.EvidenceReview.test_same_exposed_AI_not_independent_confirmation) ... ok
+test_source_host_timestamps_preserved_without_exposure_claim (test_review.EvidenceReview.test_source_host_timestamps_preserved_without_exposure_claim) ... ok
+test_unfilled_sliding_not_fabricated (test_review.EvidenceReview.test_unfilled_sliding_not_fabricated) ... ok
+test_visual_frame_coverage_not_invented (test_review.EvidenceReview.test_visual_frame_coverage_not_invented) ... ok
+test_visual_review_exactly_authorized_images (test_review.EvidenceReview.test_visual_review_exactly_authorized_images) ... ok
+
+----------------------------------------------------------------------
+Ran 15 tests in 0.006s
+
+OK

@@ -1,0 +1,15 @@
+{
+  "assessment_manifest_version": "1.0.0",
+  "bindings": {
+    "reports/fall_checker_dev_v2_20261017/src/native_geometry_v2.py": "3d582b66656751a59bd981bbf007270dabf0d431822acd065114c3c38e51407c",
+    "reports/fall_review_v2_20261016/constraints_and_identities.json": "38b0384d5f17f0068133e54266f41d0a6728b60c1d4f1f96b3e14a7cd6fd7e3b",
+    "reports/fall_review_v2_20261016/corrected_native_geometry_v2.json": "a6d32b025a4e4ad495216d07faa093d42d93797d03626516653d62d1ec7a2be1"
+  },
+  "configuration_schema_version": "2.0.1",
+  "empirical_admission_enabled": false,
+  "purpose": "measurement_only_not_empirical_assessment",
+  "reader_version": "1.0.0",
+  "recorder_version": "4.0",
+  "requirement_version": "2.0.0",
+  "v4_evidence_version": "1.0.0"
+}

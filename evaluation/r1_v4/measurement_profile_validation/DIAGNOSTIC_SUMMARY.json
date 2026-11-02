@@ -1,0 +1,1393 @@
+{
+  "BOX_pieces": 28,
+  "clocks": [
+    {
+      "camera_exposure_bound": null,
+      "continuous_coverage": false,
+      "episode": 0,
+      "first": 0.0,
+      "host_interval_max_s": 0.70560598,
+      "host_interval_min_s": 0.027552628,
+      "interval_max": 0.0500000000000167,
+      "interval_min": 0.04999999999999449,
+      "last": 12.85000000000096,
+      "missing_indices": [],
+      "strictly_monotonic": true
+    },
+    {
+      "camera_exposure_bound": null,
+      "continuous_coverage": false,
+      "episode": 1,
+      "first": 0.0,
+      "host_interval_max_s": 0.285202438,
+      "host_interval_min_s": 0.02802747,
+      "interval_max": 0.0500000000000167,
+      "interval_min": 0.04999999999999449,
+      "last": 13.800000000001278,
+      "missing_indices": [],
+      "strictly_monotonic": true
+    },
+    {
+      "camera_exposure_bound": null,
+      "continuous_coverage": false,
+      "episode": 2,
+      "first": 0.0,
+      "host_interval_max_s": 0.318633986,
+      "host_interval_min_s": 0.027632503,
+      "interval_max": 0.0500000000000167,
+      "interval_min": 0.04999999999999449,
+      "last": 12.25000000000076,
+      "missing_indices": [],
+      "strictly_monotonic": true
+    },
+    {
+      "camera_exposure_bound": null,
+      "continuous_coverage": false,
+      "episode": 14,
+      "first": 0.0,
+      "host_interval_max_s": 0.281557965,
+      "host_interval_min_s": 0.02780915,
+      "interval_max": 0.0500000000000167,
+      "interval_min": 0.04999999999997229,
+      "last": 26.49999999999619,
+      "missing_indices": [],
+      "strictly_monotonic": true
+    }
+  ],
+  "empirical_admission_enabled": false,
+  "executions": 4,
+  "frames": 1312,
+  "global_ranges": {
+    "box_roundoff_width": {
+      "max": 1.5543122344752192e-15,
+      "min": 3.3306690738754696e-16
+    },
+    "endpoint_cache_residual": {
+      "max": 1.1015494072452725e-16,
+      "min": 4.887500240963608e-19
+    },
+    "max_vertex_dz": {
+      "max": 0.16382711802286892,
+      "min": -0.14868425453611722
+    },
+    "min_vertex_dz": {
+      "max": 0.16382472426217737,
+      "min": -0.14868985433289628
+    },
+    "raw_phase_hypothesis_residual": {
+      "max": 3.6886336982067114e-07,
+      "min": 0.0
+    },
+    "root_minus_lower": {
+      "max": 0.07456889221574342,
+      "min": 0.008709999999999996
+    },
+    "upper_minus_root": {
+      "max": 0.07320131043876144,
+      "min": 0.008709999999999996
+    }
+  },
+  "independent_physical_reference_cases": 0,
+  "object_frames": 6560,
+  "objects": [
+    {
+      "collision_geom_ids": [
+        104
+      ],
+      "contact_frames": {
+        "floor_contacts": 0,
+        "other_contacts": 0,
+        "robot_contacts": 0,
+        "table_contacts": 258
+      },
+      "episode": 0,
+      "object_id": "cream_cheese_1",
+      "ranges": {
+        "box_roundoff_width": {
+          "max": 3.3306690738754696e-16,
+          "min": 3.3306690738754696e-16
+        },
+        "endpoint_cache_residual": {
+          "max": 2.4298198883173673e-17,
+          "min": 4.770133069941603e-18
+        },
+        "max_vertex_dz": {
+          "max": 0.0006952293238156049,
+          "min": 0.0
+        },
+        "min_vertex_dz": {
+          "max": 0.0006952293238156049,
+          "min": 0.0
+        },
+        "raw_phase_hypothesis_residual": {
+          "max": 9.303280368300193e-12,
+          "min": 0.0
+        },
+        "root_minus_lower": {
+          "max": 0.008936,
+          "min": 0.008936
+        },
+        "upper_minus_root": {
+          "max": 0.008936,
+          "min": 0.008936
+        }
+      },
+      "samples": 258
+    },
+    {
+      "collision_geom_ids": [
+        131,
+        132,
+        133,
+        134,
+        135,
+        136,
+        137,
+        138,
+        139,
+        140,
+        141,
+        142
+      ],
+      "contact_frames": {
+        "floor_contacts": 0,
+        "other_contacts": 0,
+        "robot_contacts": 0,
+        "table_contacts": 243
+      },
+      "episode": 0,
+      "object_id": "ketchup_1",
+      "ranges": {
+        "box_roundoff_width": {
+          "max": 1.5543122344752192e-15,
+          "min": 6.661338147750939e-16
+        },
+        "endpoint_cache_residual": {
+          "max": 8.44593492366208e-17,
+          "min": 9.360481690768468e-18
+        },
+        "max_vertex_dz": {
+          "max": 0.1638271180228688,
+          "min": -0.14868425453611722
+        },
+        "min_vertex_dz": {
+          "max": 0.16382472426217015,
+          "min": -0.14868985433289617
+        },
+        "raw_phase_hypothesis_residual": {
+          "max": 1.7807821883764063e-09,
+          "min": 0.0
+        },
+        "root_minus_lower": {
+          "max": 0.07243551908989976,
+          "min": 0.07241999999999998
+        },
+        "upper_minus_root": {
+          "max": 0.07320131043876144,
+          "min": 0.07319000000000009
+        }
+      },
+      "samples": 258
+    },
+    {
+      "collision_geom_ids": [
+        144,
+        145,
+        146,
+        147
+      ],
+      "contact_frames": {
+        "floor_contacts": 0,
+        "other_contacts": 0,
+        "robot_contacts": 0,
+        "table_contacts": 245
+      },
+      "episode": 0,
+      "object_id": "orange_juice_1",
+      "ranges": {
+        "box_roundoff_width": {
+          "max": 1.3322676295501878e-15,
+          "min": 6.661338147750939e-16
+        },
+        "endpoint_cache_residual": {
+          "max": 4.776937280696282e-17,
+          "min": 1.3010426069826053e-17
+        },
+        "max_vertex_dz": {
+          "max": 0.14783093210766035,
+          "min": -0.14038947795768586
+        },
+        "min_vertex_dz": {
+          "max": 0.14783017850158708,
+          "min": -0.14039136016580733
+        },
+        "raw_phase_hypothesis_residual": {
+          "max": 1.9455076383234626e-08,
+          "min": 0.0
+        },
+        "root_minus_lower": {
+          "max": 0.06975618919732851,
+          "min": 0.06975000000000003
+        },
+        "upper_minus_root": {
+          "max": 0.06144614735120646,
+          "min": 0.06144000000000005
+        }
+      },
+      "samples": 258
+    },
+    {
+      "collision_geom_ids": [
+        149,
+        150,
+        151,
+        152
+      ],
+      "contact_frames": {
+        "floor_contacts": 0,
+        "other_contacts": 0,
+        "robot_contacts": 0,
+        "table_contacts": 245
+      },
+      "episode": 0,
+      "object_id": "milk_1",
+      "ranges": {
+        "box_roundoff_width": {
+          "max": 1.5543122344752192e-15,
+          "min": 6.661338147750939e-16
+        },
+        "endpoint_cache_residual": {
+          "max": 5.637851296924623e-17,
+          "min": 2.8118462231897764e-18
+        },
+        "max_vertex_dz": {
+          "max": 0.14783093210757609,
+          "min": -0.14038947795775958
+        },
+        "min_vertex_dz": {
+          "max": 0.14783017850150915,
+          "min": -0.14039136016588155
+        },
+        "raw_phase_hypothesis_residual": {
+          "max": 1.9455076341601263e-08,
+          "min": 0.0
+        },
+        "root_minus_lower": {
+          "max": 0.0697561891973526,
+          "min": 0.06975000000000003
+        },
+        "upper_minus_root": {
+          "max": 0.0614461473511978,
+          "min": 0.06144000000000005
+        }
+      },
+      "samples": 258
+    },
+    {
+      "collision_geom_ids": [
+        154
+      ],
+      "contact_frames": {
+        "floor_contacts": 0,
+        "other_contacts": 0,
+        "robot_contacts": 0,
+        "table_contacts": 255
+      },
+      "episode": 0,
+      "object_id": "butter_1",
+      "ranges": {
+        "box_roundoff_width": {
+          "max": 3.3306690738754696e-16,
+          "min": 3.3306690738754696e-16
+        },
+        "endpoint_cache_residual": {
+          "max": 2.3088020921841874e-17,
+          "min": 1.5456531490043365e-18
+        },
+        "max_vertex_dz": {
+          "max": 0.021862100154125985,
+          "min": -0.015002366281475832
+        },
+        "min_vertex_dz": {
+          "max": 0.021862100154125763,
+          "min": -0.015002366281478052
+        },
+        "raw_phase_hypothesis_residual": {
+          "max": 7.507302113296532e-09,
+          "min": 0.0
+        },
+        "root_minus_lower": {
+          "max": 0.008710000000001161,
+          "min": 0.008709999999999996
+        },
+        "upper_minus_root": {
+          "max": 0.008710000000001161,
+          "min": 0.008709999999999996
+        }
+      },
+      "samples": 258
+    },
+    {
+      "collision_geom_ids": [
+        104
+      ],
+      "contact_frames": {
+        "floor_contacts": 0,
+        "other_contacts": 0,
+        "robot_contacts": 0,
+        "table_contacts": 277
+      },
+      "episode": 1,
+      "object_id": "cream_cheese_1",
+      "ranges": {
+        "box_roundoff_width": {
+          "max": 3.3306690738754696e-16,
+          "min": 3.3306690738754696e-16
+        },
+        "endpoint_cache_residual": {
+          "max": 2.4283746383511147e-17,
+          "min": 4.773638661377603e-18
+        },
+        "max_vertex_dz": {
+          "max": 0.0006952293238156049,
+          "min": 0.0
+        },
+        "min_vertex_dz": {
+          "max": 0.0006952293238156049,
+          "min": 0.0
+        },
+        "raw_phase_hypothesis_residual": {
+          "max": 9.303280368300193e-12,
+          "min": 0.0
+        },
+        "root_minus_lower": {
+          "max": 0.008936,
+          "min": 0.008936
+        },
+        "upper_minus_root": {
+          "max": 0.008936,
+          "min": 0.008936
+        }
+      },
+      "samples": 277
+    },
+    {
+      "collision_geom_ids": [
+        131,
+        132,
+        133,
+        134,
+        135,
+        136,
+        137,
+        138,
+        139,
+        140,
+        141,
+        142
+      ],
+      "contact_frames": {
+        "floor_contacts": 0,
+        "other_contacts": 0,
+        "robot_contacts": 0,
+        "table_contacts": 262
+      },
+      "episode": 1,
+      "object_id": "ketchup_1",
+      "ranges": {
+        "box_roundoff_width": {
+          "max": 1.5543122344752192e-15,
+          "min": 6.661338147750939e-16
+        },
+        "endpoint_cache_residual": {
+          "max": 1.1015494072452725e-16,
+          "min": 8.513528152852973e-18
+        },
+        "max_vertex_dz": {
+          "max": 0.16382711802286715,
+          "min": -0.14868425453611456
+        },
+        "min_vertex_dz": {
+          "max": 0.16382472426217737,
+          "min": -0.1486898543328935
+        },
+        "raw_phase_hypothesis_residual": {
+          "max": 1.7807820773541039e-09,
+          "min": 1.1102230246251565e-16
+        },
+        "root_minus_lower": {
+          "max": 0.07243551908988977,
+          "min": 0.07241999999999998
+        },
+        "upper_minus_root": {
+          "max": 0.07320131043875855,
+          "min": 0.07319000000000009
+        }
+      },
+      "samples": 277
+    },
+    {
+      "collision_geom_ids": [
+        144,
+        145,
+        146,
+        147
+      ],
+      "contact_frames": {
+        "floor_contacts": 0,
+        "other_contacts": 0,
+        "robot_contacts": 0,
+        "table_contacts": 264
+      },
+      "episode": 1,
+      "object_id": "orange_juice_1",
+      "ranges": {
+        "box_roundoff_width": {
+          "max": 1.3322676295501878e-15,
+          "min": 6.661338147750939e-16
+        },
+        "endpoint_cache_residual": {
+          "max": 5.184731021790935e-17,
+          "min": 1.2766397728418238e-17
+        },
+        "max_vertex_dz": {
+          "max": 0.14783093210766035,
+          "min": -0.14038947795768586
+        },
+        "min_vertex_dz": {
+          "max": 0.14783017850158708,
+          "min": -0.14039136016580733
+        },
+        "raw_phase_hypothesis_residual": {
+          "max": 1.9455076383234626e-08,
+          "min": 0.0
+        },
+        "root_minus_lower": {
+          "max": 0.06975618919731452,
+          "min": 0.06975000000000003
+        },
+        "upper_minus_root": {
+          "max": 0.06144614735120146,
+          "min": 0.06144000000000005
+        }
+      },
+      "samples": 277
+    },
+    {
+      "collision_geom_ids": [
+        149,
+        150,
+        151,
+        152
+      ],
+      "contact_frames": {
+        "floor_contacts": 0,
+        "other_contacts": 0,
+        "robot_contacts": 0,
+        "table_contacts": 264
+      },
+      "episode": 1,
+      "object_id": "milk_1",
+      "ranges": {
+        "box_roundoff_width": {
+          "max": 1.5543122344752192e-15,
+          "min": 6.661338147750939e-16
+        },
+        "endpoint_cache_residual": {
+          "max": 5.551115123125783e-17,
+          "min": 4.336808689942018e-18
+        },
+        "max_vertex_dz": {
+          "max": 0.14783093210757609,
+          "min": -0.14038947795775958
+        },
+        "min_vertex_dz": {
+          "max": 0.14783017850150915,
+          "min": -0.1403913601658815
+        },
+        "raw_phase_hypothesis_residual": {
+          "max": 1.945507636935684e-08,
+          "min": 0.0
+        },
+        "root_minus_lower": {
+          "max": 0.06975618919736676,
+          "min": 0.06975000000000003
+        },
+        "upper_minus_root": {
+          "max": 0.06144614735120291,
+          "min": 0.06144000000000005
+        }
+      },
+      "samples": 277
+    },
+    {
+      "collision_geom_ids": [
+        154
+      ],
+      "contact_frames": {
+        "floor_contacts": 0,
+        "other_contacts": 0,
+        "robot_contacts": 0,
+        "table_contacts": 274
+      },
+      "episode": 1,
+      "object_id": "butter_1",
+      "ranges": {
+        "box_roundoff_width": {
+          "max": 3.3306690738754696e-16,
+          "min": 3.3306690738754696e-16
+        },
+        "endpoint_cache_residual": {
+          "max": 2.3087698892151312e-17,
+          "min": 1.5512647422798962e-18
+        },
+        "max_vertex_dz": {
+          "max": 0.021862100154125985,
+          "min": -0.015002366281475832
+        },
+        "min_vertex_dz": {
+          "max": 0.021862100154125763,
+          "min": -0.015002366281478052
+        },
+        "raw_phase_hypothesis_residual": {
+          "max": 7.507302113296532e-09,
+          "min": 0.0
+        },
+        "root_minus_lower": {
+          "max": 0.008710000000001161,
+          "min": 0.008709999999999996
+        },
+        "upper_minus_root": {
+          "max": 0.008710000000001161,
+          "min": 0.008709999999999996
+        }
+      },
+      "samples": 277
+    },
+    {
+      "collision_geom_ids": [
+        104
+      ],
+      "contact_frames": {
+        "floor_contacts": 234,
+        "other_contacts": 1,
+        "robot_contacts": 0,
+        "table_contacts": 1
+      },
+      "episode": 2,
+      "object_id": "cream_cheese_1",
+      "ranges": {
+        "box_roundoff_width": {
+          "max": 7.771561172376096e-16,
+          "min": 3.3306690738754696e-16
+        },
+        "endpoint_cache_residual": {
+          "max": 4.76722039952063e-17,
+          "min": 4.887500240963608e-19
+        },
+        "max_vertex_dz": {
+          "max": 0.0903214492154113,
+          "min": -0.14785446736611868
+        },
+        "min_vertex_dz": {
+          "max": 0.07220916533912325,
+          "min": -0.1478544673661187
+        },
+        "raw_phase_hypothesis_residual": {
+          "max": 6.950980457887113e-09,
+          "min": 0.0
+        },
+        "root_minus_lower": {
+          "max": 0.017605388594415516,
+          "min": 0.008935999999999998
+        },
+        "upper_minus_root": {
+          "max": 0.017605388594415516,
+          "min": 0.008935999999999996
+        }
+      },
+      "samples": 246
+    },
+    {
+      "collision_geom_ids": [
+        131,
+        132,
+        133,
+        134,
+        135,
+        136,
+        137,
+        138,
+        139,
+        140,
+        141,
+        142
+      ],
+      "contact_frames": {
+        "floor_contacts": 0,
+        "other_contacts": 0,
+        "robot_contacts": 0,
+        "table_contacts": 231
+      },
+      "episode": 2,
+      "object_id": "ketchup_1",
+      "ranges": {
+        "box_roundoff_width": {
+          "max": 1.5543122344752192e-15,
+          "min": 6.661338147750939e-16
+        },
+        "endpoint_cache_residual": {
+          "max": 8.435092901937224e-17,
+          "min": 1.003204646904312e-17
+        },
+        "max_vertex_dz": {
+          "max": 0.1638271180228688,
+          "min": -0.14868425453611722
+        },
+        "min_vertex_dz": {
+          "max": 0.16382472426217015,
+          "min": -0.14868985433289617
+        },
+        "raw_phase_hypothesis_residual": {
+          "max": 1.7807821883764063e-09,
+          "min": 2.7755575615628914e-17
+        },
+        "root_minus_lower": {
+          "max": 0.07243551908989976,
+          "min": 0.07241999999999998
+        },
+        "upper_minus_root": {
+          "max": 0.07320131043876121,
+          "min": 0.07319000000000009
+        }
+      },
+      "samples": 246
+    },
+    {
+      "collision_geom_ids": [
+        144,
+        145,
+        146,
+        147
+      ],
+      "contact_frames": {
+        "floor_contacts": 0,
+        "other_contacts": 1,
+        "robot_contacts": 0,
+        "table_contacts": 231
+      },
+      "episode": 2,
+      "object_id": "orange_juice_1",
+      "ranges": {
+        "box_roundoff_width": {
+          "max": 1.3322676295501878e-15,
+          "min": 6.661338147750939e-16
+        },
+        "endpoint_cache_residual": {
+          "max": 1.0137290312739466e-16,
+          "min": 3.0357660829594124e-18
+        },
+        "max_vertex_dz": {
+          "max": 0.14791316248607228,
+          "min": -0.14065851357152603
+        },
+        "min_vertex_dz": {
+          "max": 0.14719983414008764,
+          "min": -0.14066150193428328
+        },
+        "raw_phase_hypothesis_residual": {
+          "max": 5.286184646567313e-08,
+          "min": 0.0
+        },
+        "root_minus_lower": {
+          "max": 0.07449659118170937,
+          "min": 0.06975000000000003
+        },
+        "upper_minus_root": {
+          "max": 0.06286165926848097,
+          "min": 0.06144000000000005
+        }
+      },
+      "samples": 246
+    },
+    {
+      "collision_geom_ids": [
+        149,
+        150,
+        151,
+        152
+      ],
+      "contact_frames": {
+        "floor_contacts": 0,
+        "other_contacts": 0,
+        "robot_contacts": 0,
+        "table_contacts": 233
+      },
+      "episode": 2,
+      "object_id": "milk_1",
+      "ranges": {
+        "box_roundoff_width": {
+          "max": 1.5543122344752192e-15,
+          "min": 6.661338147750939e-16
+        },
+        "endpoint_cache_residual": {
+          "max": 5.637851296924623e-17,
+          "min": 4.336808689942018e-18
+        },
+        "max_vertex_dz": {
+          "max": 0.14783093210757609,
+          "min": -0.14038947795775958
+        },
+        "min_vertex_dz": {
+          "max": 0.14783017850150915,
+          "min": -0.1403913601658815
+        },
+        "raw_phase_hypothesis_residual": {
+          "max": 1.945507636935684e-08,
+          "min": 0.0
+        },
+        "root_minus_lower": {
+          "max": 0.06975618919735954,
+          "min": 0.06975000000000003
+        },
+        "upper_minus_root": {
+          "max": 0.06144614735120146,
+          "min": 0.06144000000000005
+        }
+      },
+      "samples": 246
+    },
+    {
+      "collision_geom_ids": [
+        154
+      ],
+      "contact_frames": {
+        "floor_contacts": 0,
+        "other_contacts": 0,
+        "robot_contacts": 0,
+        "table_contacts": 243
+      },
+      "episode": 2,
+      "object_id": "butter_1",
+      "ranges": {
+        "box_roundoff_width": {
+          "max": 3.3306690738754696e-16,
+          "min": 3.3306690738754696e-16
+        },
+        "endpoint_cache_residual": {
+          "max": 2.5542066766216613e-17,
+          "min": 1.5414940848844198e-18
+        },
+        "max_vertex_dz": {
+          "max": 0.021862100154125985,
+          "min": -0.01500236628147833
+        },
+        "min_vertex_dz": {
+          "max": 0.021862100154125763,
+          "min": -0.015002366281483437
+        },
+        "raw_phase_hypothesis_residual": {
+          "max": 7.507302113296532e-09,
+          "min": 0.0
+        },
+        "root_minus_lower": {
+          "max": 0.00871000000000266,
+          "min": 0.008709999999999996
+        },
+        "upper_minus_root": {
+          "max": 0.00871000000000266,
+          "min": 0.008709999999999996
+        }
+      },
+      "samples": 246
+    },
+    {
+      "collision_geom_ids": [
+        104
+      ],
+      "contact_frames": {
+        "floor_contacts": 0,
+        "other_contacts": 0,
+        "robot_contacts": 10,
+        "table_contacts": 520
+      },
+      "episode": 14,
+      "object_id": "cream_cheese_1",
+      "ranges": {
+        "box_roundoff_width": {
+          "max": 6.661338147750939e-16,
+          "min": 3.3306690738754696e-16
+        },
+        "endpoint_cache_residual": {
+          "max": 2.7267684638010437e-17,
+          "min": 2.483288843112795e-18
+        },
+        "max_vertex_dz": {
+          "max": 0.008588851606277037,
+          "min": -0.02686651370019394
+        },
+        "min_vertex_dz": {
+          "max": 0.00787180607849064,
+          "min": -0.026881080841804572
+        },
+        "raw_phase_hypothesis_residual": {
+          "max": 2.2608062033580012e-08,
+          "min": 0.0
+        },
+        "root_minus_lower": {
+          "max": 0.01149368034413556,
+          "min": 0.008936
+        },
+        "upper_minus_root": {
+          "max": 0.01149368034413556,
+          "min": 0.008936
+        }
+      },
+      "samples": 531
+    },
+    {
+      "collision_geom_ids": [
+        131,
+        132,
+        133,
+        134,
+        135,
+        136,
+        137,
+        138,
+        139,
+        140,
+        141,
+        142
+      ],
+      "contact_frames": {
+        "floor_contacts": 0,
+        "other_contacts": 0,
+        "robot_contacts": 0,
+        "table_contacts": 516
+      },
+      "episode": 14,
+      "object_id": "ketchup_1",
+      "ranges": {
+        "box_roundoff_width": {
+          "max": 1.5543122344752192e-15,
+          "min": 6.661338147750939e-16
+        },
+        "endpoint_cache_residual": {
+          "max": 8.272462576064399e-17,
+          "min": 9.072927240065434e-18
+        },
+        "max_vertex_dz": {
+          "max": 0.16382711802286892,
+          "min": -0.1486842545361171
+        },
+        "min_vertex_dz": {
+          "max": 0.16382472426217026,
+          "min": -0.14868985433289628
+        },
+        "raw_phase_hypothesis_residual": {
+          "max": 1.7807821883764063e-09,
+          "min": 2.7755575615628914e-17
+        },
+        "root_minus_lower": {
+          "max": 0.07243551908989954,
+          "min": 0.07241999999999998
+        },
+        "upper_minus_root": {
+          "max": 0.07320131043876121,
+          "min": 0.07319000000000009
+        }
+      },
+      "samples": 531
+    },
+    {
+      "collision_geom_ids": [
+        144,
+        145,
+        146,
+        147
+      ],
+      "contact_frames": {
+        "floor_contacts": 0,
+        "other_contacts": 0,
+        "robot_contacts": 138,
+        "table_contacts": 517
+      },
+      "episode": 14,
+      "object_id": "orange_juice_1",
+      "ranges": {
+        "box_roundoff_width": {
+          "max": 1.3322676295501878e-15,
+          "min": 3.3306690738754696e-16
+        },
+        "endpoint_cache_residual": {
+          "max": 5.488180575144788e-17,
+          "min": 1.7137594105322632e-18
+        },
+        "max_vertex_dz": {
+          "max": 0.14783093210766035,
+          "min": -0.14038947795768586
+        },
+        "min_vertex_dz": {
+          "max": 0.14783017850158708,
+          "min": -0.14039136016580733
+        },
+        "raw_phase_hypothesis_residual": {
+          "max": 3.3806054960949794e-07,
+          "min": 0.0
+        },
+        "root_minus_lower": {
+          "max": 0.07456889221574342,
+          "min": 0.02625000318724796
+        },
+        "upper_minus_root": {
+          "max": 0.0621483986432968,
+          "min": 0.02625000556059981
+        }
+      },
+      "samples": 531
+    },
+    {
+      "collision_geom_ids": [
+        149,
+        150,
+        151,
+        152
+      ],
+      "contact_frames": {
+        "floor_contacts": 0,
+        "other_contacts": 0,
+        "robot_contacts": 5,
+        "table_contacts": 518
+      },
+      "episode": 14,
+      "object_id": "milk_1",
+      "ranges": {
+        "box_roundoff_width": {
+          "max": 1.5543122344752192e-15,
+          "min": 6.661338147750939e-16
+        },
+        "endpoint_cache_residual": {
+          "max": 5.637851296924623e-17,
+          "min": 1.7554757831845375e-18
+        },
+        "max_vertex_dz": {
+          "max": 0.14783093210757609,
+          "min": -0.1403894779577598
+        },
+        "min_vertex_dz": {
+          "max": 0.14783017850150915,
+          "min": -0.14039136016588122
+        },
+        "raw_phase_hypothesis_residual": {
+          "max": 3.6886336982067114e-07,
+          "min": 0.0
+        },
+        "root_minus_lower": {
+          "max": 0.07254016063808777,
+          "min": 0.06975000000000003
+        },
+        "upper_minus_root": {
+          "max": 0.06165786594566591,
+          "min": 0.061374766863520946
+        }
+      },
+      "samples": 531
+    },
+    {
+      "collision_geom_ids": [
+        154
+      ],
+      "contact_frames": {
+        "floor_contacts": 0,
+        "other_contacts": 0,
+        "robot_contacts": 0,
+        "table_contacts": 528
+      },
+      "episode": 14,
+      "object_id": "butter_1",
+      "ranges": {
+        "box_roundoff_width": {
+          "max": 3.3306690738754696e-16,
+          "min": 3.3306690738754696e-16
+        },
+        "endpoint_cache_residual": {
+          "max": 2.308303396650488e-17,
+          "min": 1.5453520552613672e-18
+        },
+        "max_vertex_dz": {
+          "max": 0.021862100154125985,
+          "min": -0.015002366281475832
+        },
+        "min_vertex_dz": {
+          "max": 0.021862100154125763,
+          "min": -0.015002366281478052
+        },
+        "raw_phase_hypothesis_residual": {
+          "max": 7.507302113296532e-09,
+          "min": 0.0
+        },
+        "root_minus_lower": {
+          "max": 0.008710000000001161,
+          "min": 0.008709999999999996
+        },
+        "upper_minus_root": {
+          "max": 0.008710000000001161,
+          "min": 0.008709999999999996
+        }
+      },
+      "samples": 531
+    }
+  ],
+  "physical_judgments_issued": 0,
+  "table_pieces": [
+    {
+      "bounds": {
+        "input_physical_uncertainty": null,
+        "max": [
+          0.19432000000000021,
+          0.7241000000000003,
+          0.43676000000000015
+        ],
+        "max_computational_interval_width": 5.551115123125783e-16,
+        "min": [
+          -0.6943200000000003,
+          -0.6193200000000004,
+          0.4130800000000001
+        ],
+        "outward_max": [
+          0.19432000000000035,
+          0.7241000000000005,
+          0.4367600000000003
+        ],
+        "outward_min": [
+          -0.6943200000000005,
+          -0.6193200000000006,
+          0.41307999999999995
+        ]
+      },
+      "geom_id": 10,
+      "half_sizes": [
+        0.01184,
+        0.44432,
+        0.67171
+      ],
+      "vertical_face_axis_residual": 4.440892098500626e-16,
+      "world_position": [
+        -0.25,
+        0.05238999999999994,
+        0.42492000000000013
+      ],
+      "world_rotation": [
+        [
+          0.0,
+          -1.0000000000000004,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0000000000000004
+        ],
+        [
+          -1.0000000000000004,
+          0.0,
+          0.0
+        ]
+      ]
+    },
+    {
+      "bounds": {
+        "input_physical_uncertainty": null,
+        "max": [
+          0.16675000000000012,
+          0.9006900000000001,
+          0.43676000000000015
+        ],
+        "max_computational_interval_width": 6.661338147750939e-16,
+        "min": [
+          -0.6667500000000002,
+          0.69803,
+          0.4130800000000001
+        ],
+        "outward_max": [
+          0.16675000000000026,
+          0.9006900000000004,
+          0.4367600000000003
+        ],
+        "outward_min": [
+          -0.6667500000000004,
+          0.6980299999999997,
+          0.41307999999999995
+        ]
+      },
+      "geom_id": 11,
+      "half_sizes": [
+        0.01184,
+        0.10133,
+        0.41675
+      ],
+      "vertical_face_axis_residual": 2.220446049250313e-16,
+      "world_position": [
+        -0.25,
+        0.7993600000000001,
+        0.42492000000000013
+      ],
+      "world_rotation": [
+        [
+          0.0,
+          0.0,
+          1.0000000000000002
+        ],
+        [
+          0.0,
+          1.0000000000000002,
+          0.0
+        ],
+        [
+          -1.0000000000000002,
+          0.0,
+          0.0
+        ]
+      ]
+    },
+    {
+      "bounds": {
+        "input_physical_uncertainty": null,
+        "max": [
+          0.16675000000000012,
+          -0.6187300000000002,
+          0.43676000000000015
+        ],
+        "max_computational_interval_width": 6.661338147750939e-16,
+        "min": [
+          -0.6667500000000002,
+          -0.8213900000000003,
+          0.4130800000000001
+        ],
+        "outward_max": [
+          0.16675000000000026,
+          -0.6187299999999999,
+          0.4367600000000003
+        ],
+        "outward_min": [
+          -0.6667500000000004,
+          -0.8213900000000006,
+          0.41307999999999995
+        ]
+      },
+      "geom_id": 12,
+      "half_sizes": [
+        0.01184,
+        0.10133,
+        0.41675
+      ],
+      "vertical_face_axis_residual": 2.220446049250313e-16,
+      "world_position": [
+        -0.25,
+        -0.7200600000000003,
+        0.42492000000000013
+      ],
+      "world_rotation": [
+        [
+          0.0,
+          -0.0,
+          -1.0000000000000002
+        ],
+        [
+          0.0,
+          1.0000000000000002,
+          -0.0
+        ],
+        [
+          1.0000000000000002,
+          0.0,
+          0.0
+        ]
+      ]
+    },
+    {
+      "bounds": {
+        "input_physical_uncertainty": null,
+        "max": [
+          0.3387300000000002,
+          0.7241000000000003,
+          0.43676000000000015
+        ],
+        "max_computational_interval_width": 4.440892098500626e-16,
+        "min": [
+          0.18369000000000013,
+          -0.6193200000000004,
+          0.4130800000000001
+        ],
+        "outward_max": [
+          0.33873000000000036,
+          0.7241000000000005,
+          0.4367600000000003
+        ],
+        "outward_min": [
+          0.18369000000000002,
+          -0.6193200000000006,
+          0.41307999999999995
+        ]
+      },
+      "geom_id": 13,
+      "half_sizes": [
+        0.01184,
+        0.07752,
+        0.67171
+      ],
+      "vertical_face_axis_residual": 4.440892098500626e-16,
+      "world_position": [
+        0.26121000000000016,
+        0.05238999999999994,
+        0.42492000000000013
+      ],
+      "world_rotation": [
+        [
+          0.0,
+          -1.0000000000000004,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0000000000000004
+        ],
+        [
+          -1.0000000000000004,
+          0.0,
+          0.0
+        ]
+      ]
+    },
+    {
+      "bounds": {
+        "input_physical_uncertainty": null,
+        "max": [
+          -0.66913,
+          0.7241000000000003,
+          0.43676000000000015
+        ],
+        "max_computational_interval_width": 6.661338147750939e-16,
+        "min": [
+          -0.8241700000000001,
+          -0.6193200000000004,
+          0.4130800000000001
+        ],
+        "outward_max": [
+          -0.6691299999999997,
+          0.7241000000000005,
+          0.4367600000000003
+        ],
+        "outward_min": [
+          -0.8241700000000004,
+          -0.6193200000000006,
+          0.41307999999999995
+        ]
+      },
+      "geom_id": 14,
+      "half_sizes": [
+        0.01184,
+        0.07752,
+        0.67171
+      ],
+      "vertical_face_axis_residual": 4.440892098500626e-16,
+      "world_position": [
+        -0.74665,
+        0.05238999999999994,
+        0.42492000000000013
+      ],
+      "world_rotation": [
+        [
+          0.0,
+          -1.0000000000000004,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0000000000000004
+        ],
+        [
+          -1.0000000000000004,
+          0.0,
+          0.0
+        ]
+      ]
+    },
+    {
+      "bounds": {
+        "input_physical_uncertainty": null,
+        "max": [
+          0.16162000000000015,
+          0.6851600000000002,
+          0.4129800000000001
+        ],
+        "max_computational_interval_width": 6.661338147750939e-16,
+        "min": [
+          -0.6616200000000001,
+          -0.18516000000000016,
+          -0.0047000000000000375
+        ],
+        "outward_max": [
+          0.1616200000000003,
+          0.6851600000000004,
+          0.4129800000000003
+        ],
+        "outward_min": [
+          -0.6616200000000005,
+          -0.1851600000000003,
+          -0.004700000000000068
+        ]
+      },
+      "geom_id": 15,
+      "half_sizes": [
+        0.20884,
+        0.41162,
+        0.43516
+      ],
+      "vertical_face_axis_residual": 4.440892098500626e-16,
+      "world_position": [
+        -0.25,
+        0.25,
+        0.20414000000000004
+      ],
+      "world_rotation": [
+        [
+          0.0,
+          -1.0000000000000004,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          -1.0000000000000004
+        ],
+        [
+          1.0000000000000004,
+          0.0,
+          0.0
+        ]
+      ]
+    }
+  ],
+  "transform_residuals": {
+    "position_arithmetic_allowance_m": {
+      "max": 3.410605131648481e-13,
+      "min": 3.410605131648481e-13
+    },
+    "position_error_m": {
+      "max": 2.220446049250313e-16,
+      "min": 1.1102230246251565e-16
+    },
+    "rotation_arithmetic_allowance": {
+      "max": 1.1368683772161603e-13,
+      "min": 1.1368683772161603e-13
+    },
+    "rotation_component_error": {
+      "max": 2.55351295663786e-15,
+      "min": 8.881784197001252e-16
+    }
+  }
+}

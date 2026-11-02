@@ -1,0 +1,14 @@
+{
+  "disk0_free_bytes": 385945030656,
+  "disk1_free_bytes": 1662435704832,
+  "empirical_admission_enabled": false,
+  "heldout_calibration_sources": 0,
+  "human_or_independent_physical_references": 0,
+  "image_payload_exported": false,
+  "passed": true,
+  "physical_parameter_bounds_invented": 0,
+  "required_deliverables": 10,
+  "source_files_preserved": 38,
+  "tests_passed": 250,
+  "visual_review_performed": false
+}

@@ -1,0 +1,18 @@
+{
+  "authorized_camera_panels_viewed": 24,
+  "authorized_contact_sheets_viewed": 3,
+  "candidates_reviewed": 11,
+  "candidates_with_numerical_sources": 10,
+  "empirical_admission_enabled": false,
+  "genuine_R1_violations_verified": 0,
+  "human_forms_modified": false,
+  "human_reviews": 0,
+  "independent_AI_reviews": 0,
+  "numerical_object_snapshot_inspections_including_overlap": 317,
+  "physical_judgments_admitted": 0,
+  "prior_context_exposure": true,
+  "single_AI_review": true,
+  "unfilled_sliding_category": 1,
+  "verified_physical_reference_cases": 0,
+  "visual_authorization": "Explicit user authorization of exactly episode_000.jpg, episode_002.jpg, episode_014.jpg to this Codex session; no other payload transferred"
+}

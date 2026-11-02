@@ -1,0 +1,7 @@
+test_fixture_admission_and_empirical_guard (evaluation.r1_v4.libero_evidence_audit.analytical.ContractCases.test_fixture_admission_and_empirical_guard) ... ok
+test_no_fixture_is_empirical_reference (evaluation.r1_v4.libero_evidence_audit.analytical.ContractCases.test_no_fixture_is_empirical_reference) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.119s
+
+OK

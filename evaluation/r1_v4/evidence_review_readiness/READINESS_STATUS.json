@@ -1,0 +1,147 @@
+{
+  "conditional_indicators_ready_for_diagnostic_use": true,
+  "empirical_admission_enabled": false,
+  "empirical_fall_witness_ready": false,
+  "empirical_support_witness_ready": false,
+  "framework_registry_and_argument_graph_planning_ready": true,
+  "gates": [
+    {
+      "change": "UNCHANGED",
+      "empirical_admission_enabled": false,
+      "evidence_refs": "AI_REFERENCE_REVIEWS.csv; EVIDENCE_LEDGER.csv; AUTHORIZED_VISUAL_EVIDENCE.json",
+      "gate_id": "G01_native_BOX_measurements",
+      "minimum_additional_evidence": "None for the existing exact-source measurement scope; new models require new bindings.",
+      "new_evidence": "Eleven provisional AI reviews; ten numerical case windows; three authorized sheets/24 panels; no independent physical references",
+      "previous_status": "VERIFIED",
+      "status_after_review": "VERIFIED",
+      "why_status_does_not_progress": "Visual context and additional review do not supply missing calibration, load-bearing, phase or independent-reference validity; no AI-consensus rule"
+    },
+    {
+      "change": "UNCHANGED",
+      "empirical_admission_enabled": false,
+      "evidence_refs": "AI_REFERENCE_REVIEWS.csv; EVIDENCE_LEDGER.csv; AUTHORIZED_VISUAL_EVIDENCE.json",
+      "gate_id": "G02_numerical_corner_enclosure",
+      "minimum_additional_evidence": "None for exact-input numerical arithmetic; physical input uncertainty is separate.",
+      "new_evidence": "Eleven provisional AI reviews; ten numerical case windows; three authorized sheets/24 panels; no independent physical references",
+      "previous_status": "VERIFIED",
+      "status_after_review": "VERIFIED",
+      "why_status_does_not_progress": "Visual context and additional review do not supply missing calibration, load-bearing, phase or independent-reference validity; no AI-consensus rule"
+    },
+    {
+      "change": "UNCHANGED",
+      "empirical_admission_enabled": false,
+      "evidence_refs": "AI_REFERENCE_REVIEWS.csv; EVIDENCE_LEDGER.csv; AUTHORIZED_VISUAL_EVIDENCE.json",
+      "gate_id": "G03_geometry_empirical_admission",
+      "minimum_additional_evidence": "Recover or justify native shape/serialization precision and verify designated faces; bind independent geometry uncertainty to this model.",
+      "new_evidence": "Eleven provisional AI reviews; ten numerical case windows; three authorized sheets/24 panels; no independent physical references",
+      "previous_status": "CONDITIONALLY_SUPPORTED",
+      "status_after_review": "CONDITIONALLY_SUPPORTED",
+      "why_status_does_not_progress": "Visual context and additional review do not supply missing calibration, load-bearing, phase or independent-reference validity; no AI-consensus rule"
+    },
+    {
+      "change": "UNCHANGED",
+      "empirical_admission_enabled": false,
+      "evidence_refs": "AI_REFERENCE_REVIEWS.csv; EVIDENCE_LEDGER.csv; AUTHORIZED_VISUAL_EVIDENCE.json",
+      "gate_id": "G04_initial_support_applicability",
+      "minimum_additional_evidence": "Independently review existing support/unsupported candidates and validate a load-bearing or force-free alternative plus t0 phase/uncertainty.",
+      "new_evidence": "Eleven provisional AI reviews; ten numerical case windows; three authorized sheets/24 panels; no independent physical references",
+      "previous_status": "BLOCKED_ON_EVIDENCE",
+      "status_after_review": "BLOCKED_ON_EVIDENCE",
+      "why_status_does_not_progress": "Visual context and additional review do not supply missing calibration, load-bearing, phase or independent-reference validity; no AI-consensus rule"
+    },
+    {
+      "change": "UNCHANGED",
+      "empirical_admission_enabled": false,
+      "evidence_refs": "AI_REFERENCE_REVIEWS.csv; EVIDENCE_LEDGER.csv; AUTHORIZED_VISUAL_EVIDENCE.json",
+      "gate_id": "G05_validated_falling_witness",
+      "minimum_additional_evidence": "One independently verified in-scope support-loss/downward reference with handling/origin controls, then a calibrated scoped profile; no post-lift/setup relabeling.",
+      "new_evidence": "Eleven provisional AI reviews; ten numerical case windows; three authorized sheets/24 panels; no independent physical references",
+      "previous_status": "BLOCKED_ON_EVIDENCE",
+      "status_after_review": "BLOCKED_ON_EVIDENCE",
+      "why_status_does_not_progress": "Visual context and additional review do not supply missing calibration, load-bearing, phase or independent-reference validity; no AI-consensus rule"
+    },
+    {
+      "change": "UNCHANGED",
+      "empirical_admission_enabled": false,
+      "evidence_refs": "AI_REFERENCE_REVIEWS.csv; EVIDENCE_LEDGER.csv; AUTHORIZED_VISUAL_EVIDENCE.json",
+      "gate_id": "G06_qualified_negative_certificate",
+      "minimum_additional_evidence": "Validated support/transition clear certificates for a prospectively fixed requested domain; partial static-looking samples do not certify the original execution.",
+      "new_evidence": "Eleven provisional AI reviews; ten numerical case windows; three authorized sheets/24 panels; no independent physical references",
+      "previous_status": "BLOCKED_ON_EVIDENCE",
+      "status_after_review": "BLOCKED_ON_EVIDENCE",
+      "why_status_does_not_progress": "Visual context and additional review do not supply missing calibration, load-bearing, phase or independent-reference validity; no AI-consensus rule"
+    },
+    {
+      "change": "UNCHANGED",
+      "empirical_admission_enabled": false,
+      "evidence_refs": "AI_REFERENCE_REVIEWS.csv; EVIDENCE_LEDGER.csv; AUTHORIZED_VISUAL_EVIDENCE.json",
+      "gate_id": "G07_static_coverage_composition",
+      "minimum_additional_evidence": "Admitted compatible static cells and explicit qualified join evidence on the same clock/scope, preserving shared dependencies.",
+      "new_evidence": "Eleven provisional AI reviews; ten numerical case windows; three authorized sheets/24 panels; no independent physical references",
+      "previous_status": "BLOCKED_ON_EVIDENCE",
+      "status_after_review": "BLOCKED_ON_EVIDENCE",
+      "why_status_does_not_progress": "Visual context and additional review do not supply missing calibration, load-bearing, phase or independent-reference validity; no AI-consensus rule"
+    },
+    {
+      "change": "UNCHANGED",
+      "empirical_admission_enabled": false,
+      "evidence_refs": "AI_REFERENCE_REVIEWS.csv; EVIDENCE_LEDGER.csv; AUTHORIZED_VISUAL_EVIDENCE.json",
+      "gate_id": "G08_dynamic_coverage_composition",
+      "minimum_additional_evidence": "A separately approved dynamic/handling composition contract and validated inference profile; additional images alone cannot enable it.",
+      "new_evidence": "Eleven provisional AI reviews; ten numerical case windows; three authorized sheets/24 panels; no independent physical references",
+      "previous_status": "UNSUPPORTED",
+      "status_after_review": "UNSUPPORTED",
+      "why_status_does_not_progress": "Visual context and additional review do not supply missing calibration, load-bearing, phase or independent-reference validity; no AI-consensus rule"
+    },
+    {
+      "change": "UNCHANGED",
+      "empirical_admission_enabled": false,
+      "evidence_refs": "AI_REFERENCE_REVIEWS.csv; EVIDENCE_LEDGER.csv; AUTHORIZED_VISUAL_EVIDENCE.json",
+      "gate_id": "G09_contact_based_physical_evidence",
+      "minimum_additional_evidence": "Independently validated load-bearing interpretation or justified force-free alternative with competing supports; normals/forces cannot be invented.",
+      "new_evidence": "Eleven provisional AI reviews; ten numerical case windows; three authorized sheets/24 panels; no independent physical references",
+      "previous_status": "CONDITIONALLY_SUPPORTED",
+      "status_after_review": "CONDITIONALLY_SUPPORTED",
+      "why_status_does_not_progress": "Visual context and additional review do not supply missing calibration, load-bearing, phase or independent-reference validity; no AI-consensus rule"
+    },
+    {
+      "change": "UNCHANGED",
+      "empirical_admission_enabled": false,
+      "evidence_refs": "AI_REFERENCE_REVIEWS.csv; EVIDENCE_LEDGER.csv; AUTHORIZED_VISUAL_EVIDENCE.json",
+      "gate_id": "G10_uncertainty_propagation",
+      "minimum_additional_evidence": "Justified geometry/input/phase uncertainty bounds and dependency-aware propagation tests; null necessary bounds must continue to block claims.",
+      "new_evidence": "Eleven provisional AI reviews; ten numerical case windows; three authorized sheets/24 panels; no independent physical references",
+      "previous_status": "BLOCKED_ON_EVIDENCE",
+      "status_after_review": "BLOCKED_ON_EVIDENCE",
+      "why_status_does_not_progress": "Visual context and additional review do not supply missing calibration, load-bearing, phase or independent-reference validity; no AI-consensus rule"
+    },
+    {
+      "change": "UNCHANGED",
+      "empirical_admission_enabled": false,
+      "evidence_refs": "AI_REFERENCE_REVIEWS.csv; EVIDENCE_LEDGER.csv; AUTHORIZED_VISUAL_EVIDENCE.json",
+      "gate_id": "G11_temporal_empirical_admission",
+      "minimum_additional_evidence": "Version-matched recorder/engine phase contract or separately authorized instrumented timing reference; keep uncalibrated cameras qualitative if optional.",
+      "new_evidence": "Eleven provisional AI reviews; ten numerical case windows; three authorized sheets/24 panels; no independent physical references",
+      "previous_status": "BLOCKED_ON_EVIDENCE",
+      "status_after_review": "BLOCKED_ON_EVIDENCE",
+      "why_status_does_not_progress": "Visual context and additional review do not supply missing calibration, load-bearing, phase or independent-reference validity; no AI-consensus rule"
+    },
+    {
+      "change": "UNCHANGED",
+      "empirical_admission_enabled": false,
+      "evidence_refs": "AI_REFERENCE_REVIEWS.csv; EVIDENCE_LEDGER.csv; AUTHORIZED_VISUAL_EVIDENCE.json",
+      "gate_id": "G12_independent_reference_validation",
+      "minimum_additional_evidence": "Independent human/source review and adjudication, frozen reference/protocol hashes and disjoint positive/negative/NA/U validation; AI agreement is insufficient.",
+      "new_evidence": "Eleven provisional AI reviews; ten numerical case windows; three authorized sheets/24 panels; no independent physical references",
+      "previous_status": "BLOCKED_ON_EVIDENCE",
+      "status_after_review": "BLOCKED_ON_EVIDENCE",
+      "why_status_does_not_progress": "Visual context and additional review do not supply missing calibration, load-bearing, phase or independent-reference validity; no AI-consensus rule"
+    }
+  ],
+  "geometric_computations_ready_for_declared_inputs": true,
+  "independent_physical_reference_cases": 0,
+  "qualified_negative_certification_ready": false,
+  "read_only_measurements_ready": true,
+  "status_demotions": 0,
+  "status_promotions": 0
+}

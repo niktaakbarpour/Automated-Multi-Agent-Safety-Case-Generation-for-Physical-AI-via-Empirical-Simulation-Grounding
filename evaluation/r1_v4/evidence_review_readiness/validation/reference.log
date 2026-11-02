@@ -1,0 +1,22 @@
+test_missing_events_never_imply_a_negative (test_pipeline.AdapterTests.test_missing_events_never_imply_a_negative) ... ok
+test_no_support_candidate_does_not_prove_non_applicability (test_pipeline.AdapterTests.test_no_support_candidate_does_not_prove_non_applicability) ... ok
+test_disjoint_windows_not_collapsed (test_pipeline.MatchingTests.test_disjoint_windows_not_collapsed) ... ok
+test_max_cardinality_beats_greedy (test_pipeline.MatchingTests.test_max_cardinality_beats_greedy) ... ok
+test_stable_ids_and_duplicate_predictions (test_pipeline.MatchingTests.test_stable_ids_and_duplicate_predictions) ... ok
+test_tolerance_and_scope_and_candidates (test_pipeline.MatchingTests.test_tolerance_and_scope_and_candidates) ... ok
+test_unknown_endpoints_do_not_become_errors (test_pipeline.MatchingTests.test_unknown_endpoints_do_not_become_errors) ... ok
+test_actual_reference_denominators_and_abstentions (test_pipeline.ScoringTests.test_actual_reference_denominators_and_abstentions) ... ok
+test_checker_and_protocol_drift_rejected (test_pipeline.ScoringTests.test_checker_and_protocol_drift_rejected) ... ok
+test_compound_subevents_keep_group_and_contact_semantics (test_pipeline.ScoringTests.test_compound_subevents_keep_group_and_contact_semantics) ... ok
+test_duplicate_and_missing_units_rejected (test_pipeline.ScoringTests.test_duplicate_and_missing_units_rejected) ... ok
+test_final_label_json_is_authoritative (test_pipeline.ScoringTests.test_final_label_json_is_authoritative) ... ok
+test_missing_reference_event_is_not_a_negative_window (test_pipeline.ScoringTests.test_missing_reference_event_is_not_a_negative_window) ... ok
+test_provisional_events_cannot_be_promoted (test_pipeline.ScoringTests.test_provisional_events_cannot_be_promoted) ... ok
+test_unknown_run_object_and_requirement_rejected (test_pipeline.ScoringTests.test_unknown_run_object_and_requirement_rejected) ... ok
+test_valid_frozen_predictions (test_pipeline.ScoringTests.test_valid_frozen_predictions) ... ok
+test_tampered_predictions_rejected_before_reference_loading (test_pipeline.SealTests.test_tampered_predictions_rejected_before_reference_loading) ... ok
+
+----------------------------------------------------------------------
+Ran 17 tests in 0.106s
+
+OK

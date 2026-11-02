@@ -1,0 +1,125 @@
+{
+  "empirical_admission_enabled": false,
+  "existing_V4_logic_unchanged": true,
+  "independent_reference_cases": 0,
+  "original_source_files_unchanged": 38,
+  "passed": true,
+  "physical_judgments_issued": 0,
+  "prior_audit_reader_artifacts_unchanged": true,
+  "suites": {
+    "frozen_v3": {
+      "PYTHONPATH": "/disk/1/data/niktakbr/trustworthy-phase16/src:/disk/1/data/niktakbr/trustworthy-phase16:/disk/0/home/niktakbr/groot-n17-libero-gpu0-queue/.venv/lib/python3.12/site-packages:/usr/lib/python3.12/site-packages:/usr/lib64/python3.12/site-packages",
+      "command": [
+        "/usr/bin/python3",
+        "-S",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "evaluation/r1_v3/tests",
+        "-v"
+      ],
+      "cwd": "/disk/1/data/niktakbr/trustworthy-phase16",
+      "log_sha256": "0152be9f6f8dac251dd0a789d535b9788a29ca9d0df7a69a5782e01831f90993",
+      "problem_tests": [],
+      "returncode": 0,
+      "skipped": 0,
+      "tests_run": 41
+    },
+    "generalization": {
+      "PYTHONPATH": "/disk/1/data/niktakbr/trustworthy-phase16/src:/disk/1/data/niktakbr/trustworthy-phase16:/disk/0/home/niktakbr/groot-n17-libero-gpu0-queue/.venv/lib/python3.12/site-packages:/usr/lib/python3.12/site-packages:/usr/lib64/python3.12/site-packages",
+      "command": [
+        "/usr/bin/python3",
+        "-S",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "evaluation/r1_v3_generalization/tests",
+        "-v"
+      ],
+      "cwd": "/disk/1/data/niktakbr/trustworthy-phase16",
+      "log_sha256": "c54bddb88437593a87f06110f6e7eaa6cc4f1eebda89d9664773b497764a35d5",
+      "problem_tests": [],
+      "returncode": 0,
+      "skipped": 0,
+      "tests_run": 13
+    },
+    "phase2a": {
+      "PYTHONPATH": "/disk/1/data/niktakbr/trustworthy-phase16/src:/disk/1/data/niktakbr/trustworthy-phase16",
+      "command": [
+        "/usr/bin/python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "evaluation/r1_v4/tests",
+        "-v"
+      ],
+      "cwd": "/disk/1/data/niktakbr/trustworthy-phase16",
+      "log_sha256": "2fef5018aa298e184242a9441060d651c2e7ed8695214a8580d43da63d9f18a9",
+      "problem_tests": [],
+      "returncode": 0,
+      "skipped": 0,
+      "tests_run": 105
+    },
+    "profile": {
+      "PYTHONPATH": "/disk/1/data/niktakbr/trustworthy-phase16/src:/disk/1/data/niktakbr/trustworthy-phase16:/disk/0/home/niktakbr/groot-n17-libero-gpu0-queue/.venv/lib/python3.12/site-packages:/usr/lib/python3.12/site-packages:/usr/lib64/python3.12/site-packages",
+      "command": [
+        "/usr/bin/python3",
+        "-S",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "evaluation/r1_v4/measurement_profile_validation/tests",
+        "-v"
+      ],
+      "cwd": "/disk/1/data/niktakbr/trustworthy-phase16",
+      "log_sha256": "b689c51ed4873867b7d6efae487f6adaceae8fe1a554cdee9d257353518a3511",
+      "problem_tests": [],
+      "returncode": 0,
+      "skipped": 0,
+      "tests_run": 30
+    },
+    "reader": {
+      "PYTHONPATH": "/disk/1/data/niktakbr/trustworthy-phase16/src:/disk/1/data/niktakbr/trustworthy-phase16:/disk/0/home/niktakbr/groot-n17-libero-gpu0-queue/.venv/lib/python3.12/site-packages:/usr/lib/python3.12/site-packages:/usr/lib64/python3.12/site-packages",
+      "command": [
+        "/usr/bin/python3",
+        "-S",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "evaluation/r1_v4/libero_measurement_reader/tests",
+        "-v"
+      ],
+      "cwd": "/disk/1/data/niktakbr/trustworthy-phase16",
+      "log_sha256": "d43927ea927113f2a2bea0516ce4ed074b09f512df58020d29e3feb305111f3b",
+      "problem_tests": [],
+      "returncode": 0,
+      "skipped": 0,
+      "tests_run": 44
+    },
+    "reference": {
+      "PYTHONPATH": "/disk/1/data/niktakbr/trustworthy-phase16/src:/disk/1/data/niktakbr/trustworthy-phase16:/disk/0/home/niktakbr/groot-n17-libero-gpu0-queue/.venv/lib/python3.12/site-packages:/usr/lib/python3.12/site-packages:/usr/lib64/python3.12/site-packages",
+      "command": [
+        "/usr/bin/python3",
+        "-S",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "evaluation/r1_reference/tests",
+        "-v"
+      ],
+      "cwd": "/disk/1/data/niktakbr/trustworthy-phase16",
+      "log_sha256": "d1647af0a8e2f3f56be84a2f6a260b00583652eddafdb7d6d90cd823771b1279",
+      "problem_tests": [],
+      "returncode": 0,
+      "skipped": 0,
+      "tests_run": 17
+    }
+  },
+  "visual_review_performed": false
+}

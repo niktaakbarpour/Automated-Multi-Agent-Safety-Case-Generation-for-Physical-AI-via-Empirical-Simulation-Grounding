@@ -1,0 +1,12 @@
+{
+  "certified": false,
+  "empirical_enabled": false,
+  "geometry": [
+    "box"
+  ],
+  "id": "analytical-contract-capabilities",
+  "negative_composition": "static_cells_only",
+  "roots": "static_horizontal",
+  "scope": "synthetic_declared_facts_only",
+  "version": "1.0.0"
+}

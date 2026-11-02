@@ -1,0 +1,25 @@
+"""Publish bounded audit dispositions, not an empirical runtime capability record."""
+from .audit_sources import HERE,csvwrite
+ROWS=[
+ ('source_byte_identity','VERIFIED','28 source files match exact Phase2A baseline; SOURCE_BINDINGS.json','Only listed repository copies, not original recording bytes','Fresh original hashes and metadata for raw admission'),
+ ('development_separation','VERIFIED','Split membership and 20 excluded identities checked; SAMPLE_VALIDATION.json','Four historical development examples only; prior exposure retained','Freeze independent future validation cohort'),
+ ('saved_export_structure','VERIFIED','1312 ordered finite frames,161 geom rows, resolved contact IDs; MEASUREMENT_SUMMARY.json','Four preserved exports only; no raw ncon certification','Restore raw HDF5 and verify exact export regeneration'),
+ ('native_geometry_ownership','CONDITIONALLY_SUPPORTED','Corrected map binds XML and all161 native IDs; OBJECT_GEOMETRY_AUDIT.csv','This exact XML/registered executions only; not portable scene IDs','Restore native index/body arrays and verify ancestry per run'),
+ ('rigid_box_bounds','CONDITIONALLY_SUPPORTED','World geom pose plus native half-size corner calculation; OBJECT_GEOMETRY_AUDIT.csv','Five BOX unions only; arithmetic is not physical calibration','Independent geometry/uncertainty profile and raw transform check'),
+ ('static_table_geometry','CONDITIONALLY_SUPPORTED','All six collision IDs10-15 invariant in saved exports; SURFACE_GEOMETRY_AUDIT.csv','Saved projection and exact model only; no load-bearing proof','Verify XML root constraints and horizontal face profile'),
+ ('contact_ownership','CONDITIONALLY_SUPPORTED','Each stored contact resolves to native owners; CONTACT_SEMANTICS.md','IDs/dist/pos only; complete export list is not raw ncon evidence','Restore raw ncon/list and verify scope and completeness'),
+ ('per_contact_force_or_normal','UNSUPPORTED','Producer snapshot omits these fields; RECORDER_CONTRACT.md','Never infer from cfrc_ext or named sensor presence','New independently validated evidence producer or justified force-free alternative'),
+ ('initial_load_bearing_support','BLOCKED_ON_EVIDENCE','Support candidates exist but no empirical profile; CONTACT_SEMANTICS.md','Direct/indirect support and closed exclusion both gated','Independent support references plus calibrated geometry/clock profile'),
+ ('native_state_cache_phase','CONDITIONALLY_SUPPORTED','Historical Euler reconstruction; TEMPORAL_ALIGNMENT.md','Nominal phase is inherited; not universal synchronized timestamp','Restore raw arrays and historical producer dependencies; bound phase'),
+ ('camera_exposure_alignment','BLOCKED_ON_EVIDENCE','No independent exposure timestamps; TEMPORAL_ALIGNMENT.md','Same dict/FPS/host timestamp insufficient','Verified camera observable implementation and exposure uncertainty'),
+ ('unsupported_downward_fall','BLOCKED_ON_EVIDENCE','Analytical event logic only; CALIBRATION_GAPS.md','No independently verified in-scope empirical positive','Validated origin/loss/translation/handling/boundary references and profile'),
+ ('handling_exclusion','BLOCKED_ON_EVIDENCE','Prior bilateral/co-motion diagnostic; DIAGNOSTIC_WINDOWS.csv','Contact alone is not carrying; no intention inference','Independent held/lift/incidental-contact/post-lift references'),
+ ('static_negative_coverage','BLOCKED_ON_EVIDENCE','Saved cells available but unqualified; TEMPORAL_ALIGNMENT.md','No absence-of-candidate shortcut','Admitted support/transition certificates and uncertainty for every cell'),
+ ('dynamic_negative_composition','UNSUPPORTED','Finalized restricted profile defers it','Sliding/handling/replacement suffixes remain uncertain','Separate approved semantics and validated profile'),
+ ('moving_roots_nonbox_multiple_parent_solver','UNSUPPORTED','Restricted V4 scope excludes these capabilities','No fallback geometry or support graph guess','Separate future version and capability evidence'),
+ ('continuous_time_safety','UNSUPPORTED','Control-rate snapshots omit intermediate physics','No substep or between-camera guarantee','Additional evidence and validated continuous coverage contract'),
+ ('empirical_accuracy_or_certification','BLOCKED_ON_EVIDENCE','No independent reference dataset; PHASE_2B2_READINESS.md','Synthetic and historical AI agreement do not validate accuracy','Frozen independent evaluation with positives negatives NA U'),
+]
+def main():
+ csvwrite(HERE/'CAPABILITY_MATRIX.csv',[dict(capability=c,status=s,justification=j,validity_scope=v,required_evidence=e,empirical_runtime_enabled=False) for c,s,j,v,e in ROWS])
+if __name__=='__main__':main()

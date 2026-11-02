@@ -1,0 +1,5 @@
+task,executions,frames,evidence_records,native_geometries,anonymous_geometries,objects,surface_ids,native_shape_types,profile_status
+object/task_01,49,6901,11389,139,0,7,[6],"{'box': 68, 'plane': 1, 'mesh': 70}",VERIFIED_MEASUREMENTS_ONLY
+object/task_03,49,7034,11557,137,0,7,[6],"{'box': 66, 'plane': 1, 'mesh': 70}",VERIFIED_MEASUREMENTS_ONLY
+object/task_05,49,6889,11389,121,0,7,[6],"{'box': 50, 'plane': 1, 'mesh': 70}",VERIFIED_MEASUREMENTS_ONLY
+object/task_09,49,6500,10927,120,0,7,[6],"{'box': 49, 'plane': 1, 'mesh': 70}",VERIFIED_MEASUREMENTS_ONLY

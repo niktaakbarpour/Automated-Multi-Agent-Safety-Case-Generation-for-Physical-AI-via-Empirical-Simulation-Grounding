@@ -1,0 +1,182 @@
+{
+  "ANALYTICAL_FIXTURES/README.md": {
+    "bytes": 2278,
+    "sha256": "f23fa14f0c650552db8a02a208541f0f3395261293fde5d061e3381066f34413"
+  },
+  "ANALYTICAL_FIXTURES/ambiguous_contact.json": {
+    "bytes": 27695,
+    "sha256": "1b2ed6c12d2c6536ed7b9fb30e62f007636bd9c92eb0d7e4bddbf601a4fe2e17"
+  },
+  "ANALYTICAL_FIXTURES/fall_after_support_loss.json": {
+    "bytes": 27714,
+    "sha256": "02edb9aa0a414a12641273af04e6c3c8de0cfa9f562d3d75da6cd00a8f149022"
+  },
+  "ANALYTICAL_FIXTURES/initially_unsupported.json": {
+    "bytes": 24844,
+    "sha256": "e52044b04e406da087a37635c6e3bb8dbd2d7db2c1b70d87d85dd959a2e72265"
+  },
+  "ANALYTICAL_FIXTURES/intentional_lifting.json": {
+    "bytes": 27708,
+    "sha256": "cbfec9cffce7411d42e66e757cedae3760023e97e041e9418532b5a064b166c6"
+  },
+  "ANALYTICAL_FIXTURES/invalid_measurement.json": {
+    "bytes": 27709,
+    "sha256": "3d8fd4ad1cad41c1313e00b2cf51fa019fb42ad4ea918d2f81936df396dd8efa"
+  },
+  "ANALYTICAL_FIXTURES/missing_measurements.json": {
+    "bytes": 27686,
+    "sha256": "9cc14659e6fd894483e508baccfb276e89e6a34723a81487c3560d3efc537603"
+  },
+  "ANALYTICAL_FIXTURES/post_lift_release.json": {
+    "bytes": 27725,
+    "sha256": "d15939e6206cfa51eeea1d2de16a76c5a6e7b60c32910ca0c25af0ab188dfdd4"
+  },
+  "ANALYTICAL_FIXTURES/stable_supported.json": {
+    "bytes": 27343,
+    "sha256": "630acaff8644573e0993e7bd3de6ed49bd8a7a0cea0f0e983c062b6dd7afcca9"
+  },
+  "ANALYTICAL_FIXTURES/supported_sliding.json": {
+    "bytes": 24860,
+    "sha256": "ba61e59cacd56a9ea7b62b351c5fd12e5681188ef3ec226c3905b361e2b89414"
+  },
+  "ANALYTICAL_FIXTURES/timing_mismatch.json": {
+    "bytes": 27676,
+    "sha256": "334bc2fe7f88b3aae3c42df680c45efdefe421b4faf424d38acaaf571ec8700f"
+  },
+  "ANALYTICAL_FIXTURES/unsupported_geometry.json": {
+    "bytes": 27680,
+    "sha256": "f172c927e031326f0f812a8b1a717f0c4cbaf651bb2706716a35f33c72c79e21"
+  },
+  "ANALYTICAL_RESULTS.json": {
+    "bytes": 2118,
+    "sha256": "848bd67fa7f7326c833fd6f062df5b368e5d2a7178838e1fe7d2df95573fa026"
+  },
+  "AUDIT_PROTOCOL.md": {
+    "bytes": 4943,
+    "sha256": "0226050fd13ecc660aab1311fe78dc22f1f3fe4bcbbf6f221eba595d09ef8ec9"
+  },
+  "CALIBRATION_GAPS.md": {
+    "bytes": 3949,
+    "sha256": "6372fc3691fea09d39da3abfa33ee0fe37d1b34f73e7092d0f793c7764e7af41"
+  },
+  "CAPABILITY_MATRIX.csv": {
+    "bytes": 4222,
+    "sha256": "d27d8b200972e215889bc5ff7c32a69c7824a7abef39125c7beb3f5c25ed0802"
+  },
+  "CONTACT_SEMANTICS.md": {
+    "bytes": 3214,
+    "sha256": "6fc5cb4ed5f5c67f952355b971a570fdee9d6a1d14157f031247fe886e7a49e0"
+  },
+  "DEVELOPMENT_SAMPLE_MANIFEST.csv": {
+    "bytes": 2341,
+    "sha256": "6111c87dc318b8bcb03fff81da0267c0fc326d8ca335f79fd7bd23d5455b589e"
+  },
+  "DIAGNOSTIC_WINDOWS.csv": {
+    "bytes": 9045,
+    "sha256": "9633f6ab8ef90fcb0b8a7c2aeebd3ce4baf5e4453d868fc9c3ce45f9bcefadda"
+  },
+  "MEASUREMENT_SUMMARY.json": {
+    "bytes": 2225,
+    "sha256": "f49899c8ed076355321d83c29d1d49fb71aa9a0f5ba630a5240431a32e4e64d2"
+  },
+  "OBJECT_GEOMETRY_AUDIT.csv": {
+    "bytes": 7685,
+    "sha256": "ece8898c0580948f618e78d27a85f234cbd08f0eaf0409de31c9ad2ef3be7bce"
+  },
+  "ORIGINAL_AVAILABILITY.json": {
+    "bytes": 12053,
+    "sha256": "38e5acfc09139f42b0a65f321fb7c84469b71c9ff5432bc3063312921dd20060"
+  },
+  "PHASE_2B2_READINESS.md": {
+    "bytes": 2977,
+    "sha256": "d02f48f3255b1a07603c8e059b7ce008b438a38d46123ddd4772f041a5064450"
+  },
+  "RECORDER_CONTRACT.md": {
+    "bytes": 3184,
+    "sha256": "5ab37059432432bbd0751487943cd2fcfc4629355ca5f83c862b266191619e8d"
+  },
+  "SAMPLE_VALIDATION.json": {
+    "bytes": 374,
+    "sha256": "1f246cc8558848be1bbc4101b4892cc4a5ef9b620605b1674b918f1b71268936"
+  },
+  "SELECTIVE_RESTORATION.json": {
+    "bytes": 22123,
+    "sha256": "25eb4da564ca2c211d56008e0aa889478f0716e899e1ca623ca75c1b0c069f86"
+  },
+  "SOURCE_BINDINGS.json": {
+    "bytes": 5626,
+    "sha256": "c51888a1d6f452923d77c31d58ea848b8a7880bb92511888e9c2ccd9c6f54687"
+  },
+  "SURFACE_GEOMETRY_AUDIT.csv": {
+    "bytes": 10338,
+    "sha256": "a7e917397810895b69f476f9e76f7d9665382e2fb9614e5c5727662553eb0b1d"
+  },
+  "TEMPORAL_ALIGNMENT.md": {
+    "bytes": 2553,
+    "sha256": "1ea69606f5b293b78571f391ef93dbe0f1afdfd63eca12e206e8a6e3d2cda5dd"
+  },
+  "VALIDATION_REPORT.md": {
+    "bytes": 4971,
+    "sha256": "e899926156279e67e0d358fda7bb4f97f3b3c81ed606bfb38c142fa7d194a8b3"
+  },
+  "analytical.py": {
+    "bytes": 3681,
+    "sha256": "403c91db348d10f1ee6e8f80a1405ba18752b3ebd3d27666ecac7c89046cc9bd"
+  },
+  "audit_sources.py": {
+    "bytes": 9941,
+    "sha256": "657d5e9ff55bce866f6f0016f9297c4f4ed0c034dd40a7e00d3adca77f0d1f48"
+  },
+  "build_capabilities.py": {
+    "bytes": 4627,
+    "sha256": "d5be4d6f9ecba39b71ebb23508536e2af68431289f8fed5d93765c505f8d6324"
+  },
+  "diagnostics.py": {
+    "bytes": 1101,
+    "sha256": "be1b874c71d7a111a975d0285cf7647eb3bbebb703a61f205a95fd0d4ac9b867"
+  },
+  "validate_audit.py": {
+    "bytes": 2499,
+    "sha256": "cf6c01b9efad281b3c5d81410c7544d4a9344d6d058307883ab53716f93a0bcb"
+  },
+  "validation/ARTIFACT_QA.json": {
+    "bytes": 215,
+    "sha256": "a984dcd7f188b3afab1ea671dded6e3f434c75be91634465a6081917aca2e720"
+  },
+  "validation/FINAL_INTEGRITY.json": {
+    "bytes": 1312,
+    "sha256": "47d489ad10b2b16d16f61dba017018eebd22b2745af265ba5b97eef1ca87f0fc"
+  },
+  "validation/INTEGRITY_AFTER.json": {
+    "bytes": 1312,
+    "sha256": "c6728bf2bb0785c97a4b1a58420ea854469ee3dc5ee7b0ccf0d2bbfe4ae6e584"
+  },
+  "validation/INTEGRITY_BEFORE.json": {
+    "bytes": 1312,
+    "sha256": "c6728bf2bb0785c97a4b1a58420ea854469ee3dc5ee7b0ccf0d2bbfe4ae6e584"
+  },
+  "validation/RESULTS.json": {
+    "bytes": 3733,
+    "sha256": "ddbcccb394af18447cf22d8fb4a8fd54894d44cacc0eb3c4a06aea1676facd6e"
+  },
+  "validation/analytical.log": {
+    "bytes": 408,
+    "sha256": "a0280f36ac59fa9b984bad941a379bbd1e77f71e17ac3acf919e60ead532c094"
+  },
+  "validation/frozen_v3.log": {
+    "bytes": 4922,
+    "sha256": "5b117b488d157f21c9516fd6117ef7d5aed7979f87945cb547257be1003b6350"
+  },
+  "validation/generalization.log": {
+    "bytes": 1861,
+    "sha256": "41eb026396762b4637fc93c46bddb783a21832a34b2c79e623e4c6f3644e4b84"
+  },
+  "validation/phase2a.log": {
+    "bytes": 12083,
+    "sha256": "c87c80473b20924ac92248aa386224982dee903d51bb632bc45adcde5c5ec003"
+  },
+  "validation/reference.log": {
+    "bytes": 2241,
+    "sha256": "d1647af0a8e2f3f56be84a2f6a260b00583652eddafdb7d6d90cd823771b1279"
+  }
+}

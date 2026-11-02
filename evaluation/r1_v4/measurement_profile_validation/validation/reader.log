@@ -1,0 +1,52 @@
+test_cli_cannot_write_to_source_tree (test_reader.Additional.test_cli_cannot_write_to_source_tree) ... usage: python3 -m unittest [-h] --root ROOT --episode EPISODE
+                           [--frames [FRAMES ...]] [--output OUTPUT]
+python3 -m unittest: error: Output must be fresh owned disk1 path outside source root
+ok
+test_cli_creates_new_output_and_refuses_overwrite (test_reader.Additional.test_cli_creates_new_output_and_refuses_overwrite) ... ok
+test_external_dataset_rejected_before_read (test_reader.Additional.test_external_dataset_rejected_before_read) ... ok
+test_mixed_joint_units_are_not_meters (test_reader.Additional.test_mixed_joint_units_are_not_meters) ... ok
+test_raw_observable_frame_has_no_world_claim (test_reader.Additional.test_raw_observable_frame_has_no_world_claim) ... ok
+test_complete_saved_measurement_projection (test_reader.Development.test_complete_saved_measurement_projection) ... ok
+test_four_hash_bound_executions (test_reader.Development.test_four_hash_bound_executions) ... ok
+test_native_pose_contact_and_camera_fields (test_reader.Development.test_native_pose_contact_and_camera_fields) ... ok
+test_no_empirical_judgment (test_reader.Development.test_no_empirical_judgment) ... ok
+test_flattened_endpoint_disagreement (test_reader.StateConsistency.test_flattened_endpoint_disagreement) ... ok
+test_flattened_is_endpoint_phase (test_reader.StateConsistency.test_flattened_is_endpoint_phase) ... ok
+test_initial_state_disagreement (test_reader.StateConsistency.test_initial_state_disagreement) ... ok
+test_reader_code_hash_binding (test_reader.StateConsistency.test_reader_code_hash_binding) ... ok
+test_unexposed_fields_remain_named (test_reader.StateConsistency.test_unexposed_fields_remain_named) ... ok
+test_anonymous_geometry_preserved (test_reader.Synthetic.test_anonymous_geometry_preserved) ... ok
+test_bad_dtype (test_reader.Synthetic.test_bad_dtype) ... ok
+test_bad_shape (test_reader.Synthetic.test_bad_shape) ... ok
+test_checkpoint_mismatch (test_reader.Synthetic.test_checkpoint_mismatch) ... ok
+test_contact_count_mismatch (test_reader.Synthetic.test_contact_count_mismatch) ... ok
+test_corrupted_hdf5 (test_reader.Synthetic.test_corrupted_hdf5) ... ok
+test_custom_real_contract_rejected (test_reader.Synthetic.test_custom_real_contract_rejected) ... ok
+test_deterministic_serialization (test_reader.Synthetic.test_deterministic_serialization) ... ok
+test_frame_state_offset (test_reader.Synthetic.test_frame_state_offset) ... ok
+test_hash_mismatch (test_reader.Synthetic.test_hash_mismatch) ... ok
+test_heldout_episode_rejected (test_reader.Synthetic.test_heldout_episode_rejected) ... ok
+test_incomplete_saved_coverage (test_reader.Synthetic.test_incomplete_saved_coverage) ... ok
+test_inconsistent_object_identity (test_reader.Synthetic.test_inconsistent_object_identity) ... ok
+test_incorrect_native_mapping (test_reader.Synthetic.test_incorrect_native_mapping) ... ok
+test_invalid_coordinate_frame (test_reader.Synthetic.test_invalid_coordinate_frame) ... ok
+test_invalid_result_has_no_bridge (test_reader.Synthetic.test_invalid_result_has_no_bridge) ... ok
+test_missing_array (test_reader.Synthetic.test_missing_array) ... ok
+test_missing_contact_field (test_reader.Synthetic.test_missing_contact_field) ... ok
+test_missing_file (test_reader.Synthetic.test_missing_file) ... ok
+test_missing_metadata_field (test_reader.Synthetic.test_missing_metadata_field) ... ok
+test_nonfinite (test_reader.Synthetic.test_nonfinite) ... ok
+test_nonmonotonic_time (test_reader.Synthetic.test_nonmonotonic_time) ... ok
+test_out_of_range_contact (test_reader.Synthetic.test_out_of_range_contact) ... ok
+test_root_height_jump_cannot_create_event (test_reader.Synthetic.test_root_height_jump_cannot_create_event) ... ok
+test_soft_link_rejected (test_reader.Synthetic.test_soft_link_rejected) ... ok
+test_static_root_motion (test_reader.Synthetic.test_static_root_motion) ... ok
+test_transition_clock_mismatch (test_reader.Synthetic.test_transition_clock_mismatch) ... ok
+test_typed_bridge_preserves_provenance_and_unknown_truth (test_reader.Synthetic.test_typed_bridge_preserves_provenance_and_unknown_truth) ... ok
+test_unsupported_camera_alignment (test_reader.Synthetic.test_unsupported_camera_alignment) ... ok
+test_valid_synthetic_measurements (test_reader.Synthetic.test_valid_synthetic_measurements) ... ok
+
+----------------------------------------------------------------------
+Ran 44 tests in 13.081s
+
+OK

@@ -1,0 +1,110 @@
+{
+  "all_existing_tracked_files_unchanged": true,
+  "baseline": "c98a2b81e125bc60b6062b21eebdb75c426e30db",
+  "empirical_admission_enabled": false,
+  "frozen_before_after_equal": true,
+  "passed": true,
+  "physical_verdicts_issued": 0,
+  "sample": {
+    "all_selected_in_development": true,
+    "development_exports_inspected": 4,
+    "empirical_admission_enabled": false,
+    "excluded_run_count": 20,
+    "export_frames_inspected": 1312,
+    "original_hashes_freshly_verified": 0,
+    "original_recordings_inspected": 0,
+    "overlap_with_frozen_or_heldout": 0,
+    "physical_verdicts_issued": 0,
+    "source_files_baseline_verified": 28
+  },
+  "suites": {
+    "audit_analytical": {
+      "command": [
+        "/usr/bin/python3",
+        "-m",
+        "unittest",
+        "evaluation.r1_v4.libero_evidence_audit.analytical",
+        "-v"
+      ],
+      "log_sha256": "a0280f36ac59fa9b984bad941a379bbd1e77f71e17ac3acf919e60ead532c094",
+      "returncode": 0,
+      "scenarios": 11,
+      "tests_run": 2
+    },
+    "frozen_v3": {
+      "PYTHONPATH": "/disk/1/data/niktakbr/trustworthy-phase16/src:/disk/1/data/niktakbr/trustworthy-phase16:/disk/0/home/niktakbr/groot-n17-libero-gpu0-queue/.venv/lib/python3.12/site-packages:/usr/lib/python3.12/site-packages:/usr/lib64/python3.12/site-packages",
+      "command": [
+        "/usr/bin/python3",
+        "-S",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "evaluation/r1_v3/tests",
+        "-v"
+      ],
+      "cwd": "/disk/1/data/niktakbr/trustworthy-phase16",
+      "log_sha256": "5b117b488d157f21c9516fd6117ef7d5aed7979f87945cb547257be1003b6350",
+      "problem_tests": [],
+      "returncode": 0,
+      "skipped": 0,
+      "tests_run": 41
+    },
+    "generalization": {
+      "PYTHONPATH": "/disk/1/data/niktakbr/trustworthy-phase16/src:/disk/1/data/niktakbr/trustworthy-phase16:/disk/0/home/niktakbr/groot-n17-libero-gpu0-queue/.venv/lib/python3.12/site-packages:/usr/lib/python3.12/site-packages:/usr/lib64/python3.12/site-packages",
+      "command": [
+        "/usr/bin/python3",
+        "-S",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "evaluation/r1_v3_generalization/tests",
+        "-v"
+      ],
+      "cwd": "/disk/1/data/niktakbr/trustworthy-phase16",
+      "log_sha256": "41eb026396762b4637fc93c46bddb783a21832a34b2c79e623e4c6f3644e4b84",
+      "problem_tests": [],
+      "returncode": 0,
+      "skipped": 0,
+      "tests_run": 13
+    },
+    "phase2a": {
+      "PYTHONPATH": "/disk/1/data/niktakbr/trustworthy-phase16/src:/disk/1/data/niktakbr/trustworthy-phase16",
+      "command": [
+        "/usr/bin/python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "evaluation/r1_v4/tests",
+        "-v"
+      ],
+      "cwd": "/disk/1/data/niktakbr/trustworthy-phase16",
+      "log_sha256": "c87c80473b20924ac92248aa386224982dee903d51bb632bc45adcde5c5ec003",
+      "problem_tests": [],
+      "returncode": 0,
+      "skipped": 0,
+      "tests_run": 105
+    },
+    "reference": {
+      "PYTHONPATH": "/disk/1/data/niktakbr/trustworthy-phase16/src:/disk/1/data/niktakbr/trustworthy-phase16:/disk/0/home/niktakbr/groot-n17-libero-gpu0-queue/.venv/lib/python3.12/site-packages:/usr/lib/python3.12/site-packages:/usr/lib64/python3.12/site-packages",
+      "command": [
+        "/usr/bin/python3",
+        "-S",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "evaluation/r1_reference/tests",
+        "-v"
+      ],
+      "cwd": "/disk/1/data/niktakbr/trustworthy-phase16",
+      "log_sha256": "d1647af0a8e2f3f56be84a2f6a260b00583652eddafdb7d6d90cd823771b1279",
+      "problem_tests": [],
+      "returncode": 0,
+      "skipped": 0,
+      "tests_run": 17
+    }
+  }
+}

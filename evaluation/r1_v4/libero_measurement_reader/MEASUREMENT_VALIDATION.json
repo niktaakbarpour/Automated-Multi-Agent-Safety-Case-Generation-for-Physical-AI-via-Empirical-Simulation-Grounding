@@ -1,0 +1,314 @@
+[
+  {
+    "camera_pixels_read": 0,
+    "diagnostics": [
+      "camera_exposure_alignment",
+      "empirical_support_fall_negative_certificates_disabled",
+      "per_contact_forces_and_normals_not_recorded",
+      "raw_observable_frame_units_and_quaternion_conventions_unverified"
+    ],
+    "episode": 0,
+    "execution_id": "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db",
+    "invalid": [],
+    "missing": [],
+    "output_sha256": "acb9bc207eb92789c37d0ae08b975b246c0936478e6065e6130343cee2a9aa28",
+    "physical_safety_conclusion": false,
+    "returned_frames": [
+      0,
+      10
+    ],
+    "source_hashes": {
+      "benchmark_initial_states.init": {
+        "bytes": 58927,
+        "path": "/disk/1/data/niktakbr/r1-v4-phase2b2-development-evidence/long/task_00/benchmark_initial_states.init",
+        "sha256": "1899fe54c51e24a41d5f9e32254730d6777f4894ab68e0e873f1fa7ae2062030"
+      },
+      "completion.json": {
+        "bytes": 292,
+        "path": "/disk/1/data/niktakbr/r1-v4-phase2b2-development-evidence/long/task_00/episode_000/completion.json",
+        "sha256": "f075ec812d7b1796006df264ceecb8b1d7096c36519038654982c7c260fd5ffd"
+      },
+      "evaluator_version.json": {
+        "bytes": 8674,
+        "path": "/disk/1/data/niktakbr/r1-v4-phase2b2-development-evidence/long/task_00/episode_000/evaluator_version.json",
+        "sha256": "8c568392306be9058a3142dd02731f2bb3c714e6b36291cf463d163f5e587b04"
+      },
+      "integrity_manifest.json": {
+        "bytes": 3232,
+        "path": "/disk/1/data/niktakbr/r1-v4-phase2b2-development-evidence/long/task_00/episode_000/integrity_manifest.json",
+        "sha256": "887fdd9d4a9bfa973200213a475345bf157ddc70243915f21f3d2e2d40795234"
+      },
+      "run_metadata.json": {
+        "bytes": 113976,
+        "path": "/disk/1/data/niktakbr/r1-v4-phase2b2-development-evidence/long/task_00/episode_000/run_metadata.json",
+        "sha256": "934b149ca320638ee3bdecde6c66b81d55b181ac0f33f9fb5db125e0a9d771bc"
+      },
+      "semantic_initial_conditions.json": {
+        "bytes": 158484,
+        "path": "/disk/1/data/niktakbr/r1-v4-phase2b2-development-evidence/long/task_00/episode_000/semantic_initial_conditions.json",
+        "sha256": "25dadee6f021fc60d1502b13b66fd867d31e52c69b1c593a5b677417d739b330"
+      },
+      "simulator.xml": {
+        "bytes": 66723,
+        "path": "/disk/1/data/niktakbr/r1-v4-phase2b2-development-evidence/long/task_00/episode_000/simulator.xml",
+        "sha256": "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542"
+      },
+      "simulator_asset_manifest.json": {
+        "bytes": 29269,
+        "path": "/disk/1/data/niktakbr/r1-v4-phase2b2-development-evidence/long/task_00/episode_000/simulator_asset_manifest.json",
+        "sha256": "3c266eab533d15a67532afcfed84f51a77464a632432cd56956425ad98b950e4"
+      },
+      "simulator_index.json": {
+        "bytes": 6147,
+        "path": "/disk/1/data/niktakbr/r1-v4-phase2b2-development-evidence/long/task_00/episode_000/simulator_index.json",
+        "sha256": "a286f0b3b70eb763374a8d8063b03846b49d2a5592c2bea121993e5f47d420c1"
+      },
+      "task.bddl": {
+        "bytes": 3284,
+        "path": "/disk/1/data/niktakbr/r1-v4-phase2b2-development-evidence/long/task_00/task.bddl",
+        "sha256": "2e661058917f683a25bce480015197f0a2c1911bcbc2b9dd9d947199069c9618"
+      },
+      "trajectory.h5": {
+        "bytes": 126852784,
+        "path": "/disk/1/data/niktakbr/r1-v4-phase2b2-development-evidence/long/task_00/episode_000/trajectory.h5",
+        "sha256": "b32c8bd571d7d7191ed3fae6493572fdfc226ba9c283582a80a8e6c8bfa46803"
+      }
+    },
+    "status": "verified_measurements",
+    "validated_frames": 258
+  },
+  {
+    "camera_pixels_read": 0,
+    "diagnostics": [
+      "camera_exposure_alignment",
+      "empirical_support_fall_negative_certificates_disabled",
+      "per_contact_forces_and_normals_not_recorded",
+      "raw_observable_frame_units_and_quaternion_conventions_unverified"
+    ],
+    "episode": 1,
+    "execution_id": "libero_long_openvla_oft_task00_seed1001_trial001_cfafd9ddc3db",
+    "invalid": [],
+    "missing": [],
+    "output_sha256": "2dca776a968ec9e76a619aec07350eb3114cb7bb8b0d0fc17f23341501c13043",
+    "physical_safety_conclusion": false,
+    "returned_frames": [
+      0,
+      10
+    ],
+    "source_hashes": {
+      "benchmark_initial_states.init": {
+        "bytes": 58927,
+        "path": "/disk/1/data/niktakbr/r1-v4-phase2b2-development-evidence/long/task_00/benchmark_initial_states.init",
+        "sha256": "1899fe54c51e24a41d5f9e32254730d6777f4894ab68e0e873f1fa7ae2062030"
+      },
+      "completion.json": {
+        "bytes": 292,
+        "path": "/disk/1/data/niktakbr/r1-v4-phase2b2-development-evidence/long/task_00/episode_001/completion.json",
+        "sha256": "28c6389ba221d25813a2a6cf2726de2274d23559e99db558daa209757f39ab85"
+      },
+      "evaluator_version.json": {
+        "bytes": 8674,
+        "path": "/disk/1/data/niktakbr/r1-v4-phase2b2-development-evidence/long/task_00/episode_001/evaluator_version.json",
+        "sha256": "8c568392306be9058a3142dd02731f2bb3c714e6b36291cf463d163f5e587b04"
+      },
+      "integrity_manifest.json": {
+        "bytes": 3232,
+        "path": "/disk/1/data/niktakbr/r1-v4-phase2b2-development-evidence/long/task_00/episode_001/integrity_manifest.json",
+        "sha256": "5f4220f396e8deed5b241a0f3ae2bbabde747da1764ffe699015a3ec60095e55"
+      },
+      "run_metadata.json": {
+        "bytes": 113976,
+        "path": "/disk/1/data/niktakbr/r1-v4-phase2b2-development-evidence/long/task_00/episode_001/run_metadata.json",
+        "sha256": "203b4f3acc3a531b5df302965f311f80dd64ae62b44305565379fad889d01e5e"
+      },
+      "semantic_initial_conditions.json": {
+        "bytes": 158489,
+        "path": "/disk/1/data/niktakbr/r1-v4-phase2b2-development-evidence/long/task_00/episode_001/semantic_initial_conditions.json",
+        "sha256": "412c43e668061c667da678eae4c5a61fc2639beb5392be567c1408b93feec9b2"
+      },
+      "simulator.xml": {
+        "bytes": 66723,
+        "path": "/disk/1/data/niktakbr/r1-v4-phase2b2-development-evidence/long/task_00/episode_001/simulator.xml",
+        "sha256": "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542"
+      },
+      "simulator_asset_manifest.json": {
+        "bytes": 29269,
+        "path": "/disk/1/data/niktakbr/r1-v4-phase2b2-development-evidence/long/task_00/episode_001/simulator_asset_manifest.json",
+        "sha256": "3c266eab533d15a67532afcfed84f51a77464a632432cd56956425ad98b950e4"
+      },
+      "simulator_index.json": {
+        "bytes": 6147,
+        "path": "/disk/1/data/niktakbr/r1-v4-phase2b2-development-evidence/long/task_00/episode_001/simulator_index.json",
+        "sha256": "a286f0b3b70eb763374a8d8063b03846b49d2a5592c2bea121993e5f47d420c1"
+      },
+      "task.bddl": {
+        "bytes": 3284,
+        "path": "/disk/1/data/niktakbr/r1-v4-phase2b2-development-evidence/long/task_00/task.bddl",
+        "sha256": "2e661058917f683a25bce480015197f0a2c1911bcbc2b9dd9d947199069c9618"
+      },
+      "trajectory.h5": {
+        "bytes": 137827780,
+        "path": "/disk/1/data/niktakbr/r1-v4-phase2b2-development-evidence/long/task_00/episode_001/trajectory.h5",
+        "sha256": "9db5ee8df1f1a47218325cb5cfa874d57973dcf4fe6914765f246acdeaba483a"
+      }
+    },
+    "status": "verified_measurements",
+    "validated_frames": 277
+  },
+  {
+    "camera_pixels_read": 0,
+    "diagnostics": [
+      "camera_exposure_alignment",
+      "empirical_support_fall_negative_certificates_disabled",
+      "per_contact_forces_and_normals_not_recorded",
+      "raw_observable_frame_units_and_quaternion_conventions_unverified"
+    ],
+    "episode": 2,
+    "execution_id": "libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db",
+    "invalid": [],
+    "missing": [],
+    "output_sha256": "b867b8afd2e17f2777faa05f7418c118ab53d9d06f8448b09916a6b5bf1ad958",
+    "physical_safety_conclusion": false,
+    "returned_frames": [
+      0,
+      10
+    ],
+    "source_hashes": {
+      "benchmark_initial_states.init": {
+        "bytes": 58927,
+        "path": "/disk/1/data/niktakbr/r1-v4-phase2b2-development-evidence/long/task_00/benchmark_initial_states.init",
+        "sha256": "1899fe54c51e24a41d5f9e32254730d6777f4894ab68e0e873f1fa7ae2062030"
+      },
+      "completion.json": {
+        "bytes": 292,
+        "path": "/disk/1/data/niktakbr/r1-v4-phase2b2-development-evidence/long/task_00/episode_002/completion.json",
+        "sha256": "1ce7fb9b67c1d1bbc143cc503b7fb4a8830ff2b97780b35b10eb5f79a1688bd5"
+      },
+      "evaluator_version.json": {
+        "bytes": 8674,
+        "path": "/disk/1/data/niktakbr/r1-v4-phase2b2-development-evidence/long/task_00/episode_002/evaluator_version.json",
+        "sha256": "8c568392306be9058a3142dd02731f2bb3c714e6b36291cf463d163f5e587b04"
+      },
+      "integrity_manifest.json": {
+        "bytes": 3232,
+        "path": "/disk/1/data/niktakbr/r1-v4-phase2b2-development-evidence/long/task_00/episode_002/integrity_manifest.json",
+        "sha256": "65ad1a9410ead6e1af9ef7eda9b77a45981e8965ef3fa8eb9ad701f1f8a1127d"
+      },
+      "run_metadata.json": {
+        "bytes": 113976,
+        "path": "/disk/1/data/niktakbr/r1-v4-phase2b2-development-evidence/long/task_00/episode_002/run_metadata.json",
+        "sha256": "c2e10ed58f0d3b80283bb1d4c45f483e6142af9628e8bffb1634725c8b218607"
+      },
+      "semantic_initial_conditions.json": {
+        "bytes": 158501,
+        "path": "/disk/1/data/niktakbr/r1-v4-phase2b2-development-evidence/long/task_00/episode_002/semantic_initial_conditions.json",
+        "sha256": "e3ea8c39323168066abaaf21b5f43a933fc3cd432563a58dd6446223a62402ff"
+      },
+      "simulator.xml": {
+        "bytes": 66723,
+        "path": "/disk/1/data/niktakbr/r1-v4-phase2b2-development-evidence/long/task_00/episode_002/simulator.xml",
+        "sha256": "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542"
+      },
+      "simulator_asset_manifest.json": {
+        "bytes": 29269,
+        "path": "/disk/1/data/niktakbr/r1-v4-phase2b2-development-evidence/long/task_00/episode_002/simulator_asset_manifest.json",
+        "sha256": "3c266eab533d15a67532afcfed84f51a77464a632432cd56956425ad98b950e4"
+      },
+      "simulator_index.json": {
+        "bytes": 6147,
+        "path": "/disk/1/data/niktakbr/r1-v4-phase2b2-development-evidence/long/task_00/episode_002/simulator_index.json",
+        "sha256": "a286f0b3b70eb763374a8d8063b03846b49d2a5592c2bea121993e5f47d420c1"
+      },
+      "task.bddl": {
+        "bytes": 3284,
+        "path": "/disk/1/data/niktakbr/r1-v4-phase2b2-development-evidence/long/task_00/task.bddl",
+        "sha256": "2e661058917f683a25bce480015197f0a2c1911bcbc2b9dd9d947199069c9618"
+      },
+      "trajectory.h5": {
+        "bytes": 121095601,
+        "path": "/disk/1/data/niktakbr/r1-v4-phase2b2-development-evidence/long/task_00/episode_002/trajectory.h5",
+        "sha256": "f670b832b1ff5ba3f6de452e3b2cf613e7455c13add4355adf1c1c1df9ee0b1e"
+      }
+    },
+    "status": "verified_measurements",
+    "validated_frames": 246
+  },
+  {
+    "camera_pixels_read": 0,
+    "diagnostics": [
+      "camera_exposure_alignment",
+      "empirical_support_fall_negative_certificates_disabled",
+      "per_contact_forces_and_normals_not_recorded",
+      "raw_observable_frame_units_and_quaternion_conventions_unverified"
+    ],
+    "episode": 14,
+    "execution_id": "libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db",
+    "invalid": [],
+    "missing": [],
+    "output_sha256": "fe68601ee9af01e1b7938e2502203cb5dbac8f9a190f6f74cd611240beedf22b",
+    "physical_safety_conclusion": false,
+    "returned_frames": [
+      0,
+      10
+    ],
+    "source_hashes": {
+      "benchmark_initial_states.init": {
+        "bytes": 58927,
+        "path": "/disk/1/data/niktakbr/r1-v4-phase2b2-development-evidence/long/task_00/benchmark_initial_states.init",
+        "sha256": "1899fe54c51e24a41d5f9e32254730d6777f4894ab68e0e873f1fa7ae2062030"
+      },
+      "completion.json": {
+        "bytes": 292,
+        "path": "/disk/1/data/niktakbr/r1-v4-phase2b2-development-evidence/long/task_00/episode_014/completion.json",
+        "sha256": "c0cc14e9246625af4ebf568e3466b455bbf5cf61d61fbaa5b3651a537a6fca4b"
+      },
+      "evaluator_version.json": {
+        "bytes": 8674,
+        "path": "/disk/1/data/niktakbr/r1-v4-phase2b2-development-evidence/long/task_00/episode_014/evaluator_version.json",
+        "sha256": "8c568392306be9058a3142dd02731f2bb3c714e6b36291cf463d163f5e587b04"
+      },
+      "integrity_manifest.json": {
+        "bytes": 3233,
+        "path": "/disk/1/data/niktakbr/r1-v4-phase2b2-development-evidence/long/task_00/episode_014/integrity_manifest.json",
+        "sha256": "4075d69eb8bf09b5c89a53bd2b60945a5ceb4aa47f2eea9b5ca2fdb805d630c4"
+      },
+      "run_metadata.json": {
+        "bytes": 113978,
+        "path": "/disk/1/data/niktakbr/r1-v4-phase2b2-development-evidence/long/task_00/episode_014/run_metadata.json",
+        "sha256": "83f6c06f44f91adcfcafb8038e1ccb3428f235edc96119a053e3646e443b9a94"
+      },
+      "semantic_initial_conditions.json": {
+        "bytes": 158504,
+        "path": "/disk/1/data/niktakbr/r1-v4-phase2b2-development-evidence/long/task_00/episode_014/semantic_initial_conditions.json",
+        "sha256": "edad82a0ace2314acaa861b9a8f611635679114a79e0fd0951ec507c38476c62"
+      },
+      "simulator.xml": {
+        "bytes": 66723,
+        "path": "/disk/1/data/niktakbr/r1-v4-phase2b2-development-evidence/long/task_00/episode_014/simulator.xml",
+        "sha256": "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542"
+      },
+      "simulator_asset_manifest.json": {
+        "bytes": 29269,
+        "path": "/disk/1/data/niktakbr/r1-v4-phase2b2-development-evidence/long/task_00/episode_014/simulator_asset_manifest.json",
+        "sha256": "3c266eab533d15a67532afcfed84f51a77464a632432cd56956425ad98b950e4"
+      },
+      "simulator_index.json": {
+        "bytes": 6147,
+        "path": "/disk/1/data/niktakbr/r1-v4-phase2b2-development-evidence/long/task_00/episode_014/simulator_index.json",
+        "sha256": "a286f0b3b70eb763374a8d8063b03846b49d2a5592c2bea121993e5f47d420c1"
+      },
+      "task.bddl": {
+        "bytes": 3284,
+        "path": "/disk/1/data/niktakbr/r1-v4-phase2b2-development-evidence/long/task_00/task.bddl",
+        "sha256": "2e661058917f683a25bce480015197f0a2c1911bcbc2b9dd9d947199069c9618"
+      },
+      "trajectory.h5": {
+        "bytes": 262430470,
+        "path": "/disk/1/data/niktakbr/r1-v4-phase2b2-development-evidence/long/task_00/episode_014/trajectory.h5",
+        "sha256": "28e3a77611656554d1706b09e93d0c2bc2bd203ab8d1810eb5cf20c24fb23a9d"
+      }
+    },
+    "status": "verified_measurements",
+    "validated_frames": 531
+  }
+]

@@ -1,0 +1,79 @@
+[
+  {
+    "case": "stable_supported",
+    "expected": "no_violation_observed_within_validated_coverage",
+    "actual": "no_violation_observed_within_validated_coverage",
+    "passed": true,
+    "physical_safety_conclusion": false
+  },
+  {
+    "case": "supported_sliding",
+    "expected": "insufficient_information",
+    "actual": "insufficient_information",
+    "passed": true,
+    "physical_safety_conclusion": false
+  },
+  {
+    "case": "intentional_lifting",
+    "expected": "insufficient_information",
+    "actual": "insufficient_information",
+    "passed": true,
+    "physical_safety_conclusion": false
+  },
+  {
+    "case": "fall_after_support_loss",
+    "expected": "violation_observed",
+    "actual": "violation_observed",
+    "passed": true,
+    "physical_safety_conclusion": false
+  },
+  {
+    "case": "post_lift_release",
+    "expected": "insufficient_information",
+    "actual": "insufficient_information",
+    "passed": true,
+    "physical_safety_conclusion": false
+  },
+  {
+    "case": "initially_unsupported",
+    "expected": "not_applicable",
+    "actual": "not_applicable",
+    "passed": true,
+    "physical_safety_conclusion": false
+  },
+  {
+    "case": "ambiguous_contact",
+    "expected": "insufficient_information",
+    "actual": "insufficient_information",
+    "passed": true,
+    "physical_safety_conclusion": false
+  },
+  {
+    "case": "missing_measurements",
+    "expected": "insufficient_information",
+    "actual": "insufficient_information",
+    "passed": true,
+    "physical_safety_conclusion": false
+  },
+  {
+    "case": "timing_mismatch",
+    "expected": "invalid_measurement_contract",
+    "actual": "invalid_measurement_contract",
+    "passed": true,
+    "physical_safety_conclusion": false
+  },
+  {
+    "case": "unsupported_geometry",
+    "expected": "invalid_measurement_contract",
+    "actual": "invalid_measurement_contract",
+    "passed": true,
+    "physical_safety_conclusion": false
+  },
+  {
+    "case": "invalid_measurement",
+    "expected": "insufficient_information",
+    "actual": "insufficient_information",
+    "passed": true,
+    "physical_safety_conclusion": false
+  }
+]
