@@ -1,0 +1,16 @@
+[
+  {
+    "equal": true,
+    "installed_path": "/disk/0/home/niktakbr/smolVLA_libero/.venv/lib/python3.12/site-packages/mujoco/include/mujoco/mjdata.h",
+    "installed_sha256": "1be8300051e0ecfb69c4c88b2d190d7f23c32a713434fb19cec7b06d254ecd16",
+    "name": "mjdata.h",
+    "tagged_sha256": "1be8300051e0ecfb69c4c88b2d190d7f23c32a713434fb19cec7b06d254ecd16"
+  },
+  {
+    "equal": true,
+    "installed_path": "/disk/0/home/niktakbr/smolVLA_libero/.venv/lib/python3.12/site-packages/mujoco/include/mujoco/mjmodel.h",
+    "installed_sha256": "4437bd2f26323108cc6be2e84b547234c96f845b55441ebaa5ff2dd8b10e7c02",
+    "name": "mjmodel.h",
+    "tagged_sha256": "4437bd2f26323108cc6be2e84b547234c96f845b55441ebaa5ff2dd8b10e7c02"
+  }
+]

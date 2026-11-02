@@ -1,0 +1,8 @@
+{
+  "actuator_joint_identity_checks": 3888,
+  "executions": 432,
+  "frame": "Exact XML parent body and recorded body/joint native IDs; no world Cartesian projection",
+  "joint_body_identity_checks": 3888,
+  "passed": true,
+  "variants": 104
+}

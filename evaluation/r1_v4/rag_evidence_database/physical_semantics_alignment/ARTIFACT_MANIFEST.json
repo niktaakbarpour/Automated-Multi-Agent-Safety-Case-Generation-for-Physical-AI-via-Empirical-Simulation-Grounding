@@ -1,0 +1,1432 @@
+{
+  "baseline_commit": "a6830ad25f2f3d25ad9a28322985e128e5ab1374",
+  "baseline_manifest": {
+    "bytes": 151120,
+    "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/measurement_channel_expansion/ARTIFACT_MANIFEST.json",
+    "sha256": "b435f896a381c9ba6c6399dd2ce901ace0b8387dbb80a7713436eb04baf88dbe"
+  },
+  "branch": "feat/rag-evidence-database-physical-semantics",
+  "counts": {
+    "execution_timelines": 432,
+    "executions": 432,
+    "interpretation_annotations": 2592,
+    "model_maps": 104,
+    "new_execution_profiles": 0,
+    "new_measurement_channels": 0,
+    "preserved_core_records": 80786,
+    "preserved_phase5g_series": 2592,
+    "total_measurement_records": 83378,
+    "variants": 104
+  },
+  "empirical_admission_enabled": false,
+  "external_artifacts": [
+    {
+      "bytes": 34065982,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/AUDIT_FINAL.json",
+      "sha256": "69f5acf746b4c0ab55a15335f55a2c241970aeb234faa6b28766c86d74941706"
+    },
+    {
+      "bytes": 2177,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/BASELINE_VERIFIED.json",
+      "sha256": "efe1842ac37db106ad674610c492637fe5ede918cb3f32045fce1225c1b778f0"
+    },
+    {
+      "bytes": 242,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/BINDING_VALIDATION.json",
+      "sha256": "59848473b3e22bedba898e8c67e7fb65303dbfee8bacecb295ac7124c6953df5"
+    },
+    {
+      "bytes": 554,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/BUILD.json",
+      "sha256": "a9138a64a0d1e87abc2108ef1429f115ce77f0d98ac6a0a9c6c6d6fa14ee1421"
+    },
+    {
+      "bytes": 20193,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/CLI_VALIDATION.json",
+      "sha256": "178005312e174aa8e810421631fd1b0a0b09cb18d928c9ffc05fa501a7384a9d"
+    },
+    {
+      "bytes": 177,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/EXAMPLE_QUERY.json",
+      "sha256": "fccd32f8b95ba5ed38ac5d4ab298dda180ef4fa4e875ea283a955fe069b005dc"
+    },
+    {
+      "bytes": 1987,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/FINAL_AUDIT.json",
+      "sha256": "abfae61c861bbc20eac88a34eaac227cbede8b14ab7beb13aec85756f5b169cf"
+    },
+    {
+      "bytes": 143613,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/FORCE_LIMITS_VALIDATION.json",
+      "sha256": "86ea487fdda61be43c05ee45ca328596f782a183793bdd4b0c8bde0a12bbfa69"
+    },
+    {
+      "bytes": 1312,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/FROZEN_FINAL.json",
+      "sha256": "5422eeeca42abba13f1f716ae11f2b93a5087ef2994572ff993fadab7e9aa859"
+    },
+    {
+      "bytes": 557,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/INDEPENDENT_BUILD.json",
+      "sha256": "07dd1b5653cef45e4f362e671bc7124189f6fde8b165c65ce51610e119e157b0"
+    },
+    {
+      "bytes": 554,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/INITIAL_BUILD.json",
+      "sha256": "d8e8997b12f74810f9a8238dfa09488247adf270e83b06553c44ec64bf7775e8"
+    },
+    {
+      "bytes": 724,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/MUJOCO_HEADER_COMPARISON.json",
+      "sha256": "479b83f2e4ebc6376f847e6e060d0e6fde5f9301171bb6be587b8f6dc9139885"
+    },
+    {
+      "bytes": 556,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/PARTIAL_RESUME.json",
+      "sha256": "626dcb6380eac524191c04869fbdc74ba28f35322c4ba7817d0fb2495764c753"
+    },
+    {
+      "bytes": 5490,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/PRESERVATION.json",
+      "sha256": "f41dba4d4caf5fc497ecd42af1ab4d93a775b2a77732d9cf2fdcc912f8511bf5"
+    },
+    {
+      "bytes": 5490,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/PRESERVATION_FINAL.json",
+      "sha256": "f41dba4d4caf5fc497ecd42af1ab4d93a775b2a77732d9cf2fdcc912f8511bf5"
+    },
+    {
+      "bytes": 3708,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/PRIMARY_SOURCES.json",
+      "sha256": "b2ceeb8cc0dd55b8e9069acf8c3dc59b6cafd5ade8776f9ae0043b2fda9aa38b"
+    },
+    {
+      "bytes": 6086,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/REBUILD_VALIDATION.json",
+      "sha256": "1f2628a0e75050c5b07676544add3ef9663ed5b5b01473cd5d40c5334cdb1d28"
+    },
+    {
+      "bytes": 3109,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/REGRESSION_HARDENED.json",
+      "sha256": "b0cbc0a9027db61ad41bdf793509875e056762bdcab5e820d4fb8dddb764bd60"
+    },
+    {
+      "bytes": 1727,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/REGRESSION_RESULTS.json",
+      "sha256": "553411d8eb4a3416934c5173c79767f59074556b9d3928c03b6acee451ba9396"
+    },
+    {
+      "bytes": 341,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/RESOURCE_PREFLIGHT.json",
+      "sha256": "ad37cd5ac68e0344d156704df9591e6348184c28b9c02af143dde90dc42b99a3"
+    },
+    {
+      "bytes": 553,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/RESUME.json",
+      "sha256": "ab1a92eaa500c0ffe526f3fd1fc93db8c9b6bb74f5c20f78772f16fae2f864ea"
+    },
+    {
+      "bytes": 5103546,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/RETRIEVAL_VALIDATION.json",
+      "sha256": "50ea555fdc191341bc71f21933b8c953e8ce55ef8ddb52d424f0066fc8ef1781"
+    },
+    {
+      "bytes": 25130514,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/SEMANTIC_AUDIT.json",
+      "sha256": "77ffd02a119d0041a18b7c22fd4a92e5278c05a10a27fde0833fce353cd87469"
+    },
+    {
+      "bytes": 4331900,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/SEMANTIC_BENCHMARK.json",
+      "sha256": "331cd4b2d3361fcce2790d78461b76a1fa1d0107fae3937f3ad230a9999b1d2a"
+    },
+    {
+      "bytes": 540951,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/VELOCITY_BY_CHANNEL.json",
+      "sha256": "5e99c9a342af10cef9639826ea5ec3c29dcf63b70da1daa0ddaff70dbc2bbbaf"
+    },
+    {
+      "bytes": 854,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/VELOCITY_PILOT.json",
+      "sha256": "b9b0e2b046b1c19ab61c708cd05d0882948b4ef41c2f75a80f3117c9065a6377"
+    },
+    {
+      "bytes": 200951,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/VELOCITY_VALIDATION.json",
+      "sha256": "2b02c4b31c139ff71736adca9da58062dbb025ab8ff6c30d668293202185eefc"
+    },
+    {
+      "bytes": 486,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/audit.log",
+      "sha256": "f2f914b8dd183640f6c71c8bba106acd21b0d79041b24fb30542f77781f3f35b"
+    },
+    {
+      "bytes": 8716,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/baseline/REGRESSION_RESULTS.json",
+      "sha256": "966d075d8d7cd14d973ce650d830b33754daba2ecf3f2182a6aa1f3b46846652"
+    },
+    {
+      "bytes": 1237,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/baseline/qa/FROZEN_AFTER.json",
+      "sha256": "fefda7b8d4b34b41082ca50d661635968c65ad2985b0b9c3cb8b1d6afcdd1ad6"
+    },
+    {
+      "bytes": 1237,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/baseline/qa/FROZEN_BEFORE.json",
+      "sha256": "fefda7b8d4b34b41082ca50d661635968c65ad2985b0b9c3cb8b1d6afcdd1ad6"
+    },
+    {
+      "bytes": 4922,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/baseline/qa/frozen_v3.log",
+      "sha256": "5b117b488d157f21c9516fd6117ef7d5aed7979f87945cb547257be1003b6350"
+    },
+    {
+      "bytes": 1861,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/baseline/qa/generalization.log",
+      "sha256": "41eb026396762b4637fc93c46bddb783a21832a34b2c79e623e4c6f3644e4b84"
+    },
+    {
+      "bytes": 2723,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/baseline/qa/new_profile.log",
+      "sha256": "dca3dcb139ec1dfa8121eac30a5853bc8afead9559f38e26c22a4d3aceecf395"
+    },
+    {
+      "bytes": 852,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/baseline/qa/partition.log",
+      "sha256": "00c75adb6a16063887b6da497cb8e1ca851afd55d8d3cadb15db8553789c8f4a"
+    },
+    {
+      "bytes": 12083,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/baseline/qa/phase2a.log",
+      "sha256": "c3661cbc7d0790d8c75b5dc1b9400f8ed43038a44dfd0d5426eefb3398c8d545"
+    },
+    {
+      "bytes": 3469,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/baseline/qa/phase5b.log",
+      "sha256": "cabbb3e6ee2dc994677e5467cc2f84443441a4a9a3f7f6cd6f5a6bfd97a159f0"
+    },
+    {
+      "bytes": 1669,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/baseline/qa/phase5c.log",
+      "sha256": "b52c9da54dcf383489688161201cc9da1d1f12c0caa7e39a37808cf730063246"
+    },
+    {
+      "bytes": 3152,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/baseline/qa/phase5e.log",
+      "sha256": "64ee20c960419825959a8f74f058a1eca1a42770c2146edceac3d466ce4536ff"
+    },
+    {
+      "bytes": 1536,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/baseline/qa/phase5e_semantic.log",
+      "sha256": "c291416b32f15d67fb7d415241387966fe627fc685a513ef7a28190756ef42a6"
+    },
+    {
+      "bytes": 5450,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/baseline/qa/phase5g.log",
+      "sha256": "bb7afb975faf7d8219cc3be52c5b68a3d025667e94aed11fa756e227762467fa"
+    },
+    {
+      "bytes": 5978,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/baseline/qa/profile.log",
+      "sha256": "26623686941367ed4a7243aa88591ce452b8368d34e35db4f7e3717edc15d738"
+    },
+    {
+      "bytes": 4457,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/baseline/qa/reader.log",
+      "sha256": "ffacee906e61c233bf8d5af5ac0f6dbf8021f83cd7d2820dc204adeac4628e58"
+    },
+    {
+      "bytes": 2241,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/baseline/qa/reference.log",
+      "sha256": "958e443d4febd9497a058cd6f11687bf014adcff56303a2c6c7998c5b6420f93"
+    },
+    {
+      "bytes": 6180,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/baseline/qa/registry_gsn.log",
+      "sha256": "7844251d05708288d8ee8e491901f7ee6036387b5c2d0a24ebc12b1dab424e13"
+    },
+    {
+      "bytes": 3853,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/baseline/qa/review.log",
+      "sha256": "e5af67544c9d1e70e6a3dfc5af8d69fadecd37a9fac08eb17f8ce59a9fc0cd2c"
+    },
+    {
+      "bytes": 3510,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/baseline/qa/variant.log",
+      "sha256": "eb424fe69f2fabc080d89394a6cf7025bbdd2d63f1c2eb2638eb8ca8511472b4"
+    },
+    {
+      "bytes": 242,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/baseline.log",
+      "sha256": "5182a703f1dbc8d051ea0bdd7e0a0653650930ea1c2b2417a1622db72a4ae3ed"
+    },
+    {
+      "bytes": 768,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/build-final.log",
+      "sha256": "338889e602c4b7ed4d6ed1e25f99b6cd97bdd4a8892f09c5f114aa3254f009de"
+    },
+    {
+      "bytes": 768,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/build.log",
+      "sha256": "80f89939bdf49f485aa7b1f9c2e56dd6adb475fd9796d0f7341f6c806c2bdd90"
+    },
+    {
+      "bytes": 2415,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/compile.log",
+      "sha256": "a6bcccce5daa0e4275030c9bbee6d276a1e0861d1bf95eb58cf4079b0cb5ba0b"
+    },
+    {
+      "bytes": 549249024,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/expanded.sqlite",
+      "sha256": "af8265755a8f4f1a360c6b39b99bf6ccd45a7313d9e6adf33b89acff7b67fb02"
+    },
+    {
+      "bytes": 26,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/force-limits-validation.log",
+      "sha256": "382ca0a87eae5a869d2567e2c25ba6bbe7383fdab19825a4838723154e02468d"
+    },
+    {
+      "bytes": 33,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/hardened-regressions.log",
+      "sha256": "9866db5afbe7e1e46a4fea434bf1f39b50036e54ac978ad01669f57b07f15931"
+    },
+    {
+      "bytes": 549249024,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/independent.sqlite",
+      "sha256": "f69574da69a682ddf06b0a871ff4bcec431307bc224caef4a8509be9bf83d1d2"
+    },
+    {
+      "bytes": 549249024,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/initial-build.sqlite",
+      "sha256": "e77d7196320e4706bb6a9c4663a215a7c587ededceb51fa506f77c549722904a"
+    },
+    {
+      "bytes": 1107,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/legacy-f.log",
+      "sha256": "bfa087e8275a2be71edcdc9a056498da25fbd55fec26a549723620e007757ef1"
+    },
+    {
+      "bytes": 2550,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/legacy-g.log",
+      "sha256": "d60a36e8613bd75114183a05544c428083d6849182f0f939a87edca337306c9f"
+    },
+    {
+      "bytes": 1174339,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/legacy_f/NEGATIVE_RETRIEVAL.json",
+      "sha256": "dd832288b7efe24d42804b5f8312d8ceab32f44fb719658722532e954706498c"
+    },
+    {
+      "bytes": 4152602,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/legacy_f/QUERY_FIXTURES.json",
+      "sha256": "4eaf142098264b422fe49b353e475bd3855093d9e5de24fe3b3b6c97cbfd7735"
+    },
+    {
+      "bytes": 1113125,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/legacy_f/RETRIEVAL_METRICS.json",
+      "sha256": "8cbbafd93936efb1f040f8f5aeae8dd0cd3cd56efa0000119240261376be6662"
+    },
+    {
+      "bytes": 1064,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/legacy_f/SEMANTIC_BUILD.json",
+      "sha256": "e5bdf0c104049be4d9531e3b4e9ec0d0b6697cea33f0a47c99b1ea0582b91105"
+    },
+    {
+      "bytes": 1762840,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/legacy_f/SEMANTIC_EVALUATION.json",
+      "sha256": "432df50ac4794b1647d5faf44f860a93ceb1a910355615b340e289cbaa690fae"
+    },
+    {
+      "bytes": 271,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/legacy_f/SEMANTIC_INTEGRITY.json",
+      "sha256": "e3ff077416de9bb73f55bdfd5b03392362e0b8ea271b7e85b380faee1f931961"
+    },
+    {
+      "bytes": 17440768,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/legacy_f/semantic.sqlite",
+      "sha256": "97c954797b5ae75526fcfc2ed28a16e20befd76be053c3d92e55bf6b16abe20f"
+    },
+    {
+      "bytes": 4333814,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/legacy_g/CHANNEL_SEMANTIC_EVALUATION.json",
+      "sha256": "a74977a09ee6d1485aab518e54bc56f6787fc05fee40ebb05b70a34c3e21178b"
+    },
+    {
+      "bytes": 4694971,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/legacy_g/EXTRACTION_RETRIEVAL_VALIDATION.json",
+      "sha256": "b3a0f33514407d85bce5e40d815cc59ab0efc914f9f45afc26996a73a500ec87"
+    },
+    {
+      "bytes": 3985,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/legacy_g/PRESERVATION_VALIDATION.json",
+      "sha256": "9f653b64150c0568e9b030e5b78080d6341ad813834e7b43baa31d81faf6f7a5"
+    },
+    {
+      "bytes": 12635,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/models/xmlenv_00e034107d5fbefb8b22075196d9ab3cdcf6a43e2c8c1099011c4508e461b6fb.json",
+      "sha256": "e11061a8786ede64e6b254a2cc87402e171546b8d67eb2afcf5336842c51f7f5"
+    },
+    {
+      "bytes": 12548,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/models/xmlenv_04d975e8b4332404ac24180e2f0570a76f71a8f6c5eef3dadd6bc873552394a3.json",
+      "sha256": "a13009eaa2056f55403cb4dca0d937721b7c988e179716fa0d06064dbc436ee5"
+    },
+    {
+      "bytes": 12548,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/models/xmlenv_05de6df2884bddd85bfc413f7e5521a86d165703f36a8ed16e1dfc5067261fe9.json",
+      "sha256": "9773719055a81c6a0803b1f62b2a132add87e09313bc8685ef2da7ce0fbaaa62"
+    },
+    {
+      "bytes": 12548,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/models/xmlenv_0679ceba197f7f04d9951bc05e2f3776030dbe55db4f205268c88e9a287f4c87.json",
+      "sha256": "ec8479ad9161a29003346471429ca5a087ec088709caf382ae583b75352d9656"
+    },
+    {
+      "bytes": 12635,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/models/xmlenv_08616607c21807555e42e9d2dcf77d9c440d61a8731be10ec2a7062f3589e44d.json",
+      "sha256": "0dbb07b01cded18370dadb94e330d58a343e7e349f5b7b9a9de51ec3766f64c7"
+    },
+    {
+      "bytes": 12635,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/models/xmlenv_0db748a7dd59eca0236ab96ac7246538cdc88dd935a799f8cddef985ac7dc724.json",
+      "sha256": "d24385e62fa4889099b15208fa23d0e7a6529a6752028904b35b2407e70a774c"
+    },
+    {
+      "bytes": 12548,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/models/xmlenv_0de58416dfe9bbf386f46de7745b2d09befa54dfa0263fb75d2533b8d3af9e47.json",
+      "sha256": "53e7c599f1ef0a3b4db4e136467db72e2cffa40ca0eba6385920221bb6cfa145"
+    },
+    {
+      "bytes": 12635,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/models/xmlenv_0f4bb9c1d54088531c84e6d47463f35ccd767819f248f4d0945e8ceeb3c5f70f.json",
+      "sha256": "233f4c02dacb2eb56938747bc17802e96ea3e31089f9d9fbb28698f3538f23ed"
+    },
+    {
+      "bytes": 12635,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/models/xmlenv_0fd34f8cd792ec36edd8796d31e05a8f9b482698f3bc9e8e9a25df58752c2115.json",
+      "sha256": "246075d891382f4f2b3cfd9007aa08e4f9beecb17b305acfc2cac631611ca51f"
+    },
+    {
+      "bytes": 12548,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/models/xmlenv_14195a52ff8efe04391ec9e7c84f9359cb8c78c37e2f0363fedc383d7f7422e2.json",
+      "sha256": "d770e175fcfdcbdb1af8eabe71efe07e88b818115ab66b0a6835b637fddd0bdb"
+    },
+    {
+      "bytes": 12635,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/models/xmlenv_1efb3e27d73245cfb0a50c8ba1c66daf7d9c49607ddf67825881d695c718b7b1.json",
+      "sha256": "508bb1781b70cbabf8329cbb35f870571a285274129a5b7c1ea0d5a43dd99ebf"
+    },
+    {
+      "bytes": 12635,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/models/xmlenv_227eb272d55bf3ce26dea8304d5617fc7c50239a8e1457baa6cc138f69f54ae3.json",
+      "sha256": "8669195966490d6ed9943da43f6f92abc105927a9ed6d548465496abaf93b15f"
+    },
+    {
+      "bytes": 12635,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/models/xmlenv_28be9dcd9898dcbca52badf690339044201508e565656a2f570b21afb85d2efd.json",
+      "sha256": "3f4e3c927bfa097e839ab4b53dd054fb793e9cd1d5138adad511ebd4a64e7afc"
+    },
+    {
+      "bytes": 12635,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/models/xmlenv_28f630a9ec0d5c0b30b1e41d109e897ceee39e40ef0dbcd10f2f75ec023a4e5e.json",
+      "sha256": "8fc124c8dec2a4e42bd7181c502f298c473f99cfda110cd4ce10a7dac479cbca"
+    },
+    {
+      "bytes": 12548,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/models/xmlenv_2999e0866bb1bd2c07b1cfdc88f5bb34fc8787dd501d212f6f35c72c3c96b2c9.json",
+      "sha256": "d65785799a876bd82ebfe9660d1f5629c02a9a564334f44092b81043194cfb47"
+    },
+    {
+      "bytes": 12635,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/models/xmlenv_2b12640ad1e7650812c6bfd9c5f88e9c6e1743625c11187092987b3578fd9b40.json",
+      "sha256": "67efddabe6d2221b9a4c007ad7c81bc3c6235496029d826e4e0cdf22383460ad"
+    },
+    {
+      "bytes": 12635,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/models/xmlenv_2d66f1356038f781e9a1345592aebca64532fb8f63248f30ecd1e33a53a8d26f.json",
+      "sha256": "a734008b0651cd1566b0c6ad1dfcf3139d2d966683d90c7c1895afe389c2ee2a"
+    },
+    {
+      "bytes": 12548,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/models/xmlenv_2dbf356808e9697421ca97c52a349461b330a4bf3fc8aef02d7321279b31f0a5.json",
+      "sha256": "6892966ba9f98c3320f9af781d664d0e4e93b729189bd205532408dc8d7de8f7"
+    },
+    {
+      "bytes": 26558,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/models/xmlenv_344d2d6cad5a53fe6363544d6f8bc6f1293f11312e3541b48496b3ac90c9307e.json",
+      "sha256": "1fa7f2ac81c18eb6c659a4d6eb91d86a501c1cf8672246cce3d4f42b71b3b96f"
+    },
+    {
+      "bytes": 12548,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/models/xmlenv_3488e4483b39ecbe1f435d7fde3c558fb45d8c4e68e371073049c5a239f3b4d4.json",
+      "sha256": "9e30a68afa06527e275561426581f5b13ea0df0a894e5abe2b20048769d2463a"
+    },
+    {
+      "bytes": 12548,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/models/xmlenv_357b433ae4bb6033af9d8071eda4a050965a7e55d8b9cb22d1f692a9c5a115f4.json",
+      "sha256": "0489b6497259fa451caf4a8c747bffeee9fce16914ee455528ac1e03eb946164"
+    },
+    {
+      "bytes": 12548,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/models/xmlenv_3649323a919bfc84aa107b36579af796e4416745d17839ecca9e7b7832b99888.json",
+      "sha256": "f9ae64cfae2caa5c69f18d0fb4575a134b74cf27530d046ed656e818f9455ee3"
+    },
+    {
+      "bytes": 12548,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/models/xmlenv_3c2f3cdf83cf4820be2a0cca60f4d64d6f423495b235be20d7ca91337df3ffb3.json",
+      "sha256": "78b9ad11cb29109170b3f101e20661a4f5da692df63af8dc1999e81ff1d9c059"
+    },
+    {
+      "bytes": 12635,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/models/xmlenv_3c4e8292eb9e368fa21ebd4d7ab78fd985dd251fcab38f55e328c49d86ddbf71.json",
+      "sha256": "704478b76215b9ad15097573ccf0074ad6cd1a5082854ad98a36b825898c2548"
+    },
+    {
+      "bytes": 12548,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/models/xmlenv_3d0c044d149a808074698218c5f75d962a057a6dab28dee12c7787e8d99fdc2d.json",
+      "sha256": "02f3e15a60d1252d4a96ca51fea1a5d23eb7f52d05312ec5e06cfb1b4ade43c3"
+    },
+    {
+      "bytes": 12548,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/models/xmlenv_3fea596ad3650b5356040fdc046b857f4d16af3271d5d6c612d0de9b89499fbb.json",
+      "sha256": "018e4b750a79ca82dec5cc94a7e27e4c4700fe88acd246b385f074d6d0d2f80c"
+    },
+    {
+      "bytes": 12548,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/models/xmlenv_40b80a534c299a7b10a824a45e04cb66708a7d9418fa93dc367fbf6a6e9b0c26.json",
+      "sha256": "17fbf37f5a77666abe3014bdfe1f2783b94d06f98cea9db221d67b5d553a8b0e"
+    },
+    {
+      "bytes": 12548,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/models/xmlenv_424fc28c2d9890a5f3952ac71bcefd7f81561c624d478b1063df345e27c41f7d.json",
+      "sha256": "2b3bb14acf4e7edbad60624de40735f28369c4bbb76cbbedca21116ccc6f9e8a"
+    },
+    {
+      "bytes": 12635,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/models/xmlenv_449ef5cfab925feb14f41e3aa9228faa5ac5af4c9e7366cda19bf1051b647504.json",
+      "sha256": "edba59789c5bf4c83a2611197b7d9e29e29a822b6ed1775b30cbb635e436a67a"
+    },
+    {
+      "bytes": 12548,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/models/xmlenv_485346552c7016cfa145974454c09373fce6d4f54e8d82a675e6a17049e0f931.json",
+      "sha256": "3a0245e213fbb315fe77daf3bac0afe7d4e11f512efc2fb16ea495b1c1c841ae"
+    },
+    {
+      "bytes": 12635,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/models/xmlenv_49383dd65330f5a632db02aab2d3b5ff812d5896745d288b02ce0bdfd7d790ce.json",
+      "sha256": "723c9d2dd3d8b662266c50517e43ed7b0d40f3b7842ce1c45aed4054291d1377"
+    },
+    {
+      "bytes": 12548,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/models/xmlenv_4dd0112c8a52c89f53a44c0fcb562ab4716a39a2ecc733f93fe088ea7ecca657.json",
+      "sha256": "dd4504a4735e5985c8248bbe200a1fa66b2ea1dd546ab82dee68f750ee05f932"
+    },
+    {
+      "bytes": 12635,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/models/xmlenv_52191fa51d6cf244c4aa223538922fba0ff931a24cc46ed678a1edbccce259e3.json",
+      "sha256": "185ab19b65652ade3b836c49149fe7a71b4852e7e58f35fc24384b6f0f200cce"
+    },
+    {
+      "bytes": 12635,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/models/xmlenv_5376e2a219c41a12ec83ed04a4ecc0afe8b240b3d89103c87b4f2a2fa924955b.json",
+      "sha256": "01bb97fc0374d018122fe7631af1212fb8cf5be3f898a20a3400065b5ad46f0c"
+    },
+    {
+      "bytes": 26582,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/models/xmlenv_5393fb2c178d9246204c2a82e0375aae7a03e0a75f7f8649dc02a1d5ae8e8ebc.json",
+      "sha256": "0c6df9a92101810a572dca6e29b04e14de8d9e29e98c718a4db1008745f3f08f"
+    },
+    {
+      "bytes": 12548,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/models/xmlenv_53b659661d438ed907fb7b5e5e6ba7249d7084564044b186465740895b37467e.json",
+      "sha256": "c593f7445340da9a56b9b720b44c6f488ddbd8c0c87ec3322344f9e840859788"
+    },
+    {
+      "bytes": 12548,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/models/xmlenv_54f1f657b031ee34e55b7a52de1edc42f183a497f51690329b444608f0a6c14e.json",
+      "sha256": "ed790f35e0c5c1c9e5953af09adda2b4edede97c1f2096882cd7821acf35971c"
+    },
+    {
+      "bytes": 12635,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/models/xmlenv_5594c193ed969328a4da769d7bff73d1b0999fefd3cbe3a1896b22b11e7b856a.json",
+      "sha256": "5973918fa4733d426a4fa1174504a9967f9cfeedd0ea2494f57a7c85f926eebf"
+    },
+    {
+      "bytes": 24468,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/models/xmlenv_574b783c023e533eb3a5c8e92557aa0a940aa5ff6cfbe794f5614e9fd321148e.json",
+      "sha256": "133a29ef018b11e250b453ada59d9fde38b1298e726b6db277068592c5fb7496"
+    },
+    {
+      "bytes": 12635,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/models/xmlenv_5874888d07b9c00577e2db1d0636cbdf55dec0484d41c7a43576449827ab221d.json",
+      "sha256": "6873b0309874c19e56c83b7b668e94838b4c7989e78d573adc3f68b155a72131"
+    },
+    {
+      "bytes": 12635,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/models/xmlenv_58b7914653d95aec77a2644225bfdc00a826c386c74636639412e737d19d6558.json",
+      "sha256": "f1a275528c63fc8a29a9536a9a08c3163ceb0773ab9bdd26fa8592fa93fc9880"
+    },
+    {
+      "bytes": 12548,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/models/xmlenv_5c6f3bb6fe7d5b4b2adf498c141180f46dfef4d059277f9383c6da29f2233de6.json",
+      "sha256": "eb5cf9bfb1aa3c9f59b56d3eafd7f73bb122f721eebaf1392051d3559d72add6"
+    },
+    {
+      "bytes": 12635,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/models/xmlenv_5cce57a680c2a82d98e4202a431f5aac2a28e83b13d7a49672adb1c8f5bc0740.json",
+      "sha256": "de52f558f58c39cd6ea2b4a48cbcc329d0fac36696a621a04fe14a93ba4a9c9a"
+    },
+    {
+      "bytes": 12548,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/models/xmlenv_5eadc94264a564140e1f7cfac0d22adbea896a852a5aa7168097b9b2897c20c9.json",
+      "sha256": "3d9b2317fd445e551c14d03fec6336bd90cf5fd97de16992c6d47180ec4e3e01"
+    },
+    {
+      "bytes": 12548,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/models/xmlenv_5fd30dd18120087eeba4ab4f42df4afcb0c12d7b9f655d402fff5233a23897db.json",
+      "sha256": "fc2695f671069cb072c3ba3ef5c3bda082a918f271704f66ae937b643bacf93a"
+    },
+    {
+      "bytes": 12548,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/models/xmlenv_65b2653d6b2e2cd846bdff8d1d161fc5f8ab993e53f651ea60f188947b754ea0.json",
+      "sha256": "25579bc2ac42a9f4da44eaafa865b4175b50ca01ba0eac9ceaeef7b43a9a96be"
+    },
+    {
+      "bytes": 12635,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/models/xmlenv_67e47e894727e30fdb2ce2279889d83dd76634d39e62762518a0f6cfc0d2bee6.json",
+      "sha256": "bfc938ab3b63d587eb1efd4e0e37621b878ed190dd00b7577de6d1257ab4f1e5"
+    },
+    {
+      "bytes": 12635,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/models/xmlenv_69f96d4811834a53079e5c0ceb28e776f39a6d3ec94af38985ee082ec57669a0.json",
+      "sha256": "10ff08c2ccd59bc0933354ff14ef89022225ba5ad8002afed1062f8f1ddac5bc"
+    },
+    {
+      "bytes": 12548,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/models/xmlenv_6cbe6b38a759089c5b77677c8a6e0f5299657ecf6a12c2bb2d262a68a7624606.json",
+      "sha256": "bbe0b0f3d487f3471f0cef5324ddb46dc78952368869d0ea8fcb54a355818726"
+    },
+    {
+      "bytes": 12635,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/models/xmlenv_6e35d0f406dee5a8526cae7a1caac3619f9d40a78112de73e63a968dcffcb4a0.json",
+      "sha256": "e48cf897d4dca8e5668ea8f2a121fea8aa1572d4a68f486463f6bd09fb7ad18d"
+    },
+    {
+      "bytes": 12635,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/models/xmlenv_731adc3b58751ad38427378e0187a55c8f19cbc3b85efcabfaec038c9a46c31a.json",
+      "sha256": "8f83e5176f334a3604578c3ce28a8826632d5e014645b90e1bf88e62ba6ae0a7"
+    },
+    {
+      "bytes": 12635,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/models/xmlenv_75522364663e307300fe42e1a193a541c99f1c3eef529e7a90ad463a1f0c8d43.json",
+      "sha256": "b849f012c13242c0d4a85ed0c81ca06b4c6d2233972a38c0ae53dd650060a22e"
+    },
+    {
+      "bytes": 12635,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/models/xmlenv_795397cf5c3181154f48328d310fefe0ad45feef962771c81239a3023176e8e1.json",
+      "sha256": "5b511a43dc6643c0b4ebac809612a754bfd6b4219d703d9312afb0429ae12905"
+    },
+    {
+      "bytes": 12548,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/models/xmlenv_7f050b16ad629c2235f15bee32beb38ed05822afa00d2db2ddfc6afc4419f68d.json",
+      "sha256": "1e74cd526fdbe962dadd8ede7dc7706b0a35f4eb7d2d97d595f6f57f2fad3b21"
+    },
+    {
+      "bytes": 26568,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/models/xmlenv_7f1f3ed2b3a92435366df297c638d12a41bcef38376f625038911a1c6ad0b0b4.json",
+      "sha256": "952f88dd47515e7fccfc1f98374e0d5cb98b899b89e0695c09e10827296cb770"
+    },
+    {
+      "bytes": 12548,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/models/xmlenv_841e90da9e698aee7b5e1bdbbe5202f533b4680ef8d48192571cfaedb53ffbf9.json",
+      "sha256": "7ce3ffdce4f1548cb04afa198f0f7cb5d699cfd0e3d7ad962aa75f3c7a135ee0"
+    },
+    {
+      "bytes": 12635,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/models/xmlenv_84715be5625d83715ccb9fdb9132e96a05a75f1de0a8affbdb392f170a25947d.json",
+      "sha256": "df6ff6c9b53bfbc3622a18847242d20339dafb66584a7720c7e01dba7130cbcb"
+    },
+    {
+      "bytes": 12548,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/models/xmlenv_8981acd2ca92d30acc44807e1a31a8e3fade92cd217b12a1533471f54ecba5ba.json",
+      "sha256": "0bd8c4348fce058552950e728f6daa0b692f8de54a35030cf50ca888d6ef8178"
+    },
+    {
+      "bytes": 12635,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/models/xmlenv_8e61008e9eb7253f11626cad34cf0f1e2ced24bba5257ad72127e4ed3980bc70.json",
+      "sha256": "4f57891583c9cf8d073adee31c7b6d60a5c65d9977f9eab08dedbd2d0849f3d9"
+    },
+    {
+      "bytes": 12635,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/models/xmlenv_970413641adec87bc0dc85665e7e756ff9b565b81e169a6d2e160d0e65127934.json",
+      "sha256": "7ac4245b16e86f478a659d1c264a4572dbbb7ec9d97d8ad0b8378dacddcd1975"
+    },
+    {
+      "bytes": 26556,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/models/xmlenv_9de5384760dd3e80f9c9885d48fbc1509613191f61669b676c18fa3564a84651.json",
+      "sha256": "9fda6ff3cccb21192bc67dd05deec2b03d18bec847ec4d3f4a54dfc51ede535c"
+    },
+    {
+      "bytes": 12548,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/models/xmlenv_9ef5957e7ed9eb67907febf7ef1ce5c624763e2a051e008548a2db85bfcc6c86.json",
+      "sha256": "7f33e6a95db7f89b558dccf3c81aa986a97919ad974e89071218b0d440d19ef7"
+    },
+    {
+      "bytes": 12635,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/models/xmlenv_a1ca08063451f8f3b1f9111fe04e3ba7712c140f3780636e0d00797459542505.json",
+      "sha256": "f46dc686db688c753d11a19be13f1bc8b1262ec249f301a9f2d99ffcd53a0317"
+    },
+    {
+      "bytes": 12548,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/models/xmlenv_a366006020fb99f78346aef089853bdb986cac20ba37623bce0b04fc56cd3d62.json",
+      "sha256": "eb720ca505424ce913bca2ef27f4b9d56673efad64b99e984ae07d228cc3ef74"
+    },
+    {
+      "bytes": 12635,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/models/xmlenv_a38f99ede107450b95813f2c045205d97954d9aad18c940f2fd47bc6302b4632.json",
+      "sha256": "30d2f547d6e46e59b39c1eab465dde3cc339666402ed471c96dcf71f3874bcd3"
+    },
+    {
+      "bytes": 12635,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/models/xmlenv_a7e761091075e366b2bbcafd239293775e760d03b40effb6871c61c912e6785c.json",
+      "sha256": "fa7ed0636ee1263f4d42dd104d1b3838e8d27b3e5b521e106a38ebedfbd9c8da"
+    },
+    {
+      "bytes": 12548,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/models/xmlenv_a86559bcf2d3565a8a8ceab2e5a5e0fe5f6095b949cfc487849d6d05bb72f1ac.json",
+      "sha256": "bb770ddb4f576cc3a48704f5905de6ba6b305d91ed0896e5c0c01e882cdda7d2"
+    },
+    {
+      "bytes": 12635,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/models/xmlenv_a86e9c06f420b5896734fb1bd9a82de680726b876d32db54719fd47c01e4b1b3.json",
+      "sha256": "4ab209ad1407693ab0dc9cbf4474cd83c1be4ebef6c2cc05ab7f2791f5902161"
+    },
+    {
+      "bytes": 12635,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/models/xmlenv_a9ad7fc46d728a8efe5714642ec1a86d6712631b621f3e5a22d0dff01a478436.json",
+      "sha256": "7a34b5456c0ec2631204637db8eff0069d59b7b987a4eb98034e6cae28ab30e8"
+    },
+    {
+      "bytes": 12548,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/models/xmlenv_ab6fa4618623fe4819ffccc47fd62021a2b66a0e8a2b1a649caea7a8e31d1a42.json",
+      "sha256": "141572d8f3ce454f627c726c2a5ee783969afe6e468cb5782283b291c35337f4"
+    },
+    {
+      "bytes": 12635,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/models/xmlenv_adc2bc4092097868e07fee5b66e70c47d56069b043008af1006c8f13fe61a329.json",
+      "sha256": "985330655538e476f693a48f0161adc72cfe8c68595ccbf83dde5e42a9b7a0e6"
+    },
+    {
+      "bytes": 12635,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/models/xmlenv_afed962a7f1bca398569e10512168917e50dc15deb885f7cf8627ad2f4c1d650.json",
+      "sha256": "d991478b8bb7934a656a33041d756e92e7335fd88446b223828f821eb956daec"
+    },
+    {
+      "bytes": 12548,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/models/xmlenv_b5ee3e693615e6a37a63ed8b638e7443c66cda4e4bb26f5f64333283afcb5ece.json",
+      "sha256": "65210a53b23d0e8ba8f3679b8b06729f87932112ff20d9552a93dec943135e33"
+    },
+    {
+      "bytes": 12635,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/models/xmlenv_b6960bded8e1091791209d86274ce0c4e83b3ef8eaf1234a3e3449be1faf50b5.json",
+      "sha256": "98cf9122de7f7c3b4dc9bf26dbe97d8ec5ad51d1c21ac93ef26024046d03e923"
+    },
+    {
+      "bytes": 12548,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/models/xmlenv_bf416578ce5473584f5b5bf001f190f9c28a93a270eb40a4b8643dae0ed3911b.json",
+      "sha256": "4e6cc788dccc1aacbd13faafdf83bf9f6b2a515ebfa15513d6d25d16bbaa1c04"
+    },
+    {
+      "bytes": 12635,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/models/xmlenv_c50dc9920b6bb23048990647a37e2f320f3135cb7f02f78b49fd034fed2622f9.json",
+      "sha256": "1add8c83e681ec13b2c6ccad755e5d5ea8afd0c1dfbf4af9017cddd53fca6abb"
+    },
+    {
+      "bytes": 12635,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/models/xmlenv_cabba56ac1b2fe0c45d956aa1b61f016bea5063ea67a7d5c065f57272308cf2b.json",
+      "sha256": "2ebb5250671726d51ddbf8b0cdc038b379126352c304c3685105a1f5c1c5835d"
+    },
+    {
+      "bytes": 26812,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/models/xmlenv_cb5148d6f133c5491152d5ece7813e0aceadb2eb7be61e40033b061c22c1705a.json",
+      "sha256": "af195aff7fbed76d690c640d02838feaff99884b103e6c7b73dc6c22851bb81d"
+    },
+    {
+      "bytes": 12635,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/models/xmlenv_cd9b30b9697a9d643fbcbe51e3b90de0156126080dc38423eb825577eac83835.json",
+      "sha256": "e492def758c7e3b36399487c38decd8e5baa3cf3d7d3ed1d08eb8c71e417a979"
+    },
+    {
+      "bytes": 12635,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/models/xmlenv_cdd0ac20fb192fb2f4396bb37339a25b8a1b096a14229e95da6cfae956e1e8ff.json",
+      "sha256": "5452edfa0a8b62d0011a098c597e43b9ea6740a2a0e765c908670067cb1af47f"
+    },
+    {
+      "bytes": 12548,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/models/xmlenv_ceac075a5135241c763e08f79b41c40cfdb61466a4fedf6e9bafd614930b2422.json",
+      "sha256": "3f2e624204f10cf4929653740f258ae9c9e716e1f86224c709eee3623764af23"
+    },
+    {
+      "bytes": 12548,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/models/xmlenv_d02d90e60827185fe9b5744dde1b3a15d29c2c50172834d6e2dad240843af972.json",
+      "sha256": "5686e0e507999a2030bbfbb8e7794ac936f7b5f2b91cde8aac3cee129066a4ec"
+    },
+    {
+      "bytes": 12635,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/models/xmlenv_d2fb96731f471ced94ff6e637fca754c11d90f3485bcef3be1ab221656536153.json",
+      "sha256": "cd88ad3b9a5f2e9e387a8c78bfd926f5ccbee873c93fa6a3b74bed17ffb67687"
+    },
+    {
+      "bytes": 12635,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/models/xmlenv_d386a66dec1438cc14d5818be96caaee61140ec8df4a705b3bdbab700120e65a.json",
+      "sha256": "ea69b3b62f9e99cb69d120261ef3c6ca3134b3c1cff280dba029042ed4b10a17"
+    },
+    {
+      "bytes": 12635,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/models/xmlenv_d4680d4486cd6967c7b6a5ec7228c60b9eae174ec6822280d7f24bd23ecd5da6.json",
+      "sha256": "91e75b42a19f2e68252fb3800bb3755ac800380bbb08969274409ee1b7049e3b"
+    },
+    {
+      "bytes": 12548,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/models/xmlenv_d9058084f09b432d4b456bf9952c44874178d4fcb7057dedefb7d790144647c5.json",
+      "sha256": "41f43c94512a2f9bec67ccd6d71a73094340e00eb64c3c71648246739defaf35"
+    },
+    {
+      "bytes": 12548,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/models/xmlenv_e07f9b72671258af913043813c932a040a5ff03bb2cfcbff90b98c74275585cd.json",
+      "sha256": "f06dfe44c2372fe2e1c66af8237521da4b7aab7e4476f20e403f46d9481aa92f"
+    },
+    {
+      "bytes": 12548,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/models/xmlenv_e22d51c95f67d47341182b71095189ac84e0bc506d0571f9e81643923eb6cc0c.json",
+      "sha256": "aeeb6d2974507356152cf0fe002816a11d24822d5534333c796ee0d39db4c45d"
+    },
+    {
+      "bytes": 12548,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/models/xmlenv_e51c9725344d3d489eb5a24f28390665ed755248e07ac0a5a1dfb655c2c3cdd9.json",
+      "sha256": "6817223b94505843223653962932bbbabc1703c1b2d8b4085178f057aed71341"
+    },
+    {
+      "bytes": 12548,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/models/xmlenv_e523fcdb63fefb8952d9222788ec19b2ffffec589a344044e87d2c68169500df.json",
+      "sha256": "2a046ebedc517a9df863f7e0d3468987cba987265dc76df92c743a59fc0ef1fe"
+    },
+    {
+      "bytes": 12548,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/models/xmlenv_eb87dc0e1442b029a602b31505731d4f52cad7955b41ddcd1b703f6dc02dd0a8.json",
+      "sha256": "d2806aa88b086ab87965f8eb60644c6783b66fb21cab8595c75f4b0b90b66162"
+    },
+    {
+      "bytes": 12548,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/models/xmlenv_ec48064ff2d33ee8628610ec39a1ef6152abe1fac8c33bfa6d938a14cf115532.json",
+      "sha256": "49f7125eea287bcdf994d618d3e04958ab2958100110fa585805b060b5280417"
+    },
+    {
+      "bytes": 12548,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/models/xmlenv_ecf482f8c3ba79655e314f53b7cd9418bfeeb426ac6343fbe3063e07aa71a654.json",
+      "sha256": "3f28dea510ac4ad7189dd36af867fc8ee3093f861e98ab93a8e46ead06301803"
+    },
+    {
+      "bytes": 12635,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/models/xmlenv_ee90e2726db05002ed33e03157a13062c7ffe5c4e3fd53319d43ab0db90904f1.json",
+      "sha256": "a847c3653984e4c5c174f84f8efae9ca2e7c8b154d382a506ef2016769a04705"
+    },
+    {
+      "bytes": 12548,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/models/xmlenv_ef408e5d5ad6658b6882542b48c3f9fa4e5ddb105aab73308b03890f0dd50ab1.json",
+      "sha256": "99e68625bb3ea31fb784a5264c9629561b6257ecf5db2660b0d37cd5bf2b5427"
+    },
+    {
+      "bytes": 12548,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/models/xmlenv_f51aa29f945e98b7360c8fdb0b808c1bf6d7910568867148db5d4b5cd4e17b49.json",
+      "sha256": "52f59fabc79e455dd196316626eeafc2480cf2e8963a62ec03f17db49712ff08"
+    },
+    {
+      "bytes": 12548,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/models/xmlenv_f678420b4686ba333c87ada5612ede8e3ea8105c65a6e5a9a12b49f60b90bb8a.json",
+      "sha256": "fff08de1c9a2ff5b80e724787fdccec0891561e47b844245798dbe8d967c6270"
+    },
+    {
+      "bytes": 12635,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/models/xmlenv_f77ec80952500aba4a1b2b17fcdf0ea1deff0274eddfa75edff61569b5e0eed1.json",
+      "sha256": "c07346d123d4c4309aa63edf7c46de35c6d6fdd2f3d416bb94bdbd1dafe4595f"
+    },
+    {
+      "bytes": 12548,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/models/xmlenv_f7854fc98544c98576b562d3481b6a87b165eb57ad733122eee4ac0065f29798.json",
+      "sha256": "2668f3b306d11fadd510943d9f0aac5e22f19af5809a0c7424747f81481e44e0"
+    },
+    {
+      "bytes": 12548,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/models/xmlenv_fa6a33e108ad1610076bd08b6f64ccf5f4d88fea52c4682e2982274edd781a4a.json",
+      "sha256": "d528e8ec7b3bc3e1091ae87d650452f051f1176ef40c30e46945140a223efbd9"
+    },
+    {
+      "bytes": 12548,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/models/xmlenv_fc4881ce3eab4ef478e58797f218b0bd96011e87f703cb1228a06df83fbfa940.json",
+      "sha256": "7a52ae8c1593e8d6bacddf65e42d8251935fbc942f87970594386260278141c5"
+    },
+    {
+      "bytes": 12635,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/models/xmlenv_fe833d02199167fb7bbc340548a370b9eb7f54b55190c5ef6c8728b4e22632c9.json",
+      "sha256": "54ba31b50f9f6298f722b0de92ef6e3bc395028c4e16342835ca3b817f89c8b0"
+    },
+    {
+      "bytes": 12635,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/models/xmlenv_ff36ca8a816d1e83968180a55e145621699b6364edbcd1d3445c73b4ceb673c1.json",
+      "sha256": "a16cff7e90f5fa8fd7b10ae997ab6f4582fdc4dd5aaf699337dd029dd97cb9fb"
+    },
+    {
+      "bytes": 12635,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/models/xmlenv_ff406163808b676cb9c50de1669332edafc67b30ccab957cf6c2dcf96798081a.json",
+      "sha256": "5efcb6e8ef33b1cb32c9b0e916dea03a6c388a8e5a28d24b46334908682928f2"
+    },
+    {
+      "bytes": 1360,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/primary/FETCH_MANIFEST.json",
+      "sha256": "a1b08493356e2d0a2ae121bc95ec71b9e54b9d15094e524c1ee7452c35b4f10f"
+    },
+    {
+      "bytes": 29197,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/primary/include__mujoco__mjdata.h",
+      "sha256": "1be8300051e0ecfb69c4c88b2d190d7f23c32a713434fb19cec7b06d254ecd16"
+    },
+    {
+      "bytes": 83113,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/primary/include__mujoco__mjmodel.h",
+      "sha256": "4437bd2f26323108cc6be2e84b547234c96f845b55441ebaa5ff2dd8b10e7c02"
+    },
+    {
+      "bytes": 70162,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/primary/src__engine__engine_forward.c",
+      "sha256": "5f9683631cc1c72cb28cd23d8503216324ec4ea96346f51780ff5609616a7950"
+    },
+    {
+      "bytes": 58872,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/primary/src__engine__engine_util_misc.c",
+      "sha256": "fd4bb18e85ca3b068896ac857e63bde54f2e0966d2fb3f26e6e2d0c5ad8a7701"
+    },
+    {
+      "bytes": 1255,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/primary-fetch.log",
+      "sha256": "f2295f4fab38a432cde80b23a763b8517469885458898dac90635123d1bd4ebf"
+    },
+    {
+      "bytes": 256,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/rebuild.log",
+      "sha256": "c0b37a024789c1e14e4437f77cb1b30d44e4e2eab682e500a5bd7c43ce9cb1bb"
+    },
+    {
+      "bytes": 478,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/reference-hardened-semantic.log",
+      "sha256": "89d00ac6e52077bac165d3c8e1b803be5339af0de9969a83e4e41eb59288d5d7"
+    },
+    {
+      "bytes": 1743,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/reference-hardened-validation.log",
+      "sha256": "dcacfe41228795957101937fff575ab68210920ed7ed669c24d94f5ccc8b3b6e"
+    },
+    {
+      "bytes": 5490,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/reference_hardened/PRESERVATION.json",
+      "sha256": "f41dba4d4caf5fc497ecd42af1ab4d93a775b2a77732d9cf2fdcc912f8511bf5"
+    },
+    {
+      "bytes": 5103546,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/reference_hardened/RETRIEVAL_VALIDATION.json",
+      "sha256": "364cc89a4ae801f9e24ca8f433be15a14f1283ba14101f52608176569eff4cfb"
+    },
+    {
+      "bytes": 4331900,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/reference_hardened/SEMANTIC_BENCHMARK.json",
+      "sha256": "331cd4b2d3361fcce2790d78461b76a1fa1d0107fae3937f3ad230a9999b1d2a"
+    },
+    {
+      "bytes": 9064,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/reference_hardened/qa/phase5h_hardened.log",
+      "sha256": "0d04fc3f4234bf247c066c1a2eb26d9bfffe171a5ae7fea576b4aa205e8b14fe"
+    },
+    {
+      "bytes": 8716,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/regressions/REGRESSION_RESULTS.json",
+      "sha256": "47798a3a665d29776cece9e094100c21568f5d81f56812d56dde6f486761ac7c"
+    },
+    {
+      "bytes": 1237,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/regressions/qa/FROZEN_AFTER.json",
+      "sha256": "fefda7b8d4b34b41082ca50d661635968c65ad2985b0b9c3cb8b1d6afcdd1ad6"
+    },
+    {
+      "bytes": 1237,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/regressions/qa/FROZEN_BEFORE.json",
+      "sha256": "fefda7b8d4b34b41082ca50d661635968c65ad2985b0b9c3cb8b1d6afcdd1ad6"
+    },
+    {
+      "bytes": 4922,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/regressions/qa/frozen_v3.log",
+      "sha256": "0152be9f6f8dac251dd0a789d535b9788a29ca9d0df7a69a5782e01831f90993"
+    },
+    {
+      "bytes": 1861,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/regressions/qa/generalization.log",
+      "sha256": "a56348006720a6753b737592316cd7cb04a06ceb1f08fc8239bd983400c08c0e"
+    },
+    {
+      "bytes": 2723,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/regressions/qa/new_profile.log",
+      "sha256": "e347f9d1c0b9d93551b0525b8065e41d7368443737b1db576b914253008d66b3"
+    },
+    {
+      "bytes": 852,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/regressions/qa/partition.log",
+      "sha256": "2f609afb8e041e822160ecfb233e2c63f5721ea41ca6206c96de1cdc4a4553c8"
+    },
+    {
+      "bytes": 12083,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/regressions/qa/phase2a.log",
+      "sha256": "eec2dfc3c44b3c4b2397d67a87d56d659a63b4e8defb3f14135659fc48c30fff"
+    },
+    {
+      "bytes": 3469,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/regressions/qa/phase5b.log",
+      "sha256": "f77853f143a47ac0ad17c659625acf4b5ddf1223254a6ec51d3a8ffae02c5856"
+    },
+    {
+      "bytes": 1669,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/regressions/qa/phase5c.log",
+      "sha256": "d3b68a7e17011e25831281ee6c56fdd72ba96c0cd7288f3681353f2bda84dece"
+    },
+    {
+      "bytes": 3152,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/regressions/qa/phase5e.log",
+      "sha256": "e5823fe7555c79c1aa7f02418e180fc10c439fef0b95037d82cb70bb1ffef6d1"
+    },
+    {
+      "bytes": 1536,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/regressions/qa/phase5e_semantic.log",
+      "sha256": "8d988216e10115274e65bf23900ce7ec81d353883366db20b7cb65c03adc7ddd"
+    },
+    {
+      "bytes": 5450,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/regressions/qa/phase5g.log",
+      "sha256": "f3ec3754814bf540cbacb6481862e13ea17709a064232d2843669f6b63c3ecf0"
+    },
+    {
+      "bytes": 8540,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/regressions/qa/phase5h.log",
+      "sha256": "9de800385111e20d8107b068ef150d8cab68c80f44aa03b8be1369ab6e2dec18"
+    },
+    {
+      "bytes": 5978,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/regressions/qa/profile.log",
+      "sha256": "05342e53343a3200c40d46b3744b93083e954de6e5f48774faca24b5b6b745a5"
+    },
+    {
+      "bytes": 4457,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/regressions/qa/reader.log",
+      "sha256": "7d2cf776d5be83927ea3a056aa3f28e42e30516e9339836ff8362bf4f77818e6"
+    },
+    {
+      "bytes": 2241,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/regressions/qa/reference.log",
+      "sha256": "72695a4290f8696ba826185f25f4e1157a2e0ad4746e273855410185abbd9d90"
+    },
+    {
+      "bytes": 6180,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/regressions/qa/registry_gsn.log",
+      "sha256": "2e048d0a83ffbccc3f13d00281ac28801e229320d05d2b6b711495ce6d4d9ab4"
+    },
+    {
+      "bytes": 3853,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/regressions/qa/review.log",
+      "sha256": "e5af67544c9d1e70e6a3dfc5af8d69fadecd37a9fac08eb17f8ce59a9fc0cd2c"
+    },
+    {
+      "bytes": 3510,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/regressions/qa/variant.log",
+      "sha256": "893eae334f4d202fc46214d555c9543d19f92a79409f667193c2ebe17de97fba"
+    },
+    {
+      "bytes": 275,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/regressions.log",
+      "sha256": "2b31eaae6a65738c0824f1c475ab27a88d20e0c53fb912600b406ee89bc5a19e"
+    },
+    {
+      "bytes": 478,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/semantic-benchmark.log",
+      "sha256": "89d00ac6e52077bac165d3c8e1b803be5339af0de9969a83e4e41eb59288d5d7"
+    },
+    {
+      "bytes": 35,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/temporal-refinement.log",
+      "sha256": "ce154ac1e9e7c9fa24aafddc390f073136a4e98e668fb4a05a354f623319b280"
+    },
+    {
+      "bytes": 7655,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/tests-initial.log",
+      "sha256": "ba46d6a4e5427b0ad2e6e85bbff4f5ba476dcbcd4624225f2219ca0801590adc"
+    },
+    {
+      "bytes": 1743,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/validation.log",
+      "sha256": "b1e8e4db9884ed6ff228c801f338a97be76c4bb0a09c99eb941a51a0c43f5481"
+    },
+    {
+      "bytes": 683,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/velocity-by-channel.log",
+      "sha256": "341708e170c51f60ca01cd1dd4311ab05150eff9b5654c496f0c8b2d2f657e28"
+    },
+    {
+      "bytes": 865,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/velocity-pilot-attempt2.log",
+      "sha256": "11f44177066d0d746459d755fe384ddb9709b2b8837dee1c0dcec953f4e939dd"
+    },
+    {
+      "bytes": 2089,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/velocity-pilot.log",
+      "sha256": "19c4177f7e750ff9ca14e12111ccf7a39aad0ae67891ff2ae20e622702f1c500"
+    },
+    {
+      "bytes": 683,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/velocity-validation.log",
+      "sha256": "341708e170c51f60ca01cd1dd4311ab05150eff9b5654c496f0c8b2d2f657e28"
+    }
+  ],
+  "files": [
+    {
+      "bytes": 238900,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/physical_semantics_alignment/CONTRACT_SCOPES.json",
+      "sha256": "e93fac73eab8da36558206aaac2921483e850f305cc292c9e752ed40c359d5e0"
+    },
+    {
+      "bytes": 1427,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/physical_semantics_alignment/COORDINATE_FRAME_AUDIT.md",
+      "sha256": "cc288ab5cee2a48f00220266fef5a6fdfec399b4894f59a733adc953410057b8"
+    },
+    {
+      "bytes": 1750,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/physical_semantics_alignment/COVERAGE_AND_LIMITATIONS.md",
+      "sha256": "7a9fec2649424dfc633185d635ca540b18bf1f3459c0d1a3ec9981c8eb0a11a4"
+    },
+    {
+      "bytes": 4511,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/physical_semantics_alignment/EVIDENCE_CONTRACTS.md",
+      "sha256": "cad5b029842b31bc9301cd57d22913edcb79773b76a138aaf130f994b88a68df"
+    },
+    {
+      "bytes": 953987,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/physical_semantics_alignment/GEOMETRY_BINDINGS.csv",
+      "sha256": "39ab7f51df9907a73976e3462d0297e2d6d7351104b603c88638d0e8cc9c6b79"
+    },
+    {
+      "bytes": 2258,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/physical_semantics_alignment/MEASUREMENT_SEMANTICS_AUDIT.md",
+      "sha256": "b4739c560b6af3155f410edc3517945cf487833df3e51476d09beb5e0911dd35"
+    },
+    {
+      "bytes": 5249,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/physical_semantics_alignment/PRIMARY_SOURCE_TRACEABILITY.md",
+      "sha256": "27d5a8df3e85a43d0a1ac694b90964d67a4897007e88a2a6bdccc438c477a214"
+    },
+    {
+      "bytes": 1641,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/physical_semantics_alignment/README.md",
+      "sha256": "03e4aa0cb7c0a0414ccdc8583a58c683119f49cec31471effae0332db70a190e"
+    },
+    {
+      "bytes": 1651,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/physical_semantics_alignment/REGRESSION_RESULTS.md",
+      "sha256": "b7769f68d3e5664b87737d016cb3839c3cab9fa464b00d82028952881af16891"
+    },
+    {
+      "bytes": 3478,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/physical_semantics_alignment/REPRODUCIBILITY.md",
+      "sha256": "2a5a1fb572f7f2599a1ca457b8041f02ed38565951931a3dfc82598c5c113ea6"
+    },
+    {
+      "bytes": 2769,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/physical_semantics_alignment/RETRIEVAL_EVALUATION.md",
+      "sha256": "4b02f7b0dbaf6d62a5f42dafc148334ea45e19ce7f5b88d9abef74bbb587cc96"
+    },
+    {
+      "bytes": 22493,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/physical_semantics_alignment/SEMANTIC_CONTRACTS.csv",
+      "sha256": "794f0c737fdf69f96738ef34336c1ee2783df3b2148497a69d66a3edcb51885a"
+    },
+    {
+      "bytes": 2350,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/physical_semantics_alignment/SOURCE_INTEGRITY_POLICY.md",
+      "sha256": "9dbcacbfbafe648dbf42f7f87870cf85bcfae8f4d7409873800517065ddcb14c"
+    },
+    {
+      "bytes": 1213,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/physical_semantics_alignment/SOURCE_TAMPERING_TESTS.md",
+      "sha256": "62fe2e9b8cba352fe971c49dc51247a838b48941e7aa7a1d3e83adeaeae0a214"
+    },
+    {
+      "bytes": 2271,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/physical_semantics_alignment/TEMPORAL_ALIGNMENT.md",
+      "sha256": "1fb2088570b6c5029a090c485a347167089b57f2633e95669b51210ca918108a"
+    },
+    {
+      "bytes": 2722,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/physical_semantics_alignment/VALIDATION_RESULTS.md",
+      "sha256": "527c0b1c639b7468efa21ac59570fa3af4706bd8d34930e5db827b1f4d091187"
+    },
+    {
+      "bytes": 7153,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/physical_semantics_alignment/audit.py",
+      "sha256": "e73c6b4ed6b0b2b1414b9446ce3d80099a78d1ca3228f3e6826303f8c70ab4d2"
+    },
+    {
+      "bytes": 1829,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/physical_semantics_alignment/binding_validation.py",
+      "sha256": "04887353d66b62b06e6014b4892328514d0c9e603bd7c6c424946cd320f6f945"
+    },
+    {
+      "bytes": 4128,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/physical_semantics_alignment/build.py",
+      "sha256": "6f054292c19ab56cf243d2fca60498015256cc01ff53b8cde0a22f70e39efa5f"
+    },
+    {
+      "bytes": 1705,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/physical_semantics_alignment/check_release.py",
+      "sha256": "3885b402d28872246d7ebe8a55c27e417036fd70c51612d1ee9dd9099b7dcd3a"
+    },
+    {
+      "bytes": 924,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/physical_semantics_alignment/cli.py",
+      "sha256": "046419bb0415058cd6ee1181c32bd13cf6885676b279272c42e24eb40aae5986"
+    },
+    {
+      "bytes": 3034,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/physical_semantics_alignment/compile_models.py",
+      "sha256": "8662b6e195a42d0855eadaaf7043f6a4983b69109f54b7a33351a7f214affaef"
+    },
+    {
+      "bytes": 907,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/physical_semantics_alignment/config.py",
+      "sha256": "d66f9fe7e910bbdba87acccd2f239c2fbf749d55290a10992595a8f1d9f73859"
+    },
+    {
+      "bytes": 724,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/physical_semantics_alignment/fetch_primary.py",
+      "sha256": "e372e154dc120eab135f59475f439ce0dd830fd156648f719a51cbaa02ee7676"
+    },
+    {
+      "bytes": 3693,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/physical_semantics_alignment/final_audit.py",
+      "sha256": "a8d0084a5c11267e669c6c7de23d110f143c165e0cc505b1406f3ea7dfa655d3"
+    },
+    {
+      "bytes": 1428,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/physical_semantics_alignment/force_limits_validation.py",
+      "sha256": "c51433c3a7d844860bb4ce660bebc15ab50b1d223a86a9c6fcdff188d95b4f80"
+    },
+    {
+      "bytes": 1331,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/physical_semantics_alignment/hardened_regressions.py",
+      "sha256": "df6086123a6ec0dfd0173bd6ab1accc5a7f52b19e6282eb9c292d6f278ba6683"
+    },
+    {
+      "bytes": 809,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/physical_semantics_alignment/legacy_benchmarks.py",
+      "sha256": "a46cb0b3d8e718fb59526491f1856b6a9755324f6196f1d8f42c89d68330d41d"
+    },
+    {
+      "bytes": 1343,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/physical_semantics_alignment/rebuild.py",
+      "sha256": "0955c06f10f70fc0936c95473c3f2fc0a1961d097b8e9623f789fdee6f561af0"
+    },
+    {
+      "bytes": 1308,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/physical_semantics_alignment/regressions.py",
+      "sha256": "808dad157aa8fda2d30d38e04c0c69b595ddbe5d31df1f48ede78648c9f77620"
+    },
+    {
+      "bytes": 29891,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/physical_semantics_alignment/reports.py",
+      "sha256": "9879cec22e3ba369a9731761201ac597866960a2b40952bb63a8cdbbd3de10ad"
+    },
+    {
+      "bytes": 12257,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/physical_semantics_alignment/retrieve.py",
+      "sha256": "8a45e69a74d8efec6da7c83c40ada645a9133dd0295d880434fb6fa1d235d971"
+    },
+    {
+      "bytes": 690,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/physical_semantics_alignment/schema.sql",
+      "sha256": "599552aef44084a075404fad3b825b13875cf4a86dca1d396c4f52b1b580a386"
+    },
+    {
+      "bytes": 2247,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/physical_semantics_alignment/seal_artifacts.py",
+      "sha256": "6fa51b80960234eda64dae6cbbad7dc595bd06f05f8a4fc3068a051199221b23"
+    },
+    {
+      "bytes": 3555,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/physical_semantics_alignment/semantic_benchmark.py",
+      "sha256": "269905f5a43ef9e5330526a303e12126a1d6b05bffb94d7950a25b6b219df38e"
+    },
+    {
+      "bytes": 4059,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/physical_semantics_alignment/semantics.py",
+      "sha256": "2b3c32cedf57033315f19dccf3e6edf067ca00272d0dcb616fda7cb6253bb92b"
+    },
+    {
+      "bytes": 3074,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/physical_semantics_alignment/source_integrity.py",
+      "sha256": "95b3710f920333dcb093a835756ca4e5890fe362b9bfdcfcfc758d9d1be6fd9e"
+    },
+    {
+      "bytes": 2750,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/physical_semantics_alignment/store.py",
+      "sha256": "8fd73f27ced25d5c3b4e06da24e2f0113662768f6c415ab5096b816745d57f46"
+    },
+    {
+      "bytes": 1423,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/physical_semantics_alignment/temporal_refinement.py",
+      "sha256": "11f1a3a3ffb172705b30d3f267b9a5b594a9cc5dfd5aee0e8b77467e2c4b17b9"
+    },
+    {
+      "bytes": 7288,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/physical_semantics_alignment/tests/test_api_tampering.py",
+      "sha256": "f72a6b289f34eed1389fbbbd8c2de5918b203cba165f5b78772655d846046159"
+    },
+    {
+      "bytes": 7858,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/physical_semantics_alignment/tests/test_integrity.py",
+      "sha256": "523742f32ec4db9d1c4f9a5a1dc3e60205916cb3b698bf8b1cc5e9b58ca99052"
+    },
+    {
+      "bytes": 9586,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/physical_semantics_alignment/tests/test_physical.py",
+      "sha256": "3020c64a39c39fa6aec9d3926b4b15875f710d5d1b3f87e4cfe62e3384cef428"
+    },
+    {
+      "bytes": 7480,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/physical_semantics_alignment/validate.py",
+      "sha256": "a140b61bf5207c27a4179e054d6950a47fc6f8a05a9fbf09ec92fa190e2c3f76"
+    },
+    {
+      "bytes": 242,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/physical_semantics_alignment/validation/BINDING_VALIDATION.json",
+      "sha256": "59848473b3e22bedba898e8c67e7fb65303dbfee8bacecb295ac7124c6953df5"
+    },
+    {
+      "bytes": 554,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/physical_semantics_alignment/validation/BUILD.json",
+      "sha256": "a9138a64a0d1e87abc2108ef1429f115ce77f0d98ac6a0a9c6c6d6fa14ee1421"
+    },
+    {
+      "bytes": 1987,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/physical_semantics_alignment/validation/FINAL_AUDIT.json",
+      "sha256": "abfae61c861bbc20eac88a34eaac227cbede8b14ab7beb13aec85756f5b169cf"
+    },
+    {
+      "bytes": 1312,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/physical_semantics_alignment/validation/FROZEN_FINAL.json",
+      "sha256": "5422eeeca42abba13f1f716ae11f2b93a5087ef2994572ff993fadab7e9aa859"
+    },
+    {
+      "bytes": 557,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/physical_semantics_alignment/validation/INDEPENDENT_BUILD.json",
+      "sha256": "07dd1b5653cef45e4f362e671bc7124189f6fde8b165c65ce51610e119e157b0"
+    },
+    {
+      "bytes": 724,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/physical_semantics_alignment/validation/MUJOCO_HEADER_COMPARISON.json",
+      "sha256": "6f12a8bf085ca568ef89ee5ebb9680212d7f934593e1d8659bfcf81e2a9ccbe9"
+    },
+    {
+      "bytes": 1144,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/physical_semantics_alignment/validation/NUMERIC_RESULTS.json",
+      "sha256": "49e9a9e60ae1c5decb1251dfb321ccdac305f70fcb2e0fd51666987a49ffe2cb"
+    },
+    {
+      "bytes": 556,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/physical_semantics_alignment/validation/PARTIAL_RESUME.json",
+      "sha256": "626dcb6380eac524191c04869fbdc74ba28f35322c4ba7817d0fb2495764c753"
+    },
+    {
+      "bytes": 5490,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/physical_semantics_alignment/validation/PRESERVATION_FINAL.json",
+      "sha256": "f41dba4d4caf5fc497ecd42af1ab4d93a775b2a77732d9cf2fdcc912f8511bf5"
+    },
+    {
+      "bytes": 6086,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/physical_semantics_alignment/validation/REBUILD_VALIDATION.json",
+      "sha256": "1f2628a0e75050c5b07676544add3ef9663ed5b5b01473cd5d40c5334cdb1d28"
+    },
+    {
+      "bytes": 3109,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/physical_semantics_alignment/validation/REGRESSION_RESULTS.json",
+      "sha256": "b0cbc0a9027db61ad41bdf793509875e056762bdcab5e820d4fb8dddb764bd60"
+    },
+    {
+      "bytes": 341,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/physical_semantics_alignment/validation/RESOURCE_PREFLIGHT.json",
+      "sha256": "27a579ad1e1e3eb8cea1229aff841cc863d4d17968aaec1c2338d799fa637bad"
+    },
+    {
+      "bytes": 553,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/physical_semantics_alignment/validation/RESUME.json",
+      "sha256": "ab1a92eaa500c0ffe526f3fd1fc93db8c9b6bb74f5c20f78772f16fae2f864ea"
+    },
+    {
+      "bytes": 15845,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/physical_semantics_alignment/validation/SUMMARY.json",
+      "sha256": "585f34121d78ce1bdfd3fe34c4c82f6e09b388ac3082d81415a1de20e158fbed"
+    },
+    {
+      "bytes": 3971,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/physical_semantics_alignment/velocity_by_channel.py",
+      "sha256": "91304e8ffce87fb20abb44af90f036c16cf8a32af518550837ee91ff3a6c9a95"
+    },
+    {
+      "bytes": 1720,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/physical_semantics_alignment/velocity_pilot.py",
+      "sha256": "d78912216f381f03ded64a1d13ad378b1c796f2349211939324904bd4c041729"
+    },
+    {
+      "bytes": 3261,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/physical_semantics_alignment/velocity_validation.py",
+      "sha256": "f65140b34ecda320ec0d4a206f6f6d97da33c850d73dad2844a24a2d9e3b8231"
+    },
+    {
+      "bytes": 916,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/physical_semantics_alignment/verify_baseline.py",
+      "sha256": "cd721a888bd85f37f5b1239a2aee86ddd955da8756da6a04739247e364cc27ad"
+    }
+  ],
+  "original_databases": [
+    {
+      "bytes": 401522688,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5e-working/final-validated/corpus-285.sqlite",
+      "sha256": "5d3eb7589ddbf564cf29189af3264fd9861df44780e65e3246b62bbe74bc9934"
+    },
+    {
+      "bytes": 491192320,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5f-working/expanded.sqlite",
+      "sha256": "a0f9347db719902f275d0f3e89f0682f093d5ded858ab7c2823067930337baa9"
+    },
+    {
+      "bytes": 508624896,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/expanded.sqlite",
+      "sha256": "d1241f28089ff910baf8ec276fbaa3f9d2b71aa3c7b850fe494b976eb51320fb"
+    }
+  ],
+  "pushed_or_merged": false,
+  "release_database": {
+    "bytes": 549249024,
+    "path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/expanded.sqlite",
+    "sha256": "af8265755a8f4f1a360c6b39b99bf6ccd45a7313d9e6adf33b89acff7b67fb02"
+  },
+  "runtime": {
+    "host": "hestia",
+    "platform": "Linux-6.12.0-211.49.1.el10_2.x86_64-x86_64-with-glibc2.39",
+    "python": "3.12.14"
+  },
+  "self_exclusion": "Manifest and its checksum are excluded from file list to avoid recursion; Git commit seals tracked content.",
+  "source_contract": "strict descriptor-bound reads or explicit verified-session cache; no unverified mode",
+  "version": "physical-semantics-1.0.0"
+}

@@ -1,0 +1,11 @@
+# Six-channel semantic audit
+
+SEMANTIC_CONTRACTS.csv classifies every exposed property; CONTRACT_SCOPES.json provides exact execution/variant support. Property instances: `{"CONDITIONAL": 3888, "UNRESOLVED": 5184, "UNSUPPORTED": 3024, "VERIFIED": 23328}`. All six families are supported for the fixed 432 executions/104 variants. Formal detail is in EVIDENCE_CONTRACTS.md and the original raw contracts remain immutable.
+
+Four observed vectors are native joint coordinates/tangent velocities: seven hinge arm joints (rad, rad/s) and two slide finger joints (m, m/s under the recorded metric model convention). They are not Cartesian gripper positions, commanded targets or normalized policy inputs. Ordered source getters, recorded native indexes, compiled exact XML and independent configuration/velocity consistency jointly support this interpretation. Robot association is the exact recorded model; this is not a generic guarantee for other robots.
+
+The nine actuator_force entries are native scalar actuator output in compiled order, with unit-gear direct transmissions. Seven have torque dimensions and two linear-force dimensions. They are distinct from ctrl, total generalized joint force and per-contact forces. Fixed-gain/affine-bias/clamp equations match all recorded outputs. SI N*m/N interpretation requires the MKS mass convention and remains CONDITIONAL; physical force calibration is absent.
+
+ncon is a nonnegative contact-entry count. All 58,075 values match the decoded saved contact-list length. Contacts preserve pair identities/distances/positions, but no dedicated per-contact-force channel. Zero count certifies only that saved simulator entry list, not an absence of all physical contact between samples or inactive/excluded geometry. Nonzero count does not identify objects or prove support/violations.
+
+Recorder and run_oft file hashes match metadata in every execution. Installed robosuite sources match declared 1.4.0, but a complete recording-time binary attestation is unavailable. This limitation is retained explicitly for cache timing/refresh claims. Native model units are not a claim of physical reference calibration. Existing raw dtype/shape and missing-field behavior remain available alongside the interpretation layer.

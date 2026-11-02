@@ -1,0 +1,505 @@
+{
+  "contracts": 2592,
+  "legacy_f_exact": {
+    "MRR": 1.0,
+    "execution_attribution": 1.0,
+    "invalid_cross_scope_retrievals": 0,
+    "latency_seconds": {
+      "max": 1.1108357720077038,
+      "median": 0.19479974173009396,
+      "p95": 0.22028548642992973
+    },
+    "per_task": {
+      "18573886c3dbce39b02e": {
+        "MRR": 1.0,
+        "execution_attribution": 1.0,
+        "invalid_cross_scope_retrievals": 0,
+        "precision_at_1": 1.0,
+        "queries": 19,
+        "recall_at_20": 1.0,
+        "source_attribution": 1.0,
+        "task_attribution": 1.0,
+        "temporal_correctness": 1.0,
+        "variant_attribution": 1.0
+      },
+      "1b921c8dfd61bb78bb84": {
+        "MRR": 1.0,
+        "execution_attribution": 1.0,
+        "invalid_cross_scope_retrievals": 0,
+        "precision_at_1": 1.0,
+        "queries": 1274,
+        "recall_at_20": 1.0,
+        "source_attribution": 1.0,
+        "task_attribution": 1.0,
+        "temporal_correctness": 1.0,
+        "variant_attribution": 1.0
+      },
+      "2448c758145ae5ad500f": {
+        "MRR": 1.0,
+        "execution_attribution": 1.0,
+        "invalid_cross_scope_retrievals": 0,
+        "precision_at_1": 1.0,
+        "queries": 19,
+        "recall_at_20": 1.0,
+        "source_attribution": 1.0,
+        "task_attribution": 1.0,
+        "temporal_correctness": 1.0,
+        "variant_attribution": 1.0
+      },
+      "2a5acddf5a0e33b0d470": {
+        "MRR": 1.0,
+        "execution_attribution": 1.0,
+        "invalid_cross_scope_retrievals": 0,
+        "precision_at_1": 1.0,
+        "queries": 1323,
+        "recall_at_20": 1.0,
+        "source_attribution": 1.0,
+        "task_attribution": 1.0,
+        "temporal_correctness": 1.0,
+        "variant_attribution": 1.0
+      },
+      "30c0f61d2d5786fae8b6": {
+        "MRR": 1.0,
+        "execution_attribution": 1.0,
+        "invalid_cross_scope_retrievals": 0,
+        "precision_at_1": 1.0,
+        "queries": 19,
+        "recall_at_20": 1.0,
+        "source_attribution": 1.0,
+        "task_attribution": 1.0,
+        "temporal_correctness": 1.0,
+        "variant_attribution": 1.0
+      },
+      "4013b7c5a98750b7e80d": {
+        "MRR": 1.0,
+        "execution_attribution": 1.0,
+        "invalid_cross_scope_retrievals": 0,
+        "precision_at_1": 1.0,
+        "queries": 19,
+        "recall_at_20": 1.0,
+        "source_attribution": 1.0,
+        "task_attribution": 1.0,
+        "temporal_correctness": 1.0,
+        "variant_attribution": 1.0
+      },
+      "6da51604f02b12a90682": {
+        "MRR": 1.0,
+        "execution_attribution": 1.0,
+        "invalid_cross_scope_retrievals": 0,
+        "precision_at_1": 1.0,
+        "queries": 1274,
+        "recall_at_20": 1.0,
+        "source_attribution": 1.0,
+        "task_attribution": 1.0,
+        "temporal_correctness": 1.0,
+        "variant_attribution": 1.0
+      },
+      "7894e3922dc1e048d44c": {
+        "MRR": 1.0,
+        "execution_attribution": 1.0,
+        "invalid_cross_scope_retrievals": 0,
+        "precision_at_1": 1.0,
+        "queries": 19,
+        "recall_at_20": 1.0,
+        "source_attribution": 1.0,
+        "task_attribution": 1.0,
+        "temporal_correctness": 1.0,
+        "variant_attribution": 1.0
+      },
+      "b12b2d70fe80d3547b1e": {
+        "MRR": 1.0,
+        "execution_attribution": 1.0,
+        "invalid_cross_scope_retrievals": 0,
+        "precision_at_1": 1.0,
+        "queries": 19,
+        "recall_at_20": 1.0,
+        "source_attribution": 1.0,
+        "task_attribution": 1.0,
+        "temporal_correctness": 1.0,
+        "variant_attribution": 1.0
+      }
+    },
+    "precision_at_1": 1.0,
+    "qualification": "Exact source-target lookup under metadata and variant constraints. Not independent natural-language relevance or physical safety accuracy.",
+    "queries": 3985,
+    "recall_at_20": 1.0,
+    "source_attribution": 1.0,
+    "task_attribution": 1.0,
+    "temporal_correctness": 1.0,
+    "variant_attribution": 1.0
+  },
+  "legacy_f_semantic": {
+    "aggregate": {
+      "fts5": {
+        "median_seconds": 0.06792738242074847,
+        "precision_at_1": 0.08333333333333333,
+        "query_instances": 1764,
+        "recall_at_20": 0.08333333333333333,
+        "reciprocal_rank": 0.08333333333333333
+      },
+      "semantic": {
+        "median_seconds": 0.10773258376866579,
+        "precision_at_1": 0.935374149659864,
+        "query_instances": 1764,
+        "recall_at_20": 1.0,
+        "reciprocal_rank": 0.967687074829932
+      }
+    },
+    "invalid_cross_scope_retrievals": 0,
+    "passed": true,
+    "per_task": {
+      "goal/task_07": {
+        "fts5": {
+          "median_seconds": 0.06733172759413719,
+          "precision_at_1": 0.08333333333333333,
+          "query_instances": 588,
+          "recall_at_20": 0.08333333333333333,
+          "reciprocal_rank": 0.08333333333333333
+        },
+        "semantic": {
+          "median_seconds": 0.10591401113197207,
+          "precision_at_1": 0.9370748299319728,
+          "query_instances": 588,
+          "recall_at_20": 1.0,
+          "reciprocal_rank": 0.9685374149659864
+        }
+      },
+      "goal/task_08": {
+        "fts5": {
+          "median_seconds": 0.06747991032898426,
+          "precision_at_1": 0.08333333333333333,
+          "query_instances": 588,
+          "recall_at_20": 0.08333333333333333,
+          "reciprocal_rank": 0.08333333333333333
+        },
+        "semantic": {
+          "median_seconds": 0.10767058935016394,
+          "precision_at_1": 0.9370748299319728,
+          "query_instances": 588,
+          "recall_at_20": 1.0,
+          "reciprocal_rank": 0.9685374149659864
+        }
+      },
+      "spatial/task_00": {
+        "fts5": {
+          "median_seconds": 0.06840190570801497,
+          "precision_at_1": 0.08333333333333333,
+          "query_instances": 588,
+          "recall_at_20": 0.08333333333333333,
+          "reciprocal_rank": 0.08333333333333333
+        },
+        "semantic": {
+          "median_seconds": 0.10963770467787981,
+          "precision_at_1": 0.9319727891156463,
+          "query_instances": 588,
+          "recall_at_20": 1.0,
+          "reciprocal_rank": 0.9659863945578231
+        }
+      }
+    },
+    "qualification": "Twelve fixed source-field paraphrases reused from Phase5E; rotating objects fixed by episode modulo object count. Query instances are repetitions across source contexts, not independent natural-language judgments or physical ground truth. Recall@20 has six candidates. No descriptor/model/probe tuning.",
+    "source_execution_scopes": 147,
+    "source_variants": 98,
+    "unembedded_document_excluded": true,
+    "unique_linguistic_probes": 12,
+    "unique_objects": 7
+  },
+  "legacy_g_exact": {
+    "MRR": 1.0,
+    "alignment_errors_saved_indices": 0,
+    "channel_records": 2592,
+    "cross_scope_leakage": 0,
+    "executions": 432,
+    "max_absolute_value_error": 0.0,
+    "missing_samples": 0,
+    "negative_controls": 27488,
+    "negative_status_counts": {
+      "excluded_preflight": 38,
+      "excluded_reserved": 60,
+      "invalid_query_scope": 5184,
+      "no_matching_channel_record": 5184,
+      "unindexed_profile_pending": 1470,
+      "unknown_execution": 2592,
+      "unsupported_channel": 2592,
+      "unsupported_coordinate_frame": 2592,
+      "unsupported_origin": 2592,
+      "unsupported_temporal_domain": 2592,
+      "unsupported_units": 2592
+    },
+    "numeric_components_by_channel": {
+      "contact_length_comparisons": 58075,
+      "raw.robot0_gripper_qpos": 116150,
+      "raw.robot0_gripper_qvel": 116150,
+      "raw.robot0_joint_pos": 406525,
+      "raw.robot0_joint_vel": 406525,
+      "raw.simulator_actuator_force": 522675,
+      "simulator.ncon": 58075
+    },
+    "passed": true,
+    "precision_at_1": 1.0,
+    "qualification": "Exact channel lookup metrics measure source retrieval only. Numeric comparisons use independently decoded arrays. Zero saved-index alignment error does not establish physical phase alignment.",
+    "raw_source_samples_validated": 348450,
+    "recall_at_20": 1.0,
+    "retrieved_samples_compared": 12960,
+    "seconds": 361.94876557961106,
+    "source_target_queries": 10368,
+    "unit_frame_inconsistencies": 0,
+    "variants": 104
+  },
+  "legacy_g_semantic": {
+    "aggregate": {
+      "fts5": {
+        "MRR": 0.7526041666666666,
+        "instances": 5184,
+        "precision_at_1": 0.6238425925925926,
+        "recall_at_20": 0.9166666666666666
+      },
+      "semantic": {
+        "MRR": 1.0,
+        "instances": 5184,
+        "precision_at_1": 1.0,
+        "recall_at_20": 1.0
+      }
+    },
+    "candidate_channels": 6,
+    "cross_scope_leakage": 0,
+    "encoder": {
+      "code_sha256": "59b6a92f4cdb69e415593724b3c971d0752a265b35c1be1a9bd4492be2c4266f",
+      "device": "cpu",
+      "dtype": "float32",
+      "manifest_sha256": "2b51e1a6ea7ad4014a82769ba83a617423b3b934e7248947ed993dd6be1f192c",
+      "max_wordpieces": 256,
+      "pool": "attention-masked mean, L2 normalization",
+      "python": "3.12.14",
+      "revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+      "text_policy": "Source-field descriptions and object identity; no execution IDs, numerical values or AI event labels.",
+      "threads": 2,
+      "torch": "2.9.0+cu128",
+      "transformers": "4.57.3",
+      "version": "local-semantic-measurements:1.0.0"
+    },
+    "execution_scopes": 432,
+    "negative_controls": 2690,
+    "passed": true,
+    "per_channel": {
+      "raw.robot0_gripper_qpos": {
+        "fts5": {
+          "MRR": 0.6440972222222222,
+          "instances": 864,
+          "precision_at_1": 0.5,
+          "recall_at_20": 1.0
+        },
+        "semantic": {
+          "MRR": 1.0,
+          "instances": 864,
+          "precision_at_1": 1.0,
+          "recall_at_20": 1.0
+        }
+      },
+      "raw.robot0_gripper_qvel": {
+        "fts5": {
+          "MRR": 0.25,
+          "instances": 864,
+          "precision_at_1": 0.0,
+          "recall_at_20": 0.5
+        },
+        "semantic": {
+          "MRR": 1.0,
+          "instances": 864,
+          "precision_at_1": 1.0,
+          "recall_at_20": 1.0
+        }
+      },
+      "raw.robot0_joint_pos": {
+        "fts5": {
+          "MRR": 0.7430555555555556,
+          "instances": 864,
+          "precision_at_1": 0.4861111111111111,
+          "recall_at_20": 1.0
+        },
+        "semantic": {
+          "MRR": 1.0,
+          "instances": 864,
+          "precision_at_1": 1.0,
+          "recall_at_20": 1.0
+        }
+      },
+      "raw.robot0_joint_vel": {
+        "fts5": {
+          "MRR": 0.8784722222222222,
+          "instances": 864,
+          "precision_at_1": 0.7569444444444444,
+          "recall_at_20": 1.0
+        },
+        "semantic": {
+          "MRR": 1.0,
+          "instances": 864,
+          "precision_at_1": 1.0,
+          "recall_at_20": 1.0
+        }
+      },
+      "raw.simulator_actuator_force": {
+        "fts5": {
+          "MRR": 1.0,
+          "instances": 864,
+          "precision_at_1": 1.0,
+          "recall_at_20": 1.0
+        },
+        "semantic": {
+          "MRR": 1.0,
+          "instances": 864,
+          "precision_at_1": 1.0,
+          "recall_at_20": 1.0
+        }
+      },
+      "simulator.ncon": {
+        "fts5": {
+          "MRR": 1.0,
+          "instances": 864,
+          "precision_at_1": 1.0,
+          "recall_at_20": 1.0
+        },
+        "semantic": {
+          "MRR": 1.0,
+          "instances": 864,
+          "precision_at_1": 1.0,
+          "recall_at_20": 1.0
+        }
+      }
+    },
+    "probes": {
+      "raw.robot0_gripper_qpos": [
+        "finger opening position readings",
+        "gripper joint configuration values"
+      ],
+      "raw.robot0_gripper_qvel": [
+        "finger motion speed readings",
+        "gripper joint velocity samples"
+      ],
+      "raw.robot0_joint_pos": [
+        "robot arm joint angle readings",
+        "arm joint configuration values"
+      ],
+      "raw.robot0_joint_vel": [
+        "robot arm joint speed readings",
+        "arm joint velocity samples"
+      ],
+      "raw.simulator_actuator_force": [
+        "motor actuator force readings",
+        "simulator actuator effort array"
+      ],
+      "simulator.ncon": [
+        "number of saved contact entries",
+        "simulator contact count"
+      ]
+    },
+    "qualification": "Twelve fixed paraphrases repeated across 432 execution contexts. Six candidates per scope. No independent natural language dataset; no numeric or physical accuracy inference.",
+    "unique_probes": 12
+  },
+  "models": 104,
+  "property_status_counts": {
+    "CONDITIONAL": 3888,
+    "UNRESOLVED": 5184,
+    "UNSUPPORTED": 3024,
+    "VERIFIED": 23328
+  },
+  "retrieval": {
+    "MRR": 1.0,
+    "component_bindings_checked": 11664,
+    "cross_scope_leakage": 0,
+    "executions": 432,
+    "maximum_value_error": 0.0,
+    "mean_value_error": 0.0,
+    "negative_controls": 35264,
+    "negative_status_counts": {
+      "excluded_preflight": 38,
+      "excluded_reserved": 60,
+      "invalid_query_scope": 5184,
+      "invalid_source_scope": 2592,
+      "no_matching_record": 7776,
+      "unindexed_profile_pending": 1470,
+      "unknown_execution": 2592,
+      "unsupported_alignment": 2592,
+      "unsupported_channel": 2592,
+      "unsupported_coordinate_frame": 2592,
+      "unsupported_semantic_status": 2592,
+      "unsupported_transformation": 2592,
+      "unsupported_units": 2592
+    },
+    "original_samples_compared": 15552,
+    "passed": true,
+    "precision_at_1": 1.0,
+    "queries": 12960,
+    "recall_at_20": 1.0,
+    "saved_index_alignment_errors": 0,
+    "seconds": 580.9895883062854,
+    "source_hash_checks": 2280,
+    "variants": 104,
+    "verified_session_cache_hits": 1731663
+  },
+  "semantic": {
+    "aggregate": {
+      "fts5": {
+        "MRR": 0.7526041666666666,
+        "instances": 5184,
+        "precision_at_1": 0.6238425925925926,
+        "recall_at_20": 0.9166666666666666
+      },
+      "semantic": {
+        "MRR": 1.0,
+        "instances": 5184,
+        "precision_at_1": 1.0,
+        "recall_at_20": 1.0
+      }
+    },
+    "cross_scope_leakage": 0,
+    "encoder": {
+      "code_sha256": "59b6a92f4cdb69e415593724b3c971d0752a265b35c1be1a9bd4492be2c4266f",
+      "device": "cpu",
+      "dtype": "float32",
+      "manifest_sha256": "2b51e1a6ea7ad4014a82769ba83a617423b3b934e7248947ed993dd6be1f192c",
+      "max_wordpieces": 256,
+      "pool": "attention-masked mean, L2 normalization",
+      "python": "3.12.14",
+      "revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+      "text_policy": "Source-field descriptions and object identity; no execution IDs, numerical values or AI event labels.",
+      "threads": 2,
+      "torch": "2.9.0+cu128",
+      "transformers": "4.57.3",
+      "version": "local-semantic-measurements:1.0.0"
+    },
+    "execution_scopes": 432,
+    "negative_controls": 5456,
+    "passed": true,
+    "probes": {
+      "raw.robot0_gripper_qpos": [
+        "finger opening position readings",
+        "gripper joint configuration values"
+      ],
+      "raw.robot0_gripper_qvel": [
+        "finger motion speed readings",
+        "gripper joint velocity samples"
+      ],
+      "raw.robot0_joint_pos": [
+        "robot arm joint angle readings",
+        "arm joint configuration values"
+      ],
+      "raw.robot0_joint_vel": [
+        "robot arm joint speed readings",
+        "arm joint velocity samples"
+      ],
+      "raw.simulator_actuator_force": [
+        "motor actuator force readings",
+        "simulator actuator effort array"
+      ],
+      "simulator.ncon": [
+        "number of saved contact entries",
+        "simulator contact count"
+      ]
+    },
+    "qualification": "Unchanged twelve fixed source-field paraphrases repeated across contexts, six candidates per scope. No new independent language labels or physical-semantic accuracy inference.",
+    "unique_probes": 12,
+    "variants": 104
+  },
+  "timelines": 432
+}

@@ -1,0 +1,13 @@
+# Source-target lookup and scope validation
+
+New physical interface: 12,960 exact queries over all 432 executions/104 variants; initial, early-action, middle, terminal and boundary windows. P@1=1.0, Recall@20=1.0, MRR=1.0. 35,264 negatives; leakage 0. All returned values were independently decoded and compared, not just matched by text. Exact channel lookup generally has one intended target.
+
+Negative statuses: `{"excluded_preflight": 38, "excluded_reserved": 60, "invalid_query_scope": 5184, "invalid_source_scope": 2592, "no_matching_record": 7776, "unindexed_profile_pending": 1470, "unknown_execution": 2592, "unsupported_alignment": 2592, "unsupported_channel": 2592, "unsupported_coordinate_frame": 2592, "unsupported_semantic_status": 2592, "unsupported_transformation": 2592, "unsupported_units": 2592}`. Wrong source/execution/task/variant/object/component/units/frame, unsupported transforms/alignment/status and out-of-range samples fail closed. All 60 reserved, 38 preflight and 1,470 pending IDs are tested without inspecting payloads. Tampering/restoration tests are separate from ranking.
+
+New lexical/semantic results on unchanged Phase 5G probes: `{"fts5": {"MRR": 0.7526041666666666, "instances": 5184, "precision_at_1": 0.6238425925925926, "recall_at_20": 0.9166666666666666}, "semantic": {"MRR": 1.0, "instances": 5184, "precision_at_1": 1.0, "recall_at_20": 1.0}}`. 5,456 semantic guard negatives, leakage 0. Twelve fixed paraphrases repeated in 432 contexts, six candidates per scope; no independent language labels or tuning. Similarity cannot override physical-property or provenance filters.
+
+Previous Phase 5G exact tests rerun: 10,368, negatives 27,488, P@1/Recall@20/MRR all 1.0; leakage zero. Its semantic benchmark rerun: `{"fts5": {"MRR": 0.7526041666666666, "instances": 5184, "precision_at_1": 0.6238425925925926, "recall_at_20": 0.9166666666666666}, "semantic": {"MRR": 1.0, "instances": 5184, "precision_at_1": 1.0, "recall_at_20": 1.0}}`.
+
+Previous Phase 5F exact tests rerun: 3,985, negatives 1,768, exact metrics all 1.0 and leakage zero. Its unchanged semantic benchmark rerun: `{"fts5": {"median_seconds": 0.06792738242074847, "precision_at_1": 0.08333333333333333, "query_instances": 1764, "recall_at_20": 0.08333333333333333, "reciprocal_rank": 0.08333333333333333}, "semantic": {"median_seconds": 0.10773258376866579, "precision_at_1": 0.935374149659864, "query_instances": 1764, "recall_at_20": 1.0, "reciprocal_rank": 0.967687074829932}}`. Legacy readers are compatibility baselines; new source-policy guarantees require the new physical interface.
+
+Ranking, direct numeric reproduction, model semantic correctness and physical calibration are separate measurements. Successful lookup does not establish a safety claim.
