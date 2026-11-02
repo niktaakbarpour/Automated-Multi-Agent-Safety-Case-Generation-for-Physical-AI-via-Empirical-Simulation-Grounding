@@ -52,7 +52,10 @@ def read(root,episode,frames=None,*,expected=None,geometry=None,coordinates=None
    extension=approved_profile(development_profile,root,episode)
   if task_profile is not None:
    if extension is not None or synthetic or expected is not None or geometry is not None or coordinates is not None:raise Unsupported('task_profile_rejects_injected_or_synthetic_contract')
-   from evaluation.r1_v4.rag_evidence_database.corpus_expansion.task_profile.profile import approved_profile
+   if task_profile.startswith('multitask-v1:'):
+    from evaluation.r1_v4.rag_evidence_database.multitask_expansion.profile import approved_profile
+   else:
+    from evaluation.r1_v4.rag_evidence_database.corpus_expansion.task_profile.profile import approved_profile
    extension=approved_profile(task_profile,root,episode)
   if extension is None and episode not in (0,1,2,14):raise Unsupported('execution_outside_development_scope')
   if (expected is not None or geometry is not None or coordinates is not None) and not synthetic:raise Unsupported('custom_contract_requires_synthetic_fixture')
