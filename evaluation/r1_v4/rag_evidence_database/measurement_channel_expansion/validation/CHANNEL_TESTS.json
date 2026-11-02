@@ -1,0 +1,19 @@
+{
+  "PYTHONPATH": "/disk/1/data/niktakbr/trustworthy-phase16/src:/disk/1/data/niktakbr/trustworthy-phase16:/disk/0/home/niktakbr/groot-n17-libero-gpu0-queue/.venv/lib/python3.12/site-packages:/usr/lib/python3.12/site-packages:/usr/lib64/python3.12/site-packages",
+  "command": [
+    "/usr/bin/python3",
+    "-S",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/measurement_channel_expansion/tests",
+    "-v"
+  ],
+  "cwd": "/disk/1/data/niktakbr/trustworthy-phase16",
+  "log_sha256": "6e4f2b0132b5983232ba87493f7a2ab8805dcbf3d3c605652ec33a54ce7cea2c",
+  "problem_tests": [],
+  "returncode": 0,
+  "skipped": 0,
+  "tests_run": 57
+}

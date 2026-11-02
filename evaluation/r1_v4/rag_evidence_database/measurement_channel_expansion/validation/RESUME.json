@@ -1,0 +1,20 @@
+{
+  "database_bytes": 508624896,
+  "database_path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/expanded.sqlite",
+  "database_sha256": "d1241f28089ff910baf8ec276fbaa3f9d2b71aa3c7b850fe494b976eb51320fb",
+  "empirical_admission_enabled": false,
+  "executions": 432,
+  "inserted": 0,
+  "logical_digest": "71ce910b45a3b9e0b173eb2cec5daa1b921bdd2cabbdf46a39bad37ed4903c6e",
+  "producer": {
+    "CHANNEL_SELECTION.json": "93d10ae323048dfde565d0ef89f8d58c2fd2c11e041b884eae9d1bf010be616b",
+    "EVIDENCE_CONTRACTS.md": "6563f9567775eacf0dc351df28c47f7ac60e1bb4211fce5d9ca13750eaec1dcc",
+    "build.py": "a5b1b716dbab20eeb66e1707bb4c26f25302d130446eb2740f3e25ca91d57c51",
+    "channels.py": "6ca4918228d9a328a6e2d6455b0345b4f3f5462c00510ce78de640a23879ad00",
+    "schema.sql": "0ff7098f124867a0e58c5ad06423da0fa146bf906d989386a2ce296894157860"
+  },
+  "records": 2592,
+  "seconds": 32.96294759307057,
+  "skipped": 432,
+  "version": "phase5g-channel-1.0.0"
+}

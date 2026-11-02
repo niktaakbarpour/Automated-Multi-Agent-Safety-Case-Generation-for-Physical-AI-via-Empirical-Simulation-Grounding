@@ -1,0 +1,2959 @@
+{
+  "baseline_commit": "c24795ed9383110243288db520e5f98af484b4ad",
+  "baseline_database": {
+    "bytes": 491192320,
+    "path": "/disk/1/data/niktakbr/trustworthy-phase5f-working/expanded.sqlite",
+    "sha256": "a0f9347db719902f275d0f3e89f0682f093d5ded858ab7c2823067930337baa9"
+  },
+  "branch": "feat/rag-evidence-database-channel-coverage",
+  "counts": {
+    "derived_channels": 0,
+    "executions": 432,
+    "new_channel_records": 2592,
+    "new_channels": 6,
+    "preserved_core_evidence_records": 80786,
+    "saved_frames": 58075,
+    "total_records_across_families": 83378,
+    "variants": 104
+  },
+  "empirical_admission_enabled": false,
+  "external_artifacts": [
+    {
+      "bytes": 499042,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/BASELINE_VERIFIED.json",
+      "sha256": "265ad2f96475da42953e5365419f4399ceb622a0a4a199bfd023c833a15e80a5"
+    },
+    {
+      "bytes": 956,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/BUILD.json",
+      "sha256": "93f8ec44871018703ae67de1220c95895c2e6690c416eb7295821b83cf2a17cb"
+    },
+    {
+      "bytes": 4333814,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/CHANNEL_SEMANTIC_EVALUATION.json",
+      "sha256": "a74977a09ee6d1485aab518e54bc56f6787fc05fee40ebb05b70a34c3e21178b"
+    },
+    {
+      "bytes": 718,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/CHANNEL_TESTS.json",
+      "sha256": "639685def2430848472925771f0fc85ae9079c4b5ed0bb5613098eeb0f4f69ac"
+    },
+    {
+      "bytes": 9192,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/CLI_VALIDATION.json",
+      "sha256": "7d1f31e6daf00c3940622d065c93b38fa5e14bb35fe4ceb0551461ba169d621f"
+    },
+    {
+      "bytes": 153,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/EXAMPLE_QUERY.json",
+      "sha256": "52afdc329200bd4a3b5ff875c1d244d941884f7fc0a3a72602e7498bfc372ec6"
+    },
+    {
+      "bytes": 4694971,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/EXTRACTION_RETRIEVAL_VALIDATION.json",
+      "sha256": "11d0d8a682c4577aedffff2c909bc113c5003fc0c256bd4ca6bca4709a48c57f"
+    },
+    {
+      "bytes": 1986,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/FINAL_AUDIT.json",
+      "sha256": "fe3ab7bbc80742e9bb8172f05a6047b70901ad101d7b5f39031d22ebf791415b"
+    },
+    {
+      "bytes": 1312,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/FROZEN_FINAL.json",
+      "sha256": "c4da97fa3e051c8fa0cdc11b20c16f2f899a57aa1b164296d41320138c53bccd"
+    },
+    {
+      "bytes": 460415094,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/FULL_CHANNEL_COVERAGE_MATRIX.csv",
+      "sha256": "aac54c36a06490fe68d6c3bd4d02ea12daf50bcf3690776dacc976929132ee97"
+    },
+    {
+      "bytes": 17533669,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/FULL_CHANNEL_INVENTORY.csv",
+      "sha256": "330e84d744524046307bdcb4169b21292630fed94d87939ba74eb1b1cba86899"
+    },
+    {
+      "bytes": 959,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/INDEPENDENT_BUILD.json",
+      "sha256": "d56e5983067b73b5290f760d4629123c8ecb541bd0c65c9b509f4ea153f51615"
+    },
+    {
+      "bytes": 115900,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/INVENTORY_SUMMARY.json",
+      "sha256": "d5234fe4932577727a83d780da1c32f50caf01b4cb7e15d295f188f3ba914e41"
+    },
+    {
+      "bytes": 519677,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/INVENTORY_SUPPLEMENT.json",
+      "sha256": "daa396d293fbb72632a3f1c56bbfb633782c28eb3f2170788005e15368b8b747"
+    },
+    {
+      "bytes": 361,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/INVENTORY_VALIDATION.json",
+      "sha256": "7601935bf04f078da58c28e20d26ee98bb9eb3412266b478cd67ffbc40bdde4a"
+    },
+    {
+      "bytes": 1899,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/LEGACY_PROFILE.txt",
+      "sha256": "4dd86b6ff10e3f00a7f8a704b37e229a0c47174c87a7ffc83c2be00a296703e8"
+    },
+    {
+      "bytes": 1371205,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/MAIN_TABLE_AUDIT.json",
+      "sha256": "cc6a10c90acf8259a24815614ff4a924a0a3f155d298a20540253d0dcfa0801e"
+    },
+    {
+      "bytes": 706,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/NORMALIZED_INVENTORY.json",
+      "sha256": "9ec5ac4fcc33b3156c226d924a012cf5a1be4aae6bd3c46fffd6a4d1375ad8d6"
+    },
+    {
+      "bytes": 1180,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/PARTIAL_RESUME.json",
+      "sha256": "8e35ee5b94307a43379b0b9a26166861cb77d1001d9e352f9e97f18fb8cb8db6"
+    },
+    {
+      "bytes": 3985,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/PRESERVATION_FINAL.json",
+      "sha256": "9f653b64150c0568e9b030e5b78080d6341ad813834e7b43baa31d81faf6f7a5"
+    },
+    {
+      "bytes": 3985,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/PRESERVATION_VALIDATION.json",
+      "sha256": "9f653b64150c0568e9b030e5b78080d6341ad813834e7b43baa31d81faf6f7a5"
+    },
+    {
+      "bytes": 4457,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/REBUILD_VALIDATION.json",
+      "sha256": "dd7a5a910fc2df50be207cd0f018dfab518e505b76319f407f48fdff98746786"
+    },
+    {
+      "bytes": 955,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/RESUME.json",
+      "sha256": "59caa6360bcd9717241df64ba96dda9499b987c962475af75cbec8c298c33f8e"
+    },
+    {
+      "bytes": 2253160,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/SPATIAL_AUDIT.json",
+      "sha256": "9e537614ef532b6961b25bc9fbbd553c58579b74fa02e555a218b1a07ec6466f"
+    },
+    {
+      "bytes": 3932555,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/SPATIAL_SUPPLEMENT.json",
+      "sha256": "2692f0c44592e8f771f823472cc67eb8a6bd03aaed6c428ef8049f00d068f413"
+    },
+    {
+      "bytes": 177,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/STORAGE_PREFLIGHT.json",
+      "sha256": "466fa18ba23e86e1e5f6962c72f52f8526f76588af7f2f55781b3c7070a1ec49"
+    },
+    {
+      "bytes": 8716,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/baseline-regressions/REGRESSION_RESULTS.json",
+      "sha256": "2cd358d84d212fa9b247984793d5c64666340d55200429dc441e9f1e18e66159"
+    },
+    {
+      "bytes": 1237,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/baseline-regressions/qa/FROZEN_AFTER.json",
+      "sha256": "21d27c9f80f03defb5ed34671359700d7dc0115affb4fbbaa8d73ea1271b799c"
+    },
+    {
+      "bytes": 1237,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/baseline-regressions/qa/FROZEN_BEFORE.json",
+      "sha256": "21d27c9f80f03defb5ed34671359700d7dc0115affb4fbbaa8d73ea1271b799c"
+    },
+    {
+      "bytes": 4922,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/baseline-regressions/qa/frozen_v3.log",
+      "sha256": "6442a5b48dc06c8efb2eba161d18277f271d0f379d95c6643fe878427d129082"
+    },
+    {
+      "bytes": 1861,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/baseline-regressions/qa/generalization.log",
+      "sha256": "10ce2f80a4db07d364a5f11b8c65970fff89be4797a60d608a540bbe66cbae3d"
+    },
+    {
+      "bytes": 2723,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/baseline-regressions/qa/new_profile.log",
+      "sha256": "be125dd4df2a055b9bd234289a8a405bd3c8275a8e53e1b5529d6d504b68907d"
+    },
+    {
+      "bytes": 852,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/baseline-regressions/qa/partition.log",
+      "sha256": "00c75adb6a16063887b6da497cb8e1ca851afd55d8d3cadb15db8553789c8f4a"
+    },
+    {
+      "bytes": 12083,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/baseline-regressions/qa/phase2a.log",
+      "sha256": "0e02093969492b40d72acb270d09fad7fc1cf64de17040d8c4e6338317c51726"
+    },
+    {
+      "bytes": 3469,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/baseline-regressions/qa/phase5b.log",
+      "sha256": "8d13ea97dfe8ed4cab66d3172eb416632cfc3b2b03cdbff3fc12f766c455095e"
+    },
+    {
+      "bytes": 1669,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/baseline-regressions/qa/phase5c.log",
+      "sha256": "aaacbd191917dd458ab68415187c9285db999a45b9f34f139be09c41173d42c4"
+    },
+    {
+      "bytes": 3152,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/baseline-regressions/qa/phase5e.log",
+      "sha256": "d1eff215dd8bd89ddf6736eced1109b7e9985b9a8238239a6435b27be2ef4a29"
+    },
+    {
+      "bytes": 1536,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/baseline-regressions/qa/phase5e_semantic.log",
+      "sha256": "d27c26df8dc3bfe5cf72f4d3872d94f568512c92dc32883f939b27b74fe08001"
+    },
+    {
+      "bytes": 5978,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/baseline-regressions/qa/profile.log",
+      "sha256": "d360a909ec9a592962664fc789241286bd1d8c1201f43bd17e50dd49269c1d40"
+    },
+    {
+      "bytes": 4457,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/baseline-regressions/qa/reader.log",
+      "sha256": "dd6df5719af0b28a6b3d59f5e5e788378a8bb6ae648e88ac2720fce577add6d6"
+    },
+    {
+      "bytes": 2241,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/baseline-regressions/qa/reference.log",
+      "sha256": "958e443d4febd9497a058cd6f11687bf014adcff56303a2c6c7998c5b6420f93"
+    },
+    {
+      "bytes": 6180,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/baseline-regressions/qa/registry_gsn.log",
+      "sha256": "5fd70458a8d9c32e456549cbd2af7ecbca73902d3c2b7fbe2cb37a8280fa0aa9"
+    },
+    {
+      "bytes": 3853,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/baseline-regressions/qa/review.log",
+      "sha256": "1bb11d264013d0ea29f35749021d147e8782de7c777a69b7de57919ac4f85871"
+    },
+    {
+      "bytes": 3510,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/baseline-regressions/qa/variant.log",
+      "sha256": "301699444599bece8704252f40bd247a59655d5a1b4a76c7acb8bac9b91b305f"
+    },
+    {
+      "bytes": 1465,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/build-attempt2.log",
+      "sha256": "89868c9f6593b6acb75979f2ba6b54437b7607586d7bc6f91f29b9600680de27"
+    },
+    {
+      "bytes": 2207,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/build.log",
+      "sha256": "d5401a545050e0dec31a16f9585fbb84b4c820aa05e6b1e6f5ec880ca3389f20"
+    },
+    {
+      "bytes": 469,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/channel-semantic-attempt2.log",
+      "sha256": "d656df10fce42342c53da09c878d80e377fe7391c2ffc0cfcf39a4937cc1a8c9"
+    },
+    {
+      "bytes": 26,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/channel-semantic.log",
+      "sha256": "33fcd79b7aa7dd374e3af51c9d2c54ffb1c5c45b26a3f0714f1c73ee26e3edb0"
+    },
+    {
+      "bytes": 4290,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/channel-tests-cached.log",
+      "sha256": "a8e2dfd08507c51f864b4ebd358a77ce9f84d31b175aa19c2d33c77e455b2a4e"
+    },
+    {
+      "bytes": 4290,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/channel-tests-extended.log",
+      "sha256": "7cf111f1f86fdc5d2a1f54d34b6047db93520a45a132d393156a287cf700a44c"
+    },
+    {
+      "bytes": 3139,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/channel-tests-initial.log",
+      "sha256": "5e2095ba9576277fe71e914e519750ce240f41bf5df622bec3ff41c8ee0a1d77"
+    },
+    {
+      "bytes": 5450,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/channel-tests-main-table.log",
+      "sha256": "4f6a9c0c64e5619c353e18dbb5a27c4f9a53bd2751d0493080683f4698b27648"
+    },
+    {
+      "bytes": 4440,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/channel-tests-sparse.log",
+      "sha256": "b938a49abb9ff07dccf5ed9cd4304d76c1667f8035841add1e029b22e5d91c93"
+    },
+    {
+      "bytes": 508624896,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/expanded.sqlite",
+      "sha256": "d1241f28089ff910baf8ec276fbaa3f9d2b71aa3c7b850fe494b976eb51320fb"
+    },
+    {
+      "bytes": 508624896,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/independent.sqlite",
+      "sha256": "bd4157d340c32b98d63e3b392959a66b1c9760ef01755da503755102be158c3b"
+    },
+    {
+      "bytes": 391131,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_goal_openvla_oft_task07_seed1001_trial001_cfafd9ddc3db.json",
+      "sha256": "b59835f67af17a4e4468c4887d6851af501580d6f1920c2c5b3d8916ecd103b8"
+    },
+    {
+      "bytes": 391913,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_goal_openvla_oft_task07_seed1002_trial002_cfafd9ddc3db.json",
+      "sha256": "42006569161ff3a814ae62baa760b82f6f0d13c165b95d804bf133cf6aefb074"
+    },
+    {
+      "bytes": 391361,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_goal_openvla_oft_task07_seed1003_trial003_cfafd9ddc3db.json",
+      "sha256": "1cb64eb445d78b88492d284cf18f87d54f6f5aeff975edf274c8d8a508a5954c"
+    },
+    {
+      "bytes": 390947,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_goal_openvla_oft_task07_seed1004_trial004_cfafd9ddc3db.json",
+      "sha256": "1ca72f09318c8797d958882df2db538e2c2287e5dd5b137f07ab5831ade75b2c"
+    },
+    {
+      "bytes": 391545,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_goal_openvla_oft_task07_seed1005_trial005_cfafd9ddc3db.json",
+      "sha256": "1324cd3944a25af83db61b2ba039f879771fd20d4d5b45ef9e057d34adfa46d0"
+    },
+    {
+      "bytes": 391729,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_goal_openvla_oft_task07_seed1006_trial006_cfafd9ddc3db.json",
+      "sha256": "11310c5f218f870ae296bd0f512bd6c782fa2354b0ee28c48e7aacaa5a5e4d78"
+    },
+    {
+      "bytes": 391729,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_goal_openvla_oft_task07_seed1007_trial007_cfafd9ddc3db.json",
+      "sha256": "f4c7eb3063c474503a46004de292583074dde43d6a00778b757607abe522fb49"
+    },
+    {
+      "bytes": 390211,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_goal_openvla_oft_task07_seed1008_trial008_cfafd9ddc3db.json",
+      "sha256": "cf2cb45115ec859b96966ea06b38fbbf4d82b803710e5bd6ab8600c9feb51fee"
+    },
+    {
+      "bytes": 392097,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_goal_openvla_oft_task07_seed1009_trial009_cfafd9ddc3db.json",
+      "sha256": "a7396d6afb2ceef73ad608030472591f8b8533871c10c7dbd6db1aa124db96c2"
+    },
+    {
+      "bytes": 393018,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_goal_openvla_oft_task07_seed1010_trial010_cfafd9ddc3db.json",
+      "sha256": "e4dc32ef995e1cb3fc904c4bfdd7249e9f4211764c41a51fbb5a83bbd12235f4"
+    },
+    {
+      "bytes": 391914,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_goal_openvla_oft_task07_seed1011_trial011_cfafd9ddc3db.json",
+      "sha256": "092bc54ba4f230b53c24aad653ae7c9c50fcdbd390b98e63d49aec196790e805"
+    },
+    {
+      "bytes": 393570,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_goal_openvla_oft_task07_seed1012_trial012_cfafd9ddc3db.json",
+      "sha256": "ce425f362b40bb10b98c3af46c9dd9fb08b2c514ba0cd144ed8847ecbe2cc4e7"
+    },
+    {
+      "bytes": 390396,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_goal_openvla_oft_task07_seed1013_trial013_cfafd9ddc3db.json",
+      "sha256": "22a8e2b1520ee3be29c0abd34079c8d5d9a1d119c61b944812ef68e688cf6873"
+    },
+    {
+      "bytes": 390396,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_goal_openvla_oft_task07_seed1014_trial014_cfafd9ddc3db.json",
+      "sha256": "efe2a715874cdcaac9d8263367e16eb6260b87f14d7646419c7ccedc1ab0d60e"
+    },
+    {
+      "bytes": 390948,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_goal_openvla_oft_task07_seed1015_trial015_cfafd9ddc3db.json",
+      "sha256": "cecb4c5373e13e98427cb5e0d4188eaaaa2f0e12591972dffae94f5e39ea04f4"
+    },
+    {
+      "bytes": 393018,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_goal_openvla_oft_task07_seed1016_trial016_cfafd9ddc3db.json",
+      "sha256": "5469ee449d4b1b21e21ebe535aa9e12632b581265f1db1aec0adb7a91d6fb93b"
+    },
+    {
+      "bytes": 392282,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_goal_openvla_oft_task07_seed1017_trial017_cfafd9ddc3db.json",
+      "sha256": "366b41c1d8a824d01af03e95a5e56ce79473af99b19cb4484a1d10ad161f640a"
+    },
+    {
+      "bytes": 391362,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_goal_openvla_oft_task07_seed1018_trial018_cfafd9ddc3db.json",
+      "sha256": "bbf01f8cfc5b23a27a7ace2e75037e3d1d159ac4b9b8e4840d999ffe8eb50dea"
+    },
+    {
+      "bytes": 391546,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_goal_openvla_oft_task07_seed1019_trial019_cfafd9ddc3db.json",
+      "sha256": "cca024ec4bfd2b7cf5a31ed55e9d37312ef68db38bb66ea3b2b109b235eeca0d"
+    },
+    {
+      "bytes": 390764,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_goal_openvla_oft_task07_seed1020_trial020_cfafd9ddc3db.json",
+      "sha256": "d98e6abb1012597c1802599605bf4ba197c7453dff4a0f13b363d6a29778d17c"
+    },
+    {
+      "bytes": 390212,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_goal_openvla_oft_task07_seed1021_trial021_cfafd9ddc3db.json",
+      "sha256": "0a9e16fd0cd9a49ada7d9b9490544176b64a5705eb9a5b370ffafc3b242828cd"
+    },
+    {
+      "bytes": 392282,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_goal_openvla_oft_task07_seed1022_trial022_cfafd9ddc3db.json",
+      "sha256": "5c15feddd12d1931a13fb7f38ac6675f06830bce3202d63d62ff79e0c1a8954e"
+    },
+    {
+      "bytes": 390396,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_goal_openvla_oft_task07_seed1023_trial023_cfafd9ddc3db.json",
+      "sha256": "3b1e7185090e1e42e645dc860dcd147197b1061c09bf8eb4c3452042ef1c45e6"
+    },
+    {
+      "bytes": 391132,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_goal_openvla_oft_task07_seed1024_trial024_cfafd9ddc3db.json",
+      "sha256": "087ddcc0a68039e3606cfa4a39b653e55e802c55e69a73d24cdd018f33941b33"
+    },
+    {
+      "bytes": 391546,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_goal_openvla_oft_task07_seed1025_trial025_cfafd9ddc3db.json",
+      "sha256": "5d4e3942744b4231d11794e83a43f9ded8769b245166c0f3c3e9fc7c76400a6f"
+    },
+    {
+      "bytes": 391914,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_goal_openvla_oft_task07_seed1026_trial026_cfafd9ddc3db.json",
+      "sha256": "dec6f7c9d2932f99c91fe0d68350fbef66aca10c46daf1e6e61effc6f066dc57"
+    },
+    {
+      "bytes": 392650,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_goal_openvla_oft_task07_seed1027_trial027_cfafd9ddc3db.json",
+      "sha256": "85e4974f4f28968cb00f3bab9c855b5b2e7d0fc6a8bc2364ca63b00191f12ed1"
+    },
+    {
+      "bytes": 390580,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_goal_openvla_oft_task07_seed1028_trial028_cfafd9ddc3db.json",
+      "sha256": "e802e7b3a76e28c3e58bb37a931e2a20a304df0299a44b3f5f87c389f28aa1e3"
+    },
+    {
+      "bytes": 390580,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_goal_openvla_oft_task07_seed1029_trial029_cfafd9ddc3db.json",
+      "sha256": "7b37b068196b58069eea7b03629d56fb797b7e6ebcb11aabe8b1d3d5f873b9ec"
+    },
+    {
+      "bytes": 389844,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_goal_openvla_oft_task07_seed1030_trial030_cfafd9ddc3db.json",
+      "sha256": "75d241297f30de55b3fb0c3b0793327ca33e170f6a84b4d19603ef7bc6413145"
+    },
+    {
+      "bytes": 391546,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_goal_openvla_oft_task07_seed1031_trial031_cfafd9ddc3db.json",
+      "sha256": "fb7ddf45d84f35a1f1865c959fc3e3139c67d0940fb0a047643e36381b98dc3b"
+    },
+    {
+      "bytes": 390948,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_goal_openvla_oft_task07_seed1032_trial032_cfafd9ddc3db.json",
+      "sha256": "4bf18258f1b966c57c758603cc45865df17b84de57439e17edf210318cd38afb"
+    },
+    {
+      "bytes": 391362,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_goal_openvla_oft_task07_seed1033_trial033_cfafd9ddc3db.json",
+      "sha256": "3305d3532df2b95059fb19e6b508db87526172b61403a7d9de36277d20116511"
+    },
+    {
+      "bytes": 390212,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_goal_openvla_oft_task07_seed1034_trial034_cfafd9ddc3db.json",
+      "sha256": "529c1c4b83cdc520d76c1fa151a0db07c8459d2e612c086c5d3e50514e90094f"
+    },
+    {
+      "bytes": 391362,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_goal_openvla_oft_task07_seed1035_trial035_cfafd9ddc3db.json",
+      "sha256": "79a450176fbe1f4a1585410184a2b92f5a1435a513891e4e00697858fe8bd3ae"
+    },
+    {
+      "bytes": 390396,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_goal_openvla_oft_task07_seed1036_trial036_cfafd9ddc3db.json",
+      "sha256": "3c2e713a28586a7e4045cd0c046a29e56314c333cc06b0a3682066e2b59989d9"
+    },
+    {
+      "bytes": 391914,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_goal_openvla_oft_task07_seed1037_trial037_cfafd9ddc3db.json",
+      "sha256": "7295e56f41eb18a7365aef571e7a6b5b42b0b61ced17b6e27e2127f94471befa"
+    },
+    {
+      "bytes": 390580,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_goal_openvla_oft_task07_seed1038_trial038_cfafd9ddc3db.json",
+      "sha256": "f5236953cbffb2129cda6185bf4d6e63041a77dd6607e27a8ca2336f4db1b4af"
+    },
+    {
+      "bytes": 389844,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_goal_openvla_oft_task07_seed1039_trial039_cfafd9ddc3db.json",
+      "sha256": "a1c66f9f94cf6bd70cebe9a22f46ce363ec3dbe4ff5cbd80cc61918cd61d5519"
+    },
+    {
+      "bytes": 390948,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_goal_openvla_oft_task07_seed1040_trial040_cfafd9ddc3db.json",
+      "sha256": "ea79d13d0621e092def09f546e18363828fb27fab792c8a179f105f26a48fd79"
+    },
+    {
+      "bytes": 391132,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_goal_openvla_oft_task07_seed1041_trial041_cfafd9ddc3db.json",
+      "sha256": "8642e7fecc69d5b25c49bc41a8cd0e2d51ad26233142c2bd2cec73077ba6931b"
+    },
+    {
+      "bytes": 390028,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_goal_openvla_oft_task07_seed1042_trial042_cfafd9ddc3db.json",
+      "sha256": "2544307d646f482b0be10647e8c4a8b547a2396cebc9d9d6e4647ed28c852516"
+    },
+    {
+      "bytes": 391546,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_goal_openvla_oft_task07_seed1043_trial043_cfafd9ddc3db.json",
+      "sha256": "6e3efccf31319bd96bd52bb70dc5ffa27f2595395deae8673a1778985453331b"
+    },
+    {
+      "bytes": 391546,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_goal_openvla_oft_task07_seed1044_trial044_cfafd9ddc3db.json",
+      "sha256": "b7fbc2f00fa74d484133805519694de9ac5d349dac609cbac56d071aa990d981"
+    },
+    {
+      "bytes": 391914,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_goal_openvla_oft_task07_seed1045_trial045_cfafd9ddc3db.json",
+      "sha256": "27c7d0711785403bc0b02646f72aedfdd13ca9172ae382c33b8c583e430dd612"
+    },
+    {
+      "bytes": 391914,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_goal_openvla_oft_task07_seed1046_trial046_cfafd9ddc3db.json",
+      "sha256": "f8a35d5d32c72308316e94fc48642de10dec23e2acf3666b54beca6598c69060"
+    },
+    {
+      "bytes": 391914,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_goal_openvla_oft_task07_seed1047_trial047_cfafd9ddc3db.json",
+      "sha256": "11a8ff6d1624056a907f389c3d506bf54955e2ec4c9664336dc0f82d7fc02214"
+    },
+    {
+      "bytes": 392282,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_goal_openvla_oft_task07_seed1048_trial048_cfafd9ddc3db.json",
+      "sha256": "414eda3f91de219ce4e3f88811b97add5227253e00c133ebfefaa0ef2451ad2c"
+    },
+    {
+      "bytes": 392282,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_goal_openvla_oft_task07_seed1049_trial049_cfafd9ddc3db.json",
+      "sha256": "32b93665d751c06e8eac28e56ae230f505a8bb0341b8f667b0421d3cfc59ac81"
+    },
+    {
+      "bytes": 394077,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_goal_openvla_oft_task08_seed1001_trial001_cfafd9ddc3db.json",
+      "sha256": "953d53c1bbc0cd59c5506ff154d225b5b5a11e3af980186d4eeb6fdc1722d5b3"
+    },
+    {
+      "bytes": 393893,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_goal_openvla_oft_task08_seed1002_trial002_cfafd9ddc3db.json",
+      "sha256": "cb5c4769d535745a1d8672f78e8e6a4bb13acc0bde6b360e902d1831410116a3"
+    },
+    {
+      "bytes": 393111,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_goal_openvla_oft_task08_seed1003_trial003_cfafd9ddc3db.json",
+      "sha256": "beae7284d7a931884c98ac48557f6e6468096887c331c2a4872a502ffd7588f3"
+    },
+    {
+      "bytes": 393893,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_goal_openvla_oft_task08_seed1004_trial004_cfafd9ddc3db.json",
+      "sha256": "4ebb87385152f651abec3e8a121391a8955ecc170d974b47d22b46f026fb8a70"
+    },
+    {
+      "bytes": 394261,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_goal_openvla_oft_task08_seed1005_trial005_cfafd9ddc3db.json",
+      "sha256": "6e062da8b8e92506cb042a6d6a85f6ae6510702f83cd781c621c9912b896d37c"
+    },
+    {
+      "bytes": 392927,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_goal_openvla_oft_task08_seed1006_trial006_cfafd9ddc3db.json",
+      "sha256": "e614e32639cb4e727563c0b08de5f8a170b522e1ae907394c7f8934de0c72fc7"
+    },
+    {
+      "bytes": 393341,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_goal_openvla_oft_task08_seed1007_trial007_cfafd9ddc3db.json",
+      "sha256": "c703f0cb085fe82380d42763c91388487a2c579ac0a1d7e87e8b869951c384cd"
+    },
+    {
+      "bytes": 393893,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_goal_openvla_oft_task08_seed1008_trial008_cfafd9ddc3db.json",
+      "sha256": "25ea0942059377317bf580537904bda9a1acd1f59550462e18b00ede4d2c6449"
+    },
+    {
+      "bytes": 393525,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_goal_openvla_oft_task08_seed1009_trial009_cfafd9ddc3db.json",
+      "sha256": "6776635942d8cf2f19540ebe23dce4ff89b3f93445f0223830dc00f150f5018b"
+    },
+    {
+      "bytes": 393710,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_goal_openvla_oft_task08_seed1010_trial010_cfafd9ddc3db.json",
+      "sha256": "ed5357fed6a2195571964d0ae698a0e331d2d426710eba98675bb6066ff99d35"
+    },
+    {
+      "bytes": 394078,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_goal_openvla_oft_task08_seed1011_trial011_cfafd9ddc3db.json",
+      "sha256": "9cdcf12df215864bb40ffb9ec2bb1c5e5974a0d54558752f9c6cfb8036985b7c"
+    },
+    {
+      "bytes": 393112,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_goal_openvla_oft_task08_seed1012_trial012_cfafd9ddc3db.json",
+      "sha256": "a0d4832f8bd0d04568385e2c8c8e7c9c987a50ec2fa2457eff39d917ebe2e5e6"
+    },
+    {
+      "bytes": 394446,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_goal_openvla_oft_task08_seed1013_trial013_cfafd9ddc3db.json",
+      "sha256": "adf5d93b38e494b6cc6da42d44af9be1e75c9dfb34af4db92f8a4e0f340477ec"
+    },
+    {
+      "bytes": 394078,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_goal_openvla_oft_task08_seed1014_trial014_cfafd9ddc3db.json",
+      "sha256": "17780e673d49eaae64e6c8acb383e7da860379079dedab9d5c86c378001789c0"
+    },
+    {
+      "bytes": 394262,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_goal_openvla_oft_task08_seed1015_trial015_cfafd9ddc3db.json",
+      "sha256": "dde6e4b5d1d4e35454642e47d0b2e262b62f1dff11ad7456b96710d748ad484f"
+    },
+    {
+      "bytes": 392928,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_goal_openvla_oft_task08_seed1016_trial016_cfafd9ddc3db.json",
+      "sha256": "f7dda6293f4f83e2c6bbc7d9f324b4214c8aaef952f4c88a4f7fb0220e0f97b7"
+    },
+    {
+      "bytes": 393526,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_goal_openvla_oft_task08_seed1017_trial017_cfafd9ddc3db.json",
+      "sha256": "d517550e75aa323c6cab1908c4addfc6eeeb5c8a18d0b8af77c098425d48876a"
+    },
+    {
+      "bytes": 393894,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_goal_openvla_oft_task08_seed1018_trial018_cfafd9ddc3db.json",
+      "sha256": "7ec028af17d9828a232a3c3d4b3000dae7c9665b8a50706a55923735540e1362"
+    },
+    {
+      "bytes": 393894,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_goal_openvla_oft_task08_seed1019_trial019_cfafd9ddc3db.json",
+      "sha256": "c6f6e5e31045a9923d80ffdfcd7934f4642731ceacf24e8393bc70800c243a83"
+    },
+    {
+      "bytes": 393342,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_goal_openvla_oft_task08_seed1020_trial020_cfafd9ddc3db.json",
+      "sha256": "c7b1764c6e79705aef4ac9f322a331cbb5f834ce3e93434572b9e85883fe61d9"
+    },
+    {
+      "bytes": 393894,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_goal_openvla_oft_task08_seed1021_trial021_cfafd9ddc3db.json",
+      "sha256": "a96746530932e42205f2117930c53a9368124504396bf2229fee6613f22a17f7"
+    },
+    {
+      "bytes": 393526,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_goal_openvla_oft_task08_seed1022_trial022_cfafd9ddc3db.json",
+      "sha256": "5cb4fd41a54a9542629cb40d9e62c945c771d8696b8645eff88055070e47df6f"
+    },
+    {
+      "bytes": 394446,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_goal_openvla_oft_task08_seed1023_trial023_cfafd9ddc3db.json",
+      "sha256": "e200fcc224dda35aa24ca6dc3b39ef9ab52e4ef1ee588e21aed97480941a4a55"
+    },
+    {
+      "bytes": 435444,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_goal_openvla_oft_task08_seed1024_trial024_cfafd9ddc3db.json",
+      "sha256": "8e0803878872dfcbe4db6f2e4774bc8a382a9a2765eecfb3cff71ed9024b50ba"
+    },
+    {
+      "bytes": 393710,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_goal_openvla_oft_task08_seed1025_trial025_cfafd9ddc3db.json",
+      "sha256": "a36168077ca518b716cfb2374551f7432bcf43c7c15e1db67a2dd91489fc103d"
+    },
+    {
+      "bytes": 393342,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_goal_openvla_oft_task08_seed1026_trial026_cfafd9ddc3db.json",
+      "sha256": "d89e0af67be124f282b1ce0d96033be7901d3df7637a29ba0ad4dc1c437bc6b2"
+    },
+    {
+      "bytes": 393894,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_goal_openvla_oft_task08_seed1027_trial027_cfafd9ddc3db.json",
+      "sha256": "13ae9b53bc311e40da9ddafa88aa4aa95061b23b450d2f3dcf7151c6249063d0"
+    },
+    {
+      "bytes": 393112,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_goal_openvla_oft_task08_seed1028_trial028_cfafd9ddc3db.json",
+      "sha256": "14cf4d9b0314139e80a0e67044c97f31028be68f66ec5d13d1f42b0b99a6bf41"
+    },
+    {
+      "bytes": 394262,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_goal_openvla_oft_task08_seed1029_trial029_cfafd9ddc3db.json",
+      "sha256": "e80e959569300d324341aeebb607cbd1a836e6112fadfbfd3992324bfb3de819"
+    },
+    {
+      "bytes": 393710,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_goal_openvla_oft_task08_seed1030_trial030_cfafd9ddc3db.json",
+      "sha256": "1558abbbb49604286db8b231a16ffff8bb1ecbd4802e42ad045a3e58ff7cdcbd"
+    },
+    {
+      "bytes": 394078,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_goal_openvla_oft_task08_seed1031_trial031_cfafd9ddc3db.json",
+      "sha256": "3c2a7521f179ad29760c1fa499c10db5a7b4fe3b7f4b7a19977d944b08d74280"
+    },
+    {
+      "bytes": 393342,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_goal_openvla_oft_task08_seed1032_trial032_cfafd9ddc3db.json",
+      "sha256": "aa058a9cfc691a9fc5138494570d02c2ae45bb889e23595d89293d5b91825443"
+    },
+    {
+      "bytes": 394262,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_goal_openvla_oft_task08_seed1033_trial033_cfafd9ddc3db.json",
+      "sha256": "4ac03671898d5e8804f313a6a78881654cfa57a08dc830bfcc3fcafa8cbb92f5"
+    },
+    {
+      "bytes": 394630,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_goal_openvla_oft_task08_seed1034_trial034_cfafd9ddc3db.json",
+      "sha256": "4a3617809f599fd0ae82233a515a228ccfa5289ea6ad285ed4470226d02be8d5"
+    },
+    {
+      "bytes": 393112,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_goal_openvla_oft_task08_seed1035_trial035_cfafd9ddc3db.json",
+      "sha256": "9fe6859310dbcf1146821a4c397fccc5e70ab2ba6d32bc58f398d16f66320892"
+    },
+    {
+      "bytes": 392928,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_goal_openvla_oft_task08_seed1036_trial036_cfafd9ddc3db.json",
+      "sha256": "5252aee86d5b877bd5ca158046452505a59e9cbb9042c0071c95fbb4a0d82a42"
+    },
+    {
+      "bytes": 394078,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_goal_openvla_oft_task08_seed1037_trial037_cfafd9ddc3db.json",
+      "sha256": "f3d6e7f47b562db723cc3481bfc7b863005649310d4b20ca822980098be8bf9c"
+    },
+    {
+      "bytes": 394078,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_goal_openvla_oft_task08_seed1038_trial038_cfafd9ddc3db.json",
+      "sha256": "6d5a141ad13cb2dac04b915af6aa37a32b93907da4ccad57d308af8c56fc6d56"
+    },
+    {
+      "bytes": 393526,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_goal_openvla_oft_task08_seed1039_trial039_cfafd9ddc3db.json",
+      "sha256": "561dd5502beeaaababc058bc86f6eb4010300feea06e44a92a1be1a712e6ae8e"
+    },
+    {
+      "bytes": 393710,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_goal_openvla_oft_task08_seed1040_trial040_cfafd9ddc3db.json",
+      "sha256": "a729a87c16459f0947352685911c706c0abc86392cc2ab6a3b857a7004197969"
+    },
+    {
+      "bytes": 393112,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_goal_openvla_oft_task08_seed1041_trial041_cfafd9ddc3db.json",
+      "sha256": "6a5530b08bd20bbaceae233f9cc4cab1e35b252a581c7f25570ffc0aae368513"
+    },
+    {
+      "bytes": 393894,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_goal_openvla_oft_task08_seed1042_trial042_cfafd9ddc3db.json",
+      "sha256": "51b044ff09dca4390b4524de89e6e84c2fb3f3625a2a6aa9277351f26dd63438"
+    },
+    {
+      "bytes": 394078,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_goal_openvla_oft_task08_seed1043_trial043_cfafd9ddc3db.json",
+      "sha256": "748ae9c478bc3b0515cd4b87264c6c16f07d690e20648057fa4a9013b4a5a764"
+    },
+    {
+      "bytes": 394078,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_goal_openvla_oft_task08_seed1044_trial044_cfafd9ddc3db.json",
+      "sha256": "1113a21d5289d9161ce0bcae006b63058a6892f0ee30476f120698d1706d50df"
+    },
+    {
+      "bytes": 394262,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_goal_openvla_oft_task08_seed1045_trial045_cfafd9ddc3db.json",
+      "sha256": "620d4f3970dae685a7293ba0ff9306be510c884484e164f9fc1b20d22b2e825f"
+    },
+    {
+      "bytes": 394262,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_goal_openvla_oft_task08_seed1046_trial046_cfafd9ddc3db.json",
+      "sha256": "c726524333dffe4be312af0c2d6e46942300ca917b0fe6afaa94e5ed9d72cf63"
+    },
+    {
+      "bytes": 393894,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_goal_openvla_oft_task08_seed1047_trial047_cfafd9ddc3db.json",
+      "sha256": "af685b2030c78126b6b4f2051b995ba1bf358f9e221933b342a82bbc4bc8f23d"
+    },
+    {
+      "bytes": 393526,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_goal_openvla_oft_task08_seed1048_trial048_cfafd9ddc3db.json",
+      "sha256": "0b58f966d14d468de042af5c3820a5f20fc1d7069bcb71685024d10d18535cb9"
+    },
+    {
+      "bytes": 394262,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_goal_openvla_oft_task08_seed1049_trial049_cfafd9ddc3db.json",
+      "sha256": "38c7415c8227e0f1c8e9942716329bad759599a9af919480b4796c1e3402135b"
+    },
+    {
+      "bytes": 427895,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db.json",
+      "sha256": "fa7f82860f488d66a6d9abbe5ed5ba4fd6ebc7872b90707ebae51a9eebcb5016"
+    },
+    {
+      "bytes": 431410,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_long_openvla_oft_task00_seed1001_trial001_cfafd9ddc3db.json",
+      "sha256": "1d3f34fd27ce38ce829a6180fa65b8f4e09b79b726513a4d90abbd8925f4e0f8"
+    },
+    {
+      "bytes": 425675,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_long_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db.json",
+      "sha256": "1ef1732a07e8635e732c093a800f2a4b9f9985d43347bd30c7db999c229c4c8a"
+    },
+    {
+      "bytes": 430193,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_long_openvla_oft_task00_seed1003_trial003_cfafd9ddc3db.json",
+      "sha256": "c45a432e6f4e50abda2d84048f835a9d92dd1dd4e1175dd226d668f9ece38b91"
+    },
+    {
+      "bytes": 427048,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_long_openvla_oft_task00_seed1005_trial005_cfafd9ddc3db.json",
+      "sha256": "497307bd9992468bd447476e9f298b0c753e9e70f4e35b5d4601f8dc22178aa2"
+    },
+    {
+      "bytes": 430008,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_long_openvla_oft_task00_seed1006_trial006_cfafd9ddc3db.json",
+      "sha256": "55ba3b600d85be42b6a9ae54688ca389d75b84bdd0260ec459be1ec905c5e3c7"
+    },
+    {
+      "bytes": 430193,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_long_openvla_oft_task00_seed1007_trial007_cfafd9ddc3db.json",
+      "sha256": "046fe6b6a9a34bac680d6c1b54f12dc2c870b794ecf84c5b6f2937fafd1bff25"
+    },
+    {
+      "bytes": 426308,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_long_openvla_oft_task00_seed1008_trial008_cfafd9ddc3db.json",
+      "sha256": "b87ce4a7444f4497ae72cb73622b7c344423c303acc4b21e9ff5656001ab7c9a"
+    },
+    {
+      "bytes": 430009,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_long_openvla_oft_task00_seed1010_trial010_cfafd9ddc3db.json",
+      "sha256": "45ba278003b19eefeee1c49d9a53e793f3c396e1fe26069d25e5d523d1f6b2e1"
+    },
+    {
+      "bytes": 427789,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_long_openvla_oft_task00_seed1011_trial011_cfafd9ddc3db.json",
+      "sha256": "4845066b036ddcf656290e32113d2ce5ea954d9fa366a97d13b1d84c09cc0d07"
+    },
+    {
+      "bytes": 425384,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_long_openvla_oft_task00_seed1012_trial012_cfafd9ddc3db.json",
+      "sha256": "1510c4dbdaf4694517520b49e958f210aec60ae8e965ba9af902bd13354ea8b0"
+    },
+    {
+      "bytes": 427049,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_long_openvla_oft_task00_seed1013_trial013_cfafd9ddc3db.json",
+      "sha256": "c4b6ec4719e268426389ed7a0e0f3209649ae003213ab7512e70830bd44090aa"
+    },
+    {
+      "bytes": 478401,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_long_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db.json",
+      "sha256": "1a91104f67d0a1603fe1d467fb80ed50b59ae20aa23b2a6d2242ddb4ab3ee5a4"
+    },
+    {
+      "bytes": 430564,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_long_openvla_oft_task00_seed1015_trial015_cfafd9ddc3db.json",
+      "sha256": "ed1bf910302a0d0c533e2f6b98191f2d0f3299d08b07febd9bd16ad5528e7ea5"
+    },
+    {
+      "bytes": 428344,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_long_openvla_oft_task00_seed1016_trial016_cfafd9ddc3db.json",
+      "sha256": "cc559fcc9936da84d331683d94c98e4e7e3c22f849dc2095ec6992c69a66177f"
+    },
+    {
+      "bytes": 431489,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_long_openvla_oft_task00_seed1017_trial017_cfafd9ddc3db.json",
+      "sha256": "6b7e6993731a7075308575c64c87eea30dd862cbbfd9b3a32a2f07998543292b"
+    },
+    {
+      "bytes": 471264,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_long_openvla_oft_task00_seed1018_trial018_cfafd9ddc3db.json",
+      "sha256": "c8b98d04c06b44f62e7639b05deb819f61d6b7135a475ff84135c007f185711e"
+    },
+    {
+      "bytes": 432414,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_long_openvla_oft_task00_seed1019_trial019_cfafd9ddc3db.json",
+      "sha256": "44c299349383a17fead9420643fbadd261c7b19206bcc8f025d34108f5036ac9"
+    },
+    {
+      "bytes": 434079,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_long_openvla_oft_task00_seed1020_trial020_cfafd9ddc3db.json",
+      "sha256": "a49cff7220b94af6f4b49a80758db71f9cc876ce553a38013c4c61d22c96394c"
+    },
+    {
+      "bytes": 429269,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_long_openvla_oft_task00_seed1021_trial021_cfafd9ddc3db.json",
+      "sha256": "2ac5a713103b1a2c2de735558112cd650af576b5b3931b0527f27b67f27ca6bb"
+    },
+    {
+      "bytes": 426864,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_long_openvla_oft_task00_seed1022_trial022_cfafd9ddc3db.json",
+      "sha256": "cdcb77c2fbf8ca1a0605c268adb2b45f1ad0bf1403c870a97b0a2399d1c18c6f"
+    },
+    {
+      "bytes": 428529,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_long_openvla_oft_task00_seed1023_trial023_cfafd9ddc3db.json",
+      "sha256": "ebee78d68ae95d7c3c78b8ee73ffbed3b8fa25843b322694321a671814c33ada"
+    },
+    {
+      "bytes": 424829,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_long_openvla_oft_task00_seed1024_trial024_cfafd9ddc3db.json",
+      "sha256": "996fd358be13a94cfe01b48ac7c5b9e465d0e806b8c96a956bb2bf0dc67820f0"
+    },
+    {
+      "bytes": 427604,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_long_openvla_oft_task00_seed1025_trial025_cfafd9ddc3db.json",
+      "sha256": "51f768d1b47d46f9b17596b0a636eb5103afad236d3d559e9d99434a3018d7c2"
+    },
+    {
+      "bytes": 427974,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_long_openvla_oft_task00_seed1026_trial026_cfafd9ddc3db.json",
+      "sha256": "b2e0eb4a5df99bff9ab0c36df9ebb46395435ecf1a0c67356e682258645d45dc"
+    },
+    {
+      "bytes": 436114,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_long_openvla_oft_task00_seed1027_trial027_cfafd9ddc3db.json",
+      "sha256": "0c7a74d06afdc6fab9f1647bd86f6db655d5892f3e377e4defb821231a0902ec"
+    },
+    {
+      "bytes": 425569,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_long_openvla_oft_task00_seed1028_trial028_cfafd9ddc3db.json",
+      "sha256": "ce22064c418123de8aa461b2d70a82c73f94ff570083302161d9d1dd6b2f96a6"
+    },
+    {
+      "bytes": 435929,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_long_openvla_oft_task00_seed1031_trial031_cfafd9ddc3db.json",
+      "sha256": "3ea58cf69390dc46ec55584b87a2e9dc7cc3e7091993286cb57f8951bc7430b7"
+    },
+    {
+      "bytes": 424829,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_long_openvla_oft_task00_seed1033_trial033_cfafd9ddc3db.json",
+      "sha256": "4deeed56d9db142ccb2d792312300b65790c55c69aef3eb3def68335e4984ac3"
+    },
+    {
+      "bytes": 429084,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_long_openvla_oft_task00_seed1035_trial035_cfafd9ddc3db.json",
+      "sha256": "94784c9eafbbdae8bd0d1bfc939fcc0dfb55bbe662150af2292ab83295f81b0a"
+    },
+    {
+      "bytes": 427419,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_long_openvla_oft_task00_seed1037_trial037_cfafd9ddc3db.json",
+      "sha256": "bdceb22cad738b10405b2345c71dce20ed72c3c46b3b2dcc03319281c8c19b3c"
+    },
+    {
+      "bytes": 433524,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_long_openvla_oft_task00_seed1038_trial038_cfafd9ddc3db.json",
+      "sha256": "b6dc2ca00bca5fcbffa2f3173a849096c2619aeaff5e61aa499ff4c66fe34a27"
+    },
+    {
+      "bytes": 430009,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_long_openvla_oft_task00_seed1039_trial039_cfafd9ddc3db.json",
+      "sha256": "a64c69fbc6e3497659878233e3738ac5ef183c5d7605d851184ca64ef56baac4"
+    },
+    {
+      "bytes": 426679,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_long_openvla_oft_task00_seed1040_trial040_cfafd9ddc3db.json",
+      "sha256": "728e52ca3a6fb188be61adf2b6c7c87d50347c92cd7ce68dd819b11f72666c76"
+    },
+    {
+      "bytes": 427974,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_long_openvla_oft_task00_seed1041_trial041_cfafd9ddc3db.json",
+      "sha256": "203f57b4176a5ad95712058198a472eef8010dea5857d4c5d3007edb971c8c69"
+    },
+    {
+      "bytes": 427049,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_long_openvla_oft_task00_seed1042_trial042_cfafd9ddc3db.json",
+      "sha256": "3c01eb88b7a1e804cab79ca60a408b0544ffd1099b051f18700b47451aa122f0"
+    },
+    {
+      "bytes": 430194,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_long_openvla_oft_task00_seed1045_trial045_cfafd9ddc3db.json",
+      "sha256": "3e524b8142669759de8b523c8fdcd98cb9952c63d2720c1a6b6e145242266f51"
+    },
+    {
+      "bytes": 425754,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_long_openvla_oft_task00_seed1046_trial046_cfafd9ddc3db.json",
+      "sha256": "2922d0e4705d007280bbd07531cd6222234fc6a98ff5c4fbd09084cba9ffcb7b"
+    },
+    {
+      "bytes": 431304,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_long_openvla_oft_task00_seed1047_trial047_cfafd9ddc3db.json",
+      "sha256": "65fff7589fc541709069993ca22656d479e75aa2412dbc5b3df93f9f99a0ff94"
+    },
+    {
+      "bytes": 431489,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_long_openvla_oft_task00_seed1049_trial049_cfafd9ddc3db.json",
+      "sha256": "6407747cb7776072259214aae49ef919090f58f090895db7b03abe44523a2b7d"
+    },
+    {
+      "bytes": 370699,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task01_seed1001_trial001_cfafd9ddc3db.json",
+      "sha256": "1af2b1583fc99291d0aa9729b4194449232c0f7cd5111a591d21389d9578458d"
+    },
+    {
+      "bytes": 370699,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task01_seed1002_trial002_cfafd9ddc3db.json",
+      "sha256": "ce80bce92edf03a7d92dade32806eb8a6ec65569d4886d7f8c749cfc4163069a"
+    },
+    {
+      "bytes": 377359,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task01_seed1003_trial003_cfafd9ddc3db.json",
+      "sha256": "57e7757a902774adee17a9596c29418ba8b7843fe7eaa00c78eea5a3bf2e4eb5"
+    },
+    {
+      "bytes": 370884,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task01_seed1004_trial004_cfafd9ddc3db.json",
+      "sha256": "dc77db37b8d583bf7db0dfac97c756d7305e9315b2bcffcb95fc87805c164700"
+    },
+    {
+      "bytes": 370884,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task01_seed1005_trial005_cfafd9ddc3db.json",
+      "sha256": "dd2feceebc21dfe40163ef503bd449db1503a70283050c83c6cf6785d82ced2e"
+    },
+    {
+      "bytes": 370514,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task01_seed1006_trial006_cfafd9ddc3db.json",
+      "sha256": "52b49cfc8d89c84a5223c5bc6d1a1702e57eb141ddf3461a1c52ad5802762cef"
+    },
+    {
+      "bytes": 370699,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task01_seed1007_trial007_cfafd9ddc3db.json",
+      "sha256": "cf7edbd4ce840237bd1842def3b7ddba02cce8ddc3e63278688613aa25a46434"
+    },
+    {
+      "bytes": 377174,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task01_seed1008_trial008_cfafd9ddc3db.json",
+      "sha256": "394c3eada08bdce198b21030d0759191c26ff9349a3a8e20f2cafb36a9bbc7f7"
+    },
+    {
+      "bytes": 370699,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task01_seed1009_trial009_cfafd9ddc3db.json",
+      "sha256": "0abd726eafca39c53d00448f3f7d7c7685bf4ba3dd5b2e708d34ede9f043d7ed"
+    },
+    {
+      "bytes": 376805,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task01_seed1010_trial010_cfafd9ddc3db.json",
+      "sha256": "4fdb755f4a83e8668bab3a176de54f8bc95dfaae09ff002b4c0d5423de85bff0"
+    },
+    {
+      "bytes": 371070,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task01_seed1011_trial011_cfafd9ddc3db.json",
+      "sha256": "352c094ffc7d5441650174724c85bcfda89f5ab994b270d16d045699a7ab9864"
+    },
+    {
+      "bytes": 370885,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task01_seed1012_trial012_cfafd9ddc3db.json",
+      "sha256": "3a61fd3c2dbad8fc05b1dd6021af85a90acb3d26b68ab400b024dc8fbbb351e3"
+    },
+    {
+      "bytes": 370700,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task01_seed1013_trial013_cfafd9ddc3db.json",
+      "sha256": "3b40ad2b0d313c460085d1068fc3a7a80926909e8dfc3e1611eadd10a401e47e"
+    },
+    {
+      "bytes": 371995,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task01_seed1014_trial014_cfafd9ddc3db.json",
+      "sha256": "32842089b004a9b272328ee1e6d8eaa0430d138e4ae273e8e3f97862755696f2"
+    },
+    {
+      "bytes": 369775,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task01_seed1015_trial015_cfafd9ddc3db.json",
+      "sha256": "ad5700cd27855a2023324c590515573631e2e633e2aedb9ecf10148ff4fd412f"
+    },
+    {
+      "bytes": 370885,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task01_seed1016_trial016_cfafd9ddc3db.json",
+      "sha256": "16b13b865db93da9a7fbb0b01c6520920e8d86b7bdf0f6b341f36ecb46a39095"
+    },
+    {
+      "bytes": 371070,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task01_seed1017_trial017_cfafd9ddc3db.json",
+      "sha256": "ad0bf8a8dd4cad0149a3b1e843acbe070d4f37fc2c3b0fc3befbd5b7a012aa67"
+    },
+    {
+      "bytes": 369405,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task01_seed1018_trial018_cfafd9ddc3db.json",
+      "sha256": "80b0ad029e3510aaea0662c1cc3cdc223c152d795ca314117b11d8551584c642"
+    },
+    {
+      "bytes": 369775,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task01_seed1019_trial019_cfafd9ddc3db.json",
+      "sha256": "4d9038332315b7288c6c143cf95ede914bdf8d89b4d101fabffeddd730cf832b"
+    },
+    {
+      "bytes": 369775,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task01_seed1020_trial020_cfafd9ddc3db.json",
+      "sha256": "582e159c0ccf75d6f6c7ddc5434533a3e0a7fbcc21fe88859ec043795fc4a941"
+    },
+    {
+      "bytes": 371255,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task01_seed1021_trial021_cfafd9ddc3db.json",
+      "sha256": "5d730ac6a3aa7e835ae0edd3f4898fbf5c3403ad5fd859de87d8340126c40bc5"
+    },
+    {
+      "bytes": 375695,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task01_seed1022_trial022_cfafd9ddc3db.json",
+      "sha256": "d80709ecf9bb8cba216db553efbb44dfe5943dec06f273b7a8e51e274bdaf82e"
+    },
+    {
+      "bytes": 370885,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task01_seed1023_trial023_cfafd9ddc3db.json",
+      "sha256": "1ffa0773c790bccbb48f6940216d952746c80e661e38842c531b4457e58485c7"
+    },
+    {
+      "bytes": 374215,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task01_seed1024_trial024_cfafd9ddc3db.json",
+      "sha256": "31ef055712e8c003d5c4aa23bfbdbdc101520f8f54ca616e2f1bdd873144815b"
+    },
+    {
+      "bytes": 369775,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task01_seed1025_trial025_cfafd9ddc3db.json",
+      "sha256": "c5dfff6d3d34b7ec7761bd66b4b1ba627b179f2154a8e7795821648ad6b1e0db"
+    },
+    {
+      "bytes": 372365,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task01_seed1026_trial026_cfafd9ddc3db.json",
+      "sha256": "fddccf55629ed9ffab6e7fd14f567c2f7fafa81a2cd620bec058edfeccb50ad8"
+    },
+    {
+      "bytes": 370515,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task01_seed1027_trial027_cfafd9ddc3db.json",
+      "sha256": "e7adf67b521ee442f791e654accf09c2d94fe5a749f204413698357eebf83a62"
+    },
+    {
+      "bytes": 370700,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task01_seed1028_trial028_cfafd9ddc3db.json",
+      "sha256": "d01ffb63cea578b04bef4088c84bb679a44dc0b9137661b4520ae99c03029d48"
+    },
+    {
+      "bytes": 370700,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task01_seed1029_trial029_cfafd9ddc3db.json",
+      "sha256": "0af36f3ffe49797ceb578e00736306f36ff7a3c3c79c66c1bdebfa53f175ef33"
+    },
+    {
+      "bytes": 369775,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task01_seed1030_trial030_cfafd9ddc3db.json",
+      "sha256": "aec510072d9de60543df0ca296a61f1c3a8cd313ec8e480404e7703df00383fd"
+    },
+    {
+      "bytes": 370885,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task01_seed1031_trial031_cfafd9ddc3db.json",
+      "sha256": "8386fe36266d69cf4e79c9d6a13584dca5137bf2ab48cb8e9abc171c91c58dae"
+    },
+    {
+      "bytes": 369220,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task01_seed1032_trial032_cfafd9ddc3db.json",
+      "sha256": "8236acc056ae74b2c6cd7a6ad04791c58d05c40ca72cc6f35697f9c2ba7b0fa3"
+    },
+    {
+      "bytes": 371070,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task01_seed1033_trial033_cfafd9ddc3db.json",
+      "sha256": "f853fb39a8df325fa636588b223db416c2c887013b451532652a0bc437c6070a"
+    },
+    {
+      "bytes": 370700,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task01_seed1034_trial034_cfafd9ddc3db.json",
+      "sha256": "d9731c45c42c63405d126a0f46411b514d77dfa80eb71eb17340e4d20e953fda"
+    },
+    {
+      "bytes": 371255,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task01_seed1035_trial035_cfafd9ddc3db.json",
+      "sha256": "0b4af3c24865c4689db2c02c1abc312aea6da3b8287b4d353189ae3384c1cbaf"
+    },
+    {
+      "bytes": 371070,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task01_seed1036_trial036_cfafd9ddc3db.json",
+      "sha256": "0d7c10f3ba2336176b424898a14e26cd2668848b51fff8b4a4151b9aa1ba32bb"
+    },
+    {
+      "bytes": 370145,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task01_seed1037_trial037_cfafd9ddc3db.json",
+      "sha256": "7026265facb3510b783dcebd2f3012bd942697baa1c47d6f21b455a5c176aead"
+    },
+    {
+      "bytes": 371070,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task01_seed1038_trial038_cfafd9ddc3db.json",
+      "sha256": "b6b4e40ae9acde010a5c499f0de447e7809a364a7572efc8202cf70aeabc620f"
+    },
+    {
+      "bytes": 371255,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task01_seed1039_trial039_cfafd9ddc3db.json",
+      "sha256": "14fb0178c922c1898ab209e556dc9349858e7c7561feef64b86dc68b339b473c"
+    },
+    {
+      "bytes": 369220,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task01_seed1040_trial040_cfafd9ddc3db.json",
+      "sha256": "fcad4b6ca91ab2c5bf6872377d849e63d9f60af5f1be6a089f66279e5fa101b7"
+    },
+    {
+      "bytes": 370885,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task01_seed1041_trial041_cfafd9ddc3db.json",
+      "sha256": "dc799eff3e3d8c8e19c765b8327da044eb83c2cd71bf45ec70349d5212534d55"
+    },
+    {
+      "bytes": 370515,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task01_seed1042_trial042_cfafd9ddc3db.json",
+      "sha256": "601937e504bab97202f7e4857426597fdd03f1b4b6e89521d3f4ea3f8203afb4"
+    },
+    {
+      "bytes": 373660,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task01_seed1043_trial043_cfafd9ddc3db.json",
+      "sha256": "b0cec3d238248554fe1dc22c202eda940c8d294da72d7809c6866297cf18faa6"
+    },
+    {
+      "bytes": 371070,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task01_seed1044_trial044_cfafd9ddc3db.json",
+      "sha256": "0bcd8295633a72021f7fa605bf41176f6511404769eed086e3356fa148d53863"
+    },
+    {
+      "bytes": 369775,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task01_seed1045_trial045_cfafd9ddc3db.json",
+      "sha256": "3e0d3d06743dc9873697a8115271fc83730c0f13b189c34b9f203f00b2cf8c32"
+    },
+    {
+      "bytes": 371070,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task01_seed1046_trial046_cfafd9ddc3db.json",
+      "sha256": "e86a6826b593d9672acd592988be660a05f4b88040a8d7d28de0ccffd4545f74"
+    },
+    {
+      "bytes": 369405,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task01_seed1047_trial047_cfafd9ddc3db.json",
+      "sha256": "8680c6c78bd7218afad794ef078bd2732f8acd60796528c1b5c161e6b001ae6e"
+    },
+    {
+      "bytes": 371070,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task01_seed1048_trial048_cfafd9ddc3db.json",
+      "sha256": "0576d4e30fe42168626d90e732b0604add6199821235bdef7da8f05e7e27a9f7"
+    },
+    {
+      "bytes": 369035,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task01_seed1049_trial049_cfafd9ddc3db.json",
+      "sha256": "fce78c10f9d52868973b9cbe229288207f95853ff7ea9ddb1e6c48482ecda624"
+    },
+    {
+      "bytes": 377419,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task02_seed1001_trial001_cfafd9ddc3db.json",
+      "sha256": "78316e853e2e657302b4356181863b4a66f8954e18ccdd6527ee24e093e120d5"
+    },
+    {
+      "bytes": 377419,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task02_seed1002_trial002_cfafd9ddc3db.json",
+      "sha256": "494c035b15bd607702905bf5f163e1b45a9ab853ee10d0d1656136bf6735b06e"
+    },
+    {
+      "bytes": 377234,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task02_seed1003_trial003_cfafd9ddc3db.json",
+      "sha256": "4719676c509f41be282e241465241248796f2b7b353e4f8759547eeb64e1381b"
+    },
+    {
+      "bytes": 376679,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task02_seed1004_trial004_cfafd9ddc3db.json",
+      "sha256": "129824329eb0e7c98319b1734f693555cc3c81b83719a1c2610c4d31ca2fcffa"
+    },
+    {
+      "bytes": 377049,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task02_seed1005_trial005_cfafd9ddc3db.json",
+      "sha256": "d2052b30ee6b0cd38f19febdb1519fac4b0c4b0a6c7388be2752b985bfdb2faa"
+    },
+    {
+      "bytes": 376679,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task02_seed1006_trial006_cfafd9ddc3db.json",
+      "sha256": "23f258b9c25c392722dbe4b6d6ab780a1b9dd944582dcaeeb48f3a927e6bf04d"
+    },
+    {
+      "bytes": 407760,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task02_seed1007_trial007_cfafd9ddc3db.json",
+      "sha256": "be8224f1ac120d77840ecea8216aab508064ee7adea70ccfe7e2c408f6de8af4"
+    },
+    {
+      "bytes": 374829,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task02_seed1008_trial008_cfafd9ddc3db.json",
+      "sha256": "dc9d67d0562ea30fb6406a4dfac63ef80ace64c68a166bfcf548427519a2dcfa"
+    },
+    {
+      "bytes": 378159,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task02_seed1009_trial009_cfafd9ddc3db.json",
+      "sha256": "b2eae8902748e141dac6beedffda541837b518a6fd31e8ec29b88c0522b93d03"
+    },
+    {
+      "bytes": 377790,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task02_seed1010_trial010_cfafd9ddc3db.json",
+      "sha256": "e1f268bd4551e9168e010dc16329bfd94dcba513b8fe57a099eee44471e25caf"
+    },
+    {
+      "bytes": 376865,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task02_seed1011_trial011_cfafd9ddc3db.json",
+      "sha256": "5b2a585df4ebf5681afd72cc124ce33ccc5e9bdb80e0abf10f09b431fbc088fc"
+    },
+    {
+      "bytes": 376865,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task02_seed1012_trial012_cfafd9ddc3db.json",
+      "sha256": "8a8bfe0a2ecacd9c8dbac62eb0a9bae675213457f6722fc0f179733fbfa44700"
+    },
+    {
+      "bytes": 377050,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task02_seed1013_trial013_cfafd9ddc3db.json",
+      "sha256": "f122772332c9c578300ba3946b3386d97cf6145cc2d07501459d0c4e9d399f92"
+    },
+    {
+      "bytes": 377235,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task02_seed1014_trial014_cfafd9ddc3db.json",
+      "sha256": "90fd2f9c6b971813a127ffe312077fa547b2d11add40c4d03eaefa2d65ad7288"
+    },
+    {
+      "bytes": 385930,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task02_seed1015_trial015_cfafd9ddc3db.json",
+      "sha256": "28f1bd9da13ca4bff64022a16e9816f83e8e9da02e2e81efa1f9c47913e94004"
+    },
+    {
+      "bytes": 376495,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task02_seed1016_trial016_cfafd9ddc3db.json",
+      "sha256": "a2a6768b67d189ab05209362cec0a41e8cae2413247767bba744b846a3a4e077"
+    },
+    {
+      "bytes": 376495,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task02_seed1017_trial017_cfafd9ddc3db.json",
+      "sha256": "a00e16bf1516b8f75117ca5276583a9f0ad8a097c34dab0c07121269f58abd5e"
+    },
+    {
+      "bytes": 377420,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task02_seed1018_trial018_cfafd9ddc3db.json",
+      "sha256": "8066141239ce8c06b30741e81cdb4faea4dc6f47893716a50f6d228fe3630c0c"
+    },
+    {
+      "bytes": 377790,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task02_seed1019_trial019_cfafd9ddc3db.json",
+      "sha256": "be10e1058d59a50f2bbef393ade2ae8b591229c466284a4cb2a5f7e5b4e4b8f6"
+    },
+    {
+      "bytes": 377235,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task02_seed1020_trial020_cfafd9ddc3db.json",
+      "sha256": "817ab43733069afe5a864217f3d8db24b08b122586226427f7be2b321c086b48"
+    },
+    {
+      "bytes": 377235,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task02_seed1021_trial021_cfafd9ddc3db.json",
+      "sha256": "9c9e055fca64c1740f67b041b36e6f55270dfe80ef3b81f79d3900515decde2a"
+    },
+    {
+      "bytes": 377605,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task02_seed1022_trial022_cfafd9ddc3db.json",
+      "sha256": "62ab5cc08971f67b28c36c1d59d896f78fd8ee103b54e163f4130d929964fbad"
+    },
+    {
+      "bytes": 376865,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task02_seed1023_trial023_cfafd9ddc3db.json",
+      "sha256": "d0961421eb089c63988923fb5b4229977f669cb6acaa439f7e17642f2ef92d34"
+    },
+    {
+      "bytes": 377235,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task02_seed1024_trial024_cfafd9ddc3db.json",
+      "sha256": "6d3d09eb7c678755366bfa30ad41078b05232247c711d978cf735bf2e7b4c670"
+    },
+    {
+      "bytes": 377420,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task02_seed1025_trial025_cfafd9ddc3db.json",
+      "sha256": "976f99ebcd3b73ac7b1165e43d566f03a00c362c4c62508ef96715a35013ceef"
+    },
+    {
+      "bytes": 376680,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task02_seed1026_trial026_cfafd9ddc3db.json",
+      "sha256": "252d084f5212bb438a3c9728c83b538e28b412c29c8516c7fc8cc6de879a3111"
+    },
+    {
+      "bytes": 376680,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task02_seed1027_trial027_cfafd9ddc3db.json",
+      "sha256": "624506fe31fcdb3d600fa3b58c515637f68a8beb5b2c168503a210f9ba0bfa91"
+    },
+    {
+      "bytes": 377420,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task02_seed1028_trial028_cfafd9ddc3db.json",
+      "sha256": "d58884bec197ea42b600bdb70f48031f9da622f889835c7946550f1e18f9fa39"
+    },
+    {
+      "bytes": 377420,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task02_seed1029_trial029_cfafd9ddc3db.json",
+      "sha256": "8af28ca8e42f8dd7199eeab16cc13f7adc9e667dd69a5959092450c842c3b4fc"
+    },
+    {
+      "bytes": 376310,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task02_seed1030_trial030_cfafd9ddc3db.json",
+      "sha256": "aa467db1d3c9519f0ad8b9a30eb886345e545e9425fb4e14bb7dc5847c549e13"
+    },
+    {
+      "bytes": 377235,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task02_seed1031_trial031_cfafd9ddc3db.json",
+      "sha256": "c5af715d8ebd43b02b82067867b80c6305502e67a7d225823a1aba57a9c254e7"
+    },
+    {
+      "bytes": 377605,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task02_seed1032_trial032_cfafd9ddc3db.json",
+      "sha256": "b7d0cba6af55ec9210fd2dfb9202b2d7eb0318d5b0469fc5a13764c1b8cae3d6"
+    },
+    {
+      "bytes": 378715,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task02_seed1033_trial033_cfafd9ddc3db.json",
+      "sha256": "bb43daa55eb63464c7f241a05f35d9aedea7c81dac073c4099b534a2c2c42fd5"
+    },
+    {
+      "bytes": 376680,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task02_seed1034_trial034_cfafd9ddc3db.json",
+      "sha256": "867c28696d699fe88317a9b1e1e8c6900bb521a8a4192f1d02304935acf8adc6"
+    },
+    {
+      "bytes": 377050,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task02_seed1035_trial035_cfafd9ddc3db.json",
+      "sha256": "3689a45e097927ee1b02336ef6985ec0b06466d401cd68c0cde29b14e7a68ff6"
+    },
+    {
+      "bytes": 377605,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task02_seed1036_trial036_cfafd9ddc3db.json",
+      "sha256": "eb67e5bbeb01f7d320a85e8cf5b256aa4c7780403f2125a68e12d89c3f4312ac"
+    },
+    {
+      "bytes": 377050,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task02_seed1037_trial037_cfafd9ddc3db.json",
+      "sha256": "7b13ff26735b6998751ca9ac635593346725f611b5beb709caa2efbe4da3ed0c"
+    },
+    {
+      "bytes": 377420,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task02_seed1038_trial038_cfafd9ddc3db.json",
+      "sha256": "22ef3b76a7cf9b4ca5da79d971ab0a668207cbf653b8526db40ee5a1ae441086"
+    },
+    {
+      "bytes": 379085,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task02_seed1039_trial039_cfafd9ddc3db.json",
+      "sha256": "df48873ebecb1403b071c3aee3673b32d88ff0288ce6707b70c45126f2aae872"
+    },
+    {
+      "bytes": 376865,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task02_seed1040_trial040_cfafd9ddc3db.json",
+      "sha256": "cac9830498ffd00314b9fbcb36cb8192d5d974a3b6c94c407b0a18c89237285a"
+    },
+    {
+      "bytes": 377050,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task02_seed1041_trial041_cfafd9ddc3db.json",
+      "sha256": "de50d86e53d2ac3ddb88081e3fc316f36928da3d796fe28af075befa30100e9c"
+    },
+    {
+      "bytes": 378160,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task02_seed1042_trial042_cfafd9ddc3db.json",
+      "sha256": "95e8893defc1a699dd6a48b449a99f5001a93cef2163798a67610ec18fe90864"
+    },
+    {
+      "bytes": 378160,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task02_seed1043_trial043_cfafd9ddc3db.json",
+      "sha256": "e8727667d95707ab30ad80e9f53bb01113f5db598d04d9b1e7492b4362e88f69"
+    },
+    {
+      "bytes": 377235,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task02_seed1044_trial044_cfafd9ddc3db.json",
+      "sha256": "4821ac255e54faab03540527fceb3e619cc4c7ec8a09059ac78db85781b96fcd"
+    },
+    {
+      "bytes": 377975,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task02_seed1045_trial045_cfafd9ddc3db.json",
+      "sha256": "b5bfef9c96193b8e6f0d65974c1a7130a1519843364d12dae493a32bd260e8f2"
+    },
+    {
+      "bytes": 376680,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task02_seed1046_trial046_cfafd9ddc3db.json",
+      "sha256": "b58bf5c73f494e97de63f6b5fd192c408fbfb1942ba78c2c80d0a59321736840"
+    },
+    {
+      "bytes": 384450,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task02_seed1047_trial047_cfafd9ddc3db.json",
+      "sha256": "b554092172417ebc2c8697107519274a376de26850c70dd6a3d15e83ea57723a"
+    },
+    {
+      "bytes": 377790,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task02_seed1048_trial048_cfafd9ddc3db.json",
+      "sha256": "f8f4d44e9d13d4ba63beddb13e6f1030a39f88336c7be69cf8637fe6f81c8a85"
+    },
+    {
+      "bytes": 376680,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task02_seed1049_trial049_cfafd9ddc3db.json",
+      "sha256": "d8fbaffa7eaa33207f198f3a7160d9656c78cfc7030b2097f9d78a791c5d0998"
+    },
+    {
+      "bytes": 369130,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task03_seed1001_trial001_cfafd9ddc3db.json",
+      "sha256": "1baa04f5a9b206a8e693af1c0d8836519310e1f48809df29a4e0a51fd5b19a9d"
+    },
+    {
+      "bytes": 370055,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task03_seed1002_trial002_cfafd9ddc3db.json",
+      "sha256": "72a9047d12a31231b13755b2c62b1b864e4ac66f6b82cebd07480715cf1da1a8"
+    },
+    {
+      "bytes": 369315,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task03_seed1003_trial003_cfafd9ddc3db.json",
+      "sha256": "7e7b23698602c8a806e200f5c0c83cbc8ea230e4431d46e204e7c8c99e5566a2"
+    },
+    {
+      "bytes": 374310,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task03_seed1004_trial004_cfafd9ddc3db.json",
+      "sha256": "7b596fb25654ca94f4f2e06c45a601cd8d1340b7b6453b6cd9d5936a5b740ce4"
+    },
+    {
+      "bytes": 370795,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task03_seed1005_trial005_cfafd9ddc3db.json",
+      "sha256": "b6266171387eca6537f4e11fe30553fe20964f780d29fe27a501dec7eb79434c"
+    },
+    {
+      "bytes": 371350,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task03_seed1006_trial006_cfafd9ddc3db.json",
+      "sha256": "44df699f045ba25bf3b4564259ced61fe55cd915d76ec6962812c1d8e9488d37"
+    },
+    {
+      "bytes": 368390,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task03_seed1007_trial007_cfafd9ddc3db.json",
+      "sha256": "a60a7875bfd18d5404a2ddc37ea31353c7bc4d47e43be003394a96eafecfabb4"
+    },
+    {
+      "bytes": 371165,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task03_seed1008_trial008_cfafd9ddc3db.json",
+      "sha256": "1feca9f5e4c79140e29574cf3ae0fadf6e7ef9b76d3d69c157efddc42a37f1a4"
+    },
+    {
+      "bytes": 372275,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task03_seed1009_trial009_cfafd9ddc3db.json",
+      "sha256": "6bb48dea607fc836c29a44a536d85cec8f6a64e97f6bde7c57e56058b81af1ba"
+    },
+    {
+      "bytes": 369501,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task03_seed1010_trial010_cfafd9ddc3db.json",
+      "sha256": "591da11ac6220f34d40b91ecf1fe64e92d576b4632ea928dc29cdf867626701f"
+    },
+    {
+      "bytes": 370981,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task03_seed1011_trial011_cfafd9ddc3db.json",
+      "sha256": "464c7321d440f3a0fa9bca02cff0da1ebaadc18e0873b68cf72f6247661c2b9f"
+    },
+    {
+      "bytes": 371166,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task03_seed1012_trial012_cfafd9ddc3db.json",
+      "sha256": "7d901392c56569e767c034703501d8119d172c7534669426966f4e32f81fa8e1"
+    },
+    {
+      "bytes": 369501,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task03_seed1013_trial013_cfafd9ddc3db.json",
+      "sha256": "367b9f4e3a184751e7cd41fa369465cabe298705d689641c50509f0f19adb80a"
+    },
+    {
+      "bytes": 380232,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task03_seed1014_trial014_cfafd9ddc3db.json",
+      "sha256": "41dedeac612f70a7a8ff739ed4d17b250561b4925b83368038114836e817574d"
+    },
+    {
+      "bytes": 370611,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task03_seed1015_trial015_cfafd9ddc3db.json",
+      "sha256": "38f4d7b63a840bbf00b467a50b03ceb428d94bf45befbf65b4613bcd135ee84d"
+    },
+    {
+      "bytes": 370241,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task03_seed1016_trial016_cfafd9ddc3db.json",
+      "sha256": "8be881b6c9d4a2b6d4e33b29f4acf36981dd74515108cb186b0cccfd7afd5b9d"
+    },
+    {
+      "bytes": 370981,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task03_seed1017_trial017_cfafd9ddc3db.json",
+      "sha256": "07d8c1ac8b082856c56d20f3183dac5fe51ada3a810d4c2d5021f6479ad43be3"
+    },
+    {
+      "bytes": 371351,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task03_seed1018_trial018_cfafd9ddc3db.json",
+      "sha256": "695c9c11e824c07f4c2291a1b211e6e22017be8f135c32ae52d4f87b6729bf37"
+    },
+    {
+      "bytes": 369686,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task03_seed1019_trial019_cfafd9ddc3db.json",
+      "sha256": "05cea20ddfc94228b94aab23ae89d2976bbc14cb7aeb219d463b69ef3debcf5a"
+    },
+    {
+      "bytes": 370241,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task03_seed1020_trial020_cfafd9ddc3db.json",
+      "sha256": "08fd1977ea27ba072873f3127eab232898b76618a2423796188468f9cf916c8e"
+    },
+    {
+      "bytes": 369501,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task03_seed1021_trial021_cfafd9ddc3db.json",
+      "sha256": "fd460c137473bc0148392dd62a1c48dbeef0fb08e29178b2270f92bd8512c75a"
+    },
+    {
+      "bytes": 371166,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task03_seed1022_trial022_cfafd9ddc3db.json",
+      "sha256": "be074aa64afcc739bdab906c692de901e2315864727653eb66f95b13bfb6bd8e"
+    },
+    {
+      "bytes": 370981,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task03_seed1023_trial023_cfafd9ddc3db.json",
+      "sha256": "0d8aa9293cb838cc432ab7ab85abbc647dfbcc5acc9b08fd4d287ac71041a116"
+    },
+    {
+      "bytes": 372091,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task03_seed1024_trial024_cfafd9ddc3db.json",
+      "sha256": "10bd04974651aaa1dfaee755c91cb25ea3e1d702f8bfd4d95572451eb0ea3084"
+    },
+    {
+      "bytes": 369501,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task03_seed1025_trial025_cfafd9ddc3db.json",
+      "sha256": "60e68993a90529078a273c4fac768d64d1247425ab94cc1af4f4a5da5274edaf"
+    },
+    {
+      "bytes": 370241,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task03_seed1026_trial026_cfafd9ddc3db.json",
+      "sha256": "6f4ed6403ae73d1bef06b9086a8a2142fafbd3ef659071357b2c8bd00ee081dc"
+    },
+    {
+      "bytes": 371721,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task03_seed1027_trial027_cfafd9ddc3db.json",
+      "sha256": "8580532440c4a399c36ad17c77c1cda9615d66e37bd4d71a346c4b9cfa6c2717"
+    },
+    {
+      "bytes": 370981,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task03_seed1028_trial028_cfafd9ddc3db.json",
+      "sha256": "fa8d6553da1aca28f36fad3922ba4c7587daefc1f3daae3791447e53bff8fd51"
+    },
+    {
+      "bytes": 371351,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task03_seed1029_trial029_cfafd9ddc3db.json",
+      "sha256": "811aab12ca02826525e99ce6b4c7d1067768b249b9f1892f185d4574b5ae20de"
+    },
+    {
+      "bytes": 399287,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task03_seed1030_trial030_cfafd9ddc3db.json",
+      "sha256": "9bb82ea46d868be0c8594670f037cea1083a968f8b10baceeda28323e9d3dedc"
+    },
+    {
+      "bytes": 368761,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task03_seed1031_trial031_cfafd9ddc3db.json",
+      "sha256": "e09d328a0e06093a7fbdded2509046cd076948562c1b602f44f3ebda21c3c3d9"
+    },
+    {
+      "bytes": 370056,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task03_seed1032_trial032_cfafd9ddc3db.json",
+      "sha256": "dedb73cbac5b924f976e308066114e398c988d4b71d6cb8b5ecdd6992f5d2538"
+    },
+    {
+      "bytes": 369871,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task03_seed1033_trial033_cfafd9ddc3db.json",
+      "sha256": "3fca8fc847bdfc2b049be016acd13cdf3ffdd11b29892f20fc55c6309fb8c934"
+    },
+    {
+      "bytes": 371351,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task03_seed1034_trial034_cfafd9ddc3db.json",
+      "sha256": "f5aaa5c0a9236e1de801fe670c8e5490b5f3c998139d0e3331408b3b4dd8ffc6"
+    },
+    {
+      "bytes": 370056,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task03_seed1035_trial035_cfafd9ddc3db.json",
+      "sha256": "f624756bb14b6923d756944e0cf6d75a19d4524e06798170dcfbf3494dc4aa8d"
+    },
+    {
+      "bytes": 369871,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task03_seed1036_trial036_cfafd9ddc3db.json",
+      "sha256": "a7b4e4e12945fa33f3cb0a2972a29137f74ab640128e18b552802b983beca1a1"
+    },
+    {
+      "bytes": 371166,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task03_seed1037_trial037_cfafd9ddc3db.json",
+      "sha256": "b37f4190e2e9d67775116e467832f25484e955cd661586bfd1646a0051c73734"
+    },
+    {
+      "bytes": 370981,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task03_seed1038_trial038_cfafd9ddc3db.json",
+      "sha256": "40b630b07667c2df94ed4eb044b9cb2fabed670bc3c86217e7e81ccfc9d0bcd5"
+    },
+    {
+      "bytes": 369686,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task03_seed1039_trial039_cfafd9ddc3db.json",
+      "sha256": "ffa06286a428e5c85c0813badeb0aed4bc02245fec1a0330f9b3164ab3c11cb6"
+    },
+    {
+      "bytes": 371536,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task03_seed1040_trial040_cfafd9ddc3db.json",
+      "sha256": "d275312fb2a2173f1e72edcb1a0ff32e8af4b001e21c2e2f269ff6517c13f522"
+    },
+    {
+      "bytes": 370056,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task03_seed1041_trial041_cfafd9ddc3db.json",
+      "sha256": "56ee9a33bbef3c6bbd5f3a73347ffd0921ea3428688644606e3a6de7bcbe615e"
+    },
+    {
+      "bytes": 370241,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task03_seed1042_trial042_cfafd9ddc3db.json",
+      "sha256": "da25704e9fa9024c93f78ca7af734f32fafdc5fab036a31cab86345bc483bc81"
+    },
+    {
+      "bytes": 399287,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task03_seed1043_trial043_cfafd9ddc3db.json",
+      "sha256": "ca3e0df951aa03751edc88f5329dd89a5afc1d88e22e5d0ad61462cc8bb63a73"
+    },
+    {
+      "bytes": 371721,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task03_seed1044_trial044_cfafd9ddc3db.json",
+      "sha256": "0dbbd951951cc871cf34f8166f4dd75f0ad017c431d8cd7fe77b272f15f4a4a6"
+    },
+    {
+      "bytes": 372646,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task03_seed1045_trial045_cfafd9ddc3db.json",
+      "sha256": "191859bf056861863be10229c77d0c9be1a88ec6f6a36f94120fb329e366434a"
+    },
+    {
+      "bytes": 371166,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task03_seed1046_trial046_cfafd9ddc3db.json",
+      "sha256": "aaab13200cde8101af32d490dde6e0cc0e9be85fecd386ef05d0e029da0f4373"
+    },
+    {
+      "bytes": 372276,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task03_seed1047_trial047_cfafd9ddc3db.json",
+      "sha256": "8ffe3b005394c3a581215fc47133f6fb0532de44a7c4bb917fd8726baba426e1"
+    },
+    {
+      "bytes": 369686,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task03_seed1048_trial048_cfafd9ddc3db.json",
+      "sha256": "60930c38e8214832f2eb66e7496625643e388592142ddb902a222eb38f8d11c1"
+    },
+    {
+      "bytes": 369871,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task03_seed1049_trial049_cfafd9ddc3db.json",
+      "sha256": "57b534e67e730611666cf9781797a6616eb441b2e8d2475307ab2e03c7eb615d"
+    },
+    {
+      "bytes": 369708,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task05_seed1001_trial001_cfafd9ddc3db.json",
+      "sha256": "61a1cf7724397902f11453a4cf70e7a94aedca6e1365c607852179ae22b806f1"
+    },
+    {
+      "bytes": 368968,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task05_seed1002_trial002_cfafd9ddc3db.json",
+      "sha256": "b73a810769e68e8dc20f73654be26522643a717d0fe91f1d0fe618c7b1981c34"
+    },
+    {
+      "bytes": 371003,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task05_seed1003_trial003_cfafd9ddc3db.json",
+      "sha256": "f7d8248c9dbb7de45c7ad982150d97237392b3a78bed8a18ffc542f01d681ee0"
+    },
+    {
+      "bytes": 371003,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task05_seed1004_trial004_cfafd9ddc3db.json",
+      "sha256": "441a728822db3d55fea71f020adf8d788482fe9ca61336feb70550ea3c17e87a"
+    },
+    {
+      "bytes": 371188,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task05_seed1005_trial005_cfafd9ddc3db.json",
+      "sha256": "5e01f819ad1d2dd8c45fcf45eacc16debb3f63b8fcbeff90606c8fc48244b736"
+    },
+    {
+      "bytes": 369523,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task05_seed1006_trial006_cfafd9ddc3db.json",
+      "sha256": "3eeb2c9534e8dedbb69bf4ee1e8b79dc38f3479be2d41c9e289901ccb32fbb1c"
+    },
+    {
+      "bytes": 371188,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task05_seed1007_trial007_cfafd9ddc3db.json",
+      "sha256": "13a6a0b3b4bcd449af6a72d71d3d4a4e2a5954be41fd0da873289a28410fe33c"
+    },
+    {
+      "bytes": 370448,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task05_seed1008_trial008_cfafd9ddc3db.json",
+      "sha256": "48bab364bc18bd3ad3e7bdc068b997505a6dc59e9e7e8916f7cb9172b883cb10"
+    },
+    {
+      "bytes": 368783,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task05_seed1009_trial009_cfafd9ddc3db.json",
+      "sha256": "6a4f869cd7e8ab6a85f5e748b0b5df87f954685e29a74fe34bb80d06b02f4667"
+    },
+    {
+      "bytes": 370819,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task05_seed1010_trial010_cfafd9ddc3db.json",
+      "sha256": "a3df2531589777cf3f8c8c106ac8c22eb0ffe662914e0a31200568ef8f5979f9"
+    },
+    {
+      "bytes": 370264,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task05_seed1011_trial011_cfafd9ddc3db.json",
+      "sha256": "742064b8ff1e2d04b91f6f2eb0daf51ff3e41f2af0eb3e2dfb4eaa92bbaf891b"
+    },
+    {
+      "bytes": 370079,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task05_seed1012_trial012_cfafd9ddc3db.json",
+      "sha256": "d2ae0923d20be111f277a0e330060662f014a8cf3cde2b4deaba90965c83b34e"
+    },
+    {
+      "bytes": 369894,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task05_seed1013_trial013_cfafd9ddc3db.json",
+      "sha256": "bf0fa28bf125cf6c5cbafe159a1ba7939dacb159c4fd9bcf89c15f5aaf5841df"
+    },
+    {
+      "bytes": 378960,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task05_seed1014_trial014_cfafd9ddc3db.json",
+      "sha256": "47ab2306ee4c3371538d86fe0b1813c2fec56ac507c278c9506c9d651e459cfe"
+    },
+    {
+      "bytes": 369154,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task05_seed1015_trial015_cfafd9ddc3db.json",
+      "sha256": "c373c08b41f542e92206de03f8c929dcb94c1a3669f80bb79e99510ca4d5f435"
+    },
+    {
+      "bytes": 371559,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task05_seed1016_trial016_cfafd9ddc3db.json",
+      "sha256": "ed78609d2bdbaf277542fca22b10ab766a1c9546577b17e4b6e588e678945700"
+    },
+    {
+      "bytes": 398940,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task05_seed1017_trial017_cfafd9ddc3db.json",
+      "sha256": "de274f4ca4a289d98a4f8a895e8cd44c777106a140d4fb146639e567d9ce8b89"
+    },
+    {
+      "bytes": 369339,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task05_seed1018_trial018_cfafd9ddc3db.json",
+      "sha256": "ceef69d35f23eee8f82254dda164af6d23c7a2d00bb8bdc8f3e6f3b11b775966"
+    },
+    {
+      "bytes": 370449,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task05_seed1019_trial019_cfafd9ddc3db.json",
+      "sha256": "14d8019631fa7e3829f1e032574907df3c85400728ec831012c98f7a573954da"
+    },
+    {
+      "bytes": 371189,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task05_seed1020_trial020_cfafd9ddc3db.json",
+      "sha256": "7fd4b53f7cd28e7d7baf0d84acaf62ec2f9064c11a8519f8a4141226ecab6243"
+    },
+    {
+      "bytes": 370449,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task05_seed1021_trial021_cfafd9ddc3db.json",
+      "sha256": "7811978b99cc0db081d1727b4e31d74a8e8326ed0fa1357486a2ba785636968d"
+    },
+    {
+      "bytes": 369154,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task05_seed1022_trial022_cfafd9ddc3db.json",
+      "sha256": "36a73a95b4490f6f8e41b9ea9fee24f8616eb0616c31378b6353b12b9c9afe1b"
+    },
+    {
+      "bytes": 370449,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task05_seed1023_trial023_cfafd9ddc3db.json",
+      "sha256": "ce5e49e07ad329fdf0ad56abf153477cfa45233a25f7b95e307fbae32d0e7268"
+    },
+    {
+      "bytes": 371189,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task05_seed1024_trial024_cfafd9ddc3db.json",
+      "sha256": "dba69b5e70afe20a782b668673c79af039b9c82c18738fb08f4217b7f7a0e060"
+    },
+    {
+      "bytes": 378775,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task05_seed1025_trial025_cfafd9ddc3db.json",
+      "sha256": "7a728fd658bbaa0e92489dba12578d5e4b0ce592fda19a953b254e9a9b01e234"
+    },
+    {
+      "bytes": 370634,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task05_seed1026_trial026_cfafd9ddc3db.json",
+      "sha256": "7f4bd1630d7c84a5767bda1b06e5e6bf1523bc216c27c33fd14132d20bd80f78"
+    },
+    {
+      "bytes": 369154,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task05_seed1027_trial027_cfafd9ddc3db.json",
+      "sha256": "4a46a16a55497fbb43af85046a69386e13cf2fa8f5b625e4e33b1149b9a0b0a3"
+    },
+    {
+      "bytes": 370079,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task05_seed1028_trial028_cfafd9ddc3db.json",
+      "sha256": "700471d30fa4d4d0aeecd753aff7d19a6d25728b745e7f6a86fd2b036367a8bd"
+    },
+    {
+      "bytes": 368784,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task05_seed1029_trial029_cfafd9ddc3db.json",
+      "sha256": "cbbb372cb40c28ddd82a6ae922de08dc7a1f71fe48829b9547cb43780c92ff70"
+    },
+    {
+      "bytes": 369709,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task05_seed1030_trial030_cfafd9ddc3db.json",
+      "sha256": "58ab67fb6f7a2ec171d2e75245fdc0644a0e73f67965fa12aa6e267c5df0587f"
+    },
+    {
+      "bytes": 370449,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task05_seed1031_trial031_cfafd9ddc3db.json",
+      "sha256": "3602aa4c0e30ad1ea34b044bb7041f7cd8af822dde808b362d660d7660ef855d"
+    },
+    {
+      "bytes": 371189,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task05_seed1032_trial032_cfafd9ddc3db.json",
+      "sha256": "3dadf69d154684865511099229c389981bfbbf139ce81c90ac973f8a075b4160"
+    },
+    {
+      "bytes": 370634,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task05_seed1033_trial033_cfafd9ddc3db.json",
+      "sha256": "87671b086101eb3933806dca85a7c2aedd3a049967acb1031e380bbde5588c0d"
+    },
+    {
+      "bytes": 368969,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task05_seed1034_trial034_cfafd9ddc3db.json",
+      "sha256": "4891474ecf5c73d0e3d94382a411a57374b92c1a4db1b3342e412d479c1be49f"
+    },
+    {
+      "bytes": 368784,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task05_seed1035_trial035_cfafd9ddc3db.json",
+      "sha256": "bab84ba3857f6879f142857d3b038cfbac2cc02b82467224ac92b18bd94f8988"
+    },
+    {
+      "bytes": 369524,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task05_seed1036_trial036_cfafd9ddc3db.json",
+      "sha256": "45b73848ae1d9112bdff5f6803218d9886801e0e940094d6e21d693308a3cabb"
+    },
+    {
+      "bytes": 370819,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task05_seed1037_trial037_cfafd9ddc3db.json",
+      "sha256": "358a736385937540b26b037eb5817a669fb6b0f39675b188cf701c9c136aa7d2"
+    },
+    {
+      "bytes": 369894,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task05_seed1038_trial038_cfafd9ddc3db.json",
+      "sha256": "bb080b0e471b922e75f789bc69a9fe38d8ea9606a6350098c2338d9d843f8641"
+    },
+    {
+      "bytes": 370634,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task05_seed1039_trial039_cfafd9ddc3db.json",
+      "sha256": "4b96e1db44c0ddd8b39204c3873e97b310852330ad5c75829ef0391c27e4992c"
+    },
+    {
+      "bytes": 369339,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task05_seed1040_trial040_cfafd9ddc3db.json",
+      "sha256": "c4e89b44ee7f05534d4fdac8f71a62a9deba8fb38cc995356e3abd93e5a0f521"
+    },
+    {
+      "bytes": 371004,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task05_seed1041_trial041_cfafd9ddc3db.json",
+      "sha256": "a8e03040d8d2309aeac04a824f5349d02161fc3a7cf2e7ff855c90be9ad4d498"
+    },
+    {
+      "bytes": 371374,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task05_seed1042_trial042_cfafd9ddc3db.json",
+      "sha256": "1d70a83de71dea8a9e71adaed389ccbc935e85b5bdb453a7709429d8bf4df4e9"
+    },
+    {
+      "bytes": 369339,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task05_seed1043_trial043_cfafd9ddc3db.json",
+      "sha256": "0228c0d794366a7edc49710df88c72b56942c15912619f6daf09b68a82f246fe"
+    },
+    {
+      "bytes": 368969,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task05_seed1044_trial044_cfafd9ddc3db.json",
+      "sha256": "1ffff596c27f798620d5fc09786fcedcd49d4b6061ebabc995f0769f18b404c2"
+    },
+    {
+      "bytes": 370819,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task05_seed1045_trial045_cfafd9ddc3db.json",
+      "sha256": "d37d17413248b0521e9a94016e0e5867800422c199ee53efee37d6548b284faa"
+    },
+    {
+      "bytes": 371189,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task05_seed1046_trial046_cfafd9ddc3db.json",
+      "sha256": "0511547fe79e1e91372677c613db93fb6122f4e329523f9f6bf74c039a224e42"
+    },
+    {
+      "bytes": 370819,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task05_seed1047_trial047_cfafd9ddc3db.json",
+      "sha256": "87eb171ca5064442000195e6f00eb7f48ad9bda2b1cccd8a3194b62cdcdc5831"
+    },
+    {
+      "bytes": 370819,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task05_seed1048_trial048_cfafd9ddc3db.json",
+      "sha256": "d118236d2efc59a2e7dcc858b7a366e887187ef50934fe55ecf4daad3951e508"
+    },
+    {
+      "bytes": 369154,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task05_seed1049_trial049_cfafd9ddc3db.json",
+      "sha256": "a3d7a7c5c779c9d1c832cff41e4ea0ffdb94ea8ba9910d658d3eb402a85cf553"
+    },
+    {
+      "bytes": 369814,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task09_seed1001_trial001_cfafd9ddc3db.json",
+      "sha256": "bdf8c63c04f22ae1faca1c9e931cefe29ffbc8c0637e972837ecc742de71bf6d"
+    },
+    {
+      "bytes": 369629,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task09_seed1002_trial002_cfafd9ddc3db.json",
+      "sha256": "2b0232560b6c06c79ea65412278237c4fdd74db7724befbe30acf6a6d4caf6da"
+    },
+    {
+      "bytes": 368519,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task09_seed1003_trial003_cfafd9ddc3db.json",
+      "sha256": "06ce4b47f60b67b0c3cbbbf923cdb7add1671bd7f1e7560975b3f7369251277e"
+    },
+    {
+      "bytes": 371294,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task09_seed1004_trial004_cfafd9ddc3db.json",
+      "sha256": "b77e5db0701747e9301046de89ddb5b815d32100137755c2e06a7d6b4cf0dac4"
+    },
+    {
+      "bytes": 369259,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task09_seed1005_trial005_cfafd9ddc3db.json",
+      "sha256": "d3bf08511164cc814461ed439edcb4052acdf14ed6c44417f0c757a586707c51"
+    },
+    {
+      "bytes": 370369,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task09_seed1006_trial006_cfafd9ddc3db.json",
+      "sha256": "1ff6185bb5c30f2a49f89184f398e8f27931e40ccaade008440b3a36d1043ad7"
+    },
+    {
+      "bytes": 371479,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task09_seed1007_trial007_cfafd9ddc3db.json",
+      "sha256": "23c0d2f9060e60c5c921dfaf952fbf37254fdbef3cf95f1141a6e9bf484f974b"
+    },
+    {
+      "bytes": 370184,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task09_seed1008_trial008_cfafd9ddc3db.json",
+      "sha256": "2072d23b5d1b3ab6406545e6237879ed7f1a4a2dbc82f8f08f5e9f716be392b8"
+    },
+    {
+      "bytes": 369629,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task09_seed1009_trial009_cfafd9ddc3db.json",
+      "sha256": "61d7bf4de78770f3e70fed75f101ae035240f86181377051d35171b1f57db0aa"
+    },
+    {
+      "bytes": 370000,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task09_seed1010_trial010_cfafd9ddc3db.json",
+      "sha256": "b42b7a3f4b674fd137ea45df17785342c7a6a2a3dbf250d6d938a36a2f6b1607"
+    },
+    {
+      "bytes": 369630,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task09_seed1011_trial011_cfafd9ddc3db.json",
+      "sha256": "ed2c628df214c7c091f3afbbdc12e7409da2dbe318565b11a733ebe962b8324b"
+    },
+    {
+      "bytes": 370000,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task09_seed1012_trial012_cfafd9ddc3db.json",
+      "sha256": "bab6939c1b54df8442b9c5af9e0ffbb34d1a0386c8544f01a88bf2c72a4c4843"
+    },
+    {
+      "bytes": 372220,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task09_seed1013_trial013_cfafd9ddc3db.json",
+      "sha256": "b360c36f0814b3127eda3539d4d0b29ad3347cf27c94c27894c131bdd556f69a"
+    },
+    {
+      "bytes": 370000,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task09_seed1014_trial014_cfafd9ddc3db.json",
+      "sha256": "54016aa5fc972cb1beec263e66d1ab3e95d9ab571577c7fa55ebe54802f2f3e3"
+    },
+    {
+      "bytes": 369815,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task09_seed1015_trial015_cfafd9ddc3db.json",
+      "sha256": "ca5a736e091e9ee3bcf8cf121cc175446de39bea0c126f99c867a9cc71daf798"
+    },
+    {
+      "bytes": 369445,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task09_seed1016_trial016_cfafd9ddc3db.json",
+      "sha256": "82422e24d691ff7f8ed45b883e8ddfd10675241d7aa3dd033a9eafe5090b84d9"
+    },
+    {
+      "bytes": 368520,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task09_seed1017_trial017_cfafd9ddc3db.json",
+      "sha256": "ab1d7417a3131e49394fae70fe7b38fa4bb10b9e565f87209eb5e9d0303439a8"
+    },
+    {
+      "bytes": 369445,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task09_seed1018_trial018_cfafd9ddc3db.json",
+      "sha256": "290b7395baadf9322795afd3de6e2064f10ef3431f5fe5472797c344f5270b9a"
+    },
+    {
+      "bytes": 369445,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task09_seed1019_trial019_cfafd9ddc3db.json",
+      "sha256": "e6f24cb02eacf9f6f94249e98423ca84aef06bae5d041c658bab191842f3363f"
+    },
+    {
+      "bytes": 369445,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task09_seed1020_trial020_cfafd9ddc3db.json",
+      "sha256": "6dbc120e6ff73617e358b84145d9d342fa4dd2ee241ef0f9c2b27e8ab0163590"
+    },
+    {
+      "bytes": 369815,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task09_seed1021_trial021_cfafd9ddc3db.json",
+      "sha256": "835cf6d6f691c9cfafb9e2599e5026099dd976c1373b5d597e586f0968c90f13"
+    },
+    {
+      "bytes": 370185,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task09_seed1022_trial022_cfafd9ddc3db.json",
+      "sha256": "35f9c979351aa5fb1284bbbc68bacd831bcb0389e753c0e5f540fe5e920c3b87"
+    },
+    {
+      "bytes": 369260,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task09_seed1023_trial023_cfafd9ddc3db.json",
+      "sha256": "0e106d949133ea2daa0d5ccf23eb1f2f5addd5072fa7122e152bdc99288accff"
+    },
+    {
+      "bytes": 368150,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task09_seed1024_trial024_cfafd9ddc3db.json",
+      "sha256": "c37291d36e83ea9f7114099d6243b49fa8be045a34ba9abb70c3f3944d762365"
+    },
+    {
+      "bytes": 369815,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task09_seed1025_trial025_cfafd9ddc3db.json",
+      "sha256": "51ea63ef4e2d5342e0395c24b8c913d56c6f718e1f61979822c2eace06dc389a"
+    },
+    {
+      "bytes": 369260,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task09_seed1026_trial026_cfafd9ddc3db.json",
+      "sha256": "15c888f838368c2bfe3d11d86c4e7d9a3b38eb607a09082335afd28910683054"
+    },
+    {
+      "bytes": 370555,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task09_seed1027_trial027_cfafd9ddc3db.json",
+      "sha256": "5e70a6b994c171bf205110a018b30c423b36e46560043e93112f95daad01af95"
+    },
+    {
+      "bytes": 370000,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task09_seed1028_trial028_cfafd9ddc3db.json",
+      "sha256": "7f8cc5d7cdf3f5ed0e077f08ce76eaa4dda1399d4c2e87085a0f2c071e320029"
+    },
+    {
+      "bytes": 377030,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task09_seed1029_trial029_cfafd9ddc3db.json",
+      "sha256": "d6baea572ea6731d166882ebfc1373cf2ff1206440c32c0464da288262b30201"
+    },
+    {
+      "bytes": 370370,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task09_seed1030_trial030_cfafd9ddc3db.json",
+      "sha256": "a2cf2d2162cc9b8654981787502c7144648de87490058d6a8d666b12ea339281"
+    },
+    {
+      "bytes": 369630,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task09_seed1031_trial031_cfafd9ddc3db.json",
+      "sha256": "3831a2f19dbb5c0bb9996efa7adc28c4869d31dc38948a3cd8efe24cb69164b4"
+    },
+    {
+      "bytes": 369815,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task09_seed1032_trial032_cfafd9ddc3db.json",
+      "sha256": "b6c5e2f5dbddffaf5f8e1f09a86650a29e470bae10052a07aaa8c3babb700173"
+    },
+    {
+      "bytes": 368520,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task09_seed1033_trial033_cfafd9ddc3db.json",
+      "sha256": "f6057a356dd435ff22831cc5a04ed8079a7c97b274f6774f56064b3696f59e72"
+    },
+    {
+      "bytes": 369445,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task09_seed1034_trial034_cfafd9ddc3db.json",
+      "sha256": "2b26c31e27357daef027b986cf7cc3e849d126650f13c5536d43380666e95ee4"
+    },
+    {
+      "bytes": 370000,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task09_seed1035_trial035_cfafd9ddc3db.json",
+      "sha256": "a5a96df7203fd45355b1c25738912cb0c6b823578fddf9ce212cda302f8cd87f"
+    },
+    {
+      "bytes": 371850,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task09_seed1036_trial036_cfafd9ddc3db.json",
+      "sha256": "8828239f2ef53f3256e40723cfa8688b184f14e24109dee2590479748779f2b8"
+    },
+    {
+      "bytes": 368335,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task09_seed1037_trial037_cfafd9ddc3db.json",
+      "sha256": "b9c4bc8348d3083ac2cec769e3a9a05e7824abfdd34270525b70aee583db8b50"
+    },
+    {
+      "bytes": 369260,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task09_seed1038_trial038_cfafd9ddc3db.json",
+      "sha256": "cd1d1cf2c9b00779dfc407908ef1ed27ce3c79206c7406f89253e588b8e09bf7"
+    },
+    {
+      "bytes": 370000,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task09_seed1039_trial039_cfafd9ddc3db.json",
+      "sha256": "4a1479713e1bb0cafbef63172813ce645b3555d0b183492c943ae0be2637a505"
+    },
+    {
+      "bytes": 367780,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task09_seed1040_trial040_cfafd9ddc3db.json",
+      "sha256": "2782be1328877731973ae1e9f3b4712569a422bcc3c17af22f2cc99946f46bf9"
+    },
+    {
+      "bytes": 370740,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task09_seed1041_trial041_cfafd9ddc3db.json",
+      "sha256": "a407917d261b119d4d6d44018fa77f2c31d3005b481050cfd1ed7a629aaa1f22"
+    },
+    {
+      "bytes": 371665,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task09_seed1042_trial042_cfafd9ddc3db.json",
+      "sha256": "802f442c3c81e761493f674194ca8f60e863f0873e7a25abda10b42c811f2b28"
+    },
+    {
+      "bytes": 369815,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task09_seed1043_trial043_cfafd9ddc3db.json",
+      "sha256": "e53a1dc495e379b310b1e875dbc7c8060111d4df448e4efaf61d6d4436d51d7d"
+    },
+    {
+      "bytes": 370370,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task09_seed1044_trial044_cfafd9ddc3db.json",
+      "sha256": "b87a205758a09d728d3d42055512a86b2ea0996021ba86b34079a03df4dcd007"
+    },
+    {
+      "bytes": 369075,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task09_seed1045_trial045_cfafd9ddc3db.json",
+      "sha256": "07db63925c53abdb661be834adfdd5905b79883326ab54a0e326ddc70e200c24"
+    },
+    {
+      "bytes": 369815,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task09_seed1046_trial046_cfafd9ddc3db.json",
+      "sha256": "7d023163db267cecbb39afe7b8f421db6696c0c04a3b667c55120f9ae14fd908"
+    },
+    {
+      "bytes": 369260,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task09_seed1047_trial047_cfafd9ddc3db.json",
+      "sha256": "5726e3e709a08197a9a447ca262c6d1dbc39ca7ff6699285770ca5e9912349c2"
+    },
+    {
+      "bytes": 368890,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task09_seed1048_trial048_cfafd9ddc3db.json",
+      "sha256": "462beaa461c03ad17a2f3ffef7645ec70fee683ed59d2d79ac09e9348ca11b0c"
+    },
+    {
+      "bytes": 370000,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_object_openvla_oft_task09_seed1049_trial049_cfafd9ddc3db.json",
+      "sha256": "459d2c4e12964089427c903970a8f164bf7f0969f399959ba8faf68e81000944"
+    },
+    {
+      "bytes": 401927,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_spatial_openvla_oft_task00_seed1001_trial001_cfafd9ddc3db.json",
+      "sha256": "492aab2d7b714f11d949dc790880738e49eb378ca5dc3a01cadb6719672e1ca6"
+    },
+    {
+      "bytes": 402295,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_spatial_openvla_oft_task00_seed1002_trial002_cfafd9ddc3db.json",
+      "sha256": "3861a982b8d4f3ac0c8deb694ef0000ce9caa57976ec8ab97dd5fa52a803bfda"
+    },
+    {
+      "bytes": 401559,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_spatial_openvla_oft_task00_seed1003_trial003_cfafd9ddc3db.json",
+      "sha256": "6088ccd5b496a53be0353988cb4b2818d1c50375aaf3b561b5327a2b82c10af1"
+    },
+    {
+      "bytes": 401375,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_spatial_openvla_oft_task00_seed1004_trial004_cfafd9ddc3db.json",
+      "sha256": "0745c7b5537c2a0f0617e7df438c02c1c879f7eed897ebe3948ab92ce3dc3a48"
+    },
+    {
+      "bytes": 402111,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_spatial_openvla_oft_task00_seed1005_trial005_cfafd9ddc3db.json",
+      "sha256": "1314e3dd3e99ffece289286ef2b55b10861695c3abf9dcfcd8e71324d4785bf0"
+    },
+    {
+      "bytes": 400409,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_spatial_openvla_oft_task00_seed1006_trial006_cfafd9ddc3db.json",
+      "sha256": "8fa2300299747b5a539c9e8d6f26a64d659b5d6c7068cd5919ca0db7fbd8dcca"
+    },
+    {
+      "bytes": 403872,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_spatial_openvla_oft_task00_seed1007_trial007_cfafd9ddc3db.json",
+      "sha256": "61c1ce00bacaecd55b0445b6f53d030a8cd697724c27ca194fdaadbbdeef5018"
+    },
+    {
+      "bytes": 401191,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_spatial_openvla_oft_task00_seed1008_trial008_cfafd9ddc3db.json",
+      "sha256": "f321d55a37fd8c0997aba007b58cd53efc243db710323c47a453e89828dee7e5"
+    },
+    {
+      "bytes": 401927,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_spatial_openvla_oft_task00_seed1009_trial009_cfafd9ddc3db.json",
+      "sha256": "bc1bd606d53734cb58957ddc1cd2ade4b6ed2b74e94b2e35899d50be187f2fb8"
+    },
+    {
+      "bytes": 400226,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_spatial_openvla_oft_task00_seed1010_trial010_cfafd9ddc3db.json",
+      "sha256": "a08e1034cee677f10b5e845a0d4756ae6e57271857d97a012a2eb3e1ac80a24f"
+    },
+    {
+      "bytes": 400640,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_spatial_openvla_oft_task00_seed1011_trial011_cfafd9ddc3db.json",
+      "sha256": "fc54603498c67d7af2ec944df8fac20c1c28ff61348d481b260fd80df8fc4e5b"
+    },
+    {
+      "bytes": 400824,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_spatial_openvla_oft_task00_seed1012_trial012_cfafd9ddc3db.json",
+      "sha256": "cdd8c3d1764856c2f5c4dd6b0c97b93c7b1c5f8f5408a76ecd0aec93ebafc177"
+    },
+    {
+      "bytes": 402480,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_spatial_openvla_oft_task00_seed1013_trial013_cfafd9ddc3db.json",
+      "sha256": "9331c452f406dce82d47523bf84383008f3813af5992b12ea3e88ea2c70e7355"
+    },
+    {
+      "bytes": 402480,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_spatial_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db.json",
+      "sha256": "72cf51ae29771c85a3ada56cdf4272b7a79ff0dd9d47efae4ef2e7cecbaafbee"
+    },
+    {
+      "bytes": 401376,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_spatial_openvla_oft_task00_seed1015_trial015_cfafd9ddc3db.json",
+      "sha256": "554419ecbdc65c9075a9056a6d5348c07f299e9131d2a9adff2af28dec1db12e"
+    },
+    {
+      "bytes": 401928,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_spatial_openvla_oft_task00_seed1016_trial016_cfafd9ddc3db.json",
+      "sha256": "4c9b26a9303262583e79232daa3be6b4691f8c6abca5545cce26463b9ead862c"
+    },
+    {
+      "bytes": 401192,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_spatial_openvla_oft_task00_seed1017_trial017_cfafd9ddc3db.json",
+      "sha256": "17ee8b8f428ebf2b07b7be294950499b29d1ac7a4f2d1e28c5f52869d369fe9a"
+    },
+    {
+      "bytes": 402296,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_spatial_openvla_oft_task00_seed1018_trial018_cfafd9ddc3db.json",
+      "sha256": "68d897ffbb39d5df079b11386ebb47a137ee766ea7bd14592ff80ff9581f9ed4"
+    },
+    {
+      "bytes": 401008,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_spatial_openvla_oft_task00_seed1019_trial019_cfafd9ddc3db.json",
+      "sha256": "2cbfe4d6967f2bc56c38d3be6117df03de44ea3955f36f9d64491f22953862f1"
+    },
+    {
+      "bytes": 401928,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_spatial_openvla_oft_task00_seed1020_trial020_cfafd9ddc3db.json",
+      "sha256": "eec9f163b5a3cf993845c49c578d1adbf55fbcd863c8148e9860e73870499eff"
+    },
+    {
+      "bytes": 400640,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_spatial_openvla_oft_task00_seed1021_trial021_cfafd9ddc3db.json",
+      "sha256": "10d659136e813fbd03ab3bf911222de354835161064a52625fc4868d678fdb55"
+    },
+    {
+      "bytes": 400824,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_spatial_openvla_oft_task00_seed1022_trial022_cfafd9ddc3db.json",
+      "sha256": "3d28502be2ffe9e6dde15e3f968b3f01a3467bc2f7a7acc0c33fc54591aacd8f"
+    },
+    {
+      "bytes": 400640,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_spatial_openvla_oft_task00_seed1023_trial023_cfafd9ddc3db.json",
+      "sha256": "bf7b85d95816e54cb3c7634d59c847ea97ea3efc80efa9ea56a07969cfcc3117"
+    },
+    {
+      "bytes": 400824,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_spatial_openvla_oft_task00_seed1024_trial024_cfafd9ddc3db.json",
+      "sha256": "a6203c3760a17096477d7b63571b1d5c5428089e4de2b35a71e6eba94a87cd2e"
+    },
+    {
+      "bytes": 400226,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_spatial_openvla_oft_task00_seed1025_trial025_cfafd9ddc3db.json",
+      "sha256": "59d96b635768eb1f647bbac0109441af4fc43ddeb64d978648f2e003b0070acc"
+    },
+    {
+      "bytes": 401560,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_spatial_openvla_oft_task00_seed1026_trial026_cfafd9ddc3db.json",
+      "sha256": "b8da564ab29573940ba08b7de4b80a3170c28a29b8acd82f20ada75f1d7cd22a"
+    },
+    {
+      "bytes": 407969,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_spatial_openvla_oft_task00_seed1027_trial027_cfafd9ddc3db.json",
+      "sha256": "86d754c4591309017076133558b41de9e1fe05bd2522d17bd75fbf5144b44c99"
+    },
+    {
+      "bytes": 401192,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_spatial_openvla_oft_task00_seed1028_trial028_cfafd9ddc3db.json",
+      "sha256": "0ca88755d7fa03981531931cc898e3ae150a5fad2f304eedb7df611225347171"
+    },
+    {
+      "bytes": 401008,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_spatial_openvla_oft_task00_seed1029_trial029_cfafd9ddc3db.json",
+      "sha256": "3a96b150b71b3e58c1b6026d8c2f303461b5ea7cab6c51b34a2255c8919e5ff5"
+    },
+    {
+      "bytes": 402480,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_spatial_openvla_oft_task00_seed1030_trial030_cfafd9ddc3db.json",
+      "sha256": "56ffcf4c1de8fa9d3c519c41513de0cec19691aa319f285afa9a42e989c51153"
+    },
+    {
+      "bytes": 402112,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_spatial_openvla_oft_task00_seed1031_trial031_cfafd9ddc3db.json",
+      "sha256": "188bc88387e1ec9128c6ccba1110d460a6ce60a41e4612b674d70d9f7264679c"
+    },
+    {
+      "bytes": 403216,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_spatial_openvla_oft_task00_seed1032_trial032_cfafd9ddc3db.json",
+      "sha256": "96f00b4e684c248c458fc38a040c0e8dd24973203c6ba40a414a7baf5185de95"
+    },
+    {
+      "bytes": 400640,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_spatial_openvla_oft_task00_seed1033_trial033_cfafd9ddc3db.json",
+      "sha256": "f901e01c4aafdba15dc0ff54d7415b8d4eb95a25e53b35437ec0a51f34ebd0d1"
+    },
+    {
+      "bytes": 400640,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_spatial_openvla_oft_task00_seed1034_trial034_cfafd9ddc3db.json",
+      "sha256": "8a3934cdc165f54eb66cecb9c0984f911c85c56167e1145a7a519a69e6c4d356"
+    },
+    {
+      "bytes": 401376,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_spatial_openvla_oft_task00_seed1035_trial035_cfafd9ddc3db.json",
+      "sha256": "4db15bee14ab3c0ad7300ac5ee263082e9a4d48e16be74401e5d7622b89491fd"
+    },
+    {
+      "bytes": 401376,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_spatial_openvla_oft_task00_seed1036_trial036_cfafd9ddc3db.json",
+      "sha256": "e41f9d72d8645520ddb90a19223116be3e20d505c682a814f6ab8e538518d2aa"
+    },
+    {
+      "bytes": 401744,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_spatial_openvla_oft_task00_seed1037_trial037_cfafd9ddc3db.json",
+      "sha256": "0fef88098b489ad9d6b1029227c46d14452c3e6af5bc9089b85f45460e7b69cf"
+    },
+    {
+      "bytes": 401376,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_spatial_openvla_oft_task00_seed1038_trial038_cfafd9ddc3db.json",
+      "sha256": "a8ca479a0673d0df952e1c301b26a633d43446395219b088e22e0ad7988dc7ce"
+    },
+    {
+      "bytes": 400042,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_spatial_openvla_oft_task00_seed1039_trial039_cfafd9ddc3db.json",
+      "sha256": "da4dd417f8df16cbd749cf8ace1cd192bd35f5083af423bdf7e1a450688659a7"
+    },
+    {
+      "bytes": 400824,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_spatial_openvla_oft_task00_seed1040_trial040_cfafd9ddc3db.json",
+      "sha256": "81e909736bfaf6b3638bd8261659860dd544091b6f26774d139e530c9c576957"
+    },
+    {
+      "bytes": 400824,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_spatial_openvla_oft_task00_seed1041_trial041_cfafd9ddc3db.json",
+      "sha256": "00e1e4c18d38a5a937502ba4960353a625db2185df989bb9e48f70cf126c6446"
+    },
+    {
+      "bytes": 402112,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_spatial_openvla_oft_task00_seed1042_trial042_cfafd9ddc3db.json",
+      "sha256": "21185bdc25400b68d6f7faa9f461ad673f1cf2b0f9c052e2436f9e998b055185"
+    },
+    {
+      "bytes": 400824,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_spatial_openvla_oft_task00_seed1043_trial043_cfafd9ddc3db.json",
+      "sha256": "7419b9c5fbb33a3eb28f14417d4f8aa64b3c2946e7911fa6f449670a4d7c2859"
+    },
+    {
+      "bytes": 400042,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_spatial_openvla_oft_task00_seed1044_trial044_cfafd9ddc3db.json",
+      "sha256": "233323a92a52cbb1079ec7314ed01ce96e2a07636f62d4ee1d5082f57dab9e6a"
+    },
+    {
+      "bytes": 401008,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_spatial_openvla_oft_task00_seed1045_trial045_cfafd9ddc3db.json",
+      "sha256": "5e36d73e2e76768ce6d71ab793cfdcbb0ff01481da0208b99406df0a275cc327"
+    },
+    {
+      "bytes": 400824,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_spatial_openvla_oft_task00_seed1046_trial046_cfafd9ddc3db.json",
+      "sha256": "0d3491fa539f464c84ecb91520786dbafc851e10f127b729d8314b6a877c32a7"
+    },
+    {
+      "bytes": 401192,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_spatial_openvla_oft_task00_seed1047_trial047_cfafd9ddc3db.json",
+      "sha256": "a465f298088a6c0dba544c2eedf744ff332f78d129b4800a07fe7159d4191061"
+    },
+    {
+      "bytes": 401192,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_spatial_openvla_oft_task00_seed1048_trial048_cfafd9ddc3db.json",
+      "sha256": "b286a912cb9de48fc342418136e2edb71ea4f0b5c63d106c6faf7000de7e2176"
+    },
+    {
+      "bytes": 400640,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory/libero_spatial_openvla_oft_task00_seed1049_trial049_cfafd9ddc3db.json",
+      "sha256": "db6608ebade6be3cedd35b5098d58cb38f64e36579c45922a1d368eaceb066b0"
+    },
+    {
+      "bytes": 687,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory-normalize.log",
+      "sha256": "ba3b4667f6cc17519164bacb5e32483a2763c3462782ca42c72a4208baa8ef57"
+    },
+    {
+      "bytes": 323,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory-supplement.log",
+      "sha256": "decd157189e8b5326b8323686b4abbb472f3e81cdb8d96f82fbd72928f85aeff"
+    },
+    {
+      "bytes": 35,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/inventory-validation.log",
+      "sha256": "6cafe9d13eeae920411447b44d2e0a7b730d8e952c5732482185b837aee8efbf"
+    },
+    {
+      "bytes": 1174339,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/legacy/NEGATIVE_RETRIEVAL.json",
+      "sha256": "dd832288b7efe24d42804b5f8312d8ceab32f44fb719658722532e954706498c"
+    },
+    {
+      "bytes": 4152602,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/legacy/QUERY_FIXTURES.json",
+      "sha256": "4eaf142098264b422fe49b353e475bd3855093d9e5de24fe3b3b6c97cbfd7735"
+    },
+    {
+      "bytes": 1113125,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/legacy/RETRIEVAL_METRICS.json",
+      "sha256": "8094f899c827ceaa3f73f6c7837054704a2d1f35c225592cae495831987b49da"
+    },
+    {
+      "bytes": 1064,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/legacy/SEMANTIC_BUILD.json",
+      "sha256": "c4b951c1df3da5a52f09591047944d95282150adc5bbe3e019731f19abeaf474"
+    },
+    {
+      "bytes": 1762829,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/legacy/SEMANTIC_EVALUATION.json",
+      "sha256": "1762d2cbef3de91b4edbd6e03af9069b3e8f5e535ad02b887d6da825195d334c"
+    },
+    {
+      "bytes": 271,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/legacy/SEMANTIC_INTEGRITY.json",
+      "sha256": "c9f9973984e788ca2bc33f23cd8a30d871731e933bd2d59af9a391d651c73307"
+    },
+    {
+      "bytes": 17440768,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/legacy/semantic.sqlite",
+      "sha256": "e1edf27bdc0ce54ef30230c04bc1ed884ee1056694677bb91bf6f7b22136d908"
+    },
+    {
+      "bytes": 829,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/main-table-audit.log",
+      "sha256": "72f2efdb3ca3221a3e6b3eea9149bb674599f006459bf352a57abdfd86c7e628"
+    },
+    {
+      "bytes": 91,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/partial-resume.log",
+      "sha256": "d7f9b04113bd68cd3c6fd24b427441b2741f83250f8336581cd55043db020ee0"
+    },
+    {
+      "bytes": 8716,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/regressions/REGRESSION_RESULTS.json",
+      "sha256": "d908f9c7a9b1beffaf3a5ff46ccc1343b55b44d7cb04c7fb7ec43c5332aec5eb"
+    },
+    {
+      "bytes": 1237,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/regressions/qa/FROZEN_AFTER.json",
+      "sha256": "21d27c9f80f03defb5ed34671359700d7dc0115affb4fbbaa8d73ea1271b799c"
+    },
+    {
+      "bytes": 1237,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/regressions/qa/FROZEN_BEFORE.json",
+      "sha256": "21d27c9f80f03defb5ed34671359700d7dc0115affb4fbbaa8d73ea1271b799c"
+    },
+    {
+      "bytes": 5450,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/regressions/qa/channels.log",
+      "sha256": "6e4f2b0132b5983232ba87493f7a2ab8805dcbf3d3c605652ec33a54ce7cea2c"
+    },
+    {
+      "bytes": 4922,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/regressions/qa/frozen_v3.log",
+      "sha256": "6442a5b48dc06c8efb2eba161d18277f271d0f379d95c6643fe878427d129082"
+    },
+    {
+      "bytes": 1861,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/regressions/qa/generalization.log",
+      "sha256": "41eb026396762b4637fc93c46bddb783a21832a34b2c79e623e4c6f3644e4b84"
+    },
+    {
+      "bytes": 2723,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/regressions/qa/new_profile.log",
+      "sha256": "78ce3f123a481df886ff0cf8fedac092c15960ddddd8156a6a6ed028d8fd5d2f"
+    },
+    {
+      "bytes": 852,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/regressions/qa/partition.log",
+      "sha256": "00c75adb6a16063887b6da497cb8e1ca851afd55d8d3cadb15db8553789c8f4a"
+    },
+    {
+      "bytes": 12083,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/regressions/qa/phase2a.log",
+      "sha256": "b302555201407978ac42ae4eec8a145dfe6a97a797a338daa15138507afbb5b6"
+    },
+    {
+      "bytes": 3469,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/regressions/qa/phase5b.log",
+      "sha256": "633f33144076ba3750ea9042059b7cf64a58febf90b37f338d67c149a41cdc91"
+    },
+    {
+      "bytes": 1669,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/regressions/qa/phase5c.log",
+      "sha256": "cd36a279e4ab5ec39fed61b42844958e53db98841b6bde2c4080a2d3d1b76d20"
+    },
+    {
+      "bytes": 3152,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/regressions/qa/phase5e.log",
+      "sha256": "354aedebbbeb382f3f4bc5c7ad18fe23ef882efacab8b01101c84bc27f5d07e1"
+    },
+    {
+      "bytes": 1536,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/regressions/qa/phase5e_semantic.log",
+      "sha256": "12c4c08debe79d71f741641db5d77b3d5d3580700bf6bd56a81d818b2735a838"
+    },
+    {
+      "bytes": 5978,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/regressions/qa/profile.log",
+      "sha256": "c21c57ca14299fee8c8ff342b9b0b25dbee639924cd53cd178a1adb548707a41"
+    },
+    {
+      "bytes": 4457,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/regressions/qa/reader.log",
+      "sha256": "80ed998dcd1e43c5d51a8fd598cac0124cd2eef63bd9d672db73121202f7c796"
+    },
+    {
+      "bytes": 2241,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/regressions/qa/reference.log",
+      "sha256": "d1647af0a8e2f3f56be84a2f6a260b00583652eddafdb7d6d90cd823771b1279"
+    },
+    {
+      "bytes": 6180,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/regressions/qa/registry_gsn.log",
+      "sha256": "9b91fb022d675da007179c87231312fc0f79d8e0dd5790eac4b5e81fb05867ac"
+    },
+    {
+      "bytes": 3853,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/regressions/qa/review.log",
+      "sha256": "1bb11d264013d0ea29f35749021d147e8782de7c777a69b7de57919ac4f85871"
+    },
+    {
+      "bytes": 3510,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/regressions/qa/variant.log",
+      "sha256": "aad5031173cdab915cd5ecefdef4f10a20625fd65dfd13a07eda281e4a451894"
+    },
+    {
+      "bytes": 17,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/reports.log",
+      "sha256": "77a8537d2e19873c4970a80edbc9ced29d618a8d5032853e744abb453ee69f9d"
+    },
+    {
+      "bytes": 40,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/spatial-supplement.log",
+      "sha256": "c07b92bd69dcde2706803918465514649a8c9a4bbaa66a52cbfd062830e65437"
+    },
+    {
+      "bytes": 3403,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/verification-attempt2.log",
+      "sha256": "252ee27f56c9705984f51220063508e6947005ff9c970ed19c2682961b006797"
+    },
+    {
+      "bytes": 602,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/verification.log",
+      "sha256": "c87941a5393ea6c330875b0946311996642db751b3e4352436389f725aa9f4b0"
+    },
+    {
+      "bytes": 462,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working-baseline.log",
+      "sha256": "84cdb57c0ad85d6d16e7300171cd42573c3519f1f86414486d5121a3f7ce266a"
+    },
+    {
+      "bytes": 287,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working-baseline-attempt2.log",
+      "sha256": "3a0bfb28e4f21756b9143a8c9c8d9c780ebdf624920cc9fa333d18322f8ac441"
+    },
+    {
+      "bytes": 3978,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working-inventory.log",
+      "sha256": "3c03e844e0dcfc8bee205c295bc0f827597dac5f189617d23e911f0fe4c9b7b8"
+    },
+    {
+      "bytes": 24,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-working-spatial.log",
+      "sha256": "294bcfa79a79bff38fe82024f005178f4b4ca7f9b1943a49e0d3bfa324e2233d"
+    },
+    {
+      "bytes": 4107,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase5g-finalize.log",
+      "sha256": "f0c544c97e7a320bac5fe1b9e74126690a49c02f311aeff0fb25abf20e5377f5"
+    }
+  ],
+  "files": [
+    {
+      "bytes": 22181001,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/measurement_channel_expansion/CHANNEL_COVERAGE_MATRIX.csv",
+      "sha256": "fa2ff845bcfdd5335c9f5f1e5b57b8b45c508b1ec9945a538014795e2fb7feed"
+    },
+    {
+      "bytes": 17550565,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/measurement_channel_expansion/CHANNEL_INVENTORY.csv",
+      "sha256": "239da628efde386b957a196908af6a5ee2fd9de87aa1b3397a8d8ae61b191bde"
+    },
+    {
+      "bytes": 1662,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/measurement_channel_expansion/CHANNEL_SELECTION.json",
+      "sha256": "93d10ae323048dfde565d0ef89f8d58c2fd2c11e041b884eae9d1bf010be616b"
+    },
+    {
+      "bytes": 2927,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/measurement_channel_expansion/CHANNEL_SELECTION.md",
+      "sha256": "65ff34feb94027ccd4051080b1b537a1aef707046e032b497076139b06decf5b"
+    },
+    {
+      "bytes": 5451,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/measurement_channel_expansion/EVIDENCE_CONTRACTS.md",
+      "sha256": "6563f9567775eacf0dc351df28c47f7ac60e1bb4211fce5d9ca13750eaec1dcc"
+    },
+    {
+      "bytes": 1137148,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/measurement_channel_expansion/EXECUTION_SOURCE_BINDINGS.csv",
+      "sha256": "b7f6d49c5f7ce68168c5231246bb58d5625592beb0335665a1c74cd5936a67bb"
+    },
+    {
+      "bytes": 1688,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/measurement_channel_expansion/EXTRACTION_VALIDATION.md",
+      "sha256": "701f6c5e5c2dac5129887c1eaf17704d1f06b983861d100e8ffb23e8d48ffdc7"
+    },
+    {
+      "bytes": 6463,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/measurement_channel_expansion/GEOMETRY_CHANNEL_INVENTORY.csv",
+      "sha256": "1f57a9dbb27c6043524de4f477ae667be24e35f197587599bf608ed7379be407"
+    },
+    {
+      "bytes": 2168,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/measurement_channel_expansion/INVENTORY.md",
+      "sha256": "ce63013b1311070edeb1d4a6072ecc0b34fdb85818a20cdb4f4e8a1e274bbdc2"
+    },
+    {
+      "bytes": 2207,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/measurement_channel_expansion/LIMITATIONS.md",
+      "sha256": "9c0221c6c16bc32641b0330fc7dc42976429ca5dd3ad0b92e2dc2f42d68426f6"
+    },
+    {
+      "bytes": 715336,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/measurement_channel_expansion/MAIN_TABLE_BINDINGS.csv",
+      "sha256": "2fd92c5e76d08acc0a9b90e924392fbf7453052239d1ab4ebcf8684a8fc101a2"
+    },
+    {
+      "bytes": 1793,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/measurement_channel_expansion/README.md",
+      "sha256": "08bd0b3cd065104a977a53f7e05e09491b1675042cd85d69d451f2a40f9d3e6e"
+    },
+    {
+      "bytes": 2085,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/measurement_channel_expansion/REGRESSION_RESULTS.md",
+      "sha256": "7ed144cb1a6f7cfde099b925b9e7075492afb6031f299a5c85468af5b298a142"
+    },
+    {
+      "bytes": 3340,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/measurement_channel_expansion/REPRODUCIBILITY.md",
+      "sha256": "e0cf3cc53e6cb74c5419cff512e02aa891b809b449acde00574f9982d9da67c0"
+    },
+    {
+      "bytes": 1581,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/measurement_channel_expansion/RETRIEVAL_EVALUATION.md",
+      "sha256": "12aa5fa0516aa8ed545540eb3f7ec52db2329dd793717e6db3c3364ce0c2afc1"
+    },
+    {
+      "bytes": 2041,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/measurement_channel_expansion/SEMANTIC_RETRIEVAL_EVALUATION.md",
+      "sha256": "879ff0df18b7d4d7f44bdc33c4f7c56a65c02b86471bb7c9225e36fff78bc8d5"
+    },
+    {
+      "bytes": 4576001,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/measurement_channel_expansion/SPATIAL_BINDINGS.csv",
+      "sha256": "114f82f5000523fd4830666c2ee40a5406232eb661857b0985f51c512c03153a"
+    },
+    {
+      "bytes": 2315,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/measurement_channel_expansion/SPATIAL_MAPPING_AUDIT.md",
+      "sha256": "6b4c8168389c278341f4818a0ed9ffc288e9a27f294eec34144fc7cfe701951e"
+    },
+    {
+      "bytes": 538159,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/measurement_channel_expansion/VALUE_PROFILES.json",
+      "sha256": "0989ee5610fbc8a1dea657660b4d898c653af05a0a57fafdf08bfebc2691d642"
+    },
+    {
+      "bytes": 2101,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/measurement_channel_expansion/baseline.py",
+      "sha256": "485bffca6e5fd6ba65acce119ba06e7dd61c35825d8565739bd646f93a3d237c"
+    },
+    {
+      "bytes": 4647,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/measurement_channel_expansion/build.py",
+      "sha256": "a5b1b716dbab20eeb66e1707bb4c26f25302d130446eb2740f3e25ca91d57c51"
+    },
+    {
+      "bytes": 6725,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/measurement_channel_expansion/channels.py",
+      "sha256": "6ca4918228d9a328a6e2d6455b0345b4f3f5462c00510ce78de640a23879ad00"
+    },
+    {
+      "bytes": 1885,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/measurement_channel_expansion/check_release.py",
+      "sha256": "5f42e82d86bed1892892168348961a1f4ba0257e88695a0c8c07bf178b4b1668"
+    },
+    {
+      "bytes": 808,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/measurement_channel_expansion/cli.py",
+      "sha256": "d7bc3db7d21722fa119682a6e61ae6eb2e1f59eb62cb65da5c6a19f188de055f"
+    },
+    {
+      "bytes": 4171,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/measurement_channel_expansion/final_audit.py",
+      "sha256": "9f8e146b9662d8cd4a0f69a6e97b7a064acc0fa75f9e2d1d36c7a24ac598a6e2"
+    },
+    {
+      "bytes": 7236,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/measurement_channel_expansion/finalize_inventory.py",
+      "sha256": "55918513abfece83c19f7f899cc8dd175b0c92d40e1fb000324e6276ff92fd25"
+    },
+    {
+      "bytes": 2765,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/measurement_channel_expansion/inventory.py",
+      "sha256": "63b4174ff50893432e87af715e06c8424b3d5c558ab4440aa31b25181fcd7a34"
+    },
+    {
+      "bytes": 2302,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/measurement_channel_expansion/inventory_validation.py",
+      "sha256": "72702fa4f8c0818f995ed30420e8ab2c15d7bb5e7e47849f799047669a82e282"
+    },
+    {
+      "bytes": 5046,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/measurement_channel_expansion/main_table_audit.py",
+      "sha256": "d6eddb5f9ffa92c91e939cd25151aadb7f4f62134bf80f46f3118f267e42ba11"
+    },
+    {
+      "bytes": 2856,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/measurement_channel_expansion/normalize_inventory.py",
+      "sha256": "e259a093f72ce79794bc314c40f6dc9cddcafcfcf4a72e83dc966a9197a9ae09"
+    },
+    {
+      "bytes": 1158,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/measurement_channel_expansion/partial_resume.py",
+      "sha256": "e0837eb1b6dc2f228d1c9347c8285245689d6baf117a14f251adfa6fdb3e343d"
+    },
+    {
+      "bytes": 1083,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/measurement_channel_expansion/post_rebuild_validation.py",
+      "sha256": "ea6d2711cc8628e663a4e60bd6096e4872c2e4bba126af1f5ae013ee1c744c7b"
+    },
+    {
+      "bytes": 21395,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/measurement_channel_expansion/reports.py",
+      "sha256": "f090d7e713923718164098dd4bb49cdaff2fd7e099d8adf2cbc0d9ca56b413e2"
+    },
+    {
+      "bytes": 7894,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/measurement_channel_expansion/retrieve.py",
+      "sha256": "68d832e6718290bd93d6a47bd5ee3cc7e624d575313da234ec3dbe7ce23297ca"
+    },
+    {
+      "bytes": 760,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/measurement_channel_expansion/schema.sql",
+      "sha256": "0ff7098f124867a0e58c5ad06423da0fa146bf906d989386a2ce296894157860"
+    },
+    {
+      "bytes": 2472,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/measurement_channel_expansion/seal_artifacts.py",
+      "sha256": "340d38ca7094cc3cadc436774f9e7717668bc53ffcd65b79282dd5f5e027ff27"
+    },
+    {
+      "bytes": 3713,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/measurement_channel_expansion/semantic_evaluate.py",
+      "sha256": "b5a61ab6e3cd14cddccfd9aa20900c16ecf81a52f1563c50eda5cc2520ea8962"
+    },
+    {
+      "bytes": 3081,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/measurement_channel_expansion/spatial.py",
+      "sha256": "78ec159061e3b8284e364fd4a325f5264f9cb14bc132e88a23d71669d132a69c"
+    },
+    {
+      "bytes": 3363,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/measurement_channel_expansion/spatial_supplement.py",
+      "sha256": "1cbb952206b9d944d999509a6135dfa70ffe4116d76ea2393fbb9dcefcb843c9"
+    },
+    {
+      "bytes": 2938,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/measurement_channel_expansion/supplement_inventory.py",
+      "sha256": "5326926413d04d56c60b784d4b1b75a6ac5c86a1a995c6c7986cb881c264a172"
+    },
+    {
+      "bytes": 14995,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/measurement_channel_expansion/tests/test_channels.py",
+      "sha256": "3d8e014f9a75564e63dfcf5a8592de28af2a5721766685dd1e5621aeea6e8f19"
+    },
+    {
+      "bytes": 7933,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/measurement_channel_expansion/validate.py",
+      "sha256": "75734ff998276e2e1d641467cf14b2e9750f180b10ce4c63da36078f769e3771"
+    },
+    {
+      "bytes": 1553,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/measurement_channel_expansion/validation/BASELINE_VERIFIED.json",
+      "sha256": "eeeac6757fd610c7b4749c607bf019ba4cd7f75df71d13c9fde3fcbb246cf52a"
+    },
+    {
+      "bytes": 956,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/measurement_channel_expansion/validation/BUILD.json",
+      "sha256": "93f8ec44871018703ae67de1220c95895c2e6690c416eb7295821b83cf2a17cb"
+    },
+    {
+      "bytes": 718,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/measurement_channel_expansion/validation/CHANNEL_TESTS.json",
+      "sha256": "639685def2430848472925771f0fc85ae9079c4b5ed0bb5613098eeb0f4f69ac"
+    },
+    {
+      "bytes": 1986,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/measurement_channel_expansion/validation/FINAL_AUDIT.json",
+      "sha256": "fe3ab7bbc80742e9bb8172f05a6047b70901ad101d7b5f39031d22ebf791415b"
+    },
+    {
+      "bytes": 1312,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/measurement_channel_expansion/validation/FROZEN_FINAL.json",
+      "sha256": "c4da97fa3e051c8fa0cdc11b20c16f2f899a57aa1b164296d41320138c53bccd"
+    },
+    {
+      "bytes": 959,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/measurement_channel_expansion/validation/INDEPENDENT_BUILD.json",
+      "sha256": "d56e5983067b73b5290f760d4629123c8ecb541bd0c65c9b509f4ea153f51615"
+    },
+    {
+      "bytes": 361,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/measurement_channel_expansion/validation/INVENTORY_VALIDATION.json",
+      "sha256": "7601935bf04f078da58c28e20d26ee98bb9eb3412266b478cd67ffbc40bdde4a"
+    },
+    {
+      "bytes": 706,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/measurement_channel_expansion/validation/NORMALIZED_INVENTORY.json",
+      "sha256": "be67986b23eefa0e174b75183973aef84f0277992c5467d7d4a5b50232555671"
+    },
+    {
+      "bytes": 1180,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/measurement_channel_expansion/validation/PARTIAL_RESUME.json",
+      "sha256": "8e35ee5b94307a43379b0b9a26166861cb77d1001d9e352f9e97f18fb8cb8db6"
+    },
+    {
+      "bytes": 3985,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/measurement_channel_expansion/validation/PRESERVATION_FINAL.json",
+      "sha256": "9f653b64150c0568e9b030e5b78080d6341ad813834e7b43baa31d81faf6f7a5"
+    },
+    {
+      "bytes": 4457,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/measurement_channel_expansion/validation/REBUILD_VALIDATION.json",
+      "sha256": "dd7a5a910fc2df50be207cd0f018dfab518e505b76319f407f48fdff98746786"
+    },
+    {
+      "bytes": 955,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/measurement_channel_expansion/validation/RESUME.json",
+      "sha256": "59caa6360bcd9717241df64ba96dda9499b987c962475af75cbec8c298c33f8e"
+    },
+    {
+      "bytes": 177,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/measurement_channel_expansion/validation/STORAGE_PREFLIGHT.json",
+      "sha256": "a69776ac59aea59939a7ea322bc96cb551b79a46abdd0fd7fa7d784f74f81f05"
+    },
+    {
+      "bytes": 24923,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/measurement_channel_expansion/validation/SUMMARY.json",
+      "sha256": "2cd06a6cebef4ac334cbda9bcc2e338eb124aa8f42a0243eeddce8772a3323f9"
+    },
+    {
+      "bytes": 1855,
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/measurement_channel_expansion/verification_run.py",
+      "sha256": "0c66d803299f50ede6c13d96e87ef8d8b84f205dbaee73803651e440caaf40ce"
+    }
+  ],
+  "pushed_or_merged": false,
+  "runtime": {
+    "host": "hestia",
+    "platform": "Linux-6.12.0-211.49.1.el10_2.x86_64-x86_64-with-glibc2.39",
+    "python": "3.12.14"
+  },
+  "scope": "Database/retrieval only; physical safety not established",
+  "self_checksum": "ARTIFACT_MANIFEST.sha256; manifest excludes itself/checksum to avoid recursion",
+  "source_manifest_references": [
+    "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/variant_aware_expansion/ARTIFACT_MANIFEST.json",
+    "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/variant_aware_expansion/RESTORED_SOURCE_MANIFEST.csv",
+    "/disk/1/data/niktakbr/trustworthy-phase5g-working/INVENTORY_SUMMARY.json",
+    "/disk/1/data/niktakbr/trustworthy-phase5g-working/INVENTORY_SUPPLEMENT.json"
+  ],
+  "version": "phase5g-channel-1.0.0"
+}

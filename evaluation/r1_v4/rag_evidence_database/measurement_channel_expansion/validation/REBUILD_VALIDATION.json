@@ -1,0 +1,134 @@
+{
+  "independent_preservation": {
+    "baseline_database_sha256": "a0f9347db719902f275d0f3e89f0682f093d5ded858ab7c2823067930337baa9",
+    "passed": true,
+    "preserved_evidence_records": 80786,
+    "tables": {
+      "evidence": {
+        "identical": true,
+        "rows": 80786,
+        "sha256": "b73ec2bef3ee3447cf2a24adedfa74b5c63f71780b1f4b04683de23ddb55303e"
+      },
+      "rag_builds": {
+        "identical": true,
+        "rows": 5,
+        "sha256": "3cb61e677c4ede5d08105990633248d207df63f1da19cadd2f5a83baabcf13a6"
+      },
+      "rag_catalog": {
+        "identical": true,
+        "rows": 2000,
+        "sha256": "5bb3e6030be683e095e7c73b2ea9cd6114de1e77effb39ed02b18bcc243199f4"
+      },
+      "rag_catalog_fts": {
+        "identical": true,
+        "rows": 2000,
+        "sha256": "6b1cabf2fad9e24fe59eec3f0e08a4a0fd05987b797f8044ef7b0a3e5aa0ecc8"
+      },
+      "rag_catalog_fts_config": {
+        "identical": true,
+        "rows": 1,
+        "sha256": "1b46aa17993c72cbbcac958b9ad84a9ec19d6a5c50c2de596afd6a5d7f9ee94d"
+      },
+      "rag_catalog_fts_content": {
+        "identical": true,
+        "rows": 2000,
+        "sha256": "742b36ad079eaff7532b7257f962c030367f46e7beda31117affd369869445ba"
+      },
+      "rag_catalog_fts_data": {
+        "identical": true,
+        "rows": 28,
+        "sha256": "9d69546a3acf13c178ec261de741d57b3f11d2b0b20dfb42330bbb30c1814985"
+      },
+      "rag_catalog_fts_docsize": {
+        "identical": true,
+        "rows": 2000,
+        "sha256": "5e6dd4f34ebeba7218366fbebf4549b4c6df3b45948091960e7b70ad3e7c9958"
+      },
+      "rag_catalog_fts_idx": {
+        "identical": true,
+        "rows": 21,
+        "sha256": "674c7752820a004f38987ba1d095cbfd80fc4a4b7a44fed1007bc2484767e311"
+      },
+      "rag_env_variants": {
+        "identical": true,
+        "rows": 104,
+        "sha256": "ec88e16602c61a9c8efa4bc27f7469b8200ba3969381df3faeb77400f51660dc"
+      },
+      "rag_execution_env": {
+        "identical": true,
+        "rows": 432,
+        "sha256": "15407f38a0b7c8f5755b6864b0c03ce282f5b0013feae9c30665afd0980b0fcf"
+      },
+      "rag_failures": {
+        "identical": true,
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "rag_fts": {
+        "identical": true,
+        "rows": 80786,
+        "sha256": "63931644956abc2e9badbdf0233e50d763a03055cce4804893f626d40883b483"
+      },
+      "rag_fts_config": {
+        "identical": true,
+        "rows": 1,
+        "sha256": "1b46aa17993c72cbbcac958b9ad84a9ec19d6a5c50c2de596afd6a5d7f9ee94d"
+      },
+      "rag_fts_content": {
+        "identical": true,
+        "rows": 80786,
+        "sha256": "7364dcf862eb9e53fedf281ed6f3742a454f6a2ba193aa2172ec69d741719172"
+      },
+      "rag_fts_data": {
+        "identical": true,
+        "rows": 5181,
+        "sha256": "40d73ae8f3fe8d0981e6fb4c2119705b6ed95d3278dd3018d44b0dbc46b21340"
+      },
+      "rag_fts_docsize": {
+        "identical": true,
+        "rows": 80786,
+        "sha256": "92ffda32adcc347e58b87bec74a366552d0c306b65b57a18339ca8de3800cb25"
+      },
+      "rag_fts_idx": {
+        "identical": true,
+        "rows": 2121,
+        "sha256": "980a3aa000f66b6e084ae0bb6c989001dcdc05410be80dd65e3b4df9f977b18f"
+      },
+      "rag_jobs": {
+        "identical": true,
+        "rows": 432,
+        "sha256": "f977aba81d3a7b3c01b1a055ea5a7f88de8ecc898f939f505e437b3482ce4df7"
+      },
+      "rag_migrations": {
+        "identical": true,
+        "rows": 2,
+        "sha256": "195c1cbd92f1997d26d8c5651150aad656ffe45bd25cd1b9f3dc1648c9915edc"
+      },
+      "rag_scope_status": {
+        "identical": true,
+        "rows": 2000,
+        "sha256": "ad188680d02fed645d7325d5877e0f91e457b80022439744a1d50487970c44d1"
+      },
+      "rag_units": {
+        "identical": true,
+        "rows": 80786,
+        "sha256": "79c677386cb4d87838abe8767e62cc6fddede5f9dc3977487dcf49bdaff9d143"
+      },
+      "rag_variant_builds": {
+        "identical": true,
+        "rows": 1,
+        "sha256": "bf8af6730a465a8107f64799060de6e30d89e842130d68ee380abe102a7a57b0"
+      },
+      "rag_variant_schema": {
+        "identical": true,
+        "rows": 1,
+        "sha256": "97fcde2d0db9bb4f7083b759aeeed951349a360f401355341c1e46e097739020"
+      }
+    }
+  },
+  "independent_records": 2592,
+  "logical_digest": "71ce910b45a3b9e0b173eb2cec5daa1b921bdd2cabbdf46a39bad37ed4903c6e",
+  "passed": true,
+  "resume_inserted": 0,
+  "resume_skipped": 432
+}

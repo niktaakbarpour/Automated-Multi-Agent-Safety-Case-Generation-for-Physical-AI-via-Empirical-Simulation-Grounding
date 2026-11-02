@@ -1,0 +1,36 @@
+import json,collections,csv,hashlib,shutil,subprocess,os
+from pathlib import Path
+ROOT=Path('/disk/1/data/niktakbr/trustworthy-phase5g-working');HERE=Path('/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/measurement_channel_expansion')
+files=sorted((ROOT/'inventory').glob('*.json'));assert len(files)==432
+rows=[json.load(p.open()) for p in files];assert sum(len(r['frames']) for r in rows)==58075
+selected={k:('/frames/{index}/'+v) for k,v in {'raw.robot0_gripper_qpos':'raw_observation/robot0_gripper_qpos/value','raw.robot0_gripper_qvel':'raw_observation/robot0_gripper_qvel/value','raw.robot0_joint_pos':'raw_observation/robot0_joint_pos/value','raw.robot0_joint_vel':'raw_observation/robot0_joint_vel/value','raw.simulator_actuator_force':'simulator/actuator_force/value','simulator.ncon':'simulator/ncon/value'}.items()}
+def category(k):
+ if k in selected.values():return 'present_raw_not_extracted; selected'
+ if '/simulator/' in k and any('/'+x+'/' in k for x in ('body_xpos','body_xquat','geom_xpos','geom_xmat','qpos','qvel','ctrl','time')):return 'already_indexed_family_reference'
+ if '/simulator/contacts/' in k:return 'already_indexed_contact_reference'
+ if '/raw_observation/' in k and any('/'+x+'/' in k for x in ('agentview_image','robot0_eye_in_hand_image')):return 'already_indexed_camera_reference'
+ if '/raw_observation/' in k:return 'recorded_unextracted_unverified_physical_semantics'
+ if any(x in k for x in ('rng','processed_inputs','preprocessing','flattened','prepared_observation')):return 'recorded_requires_additional_decoding_or_interpretation'
+ return 'recorded_not_independently_searchable'
+agg={};matrix=[]
+for r in rows:
+ for k,v in r['datasets'].items():
+  a=agg.setdefault('hdf5:'+k,dict(kind='dataset',path=k,examples=set(),tasks=set(),variants=set(),executions=set(),dtype_shapes=collections.Counter(),samples=0,category=category(k)));a['examples'].add(r['source_path']+'#'+v['example']);a['tasks'].add(r['task_id']);a['variants'].add(r['variant_id']);a['executions'].add(r['execution_id']);a['dtype_shapes'].update(v['dtype_shapes']);a['samples']+=v['count']
+  matrix.append([r['execution_id'],r['task_id'],r['variant_id'],'hdf5:'+k,r['source_path'],r['source_sha256'],v['example'],v['count'],len(r['frames']) if '/frames/' in k else '',json.dumps(v['dtype_shapes'],sort_keys=True),category(k)])
+ for k,v in r['attributes'].items():
+  a=agg.setdefault('hdf5:'+k,dict(kind='attribute',path=k,examples=set(),tasks=set(),variants=set(),executions=set(),dtype_shapes=collections.Counter(),samples=0,category='saved_in_source_not_independently_searchable'));a['examples'].add(r['source_path']+'#'+v['example']);a['tasks'].add(r['task_id']);a['variants'].add(r['variant_id']);a['executions'].add(r['execution_id']);a['dtype_shapes'].update(v['types']);a['samples']+=v['count']
+ for f in r['files']:
+  k='artifact:'+Path(f['path']).name;a=agg.setdefault(k,dict(kind='artifact',path=Path(f['path']).name,examples=set(),tasks=set(),variants=set(),executions=set(),dtype_shapes=collections.Counter(),samples=0,category='metadata_document_or_recorded_artifact_not_per_field_indexed'));a['examples'].add(f['path']);a['tasks'].add(r['task_id']);a['variants'].add(r['variant_id']);a['executions'].add(r['execution_id']);a['samples']+=1
+with (HERE/'CHANNEL_INVENTORY.csv').open('x') as f:
+ w=csv.writer(f);w.writerow(['canonical_channel_id','source_format','source_dataset_or_key','example_source_path_and_selector','dtype_shapes','sampling_or_event_frequency','units','coordinate_frame','object_association','task_ids','variant_ids','executions_present','executions_missing','source_occurrences','existing_index_representation','extraction_feasibility','validation_requirements','known_uncertainties'])
+ for k,a in sorted(agg.items()):
+  spatial=any('/'+x+'/' in a['path'] for x in ('body_xpos','body_xquat','geom_xpos','geom_xmat'));count=a['path']==selected['simulator.ncon']
+  w.writerow([k,'HDF5' if k.startswith('hdf5:') else Path(a['path']).suffix,a['path'],sorted(a['examples'])[0],json.dumps(a['dtype_shapes'],sort_keys=True),'per saved snapshot, actual frequency unverified' if '/frames/' in a['path'] else 'recorded events or artifact; no uniform frequency assumption','count' if count else 'existing Phase5F metric/quaternion contract' if spatial else 'unverified/not_applicable','MuJoCo_world (existing contract; cache phase unresolved)' if spatial else 'not_applicable_count' if count else 'unverified/not_applicable','exact existing body/geom mapping required' if spatial else 'source field only; no inferred component binding',';'.join(sorted(a['tasks'])),';'.join(sorted(a['variants'])),len(a['executions']),432-len(a['executions']),a['samples'],a['category'],'identity decode after contract; no arbitrary array interpretation','source hash, exact key, shape/type, sample scope, semantics before physical use','Physical time/cache alignment and raw observable units/frame remain unverified'])
+with (HERE/'CHANNEL_COVERAGE_MATRIX.csv').open('x') as f:
+ w=csv.writer(f);w.writerow(['execution_id','task_id','variant_id','channel_id','source_path','source_sha256','example_dataset','recorded_occurrences','saved_frames_denominator','dtype_shape_counts','phase5f_representation']);w.writerows(matrix)
+summary=dict(executions=432,saved_frames=sum(len(r['frames']) for r in rows),dataset_channel_ids=sum(a['kind']=='dataset' for a in agg.values()),attribute_channel_ids=sum(a['kind']=='attribute' for a in agg.values()),artifact_families=sum(a['kind']=='artifact' for a in agg.values()),coverage_rows=len(matrix),categories=dict(collections.Counter(a['category'] for a in agg.values())),selected={k:dict(executions=sum(v in r['datasets'] for r in rows),recorded_samples=sum(r['datasets'].get(v,{}).get('count',0) for r in rows)) for k,v in selected.items()},unrecorded_candidates={'camera_exposure_timestamp':'No dedicated exposure timestamp dataset in 432 HDF5 trees; wall/monotonic snapshot attrs are not exposure timestamps','direct_per_contact_force':'No per-contact force dataset in 432 HDF5 trees; actuator_force is distinct','physical_support_truth':'Not a recorded measurement channel'},inventory_files=[dict(path=str(p),sha256=hashlib.sha256(p.read_bytes()).hexdigest(),bytes=p.stat().st_size) for p in files])
+with (ROOT/'INVENTORY_SUMMARY.json').open('x') as f:json.dump(summary,f,sort_keys=True,indent=2)
+# Selection is frozen only after the complete inventory, before extraction code is installed/run.
+selection=dict(version='phase5g-channel-1.0.0',baseline_commit='c24795ed9383110243288db520e5f98af484b4ad',baseline_sha256='a0f9347db719902f275d0f3e89f0682f093d5ded858ab7c2823067930337baa9',inventory_sha256=hashlib.sha256((ROOT/'INVENTORY_SUMMARY.json').read_bytes()).hexdigest(),channels=summary['selected'],source_patterns=selected,decision='Six direct recorded channels. Four robot raw observation vectors, raw actuator force array, and simulator contact entry count. No new spatial interpretation, derived channels or new execution profiles.',frozen_before_extraction=True)
+with (HERE/'CHANNEL_SELECTION.json').open('x') as f:json.dump(selection,f,sort_keys=True,indent=2)
+print({k:v for k,v in summary.items() if k!='inventory_files'},flush=True)

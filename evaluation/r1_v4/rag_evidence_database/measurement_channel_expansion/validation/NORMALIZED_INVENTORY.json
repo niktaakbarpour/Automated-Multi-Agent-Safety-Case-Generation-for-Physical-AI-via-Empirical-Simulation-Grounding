@@ -1,0 +1,11 @@
+{
+  "channel_keys": 2814,
+  "execution_keys": 432,
+  "full_external_matrix_path": "/disk/1/data/niktakbr/trustworthy-phase5g-working/FULL_CHANNEL_COVERAGE_MATRIX.csv",
+  "full_external_matrix_sha256": "aac54c36a06490fe68d6c3bd4d02ea12daf50bcf3690776dacc976929132ee97",
+  "join": "CHANNEL_COVERAGE_MATRIX channel_key -> CHANNEL_INVENTORY; source_key -> EXECUTION_SOURCE_BINDINGS; value_profile_key -> VALUE_PROFILES.json. Exact paths/task/variant/hash retained once per source. Full original expanded matrix retained externally.",
+  "matrix_rows": 816800,
+  "normalized_matrix_sha256": "fa2ff845bcfdd5335c9f5f1e5b57b8b45c508b1ec9945a538014795e2fb7feed",
+  "source_bindings": 3456,
+  "value_profiles": 3742
+}
