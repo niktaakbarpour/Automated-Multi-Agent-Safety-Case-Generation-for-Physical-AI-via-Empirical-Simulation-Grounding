@@ -1,0 +1,1 @@
+{"admitted":147,"baseline_variants":6,"logical_fixture_alias_missing":"main_table","new_variants":98,"physical_admission_enabled":false,"rejected":0,"tasks":{"goal/task_07":{"executions":49,"frames":4121,"variants":49},"goal/task_08":{"executions":49,"frames":4458,"variants":49},"spatial/task_00":{"executions":49,"frames":4339,"variants":49}},"unresolved_remaining_payloads":1470}
