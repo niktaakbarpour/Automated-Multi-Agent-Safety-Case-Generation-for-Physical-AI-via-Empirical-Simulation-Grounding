@@ -1,0 +1,14 @@
+# Hestia only. Choose a previously unused operator replay label.
+cd /disk/1/data/niktakbr/trustworthy-phase16
+export PATH=/usr/sbin:/usr/bin:/sbin:/bin
+export PYTHONDONTWRITEBYTECODE=1
+export PYTHONPATH=/disk/1/data/niktakbr/trustworthy-phase16:/disk/0/home/niktakbr/groot-n17-libero-gpu0-queue/.venv/lib/python3.12/site-packages:/usr/local/lib/python3.12/site-packages:/usr/lib64/python3.12/site-packages:/usr/lib/python3.12/site-packages
+export HF_HOME=/disk/1/data/niktakbr/trustworthy-phase5k1-working/hf-cache
+export XDG_CACHE_HOME=/disk/1/data/niktakbr/trustworthy-phase5k1-working/cache
+python3 -S -m evaluation.r1_v4.rag_evidence_database.obligation_preservation.validate_references
+python3 -S -m evaluation.r1_v4.rag_evidence_database.obligation_preservation.evaluate --dataset /disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/obligation_preservation/FROZEN_EVALUATION_DATASET.jsonl --run operator_independent_replay
+python3 -S -c "from evaluation.r1_v4.rag_evidence_database.obligation_preservation.metrics import run; run('final_v2')"
+python3 -S -m evaluation.r1_v4.rag_evidence_database.obligation_preservation.preservation
+python3 -S -m unittest discover -s /disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/obligation_preservation/tests
+# Fresh/full/partial record: REPLAY_RESULTS.json; canonical digest must match.
+# Do not regenerate frozen datasets/configurations or overwrite historical runs.

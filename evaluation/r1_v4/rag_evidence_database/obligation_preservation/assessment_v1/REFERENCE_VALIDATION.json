@@ -1,0 +1,19 @@
+{
+  "categories": {
+    "boundary": 24,
+    "conjunction": 24,
+    "contracts": 24,
+    "direct": 24,
+    "provenance_geometry": 24,
+    "temporal": 24
+  },
+  "critical": 37,
+  "formulations": 144,
+  "full_expected": 103,
+  "hashed_artifacts": 90,
+  "mandatory_obligations": 920,
+  "partial_expected": 4,
+  "passed": true,
+  "questions": 144,
+  "source_sample_comparisons": 151
+}

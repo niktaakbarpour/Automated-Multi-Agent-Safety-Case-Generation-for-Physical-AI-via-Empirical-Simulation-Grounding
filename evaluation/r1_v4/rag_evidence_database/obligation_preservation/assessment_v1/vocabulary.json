@@ -1,0 +1,6 @@
+{
+ "basis":"Retrospective query vocabulary grounded in six Phase5G fields and Phase5H components/units. These aliases interpret requests, never rename source observations.",
+ "entities":{"arm":["joint","joints","arm","revolute","articulation","articulations"],"finger":["finger","fingers","gripper","claw"]},
+ "properties":{"position":["position","positions","configuration","configurations","angle","angles","posture","displacement","displacements","qpos","aperture","opening","separation","gap"],"velocity":["velocity","velocities","speed","speeds","rate","rates","qvel"],"state":["state","states"]},
+ "auxiliary":["motor","motors","actuator","actuators","output","outputs","effort","force","torque","count","entries","contacts"]
+}

@@ -1,0 +1,53 @@
+{
+  "Phase5H physical/source contracts": {
+    "artifacts": [
+      {
+        "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/physical_semantics_alignment/MEASUREMENT_SEMANTICS_AUDIT.md",
+        "sha256": "b4739c560b6af3155f410edc3517945cf487833df3e51476d09beb5e0911dd35"
+      },
+      {
+        "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/physical_semantics_alignment/SEMANTIC_CONTRACTS.csv",
+        "sha256": "794f0c737fdf69f96738ef34336c1ee2783df3b2148497a69d66a3edcb51885a"
+      },
+      {
+        "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/physical_semantics_alignment/SOURCE_INTEGRITY_POLICY.md",
+        "sha256": "9dbcacbfbafe648dbf42f7f87870cf85bcfae8f4d7409873800517065ddcb14c"
+      },
+      {
+        "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/physical_semantics_alignment/TEMPORAL_ALIGNMENT.md",
+        "sha256": "1fb2088570b6c5029a090c485a347167089b57f2633e95669b51210ca918108a"
+      }
+    ],
+    "attestation": "Retrospectively verified contract/release bytes; not historical producer attestation"
+  },
+  "Phase5I provenance/clock contracts": {
+    "artifacts": [
+      {
+        "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/source_reproducibility/PROVENANCE_MODEL.md",
+        "sha256": "dcbc590d9ca5d7961eae6835fb4de065f2e6e7961f1a4bc9a59820b27da36786"
+      },
+      {
+        "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/source_reproducibility/CLOCK_DOMAIN_REGISTRY.csv",
+        "sha256": "624214957555429cc0ded5f1c146b2e8287f26e18b7c78e5e8c259858d48daa8"
+      },
+      {
+        "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/source_reproducibility/RELEASE_VERIFICATION.md",
+        "sha256": "71829085a6198dcbf4f2e873b0e1a39c98a18c33625eb4c029596b2d82028219"
+      }
+    ],
+    "attestation": "Retrospectively verified contract/release bytes; not historical producer attestation"
+  },
+  "query-obligation-2.1.0": {
+    "artifacts": [
+      {
+        "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/obligation_preservation/OBLIGATION_SCHEMA.md",
+        "sha256": "89959d8efce2ecb66ecbccc4099e7c516ad510d4e2407bb1727494921f198eae"
+      },
+      {
+        "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/obligation_preservation/COMPLETENESS_CONTRACT.md",
+        "sha256": "83a45e283ce535a92bee47b0776e8d91d9457ee6f546e31c3156492a650ce915"
+      }
+    ],
+    "attestation": "Retrospectively verified contract/release bytes; not historical producer attestation"
+  }
+}

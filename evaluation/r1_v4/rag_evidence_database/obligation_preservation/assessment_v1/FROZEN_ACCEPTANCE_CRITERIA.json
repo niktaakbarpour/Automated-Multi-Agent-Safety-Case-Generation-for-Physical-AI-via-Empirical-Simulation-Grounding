@@ -1,0 +1,35 @@
+{
+  "created_utc": "2026-11-03T21:16:57.466694+00:00",
+  "dataset_plan": {
+    "distinct_authored_formulations": 144,
+    "executions": 24,
+    "questions": 144,
+    "suites": 4
+  },
+  "decision": "A only if all gates and preservation pass; B for obligation/coverage/ranking failures with core integrity intact; C for foundational integrity/source/scope failure",
+  "denominators": {
+    "critical": "Requests pre-labelled no-evidence/strict-abstention; PARTIAL operands are not critical",
+    "exact_set": "All authored type/target signatures including mandatory typed scopes; independent original-source inventory",
+    "false_complete": "Any COMPLETE where any authored obligation absent, expected noncomplete, required family missing or source/scope invalid; all cases including critical",
+    "historical": "Exposed K/J cases are regression only, never independent linguistic evidence",
+    "obligation": "Every authored mandatory obligation in all final cases; unresolved obligations count if explicitly retained with their identity, not deleted",
+    "precision": "Macro per-case precision; additional unresolved guard requirements count as extra predictions",
+    "ranking": "Cases with supported requested evidence, including explicitly permitted PARTIAL raw evidence; critical abstention cases excluded a priori"
+  },
+  "exclusions": "No post-result question, label or difficulty exclusions; no reserved/preflight/candidate payloads",
+  "implementation_sha256": "967fb2b321421d0ba4cd36b2296194c7ad8c55e977ce80a78ae01b20bd87c985",
+  "targets": {
+    "critical_abstention_rate": 1.0,
+    "exact_obligation_set_match": 0.95,
+    "false_assurance_count": 0,
+    "false_complete_count": 0,
+    "mandatory_obligation_recall": 1.0,
+    "obligation_precision": 0.95,
+    "paired_legacy_ranking_tolerance": 0.02,
+    "phase5k_historical_ranking_tolerance": 0.02,
+    "precision_at_1": 0.9,
+    "recall_at_20": 0.95,
+    "scope_or_value_error_count": 0
+  },
+  "uncertainty": "Descriptive Wilson intervals; authored deterministic sample is not a random linguistic population"
+}
