@@ -77,13 +77,15 @@ Conditional cache queries require an explicit channel to use typed property filt
 All uncertainty labels and contract-status errors are retained per case. Explicit wrong-execution denial appears in the development challenge subset; final tests exercise wrong task, variant, source and temporal scopes plus cross-execution attribution. This is a final-suite coverage limitation, not a claim of final unknown-ID replication.''')
  write('ADVERSARIAL_TEST_RESULTS.md',f'''# Adversarial robustness
 
-{len(fault)} final case-mode fault instances cover missing, corrupted, replaced, symlinked and instruction-bearing scratch source data. Original canonical files are hash-checked before/after injection and never modified. The unchanged Phase 5I target is called with a documented I/O fault adapter below retrieval logic; this is not a modified ranking algorithm or a compromised-release experiment.
+{len(fault)} final case-mode fault instances cover missing, corrupted, symlinked and instruction-bearing scratch source data. The development probe labelled replace uses different scratch bytes rather than an atomic rename; do not count it as a separate atomic-replacement experiment. Actual atomic replacement and stale-cache behaviors are covered by the re-run inherited Phase 5H/I regression suite. Original canonical files are hash-checked before/after injection and never modified. The unchanged Phase 5I target is called with a documented I/O fault adapter below retrieval logic; this is not a modified ranking algorithm or a compromised-release experiment.
 
 Semantic, lexical and exact modes also test wrong task/variant/source, wrong units, impossible/reversed time windows, ambiguous names, unsupported assurance levels, calibration/world-frame requests and conditional timing. Detailed failures and empty-result reasons remain in RETRIEVAL_RESULTS.jsonl.
 
 Component probes: `{json.dumps(component['rows'],sort_keys=True)}`.
 
 The legacy hash-matching XML symlink acceptance is a measured contract-policy difference. Strict Phase 5I rejects the same alias. The probe uses a verified-binding fixture and does not establish an end-to-end ability to forge a trusted release. It is nevertheless a blocker to promising a uniform descriptor-bound integrity policy across the legacy and modern interfaces.
+
+Coverage qualification: the new final fault cases test four fault classes across seven questions / three modes; replacement-specific fault simulation is limited as described above.
 
 Instruction-note injection changes scratch HDF5 bytes and is rejected by hash verification. No source text is executed as harness instructions. This is an integrity/instruction-boundary probe, not an LLM prompt-injection resistance benchmark; no downstream model exists in scope.''')
  audit=load('PRODUCER_DISCREPANCY.json')
