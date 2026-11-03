@@ -1,0 +1,17 @@
+# Predeclared narrow-fact rubric
+
+No weighted overall score, safety outcome, R1 decision or production classifier is introduced. This evaluator is an external mechanical checklist. Sufficient means enough evidence to determine the requested narrow fact, including evidence that contradicts a proposed number; it does not mean the proposed assertion is true.
+
+Relevance is frozen source-ID membership, independently enumerated from index links after source inspection. Precision@1, Recall@5/20 and MRR apply only where relevant evidence exists and explicit abstention is not required. Recall denominators include the entire relevant set, including multiple required channels. Coverage additionally checks every required facet, exact source samples and provenance. One relevant hit is not a complete multi-source answer.
+
+Completeness requires all specified source families and requested samples. Original action metadata requires original control/action values and policy-entry attribution; frame/action/chunk association summaries receive partial descriptive credit but do not replace original records. Inference metadata requires recorded call/input information and attribution; a summary frame identifier alone does not satisfy that checklist. Host clock labels, calibrated sensor clocks, contact-pair force information, and physical support are distinct facets. No generic array receives an invented interpretation.
+
+A verified execution-metadata document reference can be conditionally sufficient for a recorded version/checkpoint declaration after explicit field inspection; the retriever is not credited with producing that answer.
+
+Credibility requires the declared source assurance and no source/scope errors. Conditional cache interpretation can be conditionally sufficient only if explicitly requested with conditional opt-in and returned with a CONDITIONAL label. Unknown units/frames, unsupported transformations, historical attestation and missing/corrupt sources must fail closed under explicit typed requests. Raw measurements returned for an untyped unsupported interpretation are not counted as acceptance of that interpretation when limitations and non-safety flags remain intact.
+
+Categories: SUFFICIENT (complete verified narrow evidence); CONDITIONALLY_SUFFICIENT (complete with explicit documented assumptions); INSUFFICIENT (relevant/accessible evidence lacks required facets); UNAVAILABLE (no accessible results under the contract); AMBIGUOUS (scope cannot identify the demanded fact); INVALID (explicit request violates a contract). Genuine API abstention means zero returned records, separately from this rubric's decision. Unavailable/invalid requests with typed constraints are scored for correct abstention. Incorrect abstention is reported only for authored sufficient/conditional reference cases.
+
+All returned execution/task/variant/object scopes and sample windows are checked. Numeric comparisons require exact identity for original float64/integer samples; no empirical tolerance is fitted. Proposed false values differ by a fixed 1 and are evaluated outside the retriever. Physical-safety sufficiency is NOT_EVALUATED throughout.
+
+Canonical replay compares case/mode IDs, fields, values, ordering, statuses and rubric outputs. It excludes only scratch-file diagnostic SHA256 (HDF5 metadata may change during fault creation); scratch paths and runtime/cache counters are never substantive output. Actual fault hashes remain in each run's diagnostics. No source text is executed or interpreted as evaluation instructions.

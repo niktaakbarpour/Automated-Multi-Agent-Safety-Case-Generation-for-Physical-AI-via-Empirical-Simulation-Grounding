@@ -1,0 +1,1186 @@
+{
+  "database_sha256": "f6dbea047ad16c5420c34ff002e068e4ade41ab52806c936816aaf7019f303c8",
+  "method": "Source link and ID audit against frozen registry, not a factual answer oracle. Numeric/geometry facts remain independent original-source references.",
+  "rows": {
+    "channel:016a006ecabfa51c65a389e39e85ff3f4f591cf41b88bb2211ffcfedff5ce5c6": {
+      "execution_id": "libero_goal_openvla_oft_task08_seed1013_trial013_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5f-evidence/goal/task_08/episode_013/trajectory.h5",
+      "source_sha256": "7bdbaf0f254f876fc3d8c0b8328ceaa483ab091b2d6b9fab18d002682ee4f9d0",
+      "task_id": "6da51604f02b12a90682",
+      "variant_id": "xmlenv:d9058084f09b432d4b456bf9952c44874178d4fcb7057dedefb7d790144647c5"
+    },
+    "channel:0263c7d6303099d958f6ff806e5efefe909f84622cafab1eca1fe619ac762350": {
+      "execution_id": "libero_long_openvla_oft_task00_seed1022_trial022_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5c-development-evidence/long/task_00/episode_022/trajectory.h5",
+      "source_sha256": "ad2c9d1cb5c5649f62c7f87fccb46468852c6819bc510290e59f8afb64736393",
+      "task_id": "2448c758145ae5ad500f",
+      "variant_id": "xmlenv:574b783c023e533eb3a5c8e92557aa0a940aa5ff6cfbe794f5614e9fd321148e"
+    },
+    "channel:02fad975ad0e62d275548e6f6f286f74aed356ff94f52ce2c10411f6baa6a6f5": {
+      "execution_id": "libero_spatial_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5f-evidence/spatial/task_00/episode_014/trajectory.h5",
+      "source_sha256": "cb6fac60482a8eadce9428ee1b689467a462b09be0a1ae23a1021963705d82e0",
+      "task_id": "2a5acddf5a0e33b0d470",
+      "variant_id": "xmlenv:f77ec80952500aba4a1b2b17fcdf0ea1deff0274eddfa75edff61569b5e0eed1"
+    },
+    "channel:0331db2600580c1f0abcc54dbb2cb187fd5deb17a3fae4edad024db9d3ad27ee": {
+      "execution_id": "libero_long_openvla_oft_task00_seed1022_trial022_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5c-development-evidence/long/task_00/episode_022/trajectory.h5",
+      "source_sha256": "ad2c9d1cb5c5649f62c7f87fccb46468852c6819bc510290e59f8afb64736393",
+      "task_id": "2448c758145ae5ad500f",
+      "variant_id": "xmlenv:574b783c023e533eb3a5c8e92557aa0a940aa5ff6cfbe794f5614e9fd321148e"
+    },
+    "channel:03d7857d6734d766c7aedf5972d46cc1d13d6e17f0bab25b43ce5d4e7e7cbb59": {
+      "execution_id": "libero_spatial_openvla_oft_task00_seed1010_trial010_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5f-evidence/spatial/task_00/episode_010/trajectory.h5",
+      "source_sha256": "8108031ebcb77a1c9518b1ceb54c010865445883d25cf3f2f8c054e5a96ad2cd",
+      "task_id": "2a5acddf5a0e33b0d470",
+      "variant_id": "xmlenv:a38f99ede107450b95813f2c045205d97954d9aad18c940f2fd47bc6302b4632"
+    },
+    "channel:05523d6cb7f070244301fe6876e459df4d16802461949edf4a1c64bde555fbea": {
+      "execution_id": "libero_spatial_openvla_oft_task00_seed1031_trial031_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5f-evidence/spatial/task_00/episode_031/trajectory.h5",
+      "source_sha256": "320533e0b8111b2fdcd94c0a7c230ca64669a6723ed27e9027e91404dba54589",
+      "task_id": "2a5acddf5a0e33b0d470",
+      "variant_id": "xmlenv:a1ca08063451f8f3b1f9111fe04e3ba7712c140f3780636e0d00797459542505"
+    },
+    "channel:0dddbe02cbae4b9fa3f0b8abee758c9bf61016d22b1340c35ff6bc545e398802": {
+      "execution_id": "libero_object_openvla_oft_task05_seed1049_trial049_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5e-evidence/object/task_05/episode_049/trajectory.h5",
+      "source_sha256": "6e4c56baa20927e2198b2fcf640367b590cbcb4e13cfe66e8e25548aa7a035bc",
+      "task_id": "4013b7c5a98750b7e80d",
+      "variant_id": "xmlenv:344d2d6cad5a53fe6363544d6f8bc6f1293f11312e3541b48496b3ac90c9307e"
+    },
+    "channel:11348371e62628d86eddfbf3c26a42ad2d216e40804a7190d146b8463915ed00": {
+      "execution_id": "libero_goal_openvla_oft_task07_seed1048_trial048_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5f-evidence/goal/task_07/episode_048/trajectory.h5",
+      "source_sha256": "7cccba341c725909a965419d1769fb384f401216686b87dea4835c7e762b0948",
+      "task_id": "1b921c8dfd61bb78bb84",
+      "variant_id": "xmlenv:6cbe6b38a759089c5b77677c8a6e0f5299657ecf6a12c2bb2d262a68a7624606"
+    },
+    "channel:1619884e4a6a146e8d91ee044e7d264e6cbe2b3db0f8f99c76e4902b65942497": {
+      "execution_id": "libero_spatial_openvla_oft_task00_seed1029_trial029_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5f-evidence/spatial/task_00/episode_029/trajectory.h5",
+      "source_sha256": "983920f0e2981a6f3cbaacf22ffb7dc0c1ef12110bd0da092b07a787d23c5264",
+      "task_id": "2a5acddf5a0e33b0d470",
+      "variant_id": "xmlenv:5594c193ed969328a4da769d7bff73d1b0999fefd3cbe3a1896b22b11e7b856a"
+    },
+    "channel:16243a55acf7d51e1cc869b6bc203f448da15ba989324cf8838dc104ca90315d": {
+      "execution_id": "libero_goal_openvla_oft_task08_seed1003_trial003_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5f-evidence/goal/task_08/episode_003/trajectory.h5",
+      "source_sha256": "9b2b30e3c8abd76aefa919fdb8d78a5394b52ef5b8657447e34b9590cf5b329c",
+      "task_id": "6da51604f02b12a90682",
+      "variant_id": "xmlenv:e523fcdb63fefb8952d9222788ec19b2ffffec589a344044e87d2c68169500df"
+    },
+    "channel:176e7b3be8fba0c9c99b7d88cce5003414a17ed146130943df4024a553f34b22": {
+      "execution_id": "libero_object_openvla_oft_task02_seed1021_trial021_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5d-object-task02/object/task_02/episode_021/trajectory.h5",
+      "source_sha256": "aa0953949c42ba6306c0acac266d51a5354a140f0a48a17c35eeaeecb158f033",
+      "task_id": "b12b2d70fe80d3547b1e",
+      "variant_id": "xmlenv:cb5148d6f133c5491152d5ece7813e0aceadb2eb7be61e40033b061c22c1705a"
+    },
+    "channel:1850d90c1c46e3978e85e8f5b24f0f527d2067b4e4913c09bfdd494cd1b1c936": {
+      "execution_id": "libero_long_openvla_oft_task00_seed1001_trial001_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase2b2-development-evidence/long/task_00/episode_001/trajectory.h5",
+      "source_sha256": "9db5ee8df1f1a47218325cb5cfa874d57973dcf4fe6914765f246acdeaba483a",
+      "task_id": "2448c758145ae5ad500f",
+      "variant_id": "xmlenv:574b783c023e533eb3a5c8e92557aa0a940aa5ff6cfbe794f5614e9fd321148e"
+    },
+    "channel:196f035d64c32af58aa56cf56c68a84e0b48e3cd72d2470e75928d5c5725d28a": {
+      "execution_id": "libero_long_openvla_oft_task00_seed1022_trial022_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5c-development-evidence/long/task_00/episode_022/trajectory.h5",
+      "source_sha256": "ad2c9d1cb5c5649f62c7f87fccb46468852c6819bc510290e59f8afb64736393",
+      "task_id": "2448c758145ae5ad500f",
+      "variant_id": "xmlenv:574b783c023e533eb3a5c8e92557aa0a940aa5ff6cfbe794f5614e9fd321148e"
+    },
+    "channel:19c58d2e4a8db96a7fa8b6ca8a3e40f1f642f8fb6a2440d1b179c39f077af6bc": {
+      "execution_id": "libero_object_openvla_oft_task01_seed1037_trial037_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5e-evidence/object/task_01/episode_037/trajectory.h5",
+      "source_sha256": "370255fb450499f39d6562eb32ce629d6e47c95b69372485b5fe9c0ef2d677ca",
+      "task_id": "7894e3922dc1e048d44c",
+      "variant_id": "xmlenv:9de5384760dd3e80f9c9885d48fbc1509613191f61669b676c18fa3564a84651"
+    },
+    "channel:19ce5fb0b36c4532e7b0d79f8d77b8002f0796f64213a9e5b130d5323b2a3942": {
+      "execution_id": "libero_spatial_openvla_oft_task00_seed1029_trial029_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5f-evidence/spatial/task_00/episode_029/trajectory.h5",
+      "source_sha256": "983920f0e2981a6f3cbaacf22ffb7dc0c1ef12110bd0da092b07a787d23c5264",
+      "task_id": "2a5acddf5a0e33b0d470",
+      "variant_id": "xmlenv:5594c193ed969328a4da769d7bff73d1b0999fefd3cbe3a1896b22b11e7b856a"
+    },
+    "channel:1b35c5a794e7c4e0d5206cfad940238ac8344fecac70229f7b782c61b239c39b": {
+      "execution_id": "libero_goal_openvla_oft_task08_seed1003_trial003_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5f-evidence/goal/task_08/episode_003/trajectory.h5",
+      "source_sha256": "9b2b30e3c8abd76aefa919fdb8d78a5394b52ef5b8657447e34b9590cf5b329c",
+      "task_id": "6da51604f02b12a90682",
+      "variant_id": "xmlenv:e523fcdb63fefb8952d9222788ec19b2ffffec589a344044e87d2c68169500df"
+    },
+    "channel:203a391fd231ca772328fee68d1b9b0be8356d5dd94efcbc7d0a83b87702a8ff": {
+      "execution_id": "libero_goal_openvla_oft_task08_seed1021_trial021_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5f-evidence/goal/task_08/episode_021/trajectory.h5",
+      "source_sha256": "d31e47395d644b06ab7740e869ace0d56b6ccfd68bdad941f6e932315da6d7c8",
+      "task_id": "6da51604f02b12a90682",
+      "variant_id": "xmlenv:eb87dc0e1442b029a602b31505731d4f52cad7955b41ddcd1b703f6dc02dd0a8"
+    },
+    "channel:237da28c11ec515b240568db8af4d5760b1243b30f4af3f8c1ebeed50cf02efc": {
+      "execution_id": "libero_long_openvla_oft_task00_seed1017_trial017_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5c-development-evidence/long/task_00/episode_017/trajectory.h5",
+      "source_sha256": "2b1686f9ad3c285d366d18f498f5870bdd50309828faeeb43638d6112c5a1661",
+      "task_id": "2448c758145ae5ad500f",
+      "variant_id": "xmlenv:574b783c023e533eb3a5c8e92557aa0a940aa5ff6cfbe794f5614e9fd321148e"
+    },
+    "channel:28ba0c87ae6b942a2040e8f825e74f1568a8428ca326af9c05a8106cc0114b8e": {
+      "execution_id": "libero_object_openvla_oft_task05_seed1049_trial049_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5e-evidence/object/task_05/episode_049/trajectory.h5",
+      "source_sha256": "6e4c56baa20927e2198b2fcf640367b590cbcb4e13cfe66e8e25548aa7a035bc",
+      "task_id": "4013b7c5a98750b7e80d",
+      "variant_id": "xmlenv:344d2d6cad5a53fe6363544d6f8bc6f1293f11312e3541b48496b3ac90c9307e"
+    },
+    "channel:2d25b1d580866b4cee4fabde2f566bf2f6762187e21c81084f63c4ff9efa6d4e": {
+      "execution_id": "libero_long_openvla_oft_task00_seed1001_trial001_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase2b2-development-evidence/long/task_00/episode_001/trajectory.h5",
+      "source_sha256": "9db5ee8df1f1a47218325cb5cfa874d57973dcf4fe6914765f246acdeaba483a",
+      "task_id": "2448c758145ae5ad500f",
+      "variant_id": "xmlenv:574b783c023e533eb3a5c8e92557aa0a940aa5ff6cfbe794f5614e9fd321148e"
+    },
+    "channel:2dc51a274546dfad7f67b2cc5a701b640c4a249925af292f31cf4933521b9011": {
+      "execution_id": "libero_goal_openvla_oft_task07_seed1023_trial023_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5f-evidence/goal/task_07/episode_023/trajectory.h5",
+      "source_sha256": "2ac6438dbdb6d637d9a5961cf733e594761e7cbaa9ae062e01f37b28d0e76d23",
+      "task_id": "1b921c8dfd61bb78bb84",
+      "variant_id": "xmlenv:e22d51c95f67d47341182b71095189ac84e0bc506d0571f9e81643923eb6cc0c"
+    },
+    "channel:2f4ccbfee9bfa57a27e7feb3ec45be0f0acc61ab9c5cfec14194534b9f922a49": {
+      "execution_id": "libero_object_openvla_oft_task03_seed1035_trial035_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5e-evidence/object/task_03/episode_035/trajectory.h5",
+      "source_sha256": "5de011c28ddd2d0fd4b98df0ef02bee7acfdaccba1427399a14c50f99e0759d5",
+      "task_id": "30c0f61d2d5786fae8b6",
+      "variant_id": "xmlenv:5393fb2c178d9246204c2a82e0375aae7a03e0a75f7f8649dc02a1d5ae8e8ebc"
+    },
+    "channel:32038a4f8e7a0837b655257c1b276d54606527887740cb6d1fff4f4a3b46587a": {
+      "execution_id": "libero_spatial_openvla_oft_task00_seed1031_trial031_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5f-evidence/spatial/task_00/episode_031/trajectory.h5",
+      "source_sha256": "320533e0b8111b2fdcd94c0a7c230ca64669a6723ed27e9027e91404dba54589",
+      "task_id": "2a5acddf5a0e33b0d470",
+      "variant_id": "xmlenv:a1ca08063451f8f3b1f9111fe04e3ba7712c140f3780636e0d00797459542505"
+    },
+    "channel:34413d2fe86b8091dc0a9853170c56a73c627b4f62e6cb814b8219282a9f54ac": {
+      "execution_id": "libero_goal_openvla_oft_task07_seed1048_trial048_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5f-evidence/goal/task_07/episode_048/trajectory.h5",
+      "source_sha256": "7cccba341c725909a965419d1769fb384f401216686b87dea4835c7e762b0948",
+      "task_id": "1b921c8dfd61bb78bb84",
+      "variant_id": "xmlenv:6cbe6b38a759089c5b77677c8a6e0f5299657ecf6a12c2bb2d262a68a7624606"
+    },
+    "channel:3654abf809ed9f3c31c3aea25210873a0830d68eee37c38e764aa0e3e1ff86fa": {
+      "execution_id": "libero_goal_openvla_oft_task08_seed1021_trial021_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5f-evidence/goal/task_08/episode_021/trajectory.h5",
+      "source_sha256": "d31e47395d644b06ab7740e869ace0d56b6ccfd68bdad941f6e932315da6d7c8",
+      "task_id": "6da51604f02b12a90682",
+      "variant_id": "xmlenv:eb87dc0e1442b029a602b31505731d4f52cad7955b41ddcd1b703f6dc02dd0a8"
+    },
+    "channel:3674728bdd0c9ab3a02659e9bf53005eeab50f75d0332321fa186d192547f8a5": {
+      "execution_id": "libero_long_openvla_oft_task00_seed1017_trial017_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5c-development-evidence/long/task_00/episode_017/trajectory.h5",
+      "source_sha256": "2b1686f9ad3c285d366d18f498f5870bdd50309828faeeb43638d6112c5a1661",
+      "task_id": "2448c758145ae5ad500f",
+      "variant_id": "xmlenv:574b783c023e533eb3a5c8e92557aa0a940aa5ff6cfbe794f5614e9fd321148e"
+    },
+    "channel:37c474156a550ab1e49b7eefb0e12f178960b0d1b3e37414afc358ea378fc20e": {
+      "execution_id": "libero_spatial_openvla_oft_task00_seed1031_trial031_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5f-evidence/spatial/task_00/episode_031/trajectory.h5",
+      "source_sha256": "320533e0b8111b2fdcd94c0a7c230ca64669a6723ed27e9027e91404dba54589",
+      "task_id": "2a5acddf5a0e33b0d470",
+      "variant_id": "xmlenv:a1ca08063451f8f3b1f9111fe04e3ba7712c140f3780636e0d00797459542505"
+    },
+    "channel:39129e11d84e196550189108145a2e86c704e4d88656ecb898776206f0cdd28e": {
+      "execution_id": "libero_object_openvla_oft_task09_seed1004_trial004_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5e-evidence/object/task_09/episode_004/trajectory.h5",
+      "source_sha256": "4f37ae2a11b38dc9f748e8b8d0bdadcc791116cd865b9192269c99ee35f1ec32",
+      "task_id": "18573886c3dbce39b02e",
+      "variant_id": "xmlenv:7f1f3ed2b3a92435366df297c638d12a41bcef38376f625038911a1c6ad0b0b4"
+    },
+    "channel:3b19f8a54946318b6a3189338c293e4fe94c7631240620655559911009c8f991": {
+      "execution_id": "libero_long_openvla_oft_task00_seed1001_trial001_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase2b2-development-evidence/long/task_00/episode_001/trajectory.h5",
+      "source_sha256": "9db5ee8df1f1a47218325cb5cfa874d57973dcf4fe6914765f246acdeaba483a",
+      "task_id": "2448c758145ae5ad500f",
+      "variant_id": "xmlenv:574b783c023e533eb3a5c8e92557aa0a940aa5ff6cfbe794f5614e9fd321148e"
+    },
+    "channel:3e5a566a147127781d8ce24f1c819b8e01b9ebfabb50e8aff0ff9d6d87505dc5": {
+      "execution_id": "libero_goal_openvla_oft_task08_seed1009_trial009_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5f-evidence/goal/task_08/episode_009/trajectory.h5",
+      "source_sha256": "4f22fcba3d48e62b2505c57b2643c20f69f0c5dee7197009cf4e7fb24fefb71e",
+      "task_id": "6da51604f02b12a90682",
+      "variant_id": "xmlenv:485346552c7016cfa145974454c09373fce6d4f54e8d82a675e6a17049e0f931"
+    },
+    "channel:3fac780cdc3f123b92cd53c44f4bac7b34d5bf52a66cc0c2951dbe6c09d2949a": {
+      "execution_id": "libero_object_openvla_oft_task01_seed1037_trial037_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5e-evidence/object/task_01/episode_037/trajectory.h5",
+      "source_sha256": "370255fb450499f39d6562eb32ce629d6e47c95b69372485b5fe9c0ef2d677ca",
+      "task_id": "7894e3922dc1e048d44c",
+      "variant_id": "xmlenv:9de5384760dd3e80f9c9885d48fbc1509613191f61669b676c18fa3564a84651"
+    },
+    "channel:403d26a27d6d83f380a464b54fc4ce25f6504dbe66552fe5d7c3d8572a5bad4f": {
+      "execution_id": "libero_spatial_openvla_oft_task00_seed1029_trial029_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5f-evidence/spatial/task_00/episode_029/trajectory.h5",
+      "source_sha256": "983920f0e2981a6f3cbaacf22ffb7dc0c1ef12110bd0da092b07a787d23c5264",
+      "task_id": "2a5acddf5a0e33b0d470",
+      "variant_id": "xmlenv:5594c193ed969328a4da769d7bff73d1b0999fefd3cbe3a1896b22b11e7b856a"
+    },
+    "channel:44c2ed900255f3f6a5fec16be11d61ea3485290e0ba71535564b4f10caada061": {
+      "execution_id": "libero_spatial_openvla_oft_task00_seed1010_trial010_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5f-evidence/spatial/task_00/episode_010/trajectory.h5",
+      "source_sha256": "8108031ebcb77a1c9518b1ceb54c010865445883d25cf3f2f8c054e5a96ad2cd",
+      "task_id": "2a5acddf5a0e33b0d470",
+      "variant_id": "xmlenv:a38f99ede107450b95813f2c045205d97954d9aad18c940f2fd47bc6302b4632"
+    },
+    "channel:45a442bfc0dbe17f5ca00a6ddde6b422506b5faa373965b2def2b97ad2e8f76c": {
+      "execution_id": "libero_long_openvla_oft_task00_seed1049_trial049_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5c-development-evidence/long/task_00/episode_049/trajectory.h5",
+      "source_sha256": "ba2065e9b15ee8de632315d24283358c469ab476b1e2bf6bd956529dcc55e7a8",
+      "task_id": "2448c758145ae5ad500f",
+      "variant_id": "xmlenv:574b783c023e533eb3a5c8e92557aa0a940aa5ff6cfbe794f5614e9fd321148e"
+    },
+    "channel:47bad8c1c721ad6f2c5f42c0e236b75c606d4b664d4cddacdcfb218001ee10cb": {
+      "execution_id": "libero_goal_openvla_oft_task08_seed1013_trial013_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5f-evidence/goal/task_08/episode_013/trajectory.h5",
+      "source_sha256": "7bdbaf0f254f876fc3d8c0b8328ceaa483ab091b2d6b9fab18d002682ee4f9d0",
+      "task_id": "6da51604f02b12a90682",
+      "variant_id": "xmlenv:d9058084f09b432d4b456bf9952c44874178d4fcb7057dedefb7d790144647c5"
+    },
+    "channel:48138baa427de1bc970a1a48ae14136279b78cb93626c4da9017591b8e3926ee": {
+      "execution_id": "libero_spatial_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5f-evidence/spatial/task_00/episode_014/trajectory.h5",
+      "source_sha256": "cb6fac60482a8eadce9428ee1b689467a462b09be0a1ae23a1021963705d82e0",
+      "task_id": "2a5acddf5a0e33b0d470",
+      "variant_id": "xmlenv:f77ec80952500aba4a1b2b17fcdf0ea1deff0274eddfa75edff61569b5e0eed1"
+    },
+    "channel:493598a434926e2e6c864828906aa31bcec980c0724579d687cde474bbc4642f": {
+      "execution_id": "libero_spatial_openvla_oft_task00_seed1010_trial010_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5f-evidence/spatial/task_00/episode_010/trajectory.h5",
+      "source_sha256": "8108031ebcb77a1c9518b1ceb54c010865445883d25cf3f2f8c054e5a96ad2cd",
+      "task_id": "2a5acddf5a0e33b0d470",
+      "variant_id": "xmlenv:a38f99ede107450b95813f2c045205d97954d9aad18c940f2fd47bc6302b4632"
+    },
+    "channel:49e77236bec8c5e44918ea582110b6d8aae21f69accb3814c00650ad442b7442": {
+      "execution_id": "libero_goal_openvla_oft_task07_seed1048_trial048_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5f-evidence/goal/task_07/episode_048/trajectory.h5",
+      "source_sha256": "7cccba341c725909a965419d1769fb384f401216686b87dea4835c7e762b0948",
+      "task_id": "1b921c8dfd61bb78bb84",
+      "variant_id": "xmlenv:6cbe6b38a759089c5b77677c8a6e0f5299657ecf6a12c2bb2d262a68a7624606"
+    },
+    "channel:4b62243c302f4fd036c6ceb08cdf62f8dbeeb4efa9ba67647871adf43ce4d488": {
+      "execution_id": "libero_object_openvla_oft_task01_seed1037_trial037_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5e-evidence/object/task_01/episode_037/trajectory.h5",
+      "source_sha256": "370255fb450499f39d6562eb32ce629d6e47c95b69372485b5fe9c0ef2d677ca",
+      "task_id": "7894e3922dc1e048d44c",
+      "variant_id": "xmlenv:9de5384760dd3e80f9c9885d48fbc1509613191f61669b676c18fa3564a84651"
+    },
+    "channel:4c9f8274646e7d1da3895b3c1fddfe6ca9421c83f64d55944c23098a53db9b0c": {
+      "execution_id": "libero_goal_openvla_oft_task07_seed1023_trial023_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5f-evidence/goal/task_07/episode_023/trajectory.h5",
+      "source_sha256": "2ac6438dbdb6d637d9a5961cf733e594761e7cbaa9ae062e01f37b28d0e76d23",
+      "task_id": "1b921c8dfd61bb78bb84",
+      "variant_id": "xmlenv:e22d51c95f67d47341182b71095189ac84e0bc506d0571f9e81643923eb6cc0c"
+    },
+    "channel:4cf469bdc24216030a3885ba101c8bb5520f137c452a961252071a986c4db9ba": {
+      "execution_id": "libero_object_openvla_oft_task02_seed1021_trial021_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5d-object-task02/object/task_02/episode_021/trajectory.h5",
+      "source_sha256": "aa0953949c42ba6306c0acac266d51a5354a140f0a48a17c35eeaeecb158f033",
+      "task_id": "b12b2d70fe80d3547b1e",
+      "variant_id": "xmlenv:cb5148d6f133c5491152d5ece7813e0aceadb2eb7be61e40033b061c22c1705a"
+    },
+    "channel:4d53552c6072cce9bcd906e0953f3929f8990ee31c9ea2dbbc798b736c5e81e5": {
+      "execution_id": "libero_goal_openvla_oft_task07_seed1023_trial023_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5f-evidence/goal/task_07/episode_023/trajectory.h5",
+      "source_sha256": "2ac6438dbdb6d637d9a5961cf733e594761e7cbaa9ae062e01f37b28d0e76d23",
+      "task_id": "1b921c8dfd61bb78bb84",
+      "variant_id": "xmlenv:e22d51c95f67d47341182b71095189ac84e0bc506d0571f9e81643923eb6cc0c"
+    },
+    "channel:4eadbdc2ce9c0aa222b7b994ed5875c100cf1d6712525da2f2fc9e7f45bbea0b": {
+      "execution_id": "libero_long_openvla_oft_task00_seed1049_trial049_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5c-development-evidence/long/task_00/episode_049/trajectory.h5",
+      "source_sha256": "ba2065e9b15ee8de632315d24283358c469ab476b1e2bf6bd956529dcc55e7a8",
+      "task_id": "2448c758145ae5ad500f",
+      "variant_id": "xmlenv:574b783c023e533eb3a5c8e92557aa0a940aa5ff6cfbe794f5614e9fd321148e"
+    },
+    "channel:5030ca9d621414464cbab9a9572d86d4e73ab1d487ec22614d3a68233ed9a706": {
+      "execution_id": "libero_goal_openvla_oft_task08_seed1021_trial021_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5f-evidence/goal/task_08/episode_021/trajectory.h5",
+      "source_sha256": "d31e47395d644b06ab7740e869ace0d56b6ccfd68bdad941f6e932315da6d7c8",
+      "task_id": "6da51604f02b12a90682",
+      "variant_id": "xmlenv:eb87dc0e1442b029a602b31505731d4f52cad7955b41ddcd1b703f6dc02dd0a8"
+    },
+    "channel:50c93dc58bd16b1a8060087387a7aa826cdb76b18b2402803ceeecfa0bd33e37": {
+      "execution_id": "libero_goal_openvla_oft_task08_seed1003_trial003_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5f-evidence/goal/task_08/episode_003/trajectory.h5",
+      "source_sha256": "9b2b30e3c8abd76aefa919fdb8d78a5394b52ef5b8657447e34b9590cf5b329c",
+      "task_id": "6da51604f02b12a90682",
+      "variant_id": "xmlenv:e523fcdb63fefb8952d9222788ec19b2ffffec589a344044e87d2c68169500df"
+    },
+    "channel:5237e8016db403e24d242f5cf94a30821e1ce0769ff8834185879b7bef2394e5": {
+      "execution_id": "libero_object_openvla_oft_task05_seed1049_trial049_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5e-evidence/object/task_05/episode_049/trajectory.h5",
+      "source_sha256": "6e4c56baa20927e2198b2fcf640367b590cbcb4e13cfe66e8e25548aa7a035bc",
+      "task_id": "4013b7c5a98750b7e80d",
+      "variant_id": "xmlenv:344d2d6cad5a53fe6363544d6f8bc6f1293f11312e3541b48496b3ac90c9307e"
+    },
+    "channel:54af4b0abed62cf474e6fd3fd3ce61eb312995f87964078cf4e9a896a3ab8e0e": {
+      "execution_id": "libero_goal_openvla_oft_task08_seed1009_trial009_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5f-evidence/goal/task_08/episode_009/trajectory.h5",
+      "source_sha256": "4f22fcba3d48e62b2505c57b2643c20f69f0c5dee7197009cf4e7fb24fefb71e",
+      "task_id": "6da51604f02b12a90682",
+      "variant_id": "xmlenv:485346552c7016cfa145974454c09373fce6d4f54e8d82a675e6a17049e0f931"
+    },
+    "channel:54dec26edf082a5f81e0e4e654a83ea0baa331369a301214f3b26a8476c38c0d": {
+      "execution_id": "libero_long_openvla_oft_task00_seed1033_trial033_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5c-development-evidence/long/task_00/episode_033/trajectory.h5",
+      "source_sha256": "f27e1e743b53280f80315ccc81c786e843393d4ab987b6ef5d319d21780959e9",
+      "task_id": "2448c758145ae5ad500f",
+      "variant_id": "xmlenv:574b783c023e533eb3a5c8e92557aa0a940aa5ff6cfbe794f5614e9fd321148e"
+    },
+    "channel:5b0dff1077403fd9c709a4484d4da5f8be70052104ede93225bc83460d1746f6": {
+      "execution_id": "libero_long_openvla_oft_task00_seed1001_trial001_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase2b2-development-evidence/long/task_00/episode_001/trajectory.h5",
+      "source_sha256": "9db5ee8df1f1a47218325cb5cfa874d57973dcf4fe6914765f246acdeaba483a",
+      "task_id": "2448c758145ae5ad500f",
+      "variant_id": "xmlenv:574b783c023e533eb3a5c8e92557aa0a940aa5ff6cfbe794f5614e9fd321148e"
+    },
+    "channel:5bb83efe5d17a7cf0cb120cc95246800b4e8a956e9a9df7edc35b01beb9ea8b8": {
+      "execution_id": "libero_object_openvla_oft_task03_seed1035_trial035_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5e-evidence/object/task_03/episode_035/trajectory.h5",
+      "source_sha256": "5de011c28ddd2d0fd4b98df0ef02bee7acfdaccba1427399a14c50f99e0759d5",
+      "task_id": "30c0f61d2d5786fae8b6",
+      "variant_id": "xmlenv:5393fb2c178d9246204c2a82e0375aae7a03e0a75f7f8649dc02a1d5ae8e8ebc"
+    },
+    "channel:5c9a0c8505346d4177e4aa85a3175e060c2085805c28fb2c899d1de4fb391bad": {
+      "execution_id": "libero_goal_openvla_oft_task08_seed1021_trial021_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5f-evidence/goal/task_08/episode_021/trajectory.h5",
+      "source_sha256": "d31e47395d644b06ab7740e869ace0d56b6ccfd68bdad941f6e932315da6d7c8",
+      "task_id": "6da51604f02b12a90682",
+      "variant_id": "xmlenv:eb87dc0e1442b029a602b31505731d4f52cad7955b41ddcd1b703f6dc02dd0a8"
+    },
+    "channel:5fa727b0940b1e0ab6bee83048c4bf754a239782484e3f7a67e999d91eb1ed1e": {
+      "execution_id": "libero_spatial_openvla_oft_task00_seed1029_trial029_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5f-evidence/spatial/task_00/episode_029/trajectory.h5",
+      "source_sha256": "983920f0e2981a6f3cbaacf22ffb7dc0c1ef12110bd0da092b07a787d23c5264",
+      "task_id": "2a5acddf5a0e33b0d470",
+      "variant_id": "xmlenv:5594c193ed969328a4da769d7bff73d1b0999fefd3cbe3a1896b22b11e7b856a"
+    },
+    "channel:63eba2d82bbb0e0d1387b20eb64f890bf87fed1b74b2b59bdc7358cac5c81ff7": {
+      "execution_id": "libero_spatial_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5f-evidence/spatial/task_00/episode_014/trajectory.h5",
+      "source_sha256": "cb6fac60482a8eadce9428ee1b689467a462b09be0a1ae23a1021963705d82e0",
+      "task_id": "2a5acddf5a0e33b0d470",
+      "variant_id": "xmlenv:f77ec80952500aba4a1b2b17fcdf0ea1deff0274eddfa75edff61569b5e0eed1"
+    },
+    "channel:653f87fbafc581e2dc9e7090737d46276a6fca77cca7af6d7414888d9a5012c5": {
+      "execution_id": "libero_object_openvla_oft_task05_seed1049_trial049_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5e-evidence/object/task_05/episode_049/trajectory.h5",
+      "source_sha256": "6e4c56baa20927e2198b2fcf640367b590cbcb4e13cfe66e8e25548aa7a035bc",
+      "task_id": "4013b7c5a98750b7e80d",
+      "variant_id": "xmlenv:344d2d6cad5a53fe6363544d6f8bc6f1293f11312e3541b48496b3ac90c9307e"
+    },
+    "channel:674f0b8bb953c9ba8eb7941e9536a5129e1196662d7f76d6ba429f89cfb3ab5d": {
+      "execution_id": "libero_goal_openvla_oft_task08_seed1003_trial003_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5f-evidence/goal/task_08/episode_003/trajectory.h5",
+      "source_sha256": "9b2b30e3c8abd76aefa919fdb8d78a5394b52ef5b8657447e34b9590cf5b329c",
+      "task_id": "6da51604f02b12a90682",
+      "variant_id": "xmlenv:e523fcdb63fefb8952d9222788ec19b2ffffec589a344044e87d2c68169500df"
+    },
+    "channel:676c70d1bfba722e5a96badcbc40b7c29b334179c0288b304d643ff15cc2a54e": {
+      "execution_id": "libero_spatial_openvla_oft_task00_seed1029_trial029_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5f-evidence/spatial/task_00/episode_029/trajectory.h5",
+      "source_sha256": "983920f0e2981a6f3cbaacf22ffb7dc0c1ef12110bd0da092b07a787d23c5264",
+      "task_id": "2a5acddf5a0e33b0d470",
+      "variant_id": "xmlenv:5594c193ed969328a4da769d7bff73d1b0999fefd3cbe3a1896b22b11e7b856a"
+    },
+    "channel:6c3dd2b368cbd3c189e2b7a8e4d8cb627c324d5d8cdc7272cef4eee5460c1941": {
+      "execution_id": "libero_long_openvla_oft_task00_seed1022_trial022_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5c-development-evidence/long/task_00/episode_022/trajectory.h5",
+      "source_sha256": "ad2c9d1cb5c5649f62c7f87fccb46468852c6819bc510290e59f8afb64736393",
+      "task_id": "2448c758145ae5ad500f",
+      "variant_id": "xmlenv:574b783c023e533eb3a5c8e92557aa0a940aa5ff6cfbe794f5614e9fd321148e"
+    },
+    "channel:6ed108790ad42f8dbc158cb23a8b20e70a5bce2c2ede5224765cd8c837b1ed76": {
+      "execution_id": "libero_object_openvla_oft_task02_seed1021_trial021_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5d-object-task02/object/task_02/episode_021/trajectory.h5",
+      "source_sha256": "aa0953949c42ba6306c0acac266d51a5354a140f0a48a17c35eeaeecb158f033",
+      "task_id": "b12b2d70fe80d3547b1e",
+      "variant_id": "xmlenv:cb5148d6f133c5491152d5ece7813e0aceadb2eb7be61e40033b061c22c1705a"
+    },
+    "channel:6ed35502c41dabc379b65e8f7995d973f700cc26bbb1468e3f713bd84af5fecb": {
+      "execution_id": "libero_long_openvla_oft_task00_seed1033_trial033_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5c-development-evidence/long/task_00/episode_033/trajectory.h5",
+      "source_sha256": "f27e1e743b53280f80315ccc81c786e843393d4ab987b6ef5d319d21780959e9",
+      "task_id": "2448c758145ae5ad500f",
+      "variant_id": "xmlenv:574b783c023e533eb3a5c8e92557aa0a940aa5ff6cfbe794f5614e9fd321148e"
+    },
+    "channel:71bac1097a2780a475927279e9cd57c2d7018ce43428685478a606a332730fcb": {
+      "execution_id": "libero_object_openvla_oft_task09_seed1004_trial004_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5e-evidence/object/task_09/episode_004/trajectory.h5",
+      "source_sha256": "4f37ae2a11b38dc9f748e8b8d0bdadcc791116cd865b9192269c99ee35f1ec32",
+      "task_id": "18573886c3dbce39b02e",
+      "variant_id": "xmlenv:7f1f3ed2b3a92435366df297c638d12a41bcef38376f625038911a1c6ad0b0b4"
+    },
+    "channel:743f2fcd60e8645e0402f4e4ce67b3f1ab83a0029803ca1d7ffdc1679d01242c": {
+      "execution_id": "libero_object_openvla_oft_task03_seed1035_trial035_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5e-evidence/object/task_03/episode_035/trajectory.h5",
+      "source_sha256": "5de011c28ddd2d0fd4b98df0ef02bee7acfdaccba1427399a14c50f99e0759d5",
+      "task_id": "30c0f61d2d5786fae8b6",
+      "variant_id": "xmlenv:5393fb2c178d9246204c2a82e0375aae7a03e0a75f7f8649dc02a1d5ae8e8ebc"
+    },
+    "channel:755eeee862ab9608f2138ae6d6c3579d16c24168e4f617ce15d65ec1fe512c4f": {
+      "execution_id": "libero_long_openvla_oft_task00_seed1033_trial033_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5c-development-evidence/long/task_00/episode_033/trajectory.h5",
+      "source_sha256": "f27e1e743b53280f80315ccc81c786e843393d4ab987b6ef5d319d21780959e9",
+      "task_id": "2448c758145ae5ad500f",
+      "variant_id": "xmlenv:574b783c023e533eb3a5c8e92557aa0a940aa5ff6cfbe794f5614e9fd321148e"
+    },
+    "channel:7a23d5a69fd8bded9b57c164c5b92596f614ee9d701caff1b2035d74cee05ce6": {
+      "execution_id": "libero_goal_openvla_oft_task07_seed1023_trial023_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5f-evidence/goal/task_07/episode_023/trajectory.h5",
+      "source_sha256": "2ac6438dbdb6d637d9a5961cf733e594761e7cbaa9ae062e01f37b28d0e76d23",
+      "task_id": "1b921c8dfd61bb78bb84",
+      "variant_id": "xmlenv:e22d51c95f67d47341182b71095189ac84e0bc506d0571f9e81643923eb6cc0c"
+    },
+    "channel:7b8b4302a25368d80971119bbb413084a676fcda2f95efb3528da72a62b93dcc": {
+      "execution_id": "libero_spatial_openvla_oft_task00_seed1031_trial031_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5f-evidence/spatial/task_00/episode_031/trajectory.h5",
+      "source_sha256": "320533e0b8111b2fdcd94c0a7c230ca64669a6723ed27e9027e91404dba54589",
+      "task_id": "2a5acddf5a0e33b0d470",
+      "variant_id": "xmlenv:a1ca08063451f8f3b1f9111fe04e3ba7712c140f3780636e0d00797459542505"
+    },
+    "channel:7db79cc9c1768c16d19815a4c8390428f2c72ac7837bf9bf38f6837d1c604444": {
+      "execution_id": "libero_spatial_openvla_oft_task00_seed1010_trial010_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5f-evidence/spatial/task_00/episode_010/trajectory.h5",
+      "source_sha256": "8108031ebcb77a1c9518b1ceb54c010865445883d25cf3f2f8c054e5a96ad2cd",
+      "task_id": "2a5acddf5a0e33b0d470",
+      "variant_id": "xmlenv:a38f99ede107450b95813f2c045205d97954d9aad18c940f2fd47bc6302b4632"
+    },
+    "channel:7eb54db34e387a7a4ec68baafb7deef94f9da8b2792ab483863633acb894e8ec": {
+      "execution_id": "libero_object_openvla_oft_task03_seed1035_trial035_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5e-evidence/object/task_03/episode_035/trajectory.h5",
+      "source_sha256": "5de011c28ddd2d0fd4b98df0ef02bee7acfdaccba1427399a14c50f99e0759d5",
+      "task_id": "30c0f61d2d5786fae8b6",
+      "variant_id": "xmlenv:5393fb2c178d9246204c2a82e0375aae7a03e0a75f7f8649dc02a1d5ae8e8ebc"
+    },
+    "channel:81c46c6c989540eff1956d4210f68419a77ad523936d30b2ea65b6a4ab701411": {
+      "execution_id": "libero_goal_openvla_oft_task08_seed1013_trial013_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5f-evidence/goal/task_08/episode_013/trajectory.h5",
+      "source_sha256": "7bdbaf0f254f876fc3d8c0b8328ceaa483ab091b2d6b9fab18d002682ee4f9d0",
+      "task_id": "6da51604f02b12a90682",
+      "variant_id": "xmlenv:d9058084f09b432d4b456bf9952c44874178d4fcb7057dedefb7d790144647c5"
+    },
+    "channel:8548026c310b6593befbb6d891ad36e881c63ed0f6d44831bd020a2175517f53": {
+      "execution_id": "libero_spatial_openvla_oft_task00_seed1036_trial036_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5f-evidence/spatial/task_00/episode_036/trajectory.h5",
+      "source_sha256": "20d7ea5e3ed9d13e1f8ce0bd589b2704bf978e0a9b87d2210170de2b3cdf95f9",
+      "task_id": "2a5acddf5a0e33b0d470",
+      "variant_id": "xmlenv:67e47e894727e30fdb2ce2279889d83dd76634d39e62762518a0f6cfc0d2bee6"
+    },
+    "channel:8563a80acab108ffa3ff612db54e16ef66b8a1ce69ca9dde220a757fefae4870": {
+      "execution_id": "libero_goal_openvla_oft_task08_seed1003_trial003_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5f-evidence/goal/task_08/episode_003/trajectory.h5",
+      "source_sha256": "9b2b30e3c8abd76aefa919fdb8d78a5394b52ef5b8657447e34b9590cf5b329c",
+      "task_id": "6da51604f02b12a90682",
+      "variant_id": "xmlenv:e523fcdb63fefb8952d9222788ec19b2ffffec589a344044e87d2c68169500df"
+    },
+    "channel:87651b01201719ca401d2f2fbf9902227e10be0b808982ce9c262901c36cf34c": {
+      "execution_id": "libero_long_openvla_oft_task00_seed1049_trial049_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5c-development-evidence/long/task_00/episode_049/trajectory.h5",
+      "source_sha256": "ba2065e9b15ee8de632315d24283358c469ab476b1e2bf6bd956529dcc55e7a8",
+      "task_id": "2448c758145ae5ad500f",
+      "variant_id": "xmlenv:574b783c023e533eb3a5c8e92557aa0a940aa5ff6cfbe794f5614e9fd321148e"
+    },
+    "channel:890fa04c9b8742c43bab905c159cb2d054cc818c56dc6de98dbb421b7556045f": {
+      "execution_id": "libero_long_openvla_oft_task00_seed1033_trial033_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5c-development-evidence/long/task_00/episode_033/trajectory.h5",
+      "source_sha256": "f27e1e743b53280f80315ccc81c786e843393d4ab987b6ef5d319d21780959e9",
+      "task_id": "2448c758145ae5ad500f",
+      "variant_id": "xmlenv:574b783c023e533eb3a5c8e92557aa0a940aa5ff6cfbe794f5614e9fd321148e"
+    },
+    "channel:895c4e5f2f2a41449f91db8f632da0ec9df242b2db63dae903772ff75520d522": {
+      "execution_id": "libero_object_openvla_oft_task09_seed1004_trial004_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5e-evidence/object/task_09/episode_004/trajectory.h5",
+      "source_sha256": "4f37ae2a11b38dc9f748e8b8d0bdadcc791116cd865b9192269c99ee35f1ec32",
+      "task_id": "18573886c3dbce39b02e",
+      "variant_id": "xmlenv:7f1f3ed2b3a92435366df297c638d12a41bcef38376f625038911a1c6ad0b0b4"
+    },
+    "channel:8ae2a4246a16ee49eb3f90670402073f33e8c77c1637eb794c28e31534237083": {
+      "execution_id": "libero_object_openvla_oft_task02_seed1021_trial021_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5d-object-task02/object/task_02/episode_021/trajectory.h5",
+      "source_sha256": "aa0953949c42ba6306c0acac266d51a5354a140f0a48a17c35eeaeecb158f033",
+      "task_id": "b12b2d70fe80d3547b1e",
+      "variant_id": "xmlenv:cb5148d6f133c5491152d5ece7813e0aceadb2eb7be61e40033b061c22c1705a"
+    },
+    "channel:8f0acff70468f59b546771a333449db37b19864b4e6ab37c95823c197ae3f061": {
+      "execution_id": "libero_object_openvla_oft_task03_seed1035_trial035_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5e-evidence/object/task_03/episode_035/trajectory.h5",
+      "source_sha256": "5de011c28ddd2d0fd4b98df0ef02bee7acfdaccba1427399a14c50f99e0759d5",
+      "task_id": "30c0f61d2d5786fae8b6",
+      "variant_id": "xmlenv:5393fb2c178d9246204c2a82e0375aae7a03e0a75f7f8649dc02a1d5ae8e8ebc"
+    },
+    "channel:906bb7c7d3c91b7b765beb12951f21f1773b6acc5dcd63cf770b60750abb00c0": {
+      "execution_id": "libero_long_openvla_oft_task00_seed1049_trial049_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5c-development-evidence/long/task_00/episode_049/trajectory.h5",
+      "source_sha256": "ba2065e9b15ee8de632315d24283358c469ab476b1e2bf6bd956529dcc55e7a8",
+      "task_id": "2448c758145ae5ad500f",
+      "variant_id": "xmlenv:574b783c023e533eb3a5c8e92557aa0a940aa5ff6cfbe794f5614e9fd321148e"
+    },
+    "channel:90acf44835da6338be9654354483297555dcce5cee6855788006a61decd620c7": {
+      "execution_id": "libero_object_openvla_oft_task03_seed1035_trial035_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5e-evidence/object/task_03/episode_035/trajectory.h5",
+      "source_sha256": "5de011c28ddd2d0fd4b98df0ef02bee7acfdaccba1427399a14c50f99e0759d5",
+      "task_id": "30c0f61d2d5786fae8b6",
+      "variant_id": "xmlenv:5393fb2c178d9246204c2a82e0375aae7a03e0a75f7f8649dc02a1d5ae8e8ebc"
+    },
+    "channel:91004d7f92f12920148d924b9f41502dd070ab7312592d6b2c23e231a7bf0711": {
+      "execution_id": "libero_object_openvla_oft_task01_seed1037_trial037_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5e-evidence/object/task_01/episode_037/trajectory.h5",
+      "source_sha256": "370255fb450499f39d6562eb32ce629d6e47c95b69372485b5fe9c0ef2d677ca",
+      "task_id": "7894e3922dc1e048d44c",
+      "variant_id": "xmlenv:9de5384760dd3e80f9c9885d48fbc1509613191f61669b676c18fa3564a84651"
+    },
+    "channel:91dca3771890392b498c4a126cb3feb88badec6fb51476e9a5d4d6a2d8b64aca": {
+      "execution_id": "libero_object_openvla_oft_task05_seed1049_trial049_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5e-evidence/object/task_05/episode_049/trajectory.h5",
+      "source_sha256": "6e4c56baa20927e2198b2fcf640367b590cbcb4e13cfe66e8e25548aa7a035bc",
+      "task_id": "4013b7c5a98750b7e80d",
+      "variant_id": "xmlenv:344d2d6cad5a53fe6363544d6f8bc6f1293f11312e3541b48496b3ac90c9307e"
+    },
+    "channel:92e11ded64c759f893520413fa395ab374dc97a7300bfebc9c30953e2f4d3394": {
+      "execution_id": "libero_spatial_openvla_oft_task00_seed1010_trial010_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5f-evidence/spatial/task_00/episode_010/trajectory.h5",
+      "source_sha256": "8108031ebcb77a1c9518b1ceb54c010865445883d25cf3f2f8c054e5a96ad2cd",
+      "task_id": "2a5acddf5a0e33b0d470",
+      "variant_id": "xmlenv:a38f99ede107450b95813f2c045205d97954d9aad18c940f2fd47bc6302b4632"
+    },
+    "channel:942fe9ea921ca7e17c5aae8c3b6dd529b5a4c5aba57e9e0681b9cf127c3e207a": {
+      "execution_id": "libero_spatial_openvla_oft_task00_seed1031_trial031_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5f-evidence/spatial/task_00/episode_031/trajectory.h5",
+      "source_sha256": "320533e0b8111b2fdcd94c0a7c230ca64669a6723ed27e9027e91404dba54589",
+      "task_id": "2a5acddf5a0e33b0d470",
+      "variant_id": "xmlenv:a1ca08063451f8f3b1f9111fe04e3ba7712c140f3780636e0d00797459542505"
+    },
+    "channel:9741fd3ac8a6d339f56bdfd2715e468b6486fafd91b7600edcc9141a54e12591": {
+      "execution_id": "libero_long_openvla_oft_task00_seed1017_trial017_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5c-development-evidence/long/task_00/episode_017/trajectory.h5",
+      "source_sha256": "2b1686f9ad3c285d366d18f498f5870bdd50309828faeeb43638d6112c5a1661",
+      "task_id": "2448c758145ae5ad500f",
+      "variant_id": "xmlenv:574b783c023e533eb3a5c8e92557aa0a940aa5ff6cfbe794f5614e9fd321148e"
+    },
+    "channel:9ca7268b8b637280428ce36e4cfdca99a209f03dcd3b2c4addb3744ce482f0c4": {
+      "execution_id": "libero_goal_openvla_oft_task07_seed1048_trial048_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5f-evidence/goal/task_07/episode_048/trajectory.h5",
+      "source_sha256": "7cccba341c725909a965419d1769fb384f401216686b87dea4835c7e762b0948",
+      "task_id": "1b921c8dfd61bb78bb84",
+      "variant_id": "xmlenv:6cbe6b38a759089c5b77677c8a6e0f5299657ecf6a12c2bb2d262a68a7624606"
+    },
+    "channel:a046c1164c28f5dd8d44c2a11cc0e9d6c3fa7caab610c89f870f011a9e389b32": {
+      "execution_id": "libero_goal_openvla_oft_task08_seed1013_trial013_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5f-evidence/goal/task_08/episode_013/trajectory.h5",
+      "source_sha256": "7bdbaf0f254f876fc3d8c0b8328ceaa483ab091b2d6b9fab18d002682ee4f9d0",
+      "task_id": "6da51604f02b12a90682",
+      "variant_id": "xmlenv:d9058084f09b432d4b456bf9952c44874178d4fcb7057dedefb7d790144647c5"
+    },
+    "channel:a1ff58dc85e39515f42f04bfcd906eabbd5b2ad19d3b65408ac204f38adff7bc": {
+      "execution_id": "libero_goal_openvla_oft_task08_seed1009_trial009_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5f-evidence/goal/task_08/episode_009/trajectory.h5",
+      "source_sha256": "4f22fcba3d48e62b2505c57b2643c20f69f0c5dee7197009cf4e7fb24fefb71e",
+      "task_id": "6da51604f02b12a90682",
+      "variant_id": "xmlenv:485346552c7016cfa145974454c09373fce6d4f54e8d82a675e6a17049e0f931"
+    },
+    "channel:a224da15455967a5e00159c8fecb02ff31053da8a0b30934f7c56efa185ebecf": {
+      "execution_id": "libero_goal_openvla_oft_task08_seed1009_trial009_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5f-evidence/goal/task_08/episode_009/trajectory.h5",
+      "source_sha256": "4f22fcba3d48e62b2505c57b2643c20f69f0c5dee7197009cf4e7fb24fefb71e",
+      "task_id": "6da51604f02b12a90682",
+      "variant_id": "xmlenv:485346552c7016cfa145974454c09373fce6d4f54e8d82a675e6a17049e0f931"
+    },
+    "channel:a2334bd07c7701101a9fc80e3c27b346123e80e0ac5e689b024464b1dbb60c55": {
+      "execution_id": "libero_object_openvla_oft_task01_seed1024_trial024_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5e-evidence/object/task_01/episode_024/trajectory.h5",
+      "source_sha256": "18fb56381b66272fa08dbbb3fb974e9076beb75e5c2782185c451c4dbf1082c7",
+      "task_id": "7894e3922dc1e048d44c",
+      "variant_id": "xmlenv:9de5384760dd3e80f9c9885d48fbc1509613191f61669b676c18fa3564a84651"
+    },
+    "channel:a32eb8eb4d09c10b116cfc030e48701bfa2fb150ce5c278bb224dc0edd1b16f5": {
+      "execution_id": "libero_long_openvla_oft_task00_seed1049_trial049_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5c-development-evidence/long/task_00/episode_049/trajectory.h5",
+      "source_sha256": "ba2065e9b15ee8de632315d24283358c469ab476b1e2bf6bd956529dcc55e7a8",
+      "task_id": "2448c758145ae5ad500f",
+      "variant_id": "xmlenv:574b783c023e533eb3a5c8e92557aa0a940aa5ff6cfbe794f5614e9fd321148e"
+    },
+    "channel:a3f0f29cfbe1cbe2de61b304e1b2beff46d9dd56930f5e9b2ba51c827f293fdd": {
+      "execution_id": "libero_goal_openvla_oft_task08_seed1013_trial013_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5f-evidence/goal/task_08/episode_013/trajectory.h5",
+      "source_sha256": "7bdbaf0f254f876fc3d8c0b8328ceaa483ab091b2d6b9fab18d002682ee4f9d0",
+      "task_id": "6da51604f02b12a90682",
+      "variant_id": "xmlenv:d9058084f09b432d4b456bf9952c44874178d4fcb7057dedefb7d790144647c5"
+    },
+    "channel:a56416db6a3bc0eab2e47f973e6e5b2250babcbfe5fce0a9245d9ff70ec67d1c": {
+      "execution_id": "libero_goal_openvla_oft_task08_seed1009_trial009_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5f-evidence/goal/task_08/episode_009/trajectory.h5",
+      "source_sha256": "4f22fcba3d48e62b2505c57b2643c20f69f0c5dee7197009cf4e7fb24fefb71e",
+      "task_id": "6da51604f02b12a90682",
+      "variant_id": "xmlenv:485346552c7016cfa145974454c09373fce6d4f54e8d82a675e6a17049e0f931"
+    },
+    "channel:a5d1eec5cc211e27f3183dc019c686af24e7191c251c24b18cd2efb3074eb492": {
+      "execution_id": "libero_object_openvla_oft_task01_seed1024_trial024_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5e-evidence/object/task_01/episode_024/trajectory.h5",
+      "source_sha256": "18fb56381b66272fa08dbbb3fb974e9076beb75e5c2782185c451c4dbf1082c7",
+      "task_id": "7894e3922dc1e048d44c",
+      "variant_id": "xmlenv:9de5384760dd3e80f9c9885d48fbc1509613191f61669b676c18fa3564a84651"
+    },
+    "channel:a5d60e54735dcbdd5eae6835a9d132b4bae4585b657b14e8edfe4bcdb5336f07": {
+      "execution_id": "libero_spatial_openvla_oft_task00_seed1036_trial036_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5f-evidence/spatial/task_00/episode_036/trajectory.h5",
+      "source_sha256": "20d7ea5e3ed9d13e1f8ce0bd589b2704bf978e0a9b87d2210170de2b3cdf95f9",
+      "task_id": "2a5acddf5a0e33b0d470",
+      "variant_id": "xmlenv:67e47e894727e30fdb2ce2279889d83dd76634d39e62762518a0f6cfc0d2bee6"
+    },
+    "channel:a60e2b0ee092f60c3f53ef8a7f6df0e162542107ee851531959e99b81d9c366f": {
+      "execution_id": "libero_long_openvla_oft_task00_seed1017_trial017_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5c-development-evidence/long/task_00/episode_017/trajectory.h5",
+      "source_sha256": "2b1686f9ad3c285d366d18f498f5870bdd50309828faeeb43638d6112c5a1661",
+      "task_id": "2448c758145ae5ad500f",
+      "variant_id": "xmlenv:574b783c023e533eb3a5c8e92557aa0a940aa5ff6cfbe794f5614e9fd321148e"
+    },
+    "channel:aaacbacbd1b225481379bfe545fecfcb04d6d9cdcfe9dc73e011e19c5be48c96": {
+      "execution_id": "libero_spatial_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5f-evidence/spatial/task_00/episode_014/trajectory.h5",
+      "source_sha256": "cb6fac60482a8eadce9428ee1b689467a462b09be0a1ae23a1021963705d82e0",
+      "task_id": "2a5acddf5a0e33b0d470",
+      "variant_id": "xmlenv:f77ec80952500aba4a1b2b17fcdf0ea1deff0274eddfa75edff61569b5e0eed1"
+    },
+    "channel:ade216c39a709bb480e61f2ff8716ede18cc51d8fb2d1507400303f0e14b9708": {
+      "execution_id": "libero_object_openvla_oft_task05_seed1049_trial049_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5e-evidence/object/task_05/episode_049/trajectory.h5",
+      "source_sha256": "6e4c56baa20927e2198b2fcf640367b590cbcb4e13cfe66e8e25548aa7a035bc",
+      "task_id": "4013b7c5a98750b7e80d",
+      "variant_id": "xmlenv:344d2d6cad5a53fe6363544d6f8bc6f1293f11312e3541b48496b3ac90c9307e"
+    },
+    "channel:ae3fc46b7ccf70d4b444249ed2db408595082a67a4a4bfb48a6adf3185528ee3": {
+      "execution_id": "libero_goal_openvla_oft_task08_seed1003_trial003_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5f-evidence/goal/task_08/episode_003/trajectory.h5",
+      "source_sha256": "9b2b30e3c8abd76aefa919fdb8d78a5394b52ef5b8657447e34b9590cf5b329c",
+      "task_id": "6da51604f02b12a90682",
+      "variant_id": "xmlenv:e523fcdb63fefb8952d9222788ec19b2ffffec589a344044e87d2c68169500df"
+    },
+    "channel:af536a93f20dfa097c748e193d29602cadd2ff0f5a17210d95223db231448747": {
+      "execution_id": "libero_goal_openvla_oft_task07_seed1048_trial048_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5f-evidence/goal/task_07/episode_048/trajectory.h5",
+      "source_sha256": "7cccba341c725909a965419d1769fb384f401216686b87dea4835c7e762b0948",
+      "task_id": "1b921c8dfd61bb78bb84",
+      "variant_id": "xmlenv:6cbe6b38a759089c5b77677c8a6e0f5299657ecf6a12c2bb2d262a68a7624606"
+    },
+    "channel:b59a09a76d8ea82cd5002f733ce534970b4df4dfa63f4f750424d9068d4dc773": {
+      "execution_id": "libero_object_openvla_oft_task01_seed1024_trial024_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5e-evidence/object/task_01/episode_024/trajectory.h5",
+      "source_sha256": "18fb56381b66272fa08dbbb3fb974e9076beb75e5c2782185c451c4dbf1082c7",
+      "task_id": "7894e3922dc1e048d44c",
+      "variant_id": "xmlenv:9de5384760dd3e80f9c9885d48fbc1509613191f61669b676c18fa3564a84651"
+    },
+    "channel:b8a800abdcd0e10e9436fd7a91634caf2366af36263707d30d5628357a1ed32f": {
+      "execution_id": "libero_goal_openvla_oft_task08_seed1021_trial021_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5f-evidence/goal/task_08/episode_021/trajectory.h5",
+      "source_sha256": "d31e47395d644b06ab7740e869ace0d56b6ccfd68bdad941f6e932315da6d7c8",
+      "task_id": "6da51604f02b12a90682",
+      "variant_id": "xmlenv:eb87dc0e1442b029a602b31505731d4f52cad7955b41ddcd1b703f6dc02dd0a8"
+    },
+    "channel:b9aabb9a19e20fd85aacd06278e3f5c57252be3a7f3407d3728191d92235ea64": {
+      "execution_id": "libero_object_openvla_oft_task09_seed1004_trial004_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5e-evidence/object/task_09/episode_004/trajectory.h5",
+      "source_sha256": "4f37ae2a11b38dc9f748e8b8d0bdadcc791116cd865b9192269c99ee35f1ec32",
+      "task_id": "18573886c3dbce39b02e",
+      "variant_id": "xmlenv:7f1f3ed2b3a92435366df297c638d12a41bcef38376f625038911a1c6ad0b0b4"
+    },
+    "channel:ba78d9a0065db5a036d3bdb16011c3073d3e10547a085e26d3e257b7df8687e2": {
+      "execution_id": "libero_long_openvla_oft_task00_seed1017_trial017_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5c-development-evidence/long/task_00/episode_017/trajectory.h5",
+      "source_sha256": "2b1686f9ad3c285d366d18f498f5870bdd50309828faeeb43638d6112c5a1661",
+      "task_id": "2448c758145ae5ad500f",
+      "variant_id": "xmlenv:574b783c023e533eb3a5c8e92557aa0a940aa5ff6cfbe794f5614e9fd321148e"
+    },
+    "channel:be6268ca0c12756cc0254542aede49be6684d66d7385777fb4521f54ac002d98": {
+      "execution_id": "libero_goal_openvla_oft_task07_seed1023_trial023_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5f-evidence/goal/task_07/episode_023/trajectory.h5",
+      "source_sha256": "2ac6438dbdb6d637d9a5961cf733e594761e7cbaa9ae062e01f37b28d0e76d23",
+      "task_id": "1b921c8dfd61bb78bb84",
+      "variant_id": "xmlenv:e22d51c95f67d47341182b71095189ac84e0bc506d0571f9e81643923eb6cc0c"
+    },
+    "channel:bf4fe832822023348d4cd069f029ed0aa6b70339d602873123f1fed0b5eacb57": {
+      "execution_id": "libero_object_openvla_oft_task01_seed1024_trial024_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5e-evidence/object/task_01/episode_024/trajectory.h5",
+      "source_sha256": "18fb56381b66272fa08dbbb3fb974e9076beb75e5c2782185c451c4dbf1082c7",
+      "task_id": "7894e3922dc1e048d44c",
+      "variant_id": "xmlenv:9de5384760dd3e80f9c9885d48fbc1509613191f61669b676c18fa3564a84651"
+    },
+    "channel:c34a3445c2c58ebfb24ff65c9cddd91290c2f47c356c14a387703f5ebae76ec8": {
+      "execution_id": "libero_object_openvla_oft_task09_seed1004_trial004_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5e-evidence/object/task_09/episode_004/trajectory.h5",
+      "source_sha256": "4f37ae2a11b38dc9f748e8b8d0bdadcc791116cd865b9192269c99ee35f1ec32",
+      "task_id": "18573886c3dbce39b02e",
+      "variant_id": "xmlenv:7f1f3ed2b3a92435366df297c638d12a41bcef38376f625038911a1c6ad0b0b4"
+    },
+    "channel:c49325b307ffb3df31d9f4e2c163ef2c31b75517d9cbbd2832d9e83b57fe24fd": {
+      "execution_id": "libero_object_openvla_oft_task01_seed1024_trial024_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5e-evidence/object/task_01/episode_024/trajectory.h5",
+      "source_sha256": "18fb56381b66272fa08dbbb3fb974e9076beb75e5c2782185c451c4dbf1082c7",
+      "task_id": "7894e3922dc1e048d44c",
+      "variant_id": "xmlenv:9de5384760dd3e80f9c9885d48fbc1509613191f61669b676c18fa3564a84651"
+    },
+    "channel:c993901ca6ef83927d9fc70ef9175ac3bb5efacf581526268f2f759cbc7488ac": {
+      "execution_id": "libero_long_openvla_oft_task00_seed1022_trial022_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5c-development-evidence/long/task_00/episode_022/trajectory.h5",
+      "source_sha256": "ad2c9d1cb5c5649f62c7f87fccb46468852c6819bc510290e59f8afb64736393",
+      "task_id": "2448c758145ae5ad500f",
+      "variant_id": "xmlenv:574b783c023e533eb3a5c8e92557aa0a940aa5ff6cfbe794f5614e9fd321148e"
+    },
+    "channel:ca5889d84207e1274ac1882ff6dc909d24af1e92a9101b2078812f1f6187b860": {
+      "execution_id": "libero_long_openvla_oft_task00_seed1033_trial033_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5c-development-evidence/long/task_00/episode_033/trajectory.h5",
+      "source_sha256": "f27e1e743b53280f80315ccc81c786e843393d4ab987b6ef5d319d21780959e9",
+      "task_id": "2448c758145ae5ad500f",
+      "variant_id": "xmlenv:574b783c023e533eb3a5c8e92557aa0a940aa5ff6cfbe794f5614e9fd321148e"
+    },
+    "channel:ca6cfd7333c66d9a2d34d1122cd8e5ca1130f7ad21f4efb42939b2cce534dce4": {
+      "execution_id": "libero_goal_openvla_oft_task08_seed1021_trial021_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5f-evidence/goal/task_08/episode_021/trajectory.h5",
+      "source_sha256": "d31e47395d644b06ab7740e869ace0d56b6ccfd68bdad941f6e932315da6d7c8",
+      "task_id": "6da51604f02b12a90682",
+      "variant_id": "xmlenv:eb87dc0e1442b029a602b31505731d4f52cad7955b41ddcd1b703f6dc02dd0a8"
+    },
+    "channel:cb7aa5b11d93bcd7f8ac9772fa295cfbf354e5200043adab67d51402d850c3b8": {
+      "execution_id": "libero_long_openvla_oft_task00_seed1022_trial022_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5c-development-evidence/long/task_00/episode_022/trajectory.h5",
+      "source_sha256": "ad2c9d1cb5c5649f62c7f87fccb46468852c6819bc510290e59f8afb64736393",
+      "task_id": "2448c758145ae5ad500f",
+      "variant_id": "xmlenv:574b783c023e533eb3a5c8e92557aa0a940aa5ff6cfbe794f5614e9fd321148e"
+    },
+    "channel:cc2fa2a88f95f70797ea70b4e9acc44768eea1e5bec2d746b521d49453d0954b": {
+      "execution_id": "libero_long_openvla_oft_task00_seed1033_trial033_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5c-development-evidence/long/task_00/episode_033/trajectory.h5",
+      "source_sha256": "f27e1e743b53280f80315ccc81c786e843393d4ab987b6ef5d319d21780959e9",
+      "task_id": "2448c758145ae5ad500f",
+      "variant_id": "xmlenv:574b783c023e533eb3a5c8e92557aa0a940aa5ff6cfbe794f5614e9fd321148e"
+    },
+    "channel:cd6132cf87826bc5fe528f44e9b19fac0f656afeef4217e87cb21dbcdb7e3cb7": {
+      "execution_id": "libero_spatial_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5f-evidence/spatial/task_00/episode_014/trajectory.h5",
+      "source_sha256": "cb6fac60482a8eadce9428ee1b689467a462b09be0a1ae23a1021963705d82e0",
+      "task_id": "2a5acddf5a0e33b0d470",
+      "variant_id": "xmlenv:f77ec80952500aba4a1b2b17fcdf0ea1deff0274eddfa75edff61569b5e0eed1"
+    },
+    "channel:ced8361109685f1ff20a16b1a69586de968c22a33c6bd5c691b2661a94b07dfb": {
+      "execution_id": "libero_object_openvla_oft_task01_seed1037_trial037_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5e-evidence/object/task_01/episode_037/trajectory.h5",
+      "source_sha256": "370255fb450499f39d6562eb32ce629d6e47c95b69372485b5fe9c0ef2d677ca",
+      "task_id": "7894e3922dc1e048d44c",
+      "variant_id": "xmlenv:9de5384760dd3e80f9c9885d48fbc1509613191f61669b676c18fa3564a84651"
+    },
+    "channel:cfb7e67ca7dfb34ee5e46c292ef0aa4f04362719ea76b3cf808980a70c5a0adc": {
+      "execution_id": "libero_spatial_openvla_oft_task00_seed1010_trial010_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5f-evidence/spatial/task_00/episode_010/trajectory.h5",
+      "source_sha256": "8108031ebcb77a1c9518b1ceb54c010865445883d25cf3f2f8c054e5a96ad2cd",
+      "task_id": "2a5acddf5a0e33b0d470",
+      "variant_id": "xmlenv:a38f99ede107450b95813f2c045205d97954d9aad18c940f2fd47bc6302b4632"
+    },
+    "channel:d02eac40e6a862e44f665cd5bf337af68158fe70c32a642668266f2ac55a797b": {
+      "execution_id": "libero_spatial_openvla_oft_task00_seed1029_trial029_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5f-evidence/spatial/task_00/episode_029/trajectory.h5",
+      "source_sha256": "983920f0e2981a6f3cbaacf22ffb7dc0c1ef12110bd0da092b07a787d23c5264",
+      "task_id": "2a5acddf5a0e33b0d470",
+      "variant_id": "xmlenv:5594c193ed969328a4da769d7bff73d1b0999fefd3cbe3a1896b22b11e7b856a"
+    },
+    "channel:d15b2f6a13d3fe4ce78d1572c99f1f4dfe0b325810453b3e5ef9a54662e0028e": {
+      "execution_id": "libero_goal_openvla_oft_task07_seed1023_trial023_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5f-evidence/goal/task_07/episode_023/trajectory.h5",
+      "source_sha256": "2ac6438dbdb6d637d9a5961cf733e594761e7cbaa9ae062e01f37b28d0e76d23",
+      "task_id": "1b921c8dfd61bb78bb84",
+      "variant_id": "xmlenv:e22d51c95f67d47341182b71095189ac84e0bc506d0571f9e81643923eb6cc0c"
+    },
+    "channel:dcb6a14b3b30c9e468d1d0601d629bf2cac695bd6a37f1b67c6e17b5be3e1e2f": {
+      "execution_id": "libero_long_openvla_oft_task00_seed1049_trial049_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5c-development-evidence/long/task_00/episode_049/trajectory.h5",
+      "source_sha256": "ba2065e9b15ee8de632315d24283358c469ab476b1e2bf6bd956529dcc55e7a8",
+      "task_id": "2448c758145ae5ad500f",
+      "variant_id": "xmlenv:574b783c023e533eb3a5c8e92557aa0a940aa5ff6cfbe794f5614e9fd321148e"
+    },
+    "channel:dfbbe5dcb7ec3363c32dcf9d2fc02178e68f7687b21e0b862134ae7ece6552d6": {
+      "execution_id": "libero_object_openvla_oft_task01_seed1024_trial024_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5e-evidence/object/task_01/episode_024/trajectory.h5",
+      "source_sha256": "18fb56381b66272fa08dbbb3fb974e9076beb75e5c2782185c451c4dbf1082c7",
+      "task_id": "7894e3922dc1e048d44c",
+      "variant_id": "xmlenv:9de5384760dd3e80f9c9885d48fbc1509613191f61669b676c18fa3564a84651"
+    },
+    "channel:e20275bc200e77f65b43971eab3a336e8951fa0a56241cb04ca779fac22593be": {
+      "execution_id": "libero_long_openvla_oft_task00_seed1001_trial001_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase2b2-development-evidence/long/task_00/episode_001/trajectory.h5",
+      "source_sha256": "9db5ee8df1f1a47218325cb5cfa874d57973dcf4fe6914765f246acdeaba483a",
+      "task_id": "2448c758145ae5ad500f",
+      "variant_id": "xmlenv:574b783c023e533eb3a5c8e92557aa0a940aa5ff6cfbe794f5614e9fd321148e"
+    },
+    "channel:e77d4910a3201d023109b6937df8c93711c2a4ff29815f58162352b3dd81b131": {
+      "execution_id": "libero_goal_openvla_oft_task08_seed1009_trial009_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5f-evidence/goal/task_08/episode_009/trajectory.h5",
+      "source_sha256": "4f22fcba3d48e62b2505c57b2643c20f69f0c5dee7197009cf4e7fb24fefb71e",
+      "task_id": "6da51604f02b12a90682",
+      "variant_id": "xmlenv:485346552c7016cfa145974454c09373fce6d4f54e8d82a675e6a17049e0f931"
+    },
+    "channel:e817525a8ffa000648d480e03f3aa07d03419396682bf2855087511bcc23288c": {
+      "execution_id": "libero_object_openvla_oft_task02_seed1021_trial021_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5d-object-task02/object/task_02/episode_021/trajectory.h5",
+      "source_sha256": "aa0953949c42ba6306c0acac266d51a5354a140f0a48a17c35eeaeecb158f033",
+      "task_id": "b12b2d70fe80d3547b1e",
+      "variant_id": "xmlenv:cb5148d6f133c5491152d5ece7813e0aceadb2eb7be61e40033b061c22c1705a"
+    },
+    "channel:e838f3c54448ecd1b52c919a451cda77bb2f470e8e39dfd9308cba741c3baee7": {
+      "execution_id": "libero_spatial_openvla_oft_task00_seed1036_trial036_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5f-evidence/spatial/task_00/episode_036/trajectory.h5",
+      "source_sha256": "20d7ea5e3ed9d13e1f8ce0bd589b2704bf978e0a9b87d2210170de2b3cdf95f9",
+      "task_id": "2a5acddf5a0e33b0d470",
+      "variant_id": "xmlenv:67e47e894727e30fdb2ce2279889d83dd76634d39e62762518a0f6cfc0d2bee6"
+    },
+    "channel:eb5b1f78135675327da43ea807f32ed3583a2ef1e7a43915e2c1c1d9ff1efda5": {
+      "execution_id": "libero_spatial_openvla_oft_task00_seed1036_trial036_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5f-evidence/spatial/task_00/episode_036/trajectory.h5",
+      "source_sha256": "20d7ea5e3ed9d13e1f8ce0bd589b2704bf978e0a9b87d2210170de2b3cdf95f9",
+      "task_id": "2a5acddf5a0e33b0d470",
+      "variant_id": "xmlenv:67e47e894727e30fdb2ce2279889d83dd76634d39e62762518a0f6cfc0d2bee6"
+    },
+    "channel:f2405f38f767621f9d4f18d61274b4d4d0f37d31667af72b391bfd18257af45f": {
+      "execution_id": "libero_spatial_openvla_oft_task00_seed1031_trial031_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5f-evidence/spatial/task_00/episode_031/trajectory.h5",
+      "source_sha256": "320533e0b8111b2fdcd94c0a7c230ca64669a6723ed27e9027e91404dba54589",
+      "task_id": "2a5acddf5a0e33b0d470",
+      "variant_id": "xmlenv:a1ca08063451f8f3b1f9111fe04e3ba7712c140f3780636e0d00797459542505"
+    },
+    "channel:f269a875db4449eda87b684d5470fc3443a57916e66595964af5509df86ddfba": {
+      "execution_id": "libero_object_openvla_oft_task09_seed1004_trial004_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5e-evidence/object/task_09/episode_004/trajectory.h5",
+      "source_sha256": "4f37ae2a11b38dc9f748e8b8d0bdadcc791116cd865b9192269c99ee35f1ec32",
+      "task_id": "18573886c3dbce39b02e",
+      "variant_id": "xmlenv:7f1f3ed2b3a92435366df297c638d12a41bcef38376f625038911a1c6ad0b0b4"
+    },
+    "channel:f2762b2156466c04dcf9f5c0d97141d4fa569efe3127fec86bc8717726f37e97": {
+      "execution_id": "libero_long_openvla_oft_task00_seed1001_trial001_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase2b2-development-evidence/long/task_00/episode_001/trajectory.h5",
+      "source_sha256": "9db5ee8df1f1a47218325cb5cfa874d57973dcf4fe6914765f246acdeaba483a",
+      "task_id": "2448c758145ae5ad500f",
+      "variant_id": "xmlenv:574b783c023e533eb3a5c8e92557aa0a940aa5ff6cfbe794f5614e9fd321148e"
+    },
+    "channel:f44d720df7bd551325e80bf58cd4ca99af50c6e192d25d43f8e399e2232458ac": {
+      "execution_id": "libero_object_openvla_oft_task02_seed1021_trial021_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5d-object-task02/object/task_02/episode_021/trajectory.h5",
+      "source_sha256": "aa0953949c42ba6306c0acac266d51a5354a140f0a48a17c35eeaeecb158f033",
+      "task_id": "b12b2d70fe80d3547b1e",
+      "variant_id": "xmlenv:cb5148d6f133c5491152d5ece7813e0aceadb2eb7be61e40033b061c22c1705a"
+    },
+    "channel:f564bb88de825d4dd56d5aa0351fbbd4d1bec5dae4be382d75ccdc84c6e16bfa": {
+      "execution_id": "libero_long_openvla_oft_task00_seed1017_trial017_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5c-development-evidence/long/task_00/episode_017/trajectory.h5",
+      "source_sha256": "2b1686f9ad3c285d366d18f498f5870bdd50309828faeeb43638d6112c5a1661",
+      "task_id": "2448c758145ae5ad500f",
+      "variant_id": "xmlenv:574b783c023e533eb3a5c8e92557aa0a940aa5ff6cfbe794f5614e9fd321148e"
+    },
+    "channel:f76a584619d5dd5256724dc8f6c99c539d3836b459af9a3ec565c4af60d666ce": {
+      "execution_id": "libero_object_openvla_oft_task01_seed1037_trial037_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5e-evidence/object/task_01/episode_037/trajectory.h5",
+      "source_sha256": "370255fb450499f39d6562eb32ce629d6e47c95b69372485b5fe9c0ef2d677ca",
+      "task_id": "7894e3922dc1e048d44c",
+      "variant_id": "xmlenv:9de5384760dd3e80f9c9885d48fbc1509613191f61669b676c18fa3564a84651"
+    },
+    "channel:fbaf2b3889c6d4eccbb0118678349a3ae5c01f284e118dbfc65c616fb6fd463a": {
+      "execution_id": "libero_goal_openvla_oft_task08_seed1013_trial013_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5f-evidence/goal/task_08/episode_013/trajectory.h5",
+      "source_sha256": "7bdbaf0f254f876fc3d8c0b8328ceaa483ab091b2d6b9fab18d002682ee4f9d0",
+      "task_id": "6da51604f02b12a90682",
+      "variant_id": "xmlenv:d9058084f09b432d4b456bf9952c44874178d4fcb7057dedefb7d790144647c5"
+    },
+    "channel:fc97d392e692ac5d46abacd8f6caaa80f1e19da7ebfa457065ddb6595978dc78": {
+      "execution_id": "libero_spatial_openvla_oft_task00_seed1036_trial036_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5f-evidence/spatial/task_00/episode_036/trajectory.h5",
+      "source_sha256": "20d7ea5e3ed9d13e1f8ce0bd589b2704bf978e0a9b87d2210170de2b3cdf95f9",
+      "task_id": "2a5acddf5a0e33b0d470",
+      "variant_id": "xmlenv:67e47e894727e30fdb2ce2279889d83dd76634d39e62762518a0f6cfc0d2bee6"
+    },
+    "channel:fea970967b0e464b35b24e8ba764d657293101efe2084aa2e52445f141e68f24": {
+      "execution_id": "libero_goal_openvla_oft_task07_seed1048_trial048_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5f-evidence/goal/task_07/episode_048/trajectory.h5",
+      "source_sha256": "7cccba341c725909a965419d1769fb384f401216686b87dea4835c7e762b0948",
+      "task_id": "1b921c8dfd61bb78bb84",
+      "variant_id": "xmlenv:6cbe6b38a759089c5b77677c8a6e0f5299657ecf6a12c2bb2d262a68a7624606"
+    },
+    "channel:feb52bb4839f02d784b21410c58cc4c31ab400e17d788da7c0b8f9e6d6ff646c": {
+      "execution_id": "libero_spatial_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5f-evidence/spatial/task_00/episode_014/trajectory.h5",
+      "source_sha256": "cb6fac60482a8eadce9428ee1b689467a462b09be0a1ae23a1021963705d82e0",
+      "task_id": "2a5acddf5a0e33b0d470",
+      "variant_id": "xmlenv:f77ec80952500aba4a1b2b17fcdf0ea1deff0274eddfa75edff61569b5e0eed1"
+    },
+    "channel:fff17abc043a9bac86d0e5d49e5845ef210b1c2b3b7f94e1ef842ccdd887aa2b": {
+      "execution_id": "libero_spatial_openvla_oft_task00_seed1036_trial036_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5f-evidence/spatial/task_00/episode_036/trajectory.h5",
+      "source_sha256": "20d7ea5e3ed9d13e1f8ce0bd589b2704bf978e0a9b87d2210170de2b3cdf95f9",
+      "task_id": "2a5acddf5a0e33b0d470",
+      "variant_id": "xmlenv:67e47e894727e30fdb2ce2279889d83dd76634d39e62762518a0f6cfc0d2bee6"
+    },
+    "ev:102bbf482288e89162febe05cc6810fc6cea6141114705bb62a184bd73c0eefa": {
+      "execution_id": "libero_object_openvla_oft_task03_seed1035_trial035_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5e-evidence/object/task_03/episode_035/trajectory.h5",
+      "source_sha256": "5de011c28ddd2d0fd4b98df0ef02bee7acfdaccba1427399a14c50f99e0759d5",
+      "task_id": "30c0f61d2d5786fae8b6"
+    },
+    "ev:13a6e5b9879252afbddb9e9bcf7ede4d0d68c9e4d95e59be3017b202525e3975": {
+      "execution_id": "libero_object_openvla_oft_task01_seed1037_trial037_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/multitask_expansion/profiles/object_task_01/NATIVE_PROFILE.json",
+      "source_sha256": "cf07453070e2b9d91a50174cde22a6e0978b7a616f24326580dab8baa7601da1",
+      "task_id": "7894e3922dc1e048d44c"
+    },
+    "ev:14aacba3c5b84a132bba3ca651f6d17796dfc4c9fd2403ac62e7e9eebe86d72f": {
+      "execution_id": "libero_goal_openvla_oft_task08_seed1009_trial009_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5f-evidence/goal/task_08/episode_009/trajectory.h5",
+      "source_sha256": "4f22fcba3d48e62b2505c57b2643c20f69f0c5dee7197009cf4e7fb24fefb71e",
+      "task_id": "6da51604f02b12a90682"
+    },
+    "ev:19602a2b9be3004f18e5693f8a517559c0777944acf246182a035994464245eb": {
+      "execution_id": "libero_object_openvla_oft_task05_seed1049_trial049_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5e-evidence/object/task_05/episode_049/trajectory.h5",
+      "source_sha256": "6e4c56baa20927e2198b2fcf640367b590cbcb4e13cfe66e8e25548aa7a035bc",
+      "task_id": "4013b7c5a98750b7e80d"
+    },
+    "ev:32cf939bb303a155419a939ba13be369986857f6febd6c1fa999c5d90b329a90": {
+      "execution_id": "libero_goal_openvla_oft_task08_seed1009_trial009_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/trustworthy-phase5f-working/profiles/libero_goal_openvla_oft_task08_seed1009_trial009_cfafd9ddc3db/NATIVE_PROFILE.json",
+      "source_sha256": "0d36dfe032dfb00816a5459be50a8a29e187388837ac3de9db27f8e555cc327f",
+      "task_id": "6da51604f02b12a90682"
+    },
+    "ev:356c6bc3e7398070a3dcb0a797c9e1f9c7b8ba672505913e5b65cf651a16f7f3": {
+      "execution_id": "libero_long_openvla_oft_task00_seed1017_trial017_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5c-development-evidence/long/task_00/episode_017/trajectory.h5",
+      "source_sha256": "2b1686f9ad3c285d366d18f498f5870bdd50309828faeeb43638d6112c5a1661",
+      "task_id": "2448c758145ae5ad500f"
+    },
+    "ev:36ab15920243e63ee2abb51674d691eeb4ddf05bf371ae8d878de88929265787": {
+      "execution_id": "libero_goal_openvla_oft_task08_seed1013_trial013_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/trustworthy-phase5f-working/profiles/libero_goal_openvla_oft_task08_seed1013_trial013_cfafd9ddc3db/NATIVE_PROFILE.json",
+      "source_sha256": "a1fb62778078b2bb4af7393d887e3c5458289e28817ac96bbdd0d4ef1cfc3968",
+      "task_id": "6da51604f02b12a90682"
+    },
+    "ev:3f5e47bbb0f450499186bfa33dbcee807ce8f8ab424cdeec72e3ab694733a01b": {
+      "execution_id": "libero_spatial_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/trustworthy-phase5f-working/profiles/libero_spatial_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db/NATIVE_PROFILE.json",
+      "source_sha256": "920f017dc0d655500684af9ab86b691378efd44cfb1af44b1312e83cdb64bfda",
+      "task_id": "2a5acddf5a0e33b0d470"
+    },
+    "ev:427f6d7e85e6330260bea0e8c935a9d7dc92b0b34b8bf7b1d4349b1cc4eafa96": {
+      "execution_id": "libero_long_openvla_oft_task00_seed1001_trial001_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/trustworthy-phase16/reports/fall_review_v2_20261016/constraints_and_identities.json",
+      "source_sha256": "38b0384d5f17f0068133e54266f41d0a6728b60c1d4f1f96b3e14a7cd6fd7e3b",
+      "task_id": "2448c758145ae5ad500f"
+    },
+    "ev:46c2c06a919bc7ced42602cd4a6f1e7fdf2fb0d0f432d0ce422634191b7b1659": {
+      "execution_id": "libero_goal_openvla_oft_task08_seed1013_trial013_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5f-evidence/goal/task_08/episode_013/trajectory.h5",
+      "source_sha256": "7bdbaf0f254f876fc3d8c0b8328ceaa483ab091b2d6b9fab18d002682ee4f9d0",
+      "task_id": "6da51604f02b12a90682"
+    },
+    "ev:49c361f6d4c4db6656dce3c73ab56eeba1fe81b8d8e477d534d79ab0478e86fe": {
+      "execution_id": "libero_long_openvla_oft_task00_seed1017_trial017_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/trustworthy-phase16/reports/fall_review_v2_20261016/constraints_and_identities.json",
+      "source_sha256": "38b0384d5f17f0068133e54266f41d0a6728b60c1d4f1f96b3e14a7cd6fd7e3b",
+      "task_id": "2448c758145ae5ad500f"
+    },
+    "ev:4b6a6176802a265a38acb44df3e3ea0785ccc72a3cfbe14dfc5791a9bd24a4fb": {
+      "execution_id": "libero_spatial_openvla_oft_task00_seed1031_trial031_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5f-evidence/spatial/task_00/episode_031/run_metadata.json",
+      "source_sha256": "6302a69cc4b2fa1973fc7450bbcadb247841fe2765d4fa540ecdd8f581aef842",
+      "task_id": "2a5acddf5a0e33b0d470"
+    },
+    "ev:56f1f408bda3be0b8e161fe2b502800439640fe88a0f156cba5935a50bb14225": {
+      "execution_id": "libero_object_openvla_oft_task05_seed1049_trial049_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/multitask_expansion/profiles/object_task_05/NATIVE_PROFILE.json",
+      "source_sha256": "d348b84060bc77d971b938d817e5777f7ce6c85328546958d13f9215cc7be3fb",
+      "task_id": "4013b7c5a98750b7e80d"
+    },
+    "ev:72c48ea05fd8b44900aa7f2d7f4dd60615530619a02a9232419105f4923b53f5": {
+      "execution_id": "libero_goal_openvla_oft_task07_seed1048_trial048_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5f-evidence/goal/task_07/episode_048/trajectory.h5",
+      "source_sha256": "7cccba341c725909a965419d1769fb384f401216686b87dea4835c7e762b0948",
+      "task_id": "1b921c8dfd61bb78bb84"
+    },
+    "ev:85333128adc39d44466de5d5cfbdbb245b5930a44414454886bec2619711c1e2": {
+      "execution_id": "libero_goal_openvla_oft_task08_seed1003_trial003_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5f-evidence/goal/task_08/episode_003/trajectory.h5",
+      "source_sha256": "9b2b30e3c8abd76aefa919fdb8d78a5394b52ef5b8657447e34b9590cf5b329c",
+      "task_id": "6da51604f02b12a90682"
+    },
+    "ev:89ca27e82c28011cc0ec64a5eccfc54306e2232197b1f719344a46ec7b1211ba": {
+      "execution_id": "libero_object_openvla_oft_task09_seed1004_trial004_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5e-evidence/object/task_09/episode_004/trajectory.h5",
+      "source_sha256": "4f37ae2a11b38dc9f748e8b8d0bdadcc791116cd865b9192269c99ee35f1ec32",
+      "task_id": "18573886c3dbce39b02e"
+    },
+    "ev:8d1c7817f9239000acce4c13896b8b77d00d9524b040a13d01b060f25877a1b0": {
+      "execution_id": "libero_long_openvla_oft_task00_seed1022_trial022_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5c-development-evidence/long/task_00/episode_022/trajectory.h5",
+      "source_sha256": "ad2c9d1cb5c5649f62c7f87fccb46468852c6819bc510290e59f8afb64736393",
+      "task_id": "2448c758145ae5ad500f"
+    },
+    "ev:96f4fa55437d7a80abf5e027406a6c1d9a7fe6e37d3dc95b4bf6ae965e7561cd": {
+      "execution_id": "libero_spatial_openvla_oft_task00_seed1010_trial010_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/trustworthy-phase5f-working/profiles/libero_spatial_openvla_oft_task00_seed1010_trial010_cfafd9ddc3db/NATIVE_PROFILE.json",
+      "source_sha256": "a34a2cab44353833c4c42264939657d47023a168e2760f6ebb1ebbb072d61545",
+      "task_id": "2a5acddf5a0e33b0d470"
+    },
+    "ev:99f76cf031e4834c1cb7425646f8edc7d7d99bd3412dd3501495729218f16c09": {
+      "execution_id": "libero_object_openvla_oft_task03_seed1035_trial035_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/multitask_expansion/profiles/object_task_03/NATIVE_PROFILE.json",
+      "source_sha256": "c4e00c3ce6e183db0c9636534da4a2c220a70e1a1c06ec97a38fe84d5c48e7fb",
+      "task_id": "30c0f61d2d5786fae8b6"
+    },
+    "ev:a4a9d358f4cd61531095e704fb6fd5d8fbefeb89280787b9d40e90c618f322d1": {
+      "execution_id": "libero_spatial_openvla_oft_task00_seed1036_trial036_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/trustworthy-phase5f-working/profiles/libero_spatial_openvla_oft_task00_seed1036_trial036_cfafd9ddc3db/NATIVE_PROFILE.json",
+      "source_sha256": "97012b1ccb8cb8f8c0f89c09321ad88b9b05dbc6021d27a8efa53fa7a9530fa8",
+      "task_id": "2a5acddf5a0e33b0d470"
+    },
+    "ev:a57563268c396aaffda2f9bd0138be7486183a70b6306c3316d7ed6ddfa3a291": {
+      "execution_id": "libero_long_openvla_oft_task00_seed1001_trial001_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase2b2-development-evidence/long/task_00/episode_001/trajectory.h5",
+      "source_sha256": "9db5ee8df1f1a47218325cb5cfa874d57973dcf4fe6914765f246acdeaba483a",
+      "task_id": "2448c758145ae5ad500f"
+    },
+    "ev:a6b176ccc6d8cd6902e25a8236d7f3a84afd1c4a0fa36d1ec01f1665f375142b": {
+      "execution_id": "libero_long_openvla_oft_task00_seed1022_trial022_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/trustworthy-phase16/reports/fall_review_v2_20261016/constraints_and_identities.json",
+      "source_sha256": "38b0384d5f17f0068133e54266f41d0a6728b60c1d4f1f96b3e14a7cd6fd7e3b",
+      "task_id": "2448c758145ae5ad500f"
+    },
+    "ev:a8c04055076c83cf9bff98327a5b90f54a8614e43babeadc5d9f111dd65d1dfe": {
+      "execution_id": "libero_object_openvla_oft_task01_seed1024_trial024_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5e-evidence/object/task_01/episode_024/trajectory.h5",
+      "source_sha256": "18fb56381b66272fa08dbbb3fb974e9076beb75e5c2782185c451c4dbf1082c7",
+      "task_id": "7894e3922dc1e048d44c"
+    },
+    "ev:ac3e0adfa31c0af8f911ba2a2c476729f61aaa1a1dc2b7f75e8f1ca5c32a8af3": {
+      "execution_id": "libero_object_openvla_oft_task01_seed1037_trial037_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5e-evidence/object/task_01/episode_037/trajectory.h5",
+      "source_sha256": "370255fb450499f39d6562eb32ce629d6e47c95b69372485b5fe9c0ef2d677ca",
+      "task_id": "7894e3922dc1e048d44c"
+    },
+    "ev:ac683f7e503a7e3d01e15ba297a5d079e782434355857bf3596b5f5539283337": {
+      "execution_id": "libero_object_openvla_oft_task02_seed1021_trial021_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/corpus_expansion/task_profile/NATIVE_PROFILE.json",
+      "source_sha256": "387e236bcd40a4200a46628197301ab3aa1a7514481fe89bad6c9f8fc1743a9a",
+      "task_id": "b12b2d70fe80d3547b1e"
+    },
+    "ev:b29f3ffd0e451e67ee93ed9b21404ed7b5b3dd2cb7a00443a4a4bc1b40cf9635": {
+      "execution_id": "libero_object_openvla_oft_task09_seed1004_trial004_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/multitask_expansion/profiles/object_task_09/NATIVE_PROFILE.json",
+      "source_sha256": "9734708476c68d023b0f448d7ebfa0eebd4d6a3d3ece8fc596ced0508aa47ec8",
+      "task_id": "18573886c3dbce39b02e"
+    },
+    "ev:b483536d4833eb4a37db55cada0f149efd336fc61e08b2376d1341f95372ec66": {
+      "execution_id": "libero_spatial_openvla_oft_task00_seed1010_trial010_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5f-evidence/spatial/task_00/episode_010/trajectory.h5",
+      "source_sha256": "8108031ebcb77a1c9518b1ceb54c010865445883d25cf3f2f8c054e5a96ad2cd",
+      "task_id": "2a5acddf5a0e33b0d470"
+    },
+    "ev:b4c7e72bed71582c3a9f670820cd8e6f1c3a429a5b421f46c57b35281135bb51": {
+      "execution_id": "libero_object_openvla_oft_task01_seed1024_trial024_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/multitask_expansion/profiles/object_task_01/NATIVE_PROFILE.json",
+      "source_sha256": "cf07453070e2b9d91a50174cde22a6e0978b7a616f24326580dab8baa7601da1",
+      "task_id": "7894e3922dc1e048d44c"
+    },
+    "ev:bb4434e6b828ded6d49eaaa471283d3c95405ceecfd271a021f5c1d8f33cef93": {
+      "execution_id": "libero_goal_openvla_oft_task07_seed1048_trial048_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/trustworthy-phase5f-working/profiles/libero_goal_openvla_oft_task07_seed1048_trial048_cfafd9ddc3db/NATIVE_PROFILE.json",
+      "source_sha256": "57bba749f003ff1be5f40296eb53af1c6d1262c8b4dc7bfc070dad67eab4314d",
+      "task_id": "1b921c8dfd61bb78bb84"
+    },
+    "ev:c5faa29487d85ae21244d7f8e1afc46aa9c59de1e8971473eaa0b9c63d4b86ae": {
+      "execution_id": "libero_goal_openvla_oft_task08_seed1003_trial003_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/trustworthy-phase5f-working/profiles/libero_goal_openvla_oft_task08_seed1003_trial003_cfafd9ddc3db/NATIVE_PROFILE.json",
+      "source_sha256": "c8286880339bbc43264c4af2240cef024786141005d473fdc9ac3eb992c45478",
+      "task_id": "6da51604f02b12a90682"
+    },
+    "ev:d2969df64df7f531c4af85d63fb6f7a1c07eb07572db9ed69c195b21b3152c18": {
+      "execution_id": "libero_spatial_openvla_oft_task00_seed1036_trial036_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5f-evidence/spatial/task_00/episode_036/trajectory.h5",
+      "source_sha256": "20d7ea5e3ed9d13e1f8ce0bd589b2704bf978e0a9b87d2210170de2b3cdf95f9",
+      "task_id": "2a5acddf5a0e33b0d470"
+    },
+    "ev:e17e18db2c2d8636b0db2c1a1aa2c4bef9737266a3308a90791d951525e20231": {
+      "execution_id": "libero_long_openvla_oft_task00_seed1033_trial033_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5c-development-evidence/long/task_00/episode_033/run_metadata.json",
+      "source_sha256": "0bdec80056496ae1097178fc8415a20c7498ee4c6eefaf38ea05974d0301a63e",
+      "task_id": "2448c758145ae5ad500f"
+    },
+    "ev:e70259177435259dbdc13f41ccb1bdd0291c0928960b6abc36b39b80726b19e0": {
+      "execution_id": "libero_spatial_openvla_oft_task00_seed1031_trial031_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5f-evidence/spatial/task_00/episode_031/trajectory.h5",
+      "source_sha256": "320533e0b8111b2fdcd94c0a7c230ca64669a6723ed27e9027e91404dba54589",
+      "task_id": "2a5acddf5a0e33b0d470"
+    },
+    "ev:eae3820dd497afba5ac7c5d1609d8687af16965f15e2132f1bb5da8d632f5fdc": {
+      "execution_id": "libero_object_openvla_oft_task02_seed1021_trial021_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5d-object-task02/object/task_02/episode_021/trajectory.h5",
+      "source_sha256": "aa0953949c42ba6306c0acac266d51a5354a140f0a48a17c35eeaeecb158f033",
+      "task_id": "b12b2d70fe80d3547b1e"
+    },
+    "ev:f6ed4ca0b2eeaf47f6bad60f8b9fcce70be6ca9c0435b7b8d91c069ceca3357c": {
+      "execution_id": "libero_spatial_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/r1-v4-phase5f-evidence/spatial/task_00/episode_014/trajectory.h5",
+      "source_sha256": "cb6fac60482a8eadce9428ee1b689467a462b09be0a1ae23a1021963705d82e0",
+      "task_id": "2a5acddf5a0e33b0d470"
+    },
+    "ev:f7ff6d33ae6652d81ff052d3b87178c4584e89f551a9f832f4dead39570673c5": {
+      "execution_id": "libero_spatial_openvla_oft_task00_seed1031_trial031_cfafd9ddc3db",
+      "source_path": "/disk/1/data/niktakbr/trustworthy-phase5f-working/profiles/libero_spatial_openvla_oft_task00_seed1031_trial031_cfafd9ddc3db/NATIVE_PROFILE.json",
+      "source_sha256": "dc681c8ffa96e43e8b7f12e4ccd6af0a6192eed310f8e0269ffab9770fd17302",
+      "task_id": "2a5acddf5a0e33b0d470"
+    }
+  },
+  "verified_artifacts": {
+    "/disk/1/data/niktakbr/r1-v4-phase2b2-development-evidence/long/task_00/episode_001/trajectory.h5": "9db5ee8df1f1a47218325cb5cfa874d57973dcf4fe6914765f246acdeaba483a",
+    "/disk/1/data/niktakbr/r1-v4-phase5c-development-evidence/long/task_00/episode_017/trajectory.h5": "2b1686f9ad3c285d366d18f498f5870bdd50309828faeeb43638d6112c5a1661",
+    "/disk/1/data/niktakbr/r1-v4-phase5c-development-evidence/long/task_00/episode_022/trajectory.h5": "ad2c9d1cb5c5649f62c7f87fccb46468852c6819bc510290e59f8afb64736393",
+    "/disk/1/data/niktakbr/r1-v4-phase5c-development-evidence/long/task_00/episode_033/run_metadata.json": "0bdec80056496ae1097178fc8415a20c7498ee4c6eefaf38ea05974d0301a63e",
+    "/disk/1/data/niktakbr/r1-v4-phase5c-development-evidence/long/task_00/episode_033/trajectory.h5": "f27e1e743b53280f80315ccc81c786e843393d4ab987b6ef5d319d21780959e9",
+    "/disk/1/data/niktakbr/r1-v4-phase5c-development-evidence/long/task_00/episode_049/trajectory.h5": "ba2065e9b15ee8de632315d24283358c469ab476b1e2bf6bd956529dcc55e7a8",
+    "/disk/1/data/niktakbr/r1-v4-phase5d-object-task02/object/task_02/episode_021/trajectory.h5": "aa0953949c42ba6306c0acac266d51a5354a140f0a48a17c35eeaeecb158f033",
+    "/disk/1/data/niktakbr/r1-v4-phase5e-evidence/object/task_01/episode_024/trajectory.h5": "18fb56381b66272fa08dbbb3fb974e9076beb75e5c2782185c451c4dbf1082c7",
+    "/disk/1/data/niktakbr/r1-v4-phase5e-evidence/object/task_01/episode_037/trajectory.h5": "370255fb450499f39d6562eb32ce629d6e47c95b69372485b5fe9c0ef2d677ca",
+    "/disk/1/data/niktakbr/r1-v4-phase5e-evidence/object/task_03/episode_035/trajectory.h5": "5de011c28ddd2d0fd4b98df0ef02bee7acfdaccba1427399a14c50f99e0759d5",
+    "/disk/1/data/niktakbr/r1-v4-phase5e-evidence/object/task_05/episode_049/trajectory.h5": "6e4c56baa20927e2198b2fcf640367b590cbcb4e13cfe66e8e25548aa7a035bc",
+    "/disk/1/data/niktakbr/r1-v4-phase5e-evidence/object/task_09/episode_004/trajectory.h5": "4f37ae2a11b38dc9f748e8b8d0bdadcc791116cd865b9192269c99ee35f1ec32",
+    "/disk/1/data/niktakbr/r1-v4-phase5f-evidence/goal/task_07/episode_023/trajectory.h5": "2ac6438dbdb6d637d9a5961cf733e594761e7cbaa9ae062e01f37b28d0e76d23",
+    "/disk/1/data/niktakbr/r1-v4-phase5f-evidence/goal/task_07/episode_048/trajectory.h5": "7cccba341c725909a965419d1769fb384f401216686b87dea4835c7e762b0948",
+    "/disk/1/data/niktakbr/r1-v4-phase5f-evidence/goal/task_08/episode_003/trajectory.h5": "9b2b30e3c8abd76aefa919fdb8d78a5394b52ef5b8657447e34b9590cf5b329c",
+    "/disk/1/data/niktakbr/r1-v4-phase5f-evidence/goal/task_08/episode_009/trajectory.h5": "4f22fcba3d48e62b2505c57b2643c20f69f0c5dee7197009cf4e7fb24fefb71e",
+    "/disk/1/data/niktakbr/r1-v4-phase5f-evidence/goal/task_08/episode_013/trajectory.h5": "7bdbaf0f254f876fc3d8c0b8328ceaa483ab091b2d6b9fab18d002682ee4f9d0",
+    "/disk/1/data/niktakbr/r1-v4-phase5f-evidence/goal/task_08/episode_021/trajectory.h5": "d31e47395d644b06ab7740e869ace0d56b6ccfd68bdad941f6e932315da6d7c8",
+    "/disk/1/data/niktakbr/r1-v4-phase5f-evidence/spatial/task_00/episode_010/trajectory.h5": "8108031ebcb77a1c9518b1ceb54c010865445883d25cf3f2f8c054e5a96ad2cd",
+    "/disk/1/data/niktakbr/r1-v4-phase5f-evidence/spatial/task_00/episode_014/trajectory.h5": "cb6fac60482a8eadce9428ee1b689467a462b09be0a1ae23a1021963705d82e0",
+    "/disk/1/data/niktakbr/r1-v4-phase5f-evidence/spatial/task_00/episode_029/trajectory.h5": "983920f0e2981a6f3cbaacf22ffb7dc0c1ef12110bd0da092b07a787d23c5264",
+    "/disk/1/data/niktakbr/r1-v4-phase5f-evidence/spatial/task_00/episode_031/run_metadata.json": "6302a69cc4b2fa1973fc7450bbcadb247841fe2765d4fa540ecdd8f581aef842",
+    "/disk/1/data/niktakbr/r1-v4-phase5f-evidence/spatial/task_00/episode_031/trajectory.h5": "320533e0b8111b2fdcd94c0a7c230ca64669a6723ed27e9027e91404dba54589",
+    "/disk/1/data/niktakbr/r1-v4-phase5f-evidence/spatial/task_00/episode_036/trajectory.h5": "20d7ea5e3ed9d13e1f8ce0bd589b2704bf978e0a9b87d2210170de2b3cdf95f9",
+    "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/corpus_expansion/task_profile/NATIVE_PROFILE.json": "387e236bcd40a4200a46628197301ab3aa1a7514481fe89bad6c9f8fc1743a9a",
+    "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/multitask_expansion/profiles/object_task_01/NATIVE_PROFILE.json": "cf07453070e2b9d91a50174cde22a6e0978b7a616f24326580dab8baa7601da1",
+    "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/multitask_expansion/profiles/object_task_03/NATIVE_PROFILE.json": "c4e00c3ce6e183db0c9636534da4a2c220a70e1a1c06ec97a38fe84d5c48e7fb",
+    "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/multitask_expansion/profiles/object_task_05/NATIVE_PROFILE.json": "d348b84060bc77d971b938d817e5777f7ce6c85328546958d13f9215cc7be3fb",
+    "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/multitask_expansion/profiles/object_task_09/NATIVE_PROFILE.json": "9734708476c68d023b0f448d7ebfa0eebd4d6a3d3ece8fc596ced0508aa47ec8",
+    "/disk/1/data/niktakbr/trustworthy-phase16/reports/fall_review_v2_20261016/constraints_and_identities.json": "38b0384d5f17f0068133e54266f41d0a6728b60c1d4f1f96b3e14a7cd6fd7e3b",
+    "/disk/1/data/niktakbr/trustworthy-phase5f-working/profiles/libero_goal_openvla_oft_task07_seed1048_trial048_cfafd9ddc3db/NATIVE_PROFILE.json": "57bba749f003ff1be5f40296eb53af1c6d1262c8b4dc7bfc070dad67eab4314d",
+    "/disk/1/data/niktakbr/trustworthy-phase5f-working/profiles/libero_goal_openvla_oft_task08_seed1003_trial003_cfafd9ddc3db/NATIVE_PROFILE.json": "c8286880339bbc43264c4af2240cef024786141005d473fdc9ac3eb992c45478",
+    "/disk/1/data/niktakbr/trustworthy-phase5f-working/profiles/libero_goal_openvla_oft_task08_seed1009_trial009_cfafd9ddc3db/NATIVE_PROFILE.json": "0d36dfe032dfb00816a5459be50a8a29e187388837ac3de9db27f8e555cc327f",
+    "/disk/1/data/niktakbr/trustworthy-phase5f-working/profiles/libero_goal_openvla_oft_task08_seed1013_trial013_cfafd9ddc3db/NATIVE_PROFILE.json": "a1fb62778078b2bb4af7393d887e3c5458289e28817ac96bbdd0d4ef1cfc3968",
+    "/disk/1/data/niktakbr/trustworthy-phase5f-working/profiles/libero_spatial_openvla_oft_task00_seed1010_trial010_cfafd9ddc3db/NATIVE_PROFILE.json": "a34a2cab44353833c4c42264939657d47023a168e2760f6ebb1ebbb072d61545",
+    "/disk/1/data/niktakbr/trustworthy-phase5f-working/profiles/libero_spatial_openvla_oft_task00_seed1014_trial014_cfafd9ddc3db/NATIVE_PROFILE.json": "920f017dc0d655500684af9ab86b691378efd44cfb1af44b1312e83cdb64bfda",
+    "/disk/1/data/niktakbr/trustworthy-phase5f-working/profiles/libero_spatial_openvla_oft_task00_seed1031_trial031_cfafd9ddc3db/NATIVE_PROFILE.json": "dc681c8ffa96e43e8b7f12e4ccd6af0a6192eed310f8e0269ffab9770fd17302",
+    "/disk/1/data/niktakbr/trustworthy-phase5f-working/profiles/libero_spatial_openvla_oft_task00_seed1036_trial036_cfafd9ddc3db/NATIVE_PROFILE.json": "97012b1ccb8cb8f8c0f89c09321ad88b9b05dbc6021d27a8efa53fa7a9530fa8"
+  }
+}
