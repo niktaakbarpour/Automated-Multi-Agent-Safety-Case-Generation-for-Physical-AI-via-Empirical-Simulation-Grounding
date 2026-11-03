@@ -1,0 +1,13 @@
+# Retrieval design
+
+`planner.py` makes bounded deterministic schema-guided proposals from original query and typed context. It recognizes finger/gripper joint displacement and velocity, arm configuration/rates, native actuator output, contact-entry count and existing metadata/reference families. Clause-level interpretation keeps finger position and arm velocity distinct. Original text is retained. No LLM, training, answer generation or source-text instruction execution is involved.
+
+The 2.57 MB catalogue contains 432 execution/variant/object/source references and hashes; it adds no measurements or arrays. `build.py` checks prior manifest identities and resumes only matching input/row digests. A descriptor-verified SQLite snapshot and identity-change checks protect the catalogue. Database/source proofs remain pinned. Metadata facets expose existing policy/inference/time/geometry/camera/contact references; action arrays remain references, not new measurement channels.
+
+Scope, variant, object, temporal and assurance constraints precede ranking. Unknown scopes never open payloads. Object categories resolve only when uniquely supported by original scene/native mappings. Main-table identity reuses the existing 147-execution/98-variant symbolic audit, never support or pose.
+
+Every proposed family is fetched separately. Missing samples, unsupported properties and conditional interpretations remain explicit. Saved snapshots around action k use the established k+10/k+11 association; no simultaneity is inferred. Decimal simulator labels resolve to recorded labels within a binary64 summation bound: gamma_n=n*eps/(1-n*eps), tolerance=(2*gamma_n+4*eps)*max(1,abs(query endpoints)), n=ceil(maximum recorded time/verified native timestep)+1. XML explicit timestep and the hashed Phase 5H compiled-model map must agree; the map supplies the verified default when XML omits it. This bounds addition roundoff under the recorded-step model, not physical timing uncertainty. Absent/multiple point matches abstain; no shifting/interpolation. Initial failed diagnostics are retained.
+
+Ablations test field matching alone, fixed RRF k=60 over lexical/schema-label cosine candidates, and full decomposition. Hybrid fusion did not improve development results and is not the default. Constraints cannot be overridden by ranking.
+
+Assurance-guard-1 rejects typed measurement requirements without a measurement family. This security correction followed V1 and preceded a new freeze/fresh-scope assessment. No exposed vocabulary error was fixed. Standalone joint-configuration intent remains a blocker; completeness is experimental outside explicit reviewed plans.

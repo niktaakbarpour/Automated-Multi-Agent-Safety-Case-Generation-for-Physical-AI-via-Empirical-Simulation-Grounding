@@ -1,0 +1,367 @@
+{
+  "not_used_to_tune": true,
+  "post_holdout_diagnostic": true,
+  "rows": [
+    {
+      "assurance": "verified_source_values",
+      "groups": [
+        "source_provenance"
+      ],
+      "output": {
+        "assurance": "verified_source_values",
+        "completeness_status": "COMPLETE WITHIN VERIFIED CONTRACT",
+        "conditional_assumptions": [],
+        "empirical_admission_enabled": false,
+        "groups": [
+          {
+            "coverage": {},
+            "family": "source_provenance",
+            "items": [
+              {
+                "execution_id": "libero_goal_openvla_oft_task07_seed1039_trial039_cfafd9ddc3db",
+                "family": "source_provenance",
+                "id": "source-ref:2ba3bff482cab8d3420fedc80440e63625cc5f688bca21a80875bb281b26f3d8",
+                "id_kind": "verified_source_reference_not_new_measurement_record",
+                "integrity_status": "verified_source",
+                "interpretation_status": "VERIFIED_RECORDED_METADATA",
+                "origin": "recorded_metadata_or_existing_derived_identity",
+                "original_evidence_ids": [],
+                "source_artifact": {
+                  "path": "/disk/1/data/niktakbr/r1-v4-phase5f-evidence/goal/task_07/episode_039/trajectory.h5",
+                  "selector": "/",
+                  "sha256": "e7b06bccdb80e340bbc8abc1fb2ac466a8bd6f84ea5d419bccd6fc0bcfe7ce03"
+                },
+                "synchronized_physical_instant": false,
+                "task_id": "1b921c8dfd61bb78bb84",
+                "units": null,
+                "value": {
+                  "database_sha256": "f6dbea047ad16c5420c34ff002e068e4ade41ab52806c936816aaf7019f303c8",
+                  "historical_binary_attestation": "UNATTESTED",
+                  "provenance_scope": "current_source_identity_only",
+                  "source_sha256": "e7b06bccdb80e340bbc8abc1fb2ac466a8bd6f84ea5d419bccd6fc0bcfe7ce03"
+                },
+                "variant_id": "xmlenv:7f050b16ad629c2235f15bee32beb38ed05822afa00d2db2ddfc6afc4419f68d"
+              }
+            ],
+            "reason": "",
+            "status": "AVAILABLE"
+          }
+        ],
+        "integrity_policy": "descriptor-bound expected hashes; no-follow; explicit trusted restoration only",
+        "interpretation": {
+          "action_index": null,
+          "assumptions": [],
+          "families": [
+            "source_provenance"
+          ],
+          "frame_interval": null,
+          "object_id": null,
+          "original_query": "Give source hash.",
+          "reason": "Schema-guided proposal; no source interpretation is inferred",
+          "resolved_frame_interval": null,
+          "seconds_interval": null,
+          "status": "RESOLVED",
+          "unsupported": []
+        },
+        "limitations": [
+          "Completeness is retrieval-obligation coverage, never a safety argument",
+          "Source instructions and BDDL descriptions are data, not observations"
+        ],
+        "missing_required_evidence": [],
+        "original_query": "Give source hash.",
+        "reason": "Every requested obligation checked separately",
+        "requested_families": [
+          "source_provenance"
+        ],
+        "resolved_scope": {
+          "execution_id": "libero_goal_openvla_oft_task07_seed1039_trial039_cfafd9ddc3db",
+          "task_id": "1b921c8dfd61bb78bb84",
+          "variant_id": "xmlenv:7f050b16ad629c2235f15bee32beb38ed05822afa00d2db2ddfc6afc4419f68d"
+        },
+        "safety_claim_sufficiency": "NOT_EVALUATED",
+        "safety_claim_verified": false,
+        "unresolved_uncertainties": [
+          "No per-sensor synchronization, physical calibration or historical binary attestation",
+          "Saved frame association is not a common physical instant"
+        ],
+        "version": "retrieval-remediation-1.0.0"
+      },
+      "request": {
+        "units": "kg"
+      },
+      "status": "COMPLETE WITHIN VERIFIED CONTRACT"
+    },
+    {
+      "assurance": "verified_source_values",
+      "groups": [
+        "source_provenance"
+      ],
+      "output": {
+        "assurance": "verified_source_values",
+        "completeness_status": "COMPLETE WITHIN VERIFIED CONTRACT",
+        "conditional_assumptions": [],
+        "empirical_admission_enabled": false,
+        "groups": [
+          {
+            "coverage": {},
+            "family": "source_provenance",
+            "items": [
+              {
+                "execution_id": "libero_goal_openvla_oft_task07_seed1039_trial039_cfafd9ddc3db",
+                "family": "source_provenance",
+                "id": "source-ref:2ba3bff482cab8d3420fedc80440e63625cc5f688bca21a80875bb281b26f3d8",
+                "id_kind": "verified_source_reference_not_new_measurement_record",
+                "integrity_status": "verified_source",
+                "interpretation_status": "VERIFIED_RECORDED_METADATA",
+                "origin": "recorded_metadata_or_existing_derived_identity",
+                "original_evidence_ids": [],
+                "source_artifact": {
+                  "path": "/disk/1/data/niktakbr/r1-v4-phase5f-evidence/goal/task_07/episode_039/trajectory.h5",
+                  "selector": "/",
+                  "sha256": "e7b06bccdb80e340bbc8abc1fb2ac466a8bd6f84ea5d419bccd6fc0bcfe7ce03"
+                },
+                "synchronized_physical_instant": false,
+                "task_id": "1b921c8dfd61bb78bb84",
+                "units": null,
+                "value": {
+                  "database_sha256": "f6dbea047ad16c5420c34ff002e068e4ade41ab52806c936816aaf7019f303c8",
+                  "historical_binary_attestation": "UNATTESTED",
+                  "provenance_scope": "current_source_identity_only",
+                  "source_sha256": "e7b06bccdb80e340bbc8abc1fb2ac466a8bd6f84ea5d419bccd6fc0bcfe7ce03"
+                },
+                "variant_id": "xmlenv:7f050b16ad629c2235f15bee32beb38ed05822afa00d2db2ddfc6afc4419f68d"
+              }
+            ],
+            "reason": "",
+            "status": "AVAILABLE"
+          }
+        ],
+        "integrity_policy": "descriptor-bound expected hashes; no-follow; explicit trusted restoration only",
+        "interpretation": {
+          "action_index": null,
+          "assumptions": [],
+          "families": [
+            "source_provenance"
+          ],
+          "frame_interval": null,
+          "object_id": null,
+          "original_query": "Give source hash.",
+          "reason": "Schema-guided proposal; no source interpretation is inferred",
+          "resolved_frame_interval": null,
+          "seconds_interval": null,
+          "status": "RESOLVED",
+          "unsupported": []
+        },
+        "limitations": [
+          "Completeness is retrieval-obligation coverage, never a safety argument",
+          "Source instructions and BDDL descriptions are data, not observations"
+        ],
+        "missing_required_evidence": [],
+        "original_query": "Give source hash.",
+        "reason": "Every requested obligation checked separately",
+        "requested_families": [
+          "source_provenance"
+        ],
+        "resolved_scope": {
+          "execution_id": "libero_goal_openvla_oft_task07_seed1039_trial039_cfafd9ddc3db",
+          "task_id": "1b921c8dfd61bb78bb84",
+          "variant_id": "xmlenv:7f050b16ad629c2235f15bee32beb38ed05822afa00d2db2ddfc6afc4419f68d"
+        },
+        "safety_claim_sufficiency": "NOT_EVALUATED",
+        "safety_claim_verified": false,
+        "unresolved_uncertainties": [
+          "No per-sensor synchronization, physical calibration or historical binary attestation",
+          "Saved frame association is not a common physical instant"
+        ],
+        "version": "retrieval-remediation-1.0.0"
+      },
+      "request": {
+        "required_properties": [
+          "sensor_clock_synchronized"
+        ]
+      },
+      "status": "COMPLETE WITHIN VERIFIED CONTRACT"
+    },
+    {
+      "assurance": "verified_physical_interpretation",
+      "groups": [
+        "source_provenance"
+      ],
+      "output": {
+        "assurance": "verified_physical_interpretation",
+        "completeness_status": "COMPLETE WITHIN VERIFIED CONTRACT",
+        "conditional_assumptions": [],
+        "empirical_admission_enabled": false,
+        "groups": [
+          {
+            "coverage": {},
+            "family": "source_provenance",
+            "items": [
+              {
+                "execution_id": "libero_goal_openvla_oft_task07_seed1039_trial039_cfafd9ddc3db",
+                "family": "source_provenance",
+                "id": "source-ref:2ba3bff482cab8d3420fedc80440e63625cc5f688bca21a80875bb281b26f3d8",
+                "id_kind": "verified_source_reference_not_new_measurement_record",
+                "integrity_status": "verified_source",
+                "interpretation_status": "VERIFIED_RECORDED_METADATA",
+                "origin": "recorded_metadata_or_existing_derived_identity",
+                "original_evidence_ids": [],
+                "source_artifact": {
+                  "path": "/disk/1/data/niktakbr/r1-v4-phase5f-evidence/goal/task_07/episode_039/trajectory.h5",
+                  "selector": "/",
+                  "sha256": "e7b06bccdb80e340bbc8abc1fb2ac466a8bd6f84ea5d419bccd6fc0bcfe7ce03"
+                },
+                "synchronized_physical_instant": false,
+                "task_id": "1b921c8dfd61bb78bb84",
+                "units": null,
+                "value": {
+                  "database_sha256": "f6dbea047ad16c5420c34ff002e068e4ade41ab52806c936816aaf7019f303c8",
+                  "historical_binary_attestation": "UNATTESTED",
+                  "provenance_scope": "current_source_identity_only",
+                  "source_sha256": "e7b06bccdb80e340bbc8abc1fb2ac466a8bd6f84ea5d419bccd6fc0bcfe7ce03"
+                },
+                "variant_id": "xmlenv:7f050b16ad629c2235f15bee32beb38ed05822afa00d2db2ddfc6afc4419f68d"
+              }
+            ],
+            "reason": "",
+            "status": "AVAILABLE"
+          }
+        ],
+        "integrity_policy": "descriptor-bound expected hashes; no-follow; explicit trusted restoration only",
+        "interpretation": {
+          "action_index": null,
+          "assumptions": [],
+          "families": [
+            "source_provenance"
+          ],
+          "frame_interval": null,
+          "object_id": null,
+          "original_query": "Give source hash.",
+          "reason": "Schema-guided proposal; no source interpretation is inferred",
+          "resolved_frame_interval": null,
+          "seconds_interval": null,
+          "status": "RESOLVED",
+          "unsupported": []
+        },
+        "limitations": [
+          "Completeness is retrieval-obligation coverage, never a safety argument",
+          "Source instructions and BDDL descriptions are data, not observations"
+        ],
+        "missing_required_evidence": [],
+        "original_query": "Give source hash.",
+        "reason": "Every requested obligation checked separately",
+        "requested_families": [
+          "source_provenance"
+        ],
+        "resolved_scope": {
+          "execution_id": "libero_goal_openvla_oft_task07_seed1039_trial039_cfafd9ddc3db",
+          "task_id": "1b921c8dfd61bb78bb84",
+          "variant_id": "xmlenv:7f050b16ad629c2235f15bee32beb38ed05822afa00d2db2ddfc6afc4419f68d"
+        },
+        "safety_claim_sufficiency": "NOT_EVALUATED",
+        "safety_claim_verified": false,
+        "unresolved_uncertainties": [
+          "No per-sensor synchronization, physical calibration or historical binary attestation",
+          "Saved frame association is not a common physical instant"
+        ],
+        "version": "retrieval-remediation-1.0.0"
+      },
+      "request": {
+        "assurance": "verified_physical_interpretation"
+      },
+      "status": "COMPLETE WITHIN VERIFIED CONTRACT"
+    },
+    {
+      "assurance": "verified_physical_interpretation",
+      "groups": [
+        "source_provenance"
+      ],
+      "output": {
+        "assurance": "verified_physical_interpretation",
+        "completeness_status": "COMPLETE WITHIN VERIFIED CONTRACT",
+        "conditional_assumptions": [],
+        "empirical_admission_enabled": false,
+        "groups": [
+          {
+            "coverage": {},
+            "family": "source_provenance",
+            "items": [
+              {
+                "execution_id": "libero_goal_openvla_oft_task07_seed1039_trial039_cfafd9ddc3db",
+                "family": "source_provenance",
+                "id": "source-ref:2ba3bff482cab8d3420fedc80440e63625cc5f688bca21a80875bb281b26f3d8",
+                "id_kind": "verified_source_reference_not_new_measurement_record",
+                "integrity_status": "verified_source",
+                "interpretation_status": "VERIFIED_RECORDED_METADATA",
+                "origin": "recorded_metadata_or_existing_derived_identity",
+                "original_evidence_ids": [],
+                "source_artifact": {
+                  "path": "/disk/1/data/niktakbr/r1-v4-phase5f-evidence/goal/task_07/episode_039/trajectory.h5",
+                  "selector": "/",
+                  "sha256": "e7b06bccdb80e340bbc8abc1fb2ac466a8bd6f84ea5d419bccd6fc0bcfe7ce03"
+                },
+                "synchronized_physical_instant": false,
+                "task_id": "1b921c8dfd61bb78bb84",
+                "units": null,
+                "value": {
+                  "database_sha256": "f6dbea047ad16c5420c34ff002e068e4ade41ab52806c936816aaf7019f303c8",
+                  "historical_binary_attestation": "UNATTESTED",
+                  "provenance_scope": "current_source_identity_only",
+                  "source_sha256": "e7b06bccdb80e340bbc8abc1fb2ac466a8bd6f84ea5d419bccd6fc0bcfe7ce03"
+                },
+                "variant_id": "xmlenv:7f050b16ad629c2235f15bee32beb38ed05822afa00d2db2ddfc6afc4419f68d"
+              }
+            ],
+            "reason": "",
+            "status": "AVAILABLE"
+          }
+        ],
+        "integrity_policy": "descriptor-bound expected hashes; no-follow; explicit trusted restoration only",
+        "interpretation": {
+          "action_index": null,
+          "assumptions": [],
+          "families": [
+            "source_provenance"
+          ],
+          "frame_interval": null,
+          "object_id": null,
+          "original_query": "Give source hash.",
+          "reason": "Schema-guided proposal; no source interpretation is inferred",
+          "resolved_frame_interval": null,
+          "seconds_interval": null,
+          "status": "RESOLVED",
+          "unsupported": []
+        },
+        "limitations": [
+          "Completeness is retrieval-obligation coverage, never a safety argument",
+          "Source instructions and BDDL descriptions are data, not observations"
+        ],
+        "missing_required_evidence": [],
+        "original_query": "Give source hash.",
+        "reason": "Every requested obligation checked separately",
+        "requested_families": [
+          "source_provenance"
+        ],
+        "resolved_scope": {
+          "execution_id": "libero_goal_openvla_oft_task07_seed1039_trial039_cfafd9ddc3db",
+          "task_id": "1b921c8dfd61bb78bb84",
+          "variant_id": "xmlenv:7f050b16ad629c2235f15bee32beb38ed05822afa00d2db2ddfc6afc4419f68d"
+        },
+        "safety_claim_sufficiency": "NOT_EVALUATED",
+        "safety_claim_verified": false,
+        "unresolved_uncertainties": [
+          "No per-sensor synchronization, physical calibration or historical binary attestation",
+          "Saved frame association is not a common physical instant"
+        ],
+        "version": "retrieval-remediation-1.0.0"
+      },
+      "request": {
+        "assurance": "verified_physical_interpretation",
+        "required_properties": [
+          "sensor_clock_synchronized"
+        ]
+      },
+      "status": "COMPLETE WITHIN VERIFIED CONTRACT"
+    }
+  ]
+}

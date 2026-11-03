@@ -1,0 +1,55 @@
+{
+  "automated_not_independent_human_replication": true,
+  "full_resume": {
+    "canonical_digest": "907535377f6002bf6f2a67f47bf1008655e3780115f21cb4630c1a3a8d3feaaf",
+    "dataset_sha256": "dde698fc14bbc6641aaa30446431b0a7c50348645524aade036d62d4c4e99dca",
+    "mode_instances": 1296,
+    "passed": true,
+    "questions": 216,
+    "resumed": 1296
+  },
+  "independent_replay": {
+    "canonical_digest": "907535377f6002bf6f2a67f47bf1008655e3780115f21cb4630c1a3a8d3feaaf",
+    "dataset_sha256": "dde698fc14bbc6641aaa30446431b0a7c50348645524aade036d62d4c4e99dca",
+    "mode_instances": 1296,
+    "passed": true,
+    "questions": 216,
+    "resumed": 0
+  },
+  "partial_replay": {
+    "canonical_digest": "907535377f6002bf6f2a67f47bf1008655e3780115f21cb4630c1a3a8d3feaaf",
+    "dataset_sha256": "dde698fc14bbc6641aaa30446431b0a7c50348645524aade036d62d4c4e99dca",
+    "mode_instances": 1296,
+    "passed": true,
+    "questions": 216,
+    "resumed": 37
+  },
+  "passed": true,
+  "sidecar_fresh": {
+    "bytes": 2572288,
+    "executions": 432,
+    "logical_digest": "ee6bbd07fcb228416a6889bf6cea7bac3edf50df60e2ff4f2466a8db5254c13d",
+    "path": "/disk/1/data/niktakbr/trustworthy-phase5k-working/catalogue_independent.sqlite",
+    "resumed": 0,
+    "seconds": 5.058422930538654,
+    "sha256": "ff9fe4d422c274f3f109d76ae21b91d9d6364fd568f52ce7b5fa1501bbcbae0e"
+  },
+  "sidecar_full_resume": {
+    "bytes": 2572288,
+    "executions": 432,
+    "logical_digest": "ee6bbd07fcb228416a6889bf6cea7bac3edf50df60e2ff4f2466a8db5254c13d",
+    "path": "/disk/1/data/niktakbr/trustworthy-phase5k-working/catalogue.sqlite",
+    "resumed": 432,
+    "seconds": 4.204085844568908,
+    "sha256": "ff9fe4d422c274f3f109d76ae21b91d9d6364fd568f52ce7b5fa1501bbcbae0e"
+  },
+  "sidecar_partial_resume": {
+    "bytes": 2572288,
+    "executions": 432,
+    "logical_digest": "ee6bbd07fcb228416a6889bf6cea7bac3edf50df60e2ff4f2466a8db5254c13d",
+    "path": "/disk/1/data/niktakbr/trustworthy-phase5k-working/catalogue_partial.sqlite",
+    "resumed": 37,
+    "seconds": 4.9712134739384055,
+    "sha256": "6e8948b5936b5d4cb0b3bc5c93ae88830380d7fecaee423b7577e9f12bdb66cf"
+  }
+}

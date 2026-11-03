@@ -1,0 +1,31 @@
+{
+  "archived_utc": "2026-11-03T18:31:04.694055+00:00",
+  "files": {
+    "ADDITIONAL_TYPED_CONTRACT_AUDIT.json": "45a4f33cef225bf3997a7006bec87b5dbb9832d51bedce77decf40c276fc2700",
+    "FROZEN_ACCEPTANCE_CRITERIA.json": "376198778ad932371252a86e856ae77be12bf86909b9706d33b999b42fbcd738",
+    "FROZEN_CHALLENGE_DATASET.jsonl": "61c307e691b22c10ce75b05483670e9b5aa3063103e5ac77455ffd426f37f2cb",
+    "FROZEN_HOLDOUT_DATASET.jsonl": "dde698fc14bbc6641aaa30446431b0a7c50348645524aade036d62d4c4e99dca",
+    "FROZEN_IMPLEMENTATION.json": "616b3eb63235e2f9cfda7266021344151850ef57c6c405fc9e01f21c6998c127",
+    "HOLDOUT_FREEZE.json": "a866af08f3bec6077f90fd67c167009f6f3a1c025e9da1cde5504aa9d79ea68f",
+    "REPRODUCIBILITY_RESULTS.json": "c66523d9b5c69c92b808ba01c714f63120113f2800372cfdc9b0afa770aa4533",
+    "audit_values.py": "c1aff5388fed353611da838c6830231c22b293315767b2ea3fd38564518e4e94",
+    "build.py": "16f8648bc67df41e87dd4a7964a892534e920538347b4fb47135b38f783b439e",
+    "bundle.py": "9457258b1077669685058d3ed940ff28f745ee9831931bb655cd61718c822781",
+    "challenges.py": "e8313d98a686bfcea4fcca27fd93b185d2678abb6e9f45a4a5e6d3861c9366c7",
+    "compat.py": "d2fe17e43612edbb856b6d33f4bedb4874f37aee3804988b930263beca29fb34",
+    "config.py": "36b2ad85c88d7def519aa8b547a0c6a7ac9e96fadebf620e3386dfc3cd781e84",
+    "development.py": "444ba7fd9b4ad97900cfd1740c30362aa9f19679e3e821d75fc8ca6c219e1655",
+    "evaluate.py": "f5780c869446536a4feafa9d6b01a5c1f932739f8128b45c30c36c5a1911e551",
+    "holdout.py": "1182e983507853b72327e97dcf819f4bcc7a5e55d1d139f4cab7f6039bb1b723",
+    "holdout_v1_METRICS.json": "e39b622d13cc64801e4557b11f6166c4bdf521b74da91157e83bef36638fa7c6",
+    "metrics.py": "21636c695a0ce1a5744455ec18e5731a834e4b71fb0cfb182474917f459f615e",
+    "original_development.py": "fac9e638024aaf292b1c1b9a9b67911caf091c5fd9ce4791fa7b9f703679ab29",
+    "planner.py": "616aa4ef756300cf70dcfe6aea09aa466ae70f35244803e546c72533ffc4166c",
+    "reference.py": "374575e2295ffcb7210a2243fdeb06232fc788d0364dcc1c57341fafbb7683ae",
+    "reproducibility.py": "9aaebc4a7d3568efa122bdf33bb47e61acf6bdbce85c86e6a8e3544df9035895",
+    "restoration.py": "22c848eb8ecff9e92f2b25c1ac5faef79a4abc3d29dbb12bc3a03a566a54daaf",
+    "run_eval.py": "b83b89312f05a94eddd67fb8ff4f1f25689227a9cd663bbcd41d9c271b02d4f7",
+    "store.py": "a5b9d47e1f6dfbb26115af34eb5052d100c35237205c52d160cc67089089d08a"
+  },
+  "reason": "Metadata-only typed requirements ignored: V1 ineligible for release; no ranking tuning; V1 outputs retained unchanged"
+}

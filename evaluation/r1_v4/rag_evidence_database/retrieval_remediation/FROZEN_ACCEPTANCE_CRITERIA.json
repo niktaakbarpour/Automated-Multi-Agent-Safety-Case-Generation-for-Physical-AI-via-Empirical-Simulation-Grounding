@@ -1,0 +1,38 @@
+{
+  "additional_critical_cases": "Nine metadata-only typed requirements replace formerly positive C7 scope instances; they must abstain. Thresholds unchanged.",
+  "ambiguous": "critical cases; abstention required; no relevance denominator",
+  "created_utc": "2026-11-03T18:32:12.837078+00:00",
+  "decision": "A only if every target and preservation check passes; B for retrieval/completeness failures with integrity intact; C for foundational integrity/scope/value failure",
+  "denominators": {
+    "critical_abstention": "critical_abstention=True; no items, including raw substitutes, may satisfy strict request",
+    "family_recall": "micro required-family recall on C4; all explicit obligations count",
+    "incorrect_abstention": "ranking-eligible cases with no returned items",
+    "multisource": "all C4 cases, 24; eight authored obligation combinations repeated across three disjoint scopes",
+    "relevance": "ranking_eligible=True cases: independently supported requested families, excluding critical-abstention cases; no post-result exclusions"
+  },
+  "evaluation_version": 2,
+  "holdout_plan": {
+    "authored_templates": 72,
+    "categories": 9,
+    "executions": 24,
+    "instances": 216,
+    "per_category": 24,
+    "suites": 4
+  },
+  "implementation_manifest_sha256": "cecb69fd1d601a66cbeb7294099fab9cc49408f2d5235f911e28a9d65d5a3fde",
+  "independence": "22 J scopes and 8 new K development scopes excluded; no final J outputs used in design; final J already historically exposed, never a generalization holdout",
+  "intervals": "Wilson 95% binomial descriptive intervals and execution-cluster bootstrap for mean metrics; neither proves population safety",
+  "metrics": "family-level ranked relevance; distinct from J record-ID relevance; unchanged baseline primary channel endpoint reported separately on common channel-only cases",
+  "previous_results_not_release_evidence": true,
+  "targets": {
+    "critical_abstention": 1.0,
+    "cross_scope_errors": 0,
+    "false_assurance": 0,
+    "incorrect_source_values": 0,
+    "multisource_complete": 0.9,
+    "precision_at_1": 0.9,
+    "recall_at_20": 0.95,
+    "required_family_recall": 0.95
+  },
+  "thresholds_cannot_change": true
+}

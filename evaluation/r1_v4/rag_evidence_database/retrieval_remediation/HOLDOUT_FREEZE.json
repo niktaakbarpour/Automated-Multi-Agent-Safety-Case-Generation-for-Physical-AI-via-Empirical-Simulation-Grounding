@@ -1,0 +1,18 @@
+{
+  "acceptance_sha256": "4117f21323050d4707abac453502ecb8c16fb97a6e4fa4085221591caff9a958",
+  "created_utc": "2026-11-03T18:32:13.956904+00:00",
+  "critical_abstentions": 80,
+  "dataset_sha256": "f6c6e31e12d3c0ed7e70db077494a4bed98f1d0a56d82f382c556c13b00c6caf",
+  "evaluation_version": 2,
+  "excluded_scopes": 54,
+  "executions": 24,
+  "fresh_execution_scopes": true,
+  "human_evaluation": false,
+  "implementation_sha256": "cecb69fd1d601a66cbeb7294099fab9cc49408f2d5235f911e28a9d65d5a3fde",
+  "known_template_overlap": "Same frozen 72-template bank; V1 results exposed; no ranking or vocabulary correction made",
+  "linguistic_holdout": false,
+  "questions": 216,
+  "ranking_eligible": 136,
+  "templates": 72,
+  "variants": 18
+}

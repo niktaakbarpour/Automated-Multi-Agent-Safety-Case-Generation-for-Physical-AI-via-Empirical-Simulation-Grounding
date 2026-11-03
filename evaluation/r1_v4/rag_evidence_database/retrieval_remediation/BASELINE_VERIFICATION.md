@@ -1,0 +1,7 @@
+# Baseline and preservation
+
+Baseline commit `1ee2c34832e225f2ba26fd413499315782e0e5d5` on feat/rag-evidence-database-readiness-evaluation was independently inspected before edits. Database hash `f6dbea047ad16c5420c34ff002e068e4ade41ab52806c936816aaf7019f303c8`; 1,411,190,784 bytes. Read-only counts: 432 executions, 104 variants, 80,786 original evidence rows, 2,592 channel references and 58,075 saved-frame clock labels.
+
+The Phase 5J manifest trust root is `375989a36a5c2390987e88a5228701682d51e5127b5de2b275cac2fb7bf16b25`. Its 2,220 declared evaluation artifacts and Phase 5I parent release were verified as bytes before design; final outputs were not parsed for tuning. The baseline and final checks are stored as BASELINE_VERIFICATION.json and FINAL_BASELINE_VERIFICATION.json under `/disk/1/data/niktakbr/trustworthy-phase5k-working`. The original database is unchanged, which preserves every row and association, not merely counts. Old source files/releases were not rewritten.
+
+Inherited integrity verification covers frozen V3/V4 artifacts, both seals, human archives and scoring safeguards. All 718 inherited tests passed; seven Phase 5J metric tests and 39 new contract/integrity tests passed, total 764 with zero failures or skips. Eligible development payloads only were read. Reserved and excluded scope controls remain in the inherited suite; no reserved/preflight recordings or 1,470 candidates were opened or indexed.

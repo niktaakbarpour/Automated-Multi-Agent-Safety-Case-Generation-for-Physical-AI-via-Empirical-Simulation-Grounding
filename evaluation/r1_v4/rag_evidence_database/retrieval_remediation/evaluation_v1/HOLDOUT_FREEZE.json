@@ -1,0 +1,13 @@
+{
+  "acceptance_sha256": "376198778ad932371252a86e856ae77be12bf86909b9706d33b999b42fbcd738",
+  "created_utc": "2026-11-03T18:20:31.500193+00:00",
+  "dataset_sha256": "dde698fc14bbc6641aaa30446431b0a7c50348645524aade036d62d4c4e99dca",
+  "excluded_scopes": 30,
+  "executions": 24,
+  "human_evaluation": false,
+  "implementation_sha256": "616b3eb63235e2f9cfda7266021344151850ef57c6c405fc9e01f21c6998c127",
+  "original_source_reference": true,
+  "questions": 216,
+  "templates": 72,
+  "variants": 18
+}
