@@ -1,0 +1,714 @@
+{
+  "channel_semantic": {
+    "aggregate": {
+      "fts5": {
+        "MRR": 0.7526041666666666,
+        "instances": 5184,
+        "precision_at_1": 0.6238425925925926,
+        "recall_at_20": 0.9166666666666666
+      },
+      "semantic": {
+        "MRR": 1.0,
+        "instances": 5184,
+        "precision_at_1": 1.0,
+        "recall_at_20": 1.0
+      }
+    },
+    "candidate_channels": 6,
+    "cross_scope_leakage": 0,
+    "encoder": {
+      "code_sha256": "59b6a92f4cdb69e415593724b3c971d0752a265b35c1be1a9bd4492be2c4266f",
+      "device": "cpu",
+      "dtype": "float32",
+      "manifest_sha256": "2b51e1a6ea7ad4014a82769ba83a617423b3b934e7248947ed993dd6be1f192c",
+      "max_wordpieces": 256,
+      "pool": "attention-masked mean, L2 normalization",
+      "python": "3.12.14",
+      "revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+      "text_policy": "Source-field descriptions and object identity; no execution IDs, numerical values or AI event labels.",
+      "threads": 2,
+      "torch": "2.9.0+cu128",
+      "transformers": "4.57.3",
+      "version": "local-semantic-measurements:1.0.0"
+    },
+    "execution_scopes": 432,
+    "negative_controls": 2690,
+    "passed": true,
+    "per_channel": {
+      "raw.robot0_gripper_qpos": {
+        "fts5": {
+          "MRR": 0.6440972222222222,
+          "instances": 864,
+          "precision_at_1": 0.5,
+          "recall_at_20": 1.0
+        },
+        "semantic": {
+          "MRR": 1.0,
+          "instances": 864,
+          "precision_at_1": 1.0,
+          "recall_at_20": 1.0
+        }
+      },
+      "raw.robot0_gripper_qvel": {
+        "fts5": {
+          "MRR": 0.25,
+          "instances": 864,
+          "precision_at_1": 0.0,
+          "recall_at_20": 0.5
+        },
+        "semantic": {
+          "MRR": 1.0,
+          "instances": 864,
+          "precision_at_1": 1.0,
+          "recall_at_20": 1.0
+        }
+      },
+      "raw.robot0_joint_pos": {
+        "fts5": {
+          "MRR": 0.7430555555555556,
+          "instances": 864,
+          "precision_at_1": 0.4861111111111111,
+          "recall_at_20": 1.0
+        },
+        "semantic": {
+          "MRR": 1.0,
+          "instances": 864,
+          "precision_at_1": 1.0,
+          "recall_at_20": 1.0
+        }
+      },
+      "raw.robot0_joint_vel": {
+        "fts5": {
+          "MRR": 0.8784722222222222,
+          "instances": 864,
+          "precision_at_1": 0.7569444444444444,
+          "recall_at_20": 1.0
+        },
+        "semantic": {
+          "MRR": 1.0,
+          "instances": 864,
+          "precision_at_1": 1.0,
+          "recall_at_20": 1.0
+        }
+      },
+      "raw.simulator_actuator_force": {
+        "fts5": {
+          "MRR": 1.0,
+          "instances": 864,
+          "precision_at_1": 1.0,
+          "recall_at_20": 1.0
+        },
+        "semantic": {
+          "MRR": 1.0,
+          "instances": 864,
+          "precision_at_1": 1.0,
+          "recall_at_20": 1.0
+        }
+      },
+      "simulator.ncon": {
+        "fts5": {
+          "MRR": 1.0,
+          "instances": 864,
+          "precision_at_1": 1.0,
+          "recall_at_20": 1.0
+        },
+        "semantic": {
+          "MRR": 1.0,
+          "instances": 864,
+          "precision_at_1": 1.0,
+          "recall_at_20": 1.0
+        }
+      }
+    },
+    "probes": {
+      "raw.robot0_gripper_qpos": [
+        "finger opening position readings",
+        "gripper joint configuration values"
+      ],
+      "raw.robot0_gripper_qvel": [
+        "finger motion speed readings",
+        "gripper joint velocity samples"
+      ],
+      "raw.robot0_joint_pos": [
+        "robot arm joint angle readings",
+        "arm joint configuration values"
+      ],
+      "raw.robot0_joint_vel": [
+        "robot arm joint speed readings",
+        "arm joint velocity samples"
+      ],
+      "raw.simulator_actuator_force": [
+        "motor actuator force readings",
+        "simulator actuator effort array"
+      ],
+      "simulator.ncon": [
+        "number of saved contact entries",
+        "simulator contact count"
+      ]
+    },
+    "qualification": "Twelve fixed paraphrases repeated across 432 execution contexts. Six candidates per scope. No independent natural language dataset; no numeric or physical accuracy inference.",
+    "unique_probes": 12
+  },
+  "extraction": {
+    "MRR": 1.0,
+    "alignment_errors_saved_indices": 0,
+    "channel_records": 2592,
+    "cross_scope_leakage": 0,
+    "executions": 432,
+    "max_absolute_value_error": 0.0,
+    "missing_samples": 0,
+    "negative_controls": 27488,
+    "negative_status_counts": {
+      "excluded_preflight": 38,
+      "excluded_reserved": 60,
+      "invalid_query_scope": 5184,
+      "no_matching_channel_record": 5184,
+      "unindexed_profile_pending": 1470,
+      "unknown_execution": 2592,
+      "unsupported_channel": 2592,
+      "unsupported_coordinate_frame": 2592,
+      "unsupported_origin": 2592,
+      "unsupported_temporal_domain": 2592,
+      "unsupported_units": 2592
+    },
+    "numeric_components_by_channel": {
+      "contact_length_comparisons": 58075,
+      "raw.robot0_gripper_qpos": 116150,
+      "raw.robot0_gripper_qvel": 116150,
+      "raw.robot0_joint_pos": 406525,
+      "raw.robot0_joint_vel": 406525,
+      "raw.simulator_actuator_force": 522675,
+      "simulator.ncon": 58075
+    },
+    "passed": true,
+    "precision_at_1": 1.0,
+    "qualification": "Exact channel lookup metrics measure source retrieval only. Numeric comparisons use independently decoded arrays. Zero saved-index alignment error does not establish physical phase alignment.",
+    "raw_source_samples_validated": 348450,
+    "recall_at_20": 1.0,
+    "retrieved_samples_compared": 12960,
+    "seconds": 358.96816259995103,
+    "source_target_queries": 10368,
+    "unit_frame_inconsistencies": 0,
+    "variants": 104
+  },
+  "legacy_exact": {
+    "MRR": 1.0,
+    "execution_attribution": 1.0,
+    "invalid_cross_scope_retrievals": 0,
+    "latency_seconds": {
+      "max": 1.0602859435603023,
+      "median": 0.19928827788680792,
+      "p95": 0.22701999079436064
+    },
+    "per_task": {
+      "18573886c3dbce39b02e": {
+        "MRR": 1.0,
+        "execution_attribution": 1.0,
+        "invalid_cross_scope_retrievals": 0,
+        "precision_at_1": 1.0,
+        "queries": 19,
+        "recall_at_20": 1.0,
+        "source_attribution": 1.0,
+        "task_attribution": 1.0,
+        "temporal_correctness": 1.0,
+        "variant_attribution": 1.0
+      },
+      "1b921c8dfd61bb78bb84": {
+        "MRR": 1.0,
+        "execution_attribution": 1.0,
+        "invalid_cross_scope_retrievals": 0,
+        "precision_at_1": 1.0,
+        "queries": 1274,
+        "recall_at_20": 1.0,
+        "source_attribution": 1.0,
+        "task_attribution": 1.0,
+        "temporal_correctness": 1.0,
+        "variant_attribution": 1.0
+      },
+      "2448c758145ae5ad500f": {
+        "MRR": 1.0,
+        "execution_attribution": 1.0,
+        "invalid_cross_scope_retrievals": 0,
+        "precision_at_1": 1.0,
+        "queries": 19,
+        "recall_at_20": 1.0,
+        "source_attribution": 1.0,
+        "task_attribution": 1.0,
+        "temporal_correctness": 1.0,
+        "variant_attribution": 1.0
+      },
+      "2a5acddf5a0e33b0d470": {
+        "MRR": 1.0,
+        "execution_attribution": 1.0,
+        "invalid_cross_scope_retrievals": 0,
+        "precision_at_1": 1.0,
+        "queries": 1323,
+        "recall_at_20": 1.0,
+        "source_attribution": 1.0,
+        "task_attribution": 1.0,
+        "temporal_correctness": 1.0,
+        "variant_attribution": 1.0
+      },
+      "30c0f61d2d5786fae8b6": {
+        "MRR": 1.0,
+        "execution_attribution": 1.0,
+        "invalid_cross_scope_retrievals": 0,
+        "precision_at_1": 1.0,
+        "queries": 19,
+        "recall_at_20": 1.0,
+        "source_attribution": 1.0,
+        "task_attribution": 1.0,
+        "temporal_correctness": 1.0,
+        "variant_attribution": 1.0
+      },
+      "4013b7c5a98750b7e80d": {
+        "MRR": 1.0,
+        "execution_attribution": 1.0,
+        "invalid_cross_scope_retrievals": 0,
+        "precision_at_1": 1.0,
+        "queries": 19,
+        "recall_at_20": 1.0,
+        "source_attribution": 1.0,
+        "task_attribution": 1.0,
+        "temporal_correctness": 1.0,
+        "variant_attribution": 1.0
+      },
+      "6da51604f02b12a90682": {
+        "MRR": 1.0,
+        "execution_attribution": 1.0,
+        "invalid_cross_scope_retrievals": 0,
+        "precision_at_1": 1.0,
+        "queries": 1274,
+        "recall_at_20": 1.0,
+        "source_attribution": 1.0,
+        "task_attribution": 1.0,
+        "temporal_correctness": 1.0,
+        "variant_attribution": 1.0
+      },
+      "7894e3922dc1e048d44c": {
+        "MRR": 1.0,
+        "execution_attribution": 1.0,
+        "invalid_cross_scope_retrievals": 0,
+        "precision_at_1": 1.0,
+        "queries": 19,
+        "recall_at_20": 1.0,
+        "source_attribution": 1.0,
+        "task_attribution": 1.0,
+        "temporal_correctness": 1.0,
+        "variant_attribution": 1.0
+      },
+      "b12b2d70fe80d3547b1e": {
+        "MRR": 1.0,
+        "execution_attribution": 1.0,
+        "invalid_cross_scope_retrievals": 0,
+        "precision_at_1": 1.0,
+        "queries": 19,
+        "recall_at_20": 1.0,
+        "source_attribution": 1.0,
+        "task_attribution": 1.0,
+        "temporal_correctness": 1.0,
+        "variant_attribution": 1.0
+      }
+    },
+    "precision_at_1": 1.0,
+    "qualification": "Exact source-target lookup under metadata and variant constraints. Not independent natural-language relevance or physical safety accuracy.",
+    "queries": 3985,
+    "recall_at_20": 1.0,
+    "source_attribution": 1.0,
+    "task_attribution": 1.0,
+    "temporal_correctness": 1.0,
+    "variant_attribution": 1.0
+  },
+  "legacy_negative": {
+    "comparative_shared_variant_executions": [
+      "libero_goal_openvla_oft_task07_seed1030_trial030_cfafd9ddc3db",
+      "libero_goal_openvla_oft_task08_seed1030_trial030_cfafd9ddc3db"
+    ],
+    "distinct_statuses": [
+      "excluded_preflight",
+      "excluded_reserved",
+      "invalid_or_insufficient_evidence",
+      "invalid_query_scope",
+      "no_matching_indexed_record",
+      "unavailable_timestamp",
+      "unindexed_execution",
+      "unknown_execution",
+      "unresolved_variant",
+      "unsupported_field",
+      "unsupported_mapping",
+      "unsupported_spatial_field",
+      "unsupported_temporal_domain"
+    ],
+    "excluded_tests": "One reserved ID and one preflight ID; no source payload or outcomes inspected.",
+    "invalid_cross_scope_retrievals": 0,
+    "negative_queries": 1768,
+    "passed": true
+  },
+  "legacy_semantic": {
+    "aggregate": {
+      "fts5": {
+        "median_seconds": 0.06761555606499314,
+        "precision_at_1": 0.08333333333333333,
+        "query_instances": 1764,
+        "recall_at_20": 0.08333333333333333,
+        "reciprocal_rank": 0.08333333333333333
+      },
+      "semantic": {
+        "median_seconds": 0.10725509794428945,
+        "precision_at_1": 0.935374149659864,
+        "query_instances": 1764,
+        "recall_at_20": 1.0,
+        "reciprocal_rank": 0.967687074829932
+      }
+    },
+    "invalid_cross_scope_retrievals": 0,
+    "passed": true,
+    "per_task": {
+      "goal/task_07": {
+        "fts5": {
+          "median_seconds": 0.06702024256810546,
+          "precision_at_1": 0.08333333333333333,
+          "query_instances": 588,
+          "recall_at_20": 0.08333333333333333,
+          "reciprocal_rank": 0.08333333333333333
+        },
+        "semantic": {
+          "median_seconds": 0.10546484217047691,
+          "precision_at_1": 0.9370748299319728,
+          "query_instances": 588,
+          "recall_at_20": 1.0,
+          "reciprocal_rank": 0.9685374149659864
+        }
+      },
+      "goal/task_08": {
+        "fts5": {
+          "median_seconds": 0.06717509077861905,
+          "precision_at_1": 0.08333333333333333,
+          "query_instances": 588,
+          "recall_at_20": 0.08333333333333333,
+          "reciprocal_rank": 0.08333333333333333
+        },
+        "semantic": {
+          "median_seconds": 0.10713881114497781,
+          "precision_at_1": 0.9370748299319728,
+          "query_instances": 588,
+          "recall_at_20": 1.0,
+          "reciprocal_rank": 0.9685374149659864
+        }
+      },
+      "spatial/task_00": {
+        "fts5": {
+          "median_seconds": 0.06803426332771778,
+          "precision_at_1": 0.08333333333333333,
+          "query_instances": 588,
+          "recall_at_20": 0.08333333333333333,
+          "reciprocal_rank": 0.08333333333333333
+        },
+        "semantic": {
+          "median_seconds": 0.10898154508322477,
+          "precision_at_1": 0.9319727891156463,
+          "query_instances": 588,
+          "recall_at_20": 1.0,
+          "reciprocal_rank": 0.9659863945578231
+        }
+      }
+    },
+    "qualification": "Twelve fixed source-field paraphrases reused from Phase5E; rotating objects fixed by episode modulo object count. Query instances are repetitions across source contexts, not independent natural-language judgments or physical ground truth. Recall@20 has six candidates. No descriptor/model/probe tuning.",
+    "source_execution_scopes": 147,
+    "source_variants": 98,
+    "unembedded_document_excluded": true,
+    "unique_linguistic_probes": 12,
+    "unique_objects": 7
+  },
+  "regression": {
+    "passed": true,
+    "skipped": 0,
+    "suites": {
+      "frozen_v3": {
+        "PYTHONPATH": "/disk/1/data/niktakbr/trustworthy-phase16/src:/disk/1/data/niktakbr/trustworthy-phase16:/disk/0/home/niktakbr/groot-n17-libero-gpu0-queue/.venv/lib/python3.12/site-packages:/usr/lib/python3.12/site-packages:/usr/lib64/python3.12/site-packages",
+        "command": [
+          "/usr/bin/python3",
+          "-S",
+          "-m",
+          "unittest",
+          "discover",
+          "-s",
+          "evaluation/r1_v3/tests",
+          "-v"
+        ],
+        "cwd": "/disk/1/data/niktakbr/trustworthy-phase16",
+        "log_sha256": "6442a5b48dc06c8efb2eba161d18277f271d0f379d95c6643fe878427d129082",
+        "problem_tests": [],
+        "returncode": 0,
+        "skipped": 0,
+        "tests_run": 41
+      },
+      "generalization": {
+        "PYTHONPATH": "/disk/1/data/niktakbr/trustworthy-phase16/src:/disk/1/data/niktakbr/trustworthy-phase16:/disk/0/home/niktakbr/groot-n17-libero-gpu0-queue/.venv/lib/python3.12/site-packages:/usr/lib/python3.12/site-packages:/usr/lib64/python3.12/site-packages",
+        "command": [
+          "/usr/bin/python3",
+          "-S",
+          "-m",
+          "unittest",
+          "discover",
+          "-s",
+          "evaluation/r1_v3_generalization/tests",
+          "-v"
+        ],
+        "cwd": "/disk/1/data/niktakbr/trustworthy-phase16",
+        "log_sha256": "41eb026396762b4637fc93c46bddb783a21832a34b2c79e623e4c6f3644e4b84",
+        "problem_tests": [],
+        "returncode": 0,
+        "skipped": 0,
+        "tests_run": 13
+      },
+      "new_profile": {
+        "PYTHONPATH": "/disk/1/data/niktakbr/trustworthy-phase16/src:/disk/1/data/niktakbr/trustworthy-phase16:/disk/0/home/niktakbr/groot-n17-libero-gpu0-queue/.venv/lib/python3.12/site-packages:/usr/lib/python3.12/site-packages:/usr/lib64/python3.12/site-packages",
+        "command": [
+          "/usr/bin/python3",
+          "-S",
+          "-m",
+          "unittest",
+          "discover",
+          "-s",
+          "evaluation/r1_v4/rag_evidence_database/corpus_expansion/task_profile/tests",
+          "-v"
+        ],
+        "cwd": "/disk/1/data/niktakbr/trustworthy-phase16",
+        "log_sha256": "78ce3f123a481df886ff0cf8fedac092c15960ddddd8156a6a6ed028d8fd5d2f",
+        "problem_tests": [],
+        "returncode": 0,
+        "skipped": 0,
+        "tests_run": 28
+      },
+      "partition": {
+        "PYTHONPATH": "/disk/1/data/niktakbr/trustworthy-phase16/src:/disk/1/data/niktakbr/trustworthy-phase16:/disk/0/home/niktakbr/groot-n17-libero-gpu0-queue/.venv/lib/python3.12/site-packages:/usr/lib/python3.12/site-packages:/usr/lib64/python3.12/site-packages",
+        "command": [
+          "/usr/bin/python3",
+          "-S",
+          "-m",
+          "unittest",
+          "discover",
+          "-s",
+          "evaluation/r1_v4/rag_evidence_database/corpus_expansion/tests",
+          "-v"
+        ],
+        "cwd": "/disk/1/data/niktakbr/trustworthy-phase16",
+        "log_sha256": "00c75adb6a16063887b6da497cb8e1ca851afd55d8d3cadb15db8553789c8f4a",
+        "problem_tests": [],
+        "returncode": 0,
+        "skipped": 0,
+        "tests_run": 8
+      },
+      "phase2a": {
+        "PYTHONPATH": "/disk/1/data/niktakbr/trustworthy-phase16/src:/disk/1/data/niktakbr/trustworthy-phase16",
+        "command": [
+          "/usr/bin/python3",
+          "-m",
+          "unittest",
+          "discover",
+          "-s",
+          "evaluation/r1_v4/tests",
+          "-v"
+        ],
+        "cwd": "/disk/1/data/niktakbr/trustworthy-phase16",
+        "log_sha256": "b302555201407978ac42ae4eec8a145dfe6a97a797a338daa15138507afbb5b6",
+        "problem_tests": [],
+        "returncode": 0,
+        "skipped": 0,
+        "tests_run": 105
+      },
+      "phase5b": {
+        "PYTHONPATH": "/disk/1/data/niktakbr/trustworthy-phase16/src:/disk/1/data/niktakbr/trustworthy-phase16:/disk/0/home/niktakbr/groot-n17-libero-gpu0-queue/.venv/lib/python3.12/site-packages:/usr/lib/python3.12/site-packages:/usr/lib64/python3.12/site-packages",
+        "command": [
+          "/usr/bin/python3",
+          "-S",
+          "-m",
+          "unittest",
+          "discover",
+          "-s",
+          "evaluation/r1_v4/rag_evidence_database/tests",
+          "-v"
+        ],
+        "cwd": "/disk/1/data/niktakbr/trustworthy-phase16",
+        "log_sha256": "633f33144076ba3750ea9042059b7cf64a58febf90b37f338d67c149a41cdc91",
+        "problem_tests": [],
+        "returncode": 0,
+        "skipped": 0,
+        "tests_run": 45
+      },
+      "phase5c": {
+        "PYTHONPATH": "/disk/1/data/niktakbr/trustworthy-phase16/src:/disk/1/data/niktakbr/trustworthy-phase16:/disk/0/home/niktakbr/groot-n17-libero-gpu0-queue/.venv/lib/python3.12/site-packages:/usr/lib/python3.12/site-packages:/usr/lib64/python3.12/site-packages",
+        "command": [
+          "/usr/bin/python3",
+          "-S",
+          "-m",
+          "unittest",
+          "discover",
+          "-s",
+          "evaluation/r1_v4/rag_evidence_database/expansion/tests",
+          "-v"
+        ],
+        "cwd": "/disk/1/data/niktakbr/trustworthy-phase16",
+        "log_sha256": "cd36a279e4ab5ec39fed61b42844958e53db98841b6bde2c4080a2d3d1b76d20",
+        "problem_tests": [],
+        "returncode": 0,
+        "skipped": 0,
+        "tests_run": 17
+      },
+      "phase5e": {
+        "PYTHONPATH": "/disk/1/data/niktakbr/trustworthy-phase16/src:/disk/1/data/niktakbr/trustworthy-phase16:/disk/0/home/niktakbr/groot-n17-libero-gpu0-queue/.venv/lib/python3.12/site-packages:/usr/lib/python3.12/site-packages:/usr/lib64/python3.12/site-packages",
+        "command": [
+          "/usr/bin/python3",
+          "-S",
+          "-m",
+          "unittest",
+          "discover",
+          "-s",
+          "evaluation/r1_v4/rag_evidence_database/multitask_expansion/tests",
+          "-v"
+        ],
+        "cwd": "/disk/1/data/niktakbr/trustworthy-phase16",
+        "log_sha256": "354aedebbbeb382f3f4bc5c7ad18fe23ef882efacab8b01101c84bc27f5d07e1",
+        "problem_tests": [],
+        "returncode": 0,
+        "skipped": 0,
+        "tests_run": 32
+      },
+      "phase5e_semantic": {
+        "PYTHONPATH": "/disk/1/data/niktakbr/trustworthy-phase16/src:/disk/1/data/niktakbr/trustworthy-phase16:/disk/0/home/niktakbr/groot-n17-libero-gpu0-queue/.venv/lib/python3.12/site-packages:/usr/lib/python3.12/site-packages:/usr/lib64/python3.12/site-packages",
+        "command": [
+          "/usr/bin/python3",
+          "-S",
+          "-m",
+          "unittest",
+          "discover",
+          "-s",
+          "evaluation/r1_v4/rag_evidence_database/multitask_expansion/semantic_tests",
+          "-v"
+        ],
+        "cwd": "/disk/1/data/niktakbr/trustworthy-phase16",
+        "log_sha256": "12c4c08debe79d71f741641db5d77b3d5d3580700bf6bd56a81d818b2735a838",
+        "problem_tests": [],
+        "returncode": 0,
+        "skipped": 0,
+        "tests_run": 16
+      },
+      "profile": {
+        "PYTHONPATH": "/disk/1/data/niktakbr/trustworthy-phase16/src:/disk/1/data/niktakbr/trustworthy-phase16:/disk/0/home/niktakbr/groot-n17-libero-gpu0-queue/.venv/lib/python3.12/site-packages:/usr/lib/python3.12/site-packages:/usr/lib64/python3.12/site-packages",
+        "command": [
+          "/usr/bin/python3",
+          "-S",
+          "-m",
+          "unittest",
+          "discover",
+          "-s",
+          "evaluation/r1_v4/measurement_profile_validation/tests",
+          "-v"
+        ],
+        "cwd": "/disk/1/data/niktakbr/trustworthy-phase16",
+        "log_sha256": "c21c57ca14299fee8c8ff342b9b0b25dbee639924cd53cd178a1adb548707a41",
+        "problem_tests": [],
+        "returncode": 0,
+        "skipped": 0,
+        "tests_run": 30
+      },
+      "reader": {
+        "PYTHONPATH": "/disk/1/data/niktakbr/trustworthy-phase16/src:/disk/1/data/niktakbr/trustworthy-phase16:/disk/0/home/niktakbr/groot-n17-libero-gpu0-queue/.venv/lib/python3.12/site-packages:/usr/lib/python3.12/site-packages:/usr/lib64/python3.12/site-packages",
+        "command": [
+          "/usr/bin/python3",
+          "-S",
+          "-m",
+          "unittest",
+          "discover",
+          "-s",
+          "evaluation/r1_v4/libero_measurement_reader/tests",
+          "-v"
+        ],
+        "cwd": "/disk/1/data/niktakbr/trustworthy-phase16",
+        "log_sha256": "80ed998dcd1e43c5d51a8fd598cac0124cd2eef63bd9d672db73121202f7c796",
+        "problem_tests": [],
+        "returncode": 0,
+        "skipped": 0,
+        "tests_run": 44
+      },
+      "reference": {
+        "PYTHONPATH": "/disk/1/data/niktakbr/trustworthy-phase16/src:/disk/1/data/niktakbr/trustworthy-phase16:/disk/0/home/niktakbr/groot-n17-libero-gpu0-queue/.venv/lib/python3.12/site-packages:/usr/lib/python3.12/site-packages:/usr/lib64/python3.12/site-packages",
+        "command": [
+          "/usr/bin/python3",
+          "-S",
+          "-m",
+          "unittest",
+          "discover",
+          "-s",
+          "evaluation/r1_reference/tests",
+          "-v"
+        ],
+        "cwd": "/disk/1/data/niktakbr/trustworthy-phase16",
+        "log_sha256": "d1647af0a8e2f3f56be84a2f6a260b00583652eddafdb7d6d90cd823771b1279",
+        "problem_tests": [],
+        "returncode": 0,
+        "skipped": 0,
+        "tests_run": 17
+      },
+      "registry_gsn": {
+        "PYTHONPATH": "/disk/1/data/niktakbr/trustworthy-phase16/src:/disk/1/data/niktakbr/trustworthy-phase16:/disk/0/home/niktakbr/groot-n17-libero-gpu0-queue/.venv/lib/python3.12/site-packages:/usr/lib/python3.12/site-packages:/usr/lib64/python3.12/site-packages",
+        "command": [
+          "/usr/bin/python3",
+          "-S",
+          "-m",
+          "unittest",
+          "discover",
+          "-s",
+          "evaluation/r1_v4/evidence_registry_gsn/tests",
+          "-v"
+        ],
+        "cwd": "/disk/1/data/niktakbr/trustworthy-phase16",
+        "log_sha256": "9b91fb022d675da007179c87231312fc0f79d8e0dd5790eac4b5e81fb05867ac",
+        "problem_tests": [],
+        "returncode": 0,
+        "skipped": 0,
+        "tests_run": 73
+      },
+      "review": {
+        "PYTHONPATH": "/disk/1/data/niktakbr/trustworthy-phase16/src:/disk/1/data/niktakbr/trustworthy-phase16:/disk/0/home/niktakbr/groot-n17-libero-gpu0-queue/.venv/lib/python3.12/site-packages:/usr/lib/python3.12/site-packages:/usr/lib64/python3.12/site-packages",
+        "command": [
+          "/usr/bin/python3",
+          "-S",
+          "-m",
+          "unittest",
+          "discover",
+          "-s",
+          "evaluation/r1_v4/evidence_review_readiness/tests",
+          "-v"
+        ],
+        "cwd": "/disk/1/data/niktakbr/trustworthy-phase16",
+        "log_sha256": "1bb11d264013d0ea29f35749021d147e8782de7c777a69b7de57919ac4f85871",
+        "problem_tests": [],
+        "returncode": 0,
+        "skipped": 0,
+        "tests_run": 15
+      },
+      "variant": {
+        "PYTHONPATH": "/disk/1/data/niktakbr/trustworthy-phase16/src:/disk/1/data/niktakbr/trustworthy-phase16:/disk/0/home/niktakbr/groot-n17-libero-gpu0-queue/.venv/lib/python3.12/site-packages:/usr/lib/python3.12/site-packages:/usr/lib64/python3.12/site-packages",
+        "command": [
+          "/usr/bin/python3",
+          "-S",
+          "-m",
+          "unittest",
+          "discover",
+          "-s",
+          "evaluation/r1_v4/rag_evidence_database/variant_aware_expansion/tests",
+          "-v"
+        ],
+        "cwd": "/disk/1/data/niktakbr/trustworthy-phase16",
+        "log_sha256": "aad5031173cdab915cd5ecefdef4f10a20625fd65dfd13a07eda281e4a451894",
+        "problem_tests": [],
+        "returncode": 0,
+        "skipped": 0,
+        "tests_run": 37
+      }
+    },
+    "tests": 521
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "capabilities": {
+    "exact_source_value_retrieval": {
+      "minimum_numeric_correctness": 1.0,
+      "ready": "all eligible final direct/temporal/narrow-claim samples correct, attribution 1, complete required fields 1; oracle-structured only"
+    },
+    "independent_reproducibility": {
+      "maximum_canonical_differences": 0,
+      "ready": "frozen dataset/config/reference hashes hold, second automated full replay and partial resume produce identical canonical results and metric aggregates"
+    },
+    "multi_source_completeness": {
+      "complete_case_rate": 0.95,
+      "ready": "all required evidence facets retrievable for >=95% final multi-source questions; action/clock facets count separately"
+    },
+    "natural_language_evidence_retrieval": {
+      "precision_at_1": 0.9,
+      "ready": "at least one existing NL mode reaches all thresholds on answerable final cases, with supplied scope; no claim of autonomous intent parsing",
+      "recall_at_20": 0.95,
+      "recall_at_5": 0.9
+    },
+    "physical_interpretation": {
+      "physical_safety_sufficiency": "NOT_EVALUATED",
+      "ready": "all requested positive physical properties verified; conditional/unavailable clocks/world transforms cannot be promoted"
+    },
+    "provenance_assurance": {
+      "maximum_false_assurance": 0,
+      "ready": "all explicit assurance requests honor scope and missing historical attestation; no silent downgrade"
+    },
+    "scope_isolation": {
+      "maximum_errors": 0,
+      "ready": "zero wrong execution/task/variant/time samples"
+    },
+    "source_integrity": {
+      "maximum_false_verified": 0,
+      "ready": "all scratch missing/corrupt/redirected-source challenges fail closed; no false verified result"
+    },
+    "uncertainty_abstention": {
+      "maximum_unsupported_acceptance": 0,
+      "minimum_correct_typed_handling": 1.0,
+      "ready": "all explicitly unsupported typed requests reject or clearly qualify raw-only results; ambiguity without typed parsing is conditional"
+    }
+  },
+  "decisions": [
+    "READY",
+    "READY WITH CONDITIONS",
+    "NOT READY",
+    "NOT EVALUATED"
+  ],
+  "frozen_before_final": true,
+  "no_weighted_score": true,
+  "recommendation_rules": {
+    "A": "No foundational failures and NL/multi-source capabilities ready for an explicitly bounded pilot",
+    "B": "Integrity/scope foundations hold but NL, completeness, interface or ambiguity blockers need focused database-only correction",
+    "C": "Foundational source integrity, scope isolation or false-assurance failures remain unmet"
+  },
+  "rubric": "External deterministic narrow-fact rubric only. No production sufficiency classifier or safety judge is added.",
+  "version": "phase5j-gate-1"
+}

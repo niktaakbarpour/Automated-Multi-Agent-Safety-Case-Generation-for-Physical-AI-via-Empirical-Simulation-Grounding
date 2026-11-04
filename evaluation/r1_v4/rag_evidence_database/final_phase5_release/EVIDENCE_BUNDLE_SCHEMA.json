@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "completeness_status": {
+      "enum": [
+        "COMPLETE WITHIN VERIFIED CONTRACT",
+        "PARTIAL",
+        "UNAVAILABLE",
+        "UNSUPPORTED",
+        "INVALID SCOPE",
+        "UNVERIFIED PLAN"
+      ]
+    },
+    "empirical_admission_enabled": {
+      "const": false
+    },
+    "route": {
+      "const": "production_structured"
+    },
+    "safety_claim_sufficiency": {
+      "const": "NOT_EVALUATED"
+    },
+    "safety_claim_verified": {
+      "const": false
+    },
+    "schema_version": {
+      "const": "phase5-structured-1.0.0"
+    }
+  },
+  "required": [
+    "schema_version",
+    "route",
+    "query_id",
+    "resolved_scope",
+    "requested_obligations",
+    "groups",
+    "missing_obligations",
+    "completeness_status",
+    "independent_validation",
+    "assurance_status",
+    "limitations"
+  ],
+  "title": "Phase5 evidence bundle",
+  "type": "object"
+}

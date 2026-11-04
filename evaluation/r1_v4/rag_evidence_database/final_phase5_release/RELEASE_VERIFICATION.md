@@ -1,0 +1,11 @@
+# Release verification and reproduction
+
+Run all commands on Hestia from `/disk/1/data/niktakbr/trustworthy-phase16`. Activate the documented PYTHONPATH/runtime from FROZEN_RELEASE_CONFIGURATION.json and REPRODUCIBILITY.md. Pin the Git commit and ARTIFACT_MANIFEST.json SHA-256 through a trusted channel; a manifest cannot authenticate its own replacement.
+
+`python3 -S -m evaluation.r1_v4.rag_evidence_database.final_phase5_release.release --verify <trusted-manifest-sha256>` verifies descriptor-bound hashes and sizes for release files, external case results, restored mappings and pinned database/catalogue/parent manifests. No manifest self hash or circular commit hash is embedded. The commit containing the manifest is the release revision. A changed or missing required artifact fails verification; source corruption and redirection fail verified retrieval.
+
+For retrieval run the executable examples, then `python3 -S -m evaluation.r1_v4.rag_evidence_database.final_phase5_release.evaluate --run operator_fresh`. Use a fresh label for a clean run; repeat that label for full resume. For partial resume run `--run operator_partial --limit 37`, then the same label without `--limit`. Do not overwrite the frozen final result files. `independent_audit` checks original reference sets. `preservation` rechecks parent releases, source closures, seals and counts. `restoration` documents the bounded no-original-fallback experiment; existing archived results need not be overwritten.
+
+Use explicit canonical-source/hash/execution/variant mappings when restoring bytes. A filename match alone is insufficient. No arbitrary path redirection or symlink substitution is authorized. Bounded restoration requires separately pinned database/catalogue; full provenance inspection additionally requires graph/dependency and interpretation artifacts. All production operations require their primary source closure. Unavailable historical binaries do not corrupt otherwise valid raw sources, but historical-attestation requests fail closed.
+
+The final release references the unchanged database instead of duplicating it. Source/dependency, geometry and temporal contracts remain in parent releases, bound through their manifests and preservation checks. Reproduction concerns present-day retrieval, not proof of the historical recording environment.

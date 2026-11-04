@@ -1,0 +1,11 @@
+# Spatial semantics audit
+
+All 432 executions and 104 variants were audited against exact XML, recorded semantic initial conditions and native mappings. SPATIAL_BINDINGS.csv records source/hash/root bindings; external SPATIAL_AUDIT.json and SPATIAL_SUPPLEMENT.json retain task/variant support-candidate declarations and limitations.
+
+Recorded object/fixture roots matched exact native/XML body identities in every inspected association. 3,064 phase-labelled semantic initial positions matched the same saved-phase native body positions exactly (maximum absolute error 0). This verifies those snapshot associations only. Existing native poses retain the Phase 5F MuJoCo-world metric/body-wxyz convention; raw observable units, frames, component orders and quaternion conventions remain unverified.
+
+`main_table` is verified as a symbolic alias for exact native body `table` and geom `table_collision` in 147 tabletop-domain executions spanning 98 variants and three task identities. MAIN_TABLE_BINDINGS.csv and MAIN_TABLE_AUDIT.json bind recorded parsed BDDL fixtures and problem name, evaluator-version hashes of task/domain/arena implementation files, saved XML and exact native IDs. This is an explicitly derived symbolic mapping, not a raw measurement. The other 285 executions use floor or living-room workspaces; this main_table rule is not applicable. The initial literal-name-only audit is retained in SPATIAL_AUDIT.json as a diagnostic; absence of an exact XML name was insufficient by itself. No mapping is inferred by name similarity.
+
+The alias audit adds no searchable spatial record: logical_main_table_pose remains unsupported by the frozen six-channel extraction contract. Existing support-candidate sets remain task/variant specific. Tests reject wrong domains even when a physical table exists, near-matching fixture names, missing code attestations and wrong XML/native bindings.
+
+Endpoint qpos/qvel/time, last-forward body/geom/contact/dynamics caches and raw observation caches remain distinct. No calibrated common-instant bound is established. No new spatial observation, frame transform, support/contact/fall judgment or geometry-only physical inference is admitted. Tests cover exact roots, initial positions, unresolved aliases and counterexamples against raw/world and alias substitution.

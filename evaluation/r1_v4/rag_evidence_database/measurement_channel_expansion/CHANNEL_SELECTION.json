@@ -1,0 +1,42 @@
+{
+  "baseline_commit": "c24795ed9383110243288db520e5f98af484b4ad",
+  "baseline_sha256": "a0f9347db719902f275d0f3e89f0682f093d5ded858ab7c2823067930337baa9",
+  "channels": {
+    "raw.robot0_gripper_qpos": {
+      "executions": 432,
+      "recorded_samples": 58075
+    },
+    "raw.robot0_gripper_qvel": {
+      "executions": 432,
+      "recorded_samples": 58075
+    },
+    "raw.robot0_joint_pos": {
+      "executions": 432,
+      "recorded_samples": 58075
+    },
+    "raw.robot0_joint_vel": {
+      "executions": 432,
+      "recorded_samples": 58075
+    },
+    "raw.simulator_actuator_force": {
+      "executions": 432,
+      "recorded_samples": 58075
+    },
+    "simulator.ncon": {
+      "executions": 432,
+      "recorded_samples": 58075
+    }
+  },
+  "decision": "Six direct recorded channels. Four robot raw observation vectors, raw actuator force array, and simulator contact entry count. No new spatial interpretation, derived channels or new execution profiles.",
+  "frozen_before_extraction": true,
+  "inventory_sha256": "d5234fe4932577727a83d780da1c32f50caf01b4cb7e15d295f188f3ba914e41",
+  "source_patterns": {
+    "raw.robot0_gripper_qpos": "/frames/{index}/raw_observation/robot0_gripper_qpos/value",
+    "raw.robot0_gripper_qvel": "/frames/{index}/raw_observation/robot0_gripper_qvel/value",
+    "raw.robot0_joint_pos": "/frames/{index}/raw_observation/robot0_joint_pos/value",
+    "raw.robot0_joint_vel": "/frames/{index}/raw_observation/robot0_joint_vel/value",
+    "raw.simulator_actuator_force": "/frames/{index}/simulator/actuator_force/value",
+    "simulator.ncon": "/frames/{index}/simulator/ncon/value"
+  },
+  "version": "phase5g-channel-1.0.0"
+}

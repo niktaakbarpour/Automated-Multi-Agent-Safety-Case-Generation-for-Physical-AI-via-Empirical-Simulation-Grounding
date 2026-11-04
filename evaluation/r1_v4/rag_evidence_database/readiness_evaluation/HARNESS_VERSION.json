@@ -1,0 +1,19 @@
+{
+  "configuration_sha256": "2fab0b3f822a2e5b5ddbd640df49ebec741be38054321985b92fce489f0a4d2f",
+  "criteria_sha256": "b869b9210e87de9fd3b439f78dd8d8b51de2b7d7671875683f675d341b2a24a2",
+  "dataset_sha256": "360e5a148016f91493fb2b39a5e400be3dff50d27aa8cf8019f56681c35d7089",
+  "development_instances": 108,
+  "files": {
+    "EVALUATION_RUBRIC.md": "dbba52c75321e6ccb79dcf7ee8f1a2bad26634d56fe4f8dfeebe6e1c2ec58dde",
+    "SOURCE_ASSOCIATIONS.json": "25d111be4f53220dbb0040dcad8b39faa7bd98c8bbecc7d351bc36ccf0cf6980",
+    "assessment.py": "3837080e648711e14ac7144405058e5e6bf3bec8accfcee0c2dcea7d0beaeaef",
+    "config.py": "cca96571b6b3df1083a6bfefa4a599f3f37e5786f3f76b3588a4696c01f89acb",
+    "harness.py": "f3fdd882984123c5c42ca9dc54157c8190bcb66643b2d0780b44fd3f0459a0be",
+    "metrics.py": "15a6eb7aecb8629fc0f6718433478aa778933760d7f7068945f165a4a58cb701",
+    "run.py": "8bd436746e9f32850d288e31d9d4f347b2207e90006496059ea3f2c4d90f7821"
+  },
+  "final_queries_run": 0,
+  "harness_unit_tests": 7,
+  "reference_revision": "13 case specifications corrected before final; wording and acceptance criteria unchanged; v1/dev outputs retained",
+  "version": "phase5j-harness-v3"
+}

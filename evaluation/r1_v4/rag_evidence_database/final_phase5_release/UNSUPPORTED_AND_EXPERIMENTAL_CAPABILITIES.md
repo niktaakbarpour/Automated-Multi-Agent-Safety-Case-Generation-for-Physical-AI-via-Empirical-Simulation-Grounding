@@ -1,0 +1,9 @@
+# Experimental and unavailable operations
+
+CAPABILITY_REGISTRY.json is the machine-readable registry. Structured exact raw lookup, explicit multi-source obligations, verified source identity and exact scope enforcement are supported only under documented adapter/field/temporal contracts. Native physical metadata and bounded geometry identity have conditions.
+
+Natural-language interpretation, lexical/semantic ranking and legacy broad evidence search are experimental downstream interfaces. K.1 retained 902/908 mandatory obligations, missed four temporal and two reverse-worded hash obligations, completed 54/106 answerable bundles, and exceeded its historical P@1 regression tolerance. Zero false-complete bundles on 144 cases did not make that parser unrestricted-ready. Phase L does not change historical labels/scores or tune the parser.
+
+Individual sensor clocks/synchronization, general world-coordinate transformations, calibrated video coordinates, historical producer binary authentication, inferred support/contact/fall events and empirical R1 admission remain unsupported. main_table identity is bounded to 147 tabletop executions/98 variants; no floor/living-room alias, logical-table pose or physical-support inference is enabled. Saved simulator intervals of 0.05 seconds and physics steps of 0.002 seconds retain their original verified scope. The -0.002-second cache interpretation remains conditional.
+
+Raw arrays retain recorded/verified/conditional property distinctions. SI assumptions, actuator equations and native joint indexes are documented in preserved H contracts, not generalized across unknown recordings. A package version or current source hash is not proof of historical binary identity. No new measurement channels, execution profiles, safety agents or R1 decisions are introduced.

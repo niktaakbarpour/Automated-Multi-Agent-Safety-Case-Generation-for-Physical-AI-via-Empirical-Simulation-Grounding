@@ -1,0 +1,48 @@
+{
+  "assurance_levels": [
+    "verified_source_values",
+    "verified_physical_interpretation",
+    "provenance_complete",
+    "historical_producer_attestation"
+  ],
+  "baseline_revision": "1ee2c34832e225f2ba26fd413499315782e0e5d5",
+  "created_utc": "2026-11-03T18:18:47.778512+00:00",
+  "database": "/disk/1/data/niktakbr/trustworthy-phase5i-working/expanded.sqlite",
+  "database_sha256": "f6dbea047ad16c5420c34ff002e068e4ade41ab52806c936816aaf7019f303c8",
+  "encoder": {
+    "artifact_sha256": "53aa51172d142c89d9012cce15ae4d6cc0ca6895895114379cacb4fab128d9db",
+    "device": "cpu",
+    "model": "/disk/1/data/niktakbr/trustworthy-phase5e-working/encoder",
+    "offline": true,
+    "revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+    "threads": 2
+  },
+  "files": {
+    "audit_values.py": "c1aff5388fed353611da838c6830231c22b293315767b2ea3fd38564518e4e94",
+    "build.py": "16f8648bc67df41e87dd4a7964a892534e920538347b4fb47135b38f783b439e",
+    "bundle.py": "9457258b1077669685058d3ed940ff28f745ee9831931bb655cd61718c822781",
+    "compat.py": "d2fe17e43612edbb856b6d33f4bedb4874f37aee3804988b930263beca29fb34",
+    "config.py": "36b2ad85c88d7def519aa8b547a0c6a7ac9e96fadebf620e3386dfc3cd781e84",
+    "development.py": "444ba7fd9b4ad97900cfd1740c30362aa9f19679e3e821d75fc8ca6c219e1655",
+    "evaluate.py": "f5780c869446536a4feafa9d6b01a5c1f932739f8128b45c30c36c5a1911e551",
+    "original_development.py": "fac9e638024aaf292b1c1b9a9b67911caf091c5fd9ce4791fa7b9f703679ab29",
+    "planner.py": "616aa4ef756300cf70dcfe6aea09aa466ae70f35244803e546c72533ffc4166c",
+    "reference.py": "374575e2295ffcb7210a2243fdeb06232fc788d0364dcc1c57341fafbb7683ae",
+    "restoration.py": "22c848eb8ecff9e92f2b25c1ac5faef79a4abc3d29dbb12bc3a03a566a54daaf",
+    "run_eval.py": "b83b89312f05a94eddd67fb8ff4f1f25689227a9cd663bbcd41d9c271b02d4f7",
+    "store.py": "a5b9d47e1f6dfbb26115af34eb5052d100c35237205c52d160cc67089089d08a"
+  },
+  "ranking": {
+    "bundle": "deterministic schema-guided families in query interpretation order; each obligation fetched separately",
+    "hybrid_ablation": "RRF k=60 over fixed schema labels, one family",
+    "top_k": 20
+  },
+  "semantic_ranking_cannot_override_constraints": true,
+  "sidecar": "/disk/1/data/niktakbr/trustworthy-phase5k-working/catalogue.sqlite",
+  "sidecar_logical": "ee6bbd07fcb228416a6889bf6cea7bac3edf50df60e2ff4f2466a8db5254c13d",
+  "sidecar_sha256": "ff9fe4d422c274f3f109d76ae21b91d9d6364fd568f52ce7b5fa1501bbcbae0e",
+  "verification_modes": [
+    "strict",
+    "verified_session"
+  ]
+}

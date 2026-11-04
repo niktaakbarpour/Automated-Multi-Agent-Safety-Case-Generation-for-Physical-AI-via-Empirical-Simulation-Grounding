@@ -1,0 +1,43 @@
+{
+  "action_alignment_comparisons": 53323,
+  "actuator_equation": {
+    "components": 522675,
+    "maximum": 0.0,
+    "mean": 0.0
+  },
+  "algebraic_contract_failures": 0,
+  "contact_count_comparisons": 58075,
+  "per_channel_numeric": {
+    "raw.robot0_gripper_qpos": {
+      "components": 116150,
+      "maximum_error": 6.938893903907228e-18,
+      "mean_error": 1.021194297631633e-21,
+      "units": "m"
+    },
+    "raw.robot0_gripper_qvel": {
+      "components": 116150,
+      "maximum_error": 5.188351914764411e-09,
+      "mean_error": 1.2733920066716963e-12,
+      "units": "m/s"
+    },
+    "raw.robot0_joint_pos": {
+      "components": 406525,
+      "maximum_error": 4.440892098500626e-16,
+      "mean_error": 3.261077159468118e-20,
+      "units": "rad"
+    },
+    "raw.robot0_joint_vel": {
+      "components": 406525,
+      "maximum_error": 2.078905519953267e-09,
+      "mean_error": 8.681672268533046e-13,
+      "units": "rad/s"
+    }
+  },
+  "source_samples_checked": 15552,
+  "source_value_error": 0.0,
+  "timestamp_accumulation": {
+    "components": 58075,
+    "maximum": 3.808509063674137e-12,
+    "mean": 2.0932798136084707e-13
+  }
+}

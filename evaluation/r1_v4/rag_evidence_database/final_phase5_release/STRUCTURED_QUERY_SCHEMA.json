@@ -1,0 +1,229 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "assurance": {
+      "enum": [
+        "verified_source_values",
+        "verified_physical_interpretation",
+        "provenance_complete",
+        "historical_producer_attestation"
+      ]
+    },
+    "execution_id": {
+      "maxLength": 1000,
+      "minLength": 1,
+      "type": "string"
+    },
+    "obligations": {
+      "contains": {
+        "properties": {
+          "mandatory": {
+            "const": true
+          }
+        },
+        "required": [
+          "mandatory"
+        ]
+      },
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "allow_conditional": {
+            "type": "boolean"
+          },
+          "assurance": {
+            "enum": [
+              "verified_source_values",
+              "verified_physical_interpretation",
+              "provenance_complete",
+              "historical_producer_attestation"
+            ]
+          },
+          "component": {
+            "maxLength": 1000,
+            "minLength": 1,
+            "type": "string"
+          },
+          "coordinate_frame": {
+            "maxLength": 1000,
+            "minLength": 1,
+            "type": "string"
+          },
+          "execution_id": {
+            "maxLength": 1000,
+            "minLength": 1,
+            "type": "string"
+          },
+          "family": {
+            "maxLength": 1000,
+            "minLength": 1,
+            "type": "string"
+          },
+          "field": {
+            "maxLength": 1000,
+            "minLength": 1,
+            "type": "string"
+          },
+          "id": {
+            "pattern": "^[A-Za-z0-9_.:-]{1,120}$",
+            "type": "string"
+          },
+          "interpretation": {
+            "enum": [
+              "recorded",
+              "verified_physical",
+              "conditional"
+            ]
+          },
+          "mandatory": {
+            "type": "boolean"
+          },
+          "object_id": {
+            "maxLength": 1000,
+            "minLength": 1,
+            "type": "string"
+          },
+          "record_id": {
+            "maxLength": 1000,
+            "minLength": 1,
+            "type": "string"
+          },
+          "required_properties": {
+            "items": {
+              "maxLength": 1000,
+              "minLength": 1,
+              "type": "string"
+            },
+            "maxItems": 16,
+            "type": "array",
+            "uniqueItems": true
+          },
+          "selector": {
+            "oneOf": [
+              {
+                "additionalProperties": false,
+                "properties": {
+                  "end": {
+                    "minimum": 0,
+                    "type": "integer"
+                  },
+                  "kind": {
+                    "const": "frames"
+                  },
+                  "start": {
+                    "minimum": 0,
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "kind",
+                  "start",
+                  "end"
+                ],
+                "type": "object"
+              },
+              {
+                "additionalProperties": false,
+                "properties": {
+                  "end": {
+                    "type": "number"
+                  },
+                  "kind": {
+                    "const": "simulator_labels"
+                  },
+                  "start": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "kind",
+                  "start",
+                  "end"
+                ],
+                "type": "object"
+              }
+            ]
+          },
+          "source_sha256": {
+            "pattern": "^[a-f0-9]{64}$",
+            "type": "string"
+          },
+          "task_id": {
+            "maxLength": 1000,
+            "minLength": 1,
+            "type": "string"
+          },
+          "units": {
+            "maxLength": 1000,
+            "minLength": 1,
+            "type": "string"
+          },
+          "variant_id": {
+            "maxLength": 1000,
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "execution_id",
+          "family",
+          "field",
+          "mandatory"
+        ],
+        "type": "object"
+      },
+      "maxItems": 16,
+      "minItems": 1,
+      "type": "array"
+    },
+    "provenance": {
+      "additionalProperties": false,
+      "properties": {
+        "level": {
+          "enum": [
+            "source_identity",
+            "release_graph"
+          ]
+        },
+        "scope": {
+          "maxLength": 1000,
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "level"
+      ],
+      "type": "object"
+    },
+    "request_id": {
+      "maxLength": 1000,
+      "minLength": 1,
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "phase5-structured-1.0.0"
+    },
+    "task_id": {
+      "maxLength": 1000,
+      "minLength": 1,
+      "type": "string"
+    },
+    "variant_id": {
+      "maxLength": 1000,
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "execution_id",
+    "assurance",
+    "provenance",
+    "obligations"
+  ],
+  "title": "phase5-structured-1.0.0",
+  "type": "object"
+}

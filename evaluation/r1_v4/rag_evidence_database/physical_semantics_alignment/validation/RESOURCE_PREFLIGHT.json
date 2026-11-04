@@ -1,0 +1,9 @@
+{
+  "available_disk_bytes": 1627112439808,
+  "available_memory_observed_kib": 214274904,
+  "large_build_not_started": true,
+  "model_compilation": "identity only, sequential; no MjData or physics steps",
+  "projected_additional_peak_disk_bytes": 10737418240,
+  "projected_peak_process_memory_bytes": 2147483648,
+  "source_corpus_copies": 0
+}

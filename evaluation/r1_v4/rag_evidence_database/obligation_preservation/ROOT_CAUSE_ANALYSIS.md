@@ -1,0 +1,9 @@
+# Original failure path
+
+Exposed K cases KH2-C2-02/10/18 ask for joint configuration at a simulator label. The planner's position vocabulary contains configuration, but its arm-entity expression recognizes joint angle/position/velocity forms and omits joint configuration. The temporal expression separately recognizes simulator label. The resulting plan contains only recorded_time. Retrieval correctly fetches that family. Completeness counts AVAILABLE groups against that same reduced plan and returns COMPLETE.
+
+The loss occurs during measurement/entity recognition, before evidence retrieval. Time does not explicitly override the measurement; it survives independently after the measurement drops. The schema permits a family list without the original obligations, and the checker trusts that list. Correct time values therefore mask a lost measurement request. This is not primarily ranking, missing raw data, variant attribution or physical semantics.
+
+The exposed cases are regression tests only. Version 1 added structured original obligations, a separate token-relation validator, and obligation fulfillment. Its fresh 144-formulation assessment retained the failed implementation/results. One strict completeness flag arose because time proof was represented as a selector dependency but not as the separately required source-family node; six quantified measurement obligations were also unresolved. Excess residual-word rejection degraded retrieval.
+
+Corrected version 2.1 explicitly expands selector proof families into source-family obligations, bounds registry quantifier grammar, compares actual selected scope to the original selector, and returns identified verified data only as UNVERIFIED PLAN inspection when residual wording remains unresolved. Unsupported comparisons/interpretations cannot become complete. No rules/thresholds were tuned against the corrected final assessment. The remaining failures are reported unchanged.

@@ -1,0 +1,10 @@
+{
+  "channel_keys": 2814,
+  "coverage_rows": 816800,
+  "indexed_executions": 432,
+  "passed": true,
+  "qualification": "All normalized source/channel/type/coverage fields match expanded matrix; exact example selectors also retained in external original matrix and per-execution inventories.",
+  "scope_leakage": 0,
+  "source_bindings": 3456,
+  "variants": 104
+}

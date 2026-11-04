@@ -1,0 +1,22 @@
+{
+  "assurance": "Existing levels; no silent downgrade",
+  "baseline_revision": "dda1353dc590613dc5f09682616f8e5e13fef570",
+  "catalogue_sha256": "ff9fe4d422c274f3f109d76ae21b91d9d6364fd568f52ce7b5fa1501bbcbae0e",
+  "created_utc": "2026-11-03T21:16:57.466694+00:00",
+  "database_sha256": "f6dbea047ad16c5420c34ff002e068e4ade41ab52806c936816aaf7019f303c8",
+  "files": {
+    "config.py": "05d9dd9de654276d3d080d8027d79061a7d30a1cba3b1c2a923e5988058d2b15",
+    "evaluate.py": "b94a6a9fddfd76904f2a5eb95daa46e87d5f0b1ef44965ebcb9efaf03ed35ce7",
+    "intent.py": "8d6b4ddc924c324829d7937ec921898d79ecc153b1e53857d1daa01ef4aa3c14",
+    "metrics.py": "8f9335813999e4103e81f6abe9d629709658af4fc2e6b22dad75dc9697b2e386",
+    "model.py": "84f656d2cc64e2847147488d66ce8e5e93a36a36ce1c2540419d7320e6bdfaa2",
+    "references.py": "9521fb7714af85032f11e773e68e0b3660d743ef22c7e3adbcee5c4224b576e6",
+    "retrieve.py": "add34b7609c2ea8499784d4370d9b005ef5d12a47bf0fb28ce8cea27ed10854a",
+    "validator.py": "c04dcabeb2075e47e95e9b2f0c2e841c251ee56eb683e161b153599f2da882cd",
+    "vocabulary.json": "5d61056c6220944337a17fdc5e88df0b2c9d6bc2852539c88d29a0fcce5ebd39"
+  },
+  "query_limit": 20,
+  "ranking": "No learned ranking or model changes; measurement obligations before metadata/selector proof families",
+  "source_verification": "strict default; evaluation explicitly verified_session; descriptor-bound proofs unchanged",
+  "version": "query-obligation-1.0.0"
+}

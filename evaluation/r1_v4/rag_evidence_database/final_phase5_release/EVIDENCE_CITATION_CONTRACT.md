@@ -1,0 +1,5 @@
+# Stable evidence citations
+
+A citation is `evidence-citation:` plus the canonical digest of citation_basis: citation version, frozen database SHA-256, original evidence/channel/source-reference identifier, source SHA-256, execution/task/variant, exact selectors, selected component, units, interpretation and required properties. Inspect api.py for the authoritative serialization. Canonical source identity survives approved restoration; physical scratch paths and query order do not change citations.
+
+Original evidence IDs remain available. A citation identifies the selected evidence under this release and contract; it is not a digital signature, proof of physical safety or historical producer attestation. Consumers must verify the trusted release manifest and independently retrieve the cited data rather than trust arbitrary JSON carrying a plausible digest. Different selections or interpretations intentionally produce different citations. Restoration, repeated requests and independent replay validate stability.

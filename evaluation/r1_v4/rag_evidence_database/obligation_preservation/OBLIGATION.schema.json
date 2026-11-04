@@ -1,0 +1,17 @@
+{
+ "$schema":"https://json-schema.org/draft/2020-12/schema",
+ "title":"Source-bound query obligation, version 2.1",
+ "type":"object",
+ "required":["id","type","target","basis","required_families","required_temporal_scope","scope","verification_requirements","mandatory","resolution_status","uncertainty","contract_references"],
+ "properties":{
+  "id":{"type":"string","pattern":"^obligation:[a-f0-9]{64}$"},
+  "type":{"enum":["measurement","temporal","temporal_uncertainty","scope","entity","component","source_family","assurance","interpretation","comparison","factual_support","availability","unresolved"]},
+  "target":{"type":"string"},
+  "basis":{"type":"object","required":["source"],"properties":{"source":{"type":"string"},"span":{"type":"array","items":{"type":"integer"},"minItems":2,"maxItems":2},"text":{"type":"string"}}},
+  "required_families":{"type":"array","items":{"type":"string"}},
+  "required_temporal_scope":{"type":["array","null"],"items":{"type":"string"}},
+  "scope":{"type":"object"},"mandatory":{"type":"boolean"},
+  "resolution_status":{"enum":["RESOLVED","CONDITIONAL","AMBIGUOUS","UNRESOLVED","UNSUPPORTED"]},
+  "verification_requirements":{"type":"array","items":{"type":"string"}},"contract_references":{"type":"array","items":{"type":"string"}},"uncertainty":{"type":["string","null"]}
+ }
+}

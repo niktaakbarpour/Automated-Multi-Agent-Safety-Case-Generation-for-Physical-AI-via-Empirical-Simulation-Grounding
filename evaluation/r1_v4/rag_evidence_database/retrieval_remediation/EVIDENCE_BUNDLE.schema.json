@@ -1,0 +1,13 @@
+{
+ "$schema":"https://json-schema.org/draft/2020-12/schema",
+ "title":"Phase 5K retrieval obligations bundle, not safety-claim sufficiency",
+ "type":"object",
+ "required":["version","original_query","resolved_scope","interpretation","requested_families","groups","missing_required_evidence","completeness_status","assurance","conditional_assumptions","unresolved_uncertainties","safety_claim_sufficiency","empirical_admission_enabled"],
+ "properties":{
+  "version":{"type":"string"},"original_query":{"type":"string"},"resolved_scope":{"type":"object","required":["execution_id","task_id","variant_id"]},
+  "interpretation":{"type":["object","null"]},"requested_families":{"type":"array","items":{"type":"string"},"uniqueItems":true},
+  "groups":{"type":"array","items":{"type":"object","required":["family","status","items","coverage"],"properties":{"family":{"type":"string"},"status":{"enum":["AVAILABLE","PARTIAL","UNAVAILABLE","UNSUPPORTED"]},"coverage":{"type":"object"},"items":{"type":"array","items":{"type":"object","required":["id","family","original_evidence_ids","execution_id","task_id","variant_id","source_artifact","integrity_status","origin","units","synchronized_physical_instant"],"properties":{"integrity_status":{"const":"verified_source"},"synchronized_physical_instant":{"const":false},"source_artifact":{"type":"object","required":["path","sha256"],"properties":{"sha256":{"type":"string","pattern":"^[a-f0-9]{64}$"}}}}}}}}},
+  "completeness_status":{"enum":["COMPLETE WITHIN VERIFIED CONTRACT","PARTIAL","UNAVAILABLE","UNSUPPORTED","AMBIGUOUS","INVALID SCOPE"]},
+  "safety_claim_sufficiency":{"const":"NOT_EVALUATED"},"safety_claim_verified":{"const":false},"empirical_admission_enabled":{"const":false}
+ }
+}

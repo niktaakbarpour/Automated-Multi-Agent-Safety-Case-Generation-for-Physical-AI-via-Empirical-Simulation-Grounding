@@ -1,0 +1,11 @@
+# Phase 5K.1 obligation preservation
+
+**Implementation complete. B — FOCUSED CORRECTION STILL REQUIRED.** Version query-obligation-2.1.0 prevents observed false completeness, but does not meet every frozen obligation-recognition/readiness gate. No downstream phase is started.
+
+Final corrected assessment: 144 source-scope instances, 72 newly authored formulations (each on two scopes), 24 fresh executions / 18 variants, six categories. These formulations and execution scopes were not reused from the failed V1 assessment. Measurements and conjunctions are retained in all evaluated cases; strict false-complete bundles=0/144; critical abstentions=30/30. Six canonical reference obligations remain missing: four temporal selectors and two reverse-worded source-hash requirements. Extra conservative unresolved markers reduce exact-set agreement to 0.542. See LIMITATIONS.md.
+
+Mandatory recall: 902/908=0.9934 micro; 0.9929 macro. P@1/R@20=0.965/0.965 on 114 relevance-eligible cases. Inspection-only evidence remains noncomplete and cannot establish query fulfillment. No observed source-value, execution/variant or assurance errors. All 813 applicable tests passed, including the original 764; full/fresh/partial replay agrees.
+
+The failed first assessment and frozen implementation are preserved in assessment_v1/ and external work outputs. A separately frozen correction made selector proof dependencies explicit, enforced actual selector fulfillment, and allowed clearly labelled noncomplete raw inspection. No ranking weights, thresholds, historical labels or outputs were changed.
+
+Database `/disk/1/data/niktakbr/trustworthy-phase5i-working/expanded.sqlite` and catalogue `/disk/1/data/niktakbr/trustworthy-phase5k-working/catalogue.sqlite` are unchanged. Database SHA-256 `f6dbea047ad16c5420c34ff002e068e4ade41ab52806c936816aaf7019f303c8`. This package adds code/query metadata only: 432 executions, 104 variants, 80,786 evidence rows, 2,592 channel references preserved. Reports, frozen questions/references/configuration, case summaries and exact artifact hashes are in this directory; full machine outputs are under `/disk/1/data/niktakbr/trustworthy-phase5k1-working`. No push/merge, corpus/channel expansion, R1 changes or downstream agents.

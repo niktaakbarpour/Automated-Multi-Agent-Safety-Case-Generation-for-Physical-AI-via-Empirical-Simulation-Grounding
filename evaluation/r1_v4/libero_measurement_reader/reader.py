@@ -52,7 +52,9 @@ def read(root,episode,frames=None,*,expected=None,geometry=None,coordinates=None
    extension=approved_profile(development_profile,root,episode)
   if task_profile is not None:
    if extension is not None or synthetic or expected is not None or geometry is not None or coordinates is not None:raise Unsupported('task_profile_rejects_injected_or_synthetic_contract')
-   if task_profile.startswith('multitask-v1:'):
+   if task_profile.startswith('variant-v1:'):
+    from evaluation.r1_v4.rag_evidence_database.variant_aware_expansion.profile import approved_profile
+   elif task_profile.startswith('multitask-v1:'):
     from evaluation.r1_v4.rag_evidence_database.multitask_expansion.profile import approved_profile
    else:
     from evaluation.r1_v4.rag_evidence_database.corpus_expansion.task_profile.profile import approved_profile

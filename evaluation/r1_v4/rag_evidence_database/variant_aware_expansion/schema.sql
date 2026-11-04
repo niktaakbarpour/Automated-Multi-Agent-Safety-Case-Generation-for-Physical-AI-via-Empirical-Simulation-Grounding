@@ -1,0 +1,10 @@
+CREATE TABLE rag_variant_schema(version TEXT PRIMARY KEY, migration_sha256 TEXT NOT NULL);
+CREATE TABLE rag_env_variants(id TEXT PRIMARY KEY, xml_sha256 TEXT NOT NULL, asset_digest TEXT NOT NULL, body TEXT NOT NULL);
+CREATE TABLE rag_execution_env(execution TEXT PRIMARY KEY, task_id TEXT NOT NULL, suite TEXT NOT NULL, variant_id TEXT NOT NULL REFERENCES rag_env_variants(id), body TEXT NOT NULL);
+CREATE INDEX rag_execution_variant ON rag_execution_env(variant_id,task_id,execution);
+CREATE TABLE rag_scope_status(execution TEXT PRIMARY KEY, status TEXT NOT NULL, partition TEXT, reason TEXT NOT NULL);
+CREATE TABLE rag_variant_builds(id TEXT PRIMARY KEY, body TEXT NOT NULL);
+CREATE TRIGGER rag_variant_no_update BEFORE UPDATE ON rag_env_variants BEGIN SELECT RAISE(ABORT,'immutable variant'); END;
+CREATE TRIGGER rag_variant_no_delete BEFORE DELETE ON rag_env_variants BEGIN SELECT RAISE(ABORT,'immutable variant'); END;
+CREATE TRIGGER rag_binding_no_update BEFORE UPDATE ON rag_execution_env BEGIN SELECT RAISE(ABORT,'immutable execution environment'); END;
+CREATE TRIGGER rag_binding_no_delete BEFORE DELETE ON rag_execution_env BEGIN SELECT RAISE(ABORT,'immutable execution environment'); END;

@@ -1,0 +1,2661 @@
+{
+  "audited_false_assurance": {
+    "checked": 0,
+    "legacy_k": 0
+  },
+  "correct_obligation_count": 913,
+  "frozen_false_assurance": {
+    "checked": 69,
+    "legacy_k": 107
+  },
+  "frozen_scoring_defect": "Scorer tests omitted request.assurance as None instead of verified_source_values; invalid false-assurance counters retained in frozen results",
+  "gold_obligation_count": 920,
+  "method": "Read actual output assurance and apply the documented default; no altered thresholds/labels/target",
+  "micro_obligation_precision": 0.9490644490644491,
+  "micro_obligation_recall": 0.9923913043478261,
+  "missing_obligations": [
+    {
+      "case_id": "FINAL-conjunction-05",
+      "complete": false,
+      "missing": [
+        [
+          "measurement",
+          "raw.robot0_gripper_qpos"
+        ],
+        [
+          "measurement",
+          "raw.robot0_gripper_qvel"
+        ],
+        [
+          "measurement",
+          "raw.robot0_joint_pos"
+        ],
+        [
+          "measurement",
+          "raw.robot0_joint_vel"
+        ],
+        [
+          "measurement",
+          "raw.simulator_actuator_force"
+        ],
+        [
+          "measurement",
+          "simulator.ncon"
+        ]
+      ],
+      "returned_families": []
+    },
+    {
+      "case_id": "FINAL-temporal-14",
+      "complete": true,
+      "missing": [
+        [
+          "source_family",
+          "recorded_time"
+        ]
+      ],
+      "returned_families": [
+        "raw.robot0_joint_vel",
+        "recorded_time"
+      ]
+    }
+  ],
+  "predicted_obligation_count": 962,
+  "rows": [
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-boundary-00",
+      "default_omitted": true,
+      "frozen_counter": false,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-boundary-00",
+      "default_omitted": true,
+      "frozen_counter": false,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-boundary-01",
+      "default_omitted": true,
+      "frozen_counter": false,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-boundary-01",
+      "default_omitted": true,
+      "frozen_counter": false,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-boundary-02",
+      "default_omitted": true,
+      "frozen_counter": false,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-boundary-02",
+      "default_omitted": true,
+      "frozen_counter": false,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "safety_guaranteed",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-boundary-03",
+      "default_omitted": false,
+      "frozen_counter": false,
+      "mode": "checked",
+      "requested_assurance": "safety_guaranteed"
+    },
+    {
+      "actual_assurance": "safety_guaranteed",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-boundary-03",
+      "default_omitted": false,
+      "frozen_counter": false,
+      "mode": "legacy_k",
+      "requested_assurance": "safety_guaranteed"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-boundary-04",
+      "default_omitted": true,
+      "frozen_counter": false,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-boundary-04",
+      "default_omitted": true,
+      "frozen_counter": false,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-boundary-05",
+      "default_omitted": true,
+      "frozen_counter": false,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-boundary-05",
+      "default_omitted": true,
+      "frozen_counter": false,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-boundary-06",
+      "default_omitted": true,
+      "frozen_counter": false,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-boundary-06",
+      "default_omitted": true,
+      "frozen_counter": false,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-boundary-07",
+      "default_omitted": true,
+      "frozen_counter": false,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-boundary-07",
+      "default_omitted": true,
+      "frozen_counter": false,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-boundary-08",
+      "default_omitted": true,
+      "frozen_counter": false,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-boundary-08",
+      "default_omitted": true,
+      "frozen_counter": false,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-boundary-09",
+      "default_omitted": true,
+      "frozen_counter": false,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-boundary-09",
+      "default_omitted": true,
+      "frozen_counter": false,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-boundary-10",
+      "default_omitted": true,
+      "frozen_counter": false,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-boundary-10",
+      "default_omitted": true,
+      "frozen_counter": false,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-boundary-11",
+      "default_omitted": true,
+      "frozen_counter": false,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-boundary-11",
+      "default_omitted": true,
+      "frozen_counter": false,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-boundary-12",
+      "default_omitted": true,
+      "frozen_counter": false,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-boundary-12",
+      "default_omitted": true,
+      "frozen_counter": false,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-boundary-13",
+      "default_omitted": true,
+      "frozen_counter": false,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-boundary-13",
+      "default_omitted": true,
+      "frozen_counter": false,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-boundary-14",
+      "default_omitted": true,
+      "frozen_counter": false,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-boundary-14",
+      "default_omitted": true,
+      "frozen_counter": false,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_physical_interpretation",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-boundary-15",
+      "default_omitted": false,
+      "frozen_counter": false,
+      "mode": "checked",
+      "requested_assurance": "verified_physical_interpretation"
+    },
+    {
+      "actual_assurance": "verified_physical_interpretation",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-boundary-15",
+      "default_omitted": false,
+      "frozen_counter": false,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_physical_interpretation"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-boundary-16",
+      "default_omitted": true,
+      "frozen_counter": false,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-boundary-16",
+      "default_omitted": true,
+      "frozen_counter": false,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-boundary-17",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-boundary-17",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-boundary-18",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-boundary-18",
+      "default_omitted": true,
+      "frozen_counter": false,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-boundary-19",
+      "default_omitted": true,
+      "frozen_counter": false,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-boundary-19",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-boundary-20",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-boundary-20",
+      "default_omitted": true,
+      "frozen_counter": false,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-boundary-21",
+      "default_omitted": true,
+      "frozen_counter": false,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-boundary-21",
+      "default_omitted": true,
+      "frozen_counter": false,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-boundary-22",
+      "default_omitted": true,
+      "frozen_counter": false,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-boundary-22",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-boundary-23",
+      "default_omitted": true,
+      "frozen_counter": false,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-boundary-23",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-conjunction-00",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-conjunction-00",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-conjunction-01",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-conjunction-01",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-conjunction-02",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-conjunction-02",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-conjunction-03",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-conjunction-03",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-conjunction-04",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-conjunction-04",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-conjunction-05",
+      "default_omitted": true,
+      "frozen_counter": false,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-conjunction-05",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-conjunction-06",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-conjunction-06",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-conjunction-07",
+      "default_omitted": true,
+      "frozen_counter": false,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-conjunction-07",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-conjunction-08",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-conjunction-08",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-conjunction-09",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-conjunction-09",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-conjunction-10",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-conjunction-10",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-conjunction-11",
+      "default_omitted": true,
+      "frozen_counter": false,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-conjunction-11",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-conjunction-12",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-conjunction-12",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-conjunction-13",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-conjunction-13",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-conjunction-14",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-conjunction-14",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-conjunction-15",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-conjunction-15",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-conjunction-16",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-conjunction-16",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-conjunction-17",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-conjunction-17",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-conjunction-18",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-conjunction-18",
+      "default_omitted": true,
+      "frozen_counter": false,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-conjunction-19",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-conjunction-19",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-conjunction-20",
+      "default_omitted": true,
+      "frozen_counter": false,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-conjunction-20",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-conjunction-21",
+      "default_omitted": true,
+      "frozen_counter": false,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-conjunction-21",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-conjunction-22",
+      "default_omitted": true,
+      "frozen_counter": false,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-conjunction-22",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-conjunction-23",
+      "default_omitted": true,
+      "frozen_counter": false,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-conjunction-23",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-contracts-00",
+      "default_omitted": true,
+      "frozen_counter": false,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-contracts-00",
+      "default_omitted": true,
+      "frozen_counter": false,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-contracts-01",
+      "default_omitted": true,
+      "frozen_counter": false,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-contracts-01",
+      "default_omitted": true,
+      "frozen_counter": false,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-contracts-02",
+      "default_omitted": true,
+      "frozen_counter": false,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-contracts-02",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-contracts-03",
+      "default_omitted": true,
+      "frozen_counter": false,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-contracts-03",
+      "default_omitted": true,
+      "frozen_counter": false,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-contracts-04",
+      "default_omitted": true,
+      "frozen_counter": false,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-contracts-04",
+      "default_omitted": true,
+      "frozen_counter": false,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-contracts-05",
+      "default_omitted": true,
+      "frozen_counter": false,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-contracts-05",
+      "default_omitted": true,
+      "frozen_counter": false,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-contracts-06",
+      "default_omitted": true,
+      "frozen_counter": false,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-contracts-06",
+      "default_omitted": true,
+      "frozen_counter": false,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-contracts-07",
+      "default_omitted": true,
+      "frozen_counter": false,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-contracts-07",
+      "default_omitted": true,
+      "frozen_counter": false,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-contracts-08",
+      "default_omitted": true,
+      "frozen_counter": false,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-contracts-08",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-contracts-09",
+      "default_omitted": true,
+      "frozen_counter": false,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-contracts-09",
+      "default_omitted": true,
+      "frozen_counter": false,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-contracts-10",
+      "default_omitted": true,
+      "frozen_counter": false,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-contracts-10",
+      "default_omitted": true,
+      "frozen_counter": false,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-contracts-11",
+      "default_omitted": true,
+      "frozen_counter": false,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-contracts-11",
+      "default_omitted": true,
+      "frozen_counter": false,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-contracts-12",
+      "default_omitted": true,
+      "frozen_counter": false,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-contracts-12",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-contracts-13",
+      "default_omitted": true,
+      "frozen_counter": false,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-contracts-13",
+      "default_omitted": true,
+      "frozen_counter": false,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-contracts-14",
+      "default_omitted": true,
+      "frozen_counter": false,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-contracts-14",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-contracts-15",
+      "default_omitted": true,
+      "frozen_counter": false,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-contracts-15",
+      "default_omitted": true,
+      "frozen_counter": false,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-contracts-16",
+      "default_omitted": true,
+      "frozen_counter": false,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-contracts-16",
+      "default_omitted": true,
+      "frozen_counter": false,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-contracts-17",
+      "default_omitted": true,
+      "frozen_counter": false,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-contracts-17",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-contracts-18",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-contracts-18",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-contracts-19",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-contracts-19",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-contracts-20",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-contracts-20",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-contracts-21",
+      "default_omitted": true,
+      "frozen_counter": false,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-contracts-21",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-contracts-22",
+      "default_omitted": true,
+      "frozen_counter": false,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-contracts-22",
+      "default_omitted": true,
+      "frozen_counter": false,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-contracts-23",
+      "default_omitted": true,
+      "frozen_counter": false,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-contracts-23",
+      "default_omitted": true,
+      "frozen_counter": false,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-direct-00",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-direct-00",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-direct-01",
+      "default_omitted": true,
+      "frozen_counter": false,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-direct-01",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-direct-02",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-direct-02",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-direct-03",
+      "default_omitted": true,
+      "frozen_counter": false,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-direct-03",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-direct-04",
+      "default_omitted": true,
+      "frozen_counter": false,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-direct-04",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-direct-05",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-direct-05",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-direct-06",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-direct-06",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-direct-07",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-direct-07",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-direct-08",
+      "default_omitted": true,
+      "frozen_counter": false,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-direct-08",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-direct-09",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-direct-09",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-direct-10",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-direct-10",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-direct-11",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-direct-11",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-direct-12",
+      "default_omitted": true,
+      "frozen_counter": false,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-direct-12",
+      "default_omitted": true,
+      "frozen_counter": false,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-direct-13",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-direct-13",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-direct-14",
+      "default_omitted": true,
+      "frozen_counter": false,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-direct-14",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-direct-15",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-direct-15",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-direct-16",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-direct-16",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-direct-17",
+      "default_omitted": true,
+      "frozen_counter": false,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-direct-17",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-direct-18",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-direct-18",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-direct-19",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-direct-19",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-direct-20",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-direct-20",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-direct-21",
+      "default_omitted": true,
+      "frozen_counter": false,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-direct-21",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-direct-22",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-direct-22",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-direct-23",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-direct-23",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-provenance_geometry-00",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-provenance_geometry-00",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-provenance_geometry-01",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-provenance_geometry-01",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-provenance_geometry-02",
+      "default_omitted": true,
+      "frozen_counter": false,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-provenance_geometry-02",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-provenance_geometry-03",
+      "default_omitted": true,
+      "frozen_counter": false,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-provenance_geometry-03",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-provenance_geometry-04",
+      "default_omitted": true,
+      "frozen_counter": false,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-provenance_geometry-04",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-provenance_geometry-05",
+      "default_omitted": true,
+      "frozen_counter": false,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-provenance_geometry-05",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-provenance_geometry-06",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-provenance_geometry-06",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-provenance_geometry-07",
+      "default_omitted": true,
+      "frozen_counter": false,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-provenance_geometry-07",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-provenance_geometry-08",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-provenance_geometry-08",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-provenance_geometry-09",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-provenance_geometry-09",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-provenance_geometry-10",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-provenance_geometry-10",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-provenance_geometry-11",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-provenance_geometry-11",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-provenance_geometry-12",
+      "default_omitted": true,
+      "frozen_counter": false,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-provenance_geometry-12",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-provenance_geometry-13",
+      "default_omitted": true,
+      "frozen_counter": false,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-provenance_geometry-13",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-provenance_geometry-14",
+      "default_omitted": true,
+      "frozen_counter": false,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-provenance_geometry-14",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-provenance_geometry-15",
+      "default_omitted": true,
+      "frozen_counter": false,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-provenance_geometry-15",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-provenance_geometry-16",
+      "default_omitted": true,
+      "frozen_counter": false,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-provenance_geometry-16",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-provenance_geometry-17",
+      "default_omitted": true,
+      "frozen_counter": false,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-provenance_geometry-17",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-provenance_geometry-18",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-provenance_geometry-18",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-provenance_geometry-19",
+      "default_omitted": true,
+      "frozen_counter": false,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-provenance_geometry-19",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-provenance_geometry-20",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-provenance_geometry-20",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-provenance_geometry-21",
+      "default_omitted": true,
+      "frozen_counter": false,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-provenance_geometry-21",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-provenance_geometry-22",
+      "default_omitted": true,
+      "frozen_counter": false,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-provenance_geometry-22",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-provenance_geometry-23",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-provenance_geometry-23",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-temporal-00",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-temporal-00",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-temporal-01",
+      "default_omitted": true,
+      "frozen_counter": false,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-temporal-01",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-temporal-02",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-temporal-02",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-temporal-03",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-temporal-03",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-temporal-04",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-temporal-04",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-temporal-05",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-temporal-05",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-temporal-06",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-temporal-06",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-temporal-07",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-temporal-07",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-temporal-08",
+      "default_omitted": true,
+      "frozen_counter": false,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-temporal-08",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-temporal-09",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-temporal-09",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-temporal-10",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-temporal-10",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-temporal-11",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-temporal-11",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-temporal-12",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-temporal-12",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-temporal-13",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-temporal-13",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-temporal-14",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-temporal-14",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-temporal-15",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-temporal-15",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-temporal-16",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-temporal-16",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-temporal-17",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-temporal-17",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-temporal-18",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-temporal-18",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-temporal-19",
+      "default_omitted": true,
+      "frozen_counter": false,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-temporal-19",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-temporal-20",
+      "default_omitted": true,
+      "frozen_counter": false,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-temporal-20",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-temporal-21",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-temporal-21",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-temporal-22",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-temporal-22",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-temporal-23",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "checked",
+      "requested_assurance": "verified_source_values"
+    },
+    {
+      "actual_assurance": "verified_source_values",
+      "audited_false_assurance": false,
+      "case_id": "FINAL-temporal-23",
+      "default_omitted": true,
+      "frozen_counter": true,
+      "mode": "legacy_k",
+      "requested_assurance": "verified_source_values"
+    }
+  ],
+  "strict_false_complete_counter_not_changed": true,
+  "unique_checked_source_samples": 66,
+  "unit_errors": 0
+}

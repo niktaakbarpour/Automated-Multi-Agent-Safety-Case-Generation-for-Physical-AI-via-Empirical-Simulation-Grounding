@@ -1,0 +1,13 @@
+# Independent numeric, temporal and identity results
+
+432 executions, 104 variants, 58,075 snapshots. All nine robot/finger components were checked against native mappings; 522,675 components per configuration/velocity equation. All 522,675 actuator scalars matched gain/bias/limit equations exactly; FORCE_LIMITS_VALIDATION.json independently verifies compiled gain/bias/force-limit prerequisites in all 104 variants. All 58,075 ncon values matched saved-list lengths. Zero unexplained contract failures or actual selected-channel missing samples.
+
+Per-channel errors (model units separate): `{"raw.robot0_gripper_qpos": {"components": 116150, "maximum_error": 6.938893903907228e-18, "mean_error": 1.021194297631633e-21, "units": "m"}, "raw.robot0_gripper_qvel": {"components": 116150, "maximum_error": 5.188351914764411e-09, "mean_error": 1.2733920066716963e-12, "units": "m/s"}, "raw.robot0_joint_pos": {"components": 406525, "maximum_error": 4.440892098500626e-16, "mean_error": 3.261077159468118e-20, "units": "rad"}, "raw.robot0_joint_vel": {"components": 406525, "maximum_error": 2.078905519953267e-09, "mean_error": 8.681672268533046e-13, "units": "rad/s"}}`.
+
+Raw retrieval: 15,552 vectors/scalars independently compared to original samples; maximum/mean value error 0.0/0.0. Projections retain original values. Native XML/index identity checks are separate from ranked metrics.
+
+Endpoint timestamp accumulation: `{"components": 58075, "maximum": 3.808509063674137e-12, "mean": 2.0932798136084707e-13}` seconds; floating addition error, not synchronization. All 53,323 transition/action/chunk mappings matched recorded indices/times. Saved-index alignment errors 0; common-physical-instant error is unquantified, not zero.
+
+Tolerances declared before full validation: `{"actuator_equation": "64*eps*(1+abs(gain*ctrl)+abs(bias1*q_pre)) per component", "configuration_identity": "64*eps*(1+abs(q_endpoint)+abs(h*v_endpoint)) per component", "interpretation": "Bounds concern float64 arithmetic only; never physical/calibration tolerance.", "literal_source_values": 0, "timestamp_accumulation": "64*eps*(1+saved_frame*25)*(1+abs(time))"}`. Inverse velocity uses pilot-frozen 512*eps*cond(M+hD)*(1+norm(v)+h*norm(qacc)). Mixed-coordinate maximum residual 5.188351914764411e-09, mean 9.582171779240581e-13; per-channel values above avoid mixing rad/s and m/s. No tolerance is physical or fitted to an offset.
+
+VERIFIED model/source properties, CONDITIONAL offsets/SI force units, UNRESOLVED calibration/clocks and UNSUPPORTED transforms remain separate. Initial/early/middle/terminal and window-boundary samples are tested; sparse/malformed families use isolated fixtures. No selected actual source family is skipped.

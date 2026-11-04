@@ -1,0 +1,233 @@
+{
+  "capabilities": [
+    {
+      "capability": "structured_exact_lookup",
+      "limitations": "Does not expose every legacy evidence family or arbitrary SQL",
+      "scope": "Exact registered channel/field and original record ID within one indexed execution",
+      "status": "SUPPORTED"
+    },
+    {
+      "capability": "raw_measurements",
+      "limitations": "No normalization, invented observations or new channels",
+      "scope": "Six registered source arrays/count; descriptor-bound values at selected saved frames",
+      "status": "SUPPORTED"
+    },
+    {
+      "capability": "physical_interpretation_metadata",
+      "limitations": "Native/model convention, not physical calibration or world coordinates",
+      "scope": "Existing Phase5H verified/conditional native component/unit contracts",
+      "status": "SUPPORTED WITH CONDITIONS"
+    },
+    {
+      "capability": "temporal_windows",
+      "limitations": "No decimal rounding, interpolation, action/sensor synchronization; labels are associations",
+      "scope": "Inclusive saved frames and exact stored simulator-label windows",
+      "status": "SUPPORTED WITH CONDITIONS"
+    },
+    {
+      "capability": "execution_task_variant_isolation",
+      "limitations": "Cross-execution comparison not supported by this endpoint",
+      "scope": "One explicit indexed execution with exact constraints; each obligation same scope",
+      "status": "SUPPORTED"
+    },
+    {
+      "capability": "geometry_identity",
+      "limitations": "Identity only; no pose/support/contact claim",
+      "scope": "Exact registered object to verified native body/geom binding",
+      "status": "SUPPORTED WITH CONDITIONS"
+    },
+    {
+      "capability": "main_table_symbolic_alias",
+      "limitations": "No floor/living-room alias extrapolation, support inference or time/pose query",
+      "scope": "Existing 147-execution/98-variant tabletop symbolic audit only",
+      "status": "SUPPORTED WITH CONDITIONS"
+    },
+    {
+      "capability": "explicit_multisource_bundles",
+      "limitations": "Mandatory-only completeness; optional absence stays visible; no shared physical instant",
+      "scope": "Validated registered families with independent per-obligation temporal coverage",
+      "status": "SUPPORTED WITH CONDITIONS"
+    },
+    {
+      "capability": "structured_completeness",
+      "limitations": "Final release acceptance gate must pass; no claim or R1 sufficiency",
+      "scope": "All mandatory explicit obligations schema-valid, source-verified and independently fulfilled",
+      "status": "SUPPORTED WITH CONDITIONS"
+    },
+    {
+      "capability": "source_integrity",
+      "limitations": "Caller trusts Git-bound release; no unverified source fallback; current bytes only",
+      "scope": "Strict default; explicit verified-session policy with identity invalidation",
+      "status": "SUPPORTED"
+    },
+    {
+      "capability": "provenance_assurance",
+      "limitations": "Bounded inherited data/dependency graph plus current release manifest; not historical closure",
+      "scope": "Current source identity or explicit release-evidence-graph-v1 closure",
+      "status": "SUPPORTED WITH CONDITIONS"
+    },
+    {
+      "capability": "recorded_metadata_references",
+      "limitations": "Requires primary source closure including HDF5; references do not establish events or sensor exposure time",
+      "scope": "Recorded clocks, policy/inference, camera/contact refs, execution declarations",
+      "status": "SUPPORTED WITH CONDITIONS"
+    },
+    {
+      "capability": "natural_language_interpretation",
+      "limitations": "No production completeness; K.1 limitations/results remain unchanged",
+      "scope": "Preserved earlier routes for exploratory inspection",
+      "status": "EXPERIMENTAL"
+    },
+    {
+      "capability": "lexical_retrieval",
+      "limitations": "No production completeness; K.1 limitations/results remain unchanged",
+      "scope": "Preserved earlier routes for exploratory inspection",
+      "status": "EXPERIMENTAL"
+    },
+    {
+      "capability": "semantic_retrieval",
+      "limitations": "No production completeness; K.1 limitations/results remain unchanged",
+      "scope": "Preserved earlier routes for exploratory inspection",
+      "status": "EXPERIMENTAL"
+    },
+    {
+      "capability": "legacy_general_record_search",
+      "limitations": "No production completeness; K.1 limitations/results remain unchanged",
+      "scope": "Preserved earlier routes for exploratory inspection",
+      "status": "EXPERIMENTAL"
+    },
+    {
+      "capability": "historical_producer_attestation",
+      "limitations": "No complete contemporary binary/process attestation; 103/104 producer-file discrepancy remains documented",
+      "scope": "No supported production contract",
+      "status": "UNSUPPORTED"
+    },
+    {
+      "capability": "sensor_synchronization",
+      "limitations": "No independent per-sensor clock mapping/calibration",
+      "scope": "No supported production contract",
+      "status": "UNSUPPORTED"
+    },
+    {
+      "capability": "world_transformations",
+      "limitations": "No verified world transforms or calibrated pixel coordinates",
+      "scope": "No supported production contract",
+      "status": "UNSUPPORTED"
+    },
+    {
+      "capability": "physical_support_contact_fall",
+      "limitations": "Metadata/counts/geometry do not establish physical events",
+      "scope": "No supported production contract",
+      "status": "UNSUPPORTED"
+    },
+    {
+      "capability": "empirical_R1_admission",
+      "limitations": "Disabled; no checker decision changes",
+      "scope": "No supported production contract",
+      "status": "UNSUPPORTED"
+    },
+    {
+      "capability": "safety_case_agents",
+      "limitations": "Not implemented or authorized",
+      "scope": "No supported production contract",
+      "status": "UNSUPPORTED"
+    }
+  ],
+  "catalogue_sha256": "ff9fe4d422c274f3f109d76ae21b91d9d6364fd568f52ce7b5fa1501bbcbae0e",
+  "database_sha256": "f6dbea047ad16c5420c34ff002e068e4ade41ab52806c936816aaf7019f303c8",
+  "evidence_universe": "432 indexed executions /104 verified variants; no reserved/preflight/candidate payloads",
+  "families": {
+    "action_metadata": {
+      "field": "policy_action_metadata",
+      "kind": "metadata_or_verified_reference",
+      "source": "Existing Phase5G/H/I/K contracts; final decoder references unchanged",
+      "temporal_required": true
+    },
+    "camera_references": {
+      "field": "saved_image_references",
+      "kind": "metadata_or_verified_reference",
+      "source": "Existing Phase5G/H/I/K contracts; final decoder references unchanged",
+      "temporal_required": true
+    },
+    "contact_references": {
+      "field": "recorded_contact_references",
+      "kind": "metadata_or_verified_reference",
+      "source": "Existing Phase5G/H/I/K contracts; final decoder references unchanged",
+      "temporal_required": true
+    },
+    "execution_metadata": {
+      "field": "recorded_execution_metadata",
+      "kind": "metadata_or_verified_reference",
+      "source": "Existing Phase5G/H/I/K contracts; final decoder references unchanged",
+      "temporal_required": false
+    },
+    "geometry_identity": {
+      "field": "native_object_identity",
+      "kind": "metadata_or_verified_reference",
+      "source": "Existing Phase5G/H/I/K contracts; final decoder references unchanged",
+      "temporal_required": false
+    },
+    "inference_metadata": {
+      "field": "inference_call_metadata",
+      "kind": "metadata_or_verified_reference",
+      "source": "Existing Phase5G/H/I/K contracts; final decoder references unchanged",
+      "temporal_required": true
+    },
+    "main_table_identity": {
+      "field": "verified_symbolic_alias",
+      "kind": "metadata_or_verified_reference",
+      "source": "Existing Phase5G/H/I/K contracts; final decoder references unchanged",
+      "temporal_required": false
+    },
+    "raw.robot0_gripper_qpos": {
+      "field": "raw_observation/robot0_gripper_qpos/value",
+      "kind": "recorded_measurement",
+      "source": "Existing Phase5G/H/I/K contracts; final decoder references unchanged",
+      "temporal_required": true
+    },
+    "raw.robot0_gripper_qvel": {
+      "field": "raw_observation/robot0_gripper_qvel/value",
+      "kind": "recorded_measurement",
+      "source": "Existing Phase5G/H/I/K contracts; final decoder references unchanged",
+      "temporal_required": true
+    },
+    "raw.robot0_joint_pos": {
+      "field": "raw_observation/robot0_joint_pos/value",
+      "kind": "recorded_measurement",
+      "source": "Existing Phase5G/H/I/K contracts; final decoder references unchanged",
+      "temporal_required": true
+    },
+    "raw.robot0_joint_vel": {
+      "field": "raw_observation/robot0_joint_vel/value",
+      "kind": "recorded_measurement",
+      "source": "Existing Phase5G/H/I/K contracts; final decoder references unchanged",
+      "temporal_required": true
+    },
+    "raw.simulator_actuator_force": {
+      "field": "simulator/actuator_force/value",
+      "kind": "recorded_measurement",
+      "source": "Existing Phase5G/H/I/K contracts; final decoder references unchanged",
+      "temporal_required": true
+    },
+    "recorded_time": {
+      "field": "recorded_clock_labels",
+      "kind": "metadata_or_verified_reference",
+      "source": "Existing Phase5G/H/I/K contracts; final decoder references unchanged",
+      "temporal_required": true
+    },
+    "simulator.ncon": {
+      "field": "simulator/ncon/value",
+      "kind": "recorded_measurement",
+      "source": "Existing Phase5G/H/I/K contracts; final decoder references unchanged",
+      "temporal_required": true
+    },
+    "source_provenance": {
+      "field": "source_identity",
+      "kind": "metadata_or_verified_reference",
+      "source": "Existing Phase5G/H/I/K contracts; final decoder references unchanged",
+      "temporal_required": false
+    }
+  },
+  "route_boundary": "Only explicit structured requests are eligible; experimental result objects fail query schema",
+  "version": "phase5-structured-1.0.0"
+}

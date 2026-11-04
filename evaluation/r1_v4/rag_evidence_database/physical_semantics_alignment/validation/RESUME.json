@@ -1,0 +1,14 @@
+{
+  "base_sha256": "d1241f28089ff910baf8ec276fbaa3f9d2b71aa3c7b850fe494b976eb51320fb",
+  "contracts": 2592,
+  "database_bytes": 549249024,
+  "database_path": "/disk/1/data/niktakbr/trustworthy-phase5h-working/expanded.sqlite",
+  "database_sha256": "af8265755a8f4f1a360c6b39b99bf6ccd45a7313d9e6adf33b89acff7b67fb02",
+  "executions": 432,
+  "inserted": 0,
+  "logical_digest": "3f45c16c163b6f03d314e1282ee0dac89323e8bf546c5099d0f29253065820b8",
+  "seconds": 26.909866888076067,
+  "skipped": 432,
+  "variants": 104,
+  "version": "physical-semantics-1.0.0"
+}
