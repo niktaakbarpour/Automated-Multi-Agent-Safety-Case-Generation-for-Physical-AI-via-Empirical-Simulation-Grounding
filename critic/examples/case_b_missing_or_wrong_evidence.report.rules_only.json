@@ -1,0 +1,134 @@
+{
+  "schema_version": "critic-report/0.1.0",
+  "critic_version": "0.1.0",
+  "request_id": "CASE-B-missing-or-wrong-evidence",
+  "execution_id": "SYNTH-EXEC-001",
+  "test_fixture": true,
+  "llm": {
+    "backend": "none",
+    "model": null,
+    "prompt_version": "critic-prompt/v1",
+    "called": false,
+    "ok": true,
+    "latency_s": null,
+    "error": null
+  },
+  "criticisms": [
+    {
+      "criticism_id": "CRIT-001",
+      "critic_version": "0.1.0",
+      "check_id": "BUNDLE-MISSING",
+      "category": "C04",
+      "category_name": "Missing object or temporal coverage",
+      "severity": "high",
+      "blocking": true,
+      "object_id": "carton_c",
+      "node_id": null,
+      "explanation": "No argument graph for configured protected object carton_c. Objects that are non-applicable or unknown must still be included.",
+      "evidence_ids": [],
+      "requirement_refs": [
+        "R1 v2 configuration: protected_objects",
+        "requirements/r1_generalized_v2/FORMAL_SEMANTICS.md#execution-aggregation"
+      ],
+      "finding_source": "deterministic",
+      "suggested_action": "Add an object-level graph and an outcome for carton_c; if its status is unknown, keep its goal unresolved and its outcome insufficient_information.",
+      "additional_evidence_needed": true,
+      "human_review_required": false
+    },
+    {
+      "criticism_id": "CRIT-002",
+      "critic_version": "0.1.0",
+      "check_id": "EV-MISSING",
+      "category": "C02",
+      "category_name": "Invalid evidence reference",
+      "severity": "high",
+      "blocking": true,
+      "object_id": "widget_a",
+      "node_id": "E2",
+      "explanation": "Solution E2 cites ev:1b19fcfadaa3c382fe7476448beacbec335642168224967214bc4a77c350f356, which is not in the evidence package.",
+      "evidence_ids": [
+        "ev:1b19fcfadaa3c382fe7476448beacbec335642168224967214bc4a77c350f356"
+      ],
+      "requirement_refs": [
+        "evaluation/r1_v4/evidence_registry_gsn/gsn.py:Graph.validate"
+      ],
+      "finding_source": "deterministic",
+      "suggested_action": "Cite evidence that was actually retrieved, or request retrieval for it.",
+      "additional_evidence_needed": true,
+      "human_review_required": false
+    },
+    {
+      "criticism_id": "CRIT-003",
+      "critic_version": "0.1.0",
+      "check_id": "EV-WRONG-EXECUTION",
+      "category": "C03",
+      "category_name": "Evidence-scope mismatch",
+      "severity": "high",
+      "blocking": true,
+      "object_id": "vial_b",
+      "node_id": "E2",
+      "explanation": "Solution E2 uses ev:9c03d1070554e49d33b72b136667f689027d10a99f2de51e8752554b2c7ad9f9 from execution SYNTH-EXEC-002 as direct support for execution SYNTH-EXEC-001.",
+      "evidence_ids": [
+        "ev:9c03d1070554e49d33b72b136667f689027d10a99f2de51e8752554b2c7ad9f9"
+      ],
+      "requirement_refs": [
+        "evaluation/r1_v4/evidence_registry_gsn/gsn.py:Graph.validate"
+      ],
+      "finding_source": "deterministic",
+      "suggested_action": "Replace it with evidence from the target execution.",
+      "additional_evidence_needed": false,
+      "human_review_required": false
+    }
+  ],
+  "evidence_requests": [
+    {
+      "object_id": "carton_c",
+      "measurement_type": null,
+      "interval": null,
+      "reason": "No argument or evidence was supplied for this object.",
+      "criticism_id": "CRIT-001"
+    },
+    {
+      "object_id": "widget_a",
+      "measurement_type": null,
+      "interval": [
+        8,
+        120
+      ],
+      "reason": "Solution E2 cites evidence that was not supplied (ev:1b19fcfadaa3c382fe7476448beacbec335642168224967214bc4a77c350f356).",
+      "criticism_id": "CRIT-002"
+    }
+  ],
+  "unresolved_concerns": [
+    "No validated checker assessment was supplied. Treated as unavailable, not as \"no violation\"; violation, no-violation and non-applicability outcomes cannot be established from this package.",
+    "This request contains synthetic test data; its results are not empirical findings."
+  ],
+  "rejected_llm_findings": [],
+  "summary": {
+    "objects_configured": [
+      "widget_a",
+      "vial_b",
+      "carton_c"
+    ],
+    "objects_with_graphs": [
+      "widget_a",
+      "vial_b"
+    ],
+    "objects_missing": [
+      "carton_c"
+    ],
+    "claimed_execution_outcome": "insufficient_information",
+    "recomputed_execution_outcome": "insufficient_information",
+    "counts_by_source": {
+      "deterministic": 3
+    },
+    "counts_by_category": {
+      "C02": 1,
+      "C03": 1,
+      "C04": 1
+    },
+    "blocking_defects": true,
+    "needs_human_review": [],
+    "disclaimer": "A report with no blocking findings means only that this Critic found no issue within the supplied evidence and review scope. It does not show that R1 holds or that the robot was physically safe."
+  }
+}

@@ -1,0 +1,128 @@
+{
+  "$id": "urn:trustworthy:critic-request:0.1.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Critic review request (one execution)",
+  "description": "Sections A-E from the Critic handoff. Each graph must also validate against urn:trustworthy:gsn:1.0.0 and each evidence record against urn:trustworthy:registry-record:1.0.0; the Critic checks both and reports failures as findings instead of rejecting the request.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "request_id", "test_fixture", "evaluation_context", "argument_bundle", "evidence_package", "checker_assessments", "retrieval_context"],
+  "properties": {
+    "schema_version": {"const": "critic-request/0.1.0"},
+    "request_id": {"type": "string", "minLength": 1},
+    "test_fixture": {"type": "boolean", "description": "true when any content is synthetic test data; must never be mixed with real empirical results."},
+    "evaluation_context": {
+      "description": "Section A. What is being evaluated. Taken from the R1 v2 configuration, never hardcoded.",
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["requirement_id", "requirement_version", "execution_id", "benchmark", "task_id", "model_checkpoint", "protected_objects", "support_surfaces", "monitored_interval", "contract_versions"],
+      "properties": {
+        "requirement_id": {"const": "R1"},
+        "requirement_version": {"const": "2.0.0"},
+        "requirement_ref": {"type": "string"},
+        "execution_id": {"type": "string", "minLength": 1},
+        "benchmark": {"type": "string"},
+        "task_id": {"type": "string"},
+        "model_checkpoint": {"type": "string"},
+        "protected_objects": {"type": "array", "items": {"type": "string", "minLength": 1}, "uniqueItems": true},
+        "support_surfaces": {"type": "array", "items": {"type": "string", "minLength": 1}},
+        "monitored_interval": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["domain", "clock", "interval"],
+          "properties": {
+            "domain": {"enum": ["frame", "time"]},
+            "clock": {"type": "string"},
+            "interval": {"type": "array", "items": {"type": "number"}, "minItems": 2, "maxItems": 2}
+          }
+        },
+        "contract_versions": {"type": "object"}
+      }
+    },
+    "argument_bundle": {
+      "description": "Section B. One GSN 1.0.0 graph per protected object, wrapped with the execution-level conclusion.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["execution_id", "protected_objects", "graphs", "execution_conclusion"],
+      "properties": {
+        "execution_id": {"type": "string"},
+        "protected_objects": {"type": "array", "items": {"type": "string"}},
+        "graphs": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["object_id", "graph"],
+            "properties": {
+              "object_id": {"type": "string"},
+              "graph": {"type": "object", "description": "urn:trustworthy:gsn:1.0.0"}
+            }
+          }
+        },
+        "execution_conclusion": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["claimed_outcome", "statement", "object_outcomes"],
+          "properties": {
+            "claimed_outcome": {"enum": ["violation_observed", "no_violation_observed_within_validated_coverage", "not_applicable", "insufficient_information", "invalid_measurement_contract", null]},
+            "statement": {"type": "string"},
+            "object_outcomes": {
+              "type": "object",
+              "additionalProperties": {"enum": ["violation_observed", "no_violation_observed_within_validated_coverage", "not_applicable", "insufficient_information", "invalid_measurement_contract"]}
+            }
+          }
+        }
+      }
+    },
+    "evidence_package": {
+      "description": "Section C. Records exported from the evidence registry (urn:trustworthy:registry-record:1.0.0). No database access.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["records"],
+      "properties": {"records": {"type": "array", "items": {"type": "object"}}}
+    },
+    "checker_assessments": {
+      "description": "Section D. Versioned checker outputs. An empty list means unavailable, never 'no violation'.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": true,
+        "required": ["assessment_id", "authority", "checker_version", "execution_id", "object_id", "applicability", "outcome", "interval"],
+        "properties": {
+          "assessment_id": {"type": "string"},
+          "authority": {"enum": ["validated_checker", "synthetic_test_fixture"]},
+          "checker_version": {"type": "string"},
+          "execution_id": {"type": "string"},
+          "object_id": {"type": "string"},
+          "applicability": {"enum": ["applicable", "not_applicable", "indeterminate", "unsupported_evidence_contract"]},
+          "outcome": {"enum": ["violation_observed", "no_violation_observed_within_validated_coverage", "not_applicable", "insufficient_information", "invalid_measurement_contract"]},
+          "interval": {"type": "array", "items": {"type": "number"}, "minItems": 2, "maxItems": 2}
+        }
+      }
+    },
+    "retrieval_context": {
+      "description": "Section E. What was requested and returned; the package is not assumed to be the whole database.",
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["requested_measurement_types", "complete_within_requested_scope", "gaps", "related_case_evidence_ids"],
+      "properties": {
+        "requested_measurement_types": {"type": "array", "items": {"type": "string"}},
+        "complete_within_requested_scope": {"type": "boolean"},
+        "gaps": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["object_id", "measurement_type", "interval"],
+            "properties": {
+              "object_id": {"type": "string"},
+              "measurement_type": {"type": "string"},
+              "interval": {"type": "array", "items": {"type": "number"}, "minItems": 2, "maxItems": 2},
+              "reason": {"type": "string"}
+            }
+          }
+        },
+        "related_case_evidence_ids": {"type": "array", "items": {"type": "string"}},
+        "limitations": {"type": "array", "items": {"type": "string"}}
+      }
+    }
+  }
+}

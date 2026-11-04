@@ -1,0 +1,43 @@
+{
+  "schema_version": "critic-report/0.1.0",
+  "critic_version": "0.1.0",
+  "request_id": "CASE-C-correct-unresolved",
+  "execution_id": "SYNTH-EXEC-001",
+  "test_fixture": true,
+  "llm": {
+    "backend": "none",
+    "model": null,
+    "prompt_version": "critic-prompt/v1",
+    "called": false,
+    "ok": true,
+    "latency_s": null,
+    "error": null
+  },
+  "criticisms": [],
+  "evidence_requests": [],
+  "unresolved_concerns": [
+    "No validated checker assessment was supplied. Treated as unavailable, not as \"no violation\"; violation, no-violation and non-applicability outcomes cannot be established from this package.",
+    "This request contains synthetic test data; its results are not empirical findings."
+  ],
+  "rejected_llm_findings": [],
+  "summary": {
+    "objects_configured": [
+      "widget_a",
+      "vial_b",
+      "carton_c"
+    ],
+    "objects_with_graphs": [
+      "widget_a",
+      "vial_b",
+      "carton_c"
+    ],
+    "objects_missing": [],
+    "claimed_execution_outcome": "insufficient_information",
+    "recomputed_execution_outcome": "insufficient_information",
+    "counts_by_source": {},
+    "counts_by_category": {},
+    "blocking_defects": false,
+    "needs_human_review": [],
+    "disclaimer": "A report with no blocking findings means only that this Critic found no issue within the supplied evidence and review scope. It does not show that R1 holds or that the robot was physically safe."
+  }
+}

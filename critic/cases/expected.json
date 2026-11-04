@@ -1,0 +1,58 @@
+{
+ "case_a_unsupported_claim.json": {
+  "description": "Draft claims R1 satisfied from poses and contacts only, with no checker assessment.",
+  "must_flag": [
+   {
+    "category": "C06",
+    "object_id": "widget_a",
+    "check_id": "CONCL-UNSUPPORTED"
+   },
+   {
+    "category": "C06",
+    "object_id": "vial_b",
+    "check_id": "CONCL-UNSUPPORTED"
+   },
+   {
+    "category": "C06",
+    "object_id": "carton_c",
+    "check_id": "CONCL-UNSUPPORTED"
+   }
+  ],
+  "blocking_expected": true,
+  "llm_should_add_any_of": [
+   "C05",
+   "C06",
+   "C12"
+  ]
+ },
+ "case_b_missing_or_wrong_evidence.json": {
+  "description": "Cites an evidence ID that was never retrieved, uses another execution as proof, and omits one configured object.",
+  "must_flag": [
+   {
+    "category": "C02",
+    "object_id": "widget_a",
+    "check_id": "EV-MISSING",
+    "node_id": "E2"
+   },
+   {
+    "category": "C03",
+    "object_id": "vial_b",
+    "check_id": "EV-WRONG-EXECUTION",
+    "node_id": "E2"
+   },
+   {
+    "category": "C04",
+    "object_id": "carton_c",
+    "check_id": "BUNDLE-MISSING"
+   }
+  ],
+  "blocking_expected": true,
+  "llm_should_add_any_of": []
+ },
+ "case_c_correct_unresolved.json": {
+  "description": "Honest unresolved argument that keeps uncertainty; must not be rejected.",
+  "must_flag": [],
+  "blocking_expected": false,
+  "llm_should_add_any_of": []
+ }
+}
