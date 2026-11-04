@@ -1,0 +1,113 @@
+{
+  "artifacts": [
+    {
+      "bytes": 604228,
+      "classification": "PRESENT_DAY_VERIFIED_ARTIFACT_NOT_HISTORICAL_ATTESTATION",
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/obligation_preservation/ARTIFACT_MANIFEST.json",
+      "sha256": "557a93d25d9b2bd4571af14cdfe414fd016ee95d7d1813cebf77b87144c55344"
+    },
+    {
+      "bytes": 3101337,
+      "classification": "PRESENT_DAY_VERIFIED_ARTIFACT_NOT_HISTORICAL_ATTESTATION",
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/retrieval_remediation/ARTIFACT_MANIFEST.json",
+      "sha256": "e0006613de605ad14025c91ae23fd16ab373fb5f7acd1bf1449fdf0c626122ee"
+    },
+    {
+      "bytes": 551011,
+      "classification": "PRESENT_DAY_VERIFIED_ARTIFACT_NOT_HISTORICAL_ATTESTATION",
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/readiness_evaluation/ARTIFACT_MANIFEST.json",
+      "sha256": "375989a36a5c2390987e88a5228701682d51e5127b5de2b275cac2fb7bf16b25"
+    },
+    {
+      "bytes": 3463521,
+      "classification": "PRESENT_DAY_VERIFIED_ARTIFACT_NOT_HISTORICAL_ATTESTATION",
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/source_reproducibility/ARTIFACT_MANIFEST.json",
+      "sha256": "d9953192386904e5778050b89770e0f4693c9c86e6cc9ba3b622826e7fe93e93"
+    },
+    {
+      "bytes": 69495,
+      "classification": "PRESENT_DAY_VERIFIED_ARTIFACT_NOT_HISTORICAL_ATTESTATION",
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/physical_semantics_alignment/ARTIFACT_MANIFEST.json",
+      "sha256": "c832dd3abd0424de0ef420b9bdd6395e78dd886e3aebc6c897df0c1d62efe565"
+    },
+    {
+      "bytes": 151120,
+      "classification": "PRESENT_DAY_VERIFIED_ARTIFACT_NOT_HISTORICAL_ATTESTATION",
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/measurement_channel_expansion/ARTIFACT_MANIFEST.json",
+      "sha256": "b435f896a381c9ba6c6399dd2ce901ace0b8387dbb80a7713436eb04baf88dbe"
+    },
+    {
+      "bytes": 14400,
+      "classification": "PRESENT_DAY_VERIFIED_ARTIFACT_NOT_HISTORICAL_ATTESTATION",
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/variant_aware_expansion/ARTIFACT_MANIFEST.json",
+      "sha256": "78d13809d76d059a90c5a1fff7cdbea63fdfa1877dd874e2fde02af63fadd618"
+    },
+    {
+      "bytes": 13011,
+      "classification": "PRESENT_DAY_VERIFIED_ARTIFACT_NOT_HISTORICAL_ATTESTATION",
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/source_reproducibility/DEPENDENCY_GRAPH.json",
+      "sha256": "cd3f552e1a94bdead00ebda580ebe46d0b41f047d5fedf79603fe864c09c98c0"
+    },
+    {
+      "bytes": 6080731,
+      "classification": "PRESENT_DAY_VERIFIED_ARTIFACT_NOT_HISTORICAL_ATTESTATION",
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/source_reproducibility/DEPENDENCY_MANIFEST.json",
+      "sha256": "c16377fee43951e4009d35dd48e4a68e66beb05c85b6cc718f0eabb4ebecb21e"
+    },
+    {
+      "bytes": 3329483,
+      "classification": "PRESENT_DAY_VERIFIED_ARTIFACT_NOT_HISTORICAL_ATTESTATION",
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/source_reproducibility/CLOCK_DOMAIN_REGISTRY.csv",
+      "sha256": "624214957555429cc0ded5f1c146b2e8287f26e18b7c78e5e8c259858d48daa8"
+    },
+    {
+      "bytes": 33949462,
+      "classification": "PRESENT_DAY_VERIFIED_ARTIFACT_NOT_HISTORICAL_ATTESTATION",
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/source_reproducibility/PRODUCER_INVENTORY.csv",
+      "sha256": "1888f5916ea7dd1f5aa9f0bb77c40974c4f2847de1bd840f5cd49bbdbe6dc2bd"
+    },
+    {
+      "bytes": 2381,
+      "classification": "PRESENT_DAY_VERIFIED_ARTIFACT_NOT_HISTORICAL_ATTESTATION",
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/source_reproducibility/PROVENANCE_MODEL.md",
+      "sha256": "dcbc590d9ca5d7961eae6835fb4de065f2e6e7961f1a4bc9a59820b27da36786"
+    },
+    {
+      "bytes": 111413,
+      "classification": "PRESENT_DAY_VERIFIED_ARTIFACT_NOT_HISTORICAL_ATTESTATION",
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/source_reproducibility/ATTESTATION_COVERAGE.csv",
+      "sha256": "0740e15944763d4864c3b9956a6a54fb5f4d826b7e8fd2fa322fcd06e5a762ad"
+    },
+    {
+      "bytes": 22493,
+      "classification": "PRESENT_DAY_VERIFIED_ARTIFACT_NOT_HISTORICAL_ATTESTATION",
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/physical_semantics_alignment/SEMANTIC_CONTRACTS.csv",
+      "sha256": "794f0c737fdf69f96738ef34336c1ee2783df3b2148497a69d66a3edcb51885a"
+    },
+    {
+      "bytes": 953987,
+      "classification": "PRESENT_DAY_VERIFIED_ARTIFACT_NOT_HISTORICAL_ATTESTATION",
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/physical_semantics_alignment/GEOMETRY_BINDINGS.csv",
+      "sha256": "39ab7f51df9907a73976e3462d0297e2d6d7351104b603c88638d0e8cc9c6b79"
+    },
+    {
+      "bytes": 2271,
+      "classification": "PRESENT_DAY_VERIFIED_ARTIFACT_NOT_HISTORICAL_ATTESTATION",
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/physical_semantics_alignment/TEMPORAL_ALIGNMENT.md",
+      "sha256": "1fb2088570b6c5029a090c485a347167089b57f2633e95669b51210ca918108a"
+    },
+    {
+      "bytes": 2350,
+      "classification": "PRESENT_DAY_VERIFIED_ARTIFACT_NOT_HISTORICAL_ATTESTATION",
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/physical_semantics_alignment/SOURCE_INTEGRITY_POLICY.md",
+      "sha256": "9dbcacbfbafe648dbf42f7f87870cf85bcfae8f4d7409873800517065ddcb14c"
+    },
+    {
+      "bytes": 1627,
+      "classification": "PRESENT_DAY_VERIFIED_ARTIFACT_NOT_HISTORICAL_ATTESTATION",
+      "path": "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/readiness_evaluation/PRODUCER_DISCREPANCY_AUDIT.md",
+      "sha256": "e5b4e3b7b003c7dc6b35c9bc6285112fd47ff052f10c1766be6a17bf219d7abb"
+    }
+  ],
+  "semantics": "Current byte identities; parent manifests bind original source closure. Not historical binary attestation."
+}

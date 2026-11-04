@@ -1,0 +1,60 @@
+{
+  "acceptance": {
+    "all_regressions_pass": true,
+    "critical_rejections": 1.0,
+    "exact_independent_replay": true,
+    "exact_status_correct": 1.0,
+    "false_complete": 0,
+    "invalid_assurance_acceptance": 0,
+    "mandatory_family_completeness": 1.0,
+    "missing_obligation_reporting": 1.0,
+    "scope_or_temporal_errors": 0,
+    "source_attribution_errors": 0,
+    "source_value_errors": 0,
+    "stable_citations": true
+  },
+  "baseline_manifest_sha256": "557a93d25d9b2bd4571af14cdfe414fd016ee95d7d1813cebf77b87144c55344",
+  "baseline_revision": "9de85693fae1323cc2ce12edf59268c8bd0e7c58",
+  "catalogue_path": "/disk/1/data/niktakbr/trustworthy-phase5k-working/catalogue.sqlite",
+  "catalogue_sha256": "ff9fe4d422c274f3f109d76ae21b91d9d6364fd568f52ce7b5fa1501bbcbae0e",
+  "categories": 28,
+  "created_utc": "2026-11-04T01:38:14.457986+00:00",
+  "database_path": "/disk/1/data/niktakbr/trustworthy-phase5i-working/expanded.sqlite",
+  "database_sha256": "f6dbea047ad16c5420c34ff002e068e4ade41ab52806c936816aaf7019f303c8",
+  "decision": "A only if structured acceptance and preservation pass; B if implemented but critical release criteria fail; C if source identity/measurement integrity cannot support contract",
+  "downstream_agents": false,
+  "empirical_admission": false,
+  "evaluation_verification": "verified_session with independent strict subset replay",
+  "exclusions": "No post-result exclusions/label edits/threshold changes; no reserved/preflight/candidate payloads",
+  "experimental_policy": "K.1 historical shortcomings remain; experimental output never qualifies as production completeness",
+  "files": {
+    "CAPABILITY_REGISTRY.json": "db4822ab8011693dba2f868d7ee8c4cf25995fb8ba59be7aae72f2f62f0843bc",
+    "EVIDENCE_BUNDLE_SCHEMA.json": "912461e96fa69efebee2a87197e96e8b6b2b844a58a801a1186a20e7297201c5",
+    "STRUCTURED_QUERY_SCHEMA.json": "3c1d109fca5fd80206c0c2f3b2640e015e4aa4d83b6993f623cac4aadc9c9313",
+    "api.py": "2d332e9c82f456cff02dce1b48417c1e58a7e1614758d3b4d4ce28065e39637e",
+    "completeness.py": "e4f9f2d9241933b8c29a1c75c9ee20e7609a9c486faefe7db3e16f97581917b7",
+    "config.py": "efeca48035daebe5858cb0f619b83fb38deaf52f2d5d913107bf202cb43d88eb",
+    "evaluate.py": "a99e6e4fca0b0cda22bf54db302d4acb6bd38076b5eb5072f047a3e08f3697bf",
+    "experimental.py": "38b3e6a4856c46ccec02240cfed3d848bba097437a57f44b18019e3f0786f114",
+    "faults.py": "a00c1288ca497f52f59b6bab8d8681364ec646b09f1bba413a6228d7e1f30af2",
+    "reference.py": "bb31ccfa29f48e1fb1488fa7306db7ad90440a67ff013d54224d13b796d345fe"
+  },
+  "historical_attestation": false,
+  "metric_scope": "Repeated structured source-scope instances, not linguistic cases or physical-safety accuracy",
+  "planned_cases": 448,
+  "planned_executions": 16,
+  "production_default_verification": "strict",
+  "production_route": "Explicit structured obligations only; no NLP call or automatic promotion",
+  "runtime": {
+    "packages": {
+      "h5py": "3.12.1",
+      "jsonschema": "4.19.1",
+      "numpy": "1.26.4",
+      "torch": "2.9.0+cu128",
+      "transformers": "4.57.3"
+    },
+    "python": "3.12.14",
+    "sqlite": "3.46.1"
+  },
+  "version": "phase5-structured-1.0.0"
+}
