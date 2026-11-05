@@ -1,0 +1,127 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:trustworthy:drafter-request:0.1.0",
+  "title": "Drafter foundation request: archived contract fixture",
+  "description": "A structurally validated fixture envelope, not an empirical assessment or source replay. Additional cross-field checks are mandatory; see CONTRACT.md.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "request_id", "test_fixture", "usage", "requirement_configuration", "requirement_configuration_sha256", "target_execution", "monitoring_scope", "evidence_package", "evidence_package_sha256", "evidence_handling", "checker_context", "safety_knowledge", "related_cases", "retrieval_context", "input_provenance", "limitations", "empirical_admission_enabled", "safety_claim_verified"],
+  "properties": {
+    "schema_version": {"const": "drafter-request/0.1.0"},
+    "request_id": {"$ref": "#/$defs/text"},
+    "test_fixture": {"const": true},
+    "usage": {"const": "contract_fixture"},
+    "requirement_configuration": {"$ref": "../../requirements/r1_generalized_v2/R1_V2_CONFIG_SCHEMA.json"},
+    "requirement_configuration_sha256": {"$ref": "#/$defs/sha256"},
+    "target_execution": {
+      "type": "object", "additionalProperties": false,
+      "required": ["execution_id", "benchmark", "task_id", "model_checkpoint", "variant_id"],
+      "properties": {
+        "execution_id": {"$ref": "#/$defs/text"},
+        "benchmark": {"$ref": "#/$defs/text"},
+        "task_id": {"$ref": "#/$defs/text"},
+        "model_checkpoint": {"$ref": "#/$defs/text"},
+        "variant_id": {"type": ["string", "null"], "minLength": 1}
+      }
+    },
+    "monitoring_scope": {
+      "type": "object", "additionalProperties": false,
+      "required": ["domain", "clock", "interval", "bounds", "resolution_status", "boundary_provenance"],
+      "properties": {
+        "domain": {"enum": ["frame", "time"]},
+        "clock": {"$ref": "#/$defs/text"},
+        "interval": {"$ref": "#/$defs/interval"},
+        "bounds": {"const": "inclusive"},
+        "resolution_status": {"const": "fixture_declared"},
+        "boundary_provenance": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"$ref": "#/$defs/text"}}
+      },
+      "allOf": [{"if": {"properties": {"domain": {"const": "frame"}}, "required": ["domain"]}, "then": {"properties": {"interval": {"items": {"type": "integer", "minimum": 0}}}}}]
+    },
+    "evidence_package": {
+      "type": "object", "additionalProperties": false,
+      "required": ["schema_version", "records"],
+      "properties": {
+        "schema_version": {"const": "1.0.0"},
+        "records": {"type": "array", "items": {"$ref": "../../evaluation/r1_v4/evidence_registry_gsn/registry_record.schema.json"}}
+      }
+    },
+    "evidence_package_sha256": {"$ref": "#/$defs/sha256"},
+    "evidence_handling": {
+      "type": "object", "additionalProperties": false,
+      "required": ["data_origin", "source_replay", "empirical_admission_enabled", "graph_eligible_evidence_ids", "context_only_evidence_ids"],
+      "properties": {
+        "data_origin": {"const": "archived_registry_export"},
+        "source_replay": {"const": "not_performed"},
+        "empirical_admission_enabled": {"const": false},
+        "graph_eligible_evidence_ids": {"type": "array", "uniqueItems": true, "items": {"$ref": "#/$defs/evidence_id"}},
+        "context_only_evidence_ids": {"type": "array", "uniqueItems": true, "items": {"$ref": "#/$defs/evidence_id"}}
+      }
+    },
+    "checker_context": {
+      "type": "object", "additionalProperties": false,
+      "required": ["status", "assessments"],
+      "properties": {"status": {"const": "not_available"}, "assessments": {"type": "array", "maxItems": 0}}
+    },
+    "safety_knowledge": {"type": "array", "maxItems": 0, "description": "Reserved for separately scoped normative sources in a future contract version."},
+    "related_cases": {"type": "array", "maxItems": 0, "description": "No related-execution evidence is accepted by this foundation profile."},
+    "retrieval_context": {
+      "type": "object", "additionalProperties": false,
+      "required": ["format", "completeness_status", "requested_objects", "requested_interval", "missing_objects", "gaps", "limitations"],
+      "properties": {
+        "format": {"const": "registry_export"},
+        "completeness_status": {"const": "not_evaluated"},
+        "requested_objects": {"type": "array", "uniqueItems": true, "items": {"$ref": "#/$defs/text"}},
+        "requested_interval": {"$ref": "#/$defs/interval"},
+        "missing_objects": {"type": "array", "uniqueItems": true, "items": {"$ref": "#/$defs/text"}},
+        "gaps": {
+          "type": "array", "items": {
+            "type": "object", "additionalProperties": false,
+            "required": ["object_id", "interval", "reason"],
+            "properties": {"object_id": {"$ref": "#/$defs/text"}, "interval": {"$ref": "#/$defs/interval"}, "reason": {"$ref": "#/$defs/text"}}
+          }
+        },
+        "limitations": {"type": "array", "uniqueItems": true, "items": {"$ref": "#/$defs/text"}}
+      }
+    },
+    "input_provenance": {
+      "type": "object", "additionalProperties": false,
+      "required": ["repository", "revision", "source_artifacts", "configuration_derivation"],
+      "properties": {
+        "repository": {"type": "string", "format": "uri", "pattern": "^https://github\\.com/[^/]+/[^/]+/?$"},
+        "revision": {"$ref": "#/$defs/git_sha1"},
+        "source_artifacts": {
+          "type": "array", "minItems": 1, "items": {
+            "type": "object", "additionalProperties": false,
+            "required": ["path", "git_blob_sha1", "bytes_sha256", "canonical_sha256"],
+            "properties": {"path": {"$ref": "#/$defs/text"}, "git_blob_sha1": {"$ref": "#/$defs/git_sha1"}, "bytes_sha256": {"$ref": "#/$defs/sha256"}, "canonical_sha256": {"$ref": "#/$defs/sha256"}}
+          }
+        },
+        "configuration_derivation": {
+          "type": "object", "additionalProperties": false,
+          "required": ["base_path", "base_canonical_sha256", "changes"],
+          "properties": {
+            "base_path": {"$ref": "#/$defs/text"},
+            "base_canonical_sha256": {"$ref": "#/$defs/sha256"},
+            "changes": {
+              "type": "array", "items": {
+                "type": "object", "additionalProperties": false,
+                "required": ["pointer", "before", "after"],
+                "properties": {"pointer": {"type": "string", "pattern": "^(?:/(?:[^~/]|~[01])*)*$"}, "before": {}, "after": {}}
+              }
+            }
+          }
+        }
+      }
+    },
+    "limitations": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"$ref": "#/$defs/text"}},
+    "empirical_admission_enabled": {"const": false},
+    "safety_claim_verified": {"const": false}
+  },
+  "$defs": {
+    "text": {"type": "string", "minLength": 1},
+    "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "git_sha1": {"type": "string", "pattern": "^[a-f0-9]{40}$"},
+    "evidence_id": {"type": "string", "pattern": "^ev:[a-f0-9]{64}$"},
+    "interval": {"type": "array", "minItems": 2, "maxItems": 2, "items": {"type": "number"}}
+  }
+}

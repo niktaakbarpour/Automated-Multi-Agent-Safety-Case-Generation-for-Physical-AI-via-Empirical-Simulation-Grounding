@@ -1,0 +1,93 @@
+{
+  "schema_version": "drafter-fixture-expectations/0.1.0",
+  "request_id": "scenario-a-archived-export",
+  "request_sha256": "0b88d922311b5bb6535b59f13c72b68fd053b566c22c7b8d0334690a8550a1ad",
+  "expected_physical_claim_status": "unresolved",
+  "expected_object_ids": [
+    "cream_cheese_1",
+    "ketchup_1",
+    "orange_juice_1",
+    "milk_1",
+    "butter_1"
+  ],
+  "expected_record_count": 18,
+  "expected_graph_eligible_evidence_ids": [
+    "ev:10d0126d841e53e038f052c02e55fb2dfdb5fda5a2b20c3ca749ec516e1c27ed",
+    "ev:35bdb31bcc089df5fff767d51649e3217904daa832b11949be036eaaef3599a6",
+    "ev:5e9e76115dde037c1425c263236373151f2a28f38b9def5bf53c55b9ab503a6b",
+    "ev:60103cfdc6a9ded3174406a54fbb017a49fe8c86f8099cb46f33730014d0ec10",
+    "ev:885e1a3aece74388092dc6ed8f848a6706f068e76645b685b092117b0e4125d1",
+    "ev:9008f9760acc8a4b3cf3fd38ded1d4ae8a9757917c75c926af80c95cf284ceea",
+    "ev:989877b99a26d84e716155a42970d3cddaa0a0d1a59a6c7f25aa76c26971b2bb",
+    "ev:af2e86e0bd731b54a41a21910da03f2ad8bf1f683b285bf773b9c82d3d000abb",
+    "ev:e8bf14f3171e54f21edadbc5135a9d4cdb1bb054efb80f6a4c1c2e499931804c",
+    "ev:f5de15c0e908f8c7248a7d9e5faf151c5309533e908ec6bbad85dcd33c1a1e23"
+  ],
+  "expected_context_only_evidence_ids": [
+    "ev:0229ec2efcda7c86b31dbe302c90d5485fb947fa6d1c2fc9c27b52738e47580a",
+    "ev:70c8c80653c9696d1b32261f3e69e2720f9372b18051129fd209431d068f7d27",
+    "ev:9b2387b106f12ea04b490922d2a281d18a5f7fbdc083c5fb591bccfc2f4aaabc",
+    "ev:a4c2ec02db116b01cf91a8ed3febc35948f75001205eead450a80effa2b611e8",
+    "ev:cd192bebb420278d9552ee1c09754e1180a4e4fde915cae2f2bc6198221234ec",
+    "ev:d2bcc555f82598bf29e466bd67c1f3697776c81231baafbc8d9dc58034f55126",
+    "ev:d4ed886c537a2af480847a5709ffdc3d25701415b6de7df6e7738e95419714ad",
+    "ev:dd6672c58fe51028353d1e526fff7eea52df1f70a7107069fbd5c5a3ea154d85"
+  ],
+  "expected_missing_objects": [
+    "ketchup_1",
+    "orange_juice_1",
+    "milk_1",
+    "butter_1"
+  ],
+  "expected_gaps": [
+    {
+      "object_id": "cream_cheese_1",
+      "interval": [
+        12,
+        12
+      ],
+      "reason": "No archived record for this object and saved-frame interval in the supplied export."
+    },
+    {
+      "object_id": "ketchup_1",
+      "interval": [
+        10,
+        12
+      ],
+      "reason": "No archived record for this object and saved-frame interval in the supplied export."
+    },
+    {
+      "object_id": "orange_juice_1",
+      "interval": [
+        10,
+        12
+      ],
+      "reason": "No archived record for this object and saved-frame interval in the supplied export."
+    },
+    {
+      "object_id": "milk_1",
+      "interval": [
+        10,
+        12
+      ],
+      "reason": "No archived record for this object and saved-frame interval in the supplied export."
+    },
+    {
+      "object_id": "butter_1",
+      "interval": [
+        10,
+        12
+      ],
+      "reason": "No archived record for this object and saved-frame interval in the supplied export."
+    }
+  ],
+  "empirical_admission_enabled": false,
+  "safety_claim_verified": false,
+  "required_invariants": [
+    "All original archived record values and evidence IDs are retained.",
+    "All five configured objects remain represented, including objects with no supplied evidence.",
+    "Only scope-compatible, nonjudgment evidence metadata may be a graph Solution reference.",
+    "Source replay, physical checking and LLM execution are not claimed.",
+    "No prewritten graph or expected conclusion is supplied in the generation request."
+  ]
+}
