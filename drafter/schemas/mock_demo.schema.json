@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:trustworthy:drafter-mock-demo:0.1.0",
+  "title": "Explicit deployment-blocked mock demonstration",
+  "type": "object", "additionalProperties": false,
+  "required": ["schema_version", "mode", "generation_status", "deployment_status", "deployment_reason", "run_id", "request_id", "test_fixture", "request_sha256", "requirement_configuration_sha256", "evidence_package_sha256", "model_called", "live_model_result", "model_id", "prompt_sha256", "mock_provenance", "argument_bundle", "summary", "limitations", "validation", "empirical_admission_enabled", "safety_claim_verified"],
+  "properties": {
+    "schema_version": {"const": "drafter-mock-demo/0.1.0"},
+    "mode": {"const": "mock_demonstration"},
+    "generation_status": {"const": "mock_demonstration"},
+    "deployment_status": {"const": "blocked"},
+    "deployment_reason": {"$ref": "#/$defs/text"},
+    "run_id": {"$ref": "#/$defs/text"},
+    "request_id": {"$ref": "#/$defs/text"},
+    "test_fixture": {"const": true},
+    "request_sha256": {"$ref": "#/$defs/sha256"},
+    "requirement_configuration_sha256": {"$ref": "#/$defs/sha256"},
+    "evidence_package_sha256": {"$ref": "#/$defs/sha256"},
+    "model_called": {"const": false},
+    "live_model_result": {"const": false},
+    "model_id": {"type": "null"},
+    "prompt_sha256": {"type": "null"},
+    "mock_provenance": {
+      "type": "object", "additionalProperties": false,
+      "required": ["generator_version", "serializer_version", "template_sha256", "plan_sha256", "plan"],
+      "properties": {
+        "generator_version": {"const": "mock-argument-generator/0.1.0"},
+        "serializer_version": {"const": "graph-plan-to-gsn/0.1.0"},
+        "template_sha256": {"$ref": "#/$defs/sha256"},
+        "plan_sha256": {"$ref": "#/$defs/sha256"},
+        "plan": {"type": "object"}
+      }
+    },
+    "argument_bundle": {"$ref": "draft_argument.schema.json#/$defs/argument_bundle"},
+    "summary": {"$ref": "#/$defs/text"},
+    "limitations": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"$ref": "#/$defs/text"}},
+    "validation": {
+      "type": "object", "additionalProperties": false,
+      "required": ["input_schema", "input_semantics", "output_schema", "graph_semantics", "evidence_references", "physical_sufficiency"],
+      "properties": {
+        "input_schema": {"const": "passed"},
+        "input_semantics": {"const": "passed"},
+        "output_schema": {"const": "passed"},
+        "graph_semantics": {"const": "passed"},
+        "evidence_references": {"const": "passed"},
+        "physical_sufficiency": {"const": "not_assessed"}
+      }
+    },
+    "empirical_admission_enabled": {"const": false},
+    "safety_claim_verified": {"const": false}
+  },
+  "$defs": {
+    "text": {"type": "string", "minLength": 1},
+    "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+  }
+}
