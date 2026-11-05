@@ -91,6 +91,21 @@ def _unresolved_concerns(req, info):
                    'established from this package.')
     elif any(a['route'] == 'synthetic_test_fixture' for a in info['checker_admission']):
         out.append('Admitted checker assessments are synthetic test-fixture outputs, not validated empirical results.')
+    for oid, found in sorted(info['admitted'].items()):
+        outcomes = sorted({a['outcome'] for a in found})
+        verdict, conflict = checks.assessment_verdict(found)
+        if conflict:
+            out.append(f'Admitted checker assessments for {oid} disagree ({", ".join(outcomes)}). Both are kept; the '
+                       'conflict needs an evidence-consistency investigation.')
+        elif len(outcomes) > 1:
+            out.append(f'Admitted checker assessments for {oid} differ ({", ".join(outcomes)}), but only because some '
+                       f'are insufficient_information, which is a gap rather than counter-evidence; {verdict} is used.')
+        for a in found:
+            notes = (['its evidence is incomplete (complete: false)'] if not a['complete'] else []) + \
+                [f'uncertainty: {u}' for u in a['uncertainty']]
+            if notes:
+                out.append(f"The admitted checker assessment {a['assessment_id']} ({oid}, {a['outcome']}) reports "
+                           f"{'; '.join(notes)}.")
     retrieval = req['retrieval_context']
     if not retrieval.get('complete_within_requested_scope', False):
         out.append('Retrieval reports that the evidence package is incomplete for the requested scope.')

@@ -70,7 +70,7 @@
         "ca:f9865d3b96a84f461592938d4984f8a23a453980d8c06a2d7ab75f929f4614b3:object_00"
       ],
       "requirement_refs": [
-        "requirements/r1_generalized_v2/FORMAL_SEMANTICS.md"
+        "requirements/r1_generalized_v2/FORMAL_SEMANTICS.md#coverage-and-object-outcome"
       ],
       "finding_source": "deterministic",
       "suggested_action": "Report the violation the assessment shows, or record why the assessment is not admissible as an explicit defeater.",
@@ -81,6 +81,7 @@
   "evidence_requests": [],
   "unresolved_concerns": [
     "Admitted checker assessments are synthetic test-fixture outputs, not validated empirical results.",
+    "The admitted checker assessment ca:f9865d3b96a84f461592938d4984f8a23a453980d8c06a2d7ab75f929f4614b3:object_00 (object_00, violation_observed) reports its evidence is incomplete (complete: false).",
     "This request contains synthetic test data; its results are not empirical findings."
   ],
   "rejected_llm_findings": [],

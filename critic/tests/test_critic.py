@@ -145,7 +145,9 @@ class ConclusionsAndAggregation(unittest.TestCase):
     def test_wrong_aggregation_is_flagged(self):
         req = load('case_c_correct_unresolved.json')
         req['argument_bundle']['execution_conclusion']['claimed_outcome'] = K.NO_VIOLATION
-        self.assertTrue(flagged(review(req), check_id='CONCL-AGGREGATION'))
+        found = flagged(review(req), check_id='CONCL-AGGREGATION')
+        self.assertEqual(found[0]['suggested_action'],
+                         'Set the execution outcome to insufficient_information, or fix the object outcomes.')
 
     def test_checker_contradiction(self):
         report = review(checker_request(claims={'object_01': K.VIOLATION}))  # the checker reports no violation
@@ -402,6 +404,214 @@ class CheckerAdmission(unittest.TestCase):
         jsonschema.validate(review(req), json.loads((ROOT / 'critic/schemas/critic_report.schema.json').read_text()))
 
 
+def reassessed(obj, **fields):
+    """A second, consistent checker result in which one object's assessment differs (hashes recomputed)."""
+    def change(item):
+        oa = next(o for o in item['result']['object_assessments'] if o['object_id'] == obj)
+        coverage = fields.pop('missing', None)
+        oa.update(fields)
+        if coverage is not None:
+            oa['coverage']['missing'] = coverage
+    return forged(change)
+
+
+class ConflictsAndApplicability(unittest.TestCase):
+    """Audit I2 and I11: conflicting results, applicability, insufficient results and which gaps matter."""
+
+    def _for(self, report, oid):
+        return {c['check_id']: c for c in flagged(report, object_id=oid)}
+
+    def test_audit_probe_negative_claims_against_a_conflicting_violation(self):
+        # The audit's probe: every object claimed no violation, one assessment reports a violation for the
+        # first object and another reports no violation. The negative must not win.
+        claims = {o: K.NO_VIOLATION for o in ('object_00', 'object_01', 'object_02')}
+        second = reassessed('object_00', outcome=K.NO_VIOLATION, missing=[])
+        report = review(checker_request(B.checker_item(), second, claims=claims))
+        found = self._for(report, 'object_00')
+        self.assertEqual(found['CONCL-CONTRADICTION']['category'], 'C07')
+        self.assertEqual(found['CONCL-CONFLICT']['category'], 'C13')
+        self.assertTrue(found['CONCL-CONTRADICTION']['blocking'] and found['CONCL-CONFLICT']['blocking'])
+        self.assertIn('cannot override an admissible violation', found['CONCL-CONFLICT']['explanation'])
+        self.assertEqual(len(found['CONCL-CONFLICT']['evidence_ids']), 2)  # both records kept
+        self.assertIn('disagree', ' '.join(report['unresolved_concerns']))
+        # the execution-level advice must not steer towards the negative while object claims are disputed
+        aggregation = flagged(report, check_id='CONCL-AGGREGATION')[0]
+        self.assertNotIn('Set the execution outcome to no_violation', aggregation['suggested_action'])
+        self.assertIn('object_00', aggregation['suggested_action'])
+        # the same claims with a single checker result are also caught
+        self.assertIn('CONCL-CONTRADICTION', self._for(review(checker_request(claims=claims)), 'object_00'))
+
+    def test_unresolved_claim_over_a_conflict_still_shows_the_violation(self):
+        second = reassessed('object_00', outcome=K.NO_VIOLATION, missing=[])
+        found = self._for(review(checker_request(B.checker_item(), second)), 'object_00')
+        self.assertEqual(set(found), {'CONCL-HIDES-VIOLATION', 'CONCL-CONFLICT'})
+
+    def test_violation_claim_over_a_conflict_is_kept_but_flagged(self):
+        second = reassessed('object_00', outcome=K.NO_VIOLATION, missing=[])
+        found = self._for(review(checker_request(B.checker_item(), second, claims={'object_00': K.VIOLATION})),
+                          'object_00')
+        self.assertEqual(set(found), {'CONCL-CONFLICT'})
+
+    def test_conflict_without_a_violation(self):
+        second = reassessed('object_01', outcome=K.NOT_APPLICABLE, applicability='not_applicable')
+        report = review(checker_request(B.checker_item(), second))  # object_01 claimed no violation
+        self.assertEqual(set(self._for(report, 'object_01')), {'CONCL-CONFLICT'})
+        self.assertIn('cannot be established from inconsistent evidence',
+                      self._for(report, 'object_01')['CONCL-CONFLICT']['explanation'])
+        # an unresolved claim is the honest answer to conflicting evidence: no finding, but a recorded concern
+        report = review(checker_request(B.checker_item(), second, claims={'object_01': K.INSUFFICIENT}))
+        self.assertFalse(flagged(report, object_id='object_01'))
+        self.assertTrue(any('object_01 disagree' in c for c in report['unresolved_concerns']))
+
+    def test_insufficient_next_to_a_definite_result_is_a_gap_not_a_conflict(self):
+        second = reassessed('object_00', outcome=K.INSUFFICIENT)  # object_00: violation in the real result
+        report = review(checker_request(B.checker_item(), second, claims={'object_00': K.VIOLATION}))
+        self.assertFalse(flagged(report, object_id='object_00'))
+        self.assertTrue(any('object_00 differ' in c and 'gap rather than counter-evidence' in c
+                            for c in report['unresolved_concerns']))
+        found = self._for(review(checker_request(B.checker_item(), second, claims={'object_00': K.NO_VIOLATION})),
+                          'object_00')
+        self.assertEqual(set(found), {'CONCL-CONTRADICTION'})  # the violation still wins; no conflict
+        second = reassessed('object_01', outcome=K.INSUFFICIENT)  # object_01: no violation in the real result
+        self.assertFalse(flagged(review(checker_request(B.checker_item(), second)), object_id='object_01'))
+
+    def test_invalid_contract_next_to_a_definite_result_is_a_conflict(self):
+        second = reassessed('object_01', outcome=K.INVALID_CONTRACT, applicability='unsupported_evidence_contract')
+        found = self._for(review(checker_request(B.checker_item(), second)), 'object_01')
+        self.assertEqual(set(found), {'CONCL-CONFLICT'})
+
+    def test_every_claim_against_every_checker_result(self):
+        """The README table, cell by cell: claim x one result, and claim x two different results."""
+        names = {'V': K.VIOLATION, 'N': K.NO_VIOLATION, 'NA': K.NOT_APPLICABLE, 'U': K.INSUFFICIENT,
+                 'IC': K.INVALID_CONTRACT}
+        applicability = {'V': 'applicable', 'N': 'applicable', 'NA': 'not_applicable', 'U': 'applicable',
+                         'IC': 'unsupported_evidence_contract'}
+        expected = {  # checker results -> {claim: findings}
+            '':      {'V': 'UNSUPPORTED', 'N': 'UNSUPPORTED', 'NA': 'UNSUPPORTED', 'U': '', 'IC': 'UNSUPPORTED'},
+            'V':     {'V': '', 'N': 'CONTRADICTION', 'NA': 'CONTRADICTION', 'U': 'HIDES-VIOLATION',
+                      'IC': 'CONTRADICTION'},
+            'N':     {'V': 'CONTRADICTION', 'N': '', 'NA': 'APPLICABILITY', 'U': '', 'IC': 'CONTRADICTION'},
+            'NA':    {'V': 'APPLICABILITY', 'N': 'APPLICABILITY', 'NA': '', 'U': '', 'IC': 'APPLICABILITY'},
+            'U':     {'V': 'NOT-ESTABLISHED', 'N': 'NOT-ESTABLISHED', 'NA': 'NOT-ESTABLISHED', 'U': '',
+                      'IC': 'NOT-ESTABLISHED'},
+            'IC':    {'V': 'NOT-ESTABLISHED', 'N': 'NOT-ESTABLISHED', 'NA': 'NOT-ESTABLISHED', 'U': '', 'IC': ''},
+            'V N':   {'V': 'CONFLICT', 'N': 'CONFLICT CONTRADICTION', 'NA': 'CONFLICT CONTRADICTION',
+                      'U': 'CONFLICT HIDES-VIOLATION', 'IC': 'CONFLICT CONTRADICTION'},
+            'V U':   {'V': '', 'N': 'CONTRADICTION', 'NA': 'CONTRADICTION', 'U': 'HIDES-VIOLATION',
+                      'IC': 'CONTRADICTION'},
+            'V IC':  {'V': 'CONFLICT', 'N': 'CONFLICT CONTRADICTION', 'NA': 'CONFLICT CONTRADICTION',
+                      'U': 'CONFLICT HIDES-VIOLATION', 'IC': 'CONFLICT CONTRADICTION'},
+            'N NA':  {'V': 'CONFLICT', 'N': 'CONFLICT', 'NA': 'CONFLICT', 'U': '', 'IC': 'CONFLICT'},
+            'N U':   {'V': 'CONTRADICTION', 'N': '', 'NA': 'APPLICABILITY', 'U': '', 'IC': 'CONTRADICTION'},
+            'N IC':  {'V': 'CONFLICT', 'N': 'CONFLICT', 'NA': 'CONFLICT', 'U': '', 'IC': 'CONFLICT'},
+            'NA U':  {'V': 'APPLICABILITY', 'N': 'APPLICABILITY', 'NA': '', 'U': '', 'IC': 'APPLICABILITY'},
+            'NA IC': {'V': 'CONFLICT', 'N': 'CONFLICT', 'NA': 'CONFLICT', 'U': '', 'IC': 'CONFLICT'},
+            'U IC':  {'V': 'NOT-ESTABLISHED', 'N': 'NOT-ESTABLISHED', 'NA': 'NOT-ESTABLISHED', 'U': '', 'IC': ''},
+        }
+        expected['V NA'] = expected['V N']
+        for results, by_claim in expected.items():
+            found_by = [{'assessment_id': f'ca:{i}:x', 'object_id': 'x', 'outcome': names[r],
+                         'applicability': applicability[r], 'interval': [0, 2], 'route': A.ROUTE_SYNTHETIC,
+                         'evidence_ids': [], 'complete': True, 'uncertainty': []}
+                        for i, r in enumerate(results.split())]
+            for claim, want in by_claim.items():
+                with self.subTest(results=results, claim=claim):
+                    got = checks._check_object_outcome('x', names[claim], 'G1', found_by, (0, 2), [])
+                    self.assertEqual(' '.join(f['check_id'][len('CONCL-'):] for f in got), want)
+
+    def test_insufficient_or_invalid_result_is_a_gap_not_a_contradiction(self):
+        for outcome, applicability in ((K.INSUFFICIENT, 'applicable'),
+                                       (K.INVALID_CONTRACT, 'unsupported_evidence_contract')):
+            only = reassessed('object_01', outcome=outcome, applicability=applicability)
+            for claim, category in ((K.NO_VIOLATION, 'C06'), (K.VIOLATION, 'C06'), (K.NOT_APPLICABLE, 'C08')):
+                with self.subTest(checker=outcome, claim=claim):
+                    found = self._for(review(checker_request(only, claims={'object_01': claim})), 'object_01')
+                    self.assertEqual(set(found), {'CONCL-NOT-ESTABLISHED'})
+                    self.assertEqual(found['CONCL-NOT-ESTABLISHED']['category'], category)
+
+    def test_applicability_mismatch(self):
+        for oid, claim in (('object_01', K.NOT_APPLICABLE),   # checker: applicable, no violation
+                           ('object_02', K.NO_VIOLATION),     # checker: not applicable
+                           ('object_02', K.VIOLATION)):
+            with self.subTest(object=oid, claim=claim):
+                found = self._for(review(checker_request(claims={oid: claim})), oid)
+                self.assertEqual(set(found), {'CONCL-APPLICABILITY'})
+                self.assertEqual(found['CONCL-APPLICABILITY']['category'], 'C08')
+
+    def test_outcome_contradiction(self):
+        for claim in (K.VIOLATION, K.INVALID_CONTRACT):  # checker: no violation for object_01
+            with self.subTest(claim=claim):
+                found = self._for(review(checker_request(claims={'object_01': claim})), 'object_01')
+                self.assertEqual(set(found), {'CONCL-CONTRADICTION'})
+
+    def test_cautious_claim_is_not_criticised(self):
+        report = review(checker_request(claims={'object_01': K.INSUFFICIENT, 'object_02': K.INSUFFICIENT}))
+        self.assertFalse(flagged(report, object_id='object_01') + flagged(report, object_id='object_02'))
+
+    def _gaps(self, *gaps, test_fixture=True):
+        req = checker_request(test_fixture=test_fixture)
+        req['retrieval_context']['gaps'] = list(gaps)
+        return review(req)
+
+    def test_only_relevant_gaps_are_findings(self):
+        # object_01 is claimed no violation and the checker supports it; monitored interval [0, 2]
+        irrelevant = [
+            {'object_id': 'object_01', 'measurement_type': 'contact', 'interval': [5, 9]},       # outside
+            {'object_id': 'object_01', 'measurement_type': 'velocity', 'interval': [0, 2]},      # optional
+            {'object_id': 'object_00', 'measurement_type': 'contact', 'interval': [0, 2]},       # other object
+        ]
+        report = self._gaps(*irrelevant)
+        self.assertFalse(flagged(report, check_id='CONCL-GAP'))
+        for gap in irrelevant:  # still recorded as limitations
+            self.assertTrue(any(gap['measurement_type'] in c and gap['object_id'] in c
+                                for c in report['unresolved_concerns']))
+
+    def test_relevant_gap_under_an_admitted_no_violation(self):
+        report = self._gaps({'object_id': 'object_01', 'measurement_type': 'contact', 'interval': [1, 5]})
+        gap = flagged(report, check_id='CONCL-GAP', object_id='object_01')
+        self.assertEqual(len(gap), 1)
+        # it does not by itself invalidate the admitted witness, but a person should look
+        self.assertEqual((gap[0]['severity'], gap[0]['blocking'], gap[0]['human_review_required']),
+                         ('medium', False, True))
+
+    def test_relevant_gap_under_an_unsupported_no_violation(self):
+        report = self._gaps({'object_id': 'object_01', 'measurement_type': 'contact', 'interval': [1, 5]},
+                            test_fixture=False)  # nothing is admitted, so the claim stands on nothing
+        gap = flagged(report, check_id='CONCL-GAP', object_id='object_01')
+        self.assertEqual((len(gap), gap[0]['blocking']), (1, True))
+
+    def test_aggregation_advice_ignores_non_blocking_notes(self):
+        req = checker_request(claims={'object_00': K.VIOLATION})  # every claim now matches the checker
+        req['retrieval_context']['gaps'] = [{'object_id': 'object_01', 'measurement_type': 'contact',
+                                             'interval': [1, 2]}]  # only a non-blocking note
+        req['argument_bundle']['execution_conclusion']['claimed_outcome'] = K.NO_VIOLATION
+        aggregation = flagged(review(req), check_id='CONCL-AGGREGATION')[0]
+        self.assertEqual(aggregation['suggested_action'],
+                         'Set the execution outcome to violation_observed, or fix the object outcomes.')
+
+    def test_relevant_gap_under_a_conflicted_no_violation(self):
+        second = reassessed('object_01', outcome=K.INVALID_CONTRACT, applicability='unsupported_evidence_contract')
+        req = checker_request(B.checker_item(), second)
+        req['retrieval_context']['gaps'] = [{'object_id': 'object_01', 'measurement_type': 'contact',
+                                             'interval': [1, 5]}]
+        gap = flagged(review(req), check_id='CONCL-GAP', object_id='object_01')
+        self.assertEqual((len(gap), gap[0]['blocking']), (1, True))  # a conflicted result does not support it
+
+    def test_partial_coverage_is_still_checked(self):
+        partial = {'assessment_id': 'ca:x:object_01', 'object_id': 'object_01', 'outcome': K.NO_VIOLATION,
+                   'applicability': 'applicable', 'interval': [0, 1], 'route': A.ROUTE_SYNTHETIC,
+                   'evidence_ids': [], 'complete': True, 'uncertainty': []}
+        found = checks._check_object_outcome('object_01', K.NO_VIOLATION, 'G1', [partial], (0, 2), [])
+        self.assertEqual([f['check_id'] for f in found], ['CONCL-PARTIAL-COVERAGE'])
+
+    def test_checker_uncertainty_is_kept(self):
+        concerns = ' '.join(review(load(CASE_D))['unresolved_concerns'])
+        self.assertIn('object_00, violation_observed) reports its evidence is incomplete', concerns)
+        second = reassessed('object_01', uncertainty=['contact sampling is sparse'])
+        concerns = ' '.join(review(checker_request(second))['unresolved_concerns'])
+        self.assertIn('uncertainty: contact sampling is sparse', concerns)
+
+
 class LLMStep(unittest.TestCase):
     def test_scripted_reply_is_screened(self):
         req = load('case_a_unsupported_claim.json')
@@ -617,6 +827,12 @@ class VocabularyInSync(unittest.TestCase):
         self.assertEqual(set(gs['properties']['edges']['items']['properties']['type']['enum']), K.EDGE_TYPES)
         rs = json.loads((GSN_DIR / 'registry_record.schema.json').read_text())
         self.assertEqual(set(rs['required']), set(K.RECORD_REQUIRED))
+
+    def test_optional_evidence_matches_the_r1_configuration_schema(self):
+        schema = json.loads((ROOT / 'requirements/r1_generalized_v2/R1_V2_CONFIG_SCHEMA.json').read_text())
+        rules = schema['properties']['evidence_requirements']['properties']
+        optional = {k for k, v in rules.items() if str(v.get('const', '')).startswith('optional')}
+        self.assertEqual(optional, K.OPTIONAL_EVIDENCE)
 
     def test_checker_contract_copies_match_assessment_schema(self):
         schema = json.loads((ROOT / 'evaluation/r1_v4/assessment.schema.json').read_text())

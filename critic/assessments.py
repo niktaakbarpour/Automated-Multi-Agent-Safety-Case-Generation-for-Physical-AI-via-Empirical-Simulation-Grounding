@@ -328,7 +328,7 @@ def admit(req):
     Returns (admitted {object_id: [assessment]}, admission log for the report, problems
     as [(check_id, category, text, assessment_id, object_id)]; result-wide problems carry the
     result's ID 'ca:<assessment_hash>' and no object). An admitted assessment is
-    {assessment_id, object_id, outcome, applicability, interval, route, evidence_ids}.
+    {assessment_id, object_id, outcome, applicability, interval, route, evidence_ids, complete, uncertainty}.
     """
     ctx = req['evaluation_context']
     test_fixture = req.get('test_fixture')
@@ -364,7 +364,8 @@ def admit(req):
                 admitted.setdefault(oid, []).append({
                     'assessment_id': aid, 'object_id': oid, 'outcome': oa['outcome'],
                     'applicability': oa['applicability'], 'interval': list(bounds), 'route': ROUTE_SYNTHETIC,
-                    'evidence_ids': list(oa['evidence_ids'])})
+                    'evidence_ids': list(oa['evidence_ids']), 'complete': oa['complete'],
+                    'uncertainty': list(oa['uncertainty'])})
             log.append(_row(aid, oa if isinstance(oa, dict) else {},
                             list(bounds) if domain is not None else None, ok, found))
     return admitted, log, problems

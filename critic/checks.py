@@ -16,6 +16,8 @@ from . import contract as K
 GSN_REF = 'evaluation/r1_v4/evidence_registry_gsn/gsn.py:Graph.validate'
 SPEC_REF = 'requirements/r1_generalized_v2/FORMAL_SEMANTICS.md'
 AGGREGATION_REF = SPEC_REF + '#execution-aggregation'
+OUTCOME_REF = SPEC_REF + '#coverage-and-object-outcome'
+VALIDITY_REF = SPEC_REF + '#domain-and-evidence-logic'
 HASH_REF = 'evaluation/r1_v4/evidence_registry_gsn/models.py:Record.id'
 
 # Which node types an edge of each type may connect (source types, target types).
@@ -62,6 +64,10 @@ def _interval(value):
 
 def _contains(outer, inner):
     return outer[0] <= inner[0] and inner[1] <= outer[1]
+
+
+def _overlaps(a, b):
+    return a[0] <= b[1] and b[0] <= a[1]
 
 
 def _in(value, collection):
@@ -492,11 +498,13 @@ def check_conclusions(req, admitted):
         out.append(finding('CONCL-BAD-VALUE', 'C01', f'Execution outcome {stated!r} is not an R1 v2 outcome.',
                            f'Use one of: {", ".join(K.OUTCOME_PRECEDENCE)}.'))
     elif stated is not None and expected is not None and stated != expected:
+        disputed = sorted({f['object_id'] for f in out if f['object_id'] is not None and f['blocking']})
+        action = (f'Fix the object outcomes flagged for {", ".join(disputed)} first, then set the execution outcome '
+                  'by R1 aggregation of the corrected object outcomes.' if disputed else
+                  f'Set the execution outcome to {expected}, or fix the object outcomes.')
         out.append(finding('CONCL-AGGREGATION', 'C06', f'The execution conclusion is {stated}, but R1 aggregation of '
                            f'the stated object outcomes gives {expected} (violation > invalid contract > insufficient '
-                           '> no violation > not applicable).',
-                           f'Set the execution outcome to {expected}, or fix the object outcomes.',
-                           requirement_refs=[AGGREGATION_REF]))
+                           '> no violation > not applicable).', action, requirement_refs=[AGGREGATION_REF]))
     unassessed = [o for o in configured if o not in claimed]
     if stated == K.NO_VIOLATION and unassessed:
         out.append(finding('CONCL-VACUOUS', 'C06', f'The execution is concluded as no violation while '
@@ -507,7 +515,12 @@ def check_conclusions(req, admitted):
 
 
 def _check_object_outcome(oid, claim, node, assessments, monitored, gaps):
-    """One object's claimed outcome against its admitted checker assessments and retrieval gaps."""
+    """One object's claimed outcome against its admitted checker assessments and retrieval gaps.
+
+    FORMAL_SEMANTICS.md: an admissible violation is not overridden by a negative result;
+    conflicting assessments are kept and need an evidence-consistency investigation; an
+    insufficient or invalid-contract result is a gap, not evidence against a claim.
+    """
     def make(check_id, category, explanation, action, **kw):
         return finding(check_id, category, explanation, action, object_id=oid, node_id=node, **kw)
 
@@ -515,56 +528,141 @@ def _check_object_outcome(oid, claim, node, assessments, monitored, gaps):
         return [make('CONCL-BAD-VALUE', 'C01', f'Outcome {claim!r} for {oid} is not an R1 v2 outcome.',
                      f'Use one of: {", ".join(K.OUTCOME_PRECEDENCE)}.')]
     out = []
-    reported = sorted({a['outcome'] for a in assessments})
-    assessment_ids = [a['assessment_id'] for a in assessments]
+    ids = [a['assessment_id'] for a in assessments]
     label = A.describe(assessments[0]) if assessments else 'admitted checker assessment'
-    if claim == K.INSUFFICIENT:
-        if K.VIOLATION in reported:
+    verdict, conflict = assessment_verdict(assessments)
+    positive = any(a['outcome'] == K.VIOLATION for a in assessments)
+
+    if conflict and (claim != K.INSUFFICIENT or positive):
+        listing = '; '.join(f"{a['assessment_id']} reports {a['outcome']}" for a in assessments)
+        out.append(make('CONCL-CONFLICT', 'C13', f'The admitted checker assessments for {oid} disagree ({listing}). '
+                        + ('A negative or other result cannot override an admissible violation. ' if positive else
+                           f'The claim {claim} cannot be established from inconsistent evidence. ')
+                        + 'Both records are kept; the conflict needs an evidence-consistency investigation.',
+                        'Record the conflict as an unresolved defeater citing both assessments, and find out which '
+                        'one is wrong before relying on either.',
+                        evidence_ids=ids, requirement_refs=[OUTCOME_REF], human_review_required=True))
+
+    if not assessments:
+        if claim != K.INSUFFICIENT:
+            what = {K.NOT_APPLICABLE: 'non-applicability (an established absence of initial support)',
+                    K.VIOLATION: 'a violation',
+                    K.NO_VIOLATION: 'a coverage-qualified no-violation result',
+                    K.INVALID_CONTRACT: 'an invalid measurement contract'}[claim]
+            out.append(make('CONCL-UNSUPPORTED', 'C08' if claim == K.NOT_APPLICABLE else 'C06',
+                            f'The draft claims {claim} for {oid}, but no admitted checker assessment for this object '
+                            f'and execution is supplied. Positions and contacts alone cannot establish {what}.',
+                            f'Change the {oid} outcome to insufficient_information and keep its goal unresolved, '
+                            'unless an admitted checker assessment is added.',
+                            requirement_refs=[SPEC_REF, 'Critic handoff section 6'], additional_evidence_needed=True,
+                            evidence_request={'object_id': oid, 'measurement_type': 'checker_assessment',
+                                              'interval': list(monitored),
+                                              'reason': f'An admitted R1 checker assessment is needed before '
+                                                        f'claiming {claim}.'}))
+    elif positive:
+        violations = [a['assessment_id'] for a in assessments if a['outcome'] == K.VIOLATION]
+        if claim == K.INSUFFICIENT:
             out.append(make('CONCL-HIDES-VIOLATION', 'C07', f'The draft reports insufficient_information for {oid}, '
                             f'but an {label} for the same object and execution reports violation_observed.',
                             'Report the violation the assessment shows, or record why the assessment is '
-                            'not admissible as an explicit defeater.', evidence_ids=assessment_ids,
-                            requirement_refs=[SPEC_REF], human_review_required=True))
-    elif not assessments:
-        what = {K.NOT_APPLICABLE: 'non-applicability (an established absence of initial support)',
-                K.VIOLATION: 'a violation',
-                K.NO_VIOLATION: 'a coverage-qualified no-violation result',
-                K.INVALID_CONTRACT: 'an invalid measurement contract'}[claim]
-        out.append(make('CONCL-UNSUPPORTED', 'C08' if claim == K.NOT_APPLICABLE else 'C06',
-                        f'The draft claims {claim} for {oid}, but no admitted checker assessment for this object '
-                        f'and execution is supplied. Positions and contacts alone cannot establish {what}.',
-                        f'Change the {oid} outcome to insufficient_information and keep its goal unresolved, '
-                        'unless an admitted checker assessment is added.',
-                        requirement_refs=[SPEC_REF, 'Critic handoff section 6'], additional_evidence_needed=True,
-                        evidence_request={'object_id': oid, 'measurement_type': 'checker_assessment',
-                                          'interval': list(monitored),
-                                          'reason': f'An admitted R1 checker assessment is needed before claiming '
-                                                    f'{claim}.'}))
-    elif claim not in reported:
-        out.append(make('CONCL-CONTRADICTION', 'C07', f'The draft claims {claim} for {oid}, but the {label} '
-                        f'for the same object and execution reports {", ".join(reported)}.',
-                        'Match the admitted assessment, or explain the conflict as an unresolved defeater.',
-                        evidence_ids=assessment_ids, requirement_refs=[SPEC_REF], human_review_required=True))
-    elif claim == K.NO_VIOLATION and not any(
-            _contains(_interval(a['interval']), monitored)
-            for a in assessments if a['outcome'] == claim):
+                            'not admissible as an explicit defeater.', evidence_ids=violations,
+                            requirement_refs=[OUTCOME_REF], human_review_required=True))
+        elif claim != K.VIOLATION:
+            out.append(make('CONCL-CONTRADICTION', 'C07', f'The draft claims {claim} for {oid}, but an {label} for '
+                            'the same object and execution reports violation_observed, and an admissible violation '
+                            'is not overridden by other results.',
+                            'Report the violation, or record why the assessment is not admissible as an explicit '
+                            'defeater.', evidence_ids=violations, requirement_refs=[OUTCOME_REF],
+                            human_review_required=True))
+    elif not conflict and claim not in (verdict, K.INSUFFICIENT):
+        found = verdict
+        if found in (K.INSUFFICIENT, K.INVALID_CONTRACT):
+            out.append(make('CONCL-NOT-ESTABLISHED', 'C08' if claim == K.NOT_APPLICABLE else 'C06',
+                            f'The draft claims {claim} for {oid}, but the {label} could not establish an outcome: it '
+                            f'reports {found}. That is a gap in the evidence, not evidence against the claim, but it '
+                            'leaves the claim unsupported.',
+                            f'Change the {oid} outcome to {found} or insufficient_information, or supply the evidence '
+                            'the checker was missing.', evidence_ids=ids, requirement_refs=[VALIDITY_REF],
+                            additional_evidence_needed=True))
+        elif K.NOT_APPLICABLE in (found, claim):
+            out.append(make('CONCL-APPLICABILITY', 'C08', f'The draft claims {claim} for {oid}, but the {label} '
+                            f'reports {found}, so the claim treats applicability differently from the checker.',
+                            f'Match the checker ({found}), or record why its applicability result is wrong as an '
+                            'explicit defeater.', evidence_ids=ids, requirement_refs=[SPEC_REF + '#applicability'],
+                            human_review_required=True))
+        else:
+            out.append(make('CONCL-CONTRADICTION', 'C07', f'The draft claims {claim} for {oid}, but the {label} '
+                            f'for the same object and execution reports {found}.',
+                            'Match the admitted assessment, or explain the conflict as an unresolved defeater.',
+                            evidence_ids=ids, requirement_refs=[OUTCOME_REF], human_review_required=True))
+
+    supported = verdict == K.NO_VIOLATION and not conflict
+    if claim == K.NO_VIOLATION and supported and not any(_contains(_interval(a['interval']), monitored)
+                                                         for a in assessments):
         out.append(make('CONCL-PARTIAL-COVERAGE', 'C04', f'The no-violation assessment for {oid} does not cover the '
                         f'whole monitored interval {list(monitored)}.',
                         'Qualify the claim to the covered interval, or keep it insufficient_information.',
-                        evidence_ids=assessment_ids, requirement_refs=[SPEC_REF]))
+                        evidence_ids=ids, requirement_refs=[OUTCOME_REF]))
     if claim == K.NO_VIOLATION:
         for gap in gaps:
-            if not isinstance(gap, dict) or gap.get('object_id') != oid:
-                continue
+            if not _gap_relevant(gap, oid, monitored):
+                continue  # still listed in the report's unresolved_concerns as a limitation
             mtype = gap.get('measurement_type') if isinstance(gap.get('measurement_type'), str) else None
             reason = gap.get('reason') if isinstance(gap.get('reason'), str) else 'Gap reported by retrieval.'
-            out.append(make('CONCL-GAP', 'C04', f"The draft claims no violation for {oid}, but retrieval reports "
-                            f"missing {mtype} for {gap.get('interval')}.",
-                            'Do not claim coverage over missing intervals; qualify the claim or request the data.',
-                            additional_evidence_needed=True,
-                            evidence_request={'object_id': oid, 'measurement_type': mtype,
-                                              'interval': _interval_or_none(gap.get('interval')), 'reason': reason}))
+            request = {'object_id': oid, 'measurement_type': mtype,
+                       'interval': _interval_or_none(gap.get('interval')), 'reason': reason}
+            if supported:
+                # A gap in the Drafter's package does not by itself invalidate an admitted checker witness.
+                out.append(make('CONCL-GAP', 'C04', f'The admitted checker assessment supports no violation for '
+                                f"{oid}, but retrieval reports missing {mtype} for {gap.get('interval')} inside the "
+                                'monitored interval. This does not by itself invalidate the assessment; check that '
+                                'the two sources agree.',
+                                'Confirm the checker had the data retrieval reports as missing, or qualify the claim.',
+                                severity='medium', blocking=False, evidence_ids=ids, requirement_refs=[VALIDITY_REF],
+                                human_review_required=True, evidence_request=request))
+            else:
+                out.append(make('CONCL-GAP', 'C04', f"The draft claims no violation for {oid}, but retrieval reports "
+                                f"missing {mtype} for {gap.get('interval')}.",
+                                'Do not claim coverage over missing intervals; qualify the claim or request the data.',
+                                requirement_refs=[VALIDITY_REF], additional_evidence_needed=True,
+                                evidence_request=request))
     return out
+
+
+DEFINITE = (K.VIOLATION, K.NO_VIOLATION, K.NOT_APPLICABLE)
+
+
+def assessment_verdict(assessments):
+    """(verdict, conflict) for one object's admitted assessments.
+
+    Two different definite results (violation, no violation, not applicable) conflict, and so does an
+    invalid-contract result next to a definite one (a foundational error can invalidate a witness).
+    An insufficient result next to others is a gap, not counter-evidence, and does not conflict.
+    The verdict is the definite result if there is exactly one, else invalid contract, else insufficient;
+    None when there are no assessments.
+    """
+    outcomes = {a['outcome'] for a in assessments}
+    if not outcomes:
+        return None, False
+    definite = [o for o in DEFINITE if o in outcomes]
+    conflict = len(definite) > 1 or (bool(definite) and K.INVALID_CONTRACT in outcomes)
+    if len(definite) == 1:
+        return definite[0], conflict
+    if definite:
+        return None, conflict
+    return (K.INVALID_CONTRACT if K.INVALID_CONTRACT in outcomes else K.INSUFFICIENT), conflict
+
+
+def _gap_relevant(gap, oid, monitored):
+    """A retrieval gap matters for a no-violation claim only if it is for this object, overlaps the monitored
+    interval, and is not an optional measurement. Malformed gaps count as relevant (fail closed)."""
+    if not isinstance(gap, dict) or gap.get('object_id') != oid:
+        return False
+    mtype = gap.get('measurement_type')
+    if isinstance(mtype, str) and mtype in K.OPTIONAL_EVIDENCE:
+        return False
+    span = _interval(gap.get('interval'))
+    return span is None or _overlaps(span, monitored)
 
 
 def _is_outcome(value):

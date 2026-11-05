@@ -55,6 +55,10 @@ OUTCOME_PRECEDENCE = (VIOLATION, INVALID_CONTRACT, INSUFFICIENT, NO_VIOLATION, N
 # Every outcome except insufficient_information needs an admitted checker assessment behind it
 # (admission rules: critic/assessments.py).
 NEEDS_CHECKER = OUTCOMES - {INSUFFICIENT}
+# Evidence the R1 v2 configuration marks optional (R1_V2_CONFIG_SCHEMA.json, evidence_requirements:
+# 'optional_or_derived_with_uncertainty', 'optional_unless_task_conditioned_claim'). A retrieval gap in
+# one of these never undermines a no-violation claim on its own.
+OPTIONAL_EVIDENCE = {'velocity', 'task_instruction'}
 
 # --- criticism categories (Critic handoff, section 8) ---
 CATEGORIES = {

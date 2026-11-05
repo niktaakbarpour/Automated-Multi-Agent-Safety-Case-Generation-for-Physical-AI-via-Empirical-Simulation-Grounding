@@ -49,6 +49,25 @@ A result or object assessment that fails any of these gets a blocking `CHK-*` fi
 
 Two limits for now. The R1 configuration has no variant field, so a checker result is tied to a variant only through its execution ID. Interval boundaries other than explicit frame indices (for example `terminal_recorded_snapshot`) are refused until boundary provenance is part of the request.
 
+## How a claimed outcome is judged
+
+Each object's claimed outcome is compared with the admitted checker assessments for that object (`checks.py:_check_object_outcome`, following `FORMAL_SEMANTICS.md`):
+
+| Admitted assessments | Claim | Finding |
+|---|---|---|
+| none | anything but insufficient_information | `CONCL-UNSUPPORTED` (C06, or C08 for not_applicable) |
+| one reports a violation | insufficient_information | `CONCL-HIDES-VIOLATION` (C07) |
+| one reports a violation | no violation, not applicable or invalid contract | `CONCL-CONTRADICTION` (C07): an admissible violation is not overridden by other results |
+| they conflict: two different definite results (violation, no violation, not applicable), or an invalid contract next to a definite result | anything, except insufficient_information when none reports a violation | `CONCL-CONFLICT` (C13), citing every assessment; both records are kept |
+| the result is insufficient or invalid contract | a definite outcome | `CONCL-NOT-ESTABLISHED` (C06, or C08): a gap, not a contradiction |
+| the result differs on applicability | anything but insufficient_information | `CONCL-APPLICABILITY` (C08) |
+| the result is another definite outcome | anything but insufficient_information | `CONCL-CONTRADICTION` (C07) |
+| the result is the same outcome | the same outcome, or insufficient_information | none |
+
+Rows combine: when assessments conflict and one reports a violation, both the conflict row and the violation row apply. An insufficient_information assessment next to a definite one is a gap, not a conflict, so the definite one is used. An insufficient_information claim is never criticised just for being cautious. Conflicts, assessments that differ only by being insufficient, incomplete checker evidence and checker uncertainty are also listed in `unresolved_concerns`. `test_every_claim_against_every_checker_result` checks every claim against every single result and every pair of different results.
+
+Retrieval gaps only matter for a no-violation claim, and only if they are for that object, overlap the monitored interval and are not optional evidence (`velocity` and `task_instruction` are optional in the R1 configuration schema). A gap with a malformed interval counts. If an admitted checker assessment supports the no-violation claim, a relevant gap is a medium, non-blocking finding for human review, because a gap in the Drafter's package does not by itself invalidate the checker's result. Without that support it is blocking. Every gap, relevant or not, is listed in `unresolved_concerns`.
+
 ## Run it
 
 From the repository root. The Critic itself needs only the Python standard library (tested on Python 3.9, 3.10 and 3.13). Some tests use the team's own code and are skipped, with the reason shown, when it cannot run: the schema tests need `jsonschema`, the GSN validator comparison needs Python 3.10+, and re-running the R1 checker needs Python 3.10+ and `jsonschema>=4`.
@@ -90,7 +109,7 @@ All synthetic and marked `test_fixture: true`. Cases A to C use the three-object
 
 Reports are in `examples/`. `case_a…scripted_llm_demo.json` shows the LLM step with a **hand-written** reply (not a real model). It contains two valid findings plus one with an invented evidence ID and one with a made-up node, and the Critic rejects those two. Real model outputs will be added after the Hestia run.
 
-## Tests (50)
+## Tests (69)
 
 - the four cases produce exactly the expected findings, and Case C gets none
 - requests, graphs, records and reports validate against their JSON schemas
@@ -100,6 +119,9 @@ Reports are in `examples/`. `case_a…scripted_llm_demo.json` shows the LLM step
 - checker admission (audit I1): real checker output is admitted in a fixture; a self-asserted `validated_checker` label, a re-hashed result for the wrong requirement, task or interval, synthetic output in a non-fixture request, output not marked synthetic, an edited result or configuration, a run the checker refused, a configuration with other objects, surfaces, execution or interval boundaries, a wrong clock or checker version, object assessments with unknown, wrong-object or unadmitted evidence, broken consistency rules, wrong object, execution, requirement, surface or status, and duplicates are all refused and never produce a C07. Each of these checks was switched off in turn to confirm a test fails without it
 - the stored checker output is exactly what `runtime.assess` produces for its fixture (needs Python 3.10+ and `jsonschema>=4`, like the checker itself)
 - the copied checker constants (required fields, fixed values, enums, checker version) match `evaluation/r1_v4/assessment.schema.json`
+- conflicts and applicability (audit I2): the audit's probe (no-violation claims while one assessment reports a violation and another does not) is caught twice, as a contradiction and as a conflict; every row of the table above has a test, including insufficient and invalid-contract results giving C06/C08 rather than C07
+- gaps (audit I11): gaps for other objects, outside the monitored interval or for optional evidence give no finding but stay listed; a relevant gap is non-blocking under an admitted no-violation result and blocking without one
+- every conclusion finding and gap rule was switched off in turn to confirm a test fails without it
 - R1 aggregation precedence, checker contradiction (C07), an "insufficient information" claim that hides a checker violation (C07), unsupported non-applicability (C08), related-case misuse (C11), no-violation claims over retrieval gaps (C04)
 - LLM screening: invented IDs/nodes, malformed findings and duplicates rejected; a broken or empty model reply does not break the review; the HTTP client works against a local fake vLLM server
 - **never crashes on bad input:** broken requests and 600 randomly corrupted ones (200 of them inside the checker result) all come back as valid reports
