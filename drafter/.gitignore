@@ -1,0 +1,5 @@
+# Local server settings, runtime files and connection traces.
+config/*.local.json
+runs/
+.runtime/
+.env

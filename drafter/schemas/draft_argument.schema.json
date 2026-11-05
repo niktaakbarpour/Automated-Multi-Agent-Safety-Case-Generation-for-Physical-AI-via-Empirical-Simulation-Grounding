@@ -1,8 +1,8 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "urn:trustworthy:draft-argument:0.1.0",
-  "title": "Future DraftArgument output contract for the unresolved fixture profile",
-  "description": "Schema only: no Drafter generation is implemented by this foundation. Accepted means structurally accepted draft, never an accepted physical safety claim.",
+  "title": "DraftArgument output contract for the unresolved fixture profile",
+  "description": "Accepted means structurally accepted draft, never an accepted physical safety claim. The generation driver supplies the run identity and input bindings.",
   "type": "object",
   "additionalProperties": false,
   "required": ["schema_version", "request_id", "test_fixture", "request_sha256", "requirement_configuration_sha256", "evidence_package_sha256", "generation_status", "argument_bundle", "summary", "limitations", "diagnostics", "validation", "generation_provenance", "empirical_admission_enabled", "safety_claim_verified"],

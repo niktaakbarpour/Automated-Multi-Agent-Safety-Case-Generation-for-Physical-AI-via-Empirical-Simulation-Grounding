@@ -27,6 +27,7 @@ AUTHORITATIVE_SCHEMAS = {
     '../../requirements/r1_generalized_v2/R1_V2_CONFIG_SCHEMA.json': 'requirements/r1_generalized_v2/R1_V2_CONFIG_SCHEMA.json',
     '../../evaluation/r1_v4/evidence_registry_gsn/registry_record.schema.json': 'evaluation/r1_v4/evidence_registry_gsn/registry_record.schema.json',
     '../../evaluation/r1_v4/evidence_registry_gsn/gsn_graph.schema.json': 'evaluation/r1_v4/evidence_registry_gsn/gsn_graph.schema.json',
+    'draft_argument.schema.json': 'drafter/schemas/draft_argument.schema.json',
 }
 
 
@@ -40,41 +41,44 @@ def read_json(path):
     return strict_loads(Path(path).read_text(encoding='utf-8'))
 
 
-def schema_validator(name):
+def schema_validator(name, fragment=None):
     """Resolve only shipped schemas; never follow a request-supplied URL/path."""
     schema = read_json(HERE / 'schemas' / name)
-    registry = Registry()
-    replacements = {}
-    for relative, path in AUTHORITATIVE_SCHEMAS.items():
-        content = read_json(ROOT / path)
-        replacements[relative] = content['$id']
-        registry = registry.with_resource(content['$id'], Resource.from_contents(content))
+    resources = {relative: read_json(ROOT / path)
+                 for relative, path in AUTHORITATIVE_SCHEMAS.items()}
+    replacements = {relative: content['$id'] for relative, content in resources.items()}
 
     def bind(value):
         if isinstance(value, dict):
             result = {k: bind(v) for k, v in value.items()}
             ref = result.get('$ref')
             if ref and not ref.startswith('#'):
-                if ref not in replacements:
+                path, separator, pointer = ref.partition('#')
+                if path not in replacements:
                     raise ContractError(['unknown_schema_reference:' + ref])
-                result['$ref'] = replacements[ref]
+                result['$ref'] = replacements[path] + (separator + pointer if separator else '')
             return result
         if isinstance(value, list):
             return [bind(v) for v in value]
         return value
 
     bound = bind(schema)
+    registry = Registry()
+    for content in resources.values():
+        registry = registry.with_resource(content['$id'], Resource.from_contents(bind(content)))
+    registry = registry.with_resource(bound['$id'], Resource.from_contents(bound))
     Draft202012Validator.check_schema(bound)
-    return Draft202012Validator(bound, registry=registry)
+    selected = {'$ref': bound['$id'] + fragment} if fragment else bound
+    return Draft202012Validator(selected, registry=registry)
 
 
-def schema_issues(value, name):
+def schema_issues(value, name, fragment=None):
     try:
         canonical(value)
     except (ValueError, TypeError) as error:
         return ['invalid_json:' + str(error)]
     return sorted('schema:' + '/'.join(map(str, e.absolute_path)) + ':' + e.message
-                  for e in schema_validator(name).iter_errors(value))
+                  for e in schema_validator(name, fragment).iter_errors(value))
 
 
 def graph_eligible_ids(request):
@@ -231,7 +235,7 @@ def validate_request(request):
 
 
 def validate_argument(argument, request):
-    """Check a future result's contract; this neither generates nor critiques prose."""
+    """Check a result's contract; this neither generates nor critiques prose."""
     validate_request(request)
     issues = schema_issues(argument, 'draft_argument.schema.json')
     if issues:
@@ -248,7 +252,20 @@ def validate_argument(argument, request):
             raise ContractError(issues)
         return {'contract_status': 'valid_failure_contract', 'physical_sufficiency': 'not_evaluated',
                 'safety_claim_verified': False, 'model_called': False}
-    bundle, config = argument['argument_bundle'], request['requirement_configuration']
+    if issues:
+        raise ContractError(issues)
+    validate_argument_bundle(argument['argument_bundle'], request)
+    return {'contract_status': 'valid_output_contract', 'physical_sufficiency': 'not_evaluated',
+            'safety_claim_verified': False, 'model_called': False}
+
+
+def validate_argument_bundle(bundle, request):
+    """Shared graph checks for live drafts and explicitly labelled mock demos."""
+    validate_request(request)
+    issues = schema_issues(bundle, 'draft_argument.schema.json', '#/$defs/argument_bundle')
+    if issues:
+        raise ContractError(issues)
+    config = request['requirement_configuration']
     roster, scope = config['protected_objects'], request['monitoring_scope']
     if bundle['execution_id'] != request['target_execution']['execution_id'] or bundle['protected_objects'] != roster:
         issues.append('argument_execution_or_roster_mismatch')
@@ -290,5 +307,5 @@ def validate_argument(argument, request):
             issues.append('graph:' + object_id + ':' + str(error))
     if issues:
         raise ContractError(sorted(set(issues)))
-    return {'contract_status': 'valid_output_contract', 'physical_sufficiency': 'not_evaluated',
+    return {'contract_status': 'valid_argument_bundle', 'physical_sufficiency': 'not_evaluated',
             'safety_claim_verified': False, 'model_called': False}

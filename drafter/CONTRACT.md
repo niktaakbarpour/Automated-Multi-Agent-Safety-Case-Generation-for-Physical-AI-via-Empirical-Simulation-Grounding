@@ -1,8 +1,11 @@
 # Drafter foundation contract 0.1.0
 
-This foundation defines an example input and the future output interface. It does
-not call an LLM, generate an argument, run physical checking, or provide a complete
-Phase 5 consumer adapter. The example is a software contract fixture containing an
+These contracts define an example input and the argument output interface.
+Their standalone validators perform no inference or physical checking. Step-3 model
+connection commands can discover a configured model and run a fixed JSON probe;
+they neither send project evidence nor generate an argument. Step 4 provides an
+explicit generation command for this unresolved fixture profile. A complete Phase 5
+consumer adapter remains future work. The example is a software contract fixture containing an
 unchanged archived development registry export. The exported observations retain
 their original provenance; the fixture label does not turn them into synthetic
 measurements or newly verified source values.
@@ -94,10 +97,11 @@ That result never upgrades `illustrative_unvalidated`, establishes load-bearing
 support, calibrates falls, authenticates unavailable producer binaries, or certifies
 the execution.
 
-## Future output: DraftArgument
+## Output: DraftArgument
 
-`schemas/draft_argument.schema.json` defines a future output only. No generated
-DraftArgument is delivered by this foundation.
+`schemas/draft_argument.schema.json` defines the final output envelope. The generation
+driver is implemented, but a live run of the selected Qwen3-32B model is pending
+deployment access. Offline scripted replies are not executed model results.
 
 The interface validator `validate_argument(argument, request)` checks a supplied
 result against its validated input and the original graph/record contracts. These
@@ -131,7 +135,33 @@ accepted empty draft.
 - Accepted output requires actual local-LLM run identity, model ID, prompt version
   and digest, and raw-output digest. A missing model revision remains null instead
   of being invented. Rejected/failed results may identify a backend as `not_run`.
-  No such generation trace is fabricated in this foundation.
+  The driver builds this trace from the actual response, never from model-written
+  fields. Offline scripted test identities remain explicitly test-only.
+
+### Model plan and generation boundary
+
+The model returns `graph_plan.schema.json`: graph node IDs/types/statements,
+physical-claim flags, selected evidence IDs, edges, a root per object, summary and
+limitations. This compact plan is an intermediate representation, not the final
+shared GSN. The serializer `graph-plan-to-gsn/0.1.0` attaches authoritative input
+bindings, scope, provenance and status, then validates the final DraftArgument.
+The model chooses the graph structure; the serializer does not add missing nodes,
+citations or edges, change evidence IDs, or repair invalid output.
+
+Each object graph requires a physical root goal, a strategy with a subclaim,
+context, a connected graph and an eligible solution wherever metadata exists.
+Node IDs are object-prefixed and globally unique. Solutions use exact
+availability-only statements supplied in the catalogue; their original registry
+records are retained in provenance, including capabilities and limitations.
+Other statements remain proposed reasoning for review. All goals/unresolved
+claims are physical and unresolved in this deliberately restricted profile.
+
+The run report retains the exact messages, prompt/schema/serializer versions,
+original response and compact plan, settings, hashes and validation diagnostics.
+It distinguishes no completion attempt, an ambiguous transport failure and an
+actual received response. Structural acceptance does not verify proposed prose
+or qualify physical evidence. Missing deployment is a failure, not a reason to
+silently switch models or fabricate a successful graph.
 
 The execution wrapper follows the current Critic's graph/object structure. A future
 adapter must supply its surrounding request fields from the same original package.
@@ -158,3 +188,35 @@ Retrieval completeness is relative to mandatory explicit obligations. It does no
 establish R1 satisfaction. Current source integrity is distinct from historical
 producer attestation, and available measurements are distinct from admitted
 physical events. All these boundaries remain unchanged.
+
+## Explicit deployment-blocked mock
+
+`--mock-demo` runs `mock_demo.run_mock_demo(request)` without a model configuration
+or any network access. It validates the original request, builds a deterministic
+graph plan and passes the compiled bundle through the same shared GSN schema and
+actual graph/scope/reference checks used for live output. No source evidence is
+changed, and no physical outcome is promoted. This is the handoff's documented
+fallback for the currently unavailable selected model endpoint.
+
+The mock uses a distinct `drafter-mock-demo/0.1.0` envelope and
+`drafter-mock-run/0.1.0` run report. `generation_status` is `mock_demonstration`,
+never `accepted`; `model_called` and `live_model_result` are false. Model identity
+and prompt hash are null. The envelope includes the exact input bindings,
+deterministic plan and its hash, generator version and source hash, serializer
+version, shared `argument_bundle`, explanation, limitations and check results.
+`validate_mock_demo` checks those bindings and reproducibility before accepting
+the demonstration. Live `validate_argument` continues to reject mock envelopes
+and requires real-run provenance for accepted live drafts.
+
+Reasoning nodes use the existing `unresolved_conclusion` origin and explicit
+`deterministic_mock` provenance; no node is falsely attributed to an executed
+model. Solution nodes retain their original observation origin, measurement
+status and complete record metadata. Stable graphs contain all configured objects,
+initial-support/fall subclaims, context, missing intervals and eligible citations.
+Every physical claim and object/execution outcome remains unresolved.
+
+The mock demonstrates the interface and its checks, not model performance,
+completed Critic integration or verified robot safety. Mock success is reported
+separately from live generation; no automatic fallback or fake model response is
+used. Its source hash binds the current generator implementation, so reproduction
+uses the same code version and input package.
