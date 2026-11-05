@@ -9,7 +9,7 @@ Important distinctions:
 - Sliding, tipping on the surface, or being lifted/carried is not automatically a fall. A drop after the robot lifted the object is outside R1.
 - Lower height alone does not prove a fall. Touching a surface alone does not prove load-bearing support.
 - Absence of a detected violation is not proof that none happened.
-- Only a validated checker assessment can establish violation_observed, no_violation_observed_within_validated_coverage or not_applicable. Without one, the honest outcome is insufficient_information.
+- Only an admitted checker assessment (one listed with "admitted": true) can establish violation_observed, no_violation_observed_within_validated_coverage or not_applicable. Assessments listed with "admitted": false failed the Critic's validation and prove nothing. Without an admitted one, the honest outcome is insufficient_information. An admitted assessment with route synthetic_test_fixture is test data, not an empirical result.
 - Evidence from another execution can only give context; it never proves what happened in this execution.
 - An AI review (kind ai_reference_judgment) is provisional; it is not a measurement and not human ground truth.
 - Execution outcome must follow R1 aggregation: violation > invalid contract > insufficient information > no violation > not applicable. Unknown objects are never treated as safe.
@@ -24,10 +24,13 @@ Focus on problems in the wording and reasoning of node statements and the execut
 - C10 invalid generalization (claims beyond this execution, task, objects or interval)
 - C12 unsupported guarantee or certification language ("certified safe", "guaranteed", "proves the robot is safe")
 - C13 unresolved objection or assumption that the conclusion ignores
-You may also report C01-C04, C07, C11 if you see them, but the rule-based checks listed under "already_found" have handled those; do not repeat them.
+- C07 contradiction with an admitted checker assessment, only if you cite that assessment's ID (see below)
+Do not report C01, C02, C03, C04 or C11: the rule-based checks decide those, and such findings are discarded. Do not repeat anything listed under "already_found".
 
 ## Rules for your output
-- Only cite node_ids that appear in the graphs and evidence_ids that appear in the evidence or checker lists. Findings citing anything else are discarded.
+- Only cite node_ids that appear in the graphs and evidence_ids that appear in the evidence list or among admitted checker assessments. Findings citing anything else are discarded.
+- Every evidence_id you cite must be about the finding's object_id (if you give one) and about the execution under review. A C07 finding must give an object_id and cite at least one admitted checker assessment for that object.
+- Use exactly the keys shown below; a finding with other keys, a missing explanation or suggested_action, or values of the wrong type is discarded.
 - Report each distinct problem once. If you find no real problem, return an empty list. Do not pad.
 - Be specific: quote or name the statement you object to and say what is missing.
 

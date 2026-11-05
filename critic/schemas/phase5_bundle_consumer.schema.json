@@ -1,0 +1,161 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:trustworthy:critic:phase5-bundle-consumer:1.0.0",
+  "title": "Phase 5 evidence bundle, as the Critic reads it",
+  "description": "The structure of a phase5-structured-1.0.0 bundle as final_phase5_release/api.py builds it (StructuredRetriever.response and retrieve). EVIDENCE_BUNDLE_SCHEMA.json fixes only the top level; this schema adds the parts the Critic relies on. Extra fields are allowed and kept, because the request carries the bundle unchanged.",
+  "type": "object",
+  "required": ["schema_version", "route", "query_id", "resolved_scope", "requested_obligations", "groups", "missing_obligations", "completeness_status", "reason", "independent_validation", "assurance_status", "conditional_assumptions", "limitations", "safety_claim_sufficiency", "safety_claim_verified", "empirical_admission_enabled"],
+  "properties": {
+    "query_id": {"type": "string", "pattern": "^query:[0-9a-f]{64}$"},
+    "resolved_scope": {
+      "type": "object",
+      "required": ["execution_id", "task_id", "variant_id"],
+      "properties": {
+        "execution_id": {"type": ["string", "null"]},
+        "task_id": {"type": ["string", "null"]},
+        "variant_id": {"type": ["string", "null"]}
+      }
+    },
+    "requested_obligations": {"type": "array"},
+    "groups": {"type": "array", "items": {"$ref": "#/$defs/group"}},
+    "missing_obligations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["obligation_id", "mandatory", "status", "reason"],
+        "properties": {
+          "obligation_id": {"type": "string"},
+          "mandatory": {"type": "boolean"},
+          "status": {"type": "string"},
+          "reason": {"type": "string"}
+        }
+      }
+    },
+    "reason": {"type": "string"},
+    "independent_validation": {
+      "type": "object",
+      "required": ["passed"],
+      "properties": {"passed": {"type": "boolean"}},
+      "if": {
+        "properties": {"passed": {"const": true}}
+      },
+      "then": {
+        "required": ["errors", "obligations", "mandatory_fulfilled"],
+        "properties": {
+          "errors": {"type": "array"},
+          "mandatory_fulfilled": {"type": "boolean"},
+          "obligations": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["obligation_id", "mandatory", "satisfied"],
+              "properties": {
+                "obligation_id": {"type": "string"},
+                "mandatory": {"type": "boolean"},
+                "satisfied": {"type": "boolean"}
+              }
+            }
+          }
+        }
+      }
+    },
+    "assurance_status": {
+      "type": "object",
+      "required": ["requested", "satisfied", "verification_mode", "returned_values_verified", "historical_runtime_attested", "provenance"],
+      "properties": {
+        "satisfied": {"type": "boolean"},
+        "verification_mode": {"enum": ["strict", "verified_session"]},
+        "returned_values_verified": {"type": "boolean"},
+        "historical_runtime_attested": {"const": false}
+      }
+    },
+    "conditional_assumptions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["obligation_id", "properties"],
+        "properties": {
+          "obligation_id": {"type": "string"},
+          "properties": {"type": "array", "items": {"type": "string"}}
+        }
+      }
+    },
+    "limitations": {"type": "array", "items": {"type": "string"}}
+  },
+  "$defs": {
+    "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "group": {
+      "type": "object",
+      "required": ["obligation_id", "mandatory", "family", "request_digest", "status", "items", "coverage", "reason"],
+      "properties": {
+        "obligation_id": {"type": "string"},
+        "mandatory": {"type": "boolean"},
+        "family": {"type": "string"},
+        "request_digest": {"$ref": "#/$defs/sha256"},
+        "status": {"enum": ["AVAILABLE", "PARTIAL", "UNAVAILABLE", "UNSUPPORTED", "INVALID SCOPE", "UNVERIFIED PLAN"]},
+        "items": {"type": "array", "items": {"$ref": "#/$defs/item"}},
+        "coverage": {"type": "object"},
+        "reason": {"type": "string"},
+        "requested_interpretation": {"enum": ["recorded", "verified_physical", "conditional"]},
+        "conditional_assumptions": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "item": {
+      "type": "object",
+      "required": ["id", "family", "original_evidence_ids", "execution_id", "task_id", "variant_id", "source_artifact", "integrity_status", "origin", "synchronized_physical_instant", "citation_id", "citation_basis"],
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "family": {"type": "string"},
+        "original_evidence_ids": {"type": "array", "items": {"type": "string"}},
+        "execution_id": {"type": "string"},
+        "task_id": {"type": "string"},
+        "variant_id": {"type": "string"},
+        "source_artifact": {
+          "type": "object",
+          "required": ["path", "sha256", "selector"],
+          "properties": {
+            "path": {"type": "string"},
+            "sha256": {"$ref": "#/$defs/sha256"},
+            "selector": {"type": "string"}
+          }
+        },
+        "samples": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["saved_frame_index", "source_selector"],
+            "properties": {
+              "saved_frame_index": {"type": "integer", "minimum": 0},
+              "source_selector": {"type": "string"}
+            }
+          }
+        },
+        "integrity_status": {"type": "string"},
+        "origin": {"type": "string"},
+        "synchronized_physical_instant": {"const": false},
+        "citation_id": {"type": "string", "pattern": "^evidence-citation:[0-9a-f]{64}$"},
+        "citation_basis": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["citation_version", "database_sha256", "record_id", "source_sha256", "execution_id", "task_id", "variant_id", "selectors", "component", "units", "interpretation", "required_properties"],
+          "properties": {
+            "citation_version": {"type": "string"},
+            "database_sha256": {"$ref": "#/$defs/sha256"},
+            "record_id": {"type": "string"},
+            "source_sha256": {"$ref": "#/$defs/sha256"},
+            "execution_id": {"type": "string"},
+            "task_id": {"type": "string"},
+            "variant_id": {"type": "string"},
+            "selectors": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+            "component": {"type": ["string", "null"]},
+            "units": {"type": ["string", "null"]},
+            "interpretation": {"enum": ["recorded", "verified_physical", "conditional"]},
+            "required_properties": {"type": "array", "items": {"type": "string"}}
+          }
+        }
+      }
+    }
+  }
+}

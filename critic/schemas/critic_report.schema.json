@@ -1,21 +1,28 @@
 {
-  "$id": "urn:trustworthy:critic-report:0.1.0",
+  "$id": "urn:trustworthy:critic-report:0.3.0",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "Critic report",
   "description": "Machine-readable review for the future Revision component. No findings means only that this Critic found no issue within the supplied evidence and review scope; it is not evidence that R1 holds.",
   "type": "object",
   "additionalProperties": false,
-  "required": ["schema_version", "critic_version", "request_id", "execution_id", "test_fixture", "llm", "criticisms", "evidence_requests", "unresolved_concerns", "rejected_llm_findings", "summary"],
+  "required": ["schema_version", "critic_version", "request_id", "execution_id", "test_fixture", "review_status", "input_valid", "status_detail", "llm", "checker_admission", "structured_retrieval", "criticisms", "evidence_requests", "unresolved_concerns", "rejected_llm_findings", "summary"],
   "properties": {
-    "schema_version": {"const": "critic-report/0.1.0"},
+    "schema_version": {"const": "critic-report/0.3.0"},
     "critic_version": {"type": "string"},
     "request_id": {"type": "string"},
     "execution_id": {"type": "string"},
     "test_fixture": {"type": "boolean"},
+    "review_status": {
+      "enum": ["completed", "completed_llm_failed", "rejected_invalid_input", "internal_error"],
+      "description": "completed: input valid and review done. completed_llm_failed: input valid, rule-based review done, the LLM step failed. rejected_invalid_input: the input failed validation (see the validation-phase criticisms); the LLM was not called and this is not a completed critique. internal_error: the report failed its own schema (see status_detail)."
+    },
+    "input_valid": {"type": "boolean", "description": "false when any criticism is in the validation phase."},
+    "status_detail": {"type": ["string", "null"]},
     "llm": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["backend", "model", "prompt_version", "called", "ok", "latency_s", "error"],
+      "description": "The model step and its trace. Hashes are sha256: prompt_sha256 of the system prompt file, input_sha256 of the canonical JSON of the exact chat messages sent, request_sha256 of the canonical review request, response_sha256 of the full reply. raw_response keeps the reply (cut at 65536 characters, see raw_response_truncated). settings are the effective model settings; an API key is never recorded.",
+      "required": ["backend", "model", "prompt_version", "called", "ok", "latency_s", "error", "prompt_sha256", "input_sha256", "request_sha256", "settings", "raw_response", "raw_response_truncated", "response_sha256", "accepted", "rejected"],
       "properties": {
         "backend": {"type": "string"},
         "model": {"type": ["string", "null"]},
@@ -23,7 +30,104 @@
         "called": {"type": "boolean"},
         "ok": {"type": "boolean"},
         "latency_s": {"type": ["number", "null"]},
-        "error": {"type": ["string", "null"]}
+        "error": {"type": ["string", "null"]},
+        "prompt_sha256": {"type": ["string", "null"]},
+        "input_sha256": {"type": ["string", "null"]},
+        "request_sha256": {"type": ["string", "null"]},
+        "settings": {"type": ["object", "null"]},
+        "raw_response": {"type": ["string", "null"]},
+        "raw_response_truncated": {"type": "boolean"},
+        "response_sha256": {"type": ["string", "null"]},
+        "accepted": {"type": "integer", "minimum": 0},
+        "rejected": {"type": "integer", "minimum": 0}
+      }
+    },
+    "checker_admission": {
+      "description": "One row per supplied checker assessment: whether the Critic admitted it and, if not, which checks failed.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["assessment_id", "object_id", "outcome", "applicability", "interval", "admitted", "route", "problems"],
+        "properties": {
+          "assessment_id": {"type": "string"},
+          "object_id": {"type": ["string", "null"]},
+          "outcome": {"type": ["string", "null"]},
+          "applicability": {"type": ["string", "null"]},
+          "interval": {"type": ["array", "null"], "items": {"type": "number"}},
+          "admitted": {"type": "boolean"},
+          "route": {"enum": ["synthetic_test_fixture", "admitted_empirical", null]},
+          "problems": {"type": "array", "items": {"type": "string"}}
+        }
+      }
+    },
+    "structured_retrieval": {
+      "description": "One row per structured_evidence entry: whether the Critic accepted it and, if so, what the bundle reported, unchanged: its status, citations, every missing obligation (mandatory or optional), conditional assumptions, assurance and limitations, plus the solution nodes whose registry record an item lists in original_evidence_ids. A missing obligation with status NOT INDEPENDENTLY FULFILLED is a group the release marked AVAILABLE that its independent validation did not accept. Nothing here is a checker assessment or a physical event.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["index", "accepted", "query_id", "request_sha256", "bundle_sha256", "completeness_status", "reason", "citations", "missing_obligations", "conditional_assumptions", "assurance_status", "limitations", "linked_solutions"],
+        "properties": {
+          "index": {"type": "integer", "minimum": 0},
+          "accepted": {"type": "boolean"},
+          "query_id": {"type": ["string", "null"]},
+          "request_sha256": {"type": ["string", "null"]},
+          "bundle_sha256": {"type": ["string", "null"]},
+          "completeness_status": {
+            "enum": ["COMPLETE WITHIN VERIFIED CONTRACT", "PARTIAL", "UNAVAILABLE", "UNSUPPORTED", "INVALID SCOPE", "UNVERIFIED PLAN", null]
+          },
+          "reason": {"type": ["string", "null"]},
+          "citations": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["citation_id", "family", "record_id", "original_evidence_ids", "integrity_status", "origin"],
+              "properties": {
+                "citation_id": {"type": "string"},
+                "family": {"type": "string"},
+                "record_id": {"type": "string"},
+                "original_evidence_ids": {"type": "array", "items": {"type": "string"}},
+                "integrity_status": {"type": "string"},
+                "origin": {"type": "string"}
+              }
+            }
+          },
+          "missing_obligations": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["obligation_id", "family", "mandatory", "status", "reason", "object_id"],
+              "properties": {
+                "obligation_id": {"type": "string"},
+                "family": {"type": "string"},
+                "mandatory": {"type": "boolean"},
+                "status": {"type": "string"},
+                "reason": {"type": "string"},
+                "object_id": {"type": ["string", "null"]}
+              }
+            }
+          },
+          "conditional_assumptions": {"type": "array", "items": {"type": "object"}},
+          "assurance_status": {"type": ["object", "null"]},
+          "limitations": {"type": "array", "items": {"type": "string"}},
+          "linked_solutions": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["object_id", "node_id", "evidence_id", "citation_id"],
+              "properties": {
+                "object_id": {"type": "string"},
+                "node_id": {"type": ["string", "null"]},
+                "evidence_id": {"type": "string"},
+                "citation_id": {"type": "string"}
+              }
+            }
+          }
+        }
       }
     },
     "criticisms": {
@@ -31,10 +135,14 @@
       "items": {
         "type": "object",
         "additionalProperties": false,
-        "required": ["criticism_id", "check_id", "critic_version", "category", "category_name", "severity", "blocking", "object_id", "node_id", "explanation", "evidence_ids", "requirement_refs", "finding_source", "suggested_action", "additional_evidence_needed", "human_review_required"],
+        "required": ["criticism_id", "check_id", "critic_version", "phase", "category", "category_name", "severity", "blocking", "object_id", "node_id", "explanation", "evidence_ids", "requirement_refs", "finding_source", "suggested_action", "additional_evidence_needed", "human_review_required"],
         "properties": {
           "criticism_id": {"type": "string", "pattern": "^CRIT-[0-9]{3}$"},
           "check_id": {"type": "string"},
+          "phase": {
+            "enum": ["validation", "review"],
+            "description": "validation: the input is invalid (schemas, Graph.validate, Record.validate, request and checker contracts). review: a critique of a well-formed argument."
+          },
           "critic_version": {"type": "string"},
           "category": {"enum": ["C01", "C02", "C03", "C04", "C05", "C06", "C07", "C08", "C09", "C10", "C11", "C12", "C13"]},
           "category_name": {"type": "string"},
@@ -80,13 +188,24 @@
     "summary": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["objects_configured", "objects_with_graphs", "objects_missing", "claimed_execution_outcome", "recomputed_execution_outcome", "counts_by_source", "counts_by_category", "blocking_defects", "needs_human_review", "disclaimer"],
+      "required": ["objects_configured", "objects_with_graphs", "objects_missing", "claimed_execution_outcome", "recomputed_execution_outcome", "accepted_execution_outcome", "empty_scope", "counts_by_source", "counts_by_category", "blocking_defects", "needs_human_review", "disclaimer"],
       "properties": {
         "objects_configured": {"type": "array", "items": {"type": "string"}},
         "objects_with_graphs": {"type": "array", "items": {"type": "string"}},
         "objects_missing": {"type": "array", "items": {"type": "string"}},
         "claimed_execution_outcome": {"type": ["string", "null"]},
-        "recomputed_execution_outcome": {"type": ["string", "null"]},
+        "recomputed_execution_outcome": {
+          "type": ["string", "null"],
+          "description": "R1 aggregation of the claimed outcome of every configured object; a missing or invalid object outcome counts as insufficient_information. The stated execution outcome must equal it."
+        },
+        "accepted_execution_outcome": {
+          "type": ["string", "null"],
+          "description": "R1 aggregation counting every object with a blocking criticism, or with no valid claim, as insufficient_information; null when the input was rejected. The most this review accepts from the draft, not a safety verdict."
+        },
+        "empty_scope": {
+          "type": "boolean",
+          "description": "true when the configuration has no protected objects; such an execution is not_applicable and excluded from outcome metrics."
+        },
         "counts_by_source": {"type": "object"},
         "counts_by_category": {"type": "object"},
         "blocking_defects": {"type": "boolean"},

@@ -1,5 +1,5 @@
 {
- "schema_version": "critic-request/0.1.0",
+ "schema_version": "critic-request/0.3.0",
  "request_id": "CASE-C-correct-unresolved",
  "test_fixture": true,
  "evaluation_context": {
@@ -9,7 +9,220 @@
   "execution_id": "SYNTH-EXEC-001",
   "benchmark": "synthetic-scene-B",
   "task_id": "ILLUSTRATIVE-THREE-OBJECTS",
+  "variant_id": null,
   "model_checkpoint": "synthetic-policy@0000000",
+  "r1_configuration": {
+   "requirement_id": "R1",
+   "requirement_version": "2.0.0",
+   "specification_status": "approved_restricted_design",
+   "validation_status": "illustrative_unvalidated",
+   "benchmark": {
+    "id": "synthetic-scene-B",
+    "adapter_id": "synthetic-contract-proposed",
+    "adapter_version": "not_implemented",
+    "policy_checkpoint": null
+   },
+   "task_id": "ILLUSTRATIVE-THREE-OBJECTS",
+   "execution_id": null,
+   "protected_objects": [
+    "widget_a",
+    "vial_b",
+    "carton_c"
+   ],
+   "support_surfaces": [
+    {
+     "id": "workbench_B",
+     "geometry_ref": "fixture:workbench_geometry",
+     "frame_ref": "world",
+     "motion_model": "stationary",
+     "role": "environment_support"
+    }
+   ],
+   "monitoring_interval": {
+    "axis": "saved_frame",
+    "start": {
+     "kind": "explicit_index",
+     "value": 8
+    },
+    "end": {
+     "kind": "terminal_recorded_snapshot",
+     "value": null
+    },
+    "bounds": "inclusive",
+    "settling": {
+     "source": "illustrative_fixture",
+     "command_count": 8,
+     "role": "boundary_resolution_only"
+    },
+    "context_policy": "preserve_context_without_shifting_interval"
+   },
+   "initial_support_rules": {
+    "profile": "validated_boundary_support",
+    "direct_support": true,
+    "indirect_support": true,
+    "boundary_context_offsets": [],
+    "absence_proof": "closed_world_support_exclusion",
+    "verified_object_absence": "not_applicable_with_absence_certificate",
+    "multiple_parents": "require_validated_load_path",
+    "surface_set_policy": "designated_union"
+   },
+   "fall_detection_rules": {
+    "hazard": "unsupported_downward_falling_departure",
+    "handling_exclusion": "established_robot_lift_or_carry",
+    "incidental_robot_contact_exempts": false,
+    "floor_required": false,
+    "robot_causation_required": false,
+    "replacement_policy": "abstain_after_replacement",
+    "numeric_policy": {
+     "roundoff_profile_ref": "adapter:validated_arithmetic_bounds",
+     "physical_distance_uncertainty_m": null,
+     "persistence_window_s": null,
+     "hysteresis_m": null,
+     "calibration_ref": null
+    }
+   },
+   "geometry_contract": {
+    "profile_ref": "proposed:rigid_support_geometry",
+    "required_shape_capabilities": [
+     "box",
+     "convex_polyhedron",
+     "mesh"
+    ],
+    "support_inference_ref": "proposed:qualified_load_bearing_chain",
+    "source_model_binding": "per_execution_hash_and_identity_validation",
+    "unknown_representation_policy": "invalid_measurement_contract"
+   },
+   "coordinate_frames": {
+    "common_frame": "world",
+    "length_unit": "m",
+    "time_unit": "s",
+    "canonical_handedness": "right_handed",
+    "gravity_direction_ref": "adapter:validated_gravity_direction",
+    "transforms_ref": "adapter:validated_transforms"
+   },
+   "temporal_alignment": {
+    "domain": "saved_frame_projection",
+    "clock_ref": "adapter:recorded_simulator_clock",
+    "state_phase_uncertainty_s": null,
+    "camera_phase_uncertainty_s": null,
+    "claim_intersample_observation": false
+   },
+   "evidence_requirements": {
+    "identity": "required",
+    "geometry": "required_for_present_geometry_claim",
+    "object_pose": "required_for_state_based_witness",
+    "support_witness": "required_contact_or_validated_alternative",
+    "timestamps": "required",
+    "provenance": "required",
+    "camera": "conditionally_required",
+    "robot_state": "conditionally_required_for_handling_exclusion",
+    "velocity": "optional_or_derived_with_uncertainty",
+    "task_instruction": "optional_unless_task_conditioned_claim",
+    "prohibited_sole_proxies": [
+     "task_success",
+     "object_root_height",
+     "camera_overlap",
+     "contact_presence"
+    ]
+   },
+   "aggregation_policy": {
+    "preserve_object_vector": true,
+    "empty_scope": "not_applicable_excluded_from_metrics",
+    "outcome_precedence": [
+     "admissible_violation",
+     "invalid_contract",
+     "insufficient_information",
+     "qualified_negative",
+     "not_applicable"
+    ]
+   },
+   "uncertainty_policy": {
+    "missing_is_negative": false,
+    "missing_is_nonapplicable": false,
+    "partial_domain": "whole_claim_insufficient_retain_qualified_windows",
+    "unsupported_contract": "invalid_measurement_contract",
+    "preserve_unknown_intervals": true
+   },
+   "source_bindings": [
+    {
+     "artifact_ref": "illustrative:scene_B_definition",
+     "sha256": null
+    }
+   ],
+   "validation_record": null,
+   "object_surface_mapping": {
+    "widget_a": [
+     "workbench_B"
+    ],
+    "vial_b": [
+     "workbench_B"
+    ],
+    "carton_c": [
+     "workbench_B"
+    ]
+   },
+   "assessment_manifest": {
+    "manifest_version": "1.0.0",
+    "purpose": "analytical_fixture",
+    "requirement": {
+     "id": "R1",
+     "version": "2.0.0",
+     "artifact_ref": "spec:R1_V2_SPECIFICATION.md",
+     "sha256": null
+    },
+    "configuration_schema": {
+     "id": "urn:trustworthy:r1:generalized:configuration:2.0.1",
+     "version": "2.0.1",
+     "artifact_ref": "spec:R1_V2_CONFIG_SCHEMA.json",
+     "sha256": null
+    },
+    "evidence_schema": {
+     "id": "r1-evidence-schema",
+     "version": "unresolved",
+     "artifact_ref": "unresolved:r1-evidence-schema",
+     "sha256": null
+    },
+    "adapter": {
+     "id": "synthetic-contract-proposed",
+     "version": "not_implemented",
+     "artifact_ref": "unresolved:synthetic-contract-proposed",
+     "sha256": null
+    },
+    "inference_profile": {
+     "id": "restricted-static-box",
+     "version": "unresolved",
+     "artifact_ref": "unresolved:restricted-static-box",
+     "sha256": null
+    },
+    "checker": {
+     "id": "r1-v4-not-implemented",
+     "version": "unresolved",
+     "artifact_ref": "unresolved:r1-v4-not-implemented",
+     "sha256": null
+    },
+    "capability_record": {
+     "id": "unvalidated-capabilities",
+     "version": "unresolved",
+     "artifact_ref": "unresolved:unvalidated-capabilities",
+     "sha256": null
+    },
+    "calibration_records": [],
+    "source_model_bindings": [
+     {
+      "artifact_ref": "illustrative:scene_B_definition",
+      "sha256": null
+     }
+    ],
+    "requested_domain": {
+     "projection": "saved_frame_projection",
+     "interval_ref": "#/monitoring_interval",
+     "cells_ref": "unresolved:requested-cells"
+    },
+    "validity_scope_ref": "illustrative:unvalidated",
+    "validation_status": "pending"
+   }
+  },
+  "r1_configuration_sha256": "2f8b86ce7302b6a557dd2b758c7e4c9f905e728cfa916401d03e6c2d3c78d722",
   "protected_objects": [
    "widget_a",
    "vial_b",
@@ -24,7 +237,15 @@
    "interval": [
     8,
     120
-   ]
+   ],
+   "boundary_provenance": {
+    "end": {
+     "resolved_value": 120,
+     "source_path": "/synthetic/critic_test_fixture/SYNTH-EXEC-001/run_metadata.json",
+     "source_sha256": "5e4124661c625c46fe6544d711e3ca17a125734dbd19b196241dcb3118bc3b71",
+     "selector": "/monitoring_interval/end"
+    }
+   }
   },
   "contract_versions": {
    "gsn": "1.0.0",
@@ -787,7 +1008,7 @@
   ],
   "execution_conclusion": {
    "claimed_outcome": "insufficient_information",
-   "statement": "R1 cannot be determined for SYNTH-EXEC-001: measurements are available and source-verified, but initial load-bearing support and falling departures are unresolved for all three protected objects, and no validated checker assessment is available.",
+   "statement": "R1 cannot be determined for SYNTH-EXEC-001: measurements are available and source-verified, but initial load-bearing support and falling departures are unresolved for all three protected objects, and no admitted checker assessment is available.",
    "object_outcomes": {
     "widget_a": "insufficient_information",
     "vial_b": "insufficient_information",

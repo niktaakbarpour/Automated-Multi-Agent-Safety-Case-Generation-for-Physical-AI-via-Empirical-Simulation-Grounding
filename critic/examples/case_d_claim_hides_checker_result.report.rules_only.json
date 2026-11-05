@@ -1,0 +1,130 @@
+{
+  "schema_version": "critic-report/0.3.0",
+  "critic_version": "0.3.0",
+  "request_id": "CASE-D-claim-hides-checker-result",
+  "execution_id": "synthetic-execution",
+  "test_fixture": true,
+  "review_status": "completed",
+  "input_valid": true,
+  "status_detail": null,
+  "llm": {
+    "backend": "none",
+    "model": null,
+    "prompt_version": "critic-prompt/v3",
+    "called": false,
+    "ok": true,
+    "latency_s": null,
+    "error": null,
+    "prompt_sha256": null,
+    "input_sha256": null,
+    "request_sha256": null,
+    "settings": null,
+    "raw_response": null,
+    "raw_response_truncated": false,
+    "response_sha256": null,
+    "accepted": 0,
+    "rejected": 0
+  },
+  "checker_admission": [
+    {
+      "assessment_id": "ca:f9865d3b96a84f461592938d4984f8a23a453980d8c06a2d7ab75f929f4614b3:object_00",
+      "object_id": "object_00",
+      "outcome": "violation_observed",
+      "applicability": "applicable",
+      "interval": [
+        0,
+        2
+      ],
+      "admitted": true,
+      "route": "synthetic_test_fixture",
+      "problems": []
+    },
+    {
+      "assessment_id": "ca:f9865d3b96a84f461592938d4984f8a23a453980d8c06a2d7ab75f929f4614b3:object_01",
+      "object_id": "object_01",
+      "outcome": "no_violation_observed_within_validated_coverage",
+      "applicability": "applicable",
+      "interval": [
+        0,
+        2
+      ],
+      "admitted": true,
+      "route": "synthetic_test_fixture",
+      "problems": []
+    },
+    {
+      "assessment_id": "ca:f9865d3b96a84f461592938d4984f8a23a453980d8c06a2d7ab75f929f4614b3:object_02",
+      "object_id": "object_02",
+      "outcome": "not_applicable",
+      "applicability": "not_applicable",
+      "interval": [
+        0,
+        2
+      ],
+      "admitted": true,
+      "route": "synthetic_test_fixture",
+      "problems": []
+    }
+  ],
+  "structured_retrieval": [],
+  "criticisms": [
+    {
+      "criticism_id": "CRIT-001",
+      "critic_version": "0.3.0",
+      "check_id": "CONCL-HIDES-VIOLATION",
+      "phase": "review",
+      "category": "C07",
+      "category_name": "Contradiction with validated evidence",
+      "severity": "high",
+      "blocking": true,
+      "object_id": "object_00",
+      "node_id": "G1",
+      "explanation": "The draft reports insufficient_information for object_00, but an admitted synthetic (test-fixture) checker assessment for the same object and execution reports violation_observed.",
+      "evidence_ids": [
+        "ca:f9865d3b96a84f461592938d4984f8a23a453980d8c06a2d7ab75f929f4614b3:object_00"
+      ],
+      "requirement_refs": [
+        "requirements/r1_generalized_v2/FORMAL_SEMANTICS.md#coverage-and-object-outcome"
+      ],
+      "finding_source": "deterministic",
+      "suggested_action": "Report the violation the assessment shows, or record why the assessment is not admissible as an explicit defeater.",
+      "additional_evidence_needed": false,
+      "human_review_required": true
+    }
+  ],
+  "evidence_requests": [],
+  "unresolved_concerns": [
+    "Admitted checker assessments are synthetic test-fixture outputs, not validated empirical results.",
+    "The admitted checker assessment ca:f9865d3b96a84f461592938d4984f8a23a453980d8c06a2d7ab75f929f4614b3:object_00 (object_00, violation_observed) reports its evidence is incomplete (complete: false).",
+    "This request contains synthetic test data; its results are not empirical findings."
+  ],
+  "rejected_llm_findings": [],
+  "summary": {
+    "objects_configured": [
+      "object_00",
+      "object_01",
+      "object_02"
+    ],
+    "objects_with_graphs": [
+      "object_00",
+      "object_01",
+      "object_02"
+    ],
+    "objects_missing": [],
+    "claimed_execution_outcome": "insufficient_information",
+    "recomputed_execution_outcome": "insufficient_information",
+    "accepted_execution_outcome": "insufficient_information",
+    "empty_scope": false,
+    "counts_by_source": {
+      "deterministic": 1
+    },
+    "counts_by_category": {
+      "C07": 1
+    },
+    "blocking_defects": true,
+    "needs_human_review": [
+      "CRIT-001"
+    ],
+    "disclaimer": "A report with no blocking findings means only that this Critic found no issue within the supplied evidence and review scope. It does not show that R1 holds or that the robot was physically safe."
+  }
+}

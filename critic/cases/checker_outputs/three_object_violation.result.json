@@ -1,0 +1,1404 @@
+{
+ "requirement_id": "R1",
+ "requirement_version": "2.0.0",
+ "configuration_schema_version": "2.0.1",
+ "manifest_version": "1.0.0",
+ "checker_id": "r1-v4-restricted-infrastructure",
+ "checker_version": "4.0.0a1",
+ "evidence_schema_version": "1.0.0",
+ "assessment_schema_version": "1.0.0",
+ "validation_status": "analytical_infrastructure_only",
+ "synthetic": true,
+ "physical_safety_conclusion": false,
+ "empirical_profiles_enabled": false,
+ "configuration_hash": "e61b01f5bb853cd8481e6897d1c3fa598e0fa7dee30e2bc93f6d8a4e95de92a3",
+ "assessment_manifest": {
+  "adapter": {
+   "artifact_ref": "builtin:adapter",
+   "id": "analytical-declarations",
+   "sha256": "35f775bb958173c312115373de733ab1dfe738dc6f0ff0708219830282cb8136",
+   "version": "1.0.0"
+  },
+  "calibration_records": [],
+  "capability_record": {
+   "artifact_ref": "builtin:capability_record",
+   "id": "analytical-contract-capabilities",
+   "sha256": "1aa35ed7319878ca844714bf0dfdea4b4f30977ada269807ae272f0e1f3808f6",
+   "version": "1.0.0"
+  },
+  "checker": {
+   "artifact_ref": "builtin:checker",
+   "id": "r1-v4-restricted-infrastructure",
+   "sha256": "3a19486c5a4ae834feb27dd07b2e05f9dd65db6ab0acf066c6a0435718e46f52",
+   "version": "4.0.0a1"
+  },
+  "configuration_schema": {
+   "artifact_ref": "builtin:configuration_schema",
+   "id": "urn:trustworthy:r1:generalized:configuration:2.0.1",
+   "sha256": "b7bf5a3c56e805951fcc99d518c3c09eadd0fede5ed02710e6672e44e19c1377",
+   "version": "2.0.1"
+  },
+  "evidence_schema": {
+   "artifact_ref": "builtin:evidence_schema",
+   "id": "urn:trustworthy:r1:v4:evidence:1.0.0",
+   "sha256": "1d466cacec26e0b6434b56813be48d6a7f167645fbd6c556443ff9d1cf15caba",
+   "version": "1.0.0"
+  },
+  "inference_profile": {
+   "artifact_ref": "builtin:inference_profile",
+   "id": "analytical-static-box",
+   "sha256": "f82e0414ad89f37930a5dd65dd5515fef383e13e336ff65b403e3b16213d13d1",
+   "version": "1.0.0"
+  },
+  "manifest_version": "1.0.0",
+  "purpose": "analytical_fixture",
+  "requested_domain": {
+   "cells_ref": "synthetic:domain",
+   "interval_ref": "#/monitoring_interval",
+   "projection": "saved_frame_projection"
+  },
+  "requirement": {
+   "artifact_ref": "builtin:requirement",
+   "id": "R1",
+   "sha256": "aef444c6850fb8c5a49fc06ca754b7cb2b5b8996a35520ccac463c5c588ce48e",
+   "version": "2.0.0"
+  },
+  "source_model_bindings": [
+   {
+    "artifact_ref": "synthetic:domain",
+    "sha256": "814c414626b11524b8d1b5a4f2289290d18bdd3108cad2ac86151773740d7514"
+   },
+   {
+    "artifact_ref": "synthetic:model",
+    "sha256": "ea4bdc62c25e04cb164d26d752ac747be9bb0b7840d36ed10961ccbef580b3fb"
+   },
+   {
+    "artifact_ref": "synthetic:scope",
+    "sha256": "ab02ae4b97d7f534674beaee0b10930f5d0c332a120ece90b3ddae972bf62eaf"
+   },
+   {
+    "artifact_ref": "synthetic:source",
+    "sha256": "7fbf1e4e7897b927072c70f414dfdc4731cf3e2953d5115eeca56afba2649146"
+   }
+  ],
+  "validation_status": "capability_tested",
+  "validity_scope_ref": "synthetic:scope"
+ },
+ "configuration_status": "valid",
+ "configuration_diagnostics": [],
+ "assessed": true,
+ "input_rejection_count": 0,
+ "object_assessments": [
+  {
+   "object_id": "object_00",
+   "surfaces": [
+    "root_A"
+   ],
+   "applicability": "applicable",
+   "outcome": "violation_observed",
+   "reasons": [
+    "initial_support_established"
+   ],
+   "evidence_ids": [
+    "object_00_fall",
+    "object_00_geometry",
+    "object_00_identity",
+    "object_00_link",
+    "object_00_presence",
+    "object_00_support"
+   ],
+   "coverage": {
+    "requested": [
+     "s0",
+     "s1",
+     "s2",
+     "t01",
+     "t12"
+    ],
+    "available": [
+     "s1",
+     "s2",
+     "t12"
+    ],
+    "admitted": [
+     "s1",
+     "s2",
+     "t12"
+    ],
+    "negative": [],
+    "missing": [
+     "s0",
+     "s1",
+     "s2",
+     "t01",
+     "t12"
+    ],
+    "dependencies": [],
+    "source_groups": [],
+    "invalid": [],
+    "unobserved": [
+     "s0",
+     "t01"
+    ]
+   },
+   "uncertainty": [],
+   "complete": false,
+   "scope_mismatch": false,
+   "study_eligibility": "not_decided_by_checker",
+   "execution_id": "synthetic-execution",
+   "requirement_version": "2.0.0",
+   "checker_version": "4.0.0a1",
+   "adapter_version": "1.0.0",
+   "profile_version": "1.0.0",
+   "validation_status": "synthetic_analytical_only"
+  },
+  {
+   "object_id": "object_01",
+   "surfaces": [
+    "root_A"
+   ],
+   "applicability": "applicable",
+   "outcome": "no_violation_observed_within_validated_coverage",
+   "reasons": [
+    "initial_support_established"
+   ],
+   "evidence_ids": [
+    "object_01_clear",
+    "object_01_geometry",
+    "object_01_identity",
+    "object_01_link",
+    "object_01_presence",
+    "object_01_support"
+   ],
+   "coverage": {
+    "requested": [
+     "s0",
+     "s1",
+     "s2",
+     "t01",
+     "t12"
+    ],
+    "available": [
+     "s0",
+     "s1",
+     "s2",
+     "t01",
+     "t12"
+    ],
+    "admitted": [
+     "s0",
+     "s1",
+     "s2",
+     "t01",
+     "t12"
+    ],
+    "negative": [
+     "s0",
+     "s1",
+     "s2",
+     "t01",
+     "t12"
+    ],
+    "missing": [],
+    "dependencies": [
+     "object_01_clear",
+     "object_01_geometry",
+     "object_01_identity",
+     "object_01_link",
+     "object_01_presence",
+     "object_01_support",
+     "shared_context"
+    ],
+    "source_groups": [
+     [
+      "synthetic-constraint-ledger",
+      [
+       "synthetic:source"
+      ]
+     ]
+    ],
+    "invalid": [],
+    "unobserved": []
+   },
+   "uncertainty": [],
+   "complete": true,
+   "scope_mismatch": false,
+   "study_eligibility": "not_decided_by_checker",
+   "execution_id": "synthetic-execution",
+   "requirement_version": "2.0.0",
+   "checker_version": "4.0.0a1",
+   "adapter_version": "1.0.0",
+   "profile_version": "1.0.0",
+   "validation_status": "synthetic_analytical_only"
+  },
+  {
+   "object_id": "object_02",
+   "surfaces": [
+    "root_A"
+   ],
+   "applicability": "not_applicable",
+   "outcome": "not_applicable",
+   "reasons": [
+    "initial_support_excluded"
+   ],
+   "evidence_ids": [
+    "object_02_geometry",
+    "object_02_identity",
+    "object_02_link",
+    "object_02_presence",
+    "object_02_support"
+   ],
+   "coverage": {
+    "requested": [
+     "s0",
+     "s1",
+     "s2",
+     "t01",
+     "t12"
+    ],
+    "available": [],
+    "admitted": [],
+    "negative": [],
+    "missing": [
+     "s0",
+     "s1",
+     "s2",
+     "t01",
+     "t12"
+    ],
+    "dependencies": [],
+    "source_groups": [],
+    "invalid": [],
+    "unobserved": [
+     "s0",
+     "s1",
+     "s2",
+     "t01",
+     "t12"
+    ]
+   },
+   "uncertainty": [],
+   "complete": true,
+   "scope_mismatch": false,
+   "study_eligibility": "not_decided_by_checker",
+   "execution_id": "synthetic-execution",
+   "requirement_version": "2.0.0",
+   "checker_version": "4.0.0a1",
+   "adapter_version": "1.0.0",
+   "profile_version": "1.0.0",
+   "validation_status": "synthetic_analytical_only"
+  }
+ ],
+ "execution_outcome": "violation_observed",
+ "applicability_summary": "applicable_present",
+ "outcome_counts": {
+  "violation_observed": 1,
+  "no_violation_observed_within_validated_coverage": 1,
+  "not_applicable": 1,
+  "insufficient_information": 0,
+  "invalid_measurement_contract": 0
+ },
+ "applicability_counts": {
+  "applicable": 2,
+  "not_applicable": 1,
+  "indeterminate": 0,
+  "unsupported_evidence_contract": 0
+ },
+ "evidence_complete": false,
+ "empty_scope": false,
+ "eligible_safety_units": 2,
+ "empirical_metrics": null,
+ "admitted_evidence_ids": [
+  "object_00_fall",
+  "object_00_geometry",
+  "object_00_identity",
+  "object_00_link",
+  "object_00_presence",
+  "object_00_support",
+  "object_01_clear",
+  "object_01_geometry",
+  "object_01_identity",
+  "object_01_link",
+  "object_01_presence",
+  "object_01_support",
+  "object_02_geometry",
+  "object_02_identity",
+  "object_02_link",
+  "object_02_presence",
+  "object_02_support",
+  "shared_context"
+ ],
+ "rejected_evidence": [],
+ "evidence_admission": [
+  {
+   "evidence_id": "object_00_fall",
+   "status": "verified",
+   "reasons": [],
+   "dependencies": [
+    "object_00_fall",
+    "object_00_geometry",
+    "object_00_identity",
+    "object_00_link",
+    "object_00_presence",
+    "object_00_support",
+    "shared_context"
+   ],
+   "source_hash": "7fbf1e4e7897b927072c70f414dfdc4731cf3e2953d5115eeca56afba2649146"
+  },
+  {
+   "evidence_id": "object_00_geometry",
+   "status": "verified",
+   "reasons": [],
+   "dependencies": [
+    "object_00_geometry"
+   ],
+   "source_hash": "7fbf1e4e7897b927072c70f414dfdc4731cf3e2953d5115eeca56afba2649146"
+  },
+  {
+   "evidence_id": "object_00_identity",
+   "status": "verified",
+   "reasons": [],
+   "dependencies": [
+    "object_00_identity",
+    "shared_context"
+   ],
+   "source_hash": "7fbf1e4e7897b927072c70f414dfdc4731cf3e2953d5115eeca56afba2649146"
+  },
+  {
+   "evidence_id": "object_00_link",
+   "status": "verified",
+   "reasons": [],
+   "dependencies": [
+    "object_00_link"
+   ],
+   "source_hash": "7fbf1e4e7897b927072c70f414dfdc4731cf3e2953d5115eeca56afba2649146"
+  },
+  {
+   "evidence_id": "object_00_presence",
+   "status": "verified",
+   "reasons": [],
+   "dependencies": [
+    "object_00_presence"
+   ],
+   "source_hash": "7fbf1e4e7897b927072c70f414dfdc4731cf3e2953d5115eeca56afba2649146"
+  },
+  {
+   "evidence_id": "object_00_support",
+   "status": "verified",
+   "reasons": [],
+   "dependencies": [
+    "object_00_geometry",
+    "object_00_identity",
+    "object_00_link",
+    "object_00_presence",
+    "object_00_support",
+    "shared_context"
+   ],
+   "source_hash": "7fbf1e4e7897b927072c70f414dfdc4731cf3e2953d5115eeca56afba2649146"
+  },
+  {
+   "evidence_id": "object_01_clear",
+   "status": "verified",
+   "reasons": [],
+   "dependencies": [
+    "object_01_clear",
+    "object_01_geometry",
+    "object_01_identity",
+    "object_01_link",
+    "object_01_presence",
+    "object_01_support",
+    "shared_context"
+   ],
+   "source_hash": "7fbf1e4e7897b927072c70f414dfdc4731cf3e2953d5115eeca56afba2649146"
+  },
+  {
+   "evidence_id": "object_01_geometry",
+   "status": "verified",
+   "reasons": [],
+   "dependencies": [
+    "object_01_geometry"
+   ],
+   "source_hash": "7fbf1e4e7897b927072c70f414dfdc4731cf3e2953d5115eeca56afba2649146"
+  },
+  {
+   "evidence_id": "object_01_identity",
+   "status": "verified",
+   "reasons": [],
+   "dependencies": [
+    "object_01_identity",
+    "shared_context"
+   ],
+   "source_hash": "7fbf1e4e7897b927072c70f414dfdc4731cf3e2953d5115eeca56afba2649146"
+  },
+  {
+   "evidence_id": "object_01_link",
+   "status": "verified",
+   "reasons": [],
+   "dependencies": [
+    "object_01_link"
+   ],
+   "source_hash": "7fbf1e4e7897b927072c70f414dfdc4731cf3e2953d5115eeca56afba2649146"
+  },
+  {
+   "evidence_id": "object_01_presence",
+   "status": "verified",
+   "reasons": [],
+   "dependencies": [
+    "object_01_presence"
+   ],
+   "source_hash": "7fbf1e4e7897b927072c70f414dfdc4731cf3e2953d5115eeca56afba2649146"
+  },
+  {
+   "evidence_id": "object_01_support",
+   "status": "verified",
+   "reasons": [],
+   "dependencies": [
+    "object_01_geometry",
+    "object_01_identity",
+    "object_01_link",
+    "object_01_presence",
+    "object_01_support",
+    "shared_context"
+   ],
+   "source_hash": "7fbf1e4e7897b927072c70f414dfdc4731cf3e2953d5115eeca56afba2649146"
+  },
+  {
+   "evidence_id": "object_02_geometry",
+   "status": "verified",
+   "reasons": [],
+   "dependencies": [
+    "object_02_geometry"
+   ],
+   "source_hash": "7fbf1e4e7897b927072c70f414dfdc4731cf3e2953d5115eeca56afba2649146"
+  },
+  {
+   "evidence_id": "object_02_identity",
+   "status": "verified",
+   "reasons": [],
+   "dependencies": [
+    "object_02_identity",
+    "shared_context"
+   ],
+   "source_hash": "7fbf1e4e7897b927072c70f414dfdc4731cf3e2953d5115eeca56afba2649146"
+  },
+  {
+   "evidence_id": "object_02_link",
+   "status": "verified",
+   "reasons": [],
+   "dependencies": [
+    "object_02_link"
+   ],
+   "source_hash": "7fbf1e4e7897b927072c70f414dfdc4731cf3e2953d5115eeca56afba2649146"
+  },
+  {
+   "evidence_id": "object_02_presence",
+   "status": "verified",
+   "reasons": [],
+   "dependencies": [
+    "object_02_presence"
+   ],
+   "source_hash": "7fbf1e4e7897b927072c70f414dfdc4731cf3e2953d5115eeca56afba2649146"
+  },
+  {
+   "evidence_id": "object_02_support",
+   "status": "verified",
+   "reasons": [],
+   "dependencies": [
+    "object_02_geometry",
+    "object_02_identity",
+    "object_02_link",
+    "object_02_presence",
+    "object_02_support",
+    "shared_context"
+   ],
+   "source_hash": "7fbf1e4e7897b927072c70f414dfdc4731cf3e2953d5115eeca56afba2649146"
+  },
+  {
+   "evidence_id": "shared_context",
+   "status": "verified",
+   "reasons": [],
+   "dependencies": [
+    "shared_context"
+   ],
+   "source_hash": "7fbf1e4e7897b927072c70f414dfdc4731cf3e2953d5115eeca56afba2649146"
+  }
+ ],
+ "conflicts": [],
+ "missing_requirements": [],
+ "uncertainty": [],
+ "evidence_records": [
+  {
+   "id": "object_00_fall",
+   "kind": "declaration",
+   "claim": "violation",
+   "truth": "T",
+   "validity": "verified",
+   "object_id": "object_00",
+   "execution_id": "synthetic-execution",
+   "surfaces": [
+    "root_A"
+   ],
+   "interval": {
+    "start": 1,
+    "end": 2
+   },
+   "cells": [
+    "s1",
+    "s2",
+    "t12"
+   ],
+   "dependencies": [
+    "object_00_support"
+   ],
+   "source_ref": "synthetic:source",
+   "producer": "synthetic-constraint-ledger",
+   "frame": {
+    "id": "world",
+    "clock": "synthetic:domain",
+    "length_unit": "m",
+    "time_unit": "s",
+    "handedness": "right_handed"
+   },
+   "uncertainty": {
+    "temporal": 0,
+    "description": []
+   },
+   "payload": {
+    "items": [
+     [
+      "downward",
+      "T"
+     ],
+     [
+      "downward_interval",
+      [
+       1,
+       2
+      ]
+     ],
+     [
+      "handling_excluded",
+      "F"
+     ],
+     [
+      "loss",
+      "T"
+     ],
+     [
+      "onset",
+      [
+       1,
+       1
+      ]
+     ],
+     [
+      "origin",
+      "T"
+     ]
+    ]
+   }
+  },
+  {
+   "id": "object_00_geometry",
+   "kind": "geometry",
+   "claim": "geometry",
+   "truth": "T",
+   "validity": "verified",
+   "object_id": "object_00",
+   "execution_id": "synthetic-execution",
+   "surfaces": [
+    "root_A"
+   ],
+   "interval": {
+    "start": 0,
+    "end": 2
+   },
+   "cells": [],
+   "dependencies": [],
+   "source_ref": "synthetic:source",
+   "producer": "synthetic-constraint-ledger",
+   "frame": {
+    "id": "world",
+    "clock": "synthetic:domain",
+    "length_unit": "m",
+    "time_unit": "s",
+    "handedness": "right_handed"
+   },
+   "uncertainty": {
+    "temporal": 0,
+    "description": []
+   },
+   "payload": {
+    "shape": "box",
+    "dimensions": [
+     1,
+     1,
+     1
+    ],
+    "static": false,
+    "horizontal": false,
+    "complete": true
+   }
+  },
+  {
+   "id": "object_00_identity",
+   "kind": "declaration",
+   "claim": "identity",
+   "truth": "T",
+   "validity": "verified",
+   "object_id": "object_00",
+   "execution_id": "synthetic-execution",
+   "surfaces": [
+    "root_A"
+   ],
+   "interval": {
+    "start": 0,
+    "end": 0
+   },
+   "cells": [],
+   "dependencies": [
+    "shared_context"
+   ],
+   "source_ref": "synthetic:source",
+   "producer": "synthetic-constraint-ledger",
+   "frame": {
+    "id": "world",
+    "clock": "synthetic:domain",
+    "length_unit": "m",
+    "time_unit": "s",
+    "handedness": "right_handed"
+   },
+   "uncertainty": {
+    "temporal": 0,
+    "description": []
+   },
+   "payload": {
+    "items": [
+     [
+      "instance_id",
+      "instance_object_00"
+     ]
+    ]
+   }
+  },
+  {
+   "id": "object_00_link",
+   "kind": "declaration",
+   "claim": "support_link",
+   "truth": "T",
+   "validity": "verified",
+   "object_id": "object_00",
+   "execution_id": "synthetic-execution",
+   "surfaces": [
+    "root_A"
+   ],
+   "interval": {
+    "start": 0,
+    "end": 0
+   },
+   "cells": [],
+   "dependencies": [],
+   "source_ref": "synthetic:source",
+   "producer": "synthetic-constraint-ledger",
+   "frame": {
+    "id": "world",
+    "clock": "synthetic:domain",
+    "length_unit": "m",
+    "time_unit": "s",
+    "handedness": "right_handed"
+   },
+   "uncertainty": {
+    "temporal": 0,
+    "description": []
+   },
+   "payload": {
+    "items": [
+     [
+      "child",
+      "object_00"
+     ],
+     [
+      "parent",
+      "root_A"
+     ]
+    ]
+   }
+  },
+  {
+   "id": "object_00_presence",
+   "kind": "declaration",
+   "claim": "presence",
+   "truth": "T",
+   "validity": "verified",
+   "object_id": "object_00",
+   "execution_id": "synthetic-execution",
+   "surfaces": [
+    "root_A"
+   ],
+   "interval": {
+    "start": 0,
+    "end": 0
+   },
+   "cells": [],
+   "dependencies": [],
+   "source_ref": "synthetic:source",
+   "producer": "synthetic-constraint-ledger",
+   "frame": {
+    "id": "world",
+    "clock": "synthetic:domain",
+    "length_unit": "m",
+    "time_unit": "s",
+    "handedness": "right_handed"
+   },
+   "uncertainty": {
+    "temporal": 0,
+    "description": []
+   },
+   "payload": {
+    "items": [
+     [
+      "closed_roster",
+      true
+     ]
+    ]
+   }
+  },
+  {
+   "id": "object_00_support",
+   "kind": "declaration",
+   "claim": "initial_support",
+   "truth": "T",
+   "validity": "verified",
+   "object_id": "object_00",
+   "execution_id": "synthetic-execution",
+   "surfaces": [
+    "root_A"
+   ],
+   "interval": {
+    "start": 0,
+    "end": 0
+   },
+   "cells": [],
+   "dependencies": [
+    "object_00_geometry",
+    "object_00_identity",
+    "object_00_link",
+    "object_00_presence"
+   ],
+   "source_ref": "synthetic:source",
+   "producer": "synthetic-constraint-ledger",
+   "frame": {
+    "id": "world",
+    "clock": "synthetic:domain",
+    "length_unit": "m",
+    "time_unit": "s",
+    "handedness": "right_handed"
+   },
+   "uncertainty": {
+    "temporal": 0,
+    "description": []
+   },
+   "payload": {
+    "items": [
+     [
+      "all_support_excluded",
+      false
+     ],
+     [
+      "chain",
+      [
+       "object_00",
+       "root_A"
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "id": "object_01_clear",
+   "kind": "declaration",
+   "claim": "static_negative",
+   "truth": "T",
+   "validity": "verified",
+   "object_id": "object_01",
+   "execution_id": "synthetic-execution",
+   "surfaces": [
+    "root_A"
+   ],
+   "interval": {
+    "start": 0,
+    "end": 2
+   },
+   "cells": [
+    "s0",
+    "s1",
+    "s2",
+    "t01",
+    "t12"
+   ],
+   "dependencies": [
+    "object_01_support"
+   ],
+   "source_ref": "synthetic:source",
+   "producer": "synthetic-constraint-ledger",
+   "frame": {
+    "id": "world",
+    "clock": "synthetic:domain",
+    "length_unit": "m",
+    "time_unit": "s",
+    "handedness": "right_handed"
+   },
+   "uncertainty": {
+    "temporal": 0,
+    "description": []
+   },
+   "payload": {
+    "items": [
+     [
+      "method",
+      "exact_static_constraint"
+     ]
+    ]
+   }
+  },
+  {
+   "id": "object_01_geometry",
+   "kind": "geometry",
+   "claim": "geometry",
+   "truth": "T",
+   "validity": "verified",
+   "object_id": "object_01",
+   "execution_id": "synthetic-execution",
+   "surfaces": [
+    "root_A"
+   ],
+   "interval": {
+    "start": 0,
+    "end": 2
+   },
+   "cells": [],
+   "dependencies": [],
+   "source_ref": "synthetic:source",
+   "producer": "synthetic-constraint-ledger",
+   "frame": {
+    "id": "world",
+    "clock": "synthetic:domain",
+    "length_unit": "m",
+    "time_unit": "s",
+    "handedness": "right_handed"
+   },
+   "uncertainty": {
+    "temporal": 0,
+    "description": []
+   },
+   "payload": {
+    "shape": "box",
+    "dimensions": [
+     1,
+     1,
+     1
+    ],
+    "static": false,
+    "horizontal": false,
+    "complete": true
+   }
+  },
+  {
+   "id": "object_01_identity",
+   "kind": "declaration",
+   "claim": "identity",
+   "truth": "T",
+   "validity": "verified",
+   "object_id": "object_01",
+   "execution_id": "synthetic-execution",
+   "surfaces": [
+    "root_A"
+   ],
+   "interval": {
+    "start": 0,
+    "end": 0
+   },
+   "cells": [],
+   "dependencies": [
+    "shared_context"
+   ],
+   "source_ref": "synthetic:source",
+   "producer": "synthetic-constraint-ledger",
+   "frame": {
+    "id": "world",
+    "clock": "synthetic:domain",
+    "length_unit": "m",
+    "time_unit": "s",
+    "handedness": "right_handed"
+   },
+   "uncertainty": {
+    "temporal": 0,
+    "description": []
+   },
+   "payload": {
+    "items": [
+     [
+      "instance_id",
+      "instance_object_01"
+     ]
+    ]
+   }
+  },
+  {
+   "id": "object_01_link",
+   "kind": "declaration",
+   "claim": "support_link",
+   "truth": "T",
+   "validity": "verified",
+   "object_id": "object_01",
+   "execution_id": "synthetic-execution",
+   "surfaces": [
+    "root_A"
+   ],
+   "interval": {
+    "start": 0,
+    "end": 0
+   },
+   "cells": [],
+   "dependencies": [],
+   "source_ref": "synthetic:source",
+   "producer": "synthetic-constraint-ledger",
+   "frame": {
+    "id": "world",
+    "clock": "synthetic:domain",
+    "length_unit": "m",
+    "time_unit": "s",
+    "handedness": "right_handed"
+   },
+   "uncertainty": {
+    "temporal": 0,
+    "description": []
+   },
+   "payload": {
+    "items": [
+     [
+      "child",
+      "object_01"
+     ],
+     [
+      "parent",
+      "root_A"
+     ]
+    ]
+   }
+  },
+  {
+   "id": "object_01_presence",
+   "kind": "declaration",
+   "claim": "presence",
+   "truth": "T",
+   "validity": "verified",
+   "object_id": "object_01",
+   "execution_id": "synthetic-execution",
+   "surfaces": [
+    "root_A"
+   ],
+   "interval": {
+    "start": 0,
+    "end": 0
+   },
+   "cells": [],
+   "dependencies": [],
+   "source_ref": "synthetic:source",
+   "producer": "synthetic-constraint-ledger",
+   "frame": {
+    "id": "world",
+    "clock": "synthetic:domain",
+    "length_unit": "m",
+    "time_unit": "s",
+    "handedness": "right_handed"
+   },
+   "uncertainty": {
+    "temporal": 0,
+    "description": []
+   },
+   "payload": {
+    "items": [
+     [
+      "closed_roster",
+      true
+     ]
+    ]
+   }
+  },
+  {
+   "id": "object_01_support",
+   "kind": "declaration",
+   "claim": "initial_support",
+   "truth": "T",
+   "validity": "verified",
+   "object_id": "object_01",
+   "execution_id": "synthetic-execution",
+   "surfaces": [
+    "root_A"
+   ],
+   "interval": {
+    "start": 0,
+    "end": 0
+   },
+   "cells": [],
+   "dependencies": [
+    "object_01_geometry",
+    "object_01_identity",
+    "object_01_link",
+    "object_01_presence"
+   ],
+   "source_ref": "synthetic:source",
+   "producer": "synthetic-constraint-ledger",
+   "frame": {
+    "id": "world",
+    "clock": "synthetic:domain",
+    "length_unit": "m",
+    "time_unit": "s",
+    "handedness": "right_handed"
+   },
+   "uncertainty": {
+    "temporal": 0,
+    "description": []
+   },
+   "payload": {
+    "items": [
+     [
+      "all_support_excluded",
+      false
+     ],
+     [
+      "chain",
+      [
+       "object_01",
+       "root_A"
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "id": "object_02_geometry",
+   "kind": "geometry",
+   "claim": "geometry",
+   "truth": "T",
+   "validity": "verified",
+   "object_id": "object_02",
+   "execution_id": "synthetic-execution",
+   "surfaces": [
+    "root_A"
+   ],
+   "interval": {
+    "start": 0,
+    "end": 2
+   },
+   "cells": [],
+   "dependencies": [],
+   "source_ref": "synthetic:source",
+   "producer": "synthetic-constraint-ledger",
+   "frame": {
+    "id": "world",
+    "clock": "synthetic:domain",
+    "length_unit": "m",
+    "time_unit": "s",
+    "handedness": "right_handed"
+   },
+   "uncertainty": {
+    "temporal": 0,
+    "description": []
+   },
+   "payload": {
+    "shape": "box",
+    "dimensions": [
+     1,
+     1,
+     1
+    ],
+    "static": false,
+    "horizontal": false,
+    "complete": true
+   }
+  },
+  {
+   "id": "object_02_identity",
+   "kind": "declaration",
+   "claim": "identity",
+   "truth": "T",
+   "validity": "verified",
+   "object_id": "object_02",
+   "execution_id": "synthetic-execution",
+   "surfaces": [
+    "root_A"
+   ],
+   "interval": {
+    "start": 0,
+    "end": 0
+   },
+   "cells": [],
+   "dependencies": [
+    "shared_context"
+   ],
+   "source_ref": "synthetic:source",
+   "producer": "synthetic-constraint-ledger",
+   "frame": {
+    "id": "world",
+    "clock": "synthetic:domain",
+    "length_unit": "m",
+    "time_unit": "s",
+    "handedness": "right_handed"
+   },
+   "uncertainty": {
+    "temporal": 0,
+    "description": []
+   },
+   "payload": {
+    "items": [
+     [
+      "instance_id",
+      "instance_object_02"
+     ]
+    ]
+   }
+  },
+  {
+   "id": "object_02_link",
+   "kind": "declaration",
+   "claim": "support_link",
+   "truth": "T",
+   "validity": "verified",
+   "object_id": "object_02",
+   "execution_id": "synthetic-execution",
+   "surfaces": [
+    "root_A"
+   ],
+   "interval": {
+    "start": 0,
+    "end": 0
+   },
+   "cells": [],
+   "dependencies": [],
+   "source_ref": "synthetic:source",
+   "producer": "synthetic-constraint-ledger",
+   "frame": {
+    "id": "world",
+    "clock": "synthetic:domain",
+    "length_unit": "m",
+    "time_unit": "s",
+    "handedness": "right_handed"
+   },
+   "uncertainty": {
+    "temporal": 0,
+    "description": []
+   },
+   "payload": {
+    "items": [
+     [
+      "child",
+      "object_02"
+     ],
+     [
+      "parent",
+      "root_A"
+     ]
+    ]
+   }
+  },
+  {
+   "id": "object_02_presence",
+   "kind": "declaration",
+   "claim": "presence",
+   "truth": "T",
+   "validity": "verified",
+   "object_id": "object_02",
+   "execution_id": "synthetic-execution",
+   "surfaces": [
+    "root_A"
+   ],
+   "interval": {
+    "start": 0,
+    "end": 0
+   },
+   "cells": [],
+   "dependencies": [],
+   "source_ref": "synthetic:source",
+   "producer": "synthetic-constraint-ledger",
+   "frame": {
+    "id": "world",
+    "clock": "synthetic:domain",
+    "length_unit": "m",
+    "time_unit": "s",
+    "handedness": "right_handed"
+   },
+   "uncertainty": {
+    "temporal": 0,
+    "description": []
+   },
+   "payload": {
+    "items": [
+     [
+      "closed_roster",
+      true
+     ]
+    ]
+   }
+  },
+  {
+   "id": "object_02_support",
+   "kind": "declaration",
+   "claim": "initial_support",
+   "truth": "F",
+   "validity": "verified",
+   "object_id": "object_02",
+   "execution_id": "synthetic-execution",
+   "surfaces": [
+    "root_A"
+   ],
+   "interval": {
+    "start": 0,
+    "end": 0
+   },
+   "cells": [],
+   "dependencies": [
+    "object_02_geometry",
+    "object_02_identity",
+    "object_02_link",
+    "object_02_presence"
+   ],
+   "source_ref": "synthetic:source",
+   "producer": "synthetic-constraint-ledger",
+   "frame": {
+    "id": "world",
+    "clock": "synthetic:domain",
+    "length_unit": "m",
+    "time_unit": "s",
+    "handedness": "right_handed"
+   },
+   "uncertainty": {
+    "temporal": 0,
+    "description": []
+   },
+   "payload": {
+    "items": [
+     [
+      "all_support_excluded",
+      true
+     ],
+     [
+      "chain",
+      [
+       "object_02",
+       "root_A"
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "id": "shared_context",
+   "kind": "derived_observation",
+   "claim": "observation",
+   "truth": "T",
+   "validity": "verified",
+   "object_id": "*",
+   "execution_id": "synthetic-execution",
+   "surfaces": [],
+   "interval": {
+    "start": 0,
+    "end": 2
+   },
+   "cells": [],
+   "dependencies": [],
+   "source_ref": "synthetic:source",
+   "producer": "synthetic-constraint-ledger",
+   "frame": {
+    "id": "world",
+    "clock": "synthetic:domain",
+    "length_unit": "m",
+    "time_unit": "s",
+    "handedness": "right_handed"
+   },
+   "uncertainty": {
+    "temporal": 0,
+    "description": []
+   },
+   "payload": {
+    "quantity": "declared_fixture_context",
+    "values": [],
+    "unit": "fixture"
+   }
+  }
+ ],
+ "provenance": {
+  "requested_purpose": "analytical_fixture",
+  "admitted_purpose": "analytical_fixture",
+  "execution_id": "synthetic-execution",
+  "task_id": "synthetic-task",
+  "runtime_bindings": {
+   "requirement": {
+    "id": "R1",
+    "version": "2.0.0",
+    "artifact_ref": "builtin:requirement",
+    "sha256": "aef444c6850fb8c5a49fc06ca754b7cb2b5b8996a35520ccac463c5c588ce48e"
+   },
+   "configuration_schema": {
+    "id": "urn:trustworthy:r1:generalized:configuration:2.0.1",
+    "version": "2.0.1",
+    "artifact_ref": "builtin:configuration_schema",
+    "sha256": "b7bf5a3c56e805951fcc99d518c3c09eadd0fede5ed02710e6672e44e19c1377"
+   },
+   "evidence_schema": {
+    "id": "urn:trustworthy:r1:v4:evidence:1.0.0",
+    "version": "1.0.0",
+    "artifact_ref": "builtin:evidence_schema",
+    "sha256": "1d466cacec26e0b6434b56813be48d6a7f167645fbd6c556443ff9d1cf15caba"
+   },
+   "adapter": {
+    "id": "analytical-declarations",
+    "version": "1.0.0",
+    "artifact_ref": "builtin:adapter",
+    "sha256": "35f775bb958173c312115373de733ab1dfe738dc6f0ff0708219830282cb8136"
+   },
+   "inference_profile": {
+    "id": "analytical-static-box",
+    "version": "1.0.0",
+    "artifact_ref": "builtin:inference_profile",
+    "sha256": "f82e0414ad89f37930a5dd65dd5515fef383e13e336ff65b403e3b16213d13d1"
+   },
+   "checker": {
+    "id": "r1-v4-restricted-infrastructure",
+    "version": "4.0.0a1",
+    "artifact_ref": "builtin:checker",
+    "sha256": "3a19486c5a4ae834feb27dd07b2e05f9dd65db6ab0acf066c6a0435718e46f52"
+   },
+   "capability_record": {
+    "id": "analytical-contract-capabilities",
+    "version": "1.0.0",
+    "artifact_ref": "builtin:capability_record",
+    "sha256": "1aa35ed7319878ca844714bf0dfdea4b4f30977ada269807ae272f0e1f3808f6"
+   }
+  },
+  "source_bindings": [
+   {
+    "artifact_ref": "synthetic:domain",
+    "sha256": "814c414626b11524b8d1b5a4f2289290d18bdd3108cad2ac86151773740d7514"
+   },
+   {
+    "artifact_ref": "synthetic:model",
+    "sha256": "ea4bdc62c25e04cb164d26d752ac747be9bb0b7840d36ed10961ccbef580b3fb"
+   },
+   {
+    "artifact_ref": "synthetic:scope",
+    "sha256": "ab02ae4b97d7f534674beaee0b10930f5d0c332a120ece90b3ddae972bf62eaf"
+   },
+   {
+    "artifact_ref": "synthetic:source",
+    "sha256": "7fbf1e4e7897b927072c70f414dfdc4731cf3e2953d5115eeca56afba2649146"
+   }
+  ],
+  "input_hash": "d8ed7612ccfe5fe4943113d4ffe18aaeb346318b5c3391903479a672f9877cad",
+  "source_independence": "not_inferred_from_producers_or_filenames"
+ },
+ "excluded_events": [],
+ "study_eligibility": "not_decided_by_checker",
+ "assessment_hash": "f9865d3b96a84f461592938d4984f8a23a453980d8c06a2d7ab75f929f4614b3"
+}
