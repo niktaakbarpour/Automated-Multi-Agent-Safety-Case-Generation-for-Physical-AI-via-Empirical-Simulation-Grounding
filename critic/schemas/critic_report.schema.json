@@ -1,0 +1,98 @@
+{
+  "$id": "urn:trustworthy:critic-report:0.1.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Critic report",
+  "description": "Machine-readable review for the future Revision component. No findings means only that this Critic found no issue within the supplied evidence and review scope; it is not evidence that R1 holds.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "critic_version", "request_id", "execution_id", "test_fixture", "llm", "criticisms", "evidence_requests", "unresolved_concerns", "rejected_llm_findings", "summary"],
+  "properties": {
+    "schema_version": {"const": "critic-report/0.1.0"},
+    "critic_version": {"type": "string"},
+    "request_id": {"type": "string"},
+    "execution_id": {"type": "string"},
+    "test_fixture": {"type": "boolean"},
+    "llm": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["backend", "model", "prompt_version", "called", "ok", "latency_s", "error"],
+      "properties": {
+        "backend": {"type": "string"},
+        "model": {"type": ["string", "null"]},
+        "prompt_version": {"type": "string"},
+        "called": {"type": "boolean"},
+        "ok": {"type": "boolean"},
+        "latency_s": {"type": ["number", "null"]},
+        "error": {"type": ["string", "null"]}
+      }
+    },
+    "criticisms": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["criticism_id", "check_id", "critic_version", "category", "category_name", "severity", "blocking", "object_id", "node_id", "explanation", "evidence_ids", "requirement_refs", "finding_source", "suggested_action", "additional_evidence_needed", "human_review_required"],
+        "properties": {
+          "criticism_id": {"type": "string", "pattern": "^CRIT-[0-9]{3}$"},
+          "check_id": {"type": "string"},
+          "critic_version": {"type": "string"},
+          "category": {"enum": ["C01", "C02", "C03", "C04", "C05", "C06", "C07", "C08", "C09", "C10", "C11", "C12", "C13"]},
+          "category_name": {"type": "string"},
+          "severity": {"enum": ["high", "medium", "low"]},
+          "blocking": {"type": "boolean"},
+          "object_id": {"type": ["string", "null"]},
+          "node_id": {"type": ["string", "null"]},
+          "explanation": {"type": "string", "minLength": 1},
+          "evidence_ids": {"type": "array", "items": {"type": "string"}},
+          "requirement_refs": {"type": "array", "items": {"type": "string"}},
+          "finding_source": {"enum": ["deterministic", "evidence_grounded", "llm_proposed"]},
+          "suggested_action": {"type": "string", "minLength": 1},
+          "additional_evidence_needed": {"type": "boolean"},
+          "human_review_required": {"type": "boolean"}
+        }
+      }
+    },
+    "evidence_requests": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["object_id", "measurement_type", "interval", "reason", "criticism_id"],
+        "properties": {
+          "object_id": {"type": ["string", "null"]},
+          "measurement_type": {"type": ["string", "null"]},
+          "interval": {"type": ["array", "null"]},
+          "reason": {"type": "string"},
+          "criticism_id": {"type": "string"}
+        }
+      }
+    },
+    "unresolved_concerns": {"type": "array", "items": {"type": "string"}},
+    "rejected_llm_findings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["reason", "finding"],
+        "properties": {"reason": {"type": "string"}, "finding": {}}
+      }
+    },
+    "summary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["objects_configured", "objects_with_graphs", "objects_missing", "claimed_execution_outcome", "recomputed_execution_outcome", "counts_by_source", "counts_by_category", "blocking_defects", "needs_human_review", "disclaimer"],
+      "properties": {
+        "objects_configured": {"type": "array", "items": {"type": "string"}},
+        "objects_with_graphs": {"type": "array", "items": {"type": "string"}},
+        "objects_missing": {"type": "array", "items": {"type": "string"}},
+        "claimed_execution_outcome": {"type": ["string", "null"]},
+        "recomputed_execution_outcome": {"type": ["string", "null"]},
+        "counts_by_source": {"type": "object"},
+        "counts_by_category": {"type": "object"},
+        "blocking_defects": {"type": "boolean"},
+        "needs_human_review": {"type": "array", "items": {"type": "string"}},
+        "disclaimer": {"type": "string"}
+      }
+    }
+  }
+}

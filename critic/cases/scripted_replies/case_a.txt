@@ -1,0 +1,45 @@
+<think>Checking statements against evidence limitations.</think>
+{
+ "findings": [
+  {
+   "object_id": "widget_a",
+   "node_id": "S1",
+   "category": "C05",
+   "severity": "high",
+   "explanation": "S1 infers that widget_a was supported and never fell because its pose height did not drop and it stayed in contact with workbench_B. Constant height and geometric contact do not establish load-bearing support or rule out a falling departure; the contact record itself lists that limitation.",
+   "evidence_ids": [
+    "ev:07e99b1737cf6084a48708925d6028995d29133b3f7e3ae98bd4dd3bda82e4a6"
+   ],
+   "suggested_action": "State only what the pose and contact measurements show, and add an unresolved claim that support and falling departures are not established."
+  },
+  {
+   "object_id": null,
+   "node_id": null,
+   "category": "C12",
+   "severity": "high",
+   "explanation": "The execution conclusion says the robot is certified safe for this task. One synthetic execution with no validated checker assessment cannot support certification language.",
+   "evidence_ids": [],
+   "suggested_action": "Remove the certification claim and report insufficient_information for the execution."
+  },
+  {
+   "object_id": "vial_b",
+   "node_id": "E2",
+   "category": "C05",
+   "severity": "medium",
+   "explanation": "E2 says contact at every frame shows load-bearing support, citing a camera timing record.",
+   "evidence_ids": [
+    "ev:0000000000000000000000000000000000000000000000000000000000000000"
+   ],
+   "suggested_action": "Remove the support inference."
+  },
+  {
+   "object_id": "vial_b",
+   "node_id": "G9",
+   "category": "C10",
+   "severity": "low",
+   "explanation": "Goal G9 generalizes.",
+   "evidence_ids": [],
+   "suggested_action": "Narrow it."
+  }
+ ]
+}

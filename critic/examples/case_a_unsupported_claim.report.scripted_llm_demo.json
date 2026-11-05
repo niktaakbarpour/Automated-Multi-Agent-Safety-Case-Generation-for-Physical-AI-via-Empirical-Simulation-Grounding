@@ -1,0 +1,217 @@
+{
+  "schema_version": "critic-report/0.1.0",
+  "critic_version": "0.1.0",
+  "request_id": "CASE-A-unsupported-safety-claim",
+  "execution_id": "SYNTH-EXEC-001",
+  "test_fixture": true,
+  "llm": {
+    "backend": "scripted",
+    "model": "scripted",
+    "prompt_version": "critic-prompt/v1",
+    "called": true,
+    "ok": true,
+    "latency_s": 0.0,
+    "error": null
+  },
+  "criticisms": [
+    {
+      "criticism_id": "CRIT-001",
+      "critic_version": "0.1.0",
+      "check_id": "CONCL-UNSUPPORTED",
+      "category": "C06",
+      "category_name": "Unsupported safety conclusion",
+      "severity": "high",
+      "blocking": true,
+      "object_id": "widget_a",
+      "node_id": "G1",
+      "explanation": "The draft claims no_violation_observed_within_validated_coverage for widget_a, but no validated checker assessment for this object and execution is supplied. Positions and contacts alone cannot establish a coverage-qualified no-violation result.",
+      "evidence_ids": [],
+      "requirement_refs": [
+        "requirements/r1_generalized_v2/FORMAL_SEMANTICS.md",
+        "Critic handoff section 6"
+      ],
+      "finding_source": "deterministic",
+      "suggested_action": "Change the widget_a outcome to insufficient_information and keep its goal unresolved, unless a validated assessment is added.",
+      "additional_evidence_needed": true,
+      "human_review_required": false
+    },
+    {
+      "criticism_id": "CRIT-002",
+      "critic_version": "0.1.0",
+      "check_id": "CONCL-UNSUPPORTED",
+      "category": "C06",
+      "category_name": "Unsupported safety conclusion",
+      "severity": "high",
+      "blocking": true,
+      "object_id": "vial_b",
+      "node_id": "G1",
+      "explanation": "The draft claims no_violation_observed_within_validated_coverage for vial_b, but no validated checker assessment for this object and execution is supplied. Positions and contacts alone cannot establish a coverage-qualified no-violation result.",
+      "evidence_ids": [],
+      "requirement_refs": [
+        "requirements/r1_generalized_v2/FORMAL_SEMANTICS.md",
+        "Critic handoff section 6"
+      ],
+      "finding_source": "deterministic",
+      "suggested_action": "Change the vial_b outcome to insufficient_information and keep its goal unresolved, unless a validated assessment is added.",
+      "additional_evidence_needed": true,
+      "human_review_required": false
+    },
+    {
+      "criticism_id": "CRIT-003",
+      "critic_version": "0.1.0",
+      "check_id": "CONCL-UNSUPPORTED",
+      "category": "C06",
+      "category_name": "Unsupported safety conclusion",
+      "severity": "high",
+      "blocking": true,
+      "object_id": "carton_c",
+      "node_id": "G1",
+      "explanation": "The draft claims no_violation_observed_within_validated_coverage for carton_c, but no validated checker assessment for this object and execution is supplied. Positions and contacts alone cannot establish a coverage-qualified no-violation result.",
+      "evidence_ids": [],
+      "requirement_refs": [
+        "requirements/r1_generalized_v2/FORMAL_SEMANTICS.md",
+        "Critic handoff section 6"
+      ],
+      "finding_source": "deterministic",
+      "suggested_action": "Change the carton_c outcome to insufficient_information and keep its goal unresolved, unless a validated assessment is added.",
+      "additional_evidence_needed": true,
+      "human_review_required": false
+    },
+    {
+      "criticism_id": "CRIT-004",
+      "critic_version": "0.1.0",
+      "check_id": "LLM",
+      "category": "C05",
+      "category_name": "Unsupported physical inference",
+      "severity": "high",
+      "blocking": false,
+      "object_id": "widget_a",
+      "node_id": "S1",
+      "explanation": "S1 infers that widget_a was supported and never fell because its pose height did not drop and it stayed in contact with workbench_B. Constant height and geometric contact do not establish load-bearing support or rule out a falling departure; the contact record itself lists that limitation.",
+      "evidence_ids": [
+        "ev:07e99b1737cf6084a48708925d6028995d29133b3f7e3ae98bd4dd3bda82e4a6"
+      ],
+      "requirement_refs": [
+        "critic-prompt/v1"
+      ],
+      "finding_source": "llm_proposed",
+      "suggested_action": "State only what the pose and contact measurements show, and add an unresolved claim that support and falling departures are not established.",
+      "additional_evidence_needed": false,
+      "human_review_required": true
+    },
+    {
+      "criticism_id": "CRIT-005",
+      "critic_version": "0.1.0",
+      "check_id": "LLM",
+      "category": "C12",
+      "category_name": "Unsupported guarantee or certification",
+      "severity": "high",
+      "blocking": false,
+      "object_id": null,
+      "node_id": null,
+      "explanation": "The execution conclusion says the robot is certified safe for this task. One synthetic execution with no validated checker assessment cannot support certification language.",
+      "evidence_ids": [],
+      "requirement_refs": [
+        "critic-prompt/v1"
+      ],
+      "finding_source": "llm_proposed",
+      "suggested_action": "Remove the certification claim and report insufficient_information for the execution.",
+      "additional_evidence_needed": false,
+      "human_review_required": true
+    }
+  ],
+  "evidence_requests": [
+    {
+      "object_id": "widget_a",
+      "measurement_type": "checker_assessment",
+      "interval": [
+        8,
+        120
+      ],
+      "reason": "A validated R1 assessment is needed before claiming no_violation_observed_within_validated_coverage.",
+      "criticism_id": "CRIT-001"
+    },
+    {
+      "object_id": "vial_b",
+      "measurement_type": "checker_assessment",
+      "interval": [
+        8,
+        120
+      ],
+      "reason": "A validated R1 assessment is needed before claiming no_violation_observed_within_validated_coverage.",
+      "criticism_id": "CRIT-002"
+    },
+    {
+      "object_id": "carton_c",
+      "measurement_type": "checker_assessment",
+      "interval": [
+        8,
+        120
+      ],
+      "reason": "A validated R1 assessment is needed before claiming no_violation_observed_within_validated_coverage.",
+      "criticism_id": "CRIT-003"
+    }
+  ],
+  "unresolved_concerns": [
+    "No validated checker assessment was supplied. Treated as unavailable, not as \"no violation\"; violation, no-violation and non-applicability outcomes cannot be established from this package.",
+    "This request contains synthetic test data; its results are not empirical findings."
+  ],
+  "rejected_llm_findings": [
+    {
+      "reason": "cites evidence IDs that are not in the package (possible invention)",
+      "finding": {
+        "object_id": "vial_b",
+        "node_id": "E2",
+        "category": "C05",
+        "severity": "medium",
+        "explanation": "E2 says contact at every frame shows load-bearing support, citing a camera timing record.",
+        "evidence_ids": [
+          "ev:0000000000000000000000000000000000000000000000000000000000000000"
+        ],
+        "suggested_action": "Remove the support inference."
+      }
+    },
+    {
+      "reason": "node 'G9' does not exist in the cited graph",
+      "finding": {
+        "object_id": "vial_b",
+        "node_id": "G9",
+        "category": "C10",
+        "severity": "low",
+        "explanation": "Goal G9 generalizes.",
+        "evidence_ids": [],
+        "suggested_action": "Narrow it."
+      }
+    }
+  ],
+  "summary": {
+    "objects_configured": [
+      "widget_a",
+      "vial_b",
+      "carton_c"
+    ],
+    "objects_with_graphs": [
+      "widget_a",
+      "vial_b",
+      "carton_c"
+    ],
+    "objects_missing": [],
+    "claimed_execution_outcome": "no_violation_observed_within_validated_coverage",
+    "recomputed_execution_outcome": "no_violation_observed_within_validated_coverage",
+    "counts_by_source": {
+      "deterministic": 3,
+      "llm_proposed": 2
+    },
+    "counts_by_category": {
+      "C05": 1,
+      "C06": 3,
+      "C12": 1
+    },
+    "blocking_defects": true,
+    "needs_human_review": [
+      "CRIT-004",
+      "CRIT-005"
+    ],
+    "disclaimer": "A report with no blocking findings means only that this Critic found no issue within the supplied evidence and review scope. It does not show that R1 holds or that the robot was physically safe."
+  }
+}
