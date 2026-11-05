@@ -8,11 +8,12 @@ It does not decide whether the robot was safe, does not write a new argument, do
 
 ```
 review request (one execution)
-  ├─ 1. rule-based checks   deterministic, always run
-  │     graph structure (same rules as evidence_registry_gsn/gsn.py), evidence IDs exist,
-  │     record hashes, execution/object/interval scope, missing objects, claimed outcomes
-  │     vs checker results, R1 execution aggregation
-  └─ 2. LLM review          optional, any OpenAI-compatible server (vLLM on Hestia)
+  ├─ 1. validation          deterministic, always run
+  │     JSON schemas, Graph.validate and Record.validate rules, evidence references,
+  │     record hashes, bundle coverage, checker results; any failure rejects the input
+  ├─ 2. rule-based review   deterministic, always run
+  │     claimed outcomes vs admitted checker results, gaps, R1 execution aggregation
+  └─ 3. LLM review          optional, only for valid input; any OpenAI-compatible server (vLLM on Hestia)
         wording-level problems the rules cannot see (e.g. "height dropped so it fell",
         "certified safe"); every finding is screened and anything citing an unknown
         node or evidence ID is rejected
@@ -32,6 +33,21 @@ Every criticism records its category (C01–C13 from the handoff), severity, aff
 - **retrieval_context**: what was requested, gaps, and which records come from related executions.
 
 The output schema is `schemas/critic_report.schema.json`.
+
+## Validation before review
+
+Before anything is reviewed, the Critic checks that the input is well formed, using the team's own contracts:
+
+- the request against `schemas/critic_request.schema.json`, each graph against `gsn_graph.schema.json` and each evidence record against `registry_record.schema.json`. `schema.py` is a small standard-library JSON Schema validator that implements exactly the keywords these schemas use and raises on any other keyword, so no rule is skipped silently. A test compares it with the `jsonschema` package where that is installed;
+- every rule of `gsn.py:Graph.validate` and of `models.py:Record.validate` (except Record.validate's symlink check, which needs the filesystem). Node and record requirement IDs and versions must match the review;
+- synthetic data must be marked: a record with a `/synthetic/` source path or `provenance.synthetic` is only accepted in a request with `test_fixture: true`, and only such a request may use `/synthetic/` instead of the approved source root;
+- the bundle covers the configured objects, and checker results pass the admission rules below.
+
+Every criticism has a `phase`. A `validation` criticism means the input itself is invalid: all of them are blocking, the LLM is not called, and the report's `review_status` is `rejected_invalid_input`. Its criticisms are the diagnostics, not a completed critique. A `review` criticism is a critique of a well-formed argument; these include two argument defects that `Graph.validate` accepts: a goal or strategy with no support, and support resting on an unusable record.
+
+`review_status` is one of `completed`, `completed_llm_failed` (the rule-based review is complete but the model step failed), `rejected_invalid_input` and `internal_error` (the report failed its own schema, which is checked before it is returned; `status_detail` says why). The command line exits with 0 (completed, nothing blocking), 1 (completed, blocking criticisms), 3 (input rejected), 4 (LLM step failed), 5 (internal error) or 6 (request file unreadable); 2 is the standard code for a bad command line.
+
+One gap found in the team's code while testing: `Record.validate` alone accepts a string or an object where a list belongs (for example `"uncertainty": "frame"`), because it only iterates the value. `registry_record.schema.json` forbids this and the Critic enforces both.
 
 ## Checker results: when the Critic uses one
 
@@ -103,17 +119,20 @@ All synthetic and marked `test_fixture: true`. Cases A to C use the three-object
 | Case | What the mock Drafter did | Rule-based result |
 |---|---|---|
 | A: unsupported safety claim | Claims R1 satisfied for all objects from poses and contacts, with no checker assessment | 3 blocking C06 findings, one per object, each with an evidence request |
-| B: missing or wrong evidence | Cites an evidence ID that was never retrieved, uses another execution's record as proof, leaves out one configured object | Blocking C02 (widget_a), C03 (vial_b) and C04 (carton_c) |
+| B: missing or wrong evidence | Cites an evidence ID that was never retrieved, uses another execution's record as proof, leaves out one configured object | Input rejected (`rejected_invalid_input`), no model review; diagnostics C02 (widget_a), C03 (vial_b) and C04 (carton_c) |
 | C: correct unresolved argument | Says R1 cannot be determined and keeps support and fall questions open | No findings, not blocked |
 | D: claim hides a checker result | Leaves object_00 unresolved although the (synthetic) checker result reports a violation; its other two claims match the checker | Blocking C07 for object_00; the other two claims are supported |
 
 Reports are in `examples/`. `case_a…scripted_llm_demo.json` shows the LLM step with a **hand-written** reply (not a real model). It contains two valid findings plus one with an invented evidence ID and one with a made-up node, and the Critic rejects those two. Real model outputs will be added after the Hestia run.
 
-## Tests (69)
+## Tests (86)
 
 - the four cases produce exactly the expected findings, and Case C gets none
 - requests, graphs, records and reports validate against their JSON schemas
-- **agreement with the original GSN validator:** 11 kinds of broken graph that `gsn.py:Graph.validate` rejects are all flagged by the Critic, and the real `demo/GRAPH.json` passes both
+- validation before review (audit I3, I4, I9): the audit's probes (required request fields removed; node and record requirement IDs changed to R999 with recomputed record IDs; a dangling edge) are all rejected with `rejected_invalid_input` and the model is not called; synthetic records need `test_fixture`; every validation criticism is blocking; duplicate edges are blocking; an unsupported goal is a blocking review criticism; a model failure gives `completed_llm_failed`; a report that fails its own schema gives `internal_error`; every command-line exit code
+- **agreement with the original GSN validator:** 12 kinds of broken graph that `gsn.py:Graph.validate` rejects are all flagged by the Critic as validation criticisms and reject the whole review, and the real `demo/GRAPH.json` passes both
+- **agreement with the original record validator:** the team's real demo records pass both; 23 single-rule breaks and 400 random corruptions (with recomputed IDs, so the hash cannot give them away) are rejected by the Critic exactly when `Record.parse` or the registry schema rejects them
+- the built-in schema validator uses only supported keywords in all six schemas, follows JSON rules (true is not 1, 1.0 is an integer), and gives the same verdict as `jsonschema` on the cases and 1,800 corrupted documents
 - evidence IDs reproduce the registry's content hashes; a tampered record is caught
 - configurable R1: an extra configured object is reported missing; fewer objects are not demanded
 - checker admission (audit I1): real checker output is admitted in a fixture; a self-asserted `validated_checker` label, a re-hashed result for the wrong requirement, task or interval, synthetic output in a non-fixture request, output not marked synthetic, an edited result or configuration, a run the checker refused, a configuration with other objects, surfaces, execution or interval boundaries, a wrong clock or checker version, object assessments with unknown, wrong-object or unadmitted evidence, broken consistency rules, wrong object, execution, requirement, surface or status, and duplicates are all refused and never produce a C07. Each of these checks was switched off in turn to confirm a test fails without it
@@ -141,6 +160,7 @@ Open question for the team: should GSN solution nodes cite registry `ev:` IDs or
 - The LLM part has only been exercised with scripted replies and a fake server so far. Real model behaviour still has to be measured on Hestia.
 - Three synthetic cases cannot show research-level Critic quality.
 - Temporal coverage is checked at the level of declared intervals and retrieval gaps, not per measurement cell.
+- `Record.validate`'s symlink check needs the filesystem and is not repeated.
 - Rule-based checks cover C01–C04, C06–C08 and C11 (plus part of C05/C12). C09, C10 and C13 rely on the LLM for now.
 - Not implemented on purpose: Drafter, Revision Agent, RAG changes.
 
@@ -148,8 +168,9 @@ Open question for the team: should GSN solution nodes cite registry `ev:` IDs or
 
 ```
 critic/
-  critic.py          review(): runs checks, then the LLM, builds the report
-  checks.py          rule-based checks
+  critic.py          review(): runs checks, then the LLM, builds and checks the report
+  checks.py          validation and rule-based review checks
+  schema.py          built-in JSON Schema validator for the schemas above
   llm.py             prompt, backends (none / scripted / OpenAI-compatible), output screening
   contract.py        shared vocabulary copied from the GSN, registry and R1 contracts
   assessments.py     when a checker result is admitted

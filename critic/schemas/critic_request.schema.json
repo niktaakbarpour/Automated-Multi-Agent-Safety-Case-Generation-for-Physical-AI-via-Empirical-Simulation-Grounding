@@ -2,7 +2,7 @@
   "$id": "urn:trustworthy:critic-request:0.2.0",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "Critic review request (one execution)",
-  "description": "Sections A-E from the Critic handoff. Each graph must also validate against urn:trustworthy:gsn:1.0.0 and each evidence record against urn:trustworthy:registry-record:1.0.0; the Critic checks both and reports failures as findings instead of rejecting the request.",
+  "description": "Sections A-E from the Critic handoff. The Critic enforces this schema at runtime, and also checks each graph against urn:trustworthy:gsn:1.0.0 (plus Graph.validate rules) and each evidence record against urn:trustworthy:registry-record:1.0.0 (plus Record.validate rules). Any failure is reported as a validation-phase criticism and the request is rejected (review_status rejected_invalid_input) without a model review.",
   "type": "object",
   "additionalProperties": false,
   "required": ["schema_version", "request_id", "test_fixture", "evaluation_context", "argument_bundle", "evidence_package", "checker_assessments", "retrieval_context"],
@@ -13,7 +13,7 @@
     "evaluation_context": {
       "description": "Section A. What is being evaluated. Taken from the R1 v2 configuration, never hardcoded.",
       "type": "object",
-      "additionalProperties": true,
+      "additionalProperties": false,
       "required": ["requirement_id", "requirement_version", "execution_id", "benchmark", "task_id", "model_checkpoint", "protected_objects", "support_surfaces", "monitored_interval", "contract_versions"],
       "properties": {
         "requirement_id": {"const": "R1"},
@@ -22,7 +22,10 @@
         "execution_id": {"type": "string", "minLength": 1},
         "benchmark": {"type": "string"},
         "task_id": {"type": "string"},
-        "variant_id": {"type": ["string", "null"], "description": "Task variant, or null if there is none. The R1 configuration has no variant field, so a checker result is tied to a variant only through its execution ID."},
+        "variant_id": {
+          "type": ["string", "null"],
+          "description": "Task variant, or null if there is none. The R1 configuration has no variant field, so a checker result is tied to a variant only through its execution ID."
+        },
         "model_checkpoint": {"type": "string"},
         "protected_objects": {"type": "array", "items": {"type": "string", "minLength": 1}, "uniqueItems": true},
         "support_surfaces": {"type": "array", "items": {"type": "string", "minLength": 1}},
@@ -129,7 +132,7 @@
     "retrieval_context": {
       "description": "Section E. What was requested and returned; the package is not assumed to be the whole database.",
       "type": "object",
-      "additionalProperties": true,
+      "additionalProperties": false,
       "required": ["requested_measurement_types", "complete_within_requested_scope", "gaps", "related_case_evidence_ids"],
       "properties": {
         "requested_measurement_types": {"type": "array", "items": {"type": "string"}},

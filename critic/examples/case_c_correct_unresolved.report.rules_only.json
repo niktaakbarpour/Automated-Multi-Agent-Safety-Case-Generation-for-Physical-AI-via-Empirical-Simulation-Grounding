@@ -4,6 +4,9 @@
   "request_id": "CASE-C-correct-unresolved",
   "execution_id": "SYNTH-EXEC-001",
   "test_fixture": true,
+  "review_status": "completed",
+  "input_valid": true,
+  "status_detail": null,
   "llm": {
     "backend": "none",
     "model": null,

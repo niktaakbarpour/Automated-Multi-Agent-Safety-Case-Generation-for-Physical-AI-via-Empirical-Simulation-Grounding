@@ -4,6 +4,9 @@
   "request_id": "CASE-D-claim-hides-checker-result",
   "execution_id": "synthetic-execution",
   "test_fixture": true,
+  "review_status": "completed",
+  "input_valid": true,
+  "status_detail": null,
   "llm": {
     "backend": "none",
     "model": null,
@@ -59,6 +62,7 @@
       "criticism_id": "CRIT-001",
       "critic_version": "0.2.0",
       "check_id": "CONCL-HIDES-VIOLATION",
+      "phase": "review",
       "category": "C07",
       "category_name": "Contradiction with validated evidence",
       "severity": "high",

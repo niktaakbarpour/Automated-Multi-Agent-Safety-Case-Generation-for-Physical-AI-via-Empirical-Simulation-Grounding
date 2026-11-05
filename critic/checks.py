@@ -9,9 +9,12 @@ No check infers physical events. Checks only compare IDs, scopes, intervals,
 statuses and declared outcomes against the supplied package.
 """
 import math
+import re
+from pathlib import PurePosixPath
 
 from . import assessments as A
 from . import contract as K
+from . import schema as SCHEMA
 
 GSN_REF = 'evaluation/r1_v4/evidence_registry_gsn/gsn.py:Graph.validate'
 SPEC_REF = 'requirements/r1_generalized_v2/FORMAL_SEMANTICS.md'
@@ -19,6 +22,7 @@ AGGREGATION_REF = SPEC_REF + '#execution-aggregation'
 OUTCOME_REF = SPEC_REF + '#coverage-and-object-outcome'
 VALIDITY_REF = SPEC_REF + '#domain-and-evidence-logic'
 HASH_REF = 'evaluation/r1_v4/evidence_registry_gsn/models.py:Record.id'
+RECORD_REF = 'evaluation/r1_v4/evidence_registry_gsn/models.py:Record.validate'
 
 # Which node types an edge of each type may connect (source types, target types).
 EDGE_RULES = {
@@ -34,6 +38,7 @@ def finding(check_id, category, explanation, suggested_action, *, severity='high
     """Build one criticism (it gets its CRIT-nnn id later, in critic.review)."""
     f = {
         'check_id': check_id,
+        'phase': K.phase_of(check_id),
         'category': category,
         'category_name': K.CATEGORIES[category],
         'severity': severity,
@@ -147,22 +152,31 @@ def check_request_shape(req):
 # ------------------------------------------------------------------ evidence records
 
 def index_records(req):
-    """Return ({evidence_id: record}, findings about broken records)."""
+    """Return ({evidence_id: record}, findings about broken records).
+
+    Each record is checked against registry_record.schema.json and the rules of models.Record.validate.
+    """
     out, records = [], {}
-    review_version = req['evaluation_context']['requirement_version']
+    ctx = req['evaluation_context']
+    fixture = req.get('test_fixture') is True
     for i, rec in enumerate(req['evidence_package']['records']):
         rid = rec.get('id')
         missing = [k for k in K.RECORD_REQUIRED if k not in rec]
         if missing or not isinstance(rid, str):
             out.append(finding('EV-SHAPE', 'C02', f'Evidence record #{i} ({rid}) is missing fields: '
                                f'{", ".join(missing) or "id"}.', 'Export the record unchanged from the registry.',
-                               severity='medium', evidence_ids=[rid] if isinstance(rid, str) else []))
+                               evidence_ids=[rid] if isinstance(rid, str) else []))
             continue
         if rid in records:
             out.append(finding('EV-DUP', 'C02', f'Evidence ID {rid} appears twice in the package.',
-                               'Export each registry record once.', severity='medium', evidence_ids=[rid]))
+                               'Export each registry record once.', evidence_ids=[rid]))
             continue
         records[rid] = rec
+        problems = SCHEMA.errors(rec, SCHEMA.load('registry_record'), limit=5)
+        if problems:
+            out.append(finding('SCHEMA-RECORD', 'C02', f'Evidence record {rid} does not match the registry record '
+                               f'schema: {"; ".join(problems)}.', 'Export the record unchanged from the registry.',
+                               evidence_ids=[rid], requirement_refs=[str(SCHEMA.SCHEMAS['registry_record'].name)]))
         try:
             hash_ok = K.record_content_id(rec) == rid
         except (TypeError, ValueError):  # e.g. NaN, which canonical JSON rejects
@@ -172,12 +186,109 @@ def index_records(req):
                                'changed after export, or the ID is not a registry ID.',
                                'Re-export the record from the registry; never edit records.',
                                evidence_ids=[rid], requirement_refs=[HASH_REF]))
-        if rec['schema_version'] != K.RECORD_SCHEMA_VERSION or rec['requirement_version'] != review_version:
+        if (rec['schema_version'] != K.RECORD_SCHEMA_VERSION or rec['requirement_id'] != ctx['requirement_id']
+                or rec['requirement_version'] != ctx['requirement_version']):
             out.append(finding('EV-VERSION', 'C02', f"Evidence record {rid} uses record schema {rec['schema_version']} "
-                               f"and requirement {rec['requirement_version']}, which do not match this review.",
-                               'Use records produced for the same requirement and registry versions.',
-                               evidence_ids=[rid]))
+                               f"and requirement {rec['requirement_id']} {rec['requirement_version']}, which do not "
+                               'match this review.', 'Use records produced for the same requirement and registry '
+                               'versions.', evidence_ids=[rid]))
+        rule_problems = record_rule_problems(rec, fixture)
+        if rule_problems:
+            out.append(finding('EV-RECORD', 'C02', f'Evidence record {rid} breaks the registry record rules: '
+                               f'{"; ".join(rule_problems)}.', 'Export only records that models.Record.validate '
+                               'accepts.', evidence_ids=[rid], requirement_refs=[RECORD_REF]))
+        if not fixture and _is_synthetic_record(rec):
+            out.append(finding('EV-SYNTHETIC', 'C02', f'Evidence record {rid} is synthetic test data, but the request '
+                               'is not marked test_fixture.', 'Never mix synthetic records into a real review; mark '
+                               'the request test_fixture or remove the record.', evidence_ids=[rid]))
     return records, out
+
+
+APPROVED_SOURCE_ROOT = PurePosixPath('/disk/1/data/niktakbr')
+SYNTHETIC_SOURCE_ROOT = PurePosixPath('/synthetic')
+RECORD_KINDS = {'raw_measurement', 'derived_measurement', 'ai_reference_judgment', 'human_reference_judgment',
+                'checker_assessment', 'document'}
+RECORD_STATUSES = {'verified_measurement', 'verified_source', 'provisional', 'invalid', 'missing', 'unsupported'}
+CAPABILITY_VALUES = {'VERIFIED', 'CONDITIONALLY_SUPPORTED', 'BLOCKED_ON_EVIDENCE', 'UNSUPPORTED'}
+MEASUREMENT_TYPES = {'object_pose', 'native_geometry', 'contact', 'camera_reference', 'robot_state', 'timestamp',
+                     'recorded_state'}
+
+
+def _is_synthetic_record(rec):
+    path = rec.get('source_path')
+    provenance = rec.get('provenance') if isinstance(rec.get('provenance'), dict) else {}
+    return provenance.get('synthetic') is True or (
+        isinstance(path, str) and PurePosixPath(path).is_relative_to(SYNTHETIC_SOURCE_ROOT))
+
+
+def _record_interval(value):
+    """models.interval: a finite [start, end] pair of int/float (not bool) with start <= end."""
+    if not isinstance(value, list) or len(value) != 2:
+        return None
+    if any(type(x) not in (int, float) or not math.isfinite(x) for x in value) or value[0] > value[1]:
+        return None
+    return tuple(value)
+
+
+def record_rule_problems(rec, fixture):
+    """The checks of evaluation/r1_v4/evidence_registry_gsn/models.py:Record.validate, without filesystem access.
+
+    Differences: the version rule is reported as EV-VERSION, and a test-fixture request may also use
+    /synthetic/ source paths.
+    (Record.validate also refuses symlinked sources; that needs the filesystem and is not checked here.)
+    """
+    out = []  # the version rule of Record.validate is reported separately as EV-VERSION
+    kind, status = rec.get('kind'), rec.get('validation_status')
+    if not _in(kind, RECORD_KINDS) or not _in(status, RECORD_STATUSES):
+        out.append('record kind/status')
+    for key in ('execution_id', 'object_id', 'selector', 'measurement_type', 'clock', 'coordinate_frame',
+                'model_checkpoint', 'benchmark', 'task_id', 'producer'):
+        if not isinstance(rec.get(key), str) or not rec[key]:
+            out.append('missing ' + key)
+    if rec.get('domain') not in ('frame', 'time'):
+        out.append('domain')
+    if not isinstance(rec.get('original'), bool) or (rec['original'] and kind not in ('raw_measurement', 'document')):
+        out.append('provenance origin')
+    path = rec.get('source_path')
+    if not isinstance(path, str) or not path.startswith('/'):
+        out.append('source binding')
+    else:
+        source = PurePosixPath(path)
+        allowed = source.is_relative_to(APPROVED_SOURCE_ROOT) or (
+            fixture and source.is_relative_to(SYNTHETIC_SOURCE_ROOT))
+        if not allowed or '..' in source.parts or any('issta' in part.lower() for part in source.parts):
+            out.append('source outside approved research scope')
+    if not isinstance(rec.get('source_sha256'), str) or not re.fullmatch('[0-9a-f]{64}', rec['source_sha256']):
+        out.append('source binding')
+    span = _record_interval(rec.get('interval'))
+    if span is None:
+        out.append('invalid interval')
+    elif rec.get('domain') == 'frame' and any(type(x) is not int or x < 0 for x in span):
+        out.append('frame index')
+    gaps = rec.get('missing_intervals')
+    for gap in gaps if isinstance(gaps, list) else [None]:
+        g = _record_interval(gap)
+        if g is None:
+            out.append('invalid interval')
+        elif span is not None and (g[0] < span[0] or g[1] > span[1]):
+            out.append('gap outside scope')
+    for key in ('dependencies', 'conflicts', 'uncertainty', 'limitations'):
+        seq = rec.get(key)
+        if not isinstance(seq, list) or any(not isinstance(x, str) or not x for x in seq) \
+                or len(set(x for x in seq if isinstance(x, str))) != len(seq):
+            out.append('invalid/duplicate list')
+    capability = rec.get('capability')
+    if not isinstance(capability, dict) or not capability or any(
+            not isinstance(k, str) or not k or not _in(v, CAPABILITY_VALUES) for k, v in capability.items()):
+        out.append('capability')
+    if status == 'verified_measurement' and kind not in ('raw_measurement', 'derived_measurement'):
+        out.append('judgment is not measurement')
+    if kind in ('raw_measurement', 'derived_measurement') and not _in(rec.get('measurement_type'), MEASUREMENT_TYPES):
+        out.append('physical events are not measurement types')
+    provenance = rec.get('provenance')
+    if not isinstance(provenance, dict) or provenance.get('physical_truth') not in (None, 'U'):
+        out.append('unsupported physical truth')
+    return sorted(set(out))
 
 
 # ------------------------------------------------------------------ bundle coverage
@@ -238,6 +349,11 @@ def check_graph(req, item, records):
         out.append(finding(check_id, category, explanation, action, object_id=oid,
                            requirement_refs=kw.pop('requirement_refs', [GSN_REF]), **kw))
 
+    problems = SCHEMA.errors(g, SCHEMA.load('gsn_graph'), limit=5)
+    if problems:
+        add('SCHEMA-GRAPH', 'C01', f'Graph for {oid} does not match the GSN 1.0.0 schema: {"; ".join(problems)}.',
+            'Emit a graph that validates against gsn_graph.schema.json.',
+            requirement_refs=[str(SCHEMA.SCHEMAS['gsn_graph'].name)])
     if g.get('schema_version') != K.GSN_SCHEMA_VERSION:
         add('GSN-VERSION', 'C01', f'Graph for {oid} has schema_version {g.get("schema_version")!r}; expected 1.0.0.',
             'Use the existing GSN 1.0.0 schema.')
@@ -267,7 +383,7 @@ def check_graph(req, item, records):
             continue
         if (s, t, kind) in seen:
             add('GSN-EDGE-DUP', 'C01', f'Duplicate edge {s} -{kind}-> {t} in the {oid} graph.',
-                'Remove the duplicate edge.', severity='low', node_id=s)
+                'Remove the duplicate edge.', node_id=s)
             continue
         seen.add((s, t, kind))
         a, b = nodes[s], nodes[t]
@@ -288,7 +404,7 @@ def check_graph(req, item, records):
         if n.get('type') in ('goal', 'strategy') and not supported:
             add('GSN-UNSUPPORTED-GOAL', 'C01', f"{n['type'].title()} {nid} in the {oid} graph has no supporting "
                 'strategy, sub-goal, solution or unresolved claim.',
-                'Decompose it, or link it to an explicit unresolved claim.', severity='medium', node_id=nid)
+                'Decompose it, or link it to an explicit unresolved claim.', node_id=nid)
     return out
 
 
@@ -336,9 +452,12 @@ def _check_node(req, oid, nid, n, records):
         add('GSN-NODE-OBJECT', 'C03',
             f"Node {nid} is scoped to object {scope['object_id']} but sits in the {oid} graph.",
             'Move the node to the graph for its object.')
-    if scope.get('requirement_version') and scope['requirement_version'] != ctx['requirement_version']:
-        add('GSN-NODE-REQ', 'C03', f"Node {nid} uses requirement version {scope['requirement_version']}, not "
-            f"{ctx['requirement_version']}.", 'Use the requirement version under review.')
+    if (scope.get('requirement_id'), scope.get('requirement_version')) != (ctx['requirement_id'],
+                                                                             ctx['requirement_version']) \
+            and scope.get('requirement_id') and scope.get('requirement_version'):
+        add('GSN-NODE-REQ', 'C03', f"Node {nid} is scoped to requirement {scope['requirement_id']} "
+            f"{scope['requirement_version']}, not {ctx['requirement_id']} {ctx['requirement_version']}.",
+            'Use the requirement under review.')
     if ntype in ('goal', 'unresolved_claim') and status not in ('proposed', 'unresolved'):
         add('GSN-GOAL-PROMOTION', 'C06', f'Goal {nid} is marked {status}; goals may only be proposed or unresolved '
             'in this phase.', 'Set the goal back to unresolved; promotion needs a validated checker path.')
@@ -689,7 +808,14 @@ def run_all(req):
     findings, fatal = check_request_shape(req)
     if fatal:
         return findings, {'fatal': True, 'records': {}, 'expected_outcome': None,
-                          'admitted': {}, 'checker_admission': []}
+                          'admitted': {}, 'checker_admission': [], 'input_valid': False}
+    problems = SCHEMA.errors(req, SCHEMA.load('request'), limit=10)
+    if problems:
+        findings.append(finding('SCHEMA-REQUEST', 'C01', 'The review request does not match '
+                                f'{K.REQUEST_SCHEMA_VERSION}: {"; ".join(problems)}.',
+                                'Send a complete request that validates against critic_request.schema.json; '
+                                'synthetic data must be marked test_fixture explicitly.',
+                                requirement_refs=[str(SCHEMA.SCHEMAS['request'].name)]))
     records, record_findings = index_records(req)
     findings += record_findings
     findings += check_bundle(req)
@@ -700,4 +826,5 @@ def run_all(req):
     conclusion_findings, expected = check_conclusions(req, admitted)
     findings += conclusion_findings
     return findings, {'fatal': False, 'records': records, 'expected_outcome': expected,
-                      'admitted': admitted, 'checker_admission': admission}
+                      'admitted': admitted, 'checker_admission': admission,
+                      'input_valid': not any(f['phase'] == 'validation' for f in findings)}

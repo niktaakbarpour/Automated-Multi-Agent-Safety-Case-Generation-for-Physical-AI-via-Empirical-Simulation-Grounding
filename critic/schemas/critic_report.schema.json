@@ -5,13 +5,19 @@
   "description": "Machine-readable review for the future Revision component. No findings means only that this Critic found no issue within the supplied evidence and review scope; it is not evidence that R1 holds.",
   "type": "object",
   "additionalProperties": false,
-  "required": ["schema_version", "critic_version", "request_id", "execution_id", "test_fixture", "llm", "checker_admission", "criticisms", "evidence_requests", "unresolved_concerns", "rejected_llm_findings", "summary"],
+  "required": ["schema_version", "critic_version", "request_id", "execution_id", "test_fixture", "review_status", "input_valid", "status_detail", "llm", "checker_admission", "criticisms", "evidence_requests", "unresolved_concerns", "rejected_llm_findings", "summary"],
   "properties": {
     "schema_version": {"const": "critic-report/0.2.0"},
     "critic_version": {"type": "string"},
     "request_id": {"type": "string"},
     "execution_id": {"type": "string"},
     "test_fixture": {"type": "boolean"},
+    "review_status": {
+      "enum": ["completed", "completed_llm_failed", "rejected_invalid_input", "internal_error"],
+      "description": "completed: input valid and review done. completed_llm_failed: input valid, rule-based review done, the LLM step failed. rejected_invalid_input: the input failed validation (see the validation-phase criticisms); the LLM was not called and this is not a completed critique. internal_error: the report failed its own schema (see status_detail)."
+    },
+    "input_valid": {"type": "boolean", "description": "false when any criticism is in the validation phase."},
+    "status_detail": {"type": ["string", "null"]},
     "llm": {
       "type": "object",
       "additionalProperties": false,
@@ -50,10 +56,14 @@
       "items": {
         "type": "object",
         "additionalProperties": false,
-        "required": ["criticism_id", "check_id", "critic_version", "category", "category_name", "severity", "blocking", "object_id", "node_id", "explanation", "evidence_ids", "requirement_refs", "finding_source", "suggested_action", "additional_evidence_needed", "human_review_required"],
+        "required": ["criticism_id", "check_id", "critic_version", "phase", "category", "category_name", "severity", "blocking", "object_id", "node_id", "explanation", "evidence_ids", "requirement_refs", "finding_source", "suggested_action", "additional_evidence_needed", "human_review_required"],
         "properties": {
           "criticism_id": {"type": "string", "pattern": "^CRIT-[0-9]{3}$"},
           "check_id": {"type": "string"},
+          "phase": {
+            "enum": ["validation", "review"],
+            "description": "validation: the input is invalid (schemas, Graph.validate, Record.validate, request and checker contracts). review: a critique of a well-formed argument."
+          },
           "critic_version": {"type": "string"},
           "category": {"enum": ["C01", "C02", "C03", "C04", "C05", "C06", "C07", "C08", "C09", "C10", "C11", "C12", "C13"]},
           "category_name": {"type": "string"},

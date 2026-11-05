@@ -302,6 +302,7 @@ EXPECTED = {
         'description': 'Draft claims R1 satisfied from poses and contacts only, with no checker assessment.',
         'must_flag': [{'category': 'C06', 'object_id': o, 'check_id': 'CONCL-UNSUPPORTED'} for o in OBJECTS],
         'blocking_expected': True,
+        'review_status_expected': 'completed',
         'llm_should_add_any_of': ['C05', 'C06', 'C12'],
     },
     'case_b_missing_or_wrong_evidence.json': {
@@ -313,12 +314,14 @@ EXPECTED = {
             {'category': 'C04', 'object_id': 'carton_c', 'check_id': 'BUNDLE-MISSING'},
         ],
         'blocking_expected': True,
+        'review_status_expected': 'rejected_invalid_input',
         'llm_should_add_any_of': [],
     },
     'case_c_correct_unresolved.json': {
         'description': 'Honest unresolved argument that keeps uncertainty; must not be rejected.',
         'must_flag': [],
         'blocking_expected': False,
+        'review_status_expected': 'completed',
         'llm_should_add_any_of': [],
     },
     'case_d_claim_hides_checker_result.json': {
@@ -326,6 +329,7 @@ EXPECTED = {
                        'unresolved although the checker reports a violation; the other two claims match the checker.',
         'must_flag': [{'category': 'C07', 'object_id': 'object_00', 'check_id': 'CONCL-HIDES-VIOLATION'}],
         'blocking_expected': True,
+        'review_status_expected': 'completed',
         'llm_should_add_any_of': [],
     },
 }

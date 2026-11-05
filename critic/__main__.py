@@ -4,10 +4,28 @@ Examples
   python3 -m critic --request critic/cases/case_a_unsupported_claim.json
   python3 -m critic --request critic/cases/case_a_unsupported_claim.json \
       --backend openai --base-url http://localhost:8000/v1 --model openai/gpt-oss-20b
+
+Exit codes (the report is written in every case)
+  0  review completed, no blocking criticism
+  1  review completed, with blocking criticisms
+  2  bad command line (argparse)
+  3  input rejected: it failed validation, so no review was run (review_status rejected_invalid_input)
+  4  rule-based review completed but the LLM step failed (completed_llm_failed)
+  5  internal error: the report failed its own schema
+  6  the request file could not be read as JSON
 """
 import argparse
 import json
 import sys
+
+EXIT_CODES = {'completed': 0, 'rejected_invalid_input': 3, 'completed_llm_failed': 4, 'internal_error': 5}
+EXIT_BLOCKING, EXIT_UNREADABLE = 1, 6
+
+
+def exit_code(report):
+    if report['review_status'] == 'completed' and report['summary']['blocking_defects']:
+        return EXIT_BLOCKING
+    return EXIT_CODES[report['review_status']]
 
 from . import llm as L
 from .critic import review
@@ -26,7 +44,8 @@ def make_llm(args):
 
 def main(argv=None):
     p = argparse.ArgumentParser(prog='python3 -m critic', description='Review one R1 argument bundle.')
-    p.add_argument('--request', required=True, help='critic-request/0.1.0 JSON file')
+    p.add_argument('--request', required=True,
+                   help='review request JSON file (critic/schemas/critic_request.schema.json)')
     p.add_argument('--backend', choices=['none', 'openai', 'scripted'], default='none',
                    help='none = rule checks only; openai = any OpenAI-compatible server such as vLLM')
     p.add_argument('--base-url', default=None, help='default $CRITIC_LLM_BASE_URL or http://localhost:8000/v1')
@@ -40,19 +59,24 @@ def main(argv=None):
     args = p.parse_args(argv)
     if args.backend == 'scripted' and not args.scripted_reply:
         p.error('--backend scripted needs --scripted-reply FILE')
-    with open(args.request, encoding='utf-8') as fh:
-        request = json.load(fh)
+    try:
+        with open(args.request, encoding='utf-8') as fh:
+            request = json.load(fh)
+    except (OSError, ValueError) as exc:
+        print(f'cannot read {args.request}: {exc}', file=sys.stderr)
+        return EXIT_UNREADABLE
     report = review(request, make_llm(args))
     text = json.dumps(report, indent=2, ensure_ascii=False) + '\n'
     if args.out:
         with open(args.out, 'w', encoding='utf-8') as fh:
             fh.write(text)
         s = report['summary']
-        print(f"{args.out}: {len(report['criticisms'])} criticisms, blocking={s['blocking_defects']}, "
-              f"llm={report['llm']['backend']} ok={report['llm']['ok']}", file=sys.stderr)
+        print(f"{args.out}: {report['review_status']}, {len(report['criticisms'])} criticisms, "
+              f"blocking={s['blocking_defects']}, llm={report['llm']['backend']} ok={report['llm']['ok']}",
+              file=sys.stderr)
     else:
         sys.stdout.write(text)
-    return 0
+    return exit_code(report)
 
 
 if __name__ == '__main__':

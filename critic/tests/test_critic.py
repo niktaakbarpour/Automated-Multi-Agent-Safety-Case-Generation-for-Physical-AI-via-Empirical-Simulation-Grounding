@@ -75,6 +75,7 @@ class Cases(unittest.TestCase):
                 for want in exp['must_flag']:
                     self.assertTrue(flagged(report, **want), f'{name}: missing {want}')
                 self.assertEqual(report['summary']['blocking_defects'], exp['blocking_expected'], name)
+                self.assertEqual(report['review_status'], exp['review_status_expected'], name)
 
     def test_correct_unresolved_argument_is_not_criticised(self):
         report = review(load('case_c_correct_unresolved.json'))
@@ -391,7 +392,13 @@ class CheckerAdmission(unittest.TestCase):
         reply = {'findings': [{'object_id': 'object_00', 'node_id': None, 'category': 'C09', 'severity': 'low',
                                'explanation': 'x', 'evidence_ids': [rejected], 'suggested_action': 'y'}]}
         report = review(checker_request(item), L.ScriptedLLM(json.dumps(reply)))
-        self.assertIn('not in the package', report['rejected_llm_findings'][0]['reason'])
+        # a rejected checker result makes the input invalid, so the model is not even asked
+        self.assertEqual((report['review_status'], report['llm']['called']), ('rejected_invalid_input', False))
+        # and the screening step would refuse the citation anyway
+        accepted, rejected_findings = L.screen(reply['findings'], checker_request(item), {}, [],
+                                               report['checker_admission'])
+        self.assertEqual(accepted, [])
+        self.assertIn('not in the package', rejected_findings[0]['reason'])
         view = json.loads(L.build_messages(checker_request(item), [], {}, report['checker_admission'])[1]
                           .split('\n', 1)[1])
         self.assertEqual({a['admitted'] for a in view['checker_assessments']}, {False})
@@ -612,6 +619,290 @@ class ConflictsAndApplicability(unittest.TestCase):
         self.assertIn('uncertainty: contact sampling is sparse', concerns)
 
 
+class InputValidation(unittest.TestCase):
+    """Audit I3, I4, I9: invalid input is rejected before the LLM, with an explicit status."""
+
+    def _scripted(self):
+        reply = {'findings': [{'object_id': 'widget_a', 'node_id': 'G1', 'category': 'C12', 'severity': 'medium',
+                               'explanation': 'x', 'evidence_ids': [], 'suggested_action': 'y'}]}
+        return L.ScriptedLLM(json.dumps(reply))
+
+    def test_valid_input_is_reviewed(self):
+        report = review(load('case_a_unsupported_claim.json'), self._scripted())
+        self.assertEqual((report['review_status'], report['input_valid'], report['llm']['called']),
+                         ('completed', True, True))
+        self.assertEqual({c['phase'] for c in report['criticisms']}, {'review'})
+
+    def test_audit_probe_removed_fields(self):
+        req = load('case_a_unsupported_claim.json')
+        del req['test_fixture']
+        for key in ('benchmark', 'task_id', 'model_checkpoint', 'support_surfaces', 'contract_versions'):
+            del req['evaluation_context'][key]
+        report = review(req, self._scripted())
+        self.assertEqual((report['review_status'], report['llm']['called']), ('rejected_invalid_input', False))
+        self.assertIn('SCHEMA-REQUEST', check_ids(report))
+        # synthetic data cannot silently become real once test_fixture is gone
+        self.assertIn('EV-SYNTHETIC', check_ids(report))
+        self.assertFalse(report['test_fixture'])
+
+    def test_audit_probe_consistent_requirement_change(self):
+        req = load('case_c_correct_unresolved.json')
+        renamed = {}
+        for rec in req['evidence_package']['records']:
+            old = rec['id']
+            rec['requirement_id'] = 'R999'
+            rec['id'] = K.record_content_id(rec)
+            renamed[old] = rec['id']
+        for item in req['argument_bundle']['graphs']:
+            for n in item['graph']['nodes']:
+                n['scope']['requirement_id'] = 'R999'
+                if n.get('evidence_id'):
+                    n['evidence_id'] = renamed[n['evidence_id']]
+        report = review(req, self._scripted())
+        self.assertEqual((report['review_status'], report['llm']['called']), ('rejected_invalid_input', False))
+        self.assertTrue({'GSN-NODE-REQ', 'EV-VERSION', 'SCHEMA-RECORD'} <= check_ids(report))
+        self.assertNotIn('EV-HASH', check_ids(report))  # the IDs were recomputed, so only the scope gives it away
+
+    def test_audit_probe_dangling_edge_stops_the_llm(self):
+        req = load('case_a_unsupported_claim.json')
+        req['argument_bundle']['graphs'][0]['graph']['edges'].append(
+            {'source': 'G1', 'target': 'MISSING', 'type': 'supported_by'})
+        report = review(req, self._scripted())
+        self.assertEqual((report['review_status'], report['llm']['called']), ('rejected_invalid_input', False))
+        endpoint = flagged(report, check_id='GSN-EDGE-ENDPOINT')
+        self.assertEqual((endpoint[0]['phase'], endpoint[0]['blocking']), ('validation', True))
+        self.assertIn('rejection, not a completed critique', ' '.join(report['unresolved_concerns']))
+
+    def test_llm_failure_is_explicit(self):
+        report = review(load('case_c_correct_unresolved.json'), L.ScriptedLLM('not json'))
+        self.assertEqual(report['review_status'], 'completed_llm_failed')
+
+    def test_duplicate_edge_and_unsupported_goal_block(self):
+        req = load('case_c_correct_unresolved.json')
+        g = req['argument_bundle']['graphs'][0]['graph']
+        g['edges'].append(copy.deepcopy(g['edges'][0]))
+        dup = flagged(review(req), check_id='GSN-EDGE-DUP')
+        self.assertEqual((dup[0]['severity'], dup[0]['blocking'], dup[0]['phase']), ('high', True, 'validation'))
+        req = load('case_c_correct_unresolved.json')
+        g = req['argument_bundle']['graphs'][0]['graph']
+        g['edges'] = [e for e in g['edges'] if e['source'] != 'S1']  # the strategy loses all its support
+        report = review(req)
+        goal = flagged(report, check_id='GSN-UNSUPPORTED-GOAL', node_id='S1')
+        # Graph.validate accepts this, so it is a blocking review finding, not an input rejection
+        self.assertEqual((goal[0]['blocking'], goal[0]['phase'], report['review_status']),
+                         (True, 'review', 'completed'))
+
+    def test_synthetic_records_need_test_fixture(self):
+        req = load('case_c_correct_unresolved.json')
+        req['test_fixture'] = False
+        report = review(req)
+        self.assertEqual(len(flagged(report, check_id='EV-SYNTHETIC')), len(req['evidence_package']['records']))
+        self.assertEqual(report['review_status'], 'rejected_invalid_input')
+
+    def test_every_validation_finding_is_blocking(self):
+        reports = [review(load('case_b_missing_or_wrong_evidence.json'))]
+        for f in GRAPH_MUTATIONS:
+            req = load('case_c_correct_unresolved.json')
+            f(req['argument_bundle']['graphs'][0]['graph'])
+            reports.append(review(req))
+        found = [c for r in reports for c in r['criticisms'] if c['phase'] == 'validation']
+        self.assertTrue(found)
+        self.assertTrue(all(c['blocking'] and c['severity'] == 'high' for c in found))
+        self.assertTrue(all(r['review_status'] == 'rejected_invalid_input' for r in reports))
+
+    def test_report_failing_its_schema_is_an_internal_error(self):
+        from unittest import mock
+        from critic import schema as S
+        real = S.load
+
+        def broken(name):
+            return {'type': 'object', 'required': ['no_such_field']} if name == 'report' else real(name)
+        with mock.patch.object(S, 'load', side_effect=broken):
+            report = review(load('case_c_correct_unresolved.json'))
+        self.assertEqual(report['review_status'], 'internal_error')
+        self.assertIn('no_such_field', report['status_detail'])
+
+    def test_cli_exit_codes(self):
+        import io
+        import tempfile
+        from contextlib import redirect_stderr
+        from critic.__main__ import main
+        with tempfile.TemporaryDirectory() as tmp:
+            out = str(Path(tmp) / 'report.json')
+            bad = Path(tmp) / 'bad.json'
+            bad.write_text('{not json')
+
+            def run(*args):
+                with redirect_stderr(io.StringIO()):
+                    return main(list(args) + ['--out', out])
+            self.assertEqual(run('--request', str(CASES / 'case_c_correct_unresolved.json')), 0)
+            self.assertEqual(run('--request', str(CASES / 'case_a_unsupported_claim.json')), 1)
+            self.assertEqual(run('--request', str(CASES / 'case_b_missing_or_wrong_evidence.json')), 3)
+            self.assertEqual(run('--request', str(CASES / 'case_c_correct_unresolved.json'), '--backend', 'scripted',
+                                 '--scripted-reply', str(bad)), 4)
+            self.assertEqual(run('--request', str(bad)), 6)
+
+
+class AgreementWithOriginalRecordValidator(unittest.TestCase):
+    """A record is flagged by the Critic exactly when the team's registry contract rejects it: models.Record.parse
+    or registry_record.schema.json. (Record.parse alone accepts a string or an object where a list belongs, e.g.
+    uncertainty: "frame", which the schema forbids.) IDs are recomputed first, so the content hash cannot be what
+    gives a broken record away."""
+
+    RECORD_CHECKS = {'EV-SHAPE', 'EV-DUP', 'EV-HASH', 'EV-VERSION', 'EV-RECORD', 'SCHEMA-RECORD'}
+
+    def setUp(self):
+        from evaluation.r1_v4.evidence_registry_gsn.models import Record
+        self.Record = Record
+        self.records = json.loads((GSN_DIR / 'demo' / 'REGISTRY_EXPORT.json').read_text())['records']
+
+    def _original_accepts(self, rec):
+        from critic import schema as S
+        try:
+            self.Record.parse(rec)
+        except Exception:  # Record.parse raises ValueError, or TypeError/AttributeError on wrong types
+            return False
+        return S.is_valid(rec, S.load('registry_record'))
+
+    def _critic_accepts(self, rec):
+        req = {'test_fixture': False, 'evaluation_context': {'requirement_id': 'R1', 'requirement_version': '2.0.0'},
+               'evidence_package': {'records': [rec]}}
+        _, found = checks.index_records(req)
+        return not ({f['check_id'] for f in found} & self.RECORD_CHECKS)
+
+    def _rehashed(self, rec):
+        rec = dict(rec)
+        try:
+            rec['id'] = K.record_content_id(rec)
+        except (TypeError, ValueError):
+            pass
+        return rec
+
+    def test_real_records_are_accepted_by_both(self):
+        for rec in self.records:
+            self.assertTrue(self._original_accepts(rec))
+            self.assertTrue(self._critic_accepts(rec), rec['id'])
+
+    def test_each_rule(self):
+        base = next(r for r in self.records if r['kind'] == 'raw_measurement')
+        mutations = {
+            'kind': {'kind': 'opinion'}, 'status': {'validation_status': 'certain'}, 'empty selector': {'selector': ''},
+            'domain': {'domain': 'space'}, 'derived marked original': {'kind': 'derived_measurement', 'original': True},
+            'outside source root': {'source_path': '/home/someone/data.h5'},
+            'parent dir in path': {'source_path': '/disk/1/data/niktakbr/../etc/x.h5'},
+            'issta path': {'source_path': '/disk/1/data/niktakbr/ISSTA/x.h5'},
+            'relative path': {'source_path': 'disk/1/data/niktakbr/x.h5'}, 'bad hash': {'source_sha256': 'abc'},
+            'reversed interval': {'interval': [5, 1]}, 'float frame': {'interval': [1.5, 2]},
+            'negative frame': {'interval': [-1, 2]}, 'gap outside': {'missing_intervals': [[0, 10 ** 6]]},
+            'duplicate uncertainty': {'uncertainty': ['a', 'a']}, 'capability value': {'capability': {'x': 'MAYBE'}},
+            'empty capability': {'capability': {}}, 'judgment as measurement': {'kind': 'document',
+                                                                                 'original': True},
+            'event as measurement type': {'measurement_type': 'fall_event'},
+            'physical truth': {'provenance': {'physical_truth': 'T'}}, 'record version': {'schema_version': '2.0.0'},
+            'requirement': {'requirement_id': 'R2'}, 'bool frame': {'interval': [True, 2]},
+        }
+        for name, change in mutations.items():
+            with self.subTest(name):
+                rec = self._rehashed({**copy.deepcopy(base), **copy.deepcopy(change)})
+                if name == 'judgment as measurement':
+                    rec = self._rehashed({**rec, 'validation_status': 'verified_measurement'})
+                self.assertFalse(self._original_accepts(rec), 'the mutation should break Record.validate')
+                self.assertFalse(self._critic_accepts(rec), 'Record.validate rejects this but the Critic accepts it')
+                if name not in ('record version', 'requirement'):  # those two are reported as EV-VERSION
+                    # the rule check alone catches it too, not only the schema
+                    self.assertTrue(checks.record_rule_problems(rec, fixture=False), name)
+
+    def test_synthetic_source_root_only_in_fixtures(self):
+        rec = dict(self.records[0], source_path='/synthetic/critic_test_fixture/x.h5')
+        self.assertIn('source outside approved research scope', checks.record_rule_problems(rec, fixture=False))
+        self.assertNotIn('source outside approved research scope', checks.record_rule_problems(rec, fixture=True))
+
+    def test_random_corruption_agrees(self):
+        import random
+        rng = random.Random(6467)
+        junk = [None, 7, -1, 'x', '', [], {}, [1, 2], [2, 1], {'a': 1}, True, 1.5, 'R1', 'frame', 'VERIFIED']
+        disagreements = []
+        for trial in range(400):
+            rec = copy.deepcopy(rng.choice(self.records))
+            for _ in range(rng.randint(1, 2)):
+                key = rng.choice([k for k in rec if k != 'id'])
+                rec[key] = copy.deepcopy(rng.choice(junk))
+            rec = self._rehashed(rec)
+            if self._original_accepts(rec) != self._critic_accepts(rec):
+                disagreements.append(rec)
+        self.assertEqual(disagreements, [])
+
+
+class SchemaValidator(unittest.TestCase):
+    """critic/schema.py: the built-in validator used at runtime."""
+
+    def test_every_schema_uses_only_supported_keywords(self):
+        from critic import schema as S
+        for name in S.SCHEMAS:
+            S.check_schema(S.load(name))
+        with self.assertRaises(S.UnsupportedKeyword):
+            S.check_schema({'type': 'object', 'properties': {'a': {'format': 'email'}}})
+
+    def test_json_semantics(self):
+        from critic import schema as S
+        self.assertTrue(S.is_valid(1.0, {'type': 'integer'}))
+        self.assertFalse(S.is_valid(True, {'type': 'integer'}))
+        self.assertFalse(S.is_valid(True, {'const': 1}))
+        self.assertFalse(S.is_valid([1, 1.0], {'uniqueItems': True}))
+        with_ref = {'$defs': {'n': {'minimum': 1}}, 'properties': {'k': {'$ref': '#/$defs/n'}}}
+        self.assertTrue(S.is_valid({'k': 2}, with_ref))
+        self.assertFalse(S.is_valid({'k': 0}, with_ref))
+        self.assertFalse(S.is_valid(3, {'oneOf': [{'type': 'integer'}, {'minimum': 0}]}))
+        self.assertFalse(S.is_valid({'a': 1}, {'if': {'required': ['a']}, 'then': {'required': ['b']}}))
+        self.assertFalse(S.is_valid({'B': 1}, {'propertyNames': {'pattern': '^[a-z]+$'}}))
+        self.assertFalse(S.is_valid([], {'minItems': 1}))
+        self.assertFalse(S.is_valid([1, 2], {'maxItems': 1}))
+        self.assertFalse(S.is_valid({'a': 1, 'b': 2}, {'properties': {'a': {}}, 'additionalProperties': False}))
+        self.assertTrue(S.is_valid({'a': 1}, {'properties': {'a': {}}, 'additionalProperties': False}))
+        self.assertFalse(S.is_valid([True], {'enum': [[1]]}))
+        with self.assertRaises(S.UnsupportedKeyword):  # also refused while validating, not only up front
+            S.errors(1, {'format': 'email'})
+
+    def test_agrees_with_jsonschema(self):
+        if jsonschema is None or not hasattr(jsonschema, 'Draft202012Validator'):
+            self.skipTest('jsonschema>=4 not installed')
+        import random
+        from critic import schema as S
+        rng = random.Random(6467)
+        junk = [None, 7, -1, 'x', '', [], {}, [1, 1], {'a': 1}, True, 1.5, 0, 'R1', '2.0.0', 'frame']
+        docs = {'request': [load(n) for n in EXPECTED], 'checker_assessment': [B.checker_item()['result']],
+                'r1_configuration': [B.checker_item()['configuration']]}
+        docs['gsn_graph'] = [g['graph'] for d in docs['request'] for g in d['argument_bundle']['graphs']]
+        docs['registry_record'] = [r for d in docs['request'] for r in d['evidence_package']['records']]
+        docs['report'] = [review(d) for d in docs['request']]
+
+        def paths(v, prefix=()):
+            yield prefix
+            if isinstance(v, dict):
+                for k, x in v.items():
+                    yield from paths(x, prefix + (k,))
+            elif isinstance(v, list):
+                for i, x in enumerate(v):
+                    yield from paths(x, prefix + (i,))
+        for name, items in docs.items():
+            schema = S.load(name)
+            reference = jsonschema.Draft202012Validator(schema)
+            for doc in items:
+                self.assertEqual(S.is_valid(doc, schema), reference.is_valid(doc), name)
+            for trial in range(300):
+                doc = copy.deepcopy(rng.choice(items))
+                target = rng.choice([p for p in paths(doc) if p])
+                parent = doc
+                for step in target[:-1]:
+                    parent = parent[step]
+                if isinstance(parent, dict) and rng.random() < 0.3:
+                    del parent[target[-1]]
+                else:
+                    parent[target[-1]] = copy.deepcopy(rng.choice(junk))
+                with self.subTest(schema=name, trial=trial):
+                    self.assertEqual(S.is_valid(doc, schema), reference.is_valid(doc))
+
+
 class LLMStep(unittest.TestCase):
     def test_scripted_reply_is_screened(self):
         req = load('case_a_unsupported_claim.json')
@@ -696,6 +987,30 @@ class LLMStep(unittest.TestCase):
             L.extract_json('{"other": 1}')
 
 
+# Graph mutations that evaluation/r1_v4/evidence_registry_gsn/gsn.py:Graph.validate rejects (on the Case C graph).
+def _nodes(g):
+    return {n['id']: n for n in g['nodes']}
+
+
+def m_fake_evidence(g): _nodes(g)['E1']['evidence_id'] = 'ev:' + '0' * 64
+def m_goal_promoted(g): _nodes(g)['G1']['validation_status'] = 'verified_measurement'
+def m_physical_strategy(g): _nodes(g)['S1']['physical_claim'] = True
+def m_bad_edge_type(g): g['edges'].append({'source': 'E1', 'target': 'G1', 'type': 'supported_by'})
+def m_dangling_edge(g): g['edges'].append({'source': 'G1', 'target': 'NOPE', 'type': 'supported_by'})
+def m_cycle(g): g['edges'].append({'source': 'S1', 'target': 'G1', 'type': 'supported_by'})
+def m_interval_stretch(g): _nodes(g)['E1']['scope']['interval'] = [8, 200]
+def m_source_mismatch(g): _nodes(g)['E2']['provenance']['selector'] = '/elsewhere'
+def m_evidence_on_goal(g): _nodes(g)['G1']['evidence_id'] = _nodes(g)['E1']['evidence_id']
+def m_status_mismatch(g): _nodes(g)['E1']['validation_status'] = 'verified_source'
+def m_duplicate_node(g): g['nodes'].append(copy.deepcopy(_nodes(g)['A1']))
+def m_duplicate_edge(g): g['edges'].append(copy.deepcopy(g['edges'][0]))
+
+
+GRAPH_MUTATIONS = [m_fake_evidence, m_goal_promoted, m_physical_strategy, m_bad_edge_type, m_dangling_edge, m_cycle,
+                   m_interval_stretch, m_source_mismatch, m_evidence_on_goal, m_status_mismatch, m_duplicate_node,
+                   m_duplicate_edge]
+
+
 @unittest.skipIf(Graph is None, "teammate's evidence_registry_gsn module not importable")
 class AgreementWithOriginalGraphValidator(unittest.TestCase):
     """Every graph the original Graph.validate rejects must also be flagged here,
@@ -721,8 +1036,8 @@ class AgreementWithOriginalGraphValidator(unittest.TestCase):
         graph = json.loads((GSN_DIR / 'demo' / 'GRAPH.json').read_text())
         records = json.loads((GSN_DIR / 'demo' / 'REGISTRY_EXPORT.json').read_text())['records']
         n0 = graph['nodes'][0]['scope']
-        req = {'evaluation_context': {'execution_id': n0['execution_id'], 'requirement_version': '2.0.0',
-                                      'protected_objects': [n0['object_id']]},
+        req = {'evaluation_context': {'execution_id': n0['execution_id'], 'requirement_id': 'R1',
+                                      'requirement_version': '2.0.0', 'protected_objects': [n0['object_id']]},
                'evidence_package': {'records': records}, 'retrieval_context': {}}
         self.assertIsNone(self._original_rejects(graph, records))
         self.assertEqual(self._ours(req, {'object_id': n0['object_id'], 'graph': graph}), [])
@@ -732,27 +1047,9 @@ class AgreementWithOriginalGraphValidator(unittest.TestCase):
         records = req['evidence_package']['records']
         base = req['argument_bundle']['graphs'][0]['graph']
 
-        def nodes(g):
-            return {n['id']: n for n in g['nodes']}
-
-        def m_fake_evidence(g): nodes(g)['E1']['evidence_id'] = 'ev:' + '0' * 64
-        def m_goal_promoted(g): nodes(g)['G1']['validation_status'] = 'verified_measurement'
-        def m_physical_strategy(g): nodes(g)['S1']['physical_claim'] = True
-        def m_bad_edge_type(g): g['edges'].append({'source': 'E1', 'target': 'G1', 'type': 'supported_by'})
-        def m_dangling_edge(g): g['edges'].append({'source': 'G1', 'target': 'NOPE', 'type': 'supported_by'})
-        def m_cycle(g): g['edges'].append({'source': 'S1', 'target': 'G1', 'type': 'supported_by'})
-        def m_interval_stretch(g): nodes(g)['E1']['scope']['interval'] = [8, 200]
-        def m_source_mismatch(g): nodes(g)['E2']['provenance']['selector'] = '/elsewhere'
-        def m_evidence_on_goal(g): nodes(g)['G1']['evidence_id'] = nodes(g)['E1']['evidence_id']
-        def m_status_mismatch(g): nodes(g)['E1']['validation_status'] = 'verified_source'
-        def m_duplicate_node(g): g['nodes'].append(copy.deepcopy(nodes(g)['A1']))
-
-        mutations = [m_fake_evidence, m_goal_promoted, m_physical_strategy, m_bad_edge_type, m_dangling_edge,
-                     m_cycle, m_interval_stretch, m_source_mismatch, m_evidence_on_goal, m_status_mismatch,
-                     m_duplicate_node]
         self.assertIsNone(self._original_rejects(base, records))
         self.assertEqual(self._ours(req, {'object_id': 'widget_a', 'graph': base}), [])
-        for mutate in mutations:
+        for mutate in GRAPH_MUTATIONS:
             with self.subTest(mutation=mutate.__name__):
                 g = copy.deepcopy(base)
                 mutate(g)
@@ -760,6 +1057,10 @@ class AgreementWithOriginalGraphValidator(unittest.TestCase):
                 ours = self._ours(req, {'object_id': 'widget_a', 'graph': g})
                 self.assertIsNotNone(original, 'mutation should be invalid for the original validator')
                 self.assertTrue(ours, f'original rejected ({original}) but the Critic found nothing')
+                self.assertTrue(all(f['phase'] == 'validation' for f in ours))
+                full = copy.deepcopy(req)
+                full['argument_bundle']['graphs'][0]['graph'] = g
+                self.assertEqual(review(full)['review_status'], 'rejected_invalid_input')
 
 
 class MalformedInput(unittest.TestCase):

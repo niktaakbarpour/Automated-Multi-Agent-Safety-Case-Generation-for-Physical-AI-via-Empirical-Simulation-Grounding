@@ -77,6 +77,21 @@ CATEGORIES = {
     'C13': 'Unresolved objection or assumption',
 }
 SEVERITIES = ('high', 'medium', 'low')
+
+# Findings about input the team's own validators would reject (schemas, Graph.validate, Record.validate,
+# the request contract, checker input) put the review in the 'validation' phase: the input is invalid,
+# the LLM is not called and the report is a rejection, not a completed critique. The two exceptions are
+# argument defects Graph.validate accepts. Everything else (conclusions, LLM) is the 'review' phase.
+VALIDATION_PREFIXES = ('REQ-', 'SCHEMA-', 'EV-', 'BUNDLE-', 'GSN-', 'CHK-')
+REVIEW_EXCEPTIONS = {'GSN-UNSUPPORTED-GOAL', 'EV-UNUSABLE'}
+REVIEW_STATUSES = ('completed', 'completed_llm_failed', 'rejected_invalid_input', 'internal_error')
+
+
+def phase_of(check_id):
+    if check_id.startswith(VALIDATION_PREFIXES) and check_id not in REVIEW_EXCEPTIONS:
+        return 'validation'
+    return 'review'
+
 FINDING_SOURCES = ('deterministic', 'evidence_grounded', 'llm_proposed')
 
 

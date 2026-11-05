@@ -4,6 +4,7 @@ from collections import Counter
 from . import checks
 from . import contract as K
 from . import llm as L
+from . import schema as SCHEMA
 
 CRITIC_VERSION = '0.2.0'
 DISCLAIMER = ('A report with no blocking findings means only that this Critic found no issue within the '
@@ -18,17 +19,24 @@ def review(request, llm=None):
     llm:     NullLLM (default), ScriptedLLM or OpenAICompatibleLLM
     returns: dict following critic/schemas/critic_report.schema.json
 
-    Never raises on bad input: a malformed request comes back as a report with C01 findings.
+    Never raises on bad input. review_status says what happened:
+      completed               input valid, review done (the LLM step, if any, worked)
+      completed_llm_failed    input valid, rule-based review done, the LLM step failed
+      rejected_invalid_input  input failed validation; its diagnostics are the 'validation' findings,
+                              the LLM was not called, and this is not a completed critique
+      internal_error          the report itself failed its schema (a Critic bug); see status_detail
     """
     llm = llm or L.NullLLM()
     deterministic, info = checks.run_all(request)
-    if info['fatal']:
+    if not info['input_valid']:
         accepted, rejected = [], []
         status = {'backend': llm.backend, 'model': llm.name, 'prompt_version': L.PROMPT_VERSION,
                   'called': False, 'ok': False, 'latency_s': None,
-                  'error': 'Skipped: the request failed structural validation.'}
+                  'error': 'Skipped: the input failed validation, so no model review was run.'}
+        review_status = 'rejected_invalid_input'
     else:
         accepted, rejected, status = L.run(llm, request, deterministic, info['records'], info['checker_admission'])
+        review_status = 'completed' if status['ok'] else 'completed_llm_failed'
 
     criticisms, evidence_requests = [], []
     for number, f in enumerate(deterministic + accepted, start=1):
@@ -41,12 +49,15 @@ def review(request, llm=None):
 
     req = request if isinstance(request, dict) else {}
     ctx = req.get('evaluation_context') if not info['fatal'] else {}
-    return {
+    report = {
         'schema_version': K.REPORT_SCHEMA_VERSION,
         'critic_version': CRITIC_VERSION,
         'request_id': str(req.get('request_id', '')),
         'execution_id': str((ctx or {}).get('execution_id', '')),
         'test_fixture': bool(req.get('test_fixture')),
+        'review_status': review_status,
+        'input_valid': info['input_valid'],
+        'status_detail': None,
         'llm': status,
         'checker_admission': info['checker_admission'],
         'criticisms': criticisms,
@@ -55,6 +66,19 @@ def review(request, llm=None):
         'rejected_llm_findings': rejected,
         'summary': _summary(req, info, criticisms),
     }
+    return _checked(report)
+
+
+def _checked(report):
+    """Validate the report against its own schema; a failure is a Critic bug, reported, never hidden."""
+    try:
+        problems = SCHEMA.errors(report, SCHEMA.load('report'), limit=5)
+    except Exception as exc:  # pragma: no cover - only a broken schema file gets here
+        problems = [f'{type(exc).__name__}: {exc}']
+    if problems:
+        report['review_status'] = 'internal_error'
+        report['status_detail'] = 'The report failed its own schema: ' + '; '.join(problems)
+    return report
 
 
 def _summary(req, info, criticisms):
@@ -83,6 +107,9 @@ def _unresolved_concerns(req, info):
     if info['fatal']:
         return ['The request could not be reviewed because it failed structural validation.']
     out = []
+    if not info['input_valid']:
+        out.append('The input failed validation (see the criticisms in the validation phase), so this is a rejection, '
+                   'not a completed critique: no model review was run, and review-phase criticisms are provisional.')
     supplied = len(req['checker_assessments'])
     admitted = sum(1 for a in info['checker_admission'] if a['admitted'])
     if not admitted:

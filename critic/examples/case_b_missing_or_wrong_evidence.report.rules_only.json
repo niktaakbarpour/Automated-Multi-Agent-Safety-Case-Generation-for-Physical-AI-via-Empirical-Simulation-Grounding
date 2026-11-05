@@ -4,14 +4,17 @@
   "request_id": "CASE-B-missing-or-wrong-evidence",
   "execution_id": "SYNTH-EXEC-001",
   "test_fixture": true,
+  "review_status": "rejected_invalid_input",
+  "input_valid": false,
+  "status_detail": null,
   "llm": {
     "backend": "none",
     "model": null,
     "prompt_version": "critic-prompt/v2",
     "called": false,
-    "ok": true,
+    "ok": false,
     "latency_s": null,
-    "error": null
+    "error": "Skipped: the input failed validation, so no model review was run."
   },
   "checker_admission": [],
   "criticisms": [
@@ -19,6 +22,7 @@
       "criticism_id": "CRIT-001",
       "critic_version": "0.2.0",
       "check_id": "BUNDLE-MISSING",
+      "phase": "validation",
       "category": "C04",
       "category_name": "Missing object or temporal coverage",
       "severity": "high",
@@ -40,6 +44,7 @@
       "criticism_id": "CRIT-002",
       "critic_version": "0.2.0",
       "check_id": "EV-MISSING",
+      "phase": "validation",
       "category": "C02",
       "category_name": "Invalid evidence reference",
       "severity": "high",
@@ -62,6 +67,7 @@
       "criticism_id": "CRIT-003",
       "critic_version": "0.2.0",
       "check_id": "EV-WRONG-EXECUTION",
+      "phase": "validation",
       "category": "C03",
       "category_name": "Evidence-scope mismatch",
       "severity": "high",
@@ -101,6 +107,7 @@
     }
   ],
   "unresolved_concerns": [
+    "The input failed validation (see the criticisms in the validation phase), so this is a rejection, not a completed critique: no model review was run, and review-phase criticisms are provisional.",
     "No admitted checker assessment (0 supplied, 0 admitted). Treated as unavailable, not as \"no violation\"; violation, no-violation and non-applicability outcomes cannot be established from this package.",
     "This request contains synthetic test data; its results are not empirical findings."
   ],
