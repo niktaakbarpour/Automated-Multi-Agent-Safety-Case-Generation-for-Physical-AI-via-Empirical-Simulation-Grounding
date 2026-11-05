@@ -143,11 +143,14 @@ Every model call leaves a trace in `report.llm`: the prompt version and the sha2
 
 ## Run it
 
-From the repository root. The Critic itself needs only the Python standard library (tested on Python 3.9, 3.10 and 3.13). Some tests use the team's own code and are skipped, with the reason shown, when it cannot run: the schema tests need `jsonschema`, the GSN validator comparison needs Python 3.10+, and re-running the R1 checker needs Python 3.10+ and `jsonschema>=4`.
+From the repository root. The Critic itself needs only the Python standard library (tested on Python 3.9, 3.10 and 3.13).
+
+The tests also use the team's own code as oracles: `Graph.validate`, `Record.parse`, `validate_configuration` and the R1 checker. That code is written for Python 3.10+, so on 3.9 the tests load it with postponed annotations (`tests/oracles.py`). In these modules annotations are the only 3.10 feature, and a test checks that none of those modules reads its annotations at run time, so it behaves the same. With `jsonschema` installed (`critic/requirements-test.txt`, the same pin as the checker's), every test runs on 3.9, 3.10 and 3.13. Without it, the schema checks fall back to the Critic's own validator and only three tests are skipped, with the reason shown, because they need jsonschema itself: the comparison with jsonschema, re-running the checker, and the `validate_configuration` oracle. Set `CRITIC_STRICT_TESTS=1` to make any skip a failure, so a missing oracle can never hide behind a test total (use it in CI). Only a missing `jsonschema` can cause a skip: if the team's code itself fails to load, the run fails.
 
 ```bash
-# tests (no GPU, no network)
-python3 -m unittest discover -s critic/tests -t . -v
+# tests (no GPU, no network); CRITIC_STRICT_TESTS=1 fails instead of skipping
+pip install -r critic/requirements-test.txt
+CRITIC_STRICT_TESTS=1 python3 -m unittest discover -s critic/tests -t . -v
 
 # rule-based review of one case
 python3 -m critic --request critic/cases/case_a_unsupported_claim.json
@@ -171,7 +174,7 @@ The model is a setting. Sampling follows each model's card (`llm.MODEL_PRESETS`)
 
 ## The five test cases
 
-All synthetic and marked `test_fixture: true`. Cases A to C use the three-object example configuration (`B_SYNTHETIC_THREE_OBJECTS.json`) so nothing depends on the original five LIBERO objects. Cases D and E use the R1 checker's own fixture (`evaluation/r1_v4/synthetic/three_object_violation.json`) and the checker's real output for it, stored in `cases/checker_outputs/`. Run `python3 -m critic.cases.build_cases` to regenerate the cases, and add `--refresh-checker-output` to re-run the checker first (it needs `jsonschema>=4`, as pinned in `evaluation/r1_v4/requirements.txt`).
+All synthetic and marked `test_fixture: true`. Cases A to C use the three-object example configuration (`B_SYNTHETIC_THREE_OBJECTS.json`) so nothing depends on the original five LIBERO objects. Cases D and E use the R1 checker's own fixture (`evaluation/r1_v4/synthetic/three_object_violation.json`) and the checker's real output for it, stored in `cases/checker_outputs/`. Run `python3 -m critic.cases.build_cases` to regenerate the cases, and add `--refresh-checker-output` to re-run the checker first (it needs Python 3.10+ and `jsonschema`, as pinned in `evaluation/r1_v4/requirements.txt`).
 
 | Case | What the mock Drafter did | Rule-based result |
 |---|---|---|
@@ -183,7 +186,7 @@ All synthetic and marked `test_fixture: true`. Cases A to C use the three-object
 
 Reports are in `examples/`. `case_a…scripted_llm_demo.json` shows the LLM step with a **hand-written** reply (not a real model). It contains two valid findings plus one with an invented evidence ID and one with a made-up node, and the Critic rejects those two. Real model outputs will be added after the Hestia run.
 
-## Tests (131)
+## Tests (134)
 
 - the five cases produce exactly the expected findings, and Case C gets none
 - requests, graphs, records and reports validate against their JSON schemas
@@ -194,17 +197,18 @@ Reports are in `examples/`. `case_a…scripted_llm_demo.json` shows the LLM step
 - evidence IDs reproduce the registry's content hashes; a tampered record is caught
 - configurable R1: an extra configured object is reported missing; fewer objects are not demanded
 - checker admission (audit I1): real checker output is admitted in a fixture; a self-asserted `validated_checker` label, a re-hashed result for the wrong requirement, task or interval, synthetic output in a non-fixture request, output not marked synthetic, an edited result or configuration, a run the checker refused, a configuration with other objects, surfaces, execution or interval boundaries, a wrong clock or checker version, object assessments with unknown, wrong-object or unadmitted evidence, broken consistency rules, wrong object, execution, requirement, surface or status, and duplicates are all refused and never produce a C07. Each of these checks was switched off in turn to confirm a test fails without it
-- the stored checker output is exactly what `runtime.assess` produces for its fixture (needs Python 3.10+ and `jsonschema>=4`, like the checker itself)
+- the stored checker output is exactly what `runtime.assess` produces for its fixture (needs `jsonschema`, like the checker itself)
 - the copied checker constants (required fields, fixed values, enums, checker version) match `evaluation/r1_v4/assessment.schema.json`
 - conflicts and applicability (audit I2): the audit's probe (no-violation claims while one assessment reports a violation and another does not) is caught twice, as a contradiction and as a conflict; every row of the table above has a test, including insufficient and invalid-contract results giving C06/C08 rather than C07
 - gaps (audit I11): gaps for other objects, outside the monitored interval or for optional evidence give no finding but stay listed; a relevant gap is non-blocking under an admitted no-violation result and blocking without one
 - every conclusion finding and gap rule was switched off in turn to confirm a test fails without it
-- R1 configuration (audit I6): all 12 semantic rules agree with `validate_configuration` by name on every example configuration and the checker fixture; an oracle against the real function (Python 3.10+ with `jsonschema>=4`) compares verdicts and rule names on 300 random corruptions too; the audit's probe (context and bundle reduced to one object) is rejected; configuration hash, scope, templates, surfaces, interval clock, explicit boundaries and boundary provenance are each checked; the real five-object LIBERO profile (names read from `A_LIBERO_FIVE_OBJECTS.json`) is reviewed with no findings and a dropped LIBERO object is caught; empty scope; full-vector aggregation; the accepted outcome
+- R1 configuration (audit I6): all 12 semantic rules agree with `validate_configuration` by name on every example configuration and the checker fixture; an oracle against the real function (needs `jsonschema`) compares verdicts and rule names on 300 random corruptions too; the audit's probe (context and bundle reduced to one object) is rejected; configuration hash, scope, templates, surfaces, interval clock, explicit boundaries and boundary provenance are each checked; the real five-object LIBERO profile (names read from `A_LIBERO_FIVE_OBJECTS.json`) is reviewed with no findings and a dropped LIBERO object is caught; empty scope; full-vector aggregation; the accepted outcome
 - R1 aggregation precedence, checker contradiction (C07), an "insufficient information" claim that hides a checker violation (C07), unsupported non-applicability (C08), related-case misuse (C11), no-violation claims over retrieval gaps (C04)
 - model output (audit I5, I8, I10): the audit's probes (a list as the category; a C07 with no evidence) are handled; every field of a finding is type-checked (19 kinds of broken finding); unusable replies and failures inside prompt building, parsing or screening give `completed_llm_failed` with the rule findings kept; rule-only categories are refused; a C07 must cite an admitted assessment for its object; citations must match the finding's object and execution; the trace hashes match what was sent and received (checked against a local fake vLLM server), the API key never appears in the report, and a long reply is cut but hashed in full; every rejection rule and trace field was switched off in turn to confirm a test fails without it
 - LLM screening: invented IDs/nodes, malformed findings and duplicates rejected; a broken or empty model reply does not break the review; the HTTP client works against a local fake vLLM server; credentials in the server URL are not recorded
 - the model comparison runner (`compare_models.py`) works end to end against a fake vLLM server, skips Case B (rejected before the model step, so no model is asked) and keeps each call's trace
 - Phase 5 structured retrieval (audit I7): Case E's bundle is admitted and kept whole; every status the release returns (complete, PARTIAL, UNAVAILABLE, UNSUPPORTED, INVALID SCOPE, including a request with 17 obligations, UNVERIFIED PLAN) is accepted and kept distinct; 53 kinds of tampering (edited or re-hashed citations, edited request, groups, missing obligations, assumptions, limitations, statuses, validation and assurance flags, another execution, task or variant, items outside their window, not source-verified, with another origin or identity, or promoted to a physical event, channel samples missing or with other units, experimental route, safety or empirical flags) and every field of the citation basis are caught; hidden conditional properties are caught; a bundle that failed validation returns nothing; a request the release refuses cannot return evidence; which missing obligations matter for a no-violation claim (object, window, simulator labels, timeless, optional); an AVAILABLE group the independent validation did not accept counts as missing; a complete bundle never supports a claim; solution links; a citation in a solution or a model finding is refused; a changed release is refused; the pinned constants match the release's `config.py` and schema hashes, and the Critic's hash function gives the same hashes as the release's (`provenance.digest`). Every RET check, refusal rule and review rule was switched off in turn to confirm a test fails without it
+- test setup (audit I10): the team's modules load on Python 3.9 and do not read their annotations; `CRITIC_STRICT_TESTS=1` turns a missing oracle into a failure; the schema fallback rejects invalid documents
 - **never crashes on bad input:** broken requests and 800 randomly corrupted ones (200 of them inside the checker result, 200 inside the structured evidence) all come back as valid reports
 
 ## Limits (honest)
@@ -236,5 +240,6 @@ critic/
   cases/             five synthetic requests, expected results, scripted replies, stored checker output, generator,
                      and phase5.py (test bundles built by the release's own code)
   examples/          example reports
-  tests/             unit tests
+  tests/             unit tests, and oracles.py (loads the team's code on 3.9; strict mode)
+  requirements-test.txt  jsonschema for the test oracles (the Critic itself needs nothing)
 ```

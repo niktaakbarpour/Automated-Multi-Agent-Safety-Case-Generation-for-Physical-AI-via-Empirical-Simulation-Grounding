@@ -7,28 +7,22 @@ No network, no GPU and no LLM service are needed.
 import copy
 import hashlib
 import json
-import sys
 import unittest
 from pathlib import Path
 from types import SimpleNamespace
 
 from critic import assessments as A, checks, contract as K, llm as L, retrieval as R, review
 from critic.cases import build_cases as B, phase5 as P
+from critic.tests import oracles as O
 
 ROOT = Path(__file__).resolve().parents[2]
 CASES = ROOT / 'critic' / 'cases'
 EXPECTED = json.loads((CASES / 'expected.json').read_text())
 GSN_DIR = ROOT / 'evaluation' / 'r1_v4' / 'evidence_registry_gsn'
 
-try:
-    import jsonschema
-except ImportError:  # optional
-    jsonschema = None
-
-try:  # teammate's original validator, used as an oracle
-    from evaluation.r1_v4.evidence_registry_gsn.gsn import Graph, Node, Edge
-except Exception:  # pragma: no cover - module missing or incompatible
-    Graph = None
+O.install()  # the team's modules, used as oracles, also load on Python 3.9 (see oracles.py)
+jsonschema = O.jsonschema
+from evaluation.r1_v4.evidence_registry_gsn.gsn import Graph, Node, Edge  # noqa: E402  teammate's validator
 
 
 def load(name):
@@ -84,21 +78,19 @@ class Cases(unittest.TestCase):
         self.assertIn('not as "no violation"', ' '.join(report['unresolved_concerns']))
 
     def test_reports_match_schema(self):
-        if jsonschema is None:
-            self.skipTest('jsonschema not installed')
         report_schema = json.loads((ROOT / 'critic/schemas/critic_report.schema.json').read_text())
         request_schema = json.loads((ROOT / 'critic/schemas/critic_request.schema.json').read_text())
         graph_schema = json.loads((GSN_DIR / 'gsn_graph.schema.json').read_text())
         record_schema = json.loads((GSN_DIR / 'registry_record.schema.json').read_text())
         for name in EXPECTED:
             req = load(name)
-            jsonschema.validate(req, request_schema)
+            O.validate(req, request_schema)
             for item in req['argument_bundle']['graphs']:
-                jsonschema.validate(item['graph'], graph_schema)
+                O.validate(item['graph'], graph_schema)
             for rec in req['evidence_package']['records']:
-                jsonschema.validate(rec, record_schema)
+                O.validate(rec, record_schema)
             for backend in (L.NullLLM(), L.ScriptedLLM((CASES / 'scripted_replies' / f'{name[:6]}.txt').read_text())):
-                jsonschema.validate(review(req, backend), report_schema)
+                O.validate(review(req, backend), report_schema)
 
     def test_cases_are_reproducible(self):
         from critic.cases import build_cases
@@ -220,8 +212,7 @@ class ConclusionsAndAggregation(unittest.TestCase):
         requests = [r for r in report['evidence_requests'] if r['object_id'] == 'object_01']
         self.assertIn({'object_id': 'object_01', 'measurement_type': 'contact', 'interval': [1, 2]},
                       [{k: r[k] for k in ('object_id', 'measurement_type', 'interval')} for r in requests])
-        if jsonschema is not None:
-            jsonschema.validate(report, json.loads((ROOT / 'critic/schemas/critic_report.schema.json').read_text()))
+        O.validate(report, json.loads((ROOT / 'critic/schemas/critic_report.schema.json').read_text()))
 
     def test_unknown_outcome_value(self):
         req = load('case_c_correct_unresolved.json')
@@ -258,11 +249,8 @@ class CheckerAdmission(unittest.TestCase):
         self.assertIn('synthetic test-fixture', ' '.join(report['unresolved_concerns']))
 
     def test_stored_checker_output_is_what_the_checker_produces(self):
-        # The checker itself needs Python 3.10+ and jsonschema>=4 (evaluation/r1_v4/requirements.txt).
-        if sys.version_info < (3, 10):
-            self.skipTest('the R1 checker needs Python 3.10+')
-        if jsonschema is None or not hasattr(jsonschema, 'Draft202012Validator'):
-            self.skipTest('the R1 checker needs jsonschema>=4')
+        # The checker itself needs jsonschema (evaluation/r1_v4/requirements.txt); on 3.9 see oracles.py.
+        O.require(self, O.has_jsonschema4(), 'the R1 checker needs jsonschema>=4')
         from evaluation.r1_v4.runtime import assess
         fixture = json.loads((ROOT / B.CHECKER_FIXTURE).read_text())
         self.assertEqual(assess(fixture), B.checker_item()['result'])
@@ -439,11 +427,9 @@ class CheckerAdmission(unittest.TestCase):
         self.assertEqual({a['admitted'] for a in view['checker_assessments']}, {False})
 
     def test_request_and_report_match_schema(self):
-        if jsonschema is None:
-            self.skipTest('jsonschema not installed')
         req = load(CASE_D)
-        jsonschema.validate(req, json.loads((ROOT / 'critic/schemas/critic_request.schema.json').read_text()))
-        jsonschema.validate(review(req), json.loads((ROOT / 'critic/schemas/critic_report.schema.json').read_text()))
+        O.validate(req, json.loads((ROOT / 'critic/schemas/critic_request.schema.json').read_text()))
+        O.validate(review(req), json.loads((ROOT / 'critic/schemas/critic_report.schema.json').read_text()))
 
 
 def reassessed(obj, **fields):
@@ -905,8 +891,7 @@ class SchemaValidator(unittest.TestCase):
             S.errors(1, {'format': 'email'})
 
     def test_agrees_with_jsonschema(self):
-        if jsonschema is None or not hasattr(jsonschema, 'Draft202012Validator'):
-            self.skipTest('jsonschema>=4 not installed')
+        O.require(self, O.has_jsonschema4(), 'comparing with jsonschema needs jsonschema>=4')
         import random
         from critic import schema as S
         rng = random.Random(6467)
@@ -1001,8 +986,7 @@ class ConfigurationBinding(unittest.TestCase):
                     self.assertIn(rule, checks.config_rule_problems(config))
 
     def test_oracle_against_the_checker(self):
-        if sys.version_info < (3, 10) or jsonschema is None or not hasattr(jsonschema, 'Draft202012Validator'):
-            self.skipTest('the R1 checker needs Python 3.10+ and jsonschema>=4')
+        O.require(self, O.has_jsonschema4(), 'validate_configuration needs jsonschema>=4')
         import random
         from critic import schema as S
         from evaluation.r1_v4.configuration import validate_configuration
@@ -1456,7 +1440,6 @@ GRAPH_MUTATIONS = [m_fake_evidence, m_goal_promoted, m_physical_strategy, m_bad_
                    m_duplicate_edge]
 
 
-@unittest.skipIf(Graph is None, "teammate's evidence_registry_gsn module not importable")
 class AgreementWithOriginalGraphValidator(unittest.TestCase):
     """Every graph the original Graph.validate rejects must also be flagged here,
     and valid graphs must get no structural findings."""
@@ -2032,9 +2015,7 @@ class MalformedInput(unittest.TestCase):
 
     def assert_valid_report(self, report):
         self.assertTrue(report['criticisms'])
-        if jsonschema is not None:
-            schema = json.loads((ROOT / 'critic/schemas/critic_report.schema.json').read_text())
-            jsonschema.validate(report, schema)
+        O.validate(report, json.loads((ROOT / 'critic/schemas/critic_report.schema.json').read_text()))
 
     def test_obviously_broken_requests(self):
         for bad in (None, [], 'text', {}, {'schema_version': K.REQUEST_SCHEMA_VERSION}):
@@ -2048,6 +2029,7 @@ class MalformedInput(unittest.TestCase):
         """Replace random values deep inside valid requests with values of the wrong type."""
         import random
         rng = random.Random(6467)
+        report_schema = json.loads((ROOT / 'critic/schemas/critic_report.schema.json').read_text())
         junk = [None, 7, 'x', [], {}, [1, 2], {'a': 1}, True, -1.5]
         base = [load(name) for name in EXPECTED]
 
@@ -2077,9 +2059,50 @@ class MalformedInput(unittest.TestCase):
             with self.subTest(trial=trial, path=target):
                 report = review(req, L.ScriptedLLM('{"findings": []}'))
                 self.assertIn('summary', report)
-                if jsonschema is not None:
-                    schema = json.loads((ROOT / 'critic/schemas/critic_report.schema.json').read_text())
-                    jsonschema.validate(report, schema)
+                O.validate(report, report_schema)
+
+
+class TestOracles(unittest.TestCase):
+    """How the tests reach the team's code (tests/oracles.py)."""
+
+    def test_team_modules_do_not_read_their_annotations(self):
+        """On Python 3.9 the team's modules are loaded with postponed annotations. That changes nothing as long
+        as no module reads its annotations at run time (dataclasses only read ClassVar and InitVar from them, and
+        neither is used). This checks every module of the R1 checker and the GSN
+        and registry code (the oracles), not the separate RAG release."""
+        import re
+        pattern = re.compile(r'get_type_hints|__annotations__|fields\([^)]*\)[^\n]*\.type\b|ClassVar|InitVar')
+        modules = sorted((ROOT / 'evaluation' / 'r1_v4').glob('*.py')) + sorted(GSN_DIR.glob('*.py'))
+        self.assertIn(GSN_DIR / 'gsn.py', modules)
+        self.assertIn(ROOT / 'evaluation' / 'r1_v4' / 'runtime.py', modules)
+        for path in modules:
+            with self.subTest(path.name):
+                self.assertIsNone(pattern.search(path.read_text(encoding='utf-8')))
+
+    def test_strict_mode_turns_a_missing_oracle_into_a_failure(self):
+        probe = unittest.TestCase()
+
+        def outcome(available):
+            try:
+                O.require(probe, available, 'oracle missing')
+            except unittest.SkipTest:
+                return 'skipped'
+            except AssertionError:
+                return 'failed'
+            return 'ran'
+        original = O.STRICT
+        try:
+            O.STRICT = True
+            self.assertEqual((outcome(False), outcome(True)), ('failed', 'ran'))
+            O.STRICT = False
+            self.assertEqual((outcome(False), outcome(True)), ('skipped', 'ran'))
+        finally:
+            O.STRICT = original
+
+    def test_schema_fallback_rejects(self):
+        with self.assertRaises(AssertionError):
+            O.validate({'a': 1}, {'required': ['b']})
+        O.validate({'b': 1}, {'required': ['b']})
 
 
 class VocabularyInSync(unittest.TestCase):
