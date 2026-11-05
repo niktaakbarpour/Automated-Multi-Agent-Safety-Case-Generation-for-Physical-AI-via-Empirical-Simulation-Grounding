@@ -9,7 +9,7 @@ Important distinctions:
 - Sliding, tipping on the surface, or being lifted/carried is not automatically a fall. A drop after the robot lifted the object is outside R1.
 - Lower height alone does not prove a fall. Touching a surface alone does not prove load-bearing support.
 - Absence of a detected violation is not proof that none happened.
-- Only a validated checker assessment can establish violation_observed, no_violation_observed_within_validated_coverage or not_applicable. Without one, the honest outcome is insufficient_information.
+- Only an admitted checker assessment (one listed with "admitted": true) can establish violation_observed, no_violation_observed_within_validated_coverage or not_applicable. Assessments listed with "admitted": false failed the Critic's validation and prove nothing. Without an admitted one, the honest outcome is insufficient_information. An admitted assessment with route synthetic_test_fixture is test data, not an empirical result.
 - Evidence from another execution can only give context; it never proves what happened in this execution.
 - An AI review (kind ai_reference_judgment) is provisional; it is not a measurement and not human ground truth.
 - Execution outcome must follow R1 aggregation: violation > invalid contract > insufficient information > no violation > not applicable. Unknown objects are never treated as safe.
@@ -27,7 +27,7 @@ Focus on problems in the wording and reasoning of node statements and the execut
 You may also report C01-C04, C07, C11 if you see them, but the rule-based checks listed under "already_found" have handled those; do not repeat them.
 
 ## Rules for your output
-- Only cite node_ids that appear in the graphs and evidence_ids that appear in the evidence or checker lists. Findings citing anything else are discarded.
+- Only cite node_ids that appear in the graphs and evidence_ids that appear in the evidence list or among admitted checker assessments. Findings citing anything else are discarded.
 - Report each distinct problem once. If you find no real problem, return an empty list. Do not pad.
 - Be specific: quote or name the statement you object to and say what is missing.
 

@@ -1,22 +1,23 @@
 {
-  "schema_version": "critic-report/0.1.0",
-  "critic_version": "0.1.0",
+  "schema_version": "critic-report/0.2.0",
+  "critic_version": "0.2.0",
   "request_id": "CASE-C-correct-unresolved",
   "execution_id": "SYNTH-EXEC-001",
   "test_fixture": true,
   "llm": {
     "backend": "none",
     "model": null,
-    "prompt_version": "critic-prompt/v1",
+    "prompt_version": "critic-prompt/v2",
     "called": false,
     "ok": true,
     "latency_s": null,
     "error": null
   },
+  "checker_admission": [],
   "criticisms": [],
   "evidence_requests": [],
   "unresolved_concerns": [
-    "No validated checker assessment was supplied. Treated as unavailable, not as \"no violation\"; violation, no-violation and non-applicability outcomes cannot be established from this package.",
+    "No admitted checker assessment (0 supplied, 0 admitted). Treated as unavailable, not as \"no violation\"; violation, no-violation and non-applicability outcomes cannot be established from this package.",
     "This request contains synthetic test data; its results are not empirical findings."
   ],
   "rejected_llm_findings": [],

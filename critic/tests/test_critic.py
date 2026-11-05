@@ -6,11 +6,13 @@ No network, no GPU and no LLM service are needed.
 """
 import copy
 import json
+import sys
 import unittest
 from pathlib import Path
 from types import SimpleNamespace
 
-from critic import checks, contract as K, llm as L, review
+from critic import assessments as A, checks, contract as K, llm as L, review
+from critic.cases import build_cases as B
 
 ROOT = Path(__file__).resolve().parents[2]
 CASES = ROOT / 'critic' / 'cases'
@@ -36,7 +38,36 @@ def flagged(report, **want):
     return [c for c in report['criticisms'] if all(c.get(k) == v for k, v in want.items())]
 
 
-class ThreeCases(unittest.TestCase):
+CASE_D = 'case_d_claim_hides_checker_result.json'
+
+
+def checker_request(*items, test_fixture=True, claims=None):
+    """Case D (the R1 checker's own fixture) with the given checker entries and claimed outcomes."""
+    req = load(CASE_D)
+    req['test_fixture'] = test_fixture
+    if items:
+        req['checker_assessments'] = [copy.deepcopy(i) for i in items]
+    for oid, claim in (claims or {}).items():
+        req['argument_bundle']['execution_conclusion']['object_outcomes'][oid] = claim
+    return req
+
+
+def forged(change):
+    """The real checker entry, changed by change(item), with both hashes recomputed (a consistent forgery)."""
+    item = copy.deepcopy(B.checker_item())
+    change(item)
+    return A.rehash(item)
+
+
+def check_ids(report):
+    return {c['check_id'] for c in report['criticisms']}
+
+
+def admitted_objects(report):
+    return {a['object_id'] for a in report['checker_admission'] if a['admitted']}
+
+
+class Cases(unittest.TestCase):
     def test_expected_findings(self):
         for name, exp in EXPECTED.items():
             with self.subTest(case=name):
@@ -72,6 +103,7 @@ class ThreeCases(unittest.TestCase):
         self.assertEqual(build_cases.case_a(), load('case_a_unsupported_claim.json'))
         self.assertEqual(build_cases.case_b(), load('case_b_missing_or_wrong_evidence.json'))
         self.assertEqual(build_cases.case_c(), load('case_c_correct_unresolved.json'))
+        self.assertEqual(build_cases.case_d(), load(CASE_D))
 
 
 class GeneralizedConfiguration(unittest.TestCase):
@@ -115,23 +147,14 @@ class ConclusionsAndAggregation(unittest.TestCase):
         req['argument_bundle']['execution_conclusion']['claimed_outcome'] = K.NO_VIOLATION
         self.assertTrue(flagged(review(req), check_id='CONCL-AGGREGATION'))
 
-    def _with_checker(self, outcome, claim):
-        req = load('case_c_correct_unresolved.json')
-        req['checker_assessments'] = [{
-            'assessment_id': 'SYNTH-CHK-1', 'authority': 'synthetic_test_fixture', 'checker_version': 'test',
-            'execution_id': req['evaluation_context']['execution_id'], 'object_id': 'widget_a',
-            'applicability': 'applicable', 'outcome': outcome, 'interval': [8, 120]}]
-        req['argument_bundle']['execution_conclusion']['object_outcomes']['widget_a'] = claim
-        return review(req)
-
     def test_checker_contradiction(self):
-        report = self._with_checker(K.VIOLATION, K.NO_VIOLATION)
-        self.assertTrue(flagged(report, check_id='CONCL-CONTRADICTION', object_id='widget_a', category='C07'))
+        report = review(checker_request(claims={'object_01': K.VIOLATION}))  # the checker reports no violation
+        self.assertTrue(flagged(report, check_id='CONCL-CONTRADICTION', object_id='object_01', category='C07'))
 
     def test_matching_checker_supports_claim(self):
-        report = self._with_checker(K.NO_VIOLATION, K.NO_VIOLATION)
-        self.assertFalse(flagged(report, object_id='widget_a', category='C06'))
-        self.assertFalse(flagged(report, object_id='widget_a', category='C07'))
+        report = review(checker_request())  # object_01 no violation and object_02 not applicable, as the checker says
+        for oid in ('object_01', 'object_02'):
+            self.assertFalse(flagged(report, object_id=oid))
 
     def test_not_applicable_needs_evidence(self):
         req = load('case_c_correct_unresolved.json')
@@ -143,9 +166,9 @@ class ConclusionsAndAggregation(unittest.TestCase):
         req['evidence_package']['records'][0]['validation_status'] = 'verified_source'
         self.assertTrue(flagged(review(req), check_id='EV-HASH'))
 
-    def test_insufficient_claim_cannot_hide_a_verified_violation(self):
-        report = self._with_checker(K.VIOLATION, K.INSUFFICIENT)
-        self.assertTrue(flagged(report, check_id='CONCL-HIDES-VIOLATION', object_id='widget_a', category='C07'))
+    def test_insufficient_claim_cannot_hide_a_checker_violation(self):
+        report = review(checker_request())
+        self.assertTrue(flagged(report, check_id='CONCL-HIDES-VIOLATION', object_id='object_00', category='C07'))
 
     def test_invalid_contract_claim_needs_a_checker(self):
         req = load('case_c_correct_unresolved.json')
@@ -154,19 +177,14 @@ class ConclusionsAndAggregation(unittest.TestCase):
         self.assertTrue(flagged(review(req), check_id='CONCL-UNSUPPORTED', object_id='widget_a'))
 
     def test_no_violation_claim_over_a_retrieval_gap(self):
-        req = load('case_c_correct_unresolved.json')
-        req['checker_assessments'] = [{
-            'assessment_id': 'SYNTH-CHK-1', 'authority': 'synthetic_test_fixture', 'checker_version': 'test',
-            'execution_id': req['evaluation_context']['execution_id'], 'object_id': 'widget_a',
-            'applicability': 'applicable', 'outcome': K.NO_VIOLATION, 'interval': [8, 120]}]
-        req['argument_bundle']['execution_conclusion']['object_outcomes']['widget_a'] = K.NO_VIOLATION
+        req = checker_request()
         req['retrieval_context']['gaps'] = [
-            {'object_id': 'widget_a', 'measurement_type': 'contact', 'interval': [60, 80]},
-            {'object_id': 'widget_a', 'measurement_type': 5, 'interval': 'bad', 'reason': []}]  # malformed on purpose
+            {'object_id': 'object_01', 'measurement_type': 'contact', 'interval': [1, 2]},
+            {'object_id': 'object_01', 'measurement_type': 5, 'interval': 'bad', 'reason': []}]  # malformed on purpose
         report = review(req)
-        self.assertEqual(len(flagged(report, check_id='CONCL-GAP', object_id='widget_a')), 2)
-        requests = [r for r in report['evidence_requests'] if r['object_id'] == 'widget_a']
-        self.assertIn({'object_id': 'widget_a', 'measurement_type': 'contact', 'interval': [60, 80]},
+        self.assertEqual(len(flagged(report, check_id='CONCL-GAP', object_id='object_01')), 2)
+        requests = [r for r in report['evidence_requests'] if r['object_id'] == 'object_01']
+        self.assertIn({'object_id': 'object_01', 'measurement_type': 'contact', 'interval': [1, 2]},
                       [{k: r[k] for k in ('object_id', 'measurement_type', 'interval')} for r in requests])
         if jsonschema is not None:
             jsonschema.validate(report, json.loads((ROOT / 'critic/schemas/critic_report.schema.json').read_text()))
@@ -186,6 +204,202 @@ class ConclusionsAndAggregation(unittest.TestCase):
         other = [r['id'] for r in req['evidence_package']['records'] if r['execution_id'] != target]
         req['retrieval_context']['related_case_evidence_ids'] = other
         self.assertTrue(flagged(review(req), check_id='EV-RELATED-CASE', category='C11'))
+
+
+class CheckerAdmission(unittest.TestCase):
+    """Audit I1: a checker result is used only after the Critic validates it (critic/assessments.py)."""
+
+    def test_real_checker_output_is_admitted_in_a_fixture(self):
+        report = review(load(CASE_D))
+        self.assertEqual(admitted_objects(report), {'object_00', 'object_01', 'object_02'})
+        self.assertEqual({a['route'] for a in report['checker_admission']}, {A.ROUTE_SYNTHETIC})
+        hidden = flagged(report, check_id='CONCL-HIDES-VIOLATION', object_id='object_00')
+        self.assertEqual(len(hidden), 1)
+        self.assertIn('synthetic', hidden[0]['explanation'])
+        self.assertNotIn('validated', hidden[0]['explanation'])
+        self.assertEqual(hidden[0]['evidence_ids'], [A.assessment_id(B.checker_item()['result'], 'object_00')])
+        # the two claims that match the checker are not criticised
+        self.assertFalse(flagged(report, object_id='object_01'))
+        self.assertFalse(flagged(report, object_id='object_02'))
+        self.assertIn('synthetic test-fixture', ' '.join(report['unresolved_concerns']))
+
+    def test_stored_checker_output_is_what_the_checker_produces(self):
+        # The checker itself needs Python 3.10+ and jsonschema>=4 (evaluation/r1_v4/requirements.txt).
+        if sys.version_info < (3, 10):
+            self.skipTest('the R1 checker needs Python 3.10+')
+        if jsonschema is None or not hasattr(jsonschema, 'Draft202012Validator'):
+            self.skipTest('the R1 checker needs jsonschema>=4')
+        from evaluation.r1_v4.runtime import assess
+        fixture = json.loads((ROOT / B.CHECKER_FIXTURE).read_text())
+        self.assertEqual(assess(fixture), B.checker_item()['result'])
+
+    def test_audit_probe_self_asserted_label(self):
+        # The audit's probe: a caller-written 'validated_checker' label with a made-up ID and wrong scope.
+        probe = {'assessment_id': 'made-up', 'authority': 'validated_checker', 'checker_version': 'test',
+                 'requirement_id': 'R999', 'requirement_version': '999', 'execution_id': 'synthetic-execution',
+                 'task_id': 'wrong-task', 'variant_id': 'wrong-variant', 'object_id': 'object_00',
+                 'applicability': 'applicable', 'outcome': K.VIOLATION, 'interval': [10000, 10001]}
+        report = review(checker_request(probe))
+        self.assertFalse(flagged(report, category='C07'))
+        self.assertIn('CHK-SHAPE', check_ids(report))
+        self.assertEqual(admitted_objects(report), set())
+
+    def test_audit_probe_consistent_forgery_out_of_scope(self):
+        # The same wrong scope inside a real checker result whose hashes were recomputed.
+        def change(item):
+            cfg, prov = item['configuration'], item['result']['provenance']
+            cfg['requirement_id'] = 'R999'
+            cfg['task_id'] = prov['task_id'] = 'wrong-task'
+            cfg['monitoring_interval']['start']['value'] = 10000
+            cfg['monitoring_interval']['end']['value'] = 10001
+        report = review(checker_request(forged(change)))
+        self.assertFalse(flagged(report, category='C07'))
+        self.assertTrue({'CHK-REQUIREMENT', 'CHK-TASK', 'CHK-TIME'} <= check_ids(report))
+        self.assertFalse(check_ids(report) & {'CHK-HASH', 'CHK-CONFIG-HASH'})
+        self.assertEqual(admitted_objects(report), set())
+
+    def test_audit_probe_synthetic_result_in_real_request(self):
+        report = review(checker_request(test_fixture=False))
+        self.assertFalse(flagged(report, category='C07'))
+        self.assertIn('CHK-ADMISSION', check_ids(report))
+        self.assertEqual(admitted_objects(report), set())
+        # and it cannot support a claim either
+        report = review(checker_request(test_fixture=False, claims={'object_00': K.VIOLATION}))
+        self.assertTrue(flagged(report, check_id='CONCL-UNSUPPORTED', object_id='object_00'))
+        self.assertTrue(flagged(report, check_id='CONCL-UNSUPPORTED', object_id='object_01'))
+
+    def test_empirical_admission_is_disabled(self):
+        self.assertEqual(A.EMPIRICAL_ADMITTED_STATUSES, frozenset())
+        for fixture in (True, False):
+            report = review(checker_request(forged(lambda i: i['result'].update(synthetic=False)),
+                                            test_fixture=fixture))
+            self.assertEqual(admitted_objects(report), set())
+            text = ' '.join(c['explanation'] for c in flagged(report, check_id='CHK-ADMISSION'))
+            self.assertIn('empirical admission is disabled', text)
+
+    def test_edited_result_or_configuration_fails_its_hash(self):
+        item = B.checker_item()
+        item['result']['object_assessments'][0]['outcome'] = K.INSUFFICIENT
+        report = review(checker_request(item))
+        # reported once, against the whole result, not once per object
+        hashes = flagged(report, check_id='CHK-HASH')
+        self.assertEqual(len(hashes), 1)
+        result_id = f"ca:{item['result']['assessment_hash']}"
+        self.assertEqual((hashes[0]['object_id'], hashes[0]['evidence_ids']), (None, [result_id]))
+        self.assertEqual({tuple(a['problems']) for a in report['checker_admission']}, {('CHK-HASH',)})
+        item = B.checker_item()
+        item['configuration']['protected_objects'].append('object_03')
+        report = review(checker_request(item))
+        self.assertIn('CHK-CONFIG-HASH', check_ids(report))
+        self.assertEqual(admitted_objects(report), set())
+
+    def test_run_the_checker_refused_is_not_used(self):
+        report = review(checker_request(forged(lambda i: i['result']['provenance'].update(admitted_purpose=None))))
+        self.assertIn('CHK-ADMISSION', check_ids(report))
+        self.assertFalse(flagged(report, category='C07'))
+
+    def test_configuration_must_match_the_review(self):
+        cases = {
+            'CHK-EXECUTION': lambda i: i['configuration'].update(execution_id='other-execution'),
+            'CHK-OBJECTS': lambda i: i['configuration']['protected_objects'].pop(),
+            'CHK-SURFACES': lambda i: i['configuration']['support_surfaces'].pop(),
+            'CHK-TIME': lambda i: i['configuration']['monitoring_interval'].update(
+                end={'kind': 'terminal_recorded_snapshot', 'value': None}),
+            'CHK-PRODUCER': lambda i: i['result'].update(checker_version='9.9.9'),
+        }
+        for check_id, change in cases.items():
+            with self.subTest(check_id):
+                report = review(checker_request(forged(change)))
+                self.assertIn(check_id, check_ids(report))
+                self.assertEqual(admitted_objects(report), set())
+                self.assertFalse(flagged(report, category='C07'))
+
+    def test_clock_must_match(self):
+        req = checker_request()
+        req['evaluation_context']['monitored_interval']['clock'] = 'simulation_time_s'
+        report = review(req)
+        self.assertIn('CHK-CLOCK', check_ids(report))
+        self.assertEqual(admitted_objects(report), set())
+
+    def test_missing_surface_list_fails_closed(self):
+        req = checker_request()
+        del req['evaluation_context']['support_surfaces']
+        report = review(req)
+        self.assertIn('CHK-SURFACES', check_ids(report))
+        self.assertEqual(admitted_objects(report), set())
+
+    def _object_change(self, change, obj='object_00'):
+        def edit(item):
+            oa = next(o for o in item['result']['object_assessments'] if o['object_id'] == obj)
+            change(oa, item['result'])
+        return review(checker_request(forged(edit)))
+
+    def test_object_evidence(self):
+        cases = {
+            'not one of the checker records': lambda oa, r: oa['evidence_ids'].append('made_up_record'),
+            'another object\'s record': lambda oa, r: oa['evidence_ids'].append('object_01_clear'),
+            'evidence the checker did not admit': lambda oa, r: r['admitted_evidence_ids'].remove('object_00_fall'),
+            'no evidence at all': lambda oa, r: oa.update(evidence_ids=[]),
+        }
+        for name, change in cases.items():
+            with self.subTest(name):
+                report = self._object_change(change)
+                self.assertIn('CHK-EVIDENCE', check_ids(report))
+                self.assertNotIn('object_00', admitted_objects(report))
+                self.assertIn('object_01', admitted_objects(report))  # other objects are unaffected
+                self.assertFalse(flagged(report, category='C07'))
+
+    def test_object_consistency_rules(self):
+        cases = {
+            'violation without applicability': lambda oa, r: oa.update(applicability='indeterminate'),
+            'no-violation with missing coverage': lambda oa, r: (oa.update(outcome=K.NO_VIOLATION),
+                                                                 oa['coverage']['missing'].append('cell')),
+            'not-applicable while applicable': lambda oa, r: oa.update(outcome=K.NOT_APPLICABLE),
+        }
+        for name, change in cases.items():
+            with self.subTest(name):
+                report = self._object_change(change)
+                self.assertIn('CHK-CONSISTENCY', check_ids(report))
+                self.assertNotIn('object_00', admitted_objects(report))
+
+    def test_object_scope_and_shape(self):
+        cases = {
+            'CHK-OBJECT': lambda oa, r: oa.update(object_id='object_99'),
+            'CHK-EXECUTION': lambda oa, r: oa.update(execution_id='other-execution'),
+            'CHK-REQUIREMENT': lambda oa, r: oa.update(requirement_version='9.9.9'),
+            'CHK-SURFACES': lambda oa, r: oa.update(surfaces=['root_B']),  # configured, but not mapped to object_00
+            'CHK-ADMISSION': lambda oa, r: oa.update(validation_status='validated_empirical'),
+            'CHK-SHAPE': lambda oa, r: oa.update(outcome=['violation_observed']),
+        }
+        for check_id, change in cases.items():
+            with self.subTest(check_id):
+                report = self._object_change(change)
+                self.assertIn(check_id, check_ids(report))
+                self.assertFalse(flagged(report, category='C07'))
+
+    def test_duplicate_result(self):
+        report = review(checker_request(B.checker_item(), B.checker_item()))
+        self.assertIn('CHK-DUP', check_ids(report))
+        self.assertEqual([a['admitted'] for a in report['checker_admission']], [True] * 3 + [False] * 3)
+
+    def test_llm_cannot_cite_a_rejected_assessment(self):
+        item = B.checker_item()
+        item['result']['execution_outcome'] = K.NO_VIOLATION  # breaks its hash, so nothing is admitted
+        rejected = A.assessment_id(item['result'], 'object_00')
+        reply = {'findings': [{'object_id': 'object_00', 'node_id': None, 'category': 'C09', 'severity': 'low',
+                               'explanation': 'x', 'evidence_ids': [rejected], 'suggested_action': 'y'}]}
+        report = review(checker_request(item), L.ScriptedLLM(json.dumps(reply)))
+        self.assertIn('not in the package', report['rejected_llm_findings'][0]['reason'])
+        view = json.loads(L.build_messages(checker_request(item), [], {}, report['checker_admission'])[1]
+                          .split('\n', 1)[1])
+        self.assertEqual({a['admitted'] for a in view['checker_assessments']}, {False})
+
+    def test_request_and_report_match_schema(self):
+        if jsonschema is None:
+            self.skipTest('jsonschema not installed')
+        req = load(CASE_D)
+        jsonschema.validate(req, json.loads((ROOT / 'critic/schemas/critic_request.schema.json').read_text()))
+        jsonschema.validate(review(req), json.loads((ROOT / 'critic/schemas/critic_report.schema.json').read_text()))
 
 
 class LLMStep(unittest.TestCase):
@@ -348,7 +562,7 @@ class MalformedInput(unittest.TestCase):
             jsonschema.validate(report, schema)
 
     def test_obviously_broken_requests(self):
-        for bad in (None, [], 'text', {}, {'schema_version': 'critic-request/0.1.0'}):
+        for bad in (None, [], 'text', {}, {'schema_version': K.REQUEST_SCHEMA_VERSION}):
             with self.subTest(request=bad):
                 report = review(bad)
                 self.assert_valid_report(report)
@@ -371,9 +585,13 @@ class MalformedInput(unittest.TestCase):
                 for i, v in enumerate(value):
                     yield from paths(v, prefix + (i,))
 
-        for trial in range(400):
-            req = copy.deepcopy(rng.choice(base))
-            target = rng.choice([p for p in paths(req) if p])
+        with_checker = load(CASE_D)
+
+        for trial in range(600):
+            # the last 200 trials corrupt the checker result only
+            req = copy.deepcopy(rng.choice(base) if trial < 400 else with_checker)
+            prefix = () if trial < 400 else ('checker_assessments',)
+            target = rng.choice([p for p in paths(req) if p and p[:len(prefix)] == prefix and p != prefix])
             parent = req
             for step in target[:-1]:
                 parent = parent[step]
@@ -399,6 +617,21 @@ class VocabularyInSync(unittest.TestCase):
         self.assertEqual(set(gs['properties']['edges']['items']['properties']['type']['enum']), K.EDGE_TYPES)
         rs = json.loads((GSN_DIR / 'registry_record.schema.json').read_text())
         self.assertEqual(set(rs['required']), set(K.RECORD_REQUIRED))
+
+    def test_checker_contract_copies_match_assessment_schema(self):
+        schema = json.loads((ROOT / 'evaluation/r1_v4/assessment.schema.json').read_text())
+        props = schema['properties']
+        for key, value in A.RESULT_CONSTANTS.items():
+            if key in props and 'const' in props[key]:
+                self.assertEqual(props[key]['const'], value, key)
+        self.assertEqual({props['checker_version']['const']}, A.KNOWN_CHECKER_VERSIONS)
+        self.assertTrue(set(schema['required']) <= set(A.RESULT_REQUIRED))
+        obj = props['object_assessments']['items']
+        self.assertEqual(set(obj['required']), set(A.OBJECT_FIELDS))
+        self.assertEqual(set(obj['properties']['applicability']['enum']), A.APPLICABILITY)
+        self.assertEqual(set(obj['properties']['outcome']['enum']), K.OUTCOMES)
+        self.assertEqual({obj['properties']['validation_status']['const']}, set(A.SYNTHETIC_STATUSES))
+        self.assertEqual(set(obj['properties']['coverage']['required']), set(A.COVERAGE_FIELDS))
 
     def test_record_ids_reproduce_registry_hashes(self):
         records = json.loads((GSN_DIR / 'demo' / 'REGISTRY_EXPORT.json').read_text())['records']

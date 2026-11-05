@@ -1,5 +1,5 @@
 {
-  "$id": "urn:trustworthy:critic-request:0.1.0",
+  "$id": "urn:trustworthy:critic-request:0.2.0",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "Critic review request (one execution)",
   "description": "Sections A-E from the Critic handoff. Each graph must also validate against urn:trustworthy:gsn:1.0.0 and each evidence record against urn:trustworthy:registry-record:1.0.0; the Critic checks both and reports failures as findings instead of rejecting the request.",
@@ -7,7 +7,7 @@
   "additionalProperties": false,
   "required": ["schema_version", "request_id", "test_fixture", "evaluation_context", "argument_bundle", "evidence_package", "checker_assessments", "retrieval_context"],
   "properties": {
-    "schema_version": {"const": "critic-request/0.1.0"},
+    "schema_version": {"const": "critic-request/0.2.0"},
     "request_id": {"type": "string", "minLength": 1},
     "test_fixture": {"type": "boolean", "description": "true when any content is synthetic test data; must never be mixed with real empirical results."},
     "evaluation_context": {
@@ -22,6 +22,7 @@
         "execution_id": {"type": "string", "minLength": 1},
         "benchmark": {"type": "string"},
         "task_id": {"type": "string"},
+        "variant_id": {"type": ["string", "null"], "description": "Task variant, or null if there is none. The R1 configuration has no variant field, so a checker result is tied to a variant only through its execution ID."},
         "model_checkpoint": {"type": "string"},
         "protected_objects": {"type": "array", "items": {"type": "string", "minLength": 1}, "uniqueItems": true},
         "support_surfaces": {"type": "array", "items": {"type": "string", "minLength": 1}},
@@ -81,21 +82,47 @@
       "properties": {"records": {"type": "array", "items": {"type": "object"}}}
     },
     "checker_assessments": {
-      "description": "Section D. Versioned checker outputs. An empty list means unavailable, never 'no violation'.",
+      "description": "Section D. R1 checker results: the output of evaluation/r1_v4/runtime.py:assess, unchanged, with the configuration it ran on. The Critic uses an object assessment only if both content hashes, the configuration scope, the object's evidence and the admission rules check out (critic/assessments.py). An empty list means unavailable, never 'no violation'.",
       "type": "array",
       "items": {
         "type": "object",
-        "additionalProperties": true,
-        "required": ["assessment_id", "authority", "checker_version", "execution_id", "object_id", "applicability", "outcome", "interval"],
+        "additionalProperties": false,
+        "required": ["configuration", "result"],
         "properties": {
-          "assessment_id": {"type": "string"},
-          "authority": {"enum": ["validated_checker", "synthetic_test_fixture"]},
-          "checker_version": {"type": "string"},
-          "execution_id": {"type": "string"},
-          "object_id": {"type": "string"},
-          "applicability": {"enum": ["applicable", "not_applicable", "indeterminate", "unsupported_evidence_contract"]},
-          "outcome": {"enum": ["violation_observed", "no_violation_observed_within_validated_coverage", "not_applicable", "insufficient_information", "invalid_measurement_contract"]},
-          "interval": {"type": "array", "items": {"type": "number"}, "minItems": 2, "maxItems": 2}
+          "configuration": {
+            "type": "object",
+            "description": "The R1 v2 configuration the checker ran on (requirements/r1_generalized_v2/R1_V2_CONFIG_SCHEMA.json); its content hash must equal result.configuration_hash."
+          },
+          "result": {
+            "type": "object",
+            "description": "urn:trustworthy:r1:v4:assessment:1.0.0 (evaluation/r1_v4/assessment.schema.json), unchanged; assessment_hash must match its content.",
+            "required": ["requirement_id", "requirement_version", "checker_version", "configuration_hash", "assessment_manifest", "configuration_status", "assessed", "object_assessments", "execution_outcome", "physical_safety_conclusion", "empirical_profiles_enabled", "admitted_evidence_ids", "evidence_admission", "missing_requirements", "uncertainty", "provenance", "assessment_hash", "evidence_records", "synthetic", "validation_status"],
+            "properties": {
+              "requirement_id": {"const": "R1"},
+              "requirement_version": {"const": "2.0.0"},
+              "assessment_schema_version": {"const": "1.0.0"},
+              "configuration_schema_version": {"const": "2.0.1"},
+              "physical_safety_conclusion": {"const": false},
+              "empirical_profiles_enabled": {"const": false},
+              "configuration_status": {"const": "valid"},
+              "assessed": {"const": true},
+              "checker_version": {"type": "string"},
+              "configuration_hash": {"type": "string"},
+              "assessment_hash": {"type": "string"},
+              "object_assessments": {
+                "type": "array",
+                "items": {"type": "object"},
+                "description": "Each item follows object_assessments in urn:trustworthy:r1:v4:assessment:1.0.0 (evaluation/r1_v4/contracts.py:ObjectAssessment); checked field by field by the Critic."
+              },
+              "evidence_records": {"type": "array", "items": {"type": "object"}},
+              "admitted_evidence_ids": {"type": "array", "items": {"type": "string"}},
+              "provenance": {
+                "type": "object",
+                "required": ["execution_id", "task_id", "admitted_purpose"]
+              },
+              "synthetic": {"type": "boolean"}
+            }
+          }
         }
       }
     },

@@ -10,6 +10,7 @@ statuses and declared outcomes against the supplied package.
 """
 import math
 
+from . import assessments as A
 from . import contract as K
 
 GSN_REF = 'evaluation/r1_v4/evidence_registry_gsn/gsn.py:Graph.validate'
@@ -442,8 +443,23 @@ def _find_cycle(adjacency):
 
 # ------------------------------------------------------------------ conclusions
 
-def check_conclusions(req):
-    """Claimed outcomes against checker results and R1 aggregation.
+def check_assessments(req):
+    """Validate every checker result before anything relies on it (see assessments.py).
+
+    Returns (findings, admitted {object_id: [assessment]}, admission log for the report).
+    """
+    admitted, log, problems = A.admit(req)
+    out = []
+    for check_id, category, text, aid, oid in problems:
+        out.append(finding(check_id, category, f'Checker assessment {aid} is not used: {text}.',
+                           'Pass the R1 checker output (evaluation/r1_v4/runtime.py:assess) unchanged, together with '
+                           'the configuration it ran on, for this requirement, execution and object.',
+                           object_id=oid, evidence_ids=[aid], requirement_refs=[A.CONTRACT_REF]))
+    return out, admitted, log
+
+
+def check_conclusions(req, admitted):
+    """Claimed outcomes against admitted checker assessments and R1 aggregation.
 
     Returns (findings, recomputed execution outcome or None).
     """
@@ -454,11 +470,6 @@ def check_conclusions(req):
     configured = ctx['protected_objects']
     monitored = _interval(ctx['monitored_interval']['interval'])
     roots = {item.get('object_id'): _root_goal(item.get('graph')) for item in bundle['graphs']}
-    checker = {}
-    for a in req['checker_assessments']:
-        if (a.get('execution_id') == ctx['execution_id'] and _in(a.get('authority'), K.CHECKER_AUTHORITIES)
-                and isinstance(a.get('object_id'), str)):
-            checker.setdefault(a.get('object_id'), []).append(a)
 
     for oid in configured:
         if oid not in claimed:
@@ -467,7 +478,7 @@ def check_conclusions(req):
                                    f'State an outcome for {oid}; use insufficient_information if it is unknown.',
                                    object_id=oid, requirement_refs=[AGGREGATION_REF]))
             continue
-        out.extend(_check_object_outcome(oid, claimed[oid], roots.get(oid), checker.get(oid, []),
+        out.extend(_check_object_outcome(oid, claimed[oid], roots.get(oid), admitted.get(oid, []),
                                          monitored, _list(req['retrieval_context'].get('gaps'))))
     for oid in claimed:
         if oid not in configured:
@@ -496,7 +507,7 @@ def check_conclusions(req):
 
 
 def _check_object_outcome(oid, claim, node, assessments, monitored, gaps):
-    """One object's claimed outcome against its checker assessments and retrieval gaps."""
+    """One object's claimed outcome against its admitted checker assessments and retrieval gaps."""
     def make(check_id, category, explanation, action, **kw):
         return finding(check_id, category, explanation, action, object_id=oid, node_id=node, **kw)
 
@@ -504,13 +515,14 @@ def _check_object_outcome(oid, claim, node, assessments, monitored, gaps):
         return [make('CONCL-BAD-VALUE', 'C01', f'Outcome {claim!r} for {oid} is not an R1 v2 outcome.',
                      f'Use one of: {", ".join(K.OUTCOME_PRECEDENCE)}.')]
     out = []
-    reported = sorted({str(a.get('outcome')) for a in assessments})
-    assessment_ids = [str(a.get('assessment_id')) for a in assessments]
+    reported = sorted({a['outcome'] for a in assessments})
+    assessment_ids = [a['assessment_id'] for a in assessments]
+    label = A.describe(assessments[0]) if assessments else 'admitted checker assessment'
     if claim == K.INSUFFICIENT:
         if K.VIOLATION in reported:
             out.append(make('CONCL-HIDES-VIOLATION', 'C07', f'The draft reports insufficient_information for {oid}, '
-                            'but a validated checker assessment for the same object and execution reports '
-                            'violation_observed.', 'Report the verified violation, or record why the assessment is '
+                            f'but an {label} for the same object and execution reports violation_observed.',
+                            'Report the violation the assessment shows, or record why the assessment is '
                             'not admissible as an explicit defeater.', evidence_ids=assessment_ids,
                             requirement_refs=[SPEC_REF], human_review_required=True))
     elif not assessments:
@@ -519,22 +531,23 @@ def _check_object_outcome(oid, claim, node, assessments, monitored, gaps):
                 K.NO_VIOLATION: 'a coverage-qualified no-violation result',
                 K.INVALID_CONTRACT: 'an invalid measurement contract'}[claim]
         out.append(make('CONCL-UNSUPPORTED', 'C08' if claim == K.NOT_APPLICABLE else 'C06',
-                        f'The draft claims {claim} for {oid}, but no validated checker assessment for this object '
+                        f'The draft claims {claim} for {oid}, but no admitted checker assessment for this object '
                         f'and execution is supplied. Positions and contacts alone cannot establish {what}.',
                         f'Change the {oid} outcome to insufficient_information and keep its goal unresolved, '
-                        'unless a validated assessment is added.',
+                        'unless an admitted checker assessment is added.',
                         requirement_refs=[SPEC_REF, 'Critic handoff section 6'], additional_evidence_needed=True,
                         evidence_request={'object_id': oid, 'measurement_type': 'checker_assessment',
                                           'interval': list(monitored),
-                                          'reason': f'A validated R1 assessment is needed before claiming {claim}.'}))
+                                          'reason': f'An admitted R1 checker assessment is needed before claiming '
+                                                    f'{claim}.'}))
     elif claim not in reported:
-        out.append(make('CONCL-CONTRADICTION', 'C07', f'The draft claims {claim} for {oid}, but the checker assessment '
-                        f'for the same object and execution reports {", ".join(map(str, reported))}.',
-                        'Match the validated assessment, or explain the conflict as an unresolved defeater.',
+        out.append(make('CONCL-CONTRADICTION', 'C07', f'The draft claims {claim} for {oid}, but the {label} '
+                        f'for the same object and execution reports {", ".join(reported)}.',
+                        'Match the admitted assessment, or explain the conflict as an unresolved defeater.',
                         evidence_ids=assessment_ids, requirement_refs=[SPEC_REF], human_review_required=True))
     elif claim == K.NO_VIOLATION and not any(
-            _interval(a.get('interval')) and _contains(_interval(a['interval']), monitored)
-            for a in assessments if a.get('outcome') == claim):
+            _contains(_interval(a['interval']), monitored)
+            for a in assessments if a['outcome'] == claim):
         out.append(make('CONCL-PARTIAL-COVERAGE', 'C04', f'The no-violation assessment for {oid} does not cover the '
                         f'whole monitored interval {list(monitored)}.',
                         'Qualify the claim to the covered interval, or keep it insufficient_information.',
@@ -577,12 +590,16 @@ def run_all(req):
     """Run every deterministic check. Returns (findings, info for the LLM step and report)."""
     findings, fatal = check_request_shape(req)
     if fatal:
-        return findings, {'fatal': True, 'records': {}, 'expected_outcome': None}
+        return findings, {'fatal': True, 'records': {}, 'expected_outcome': None,
+                          'admitted': {}, 'checker_admission': []}
     records, record_findings = index_records(req)
     findings += record_findings
     findings += check_bundle(req)
     for item in req['argument_bundle']['graphs']:
         findings += check_graph(req, item, records)
-    conclusion_findings, expected = check_conclusions(req)
+    assessment_findings, admitted, admission = check_assessments(req)
+    findings += assessment_findings
+    conclusion_findings, expected = check_conclusions(req, admitted)
     findings += conclusion_findings
-    return findings, {'fatal': False, 'records': records, 'expected_outcome': expected}
+    return findings, {'fatal': False, 'records': records, 'expected_outcome': expected,
+                      'admitted': admitted, 'checker_admission': admission}

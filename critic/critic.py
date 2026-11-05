@@ -5,7 +5,7 @@ from . import checks
 from . import contract as K
 from . import llm as L
 
-CRITIC_VERSION = '0.1.0'
+CRITIC_VERSION = '0.2.0'
 DISCLAIMER = ('A report with no blocking findings means only that this Critic found no issue within the '
               'supplied evidence and review scope. It does not show that R1 holds or that the robot was '
               'physically safe.')
@@ -28,7 +28,7 @@ def review(request, llm=None):
                   'called': False, 'ok': False, 'latency_s': None,
                   'error': 'Skipped: the request failed structural validation.'}
     else:
-        accepted, rejected, status = L.run(llm, request, deterministic, info['records'])
+        accepted, rejected, status = L.run(llm, request, deterministic, info['records'], info['checker_admission'])
 
     criticisms, evidence_requests = [], []
     for number, f in enumerate(deterministic + accepted, start=1):
@@ -48,6 +48,7 @@ def review(request, llm=None):
         'execution_id': str((ctx or {}).get('execution_id', '')),
         'test_fixture': bool(req.get('test_fixture')),
         'llm': status,
+        'checker_admission': info['checker_admission'],
         'criticisms': criticisms,
         'evidence_requests': evidence_requests,
         'unresolved_concerns': _unresolved_concerns(req, info),
@@ -82,9 +83,14 @@ def _unresolved_concerns(req, info):
     if info['fatal']:
         return ['The request could not be reviewed because it failed structural validation.']
     out = []
-    if not req['checker_assessments']:
-        out.append('No validated checker assessment was supplied. Treated as unavailable, not as "no violation"; '
-                   'violation, no-violation and non-applicability outcomes cannot be established from this package.')
+    supplied = len(req['checker_assessments'])
+    admitted = sum(1 for a in info['checker_admission'] if a['admitted'])
+    if not admitted:
+        out.append(f'No admitted checker assessment ({supplied} supplied, 0 admitted). Treated as unavailable, '
+                   'not as "no violation"; violation, no-violation and non-applicability outcomes cannot be '
+                   'established from this package.')
+    elif any(a['route'] == 'synthetic_test_fixture' for a in info['checker_admission']):
+        out.append('Admitted checker assessments are synthetic test-fixture outputs, not validated empirical results.')
     retrieval = req['retrieval_context']
     if not retrieval.get('complete_within_requested_scope', False):
         out.append('Retrieval reports that the evidence package is incomplete for the requested scope.')

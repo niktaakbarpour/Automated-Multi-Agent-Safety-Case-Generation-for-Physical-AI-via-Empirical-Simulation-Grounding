@@ -20,8 +20,8 @@ from pathlib import Path
 from . import contract as K
 from .checks import _list, _scope, finding
 
-PROMPT_VERSION = 'critic-prompt/v1'
-PROMPT_PATH = Path(__file__).with_name('prompts') / 'critic_system_v1.md'
+PROMPT_VERSION = 'critic-prompt/v2'
+PROMPT_PATH = Path(__file__).with_name('prompts') / 'critic_system_v2.md'
 
 
 class NullLLM:
@@ -110,10 +110,9 @@ RECORD_FIELDS = ('execution_id', 'object_id', 'kind', 'measurement_type', 'inter
                  'capability', 'uncertainty', 'limitations')
 CONTEXT_FIELDS = ('requirement_id', 'requirement_version', 'execution_id', 'protected_objects',
                   'support_surfaces', 'monitored_interval')
-ASSESSMENT_FIELDS = ('assessment_id', 'authority', 'object_id', 'applicability', 'outcome', 'interval')
 
 
-def build_messages(req, deterministic, records):
+def build_messages(req, deterministic, records, admission=()):
     """A compact, self-contained view of the request for the model. Returns (system, user)."""
     graphs = []
     for item in req['argument_bundle']['graphs']:
@@ -130,7 +129,10 @@ def build_messages(req, deterministic, records):
         'graphs': graphs,
         'execution_conclusion': req['argument_bundle']['execution_conclusion'],
         'evidence': [{'id': rid, **{k: r.get(k) for k in RECORD_FIELDS}} for rid, r in records.items()],
-        'checker_assessments': [{k: a.get(k) for k in ASSESSMENT_FIELDS} for a in req['checker_assessments']],
+        # Only the Critic's admission log is shown: a model never sees an assessment as usable
+        # unless the deterministic admission rules accepted it.
+        'checker_assessments': [{k: a[k] for k in ('assessment_id', 'object_id', 'outcome', 'applicability',
+                                                   'interval', 'admitted', 'route')} for a in admission],
         'retrieval_context': req['retrieval_context'],
         'already_found': [{k: f[k] for k in ('category', 'object_id', 'node_id', 'explanation')}
                           for f in deterministic],
@@ -162,7 +164,7 @@ def extract_json(text):
     raise ValueError('No JSON object with a "findings" list in the model reply.')
 
 
-def screen(raw_findings, req, records, deterministic):
+def screen(raw_findings, req, records, deterministic, admission=()):
     """Keep only well-formed findings that reference real objects, nodes and evidence.
 
     Returns (accepted findings, rejected [{reason, finding}]).
@@ -177,8 +179,7 @@ def screen(raw_findings, req, records, deterministic):
         nodes_by_object[item['object_id']] = {
             n['id'] for n in nodes if isinstance(n, dict) and isinstance(n.get('id'), str)}
     all_nodes = set().union(*nodes_by_object.values())
-    known_ids = set(records) | {a.get('assessment_id') for a in req['checker_assessments']
-                                if isinstance(a.get('assessment_id'), str)}
+    known_ids = set(records) | {a['assessment_id'] for a in admission if a['admitted']}
     taken = {(f['object_id'], f['node_id'], f['category']) for f in deterministic}
 
     accepted, rejected = [], []
@@ -218,14 +219,14 @@ def _rejection_reason(f, configured, nodes_by_object, all_nodes, known_ids, take
     return None
 
 
-def run(llm, req, deterministic, records):
+def run(llm, req, deterministic, records, admission=()):
     """Ask the model once and screen its reply. Returns (accepted, rejected, status)."""
     status = {'backend': llm.backend, 'model': llm.name, 'prompt_version': PROMPT_VERSION,
               'called': False, 'ok': False, 'latency_s': None, 'error': None}
     if isinstance(llm, NullLLM):
         status['ok'] = True
         return [], [], status
-    system, user = build_messages(req, deterministic, records)
+    system, user = build_messages(req, deterministic, records, admission)
     started = time.monotonic()
     status['called'] = True
     try:
@@ -236,6 +237,6 @@ def run(llm, req, deterministic, records):
         return [], [], status
     finally:
         status['latency_s'] = round(time.monotonic() - started, 3)
-    accepted, rejected = screen(parsed['findings'], req, records, deterministic)
+    accepted, rejected = screen(parsed['findings'], req, records, deterministic, admission)
     status['ok'] = True
     return accepted, rejected, status

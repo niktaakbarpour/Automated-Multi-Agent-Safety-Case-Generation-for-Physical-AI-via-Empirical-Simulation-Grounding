@@ -1,13 +1,13 @@
 {
-  "$id": "urn:trustworthy:critic-report:0.1.0",
+  "$id": "urn:trustworthy:critic-report:0.2.0",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "Critic report",
   "description": "Machine-readable review for the future Revision component. No findings means only that this Critic found no issue within the supplied evidence and review scope; it is not evidence that R1 holds.",
   "type": "object",
   "additionalProperties": false,
-  "required": ["schema_version", "critic_version", "request_id", "execution_id", "test_fixture", "llm", "criticisms", "evidence_requests", "unresolved_concerns", "rejected_llm_findings", "summary"],
+  "required": ["schema_version", "critic_version", "request_id", "execution_id", "test_fixture", "llm", "checker_admission", "criticisms", "evidence_requests", "unresolved_concerns", "rejected_llm_findings", "summary"],
   "properties": {
-    "schema_version": {"const": "critic-report/0.1.0"},
+    "schema_version": {"const": "critic-report/0.2.0"},
     "critic_version": {"type": "string"},
     "request_id": {"type": "string"},
     "execution_id": {"type": "string"},
@@ -24,6 +24,25 @@
         "ok": {"type": "boolean"},
         "latency_s": {"type": ["number", "null"]},
         "error": {"type": ["string", "null"]}
+      }
+    },
+    "checker_admission": {
+      "description": "One row per supplied checker assessment: whether the Critic admitted it and, if not, which checks failed.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["assessment_id", "object_id", "outcome", "applicability", "interval", "admitted", "route", "problems"],
+        "properties": {
+          "assessment_id": {"type": "string"},
+          "object_id": {"type": ["string", "null"]},
+          "outcome": {"type": ["string", "null"]},
+          "applicability": {"type": ["string", "null"]},
+          "interval": {"type": ["array", "null"], "items": {"type": "number"}},
+          "admitted": {"type": "boolean"},
+          "route": {"enum": ["synthetic_test_fixture", "admitted_empirical", null]},
+          "problems": {"type": "array", "items": {"type": "string"}}
+        }
       }
     },
     "criticisms": {

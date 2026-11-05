@@ -8,8 +8,8 @@ redefines those formats; the tests check that these copies stay in sync.
 import hashlib
 import json
 
-REQUEST_SCHEMA_VERSION = 'critic-request/0.1.0'
-REPORT_SCHEMA_VERSION = 'critic-report/0.1.0'
+REQUEST_SCHEMA_VERSION = 'critic-request/0.2.0'
+REPORT_SCHEMA_VERSION = 'critic-report/0.2.0'
 
 # --- existing GSN 1.0.0 vocabulary (gsn.py / gsn_graph.schema.json) ---
 GSN_SCHEMA_VERSION = '1.0.0'
@@ -52,9 +52,9 @@ INVALID_CONTRACT = 'invalid_measurement_contract'
 OUTCOMES = {VIOLATION, NO_VIOLATION, NOT_APPLICABLE, INSUFFICIENT, INVALID_CONTRACT}
 # FORMAL_SEMANTICS.md "Execution aggregation": V > IC > U > N > NA
 OUTCOME_PRECEDENCE = (VIOLATION, INVALID_CONTRACT, INSUFFICIENT, NO_VIOLATION, NOT_APPLICABLE)
-# Every outcome except insufficient_information needs a validated checker assessment behind it.
+# Every outcome except insufficient_information needs an admitted checker assessment behind it
+# (admission rules: critic/assessments.py).
 NEEDS_CHECKER = OUTCOMES - {INSUFFICIENT}
-CHECKER_AUTHORITIES = {'validated_checker', 'synthetic_test_fixture'}
 
 # --- criticism categories (Critic handoff, section 8) ---
 CATEGORIES = {

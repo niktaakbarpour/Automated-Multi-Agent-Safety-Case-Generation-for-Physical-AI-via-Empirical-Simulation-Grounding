@@ -1,5 +1,5 @@
 {
- "schema_version": "critic-request/0.1.0",
+ "schema_version": "critic-request/0.2.0",
  "request_id": "CASE-C-correct-unresolved",
  "test_fixture": true,
  "evaluation_context": {
@@ -9,6 +9,7 @@
   "execution_id": "SYNTH-EXEC-001",
   "benchmark": "synthetic-scene-B",
   "task_id": "ILLUSTRATIVE-THREE-OBJECTS",
+  "variant_id": null,
   "model_checkpoint": "synthetic-policy@0000000",
   "protected_objects": [
    "widget_a",
@@ -787,7 +788,7 @@
   ],
   "execution_conclusion": {
    "claimed_outcome": "insufficient_information",
-   "statement": "R1 cannot be determined for SYNTH-EXEC-001: measurements are available and source-verified, but initial load-bearing support and falling departures are unresolved for all three protected objects, and no validated checker assessment is available.",
+   "statement": "R1 cannot be determined for SYNTH-EXEC-001: measurements are available and source-verified, but initial load-bearing support and falling departures are unresolved for all three protected objects, and no admitted checker assessment is available.",
    "object_outcomes": {
     "widget_a": "insufficient_information",
     "vial_b": "insufficient_information",

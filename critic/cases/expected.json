@@ -54,5 +54,17 @@
   "must_flag": [],
   "blocking_expected": false,
   "llm_should_add_any_of": []
+ },
+ "case_d_claim_hides_checker_result.json": {
+  "description": "Uses the R1 checker's own synthetic fixture and its real output. The draft leaves object_00 unresolved although the checker reports a violation; the other two claims match the checker.",
+  "must_flag": [
+   {
+    "category": "C07",
+    "object_id": "object_00",
+    "check_id": "CONCL-HIDES-VIOLATION"
+   }
+  ],
+  "blocking_expected": true,
+  "llm_should_add_any_of": []
  }
 }
