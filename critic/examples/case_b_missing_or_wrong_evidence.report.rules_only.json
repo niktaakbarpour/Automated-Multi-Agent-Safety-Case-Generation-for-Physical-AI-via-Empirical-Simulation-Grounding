@@ -10,11 +10,20 @@
   "llm": {
     "backend": "none",
     "model": null,
-    "prompt_version": "critic-prompt/v2",
+    "prompt_version": "critic-prompt/v3",
     "called": false,
     "ok": false,
     "latency_s": null,
-    "error": "Skipped: the input failed validation, so no model review was run."
+    "error": "Skipped: the input failed validation, so no model review was run.",
+    "prompt_sha256": null,
+    "input_sha256": null,
+    "request_sha256": null,
+    "settings": null,
+    "raw_response": null,
+    "raw_response_truncated": false,
+    "response_sha256": null,
+    "accepted": 0,
+    "rejected": 0
   },
   "checker_admission": [],
   "criticisms": [

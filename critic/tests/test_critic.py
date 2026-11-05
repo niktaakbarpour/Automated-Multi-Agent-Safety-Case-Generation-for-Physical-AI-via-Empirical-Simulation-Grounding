@@ -5,6 +5,7 @@
 No network, no GPU and no LLM service are needed.
 """
 import copy
+import hashlib
 import json
 import sys
 import unittest
@@ -1144,6 +1145,139 @@ class ConfigurationBinding(unittest.TestCase):
         self.assertIsNone(rejected['summary']['accepted_execution_outcome'])  # nothing is accepted from rejected input
 
 
+class LLMOutputHandling(unittest.TestCase):
+    """Audit I5, I8 and the trace part of I10."""
+
+    TEXT = {'explanation': 'x', 'suggested_action': 'y'}
+
+    def _reply(self, *findings):
+        return L.ScriptedLLM(json.dumps({'findings': list(findings)}))
+
+    def test_audit_probe_list_as_category_does_not_crash(self):
+        report = review(load('case_a_unsupported_claim.json'), self._reply({'category': [], **self.TEXT}))
+        self.assertEqual(report['review_status'], 'completed')
+        self.assertIn('does not match the finding format', report['rejected_llm_findings'][0]['reason'])
+        self.assertEqual(len(flagged(report, check_id='CONCL-UNSUPPORTED')), 3)  # rule findings kept
+
+    def test_every_field_is_type_checked(self):
+        good = {'object_id': 'widget_a', 'node_id': 'S1', 'category': 'C05', 'severity': 'low',
+                'evidence_ids': [], **self.TEXT}
+        broken = [
+            {**good, 'category': {'C05': 1}}, {**good, 'category': None}, {**good, 'category': 5},
+            {**good, 'explanation': ['x']}, {**good, 'explanation': ''}, {**good, 'suggested_action': None},
+            {**good, 'explanation': '   '}, {**good, 'object_id': 'not_configured'},
+            {**good, 'severity': 'urgent'}, {**good, 'object_id': 5}, {**good, 'node_id': {}},
+            {**good, 'evidence_ids': 'ev:x'}, {**good, 'evidence_ids': [1]}, {**good, 'confidence': 0.9},
+            {k: v for k, v in good.items() if k != 'suggested_action'}, [good], 'text', None, 7,
+        ]
+        report = review(load('case_a_unsupported_claim.json'), self._reply(good, *broken))
+        self.assertEqual((report['llm']['ok'], report['llm']['accepted'], report['llm']['rejected']),
+                         (True, 1, len(broken)))
+        reasons = [r['reason'] for r in report['rejected_llm_findings']]
+        self.assertIn('missing explanation or suggested_action', reasons)
+        self.assertIn("object 'not_configured' is not a configured protected object", reasons)
+        self.assertEqual(sum('finding format' in r for r in reasons), len(broken) - 2)
+        # a finding without a severity is kept as medium
+        report = review(load('case_a_unsupported_claim.json'),
+                        self._reply({k: v for k, v in good.items() if k != 'severity'}))
+        self.assertEqual([c['severity'] for c in report['criticisms'] if c['finding_source'] == 'llm_proposed'],
+                         ['medium'])
+
+    def test_unusable_reply_is_an_explicit_failure(self):
+        for reply in ('{"findings": {"a": 1}}', '{"findings": "none"}', 'no json here', '', None, 5):
+            with self.subTest(reply=reply):
+                report = review(load('case_a_unsupported_claim.json'), L.ScriptedLLM(reply))
+                self.assertEqual(report['review_status'], 'completed_llm_failed')
+                self.assertFalse(report['llm']['ok'])
+                self.assertTrue(report['llm']['error'])
+                self.assertEqual(len(flagged(report, check_id='CONCL-UNSUPPORTED')), 3)
+                if not isinstance(reply, str):
+                    self.assertIn('not text', report['llm']['error'])
+
+    def test_failures_anywhere_in_the_model_step_are_contained(self):
+        from unittest import mock
+        for target in ('build_messages', 'screen', 'extract_json'):
+            with self.subTest(target=target), mock.patch.object(L, target, side_effect=RuntimeError('boom')):
+                report = review(load('case_a_unsupported_claim.json'), self._reply())
+                self.assertEqual(report['review_status'], 'completed_llm_failed')
+                self.assertIn('boom', report['llm']['error'])
+
+    def test_rule_only_categories_are_rejected(self):
+        for category in ('C01', 'C02', 'C03', 'C04', 'C11'):
+            with self.subTest(category=category):
+                report = review(load('case_a_unsupported_claim.json'),
+                                self._reply({'object_id': 'widget_a', 'category': category, **self.TEXT}))
+                self.assertIn('rule-based checks only', report['rejected_llm_findings'][0]['reason'])
+
+    def test_audit_probe_ungrounded_contradiction(self):
+        req = load(CASE_D)
+        item = B.checker_item()['result']
+        own, other = A.assessment_id(item, 'object_00'), A.assessment_id(item, 'object_01')
+        record = next(r['id'] for r in req['evidence_package']['records'] if r['object_id'] == 'object_00')
+        c07 = {'object_id': 'object_00', 'category': 'C07', 'severity': 'high', **self.TEXT}
+        rejected = {
+            'no evidence (the audit probe)': {**c07, 'evidence_ids': []},
+            'a measurement, not an assessment': {**c07, 'evidence_ids': [record]},
+            "another object's assessment": {**c07, 'evidence_ids': [other]},
+            'no object': {**c07, 'object_id': None, 'evidence_ids': [own]},
+        }
+        for name, f in rejected.items():
+            with self.subTest(name):
+                report = review(load(CASE_D), self._reply(f))
+                self.assertEqual(report['llm']['accepted'], 0, report['rejected_llm_findings'])
+        report = review(load(CASE_D), self._reply({**c07, 'evidence_ids': [own]}))
+        self.assertEqual(report['llm']['accepted'], 1)
+        llm = [c for c in report['criticisms'] if c['finding_source'] == 'llm_proposed'][0]
+        self.assertEqual((llm['blocking'], llm['human_review_required']), (False, True))
+
+    def test_citations_must_match_object_and_execution(self):
+        req = load('case_a_unsupported_claim.json')
+        vial = next(r['id'] for r in req['evidence_package']['records'] if r['object_id'] == 'vial_b')
+        other_run = B.evidence_for(B.OTHER_EXEC, 'widget_a')[0]
+        req['evidence_package']['records'].append(other_run)  # in the package, but from another execution
+        cases = {'another object': {'object_id': 'widget_a', 'evidence_ids': [vial]},
+                 'another execution': {'object_id': 'widget_a', 'evidence_ids': [other_run['id']]},
+                 'another execution, no object': {'object_id': None, 'evidence_ids': [other_run['id']]}}
+        for name, f in cases.items():
+            with self.subTest(name):
+                report = review(copy.deepcopy(req), self._reply({'category': 'C09', **f, **self.TEXT}))
+                self.assertEqual(report['review_status'], 'completed')
+                self.assertIn('not the finding', report['rejected_llm_findings'][0]['reason'])
+        report = review(copy.deepcopy(req), self._reply({'category': 'C09', 'object_id': None,
+                                                         'evidence_ids': [vial], **self.TEXT}))
+        self.assertEqual(report['llm']['accepted'], 1)  # no object named: any object of this execution
+
+    def test_trace(self):
+        req = load('case_a_unsupported_claim.json')
+        reply = (CASES / 'scripted_replies' / 'case_a.txt').read_text()
+        backend = L.ScriptedLLM(reply)
+        report = review(req, backend)
+        t = report['llm']
+        deterministic, info = checks.run_all(req)
+        system, user = L.build_messages(req, deterministic, info['records'], info['checker_admission'])
+        def sha(text):
+            return hashlib.sha256(text.encode()).hexdigest()
+        self.assertEqual(t['prompt_sha256'], sha(L.PROMPT_PATH.read_text(encoding='utf-8')))
+        self.assertEqual(t['input_sha256'], K.digest(backend.messages(system, user)))
+        self.assertEqual(t['request_sha256'], K.digest(req))
+        self.assertEqual((t['raw_response'], t['response_sha256'], t['raw_response_truncated']),
+                         (reply, sha(reply), False))
+        self.assertEqual(t['settings'], {'scripted_reply_sha256': sha(reply)})
+        self.assertEqual((t['accepted'], t['rejected']), (2, 2))
+
+    def test_long_reply_is_cut_but_hashed_in_full(self):
+        reply = json.dumps({'findings': []}) + ' ' * (L.RAW_RESPONSE_LIMIT + 10)
+        t = review(load('case_c_correct_unresolved.json'), L.ScriptedLLM(reply))['llm']
+        self.assertEqual((len(t['raw_response']), t['raw_response_truncated']), (L.RAW_RESPONSE_LIMIT, True))
+        self.assertEqual(t['response_sha256'], hashlib.sha256(reply.encode()).hexdigest())
+
+    def test_no_trace_without_a_model_call(self):
+        for req, backend in ((load('case_b_missing_or_wrong_evidence.json'), self._reply()),
+                             (load('case_c_correct_unresolved.json'), L.NullLLM())):
+            t = review(req, backend)['llm']
+            self.assertEqual((t['called'], t['input_sha256'], t['raw_response']), (False, None, None))
+
+
 class LLMStep(unittest.TestCase):
     def test_scripted_reply_is_screened(self):
         req = load('case_a_unsupported_claim.json')
@@ -1175,13 +1309,14 @@ class LLMStep(unittest.TestCase):
         """Exercise the real HTTP client against a tiny vLLM-shaped server on localhost."""
         import threading
         from http.server import BaseHTTPRequestHandler, HTTPServer
-        seen = {}
+        seen, received = {}, {}
         reply = (CASES / 'scripted_replies' / 'case_a.txt').read_text()
 
         class Handler(BaseHTTPRequestHandler):
             def do_POST(self):
                 body = json.loads(self.rfile.read(int(self.headers['Content-Length'])))
                 seen.update(path=self.path, model=body['model'], roles=[m['role'] for m in body['messages']])
+                received.update(messages=body['messages'], auth=self.headers['Authorization'])
                 out = json.dumps({'choices': [{'message': {'role': 'assistant', 'content': reply}}]}).encode()
                 self.send_response(200)
                 self.send_header('Content-Type', 'application/json')
@@ -1195,15 +1330,74 @@ class LLMStep(unittest.TestCase):
         server = HTTPServer(('127.0.0.1', 0), Handler)
         threading.Thread(target=server.serve_forever, daemon=True).start()
         try:
-            client = L.OpenAICompatibleLLM(base_url=f'http://127.0.0.1:{server.server_port}/v1', model='fake-model')
+            # a gpt-oss name picks that model card's preset, which changes the system message
+            client = L.OpenAICompatibleLLM(base_url=f'http://127.0.0.1:{server.server_port}/v1',
+                                           model='fake-gpt-oss', api_key='SECRET-TEST-KEY')
             report = review(load('case_a_unsupported_claim.json'), client)
         finally:
             server.shutdown()
             server.server_close()
-        self.assertEqual(seen, {'path': '/v1/chat/completions', 'model': 'fake-model', 'roles': ['system', 'user']})
+        self.assertEqual(seen, {'path': '/v1/chat/completions', 'model': 'fake-gpt-oss', 'roles': ['system', 'user']})
         self.assertTrue(report['llm']['ok'])
-        self.assertEqual(report['llm']['model'], 'fake-model')
+        self.assertEqual(report['llm']['model'], 'fake-gpt-oss')
+        self.assertTrue(received['messages'][0]['content'].endswith('Reasoning: medium'))
         self.assertEqual(len([c for c in report['criticisms'] if c['finding_source'] == 'llm_proposed']), 2)
+        # the trace matches what the server actually received, and the key is sent but never recorded
+        self.assertEqual(report['llm']['input_sha256'], K.digest(received['messages']))
+        self.assertEqual(received['auth'], 'Bearer SECRET-TEST-KEY')
+        self.assertNotIn('SECRET-TEST-KEY', json.dumps(report))
+        self.assertEqual((report['llm']['settings']['model'], report['llm']['settings']['system_suffix']),
+                         ('fake-gpt-oss', '\nReasoning: medium'))
+
+    def test_credentials_in_the_server_url_are_not_recorded(self):
+        for url, kept in (('http://user:S3CRET@host:8001/v1', 'http://host:8001/v1'),
+                          ('https://S3CRET@h.example/v1?x=1', 'https://h.example/v1?x=1'),
+                          ('http://u:S3CRET@[::1]:8000/v1', 'http://[::1]:8000/v1'),
+                          ('http://localhost:8000/v1', 'http://localhost:8000/v1')):
+            settings = L.OpenAICompatibleLLM(base_url=url, model='m').settings()
+            self.assertEqual(settings['base_url'], kept)
+            self.assertNotIn('S3CRET', json.dumps(settings))
+
+    def test_model_comparison_runner(self):
+        """critic.compare_models end to end against a fake vLLM server."""
+        import io
+        import tempfile
+        import threading
+        from contextlib import redirect_stdout
+        from http.server import BaseHTTPRequestHandler, HTTPServer
+        from critic import compare_models
+
+        class Handler(BaseHTTPRequestHandler):
+            def do_POST(self):
+                self.rfile.read(int(self.headers['Content-Length']))
+                out = json.dumps({'choices': [{'message': {'content': '{"findings": []}'}}]}).encode()
+                self.send_response(200)
+                self.send_header('Content-Length', str(len(out)))
+                self.end_headers()
+                self.wfile.write(out)
+
+            def log_message(self, *args):
+                pass
+
+        server = HTTPServer(('127.0.0.1', 0), Handler)
+        threading.Thread(target=server.serve_forever, daemon=True).start()
+        try:
+            with tempfile.TemporaryDirectory() as tmp, redirect_stdout(io.StringIO()):
+                out = Path(tmp) / 'comparison.md'
+                compare_models.main(['--model', f'fake=http://127.0.0.1:{server.server_port}/v1',
+                                     '--repeats', '1', '--out', str(out)])
+                rows = json.loads(out.with_suffix('.json').read_text())
+                text = out.read_text()
+        finally:
+            server.shutdown()
+            server.server_close()
+        cases = {r['case'] for r in rows}
+        self.assertNotIn('case_b_missing_or_wrong_evidence.json', cases)  # rejected input: no model is asked
+        self.assertEqual(len(cases), len(EXPECTED) - 1)
+        self.assertTrue(all(r['json_ok'] and r['review_status'] == 'completed' for r in rows))
+        self.assertTrue(all(r['trace']['response_sha256'] and r['trace']['settings']['model'] == 'fake'
+                            for r in rows))
+        self.assertIn(f'({len(cases)} synthetic cases)', text)
 
     def test_malformed_model_findings_are_rejected_not_crashing(self):
         req = load('case_a_unsupported_claim.json')

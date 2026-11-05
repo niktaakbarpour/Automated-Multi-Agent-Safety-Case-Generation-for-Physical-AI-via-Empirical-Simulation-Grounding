@@ -21,7 +21,8 @@
     "llm": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["backend", "model", "prompt_version", "called", "ok", "latency_s", "error"],
+      "description": "The model step and its trace. Hashes are sha256: prompt_sha256 of the system prompt file, input_sha256 of the canonical JSON of the exact chat messages sent, request_sha256 of the canonical review request, response_sha256 of the full reply. raw_response keeps the reply (cut at 65536 characters, see raw_response_truncated). settings are the effective model settings; an API key is never recorded.",
+      "required": ["backend", "model", "prompt_version", "called", "ok", "latency_s", "error", "prompt_sha256", "input_sha256", "request_sha256", "settings", "raw_response", "raw_response_truncated", "response_sha256", "accepted", "rejected"],
       "properties": {
         "backend": {"type": "string"},
         "model": {"type": ["string", "null"]},
@@ -29,7 +30,16 @@
         "called": {"type": "boolean"},
         "ok": {"type": "boolean"},
         "latency_s": {"type": ["number", "null"]},
-        "error": {"type": ["string", "null"]}
+        "error": {"type": ["string", "null"]},
+        "prompt_sha256": {"type": ["string", "null"]},
+        "input_sha256": {"type": ["string", "null"]},
+        "request_sha256": {"type": ["string", "null"]},
+        "settings": {"type": ["object", "null"]},
+        "raw_response": {"type": ["string", "null"]},
+        "raw_response_truncated": {"type": "boolean"},
+        "response_sha256": {"type": ["string", "null"]},
+        "accepted": {"type": "integer", "minimum": 0},
+        "rejected": {"type": "integer", "minimum": 0}
       }
     },
     "checker_admission": {

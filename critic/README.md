@@ -16,7 +16,7 @@ review request (one execution)
   └─ 3. LLM review          optional, only for valid input; any OpenAI-compatible server (vLLM on Hestia)
         wording-level problems the rules cannot see (e.g. "height dropped so it fell",
         "certified safe"); every finding is screened and anything citing an unknown
-        node or evidence ID is rejected
+        node or evidence ID is rejected (details below)
   → CriticReport (JSON)
 ```
 
@@ -97,6 +97,22 @@ The execution outcome is aggregated over every configured object: a missing or i
 
 Retrieval gaps only matter for a no-violation claim, and only if they are for that object, overlap the monitored interval and are not optional evidence (`velocity` and `task_instruction` are optional in the R1 configuration schema). A gap with a malformed interval counts. If an admitted checker assessment supports the no-violation claim, a relevant gap is a medium, non-blocking finding for human review, because a gap in the Drafter's package does not by itself invalidate the checker's result. Without that support it is blocking. Every gap, relevant or not, is listed in `unresolved_concerns`.
 
+## What the Critic accepts from the model
+
+The model step can never break or silently weaken a review (`llm.run`). Building the prompt, the call, parsing and screening all run inside one error boundary. A reply that cannot be used (no JSON, `findings` not a list, an empty or non-text reply, a timeout) gives `review_status: completed_llm_failed` with the error, and the rule-based findings stay; it is never turned into an empty critique.
+
+Each model finding is then checked on its own, and rejected (kept under `rejected_llm_findings` with the reason) unless:
+
+- it matches the finding format exactly (`llm.FINDING_SCHEMA`: the listed keys only, a known category and severity, non-empty explanation and suggested action, string or null IDs, a list of distinct evidence IDs);
+- its category is one the model may raise. C01, C02, C03, C04 and C11 are decided by the rule-based checks only; from a model they would be unsupported;
+- its object is configured, its node exists in that object's graph, and every evidence ID it cites is in the package, about the finding's object (when it names one) and about the execution under review;
+- a C07 contradiction names an object and cites an admitted checker assessment for that object;
+- it does not repeat a rule-based finding.
+
+Accepted findings are still `llm_proposed`, need human review and never block on their own; the checks above make them grounded in the supplied evidence, not correct.
+
+Every model call leaves a trace in `report.llm`: the prompt version and the sha256 of the prompt file, of the exact messages sent (after any model-card adjustment), of the review request and of the full reply; the effective settings (base URL without any user:password, model, temperature, token limit, extra parameters, prompt adjustments; never the API key); the raw reply (cut at 65,536 characters, flagged when cut); and how many findings were accepted and rejected.
+
 ## Run it
 
 From the repository root. The Critic itself needs only the Python standard library (tested on Python 3.9, 3.10 and 3.13). Some tests use the team's own code and are skipped, with the reason shown, when it cannot run: the schema tests need `jsonschema`, the GSN validator comparison needs Python 3.10+, and re-running the R1 checker needs Python 3.10+ and `jsonschema>=4`.
@@ -138,7 +154,7 @@ All synthetic and marked `test_fixture: true`. Cases A to C use the three-object
 
 Reports are in `examples/`. `case_a…scripted_llm_demo.json` shows the LLM step with a **hand-written** reply (not a real model). It contains two valid findings plus one with an invented evidence ID and one with a made-up node, and the Critic rejects those two. Real model outputs will be added after the Hestia run.
 
-## Tests (98)
+## Tests (110)
 
 - the four cases produce exactly the expected findings, and Case C gets none
 - requests, graphs, records and reports validate against their JSON schemas
@@ -156,7 +172,9 @@ Reports are in `examples/`. `case_a…scripted_llm_demo.json` shows the LLM step
 - every conclusion finding and gap rule was switched off in turn to confirm a test fails without it
 - R1 configuration (audit I6): all 12 semantic rules agree with `validate_configuration` by name on every example configuration and the checker fixture; an oracle against the real function (Python 3.10+ with `jsonschema>=4`) compares verdicts and rule names on 300 random corruptions too; the audit's probe (context and bundle reduced to one object) is rejected; configuration hash, scope, templates, surfaces, interval clock, explicit boundaries and boundary provenance are each checked; the real five-object LIBERO profile (names read from `A_LIBERO_FIVE_OBJECTS.json`) is reviewed with no findings and a dropped LIBERO object is caught; empty scope; full-vector aggregation; the accepted outcome
 - R1 aggregation precedence, checker contradiction (C07), an "insufficient information" claim that hides a checker violation (C07), unsupported non-applicability (C08), related-case misuse (C11), no-violation claims over retrieval gaps (C04)
-- LLM screening: invented IDs/nodes, malformed findings and duplicates rejected; a broken or empty model reply does not break the review; the HTTP client works against a local fake vLLM server
+- model output (audit I5, I8, I10): the audit's probes (a list as the category; a C07 with no evidence) are handled; every field of a finding is type-checked (19 kinds of broken finding); unusable replies and failures inside prompt building, parsing or screening give `completed_llm_failed` with the rule findings kept; rule-only categories are refused; a C07 must cite an admitted assessment for its object; citations must match the finding's object and execution; the trace hashes match what was sent and received (checked against a local fake vLLM server), the API key never appears in the report, and a long reply is cut but hashed in full; every rejection rule and trace field was switched off in turn to confirm a test fails without it
+- LLM screening: invented IDs/nodes, malformed findings and duplicates rejected; a broken or empty model reply does not break the review; the HTTP client works against a local fake vLLM server; credentials in the server URL are not recorded
+- the model comparison runner (`compare_models.py`) works end to end against a fake vLLM server, skips Case B (rejected before the model step, so no model is asked) and keeps each call's trace
 - **never crashes on bad input:** broken requests and 600 randomly corrupted ones (200 of them inside the checker result) all come back as valid reports
 
 ## Integration note: Phase 5 RAG release
@@ -191,7 +209,7 @@ critic/
   assessments.py     when a checker result is admitted
   __main__.py        command line
   compare_models.py  exploratory model comparison for Hestia
-  prompts/critic_system_v2.md
+  prompts/critic_system_v3.md
   schemas/           request and report JSON schemas
   cases/             four synthetic requests, expected results, scripted replies, stored checker output, generator
   examples/          example reports

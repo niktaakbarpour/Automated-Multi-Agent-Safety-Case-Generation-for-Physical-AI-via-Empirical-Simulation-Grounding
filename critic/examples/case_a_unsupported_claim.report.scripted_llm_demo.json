@@ -10,11 +10,22 @@
   "llm": {
     "backend": "scripted",
     "model": "scripted",
-    "prompt_version": "critic-prompt/v2",
+    "prompt_version": "critic-prompt/v3",
     "called": true,
     "ok": true,
-    "latency_s": 0.0,
-    "error": null
+    "latency_s": 0.001,
+    "error": null,
+    "prompt_sha256": "cc1c4fed7fc20d006b83653c040343e1cbc5e8563794254f12eb4883daf0c950",
+    "input_sha256": "d67a5b3c07ecb425e29ef9fae589b1210e03c8f4153840979b65f7fb8be1e6a3",
+    "request_sha256": "5c943a1ba56c17ac5026864540d15f0bdba3d01a7facaee6560e5d8eb895e7f1",
+    "settings": {
+      "scripted_reply_sha256": "cf18bfaeb7ce3d5e2033891bc612ac37f75b21df29d801354527deb7d397ee60"
+    },
+    "raw_response": "<think>Checking statements against evidence limitations.</think>\n{\n \"findings\": [\n  {\n   \"object_id\": \"widget_a\",\n   \"node_id\": \"S1\",\n   \"category\": \"C05\",\n   \"severity\": \"high\",\n   \"explanation\": \"S1 infers that widget_a was supported and never fell because its pose height did not drop and it stayed in contact with workbench_B. Constant height and geometric contact do not establish load-bearing support or rule out a falling departure; the contact record itself lists that limitation.\",\n   \"evidence_ids\": [\n    \"ev:07e99b1737cf6084a48708925d6028995d29133b3f7e3ae98bd4dd3bda82e4a6\"\n   ],\n   \"suggested_action\": \"State only what the pose and contact measurements show, and add an unresolved claim that support and falling departures are not established.\"\n  },\n  {\n   \"object_id\": null,\n   \"node_id\": null,\n   \"category\": \"C12\",\n   \"severity\": \"high\",\n   \"explanation\": \"The execution conclusion says the robot is certified safe for this task. One synthetic execution with no validated checker assessment cannot support certification language.\",\n   \"evidence_ids\": [],\n   \"suggested_action\": \"Remove the certification claim and report insufficient_information for the execution.\"\n  },\n  {\n   \"object_id\": \"vial_b\",\n   \"node_id\": \"E2\",\n   \"category\": \"C05\",\n   \"severity\": \"medium\",\n   \"explanation\": \"E2 says contact at every frame shows load-bearing support, citing a camera timing record.\",\n   \"evidence_ids\": [\n    \"ev:0000000000000000000000000000000000000000000000000000000000000000\"\n   ],\n   \"suggested_action\": \"Remove the support inference.\"\n  },\n  {\n   \"object_id\": \"vial_b\",\n   \"node_id\": \"G9\",\n   \"category\": \"C10\",\n   \"severity\": \"low\",\n   \"explanation\": \"Goal G9 generalizes.\",\n   \"evidence_ids\": [],\n   \"suggested_action\": \"Narrow it.\"\n  }\n ]\n}",
+    "raw_response_truncated": false,
+    "response_sha256": "cf18bfaeb7ce3d5e2033891bc612ac37f75b21df29d801354527deb7d397ee60",
+    "accepted": 2,
+    "rejected": 2
   },
   "checker_admission": [],
   "criticisms": [
@@ -100,7 +111,7 @@
         "ev:07e99b1737cf6084a48708925d6028995d29133b3f7e3ae98bd4dd3bda82e4a6"
       ],
       "requirement_refs": [
-        "critic-prompt/v2"
+        "critic-prompt/v3"
       ],
       "finding_source": "llm_proposed",
       "suggested_action": "State only what the pose and contact measurements show, and add an unresolved claim that support and falling departures are not established.",
@@ -121,7 +132,7 @@
       "explanation": "The execution conclusion says the robot is certified safe for this task. One synthetic execution with no validated checker assessment cannot support certification language.",
       "evidence_ids": [],
       "requirement_refs": [
-        "critic-prompt/v2"
+        "critic-prompt/v3"
       ],
       "finding_source": "llm_proposed",
       "suggested_action": "Remove the certification claim and report insufficient_information for the execution.",

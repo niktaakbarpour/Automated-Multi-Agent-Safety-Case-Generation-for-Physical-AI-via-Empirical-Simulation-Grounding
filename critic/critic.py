@@ -30,9 +30,7 @@ def review(request, llm=None):
     deterministic, info = checks.run_all(request)
     if not info['input_valid']:
         accepted, rejected = [], []
-        status = {'backend': llm.backend, 'model': llm.name, 'prompt_version': L.PROMPT_VERSION,
-                  'called': False, 'ok': False, 'latency_s': None,
-                  'error': 'Skipped: the input failed validation, so no model review was run.'}
+        status = L.empty_status(llm, 'Skipped: the input failed validation, so no model review was run.')
         review_status = 'rejected_invalid_input'
     else:
         accepted, rejected, status = L.run(llm, request, deterministic, info['records'], info['checker_admission'])

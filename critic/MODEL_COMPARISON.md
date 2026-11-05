@@ -1,6 +1,6 @@
 # Critic LLM: short model comparison
 
-Status: desk comparison from the official model cards. The practical three-case run on Hestia (`python3 -m critic.compare_models`) has not been run yet, so the choice below is provisional until it has.
+Status: desk comparison from the official model cards. The practical run on the synthetic cases on Hestia (`python3 -m critic.compare_models`; Case B is skipped because the Critic rejects its input before the model step) has not been run yet, so the choice below is provisional until it has.
 
 ## What the Critic needs from a model
 
@@ -46,7 +46,7 @@ python3 -m critic.compare_models \
   --repeats 3 --out critic/examples/model_comparison.md
 ```
 
-It writes a table with JSON validity, whether the expected issue was found in Case A, false positives on Case C, invented IDs and latency per model. Three synthetic cases make this an exploratory comparison, not a benchmark.
+It writes a table with JSON validity, whether the expected issue was found in Case A, false positives on Case C, invented IDs and latency per model, and keeps each call's trace (prompt, input and reply hashes, settings) in the raw rows. A few synthetic cases make this an exploratory comparison, not a benchmark.
 
 ## Sources
 

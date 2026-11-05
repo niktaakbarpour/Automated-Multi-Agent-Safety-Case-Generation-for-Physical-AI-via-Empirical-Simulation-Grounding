@@ -10,11 +10,20 @@
   "llm": {
     "backend": "none",
     "model": null,
-    "prompt_version": "critic-prompt/v2",
+    "prompt_version": "critic-prompt/v3",
     "called": false,
     "ok": true,
     "latency_s": null,
-    "error": null
+    "error": null,
+    "prompt_sha256": null,
+    "input_sha256": null,
+    "request_sha256": null,
+    "settings": null,
+    "raw_response": null,
+    "raw_response_truncated": false,
+    "response_sha256": null,
+    "accepted": 0,
+    "rejected": 0
   },
   "checker_admission": [],
   "criticisms": [

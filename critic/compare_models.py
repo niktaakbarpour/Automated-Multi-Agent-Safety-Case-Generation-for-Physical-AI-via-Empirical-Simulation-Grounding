@@ -1,4 +1,4 @@
-"""Small exploratory model comparison on the three cases (run on Hestia).
+"""Small exploratory model comparison on the synthetic cases (run on Hestia).
 
 Start one vLLM server per model, then:
 
@@ -9,8 +9,10 @@ Start one vLLM server per model, then:
 
 Per model and case it records whether the LLM added an expected finding, whether it
 criticised the correct unresolved argument (false positive), whether it cited
-invented evidence/nodes, whether its JSON parsed, and latency. Three synthetic
-cases are an exploratory comparison, not a benchmark.
+invented evidence/nodes, whether its JSON parsed, and latency; the raw rows also keep
+each call's trace hashes and settings. Cases whose input the Critic rejects before
+the model step (Case B) are skipped, because no model is asked about them. A few
+synthetic cases are an exploratory comparison, not a benchmark.
 """
 import argparse
 import json
@@ -29,6 +31,8 @@ def evaluate(model, base_url, repeats, max_tokens, json_mode):
     client = L.OpenAICompatibleLLM(base_url=base_url, model=model, max_tokens=max_tokens, extra_body=extra)
     rows = []
     for name, exp in expected.items():
+        if exp['review_status_expected'] == 'rejected_invalid_input':
+            continue  # the model is never asked about rejected input
         request = json.loads((CASES / name).read_text())
         for run in range(repeats):
             report = review(request, client)
@@ -46,6 +50,9 @@ def evaluate(model, base_url, repeats, max_tokens, json_mode):
                 'false_positive': bool(llm_findings) if not exp['blocking_expected'] else None,
                 'invented_refs': len(invented),
                 'rejected_total': len(report['rejected_llm_findings']),
+                'review_status': report['review_status'],
+                'trace': {k: report['llm'][k] for k in ('prompt_version', 'prompt_sha256', 'input_sha256',
+                                                        'request_sha256', 'response_sha256', 'settings')},
             })
     return rows
 
@@ -98,8 +105,10 @@ def main(argv=None):
     out = Path(args.out)
     out.parent.mkdir(parents=True, exist_ok=True)
     out.with_suffix('.json').write_text(json.dumps(rows, indent=1) + '\n')
-    out.write_text('# Exploratory Critic model comparison (3 synthetic cases)\n\n' + table(rows) +
-                   '\n\nExploratory only: three synthetic cases, not a benchmark. Raw rows in '
+    cases = len({r['case'] for r in rows})
+    out.write_text(f'# Exploratory Critic model comparison ({cases} synthetic cases)\n\n' + table(rows) +
+                   f'\n\nExploratory only: {cases} synthetic cases, not a benchmark. Case B is not included because '
+                   'the Critic rejects its input before the model step. Raw rows, with each call\'s trace, in '
                    + out.with_suffix('.json').name + '.\n')
     print(table(rows))
 
