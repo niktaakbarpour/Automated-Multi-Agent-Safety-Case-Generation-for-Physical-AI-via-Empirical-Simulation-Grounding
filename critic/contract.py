@@ -60,6 +60,11 @@ NEEDS_CHECKER = OUTCOMES - {INSUFFICIENT}
 # one of these never undermines a no-violation claim on its own.
 OPTIONAL_EVIDENCE = {'velocity', 'task_instruction'}
 
+# The R1 configuration's saved_frame axis is the GSN graphs' frame domain on the saved_frame_index clock
+# (evaluation/r1_v4/evidence_registry_gsn/demo/GRAPH.json). simulator_time has no agreed GSN clock yet.
+AXIS_TO_CLOCK = {'saved_frame': ('frame', 'saved_frame_index')}
+CONFIG_SCHEMA_ID = 'urn:trustworthy:r1:generalized:configuration:2.0.1'
+
 # --- criticism categories (Critic handoff, section 8) ---
 CATEGORIES = {
     'C01': 'Structural argument defect',
@@ -82,7 +87,7 @@ SEVERITIES = ('high', 'medium', 'low')
 # the request contract, checker input) put the review in the 'validation' phase: the input is invalid,
 # the LLM is not called and the report is a rejection, not a completed critique. The two exceptions are
 # argument defects Graph.validate accepts. Everything else (conclusions, LLM) is the 'review' phase.
-VALIDATION_PREFIXES = ('REQ-', 'SCHEMA-', 'EV-', 'BUNDLE-', 'GSN-', 'CHK-')
+VALIDATION_PREFIXES = ('REQ-', 'SCHEMA-', 'CONFIG-', 'EV-', 'BUNDLE-', 'GSN-', 'CHK-')
 REVIEW_EXCEPTIONS = {'GSN-UNSUPPORTED-GOAL', 'EV-UNUSABLE'}
 REVIEW_STATUSES = ('completed', 'completed_llm_failed', 'rejected_invalid_input', 'internal_error')
 

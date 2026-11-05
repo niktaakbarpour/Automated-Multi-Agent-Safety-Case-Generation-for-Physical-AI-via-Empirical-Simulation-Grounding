@@ -11,10 +11,10 @@
     "request_id": {"type": "string", "minLength": 1},
     "test_fixture": {"type": "boolean", "description": "true when any content is synthetic test data; must never be mixed with real empirical results."},
     "evaluation_context": {
-      "description": "Section A. What is being evaluated. Taken from the R1 v2 configuration, never hardcoded.",
+      "description": "Section A. What is being evaluated. r1_configuration is the authoritative R1 v2 configuration; the Critic validates it like evaluation/r1_v4/configuration.py and checks that the protected objects, surfaces and monitored interval here are exactly its own (never hardcoded).",
       "type": "object",
       "additionalProperties": false,
-      "required": ["requirement_id", "requirement_version", "execution_id", "benchmark", "task_id", "model_checkpoint", "protected_objects", "support_surfaces", "monitored_interval", "contract_versions"],
+      "required": ["requirement_id", "requirement_version", "execution_id", "benchmark", "task_id", "model_checkpoint", "r1_configuration", "r1_configuration_sha256", "protected_objects", "support_surfaces", "monitored_interval", "contract_versions"],
       "properties": {
         "requirement_id": {"const": "R1"},
         "requirement_version": {"const": "2.0.0"},
@@ -27,6 +27,15 @@
           "description": "Task variant, or null if there is none. The R1 configuration has no variant field, so a checker result is tied to a variant only through its execution ID."
         },
         "model_checkpoint": {"type": "string"},
+        "r1_configuration": {
+          "type": "object",
+          "description": "The full R1 v2 configuration (requirements/r1_generalized_v2/R1_V2_CONFIG_SCHEMA.json). It may be a template with execution_id or task_id null; any value it does set must match this context."
+        },
+        "r1_configuration_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$",
+          "description": "sha256 of the canonical JSON of r1_configuration (the same hash the R1 checker records as configuration_hash)."
+        },
         "protected_objects": {"type": "array", "items": {"type": "string", "minLength": 1}, "uniqueItems": true},
         "support_surfaces": {"type": "array", "items": {"type": "string", "minLength": 1}},
         "monitored_interval": {
@@ -36,7 +45,36 @@
           "properties": {
             "domain": {"enum": ["frame", "time"]},
             "clock": {"type": "string"},
-            "interval": {"type": "array", "items": {"type": "number"}, "minItems": 2, "maxItems": 2}
+            "interval": {"type": "array", "items": {"type": "number"}, "minItems": 2, "maxItems": 2},
+            "boundary_provenance": {
+              "type": "object",
+              "additionalProperties": false,
+              "description": "Required for every configuration boundary that is not an explicit index (recorded_first_policy_boundary, terminal_recorded_snapshot): the frame it resolved to and the recorded source it was read from. The Critic checks the frame against the interval; it cannot open the source.",
+              "properties": {
+                "start": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": ["resolved_value", "source_path", "source_sha256", "selector"],
+                  "properties": {
+                    "resolved_value": {"type": "number"},
+                    "source_path": {"type": "string", "minLength": 1},
+                    "source_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+                    "selector": {"type": "string", "minLength": 1}
+                  }
+                },
+                "end": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": ["resolved_value", "source_path", "source_sha256", "selector"],
+                  "properties": {
+                    "resolved_value": {"type": "number"},
+                    "source_path": {"type": "string", "minLength": 1},
+                    "source_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+                    "selector": {"type": "string", "minLength": 1}
+                  }
+                }
+              }
+            }
           }
         },
         "contract_versions": {"type": "object"}

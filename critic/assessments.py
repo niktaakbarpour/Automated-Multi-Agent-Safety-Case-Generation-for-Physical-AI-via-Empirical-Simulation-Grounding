@@ -15,9 +15,10 @@ inside a result is used only if all of these hold:
 - result.assessment_hash is the content hash of the result, and
   result.configuration_hash is the content hash of the supplied configuration,
   so neither was edited after the checker produced them;
-- the configuration is for this review: same requirement, execution, task,
-  protected objects and support surfaces, and its monitored interval resolves to
-  the review's monitored interval on the same clock;
+- the configuration is the review's own R1 configuration (same content hash as
+  evaluation_context.r1_configuration_sha256, which checks.check_configuration binds
+  to the context's objects, surfaces and monitored interval), and the result is for
+  this requirement, execution and task;
 - the checker accepted the run (provenance.admitted_purpose is set);
 - the object assessment is for a configured object, this execution and allowed
   surfaces, passes the consistency rules of evaluation/r1_v4/aggregate.py, and
@@ -60,9 +61,6 @@ RESULT_REQUIRED = ('requirement_id', 'requirement_version', 'checker_version', '
                    'execution_outcome', 'physical_safety_conclusion', 'empirical_profiles_enabled',
                    'admitted_evidence_ids', 'evidence_admission', 'missing_requirements', 'uncertainty',
                    'provenance', 'assessment_hash', 'evidence_records', 'synthetic', 'validation_status')
-# The checker's saved_frame axis is the GSN graphs' frame domain on the saved_frame_index clock
-# (evidence_registry_gsn/demo/GRAPH.json). simulator_time has no agreed GSN clock yet, so it is not mapped.
-AXIS_TO_CLOCK = {'saved_frame': ('frame', 'saved_frame_index')}
 
 APPLICABLE, APPLICABILITY_NA = 'applicable', 'not_applicable'
 APPLICABILITY = {APPLICABLE, APPLICABILITY_NA, 'indeterminate', 'unsupported_evidence_contract'}
@@ -114,27 +112,6 @@ def _interval(value):
     if any(isinstance(x, bool) or not isinstance(x, (int, float)) or not math.isfinite(x) for x in value):
         return None
     return tuple(value) if value[0] <= value[1] else None
-
-
-def _configured_interval(config):
-    """(domain, clock, [start, end]) of the configuration's monitored interval, or (None, None, reason)."""
-    mi = config.get('monitoring_interval')
-    if not isinstance(mi, dict):
-        return None, None, 'the configuration has no monitoring_interval'
-    axis = mi.get('axis')
-    if not isinstance(axis, str) or axis not in AXIS_TO_CLOCK:
-        return None, None, f'monitoring axis {axis!r} has no agreed clock in the review contract'
-    bounds = []
-    for side in ('start', 'end'):
-        b = mi.get(side)
-        if not isinstance(b, dict) or b.get('kind') != 'explicit_index' or isinstance(b.get('value'), bool) \
-                or not isinstance(b.get('value'), int):
-            kind = b.get('kind') if isinstance(b, dict) else None
-            return None, None, (f'its {side} boundary is {kind!r}; only explicit frame indices can be compared '
-                                'until boundary provenance is part of the review request')
-        bounds.append(b['value'])
-    domain, clock = AXIS_TO_CLOCK[axis]
-    return domain, clock, bounds
 
 
 # ------------------------------------------------------------------ result-level checks
@@ -195,29 +172,15 @@ def _result_problems(item, ctx, test_fixture):
         if any(v != ctx.get(key) or not _text(v) for v in values):
             bad(check_id, 'C03', f"it is for {key.replace('_id', '')} {sorted(set(map(str, values)))}, "
                 f"not {ctx.get(key)!r}")
-    configured = ctx.get('protected_objects') if isinstance(ctx.get('protected_objects'), list) else []
-    if not isinstance(config.get('protected_objects'), list) or sorted(map(str, config['protected_objects'])) \
-            != sorted(map(str, configured)):
-        bad('CHK-OBJECTS', 'C03', f"the checker ran on protected objects {config.get('protected_objects')}, not the "
-            f'configured {configured}')
-    surfaces = ctx.get('support_surfaces')
-    config_surfaces = config.get('support_surfaces')
-    config_surface_ids = sorted(str(s.get('id')) for s in config_surfaces if isinstance(s, dict)) \
-        if isinstance(config_surfaces, list) else None
-    if not isinstance(surfaces, list) or config_surface_ids != sorted(map(str, surfaces)):
-        bad('CHK-SURFACES', 'C03', f'the checker ran on support surfaces {config_surface_ids}, not the configured '
-            f'{surfaces}')
-
-    monitored = ctx.get('monitored_interval') if isinstance(ctx.get('monitored_interval'), dict) else {}
-    domain, clock, bounds = _configured_interval(config)
-    if domain is None:
-        bad('CHK-TIME', 'C03', f'its monitored interval cannot be matched to this review: {bounds}')
-    elif (domain, clock) != (monitored.get('domain'), monitored.get('clock')):
-        bad('CHK-CLOCK', 'C03', f'it is on {domain}/{clock}, not the monitored '
-            f"{monitored.get('domain')}/{monitored.get('clock')}")
-    elif _interval(monitored.get('interval')) != tuple(bounds):
-        bad('CHK-TIME', 'C03', f'it covers frames {bounds}, not the monitored interval '
-            f"{monitored.get('interval')}")
+    try:
+        same_configuration = K.digest(config) == ctx.get('r1_configuration_sha256')
+    except (TypeError, ValueError):
+        same_configuration = False
+    if not same_configuration:
+        # Objects, surfaces, clock and monitored interval all follow from the configuration, which the
+        # evaluation context is bound to (checks.check_configuration).
+        bad('CHK-CONFIGURATION', 'C03', "the checker ran on a different R1 configuration from the review's "
+            '(its content hash is not evaluation_context.r1_configuration_sha256)')
 
     if not _text(prov.get('admitted_purpose')):
         bad('CHK-ADMISSION', 'C02', 'the checker itself did not admit the run (provenance.admitted_purpose is empty; '
@@ -352,22 +315,22 @@ def admit(req):
             continue
         # A problem with the whole result is reported once, against the result; object problems per object.
         problems.extend((c, cat, t, f'ca:{h}', None) for c, cat, t in result_level)
-        domain, clock, bounds = _configured_interval(config)
+        monitored = ctx.get('monitored_interval') if isinstance(ctx.get('monitored_interval'), dict) else {}
+        bounds = _interval(monitored.get('interval'))
         for j, oa in enumerate(objects):
             oid = oa.get('object_id') if isinstance(oa, dict) and _text(oa.get('object_id')) else None
             aid = assessment_id(result, oid if oid else f'#{j}')
             own = _object_problems(oa, result, config, ctx)
             problems.extend((c, cat, t, aid, oid) for c, cat, t in own)
             found = result_level + own
-            ok = not found
+            ok = not found and bounds is not None  # an invalid monitored interval is already fatal (REQ-INTERVAL)
             if ok:
                 admitted.setdefault(oid, []).append({
                     'assessment_id': aid, 'object_id': oid, 'outcome': oa['outcome'],
                     'applicability': oa['applicability'], 'interval': list(bounds), 'route': ROUTE_SYNTHETIC,
                     'evidence_ids': list(oa['evidence_ids']), 'complete': oa['complete'],
                     'uncertainty': list(oa['uncertainty'])})
-            log.append(_row(aid, oa if isinstance(oa, dict) else {},
-                            list(bounds) if domain is not None else None, ok, found))
+            log.append(_row(aid, oa if isinstance(oa, dict) else {}, list(bounds) if bounds else None, ok, found))
     return admitted, log, problems
 
 

@@ -68,6 +68,42 @@ def scene_from_checker_fixture():
     }
 
 
+def scene_from_configuration(config_ref, execution, interval):
+    """A scene for any R1 configuration file (for example EXAMPLE_CONFIGS/A_LIBERO_FIVE_OBJECTS.json)."""
+    data = json.loads((REPO / config_ref).read_text())
+    config = data.get('configuration', data)
+    return {
+        'execution': execution, 'objects': list(config['protected_objects']),
+        'surfaces': [s['id'] for s in config['support_surfaces']], 'interval': list(interval), 'clock': CLOCK,
+        'checkpoint': config['benchmark'].get('policy_checkpoint') or CHECKPOINT, 'task': config['task_id'],
+        'benchmark': config['benchmark']['id'], 'config_ref': config_ref,
+    }
+
+
+def honest_request(case_id, sc):
+    """A correct, unresolved argument for every configured object of a scene (like Case C)."""
+    records = {o: evidence_for(sc['execution'], o, sc) for o in sc['objects']}
+    return base_request(case_id, [(o, honest_graph(o, records[o], sc)) for o in sc['objects']],
+                        {o: K.INSUFFICIENT for o in sc['objects']}, K.INSUFFICIENT,
+                        f"R1 cannot be determined for {sc['execution']}.",
+                        [r for o in sc['objects'] for r in records[o]], sc=sc)
+
+
+def configuration(sc):
+    """The R1 configuration a scene comes from (an example config, or the checker fixture's configuration)."""
+    data = json.loads((REPO / sc['config_ref']).read_text())
+    return data.get('configuration', data)
+
+
+def boundary_provenance(sc):
+    """Synthetic provenance for every configuration boundary that is not an explicit index."""
+    mi = configuration(sc)['monitoring_interval']
+    path = f"/synthetic/critic_test_fixture/{sc['execution']}/run_metadata.json"
+    return {side: {'resolved_value': sc['interval'][i], 'source_path': path, 'source_sha256': _sha(path),
+                   'selector': f'/monitoring_interval/{side}'}
+            for i, side in enumerate(('start', 'end')) if not mi[side]['kind'].startswith('explicit_')}
+
+
 def _frames(sc):
     return f"frames {sc['interval'][0]}-{sc['interval'][1]}"
 
@@ -179,6 +215,10 @@ def _node(graph, nid):
 # ------------------------------------------------------------------ requests
 
 def base_request(case_id, graphs, outcomes, claimed, statement, records, sc=SCENE_B, checker=()):
+    config = configuration(sc)
+    monitored = {'domain': 'frame', 'clock': sc['clock'], 'interval': list(sc['interval'])}
+    if boundary_provenance(sc):
+        monitored['boundary_provenance'] = boundary_provenance(sc)
     return {
         'schema_version': K.REQUEST_SCHEMA_VERSION,
         'request_id': case_id,
@@ -188,8 +228,9 @@ def base_request(case_id, graphs, outcomes, claimed, statement, records, sc=SCEN
             'requirement_ref': sc['config_ref'],
             'execution_id': sc['execution'], 'benchmark': sc['benchmark'], 'task_id': sc['task'], 'variant_id': None,
             'model_checkpoint': sc['checkpoint'],
+            'r1_configuration': config, 'r1_configuration_sha256': K.digest(config),
             'protected_objects': list(sc['objects']), 'support_surfaces': list(sc['surfaces']),
-            'monitored_interval': {'domain': 'frame', 'clock': sc['clock'], 'interval': list(sc['interval'])},
+            'monitored_interval': monitored,
             'contract_versions': {'gsn': '1.0.0', 'registry_record': '1.0.0', 'r1_config': '2.0.1'},
         },
         'argument_bundle': {

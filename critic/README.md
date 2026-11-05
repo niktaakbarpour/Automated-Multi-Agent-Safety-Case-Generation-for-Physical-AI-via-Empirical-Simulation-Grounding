@@ -26,7 +26,7 @@ Every criticism records its category (C01–C13 from the handoff), severity, aff
 
 `schemas/critic_request.schema.json`, following the handoff's sections A–E:
 
-- **evaluation_context**: requirement version, execution, protected objects, surfaces and monitored interval, taken from the R1 v2 configuration (never hardcoded).
+- **evaluation_context**: requirement, execution, task, the full R1 v2 configuration (`r1_configuration`) and its hash, and the protected objects, surfaces and monitored interval copied from that configuration (never hardcoded), with `boundary_provenance` for boundaries that are resolved from recorded data.
 - **argument_bundle**: one unchanged GSN 1.0.0 graph per protected object, plus the execution conclusion (claimed per-object outcomes and the execution outcome). Objects that are non-applicable or unknown are still included.
 - **evidence_package**: registry records 1.0.0, exported as they are.
 - **checker_assessments**: R1 checker results, each `{configuration, result}`: the output of `evaluation/r1_v4/runtime.py:assess` exactly as the checker wrote it, plus the R1 configuration it ran on (see below). An empty list means "not available", never "no violation".
@@ -41,7 +41,18 @@ Before anything is reviewed, the Critic checks that the input is well formed, us
 - the request against `schemas/critic_request.schema.json`, each graph against `gsn_graph.schema.json` and each evidence record against `registry_record.schema.json`. `schema.py` is a small standard-library JSON Schema validator that implements exactly the keywords these schemas use and raises on any other keyword, so no rule is skipped silently. A test compares it with the `jsonschema` package where that is installed;
 - every rule of `gsn.py:Graph.validate` and of `models.py:Record.validate` (except Record.validate's symlink check, which needs the filesystem). Node and record requirement IDs and versions must match the review;
 - synthetic data must be marked: a record with a `/synthetic/` source path or `provenance.synthetic` is only accepted in a request with `test_fixture: true`, and only such a request may use `/synthetic/` instead of the approved source root;
+- the R1 configuration and the context's binding to it (below);
 - the bundle covers the configured objects, and checker results pass the admission rules below.
+
+### Binding to the R1 configuration
+
+The request carries the full R1 v2 configuration. `checks.check_configuration` validates it the way `evaluation/r1_v4/configuration.py:validate_configuration` does (its schema and all 12 of its semantic rules, under the same names) and checks `r1_configuration_sha256`. Then the context must be exactly that configuration's:
+
+- the same protected objects and support surfaces. A shorter list in the context and bundle is an unauthorized reduction (`CONFIG-OBJECTS`); a different configuration (three objects, five LIBERO objects, one object) is fine, because it is the configuration that decides;
+- the same requirement, benchmark and, where the configuration sets them, execution, task and policy checkpoint. The team's configurations are templates with `execution_id: null`, so they apply to any execution of their task;
+- the monitored interval on the configuration's clock (`saved_frame` is the GSN `frame` / `saved_frame_index` clock; `simulator_time` has no agreed GSN clock yet and is refused). An explicit boundary must equal the interval. A boundary resolved from recorded data (`recorded_first_policy_boundary`, `terminal_recorded_snapshot`) needs `boundary_provenance`: the frame it resolved to and the source path, hash and selector it was read from.
+
+A configuration with no protected objects is valid: the execution is an empty scope, aggregates to `not_applicable`, is marked `empty_scope` in the summary, and a no-violation claim for it is flagged, because an empty scope is never a pass.
 
 Every criticism has a `phase`. A `validation` criticism means the input itself is invalid: all of them are blocking, the LLM is not called, and the report's `review_status` is `rejected_invalid_input`. Its criticisms are the diagnostics, not a completed critique. A `review` criticism is a critique of a well-formed argument; these include two argument defects that `Graph.validate` accepts: a goal or strategy with no support, and support resting on an unusable record.
 
@@ -55,7 +66,7 @@ A label written by the caller is never enough. The Critic reads the R1 checker's
 
 - the result has the checker's required fields and fixed values (R1 2.0.0, checker `r1-v4-restricted-infrastructure` 4.0.0a1, configuration valid and assessed, no physical safety conclusion, empirical profiles off), and the object assessment has every `ObjectAssessment` field with the right types and values;
 - `assessment_hash` matches the result's content and `configuration_hash` matches the supplied configuration, so neither was edited after the checker ran;
-- the configuration is for this review: same requirement, execution, task, protected objects and support surfaces, and its monitored interval is the review's monitored interval (the checker's `saved_frame` axis is the GSN `frame` / `saved_frame_index` clock);
+- the checker ran on the review's own R1 configuration (its content hash is `r1_configuration_sha256`), so objects, surfaces and the monitored interval match by construction; the result is for this requirement, execution and task, and a result from a template configuration (no execution) is not tied to this execution and is refused;
 - the checker admitted the run itself (`provenance.admitted_purpose` is set);
 - the object is configured, the assessment is for this execution and the object's mapped surfaces, and it passes the consistency rules of `aggregate.py` (violation or no-violation need `applicable`, no-violation needs no missing coverage, not-applicable needs `not_applicable`);
 - every evidence ID it cites is one of the checker's own evidence records for this execution and object, and for violation, no-violation and not-applicable it is evidence the checker admitted;
@@ -63,7 +74,7 @@ A label written by the caller is never enough. The Critic reads the R1 checker's
 
 A result or object assessment that fails any of these gets a blocking `CHK-*` finding and is ignored: it can neither support nor contradict a claim, and the LLM is told it was not admitted and cannot cite it. Every object assessment gets a row in the report's `checker_admission` list, with the ID `ca:<assessment_hash>:<object_id>`. The hashes show that nothing changed after the checker ran; they do not show who ran it.
 
-Two limits for now. The R1 configuration has no variant field, so a checker result is tied to a variant only through its execution ID. Interval boundaries other than explicit frame indices (for example `terminal_recorded_snapshot`) are refused until boundary provenance is part of the request.
+The R1 configuration has no variant field, so a checker result is tied to a variant only through its execution ID.
 
 ## How a claimed outcome is judged
 
@@ -81,6 +92,8 @@ Each object's claimed outcome is compared with the admitted checker assessments 
 | the result is the same outcome | the same outcome, or insufficient_information | none |
 
 Rows combine: when assessments conflict and one reports a violation, both the conflict row and the violation row apply. An insufficient_information assessment next to a definite one is a gap, not a conflict, so the definite one is used. An insufficient_information claim is never criticised just for being cautious. Conflicts, assessments that differ only by being insufficient, incomplete checker evidence and checker uncertainty are also listed in `unresolved_concerns`. `test_every_claim_against_every_checker_result` checks every claim against every single result and every pair of different results.
+
+The execution outcome is aggregated over every configured object: a missing or invalid object outcome counts as `insufficient_information`, never dropped. The summary gives two aggregates. `recomputed_execution_outcome` uses the claims as stated, and the stated execution outcome must equal it. `accepted_execution_outcome` counts every object with a blocking criticism as `insufficient_information` (and is null when the input was rejected); it is the most this review accepts from the draft, not a safety verdict.
 
 Retrieval gaps only matter for a no-violation claim, and only if they are for that object, overlap the monitored interval and are not optional evidence (`velocity` and `task_instruction` are optional in the R1 configuration schema). A gap with a malformed interval counts. If an admitted checker assessment supports the no-violation claim, a relevant gap is a medium, non-blocking finding for human review, because a gap in the Drafter's package does not by itself invalidate the checker's result. Without that support it is blocking. Every gap, relevant or not, is listed in `unresolved_concerns`.
 
@@ -125,7 +138,7 @@ All synthetic and marked `test_fixture: true`. Cases A to C use the three-object
 
 Reports are in `examples/`. `case_a…scripted_llm_demo.json` shows the LLM step with a **hand-written** reply (not a real model). It contains two valid findings plus one with an invented evidence ID and one with a made-up node, and the Critic rejects those two. Real model outputs will be added after the Hestia run.
 
-## Tests (86)
+## Tests (98)
 
 - the four cases produce exactly the expected findings, and Case C gets none
 - requests, graphs, records and reports validate against their JSON schemas
@@ -141,6 +154,7 @@ Reports are in `examples/`. `case_a…scripted_llm_demo.json` shows the LLM step
 - conflicts and applicability (audit I2): the audit's probe (no-violation claims while one assessment reports a violation and another does not) is caught twice, as a contradiction and as a conflict; every row of the table above has a test, including insufficient and invalid-contract results giving C06/C08 rather than C07
 - gaps (audit I11): gaps for other objects, outside the monitored interval or for optional evidence give no finding but stay listed; a relevant gap is non-blocking under an admitted no-violation result and blocking without one
 - every conclusion finding and gap rule was switched off in turn to confirm a test fails without it
+- R1 configuration (audit I6): all 12 semantic rules agree with `validate_configuration` by name on every example configuration and the checker fixture; an oracle against the real function (Python 3.10+ with `jsonschema>=4`) compares verdicts and rule names on 300 random corruptions too; the audit's probe (context and bundle reduced to one object) is rejected; configuration hash, scope, templates, surfaces, interval clock, explicit boundaries and boundary provenance are each checked; the real five-object LIBERO profile (names read from `A_LIBERO_FIVE_OBJECTS.json`) is reviewed with no findings and a dropped LIBERO object is caught; empty scope; full-vector aggregation; the accepted outcome
 - R1 aggregation precedence, checker contradiction (C07), an "insufficient information" claim that hides a checker violation (C07), unsupported non-applicability (C08), related-case misuse (C11), no-violation claims over retrieval gaps (C04)
 - LLM screening: invented IDs/nodes, malformed findings and duplicates rejected; a broken or empty model reply does not break the review; the HTTP client works against a local fake vLLM server
 - **never crashes on bad input:** broken requests and 600 randomly corrupted ones (200 of them inside the checker result) all come back as valid reports
@@ -160,6 +174,7 @@ Open question for the team: should GSN solution nodes cite registry `ev:` IDs or
 - The LLM part has only been exercised with scripted replies and a fake server so far. Real model behaviour still has to be measured on Hestia.
 - Three synthetic cases cannot show research-level Critic quality.
 - Temporal coverage is checked at the level of declared intervals and retrieval gaps, not per measurement cell.
+- Boundary provenance is checked for consistency, but the Critic cannot open the recorded source it names. `simulator_time` configurations are refused until the GSN graphs agree on a clock for them.
 - `Record.validate`'s symlink check needs the filesystem and is not repeated.
 - Rule-based checks cover C01–C04, C06–C08 and C11 (plus part of C05/C12). C09, C10 and C13 rely on the LLM for now.
 - Not implemented on purpose: Drafter, Revision Agent, RAG changes.

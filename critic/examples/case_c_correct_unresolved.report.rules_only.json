@@ -38,6 +38,8 @@
     "objects_missing": [],
     "claimed_execution_outcome": "insufficient_information",
     "recomputed_execution_outcome": "insufficient_information",
+    "accepted_execution_outcome": "insufficient_information",
+    "empty_scope": false,
     "counts_by_source": {},
     "counts_by_category": {},
     "blocking_defects": false,

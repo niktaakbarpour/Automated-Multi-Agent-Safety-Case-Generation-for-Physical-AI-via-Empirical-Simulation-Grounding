@@ -94,12 +94,27 @@ def _summary(req, info, criticisms):
         'objects_missing': [o for o in configured if o not in graph_objects],
         'claimed_execution_outcome': claimed if isinstance(claimed, str) else None,
         'recomputed_execution_outcome': info['expected_outcome'],
+        'accepted_execution_outcome': _accepted_outcome(req, info, criticisms),
+        'empty_scope': not info['fatal'] and not configured,
         'counts_by_source': dict(Counter(c['finding_source'] for c in criticisms)),
         'counts_by_category': dict(sorted(Counter(c['category'] for c in criticisms).items())),
         'blocking_defects': any(c['blocking'] for c in criticisms),
         'needs_human_review': [c['criticism_id'] for c in criticisms if c['human_review_required']],
         'disclaimer': DISCLAIMER,
     }
+
+
+def _accepted_outcome(req, info, criticisms):
+    """R1 aggregation of the object outcomes the Critic did not block: a claim with a blocking criticism
+    about its object, or a missing or invalid claim, counts as insufficient_information. None when the
+    input was rejected. This is the most the review accepts from the draft, not a safety verdict."""
+    if not info['input_valid']:
+        return None
+    claimed = req['argument_bundle']['execution_conclusion']['object_outcomes']
+    blocked = {c['object_id'] for c in criticisms if c['blocking'] and c['object_id'] is not None}
+    vector = [claimed[o] if o not in blocked and isinstance(claimed.get(o), str) and claimed[o] in K.OUTCOMES
+              else K.INSUFFICIENT for o in req['evaluation_context']['protected_objects']]
+    return K.execution_outcome(vector)
 
 
 def _unresolved_concerns(req, info):

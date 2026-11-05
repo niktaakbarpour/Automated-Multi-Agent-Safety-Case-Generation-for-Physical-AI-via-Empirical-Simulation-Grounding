@@ -127,6 +127,8 @@
     ],
     "claimed_execution_outcome": "insufficient_information",
     "recomputed_execution_outcome": "insufficient_information",
+    "accepted_execution_outcome": null,
+    "empty_scope": false,
     "counts_by_source": {
       "deterministic": 3
     },

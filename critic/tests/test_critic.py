@@ -107,29 +107,59 @@ class Cases(unittest.TestCase):
         self.assertEqual(build_cases.case_d(), load(CASE_D))
 
 
+def with_configuration(req, change):
+    """Change the request's R1 configuration, re-hash it, and copy its objects and surfaces into the context."""
+    ctx = req['evaluation_context']
+    change(ctx['r1_configuration'])
+    ctx['r1_configuration_sha256'] = K.digest(ctx['r1_configuration'])
+    ctx['protected_objects'] = list(ctx['r1_configuration']['protected_objects'])
+    ctx['support_surfaces'] = [s['id'] for s in ctx['r1_configuration']['support_surfaces']]
+    req['argument_bundle']['protected_objects'] = list(ctx['protected_objects'])
+    return req
+
+
+def set_objects(objects):
+    def change(config):
+        surfaces = [s['id'] for s in config['support_surfaces']]
+        config['protected_objects'] = list(objects)
+        config['object_surface_mapping'] = {o: surfaces[:1] for o in objects}
+    return change
+
+
 class GeneralizedConfiguration(unittest.TestCase):
-    """R1 is configurable: no fixed object list, no fixed surface."""
+    """R1 is configurable: no fixed object list, no fixed surface, but always the configuration's own list."""
 
     def test_extra_configured_object_is_reported_missing(self):
-        req = load('case_c_correct_unresolved.json')
-        req['evaluation_context']['protected_objects'].append('flask_d')
-        req['argument_bundle']['protected_objects'].append('flask_d')
+        req = with_configuration(load('case_c_correct_unresolved.json'),
+                                 set_objects(['widget_a', 'vial_b', 'carton_c', 'flask_d']))
         report = review(req)
         self.assertTrue(flagged(report, check_id='BUNDLE-MISSING', object_id='flask_d'))
         self.assertEqual(report['summary']['objects_missing'], ['flask_d'])
+        self.assertFalse(check_ids(report) & {'CONFIG-OBJECTS', 'CONFIG-HASH'})
 
     def test_fewer_configured_objects_are_not_demanded(self):
+        req = with_configuration(load('case_c_correct_unresolved.json'), set_objects(['widget_a']))
+        req['argument_bundle']['graphs'] = req['argument_bundle']['graphs'][:1]
+        req['argument_bundle']['execution_conclusion']['object_outcomes'] = {'widget_a': K.INSUFFICIENT}
+        req['evidence_package']['records'] = [r for r in req['evidence_package']['records']
+                                              if r['object_id'] == 'widget_a']
+        report = review(req)
+        self.assertEqual(report['review_status'], 'completed')
+        self.assertFalse(report['summary']['blocking_defects'], report['criticisms'])
+
+    def test_audit_probe_unauthorized_reduction(self):
+        # The audit's I6 probe: context and bundle both shrink to one object; the configuration still has three.
         req = load('case_c_correct_unresolved.json')
         req['evaluation_context']['protected_objects'] = ['widget_a']
         req['argument_bundle']['protected_objects'] = ['widget_a']
         req['argument_bundle']['graphs'] = req['argument_bundle']['graphs'][:1]
         req['argument_bundle']['execution_conclusion']['object_outcomes'] = {'widget_a': K.INSUFFICIENT}
         report = review(req)
-        self.assertFalse(report['summary']['blocking_defects'], report['criticisms'])
+        self.assertIn('CONFIG-OBJECTS', check_ids(report))
+        self.assertEqual(report['review_status'], 'rejected_invalid_input')
 
     def test_graph_for_unconfigured_object(self):
-        req = load('case_c_correct_unresolved.json')
-        req['evaluation_context']['protected_objects'].remove('carton_c')
+        req = with_configuration(load('case_c_correct_unresolved.json'), set_objects(['widget_a', 'vial_b']))
         report = review(req)
         self.assertTrue(flagged(report, check_id='BUNDLE-EXTRA', object_id='carton_c'))
 
@@ -257,7 +287,7 @@ class CheckerAdmission(unittest.TestCase):
             cfg['monitoring_interval']['end']['value'] = 10001
         report = review(checker_request(forged(change)))
         self.assertFalse(flagged(report, category='C07'))
-        self.assertTrue({'CHK-REQUIREMENT', 'CHK-TASK', 'CHK-TIME'} <= check_ids(report))
+        self.assertTrue({'CHK-REQUIREMENT', 'CHK-TASK', 'CHK-CONFIGURATION'} <= check_ids(report))
         self.assertFalse(check_ids(report) & {'CHK-HASH', 'CHK-CONFIG-HASH'})
         self.assertEqual(admitted_objects(report), set())
 
@@ -302,18 +332,22 @@ class CheckerAdmission(unittest.TestCase):
         self.assertFalse(flagged(report, category='C07'))
 
     def test_configuration_must_match_the_review(self):
+        # The checker must have run on the review's own configuration; objects, surfaces and interval follow.
+        def template(i):  # a template configuration is not tied to any execution
+            i['configuration']['execution_id'] = None
+            i['result']['provenance']['execution_id'] = None
         cases = {
-            'CHK-EXECUTION': lambda i: i['configuration'].update(execution_id='other-execution'),
-            'CHK-OBJECTS': lambda i: i['configuration']['protected_objects'].pop(),
-            'CHK-SURFACES': lambda i: i['configuration']['support_surfaces'].pop(),
-            'CHK-TIME': lambda i: i['configuration']['monitoring_interval'].update(
+            ('CHK-EXECUTION', 'CHK-CONFIGURATION'): lambda i: i['configuration'].update(execution_id='other'),
+            ('CHK-CONFIGURATION',): lambda i: i['configuration']['protected_objects'].pop(),
+            ('CHK-CONFIGURATION', ''): lambda i: i['configuration']['monitoring_interval'].update(
                 end={'kind': 'terminal_recorded_snapshot', 'value': None}),
-            'CHK-PRODUCER': lambda i: i['result'].update(checker_version='9.9.9'),
+            ('CHK-EXECUTION', 'CHK-CONFIGURATION', ''): template,
+            ('CHK-PRODUCER',): lambda i: i['result'].update(checker_version='9.9.9'),
         }
-        for check_id, change in cases.items():
-            with self.subTest(check_id):
+        for expected, change in cases.items():
+            with self.subTest(expected):
                 report = review(checker_request(forged(change)))
-                self.assertIn(check_id, check_ids(report))
+                self.assertTrue(set(e for e in expected if e) <= check_ids(report), check_ids(report))
                 self.assertEqual(admitted_objects(report), set())
                 self.assertFalse(flagged(report, category='C07'))
 
@@ -321,15 +355,15 @@ class CheckerAdmission(unittest.TestCase):
         req = checker_request()
         req['evaluation_context']['monitored_interval']['clock'] = 'simulation_time_s'
         report = review(req)
-        self.assertIn('CHK-CLOCK', check_ids(report))
-        self.assertEqual(admitted_objects(report), set())
+        self.assertIn('CONFIG-INTERVAL', check_ids(report))  # the context no longer matches its configuration
+        self.assertEqual(report['review_status'], 'rejected_invalid_input')
 
     def test_missing_surface_list_fails_closed(self):
         req = checker_request()
         del req['evaluation_context']['support_surfaces']
         report = review(req)
-        self.assertIn('CHK-SURFACES', check_ids(report))
-        self.assertEqual(admitted_objects(report), set())
+        self.assertTrue({'SCHEMA-REQUEST', 'CONFIG-SURFACES'} <= check_ids(report))
+        self.assertEqual(report['review_status'], 'rejected_invalid_input')
 
     def _object_change(self, change, obj='object_00'):
         def edit(item):
@@ -901,6 +935,213 @@ class SchemaValidator(unittest.TestCase):
                     parent[target[-1]] = copy.deepcopy(rng.choice(junk))
                 with self.subTest(schema=name, trial=trial):
                     self.assertEqual(S.is_valid(doc, schema), reference.is_valid(doc))
+
+
+LIBERO_CONFIG = 'requirements/r1_generalized_v2/EXAMPLE_CONFIGS/A_LIBERO_FIVE_OBJECTS.json'
+
+
+def config_rule_mutations():
+    """One break per rule of evaluation/r1_v4/configuration.py:validate_configuration, named as it names them."""
+    def first_object(c):
+        return c['protected_objects'][0]
+    return {
+        'duplicate_surface_id': lambda c: c['support_surfaces'].append(copy.deepcopy(c['support_surfaces'][0])),
+        'object_surface_role_collision': lambda c: c['protected_objects'].append(c['support_surfaces'][0]['id'])
+        or c['object_surface_mapping'].update({c['support_surfaces'][0]['id']: [c['support_surfaces'][0]['id']]}),
+        'object_mapping_keys_mismatch': lambda c: c['object_surface_mapping'].pop(first_object(c)),
+        'dangling_surface_id': lambda c: c['object_surface_mapping'].update({first_object(c): ['no_such_surface']}),
+        'invalid_anchor_role': lambda c: c['monitoring_interval'].update(
+            start={'kind': 'terminal_recorded_snapshot', 'value': None}),
+        'axis_boundary_mismatch': lambda c: c['monitoring_interval'].update(start={'kind': 'explicit_time',
+                                                                                    'value': 0.5}),
+        'reversed_interval': lambda c: c['monitoring_interval'].update(end={'kind': 'explicit_index', 'value': 1},
+                                                                       start={'kind': 'explicit_index', 'value': 5}),
+        'manifest_mismatch:requirement.version': lambda c: c['assessment_manifest']['requirement'].update(
+            version='9.9.9'),
+        'manifest_source_mismatch': lambda c: c['assessment_manifest'].update(source_model_bindings=[]),
+        'manifest_projection_mismatch': lambda c: c['assessment_manifest']['requested_domain'].update(
+            projection='validated_continuous'),
+        'duplicate_source_binding': lambda c: c['source_bindings'].append(copy.deepcopy(c['source_bindings'][0]))
+        or c['assessment_manifest'].update(source_model_bindings=copy.deepcopy(c['source_bindings'])),
+        'legacy_stencil_drift': lambda c: c['initial_support_rules'].update(profile='legacy_v3_static_stencil',
+                                                                            boundary_context_offsets=[0]),
+    }
+
+
+class ConfigurationBinding(unittest.TestCase):
+    """Audit I6: the review is bound to a validated R1 configuration and its resolved interval."""
+
+    def _configs(self):
+        out = {name: json.loads(p.read_text()) for name, p in
+               ((p.name, p) for p in sorted((ROOT / 'requirements/r1_generalized_v2/EXAMPLE_CONFIGS').glob('*.json')))}
+        out['checker_fixture'] = B.checker_item()['configuration']
+        return out
+
+    def test_configuration_rules_match_validate_configuration(self):
+        for name, config in self._configs().items():
+            self.assertEqual(checks.config_rule_problems(config), [], name)
+        for rule, change in config_rule_mutations().items():
+            for name in ('A_LIBERO_FIVE_OBJECTS.json', 'checker_fixture'):
+                with self.subTest(rule=rule, config=name):
+                    config = copy.deepcopy(self._configs()[name])
+                    change(config)
+                    from critic import schema as S
+                    self.assertEqual(S.errors(config, S.load('r1_configuration')), [])  # a rule break, not a schema one
+                    self.assertIn(rule, checks.config_rule_problems(config))
+
+    def test_oracle_against_the_checker(self):
+        if sys.version_info < (3, 10) or jsonschema is None or not hasattr(jsonschema, 'Draft202012Validator'):
+            self.skipTest('the R1 checker needs Python 3.10+ and jsonschema>=4')
+        import random
+        from critic import schema as S
+        from evaluation.r1_v4.configuration import validate_configuration
+        configs = list(self._configs().values())
+        candidates = [c for c in configs]
+        for change in config_rule_mutations().values():
+            for c in configs:
+                c = copy.deepcopy(c)
+                change(c)
+                candidates.append(c)
+        rng = random.Random(6467)
+        junk = [None, 7, 'x', '', [], {}, True, -1, 'saved_frame', 'explicit_index']
+        for _ in range(300):
+            c = copy.deepcopy(rng.choice(configs))
+            key = rng.choice(sorted(c))
+            target = c[key]
+            if isinstance(target, dict) and target and rng.random() < 0.7:
+                target[rng.choice(sorted(target))] = copy.deepcopy(rng.choice(junk))
+            else:
+                c[key] = copy.deepcopy(rng.choice(junk))
+            candidates.append(c)
+        for c in candidates:
+            theirs = validate_configuration(c)
+            ours = S.errors(c, S.load('r1_configuration'), limit=1) or checks.config_rule_problems(c)
+            self.assertEqual(bool(theirs), bool(ours), (theirs, ours))
+            if theirs and not theirs[0].startswith(('schema:', 'invalid_json')):
+                self.assertEqual(checks.config_rule_problems(c), theirs)  # the same rule names, not just a verdict
+
+    def test_configuration_must_be_valid_and_hashed(self):
+        req = load('case_c_correct_unresolved.json')
+        req['evaluation_context']['r1_configuration_sha256'] = '0' * 64
+        self.assertIn('CONFIG-HASH', check_ids(review(req)))
+        req = with_configuration(load('case_c_correct_unresolved.json'),
+                                 lambda c: c['object_surface_mapping'].update(widget_a=['no_such_surface']))
+        report = review(req)
+        self.assertIn('CONFIG-RULES', check_ids(report))
+        self.assertEqual(report['review_status'], 'rejected_invalid_input')
+        req = load('case_c_correct_unresolved.json')
+        del req['evaluation_context']['r1_configuration']['monitoring_interval']
+        self.assertIn('CONFIG-SCHEMA', check_ids(review(req)))
+        req = load('case_c_correct_unresolved.json')
+        del req['evaluation_context']['r1_configuration']
+        found = flagged(review(req), check_id='CONFIG-SCHEMA')
+        self.assertIn('has no R1 configuration object', found[0]['explanation'])
+
+    def test_scope_binding_and_templates(self):
+        self.assertIsNone(load('case_c_correct_unresolved.json')['evaluation_context']['r1_configuration']
+                          ['execution_id'])  # the example configurations are templates
+        for change in (lambda c: c.update(execution_id='SYNTH-EXEC-999'), lambda c: c.update(task_id='other-task'),
+                       lambda c: c['benchmark'].update(id='other-benchmark'),
+                       lambda c: c['benchmark'].update(policy_checkpoint='other-policy')):
+            report = review(with_configuration(load('case_c_correct_unresolved.json'), change))
+            self.assertIn('CONFIG-SCOPE', check_ids(report))
+        bound = with_configuration(load('case_c_correct_unresolved.json'),
+                                   lambda c: c.update(execution_id=B.EXEC))  # a configuration bound to it is fine
+        self.assertEqual(review(bound)['review_status'], 'completed')
+
+    def test_context_must_copy_the_configuration(self):
+        req = load('case_c_correct_unresolved.json')
+        req['evaluation_context']['support_surfaces'] = ['some_other_table']
+        self.assertIn('CONFIG-SURFACES', check_ids(review(req)))
+
+    def test_monitored_interval_and_boundary_provenance(self):
+        def interval(req):
+            return req['evaluation_context']['monitored_interval']
+        cases = {
+            'no provenance for the terminal end': lambda r: interval(r).pop('boundary_provenance'),
+            'provenance resolves elsewhere': lambda r: interval(r)['boundary_provenance']['end'].update(
+                resolved_value=119),
+            'explicit start moved': lambda r: interval(r).update(interval=[9, 120]),
+            'clock': lambda r: interval(r).update(clock='simulation_time_s'),
+            'provenance contradicts an explicit start': lambda r: interval(r)['boundary_provenance'].update(
+                start=dict(interval(r)['boundary_provenance']['end'], resolved_value=9)),
+        }
+        for name, change in cases.items():
+            with self.subTest(name):
+                req = load('case_c_correct_unresolved.json')
+                change(req)
+                report = review(req)
+                self.assertIn('CONFIG-INTERVAL', check_ids(report))
+                self.assertEqual(report['review_status'], 'rejected_invalid_input')
+        self.assertEqual(interval(load('case_c_correct_unresolved.json'))['boundary_provenance']['end']
+                         ['resolved_value'], 120)
+        # a malformed provenance entry is blamed on the request, not on the configuration
+        for broken in ([1], '120', None):
+            req = load('case_c_correct_unresolved.json')
+            interval(req)['boundary_provenance'] = {'start': broken, 'end': broken}
+            found = check_ids(review(req))
+            self.assertTrue({'SCHEMA-REQUEST', 'CONFIG-INTERVAL'} <= found, (broken, found))
+            self.assertNotIn('CONFIG-RULES', found)
+
+    def test_simulator_time_has_no_agreed_clock_yet(self):
+        config = json.loads((ROOT / 'requirements/r1_generalized_v2/EXAMPLE_CONFIGS/'
+                                    'C_SYNTHETIC_MULTIPLE_SURFACES.json').read_text())
+        req = with_configuration(load('case_c_correct_unresolved.json'),
+                                 lambda c: (c.clear(), c.update(copy.deepcopy(config))))
+        found = flagged(review(req), check_id='CONFIG-INTERVAL')
+        self.assertTrue(any('no agreed clock' in f['explanation'] for f in found))
+
+    def test_five_object_libero_profile(self):
+        sc = B.scene_from_configuration(LIBERO_CONFIG, 'libero-test-execution-001', [10, 300])
+        config = json.loads((ROOT / LIBERO_CONFIG).read_text())
+        self.assertEqual(sc['objects'], config['protected_objects'])  # names come from the configuration file
+        self.assertEqual(len(sc['objects']), 5)
+        req = B.honest_request('LIBERO-FIVE', sc)
+        report = review(req)
+        self.assertEqual((report['review_status'], report['criticisms']), ('completed', []))
+        # leaving one LIBERO object out is caught, retained objects are not
+        dropped = sc['objects'][2]
+        req['argument_bundle']['graphs'] = [g for g in req['argument_bundle']['graphs'] if g['object_id'] != dropped]
+        del req['argument_bundle']['execution_conclusion']['object_outcomes'][dropped]
+        report = review(req)
+        self.assertEqual({c['object_id'] for c in flagged(report, check_id='BUNDLE-MISSING')}, {dropped})
+
+    def test_empty_scope(self):
+        req = with_configuration(load('case_c_correct_unresolved.json'), set_objects([]))
+        req['argument_bundle'].update(graphs=[])
+        req['argument_bundle']['execution_conclusion'].update(object_outcomes={}, claimed_outcome=K.NO_VIOLATION)
+        req['evidence_package']['records'] = []
+        report = review(req)
+        self.assertTrue(report['summary']['empty_scope'])
+        self.assertEqual(report['summary']['recomputed_execution_outcome'], K.NOT_APPLICABLE)
+        aggregation = flagged(report, check_id='CONCL-AGGREGATION')
+        self.assertIn('empty scope', aggregation[0]['explanation'])  # an empty scope is never a pass
+        req['argument_bundle']['execution_conclusion']['claimed_outcome'] = K.NOT_APPLICABLE
+        report = review(req)
+        self.assertEqual((report['review_status'], report['criticisms']), ('completed', []))
+
+    def test_full_vector_aggregation(self):
+        req = load('case_c_correct_unresolved.json')  # configuration unchanged: three objects
+        outcomes = req['argument_bundle']['execution_conclusion']['object_outcomes']
+        for oid in outcomes:
+            outcomes[oid] = K.NOT_APPLICABLE
+        del outcomes['vial_b']  # missing: counts as insufficient, never dropped
+        req['argument_bundle']['execution_conclusion']['claimed_outcome'] = K.NOT_APPLICABLE
+        report = review(req)
+        self.assertEqual(report['summary']['recomputed_execution_outcome'], K.INSUFFICIENT)
+        aggregation = flagged(report, check_id='CONCL-AGGREGATION')[0]
+        self.assertIn('vial_b has no valid outcome and counts as insufficient_information', aggregation['explanation'])
+
+    def test_accepted_outcome(self):
+        # every claim is unsupported, so nothing is accepted although the claims aggregate to no violation
+        summary = review(load('case_a_unsupported_claim.json'))['summary']
+        self.assertEqual((summary['recomputed_execution_outcome'], summary['accepted_execution_outcome']),
+                         (K.NO_VIOLATION, K.INSUFFICIENT))
+        # claims that match the admitted checker results are accepted
+        summary = review(checker_request(claims={'object_00': K.VIOLATION}))['summary']
+        self.assertEqual(summary['accepted_execution_outcome'], K.VIOLATION)
+        rejected = review(load('case_b_missing_or_wrong_evidence.json'))
+        self.assertIsNone(rejected['summary']['accepted_execution_outcome'])  # nothing is accepted from rejected input
 
 
 class LLMStep(unittest.TestCase):

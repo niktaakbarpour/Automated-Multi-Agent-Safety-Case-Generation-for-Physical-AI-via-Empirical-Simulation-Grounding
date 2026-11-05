@@ -291,6 +291,162 @@ def record_rule_problems(rec, fixture):
     return sorted(set(out))
 
 
+# ------------------------------------------------------------------ R1 configuration
+
+CONFIG_REF = 'evaluation/r1_v4/configuration.py:validate_configuration'
+
+
+def check_configuration(req):
+    """The authoritative R1 configuration in the evaluation context, and the context's binding to it.
+
+    The configuration is checked like evaluation/r1_v4/configuration.py:validate_configuration (schema and
+    semantic rules). Protected objects, surfaces and the monitored interval in the context must be exactly
+    the configuration's. A configuration may be a template (execution_id or task_id null); a value it does
+    set must match, and so must its benchmark and (if set) policy checkpoint. Boundaries that are not explicit
+    indices need boundary_provenance in the request.
+    """
+    ctx = req['evaluation_context']
+    config = ctx.get('r1_configuration')
+
+    def bad(check_id, explanation, action):
+        return finding(check_id, 'C03' if check_id != 'CONFIG-SCHEMA' else 'C01', explanation, action,
+                       requirement_refs=[CONFIG_REF])
+
+    if not isinstance(config, dict):
+        return [bad('CONFIG-SCHEMA', 'The evaluation context has no R1 configuration object.',
+                    'Put the full R1 v2 configuration under evaluation_context.r1_configuration.')]
+    problems = SCHEMA.errors(config, SCHEMA.load('r1_configuration'), limit=5)
+    if problems:
+        return [bad('CONFIG-SCHEMA', 'The R1 configuration does not match R1_V2_CONFIG_SCHEMA: '
+                    f'{"; ".join(problems)}.',
+                    'Supply a configuration that validate_configuration accepts.')]
+    try:
+        return _check_valid_configuration(ctx, config, bad)
+    except (KeyError, TypeError, AttributeError, IndexError) as exc:  # the schema should make this unreachable
+        return [bad('CONFIG-RULES', f'The R1 configuration passed its schema but could not be read ({exc!r}).',
+                    'Supply a configuration that validate_configuration accepts.')]
+
+
+def _check_valid_configuration(ctx, config, bad):
+    out = []
+    try:
+        digest_ok = ctx.get('r1_configuration_sha256') == K.digest(config)
+    except (TypeError, ValueError):
+        digest_ok = False
+    if not digest_ok:
+        out.append(bad('CONFIG-HASH', 'r1_configuration_sha256 is not the content hash of the supplied '
+                       'configuration.', 'Recompute it (sha256 of the canonical JSON), or supply the right file.'))
+    rules = config_rule_problems(config)
+    if rules:
+        out.append(bad('CONFIG-RULES', f'The R1 configuration breaks the configuration rules: {", ".join(rules)}.',
+                       'Supply a configuration that validate_configuration accepts.'))
+
+    mismatched = [f'{key} {config[key]!r}' for key in ('execution_id', 'task_id')
+                  if config[key] is not None and config[key] != ctx.get(key)]
+    # requirement_id and requirement_version are fixed (R1, 2.0.0) by both schemas, so they cannot differ here.
+    if config['benchmark']['id'] != ctx.get('benchmark'):
+        mismatched.append(f"benchmark {config['benchmark']['id']!r}")
+    checkpoint = config['benchmark'].get('policy_checkpoint')
+    if checkpoint is not None and checkpoint != ctx.get('model_checkpoint'):
+        mismatched.append(f'policy checkpoint {checkpoint!r}')
+    if mismatched:
+        out.append(bad('CONFIG-SCOPE', f'The R1 configuration is for {", ".join(mismatched)}, which does not match '
+                       'the evaluation context.', 'Review the execution with the configuration that applies to it.'))
+    objects = ctx.get('protected_objects')
+    if not isinstance(objects, list) or sorted(map(str, objects)) != sorted(config['protected_objects']):
+        out.append(bad('CONFIG-OBJECTS', f"The context lists protected objects {objects}, but the R1 configuration "
+                       f"lists {config['protected_objects']}.", 'Copy protected_objects from the configuration '
+                       'unchanged; a shorter list is an unauthorized reduction.'))
+    surfaces = ctx.get('support_surfaces')
+    configured = sorted(s['id'] for s in config['support_surfaces'])
+    if not isinstance(surfaces, list) or sorted(map(str, surfaces)) != configured:
+        out.append(bad('CONFIG-SURFACES', f'The context lists support surfaces {surfaces}, but the R1 configuration '
+                       f'lists {configured}.', 'Copy the support surface IDs from the configuration unchanged.'))
+    out.extend(bad('CONFIG-INTERVAL', text, 'Take the monitored interval from the configuration, with '
+                   'boundary_provenance for every boundary that is not an explicit index.')
+               for text in _interval_problems(config['monitoring_interval'], ctx.get('monitored_interval')))
+    return out
+
+
+def _interval_problems(mi, monitored):
+    monitored = monitored if isinstance(monitored, dict) else {}
+    axis = mi['axis']
+    if axis not in K.AXIS_TO_CLOCK:
+        return [f'The configuration monitors on the {axis} axis, which has no agreed clock in the GSN graphs yet.']
+    out = []
+    domain, clock = K.AXIS_TO_CLOCK[axis]
+    if (monitored.get('domain'), monitored.get('clock')) != (domain, clock):
+        out.append(f"The monitored interval is on {monitored.get('domain')}/{monitored.get('clock')}, but the "
+                   f'configuration axis {axis} is {domain}/{clock}.')
+    span = _interval(monitored.get('interval'))
+    provenance = monitored.get('boundary_provenance') if isinstance(monitored.get('boundary_provenance'), dict) \
+        else {}
+    for i, side in enumerate(('start', 'end')):
+        # a malformed entry is reported by SCHEMA-REQUEST; here it counts as no provenance
+        boundary = mi[side]
+        given = provenance.get(side) if isinstance(provenance.get(side), dict) else None
+        if boundary['kind'].startswith('explicit_'):
+            value, how = boundary['value'], 'the configuration'
+        elif given is not None:
+            value, how = given.get('resolved_value'), f"boundary_provenance ({boundary['kind']})"
+        else:
+            out.append(f"The {side} boundary is {boundary['kind']}, and the request gives no boundary_provenance "
+                       'saying which frame it resolved to and from which recorded source.')
+            continue
+        if given is not None and given.get('resolved_value') != value:
+            out.append(f"boundary_provenance gives {side} {given.get('resolved_value')!r}, but the configuration "
+                       f'fixes it at {value!r}.')
+        if span is None or value != span[i] or isinstance(value, bool):
+            out.append(f"The monitored interval {monitored.get('interval')} does not start/end where {how} puts the "
+                       f'{side}: {value!r}.')
+    return out
+
+
+def config_rule_problems(config):
+    """The semantic rules of validate_configuration (after its schema check), with the same names."""
+    out = []
+    objects = config['protected_objects']
+    surfaces = [s['id'] for s in config['support_surfaces']]
+    mapping = config['object_surface_mapping']
+    if len(set(surfaces)) != len(surfaces):
+        out.append('duplicate_surface_id')
+    if set(objects) & set(surfaces):
+        out.append('object_surface_role_collision')
+    if set(objects) != set(mapping):
+        out.append('object_mapping_keys_mismatch')
+    if any(s not in surfaces for ss in mapping.values() for s in ss):
+        out.append('dangling_surface_id')
+    mi = config['monitoring_interval']
+    a, b = mi['start'], mi['end']
+    expected = 'explicit_index' if mi['axis'] == 'saved_frame' else 'explicit_time'
+    if a['kind'] == 'terminal_recorded_snapshot' or b['kind'] == 'recorded_first_policy_boundary':
+        out.append('invalid_anchor_role')
+    if any(x['kind'].startswith('explicit_') and x['kind'] != expected for x in (a, b)):
+        out.append('axis_boundary_mismatch')
+    if a['value'] is not None and b['value'] is not None and a['value'] > b['value']:
+        out.append('reversed_interval')
+    m = config['assessment_manifest']
+    for part, key, value in (('requirement', 'id', config['requirement_id']),
+                             ('requirement', 'version', config['requirement_version']),
+                             ('configuration_schema', 'id', K.CONFIG_SCHEMA_ID),
+                             ('configuration_schema', 'version', '2.0.1'),
+                             ('adapter', 'id', config['benchmark']['adapter_id']),
+                             ('adapter', 'version', config['benchmark']['adapter_version'])):
+        if m[part][key] != value:
+            out.append('manifest_mismatch:' + part + '.' + key)
+    if m['source_model_bindings'] != config['source_bindings']:
+        out.append('manifest_source_mismatch')
+    if m['requested_domain']['projection'] != config['temporal_alignment']['domain']:
+        out.append('manifest_projection_mismatch')
+    refs = [x['artifact_ref'] for x in config['source_bindings']]
+    if len(set(refs)) != len(refs):
+        out.append('duplicate_source_binding')
+    support = config['initial_support_rules']
+    if support['profile'] == 'legacy_v3_static_stencil' and support['boundary_context_offsets'] != [-1, 0, 1]:
+        out.append('legacy_stencil_drift')
+    return sorted(out)
+
+
 # ------------------------------------------------------------------ bundle coverage
 
 def check_bundle(req):
@@ -586,7 +742,8 @@ def check_assessments(req):
 def check_conclusions(req, admitted):
     """Claimed outcomes against admitted checker assessments and R1 aggregation.
 
-    Returns (findings, recomputed execution outcome or None).
+    Returns (findings, R1 aggregation of the full claimed vector, with missing or invalid object outcomes
+    counted as insufficient_information).
     """
     out = []
     ctx, bundle = req['evaluation_context'], req['argument_bundle']
@@ -610,25 +767,32 @@ def check_conclusions(req, admitted):
             out.append(finding('CONCL-EXTRA', 'C03', f'The execution conclusion gives an outcome for {oid}, which is '
                                'not a configured protected object.', 'Remove it.', severity='medium', object_id=oid))
 
-    valid = [claimed[o] for o in configured if _is_outcome(claimed.get(o))]
-    expected = K.execution_outcome(valid) if valid else None
+    # The full vector over every configured object: a missing or invalid object outcome counts as
+    # insufficient_information, never as dropped. An empty configured scope aggregates to not_applicable.
+    vector = [claimed[o] if _is_outcome(claimed.get(o)) else K.INSUFFICIENT for o in configured]
+    expected = K.execution_outcome(vector)
+    unassessed = [o for o in configured if not _is_outcome(claimed.get(o))]
     stated = conclusion.get('claimed_outcome')
     if stated is not None and not _is_outcome(stated):
         out.append(finding('CONCL-BAD-VALUE', 'C01', f'Execution outcome {stated!r} is not an R1 v2 outcome.',
                            f'Use one of: {", ".join(K.OUTCOME_PRECEDENCE)}.'))
-    elif stated is not None and expected is not None and stated != expected:
+    elif stated is not None and stated != expected:
         disputed = sorted({f['object_id'] for f in out if f['object_id'] is not None and f['blocking']})
         action = (f'Fix the object outcomes flagged for {", ".join(disputed)} first, then set the execution outcome '
                   'by R1 aggregation of the corrected object outcomes.' if disputed else
                   f'Set the execution outcome to {expected}, or fix the object outcomes.')
-        out.append(finding('CONCL-AGGREGATION', 'C06', f'The execution conclusion is {stated}, but R1 aggregation of '
-                           f'the stated object outcomes gives {expected} (violation > invalid contract > insufficient '
-                           '> no violation > not applicable).', action, requirement_refs=[AGGREGATION_REF]))
-    unassessed = [o for o in configured if o not in claimed]
-    if stated == K.NO_VIOLATION and unassessed:
-        out.append(finding('CONCL-VACUOUS', 'C06', f'The execution is concluded as no violation while '
-                           f'{", ".join(unassessed)} have no outcome; unknown objects cannot be treated as safe.',
-                           'Use insufficient_information for the execution until every object has an outcome.',
+        if not configured:
+            why = ('The configuration has no protected objects (empty scope), which aggregates to not_applicable; '
+                   'an empty scope is never a pass and is excluded from outcome metrics.')
+        else:
+            why = (f'R1 aggregation of every configured object gives {expected} (violation > invalid contract > '
+                   'insufficient > no violation > not applicable).')
+            if unassessed:
+                one = len(unassessed) == 1
+                why += (f' {", ".join(unassessed)} {"has" if one else "have"} no valid outcome and '
+                        f'{"counts" if one else "count"} as insufficient_information; unknown objects are never '
+                        'treated as safe.')
+        out.append(finding('CONCL-AGGREGATION', 'C06', f'The execution conclusion is {stated}. {why}', action,
                            requirement_refs=[AGGREGATION_REF]))
     return out, expected
 
@@ -816,6 +980,7 @@ def run_all(req):
                                 'Send a complete request that validates against critic_request.schema.json; '
                                 'synthetic data must be marked test_fixture explicitly.',
                                 requirement_refs=[str(SCHEMA.SCHEMAS['request'].name)]))
+    findings += check_configuration(req)
     records, record_findings = index_records(req)
     findings += record_findings
     findings += check_bundle(req)

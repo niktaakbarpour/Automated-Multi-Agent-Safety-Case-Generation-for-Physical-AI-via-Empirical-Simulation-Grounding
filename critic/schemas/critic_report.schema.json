@@ -109,13 +109,24 @@
     "summary": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["objects_configured", "objects_with_graphs", "objects_missing", "claimed_execution_outcome", "recomputed_execution_outcome", "counts_by_source", "counts_by_category", "blocking_defects", "needs_human_review", "disclaimer"],
+      "required": ["objects_configured", "objects_with_graphs", "objects_missing", "claimed_execution_outcome", "recomputed_execution_outcome", "accepted_execution_outcome", "empty_scope", "counts_by_source", "counts_by_category", "blocking_defects", "needs_human_review", "disclaimer"],
       "properties": {
         "objects_configured": {"type": "array", "items": {"type": "string"}},
         "objects_with_graphs": {"type": "array", "items": {"type": "string"}},
         "objects_missing": {"type": "array", "items": {"type": "string"}},
         "claimed_execution_outcome": {"type": ["string", "null"]},
-        "recomputed_execution_outcome": {"type": ["string", "null"]},
+        "recomputed_execution_outcome": {
+          "type": ["string", "null"],
+          "description": "R1 aggregation of the claimed outcome of every configured object; a missing or invalid object outcome counts as insufficient_information. The stated execution outcome must equal it."
+        },
+        "accepted_execution_outcome": {
+          "type": ["string", "null"],
+          "description": "R1 aggregation counting every object with a blocking criticism, or with no valid claim, as insufficient_information; null when the input was rejected. The most this review accepts from the draft, not a safety verdict."
+        },
+        "empty_scope": {
+          "type": "boolean",
+          "description": "true when the configuration has no protected objects; such an execution is not_applicable and excluded from outcome metrics."
+        },
         "counts_by_source": {"type": "object"},
         "counts_by_category": {"type": "object"},
         "blocking_defects": {"type": "boolean"},

@@ -136,6 +136,8 @@
     "objects_missing": [],
     "claimed_execution_outcome": "no_violation_observed_within_validated_coverage",
     "recomputed_execution_outcome": "no_violation_observed_within_validated_coverage",
+    "accepted_execution_outcome": "insufficient_information",
+    "empty_scope": false,
     "counts_by_source": {
       "deterministic": 3
     },
