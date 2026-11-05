@@ -14,6 +14,7 @@ from pathlib import PurePosixPath
 
 from . import assessments as A
 from . import contract as K
+from . import retrieval as R
 from . import schema as SCHEMA
 
 GSN_REF = 'evaluation/r1_v4/evidence_registry_gsn/gsn.py:Graph.validate'
@@ -102,14 +103,15 @@ def check_request_shape(req):
         return [finding(check_id, 'C01', explanation, action)], True
 
     if not isinstance(req, dict):
-        return fatal('REQ-SHAPE', 'The review request is not a JSON object.', 'Send a critic-request/0.1.0 object.')
+        return fatal('REQ-SHAPE', 'The review request is not a JSON object.',
+                     f'Send a {K.REQUEST_SCHEMA_VERSION} object.')
     sections = {'evaluation_context': dict, 'argument_bundle': dict, 'evidence_package': dict,
                 'checker_assessments': list, 'retrieval_context': dict}
     wrong = [k for k in ('schema_version', 'request_id', *sections) if k not in req]
     wrong += [k for k, kind in sections.items() if k in req and not isinstance(req[k], kind)]
     if wrong:
         return fatal('REQ-SHAPE', f'Review request sections missing or of the wrong type: {", ".join(wrong)}.',
-                     'Supply a complete critic-request/0.1.0 package.')
+                     f'Supply a complete {K.REQUEST_SCHEMA_VERSION} package.')
     if req['schema_version'] != K.REQUEST_SCHEMA_VERSION:
         return fatal('REQ-VERSION', f"Unsupported request schema {req['schema_version']!r}; "
                      f'expected {K.REQUEST_SCHEMA_VERSION}.', 'Regenerate the request with the current contract.')
@@ -645,6 +647,12 @@ def _check_solution(req, oid, nid, n, scope, records):
         out.append(finding(check_id, category, explanation, action, object_id=oid, node_id=nid,
                            evidence_ids=[str(eid)] if eid else [], requirement_refs=[GSN_REF], **kw))
 
+    if isinstance(eid, str) and eid.startswith(R.PHASE5_ID_PREFIXES):
+        add('EV-MISSING', 'C02', f'Solution {nid} cites {eid}, a Phase 5 structured-retrieval ID. GSN 1.0.0 '
+            'solutions cite registry records (Graph.validate), and a citation or retrieval item is not one.',
+            "Cite the registry record listed in the item's original_evidence_ids; the Critic links it to the "
+            'citation in the report.')
+        return out
     if not isinstance(eid, str) or eid not in records:
         add('EV-MISSING', 'C02', f'Solution {nid} cites {eid}, which is not in the evidence package.',
             'Cite evidence that was actually retrieved, or request retrieval for it.',
@@ -739,8 +747,23 @@ def check_assessments(req):
     return out, admitted, log
 
 
-def check_conclusions(req, admitted):
-    """Claimed outcomes against admitted checker assessments and R1 aggregation.
+def check_structured_evidence(req):
+    """Validate every Phase 5 structured-evidence entry before anything relies on it (see retrieval.py).
+
+    Returns (findings, admitted bundles, rows for the report's structured_retrieval list).
+    """
+    problems, admitted, rows = R.admit(req)
+    out = [finding(check_id, category, f'Structured evidence is not used: {text}.',
+                   'Pass the structured request and the bundle the Phase 5 release returned for it unchanged, for '
+                   'this execution, task and variant.', evidence_ids=[qid] if qid else [],
+                   requirement_refs=[R.HANDOFF_REF])
+           for check_id, category, text, qid in problems]
+    return out, admitted, rows
+
+
+def check_conclusions(req, admitted, structured=()):
+    """Claimed outcomes against admitted checker assessments, retrieval gaps, missing structured-retrieval
+    obligations and R1 aggregation.
 
     Returns (findings, R1 aggregation of the full claimed vector, with missing or invalid object outcomes
     counted as insufficient_information).
@@ -760,12 +783,21 @@ def check_conclusions(req, admitted):
                                    f'State an outcome for {oid}; use insufficient_information if it is unknown.',
                                    object_id=oid, requirement_refs=[AGGREGATION_REF]))
             continue
+        missing = [(view['query_id'], m) for view in structured for m in view['missing']]
         out.extend(_check_object_outcome(oid, claimed[oid], roots.get(oid), admitted.get(oid, []),
-                                         monitored, _list(req['retrieval_context'].get('gaps'))))
+                                         monitored, _list(req['retrieval_context'].get('gaps')), missing))
     for oid in claimed:
         if oid not in configured:
             out.append(finding('CONCL-EXTRA', 'C03', f'The execution conclusion gives an outcome for {oid}, which is '
                                'not a configured protected object.', 'Remove it.', severity='medium', object_id=oid))
+    partial = [v for v in structured if v['status'] != K.PHASE5_COMPLETE]
+    if req['retrieval_context'].get('complete_within_requested_scope') is True and partial:
+        listing = '; '.join(f"{v['query_id']} is {v['status']}" for v in partial)
+        out.append(finding('CONCL-RETRIEVAL-COMPLETE', 'C04', 'The retrieval context says the package is complete '
+                           f'for the requested scope, but structured retrieval says otherwise ({listing}).',
+                           'Set complete_within_requested_scope to false and keep the missing obligations visible.',
+                           severity='medium', blocking=False, evidence_ids=[v['query_id'] for v in partial],
+                           requirement_refs=[R.HANDOFF_REF], human_review_required=True))
 
     # The full vector over every configured object: a missing or invalid object outcome counts as
     # insufficient_information, never as dropped. An empty configured scope aggregates to not_applicable.
@@ -797,7 +829,7 @@ def check_conclusions(req, admitted):
     return out, expected
 
 
-def _check_object_outcome(oid, claim, node, assessments, monitored, gaps):
+def _check_object_outcome(oid, claim, node, assessments, monitored, gaps, missing=()):
     """One object's claimed outcome against its admitted checker assessments and retrieval gaps.
 
     FORMAL_SEMANTICS.md: an admissible violation is not overridden by a negative result;
@@ -909,6 +941,30 @@ def _check_object_outcome(oid, claim, node, assessments, monitored, gaps):
                                 'Do not claim coverage over missing intervals; qualify the claim or request the data.',
                                 requirement_refs=[VALIDITY_REF], additional_evidence_needed=True,
                                 evidence_request=request))
+        for qid, m in missing:
+            if not _obligation_relevant(m, oid, monitored):
+                continue  # still listed in the report's structured_retrieval and unresolved_concerns
+            window = R.frames_of(m)
+            where = f'frames {list(window)}' if window else ('a simulator-label window' if m['selector'] else
+                                                              'no time window')
+            text = (f"structured retrieval {qid} left the mandatory obligation {m['obligation_id']} ({m['family']}, "
+                    f"{where}) {m['status']}: {m['reason']}")
+            request = {'object_id': oid, 'measurement_type': m['family'],
+                       'interval': list(window) if window else None,
+                       'reason': f"Mandatory obligation {m['obligation_id']} of {qid} is {m['status']}."}
+            if supported:
+                out.append(make('CONCL-OBLIGATION-MISSING', 'C04', f'The admitted checker assessment supports no '
+                                f'violation for {oid}, but {text}. This does not by itself invalidate the assessment; '
+                                'check that the two sources agree.',
+                                'Confirm the checker had the evidence the obligation asked for, or qualify the claim.',
+                                severity='medium', blocking=False, evidence_ids=ids,
+                                requirement_refs=[R.HANDOFF_REF], human_review_required=True,
+                                evidence_request=request))
+            else:
+                out.append(make('CONCL-OBLIGATION-MISSING', 'C04', f'The draft claims no violation for {oid}, but '
+                                f'{text}.', 'Do not claim coverage the retrieval could not supply; qualify the claim '
+                                'or request the evidence again.', requirement_refs=[R.HANDOFF_REF],
+                                additional_evidence_needed=True, evidence_request=request))
     return out
 
 
@@ -948,6 +1004,16 @@ def _gap_relevant(gap, oid, monitored):
     return span is None or _overlaps(span, monitored)
 
 
+def _obligation_relevant(m, oid, monitored):
+    """A missing structured-retrieval obligation matters for a no-violation claim only if it is mandatory,
+    is about this object or names no object, and its window overlaps the monitored interval. A window on
+    simulator labels, or no window, cannot be placed on the frame clock and counts (fail closed)."""
+    if not m['mandatory'] or m['object_id'] not in (None, oid):
+        return False
+    window = R.frames_of(m)
+    return window is None or _overlaps(window, monitored)
+
+
 def _is_outcome(value):
     return isinstance(value, str) and value in K.OUTCOMES
 
@@ -971,8 +1037,9 @@ def run_all(req):
     """Run every deterministic check. Returns (findings, info for the LLM step and report)."""
     findings, fatal = check_request_shape(req)
     if fatal:
-        return findings, {'fatal': True, 'records': {}, 'expected_outcome': None,
-                          'admitted': {}, 'checker_admission': [], 'input_valid': False}
+        return findings, {'fatal': True, 'records': {}, 'expected_outcome': None, 'admitted': {},
+                          'checker_admission': [], 'structured': [], 'structured_retrieval': [],
+                          'input_valid': False}
     problems = SCHEMA.errors(req, SCHEMA.load('request'), limit=10)
     if problems:
         findings.append(finding('SCHEMA-REQUEST', 'C01', 'The review request does not match '
@@ -988,8 +1055,12 @@ def run_all(req):
         findings += check_graph(req, item, records)
     assessment_findings, admitted, admission = check_assessments(req)
     findings += assessment_findings
-    conclusion_findings, expected = check_conclusions(req, admitted)
+    structured_findings, structured, retrieval_rows = check_structured_evidence(req)
+    findings += structured_findings
+    R.link(req, structured, retrieval_rows)
+    conclusion_findings, expected = check_conclusions(req, admitted, structured)
     findings += conclusion_findings
     return findings, {'fatal': False, 'records': records, 'expected_outcome': expected,
                       'admitted': admitted, 'checker_admission': admission,
+                      'structured': structured, 'structured_retrieval': retrieval_rows,
                       'input_valid': not any(f['phase'] == 'validation' for f in findings)}

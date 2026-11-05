@@ -1,5 +1,5 @@
 {
-  "$id": "urn:trustworthy:critic-request:0.2.0",
+  "$id": "urn:trustworthy:critic-request:0.3.0",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "Critic review request (one execution)",
   "description": "Sections A-E from the Critic handoff. The Critic enforces this schema at runtime, and also checks each graph against urn:trustworthy:gsn:1.0.0 (plus Graph.validate rules) and each evidence record against urn:trustworthy:registry-record:1.0.0 (plus Record.validate rules). Any failure is reported as a validation-phase criticism and the request is rejected (review_status rejected_invalid_input) without a model review.",
@@ -7,7 +7,7 @@
   "additionalProperties": false,
   "required": ["schema_version", "request_id", "test_fixture", "evaluation_context", "argument_bundle", "evidence_package", "checker_assessments", "retrieval_context"],
   "properties": {
-    "schema_version": {"const": "critic-request/0.2.0"},
+    "schema_version": {"const": "critic-request/0.3.0"},
     "request_id": {"type": "string", "minLength": 1},
     "test_fixture": {"type": "boolean", "description": "true when any content is synthetic test data; must never be mixed with real empirical results."},
     "evaluation_context": {
@@ -164,6 +164,19 @@
               "synthetic": {"type": "boolean"}
             }
           }
+        }
+      }
+    },
+    "structured_evidence": {
+      "description": "Optional. Phase 5 structured retrieval (evaluation/r1_v4/rag_evidence_database/final_phase5_release, phase5-structured-1.0.0): each entry is the exact structured request sent to StructuredRetriever.retrieve and the exact bundle it returned, both unchanged. The Critic checks each pair (critic/retrieval.py) before using it. A bundle can only add concerns (missing obligations, non-complete statuses, conditional assumptions); it never supports a claim and is never a checker assessment. GSN solution nodes still cite registry records.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["request", "bundle"],
+        "properties": {
+          "request": {"type": "object", "description": "Follows STRUCTURED_QUERY_SCHEMA.json of the release."},
+          "bundle": {"type": "object", "description": "Follows EVIDENCE_BUNDLE_SCHEMA.json of the release and critic/schemas/phase5_bundle_consumer.schema.json."}
         }
       }
     },

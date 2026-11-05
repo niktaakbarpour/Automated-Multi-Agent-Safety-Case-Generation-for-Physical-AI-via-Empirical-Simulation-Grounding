@@ -12,8 +12,8 @@ import unittest
 from pathlib import Path
 from types import SimpleNamespace
 
-from critic import assessments as A, checks, contract as K, llm as L, review
-from critic.cases import build_cases as B
+from critic import assessments as A, checks, contract as K, llm as L, retrieval as R, review
+from critic.cases import build_cases as B, phase5 as P
 
 ROOT = Path(__file__).resolve().parents[2]
 CASES = ROOT / 'critic' / 'cases'
@@ -895,6 +895,12 @@ class SchemaValidator(unittest.TestCase):
         self.assertFalse(S.is_valid({'a': 1, 'b': 2}, {'properties': {'a': {}}, 'additionalProperties': False}))
         self.assertTrue(S.is_valid({'a': 1}, {'properties': {'a': {}}, 'additionalProperties': False}))
         self.assertFalse(S.is_valid([True], {'enum': [[1]]}))
+        self.assertTrue(S.is_valid([1, 'a'], {'contains': {'type': 'string'}}))
+        self.assertFalse(S.is_valid([1, 2], {'contains': {'type': 'string'}}))
+        self.assertFalse(S.is_valid([], {'contains': {}}))
+        self.assertTrue(S.is_valid('x', {'contains': {'type': 'string'}}))  # only applies to arrays
+        self.assertFalse(S.is_valid('abc', {'maxLength': 2}))
+        self.assertTrue(S.is_valid('\u00e9\u00e9', {'maxLength': 2}))  # counted in characters, not bytes
         with self.assertRaises(S.UnsupportedKeyword):  # also refused while validating, not only up front
             S.errors(1, {'format': 'email'})
 
@@ -910,6 +916,10 @@ class SchemaValidator(unittest.TestCase):
         docs['gsn_graph'] = [g['graph'] for d in docs['request'] for g in d['argument_bundle']['graphs']]
         docs['registry_record'] = [r for d in docs['request'] for r in d['evidence_package']['records']]
         docs['report'] = [review(d) for d in docs['request']]
+        entries = [e for d in docs['request'] for e in d.get('structured_evidence', [])]
+        docs['phase5_query'] = [e['request'] for e in entries]
+        docs['phase5_bundle'] = docs['phase5_consumer'] = [e['bundle'] for e in entries] + [
+            P.refused(e['request'], 'INVALID SCOPE', 'Schema') for e in entries]
 
         def paths(v, prefix=()):
             yield prefix
@@ -1497,6 +1507,525 @@ class AgreementWithOriginalGraphValidator(unittest.TestCase):
                 full['argument_bundle']['graphs'][0]['graph'] = g
                 self.assertEqual(review(full)['review_status'], 'rejected_invalid_input')
 
+CASE_E = 'case_e_partial_structured_retrieval.json'
+
+
+def e_scope(req=None):
+    ctx = (req or load(CASE_E))['evaluation_context']
+    return P.scope_of(ctx['execution_id'], ctx['task_id'], ctx['variant_id'])
+
+
+def e_request(*entries, claims=None, checker=True, complete_claim=False):
+    """Case E (claims match the checker) with the given structured_evidence entries."""
+    req = load(CASE_E)
+    if entries:
+        req['structured_evidence'] = [copy.deepcopy(e) for e in entries]
+    if not checker:
+        req['checker_assessments'] = []
+    for oid, claim in (claims or {}).items():
+        req['argument_bundle']['execution_conclusion']['object_outcomes'][oid] = claim
+    if claims:
+        vector = req['argument_bundle']['execution_conclusion']['object_outcomes'].values()
+        req['argument_bundle']['execution_conclusion']['claimed_outcome'] = K.execution_outcome(vector)
+    req['retrieval_context']['complete_within_requested_scope'] = complete_claim
+    return req
+
+
+def e_entry():
+    return copy.deepcopy(load(CASE_E)['structured_evidence'][0])
+
+
+def one_obligation(o, result=None, scope=None):
+    """A bundle for a single obligation, evaluated (result given) or left UNAVAILABLE, plus a mandatory
+    joint-position obligation that is AVAILABLE so the bundle is not empty."""
+    scope = scope or e_scope()
+    joints = P.obligation('joint_positions', 'raw.robot0_joint_pos', scope, frames=(0, 1))
+    q = P.request(scope, [o, joints])
+    results = {'joint_positions': ('AVAILABLE', [P.channel_item(scope, 'raw.robot0_joint_pos', (0, 1))], 'ok')}
+    if result is not None:
+        results[o['id']] = result
+    return P.entry(q, P.evaluated(q, results))
+
+
+def recite(bundle):
+    """Recompute every citation ID from its (possibly edited) basis: a consistent forgery of the IDs."""
+    for g in bundle['groups']:
+        for item in g['items']:
+            item['citation_id'] = R.CITATION_PREFIX + K.digest(item['citation_basis'])
+    return bundle
+
+
+def requery(entry):
+    entry['bundle']['query_id'] = 'query:' + K.digest(entry['request'])
+    entry['bundle']['requested_obligations'] = copy.deepcopy(entry['request']['obligations'])
+    return entry
+
+
+def ret_ids(report):
+    return {c for c in check_ids(report) if c.startswith('RET-')}
+
+
+def group(entry, oid):
+    return next(g for g in entry['bundle']['groups'] if g['obligation_id'] == oid)
+
+
+def first_item(entry, oid='joint_positions'):
+    return group(entry, oid)['items'][0]
+
+
+def _upgrade(e):
+    b = e['bundle']
+    b['completeness_status'] = K.PHASE5_COMPLETE
+    b['assurance_status']['satisfied'] = True
+    b['independent_validation']['mandatory_fulfilled'] = True
+
+
+def _unvalidated(e):
+    b = e['bundle']
+    b['independent_validation'] = {'passed': False, 'reason': 'Request not accepted'}
+    b['completeness_status'] = 'UNVERIFIED PLAN'
+
+
+def _drop_missing(e):
+    e['bundle']['missing_obligations'] = [m for m in e['bundle']['missing_obligations']
+                                          if m['obligation_id'] != 'contacts_object_01']
+
+
+def _sample_outside(e):
+    sample = first_item(e)['samples'][0]
+    sample['saved_frame_index'] = 99
+    sample['source_selector'] = '/frames/000099/' + K.PHASE5_REGISTRY['raw.robot0_joint_pos']
+    first_item(e)['citation_basis']['selectors'][0] = sample['source_selector']
+    recite(e['bundle'])
+
+
+def _drop_sample(e):
+    item = first_item(e)
+    item['samples'].pop()
+    item['citation_basis']['selectors'] = [x['source_selector'] for x in item['samples']]
+    recite(e['bundle'])
+
+
+def _request_level_group(e):
+    group(e, 'camera_frames')['status'] = 'UNVERIFIED PLAN'
+    next(m for m in e['bundle']['missing_obligations'] if m['obligation_id'] == 'camera_frames')['status'] = \
+        'UNVERIFIED PLAN'
+
+
+def _rename_reference(e):
+    item = first_item(e, 'geometry_object_01')
+    item['id'] = item['citation_basis']['record_id'] = 'source-ref:' + '0' * 64
+    recite(e['bundle'])
+
+
+# Each edit of Case E's entry and the RET check that must catch it. IDs are recomputed where the point is
+# that the content is wrong, not the hash.
+STRUCTURED_TAMPERING = {
+    'citation ID edited': ('RET-CITATION', lambda e: first_item(e).update(citation_id=R.CITATION_PREFIX + '0' * 64)),
+    'basis selector edited, ID recomputed': ('RET-CITATION', lambda e: (
+        first_item(e)['citation_basis'].update(selectors=['/frames/000000/other']), recite(e['bundle']))),
+    'basis database edited, ID recomputed': ('RET-CITATION', lambda e: (
+        first_item(e)['citation_basis'].update(database_sha256='0' * 64), recite(e['bundle']))),
+    'basis interpretation edited, ID recomputed': ('RET-CITATION', lambda e: (
+        first_item(e)['citation_basis'].update(interpretation='verified_physical'), recite(e['bundle']))),
+    'item source hash edited': ('RET-CITATION', lambda e: first_item(e)['source_artifact'].update(sha256='1' * 64)),
+    'request edited after retrieval': ('RET-QUERY-ID', lambda e: e['request'].update(request_id='other')),
+    'requested obligations edited': ('RET-QUERY-ID', lambda e: e['bundle']['requested_obligations'][0].update(
+        mandatory=False)),
+    'group digest edited': ('RET-OBLIGATIONS', lambda e: group(e, 'contacts_object_01').update(
+        request_digest='0' * 64)),
+    'group marked optional': ('RET-OBLIGATIONS', lambda e: group(e, 'contacts_object_01').update(mandatory=False)),
+    'group family edited': ('RET-OBLIGATIONS', lambda e: group(e, 'contacts_object_01').update(
+        family='camera_references')),
+    'group removed': ('RET-OBLIGATIONS', lambda e: e['bundle']['groups'].pop(1)),
+    'groups reordered': ('RET-OBLIGATIONS', lambda e: e['bundle']['groups'].reverse()),
+    'interpretation edited': ('RET-OBLIGATIONS', lambda e: group(e, 'joint_positions').update(
+        requested_interpretation='verified_physical')),
+    'missing obligation dropped': ('RET-MISSING', _drop_missing),
+    'missing obligation marked optional': ('RET-MISSING', lambda e: e['bundle']['missing_obligations'][0].update(
+        mandatory=False)),
+    'missing reason rewritten': ('RET-MISSING', lambda e: e['bundle']['missing_obligations'][0].update(
+        reason='fine')),
+    'conditional assumption not reported': ('RET-CONDITIONAL', lambda e: group(e, 'joint_positions').update(
+        conditional_assumptions=['cache_offset_seconds'])),
+    'status upgraded to complete': ('RET-STATUS', _upgrade),
+    'status downgraded': ('RET-STATUS', lambda e: e['bundle'].update(completeness_status='UNAVAILABLE')),
+    'unvalidated bundle with evidence': ('RET-STATUS', _unvalidated),
+    'optional obligation satisfied without evidence': ('RET-STATUS', lambda e: e['bundle'][
+        'independent_validation']['obligations'][3].update(satisfied=True)),
+    'validation of an obligation dropped': ('RET-STATUS', lambda e: e['bundle']['independent_validation'][
+        'obligations'].pop()),
+    'evaluated group with a request-level status': ('RET-STATUS', _request_level_group),
+    'validation passed with errors': ('RET-STATUS', lambda e: e['bundle']['independent_validation'].update(
+        errors=['cross_scope_evidence'])),
+    'assurance marked satisfied': ('RET-STATUS', lambda e: e['bundle']['assurance_status'].update(satisfied=True)),
+    'values marked unverified': ('RET-STATUS', lambda e: e['bundle']['assurance_status'].update(
+        returned_values_verified=False)),
+    'bundle for another execution': ('RET-SCOPE', lambda e: e['bundle']['resolved_scope'].update(
+        execution_id='other-execution')),
+    'bundle for another variant': ('RET-SCOPE', lambda e: e['bundle']['resolved_scope'].update(variant_id='v-2')),
+    'request without a variant': ('RET-SCOPE', lambda e: (e['request'].pop('variant_id'), requery(e))),
+    'obligation for another task': ('RET-SCOPE', lambda e: (e['request']['obligations'][0].update(task_id='t-2'),
+                                                            requery(e))),
+    'item from another variant': ('RET-ITEM', lambda e: (first_item(e).update(variant_id='v-2'),
+                                                         first_item(e)['citation_basis'].update(variant_id='v-2'),
+                                                         recite(e['bundle']))),
+    'item in the wrong group': ('RET-ITEM', lambda e: (first_item(e).update(family='raw.robot0_joint_vel'))),
+    'item outside the requested window': ('RET-ITEM', _sample_outside),
+    'item not source-verified': ('RET-ITEM', lambda e: first_item(e).update(integrity_status='unverified')),
+    'channel samples do not cover the window': ('RET-ITEM', _drop_sample),
+    'channel item not its own record': ('RET-ITEM', lambda e: first_item(e).update(original_evidence_ids=['ev:x'])),
+    'reference item ID edited, citation recomputed': ('RET-ITEM', _rename_reference),
+    'requested assurance edited': ('RET-STATUS', lambda e: e['bundle']['assurance_status'].update(
+        requested='verified_physical_interpretation')),
+    'limitation dropped': ('RET-LIMITATIONS', lambda e: e['bundle']['limitations'].pop()),
+    'sample not source-verified': ('RET-ITEM', lambda e: first_item(e)['samples'][0].update(source_status='cached')),
+    'origin changed to a checker': ('RET-ITEM', lambda e: first_item(e).update(origin='checker_assessment')),
+    'reference origin changed': ('RET-ITEM', lambda e: first_item(e, 'geometry_object_01').update(
+        origin='direct_recording')),
+    'identity promoted to physical support': ('RET-ITEM', lambda e: first_item(e, 'geometry_object_01')['value']
+                                              .update(physical_support_inferred=True)),
+    'sample units changed': ('RET-ITEM', lambda e: first_item(e)['samples'][0].update(value_units='deg')),
+    'item units changed': ('RET-ITEM', lambda e: first_item(e).update(units={'status': 'VERIFIED', 'value': 'deg'})),
+    'experimental route': ('RET-BUNDLE-SCHEMA', lambda e: e['bundle'].update(route='experimental_natural_language')),
+    'safety claim verified': ('RET-BUNDLE-SCHEMA', lambda e: e['bundle'].update(safety_claim_verified=True)),
+    'empirical admission on': ('RET-BUNDLE-SCHEMA', lambda e: e['bundle'].update(empirical_admission_enabled=True)),
+    'historical runtime attested': ('RET-BUNDLE-SCHEMA', lambda e: e['bundle']['assurance_status'].update(
+        historical_runtime_attested=True)),
+    'other release': ('RET-BUNDLE-SCHEMA', lambda e: e['bundle'].update(schema_version='phase5-structured-2.0.0')),
+    'physical instant claimed': ('RET-BUNDLE-SCHEMA', lambda e: first_item(e).update(
+        synchronized_physical_instant=True)),
+    'citation basis with extra field': ('RET-BUNDLE-SCHEMA', lambda e: first_item(e)['citation_basis'].update(
+        verified=True)),
+    'not a request/bundle pair': ('RET-SHAPE', lambda e: e.pop('bundle')),
+}
+
+
+class StructuredEvidence(unittest.TestCase):
+    """Phase 5 structured retrieval (audit I7): bundles are checked, kept whole, and only add concerns."""
+
+    def test_case_e_bundle_is_admitted_and_kept_whole(self):
+        req = load(CASE_E)
+        report = review(req)
+        self.assertEqual(ret_ids(report), set())
+        row = report['structured_retrieval'][0]
+        bundle = req['structured_evidence'][0]['bundle']
+        self.assertTrue(row['accepted'])
+        self.assertEqual(row['query_id'], bundle['query_id'])
+        self.assertEqual(row['bundle_sha256'], K.digest(bundle))
+        self.assertEqual(row['completeness_status'], 'PARTIAL')
+        self.assertEqual(row['limitations'], bundle['limitations'])
+        self.assertEqual(row['assurance_status'], bundle['assurance_status'])
+        self.assertEqual({c['citation_id'] for c in row['citations']},
+                         {i['citation_id'] for g in bundle['groups'] for i in g['items']})
+        self.assertEqual({(m['obligation_id'], m['mandatory'], m['status']) for m in row['missing_obligations']},
+                         {('contacts_object_01', True, 'UNAVAILABLE'), ('camera_frames', False, 'UNAVAILABLE')})
+        concerns = ' '.join(report['unresolved_concerns'])
+        for text in ('is PARTIAL', 'mandatory obligation contacts_object_01', 'optional obligation camera_frames',
+                     'not physical events', 'could not open the database'):
+            self.assertIn(text, concerns)
+
+    def test_missing_mandatory_obligation_under_an_admitted_checker_result(self):
+        report = review(load(CASE_E))
+        found = flagged(report, check_id='CONCL-OBLIGATION-MISSING')
+        self.assertEqual([(f['object_id'], f['severity'], f['blocking']) for f in found],
+                         [('object_01', 'medium', False)])  # the optional camera obligation adds nothing
+        self.assertTrue(found[0]['human_review_required'])
+        request = next(r for r in report['evidence_requests'] if r['criticism_id'] == found[0]['criticism_id'])
+        self.assertEqual((request['measurement_type'], request['interval']), ('contact_references', [0, 2]))
+
+    def test_missing_mandatory_obligation_without_checker_support_blocks(self):
+        req = e_request(checker=False, claims={'object_00': K.INSUFFICIENT, 'object_02': K.INSUFFICIENT})
+        found = flagged(review(req), check_id='CONCL-OBLIGATION-MISSING', object_id='object_01')
+        self.assertEqual([(f['severity'], f['blocking']) for f in found], [('high', True)])
+
+    def test_which_missing_obligations_matter(self):
+        scope = e_scope()
+        cases = {
+            'about this object': (P.obligation('c', 'contact_references', scope, frames=(0, 1), object_id='object_01'),
+                                  True),
+            'names no object': (P.obligation('j', 'raw.robot0_joint_vel', scope, frames=(0, 1)), True),
+            'timeless': (P.obligation('m', 'execution_metadata', scope), True),
+            'simulator-label window': (P.obligation('t', 'recorded_time', scope, selector={
+                'kind': 'simulator_labels', 'start': 0.0, 'end': 0.1}), True),
+            'about another object': (P.obligation('c', 'contact_references', scope, frames=(0, 1),
+                                                  object_id='object_02'), False),
+            'outside the monitored interval': (P.obligation('c', 'contact_references', scope, frames=(5, 9),
+                                                            object_id='object_01'), False),
+            'optional': (P.obligation('c', 'contact_references', scope, mandatory=False, frames=(0, 1),
+                                      object_id='object_01'), False),
+        }
+        for name, (o, relevant) in cases.items():
+            with self.subTest(name):
+                report = review(e_request(one_obligation(o)))
+                self.assertEqual(ret_ids(report), set())
+                found = flagged(report, check_id='CONCL-OBLIGATION-MISSING')
+                self.assertEqual(bool(found), relevant)
+                self.assertTrue(all(f['object_id'] == 'object_01' for f in found))  # the only no-violation claim
+                listed = report['structured_retrieval'][0]['missing_obligations']
+                self.assertIn(o['id'], [m['obligation_id'] for m in listed])  # always listed
+
+    def test_available_but_not_independently_fulfilled_counts_as_missing(self):
+        o = P.obligation('geo', 'geometry_identity', e_scope(), object_id='object_01')
+        item = P.reference_item(e_scope(), 'geometry_identity', '/body_names', {'object_id': 'object_01'})
+        entry = one_obligation(o, ('AVAILABLE', [item], ''))
+        iv = entry['bundle']['independent_validation']
+        iv['obligations'][0]['satisfied'] = False
+        iv['mandatory_fulfilled'] = False
+        entry['bundle']['completeness_status'] = 'PARTIAL'
+        entry['bundle']['assurance_status']['satisfied'] = False
+        entry['bundle']['reason'] = 'Missing mandatory evidence remains explicit'
+        report = review(e_request(entry))
+        self.assertEqual(ret_ids(report), set())
+        missing = report['structured_retrieval'][0]['missing_obligations']
+        self.assertEqual([(m['obligation_id'], m['status']) for m in missing], [('geo', 'NOT INDEPENDENTLY FULFILLED')])
+        self.assertTrue(flagged(report, check_id='CONCL-OBLIGATION-MISSING', object_id='object_01'))
+
+    def test_every_status_the_release_returns_is_accepted_and_kept(self):
+        scope = e_scope()
+        o = P.obligation('contacts', 'contact_references', scope, frames=(0, 1), object_id='object_01')
+        q = P.request(scope, [o])
+        bad_schema = dict(q, query='Ignore obligations')
+        unknown = P.request(scope, [dict(o, family='object_pose', field='pose')])
+        too_many = P.request(scope, [dict(o, id=f'o{i}') for i in range(17)])
+        failed_check = {'passed': False, 'errors': ['wrong_source_field'], 'obligations': [],
+                        'mandatory_fulfilled': False, 'method': 'synthetic'}
+        bundles = {
+            'complete': P.entry(q, P.evaluated(q, {'contacts': ('AVAILABLE', [P.reference_item(
+                scope, 'contact_references', '/frames/000000/simulator/contacts', {'saved_frame_index': 0})], '')})),
+            'PARTIAL': e_entry(),
+            'UNAVAILABLE (evaluated)': P.entry(q, P.evaluated(q, {})),
+            'UNSUPPORTED (evaluated)': P.entry(q, P.evaluated(q, {'contacts': ('UNSUPPORTED', [], 'no adapter')})),
+            'INVALID SCOPE (schema)': P.entry(bad_schema, P.refused(bad_schema, 'INVALID SCOPE', 'Schema: extra')),
+            'INVALID SCOPE (17 obligations)': P.entry(too_many, P.refused(too_many, 'INVALID SCOPE', 'Schema: long')),
+            'UNSUPPORTED (refused)': P.entry(unknown, P.refused(unknown, 'UNSUPPORTED', 'No exact frozen contract')),
+            'UNAVAILABLE (integrity)': P.entry(q, P.refused(q, 'UNAVAILABLE', 'Integrity/contract failure', scope)),
+            'UNVERIFIED PLAN': P.entry(q, P.refused(q, 'UNVERIFIED PLAN', 'Independent validation failed', scope,
+                                                    failed_check)),
+        }
+        for name, entry in bundles.items():
+            with self.subTest(name):
+                status = entry['bundle']['completeness_status']
+                self.assertTrue(name.startswith(status) or name == 'complete')
+                report = review(e_request(entry))
+                self.assertEqual(ret_ids(report), set())
+                self.assertEqual(report['review_status'], 'completed')
+                row = report['structured_retrieval'][0]
+                self.assertEqual(row['completeness_status'], status)
+                obligations = entry['request']['obligations'] if len(entry['request']['obligations']) <= 16 else []
+                if status != K.PHASE5_COMPLETE:
+                    self.assertIn(f'is {status}:', ' '.join(report['unresolved_concerns']))
+                    available = {g['obligation_id'] for g in entry['bundle']['groups'] if g['status'] == 'AVAILABLE'}
+                    self.assertEqual([m['obligation_id'] for m in row['missing_obligations']],
+                                     [x['id'] for x in obligations if x['id'] not in available])
+                self.assertEqual(bool(flagged(report, check_id='CONCL-OBLIGATION-MISSING')),
+                                 status != K.PHASE5_COMPLETE and bool(obligations))
+
+    def test_tampering_is_caught(self):
+        for name, (expected, change) in STRUCTURED_TAMPERING.items():
+            with self.subTest(name):
+                entry = e_entry()
+                change(entry)
+                report = review(e_request(entry))
+                self.assertIn(expected, ret_ids(report))
+                self.assertEqual(report['review_status'], 'rejected_invalid_input')
+                self.assertFalse(report['structured_retrieval'][0]['accepted'])
+                self.assertEqual(report['structured_retrieval'][0]['citations'], [])
+
+    def test_every_field_of_the_citation_basis_is_checked(self):
+        wrong = {'citation_version': '2', 'database_sha256': '0' * 64, 'record_id': 'channel:other',
+                 'source_sha256': '1' * 64, 'execution_id': 'other', 'task_id': 'other', 'variant_id': 'other',
+                 'selectors': ['/frames/000000/other'], 'component': 'elbow', 'units': 'deg',
+                 'interpretation': 'conditional', 'required_properties': ['units']}
+        self.assertEqual(set(wrong), set(R.expected_basis(first_item(e_entry()), {})))
+        for key, value in wrong.items():
+            with self.subTest(key):
+                entry = e_entry()
+                first_item(entry)['citation_basis'][key] = value
+                recite(entry['bundle'])
+                self.assertIn('RET-CITATION', ret_ids(review(e_request(entry))))
+
+    def test_recorded_metadata_outside_the_window(self):
+        scope = e_scope()
+        o = P.obligation('contacts', 'contact_references', scope, frames=(0, 1), object_id='object_01')
+        q = P.request(scope, [o])
+        for frame, caught in ((1, False), (2, True)):
+            item = P.reference_item(scope, 'contact_references', f'/frames/{frame:06d}/simulator/contacts',
+                                    {'saved_frame_index': frame})
+            entry = P.entry(q, P.evaluated(q, {'contacts': ('AVAILABLE', [item], '')}))
+            self.assertEqual('RET-ITEM' in ret_ids(review(e_request(entry))), caught, frame)
+
+    def test_a_bundle_that_failed_validation_returns_nothing(self):
+        scope = e_scope()
+        o = P.obligation('contacts', 'contact_references', scope, frames=(0, 1), object_id='object_01')
+        q = P.request(scope, [o, dict(o, id='more')])
+
+        def refused(status='INVALID SCOPE'):
+            return P.entry(q, P.refused(q, status, 'Wrong task or variant', scope))
+
+        def with_item(e):
+            g = e['bundle']['groups'][0]
+            g['items'] = [P.reference_item(scope, 'contact_references', '/frames/000000/simulator/contacts',
+                                           {'saved_frame_index': 0})]
+            P.release().cite(g, o, scope)
+            e['bundle']['assurance_status']['returned_values_verified'] = True
+
+        def mixed_groups(e):
+            e['bundle']['groups'][0]['status'] = e['bundle']['missing_obligations'][0]['status'] = 'UNAVAILABLE'
+        self.assertEqual(ret_ids(review(e_request(refused()))), set())
+        for name, entry, change in (('evidence returned', refused(), with_item),
+                                    ('evaluated status', refused('PARTIAL'), lambda e: None),
+                                    ('groups with other statuses', refused(), mixed_groups)):
+            with self.subTest(name):
+                change(entry)
+                self.assertEqual(ret_ids(review(e_request(entry))), {'RET-STATUS'})
+
+    def test_a_request_the_release_refuses_cannot_return_evidence(self):
+        scope = e_scope()
+        o = P.obligation('contacts', 'contact_references', scope, frames=(0, 1), object_id='object_01')
+        item = P.reference_item(scope, 'contact_references', '/frames/000000/simulator/contacts',
+                                {'saved_frame_index': 0})
+        refusals = {
+            'duplicate obligation IDs': [o, o],
+            'unregistered family': [dict(o, family='object_pose', field='pose')],
+            'wrong field': [dict(o, field='simulator/time/value')],
+            'missing temporal selector': [{k: v for k, v in o.items() if k != 'selector'}],
+            'selector on timeless metadata': [P.obligation('m', 'execution_metadata', scope, frames=(0, 1))],
+            'reversed selector': [dict(o, selector={'kind': 'frames', 'start': 2, 'end': 1})],
+            'downgraded assurance': [dict(o, assurance='provenance_complete')],
+            'crossing execution': [dict(o, execution_id='other')],
+        }
+        for name, obligations in refusals.items():
+            with self.subTest(name):
+                q = P.request(scope, obligations)
+                self.assertIsNotNone(R.request_refusal(q))
+                results = {x['id']: ('AVAILABLE', [item], '') for x in obligations}
+                report = review(e_request(P.entry(q, P.evaluated(q, results))))
+                self.assertIn('RET-QUERY', ret_ids(report))
+        historical = P.request(scope, [o], assurance='historical_producer_attestation')
+        self.assertIsNotNone(R.request_refusal(historical))
+        self.assertIsNone(R.request_refusal(P.request(scope, [o])))
+
+    def test_bundles_never_support_a_claim(self):
+        """A complete bundle is not a checker result: no-violation claims without one stay unsupported."""
+        scope = e_scope()
+        o = P.obligation('contacts', 'contact_references', scope, frames=(0, 2), object_id='object_01')
+        item = P.reference_item(scope, 'contact_references', '/frames/000000/simulator/contacts',
+                                {'saved_frame_index': 0})
+        q = P.request(scope, [o])
+        entry = P.entry(q, P.evaluated(q, {'contacts': ('AVAILABLE', [item], '')}))
+        self.assertEqual(entry['bundle']['completeness_status'], K.PHASE5_COMPLETE)
+        req = e_request(entry, checker=False, claims={o: K.NO_VIOLATION for o in ('object_00', 'object_01',
+                                                                                  'object_02')})
+        report = review(req)
+        self.assertEqual(ret_ids(report), set())
+        self.assertEqual({f['object_id'] for f in flagged(report, check_id='CONCL-UNSUPPORTED', blocking=True)},
+                         {'object_00', 'object_01', 'object_02'})
+        self.assertEqual(report['checker_admission'], [])
+        self.assertEqual(report['summary']['accepted_execution_outcome'], K.INSUFFICIENT)
+
+    def test_retrieval_context_cannot_claim_completeness_over_a_partial_bundle(self):
+        found = flagged(review(e_request(complete_claim=True)), check_id='CONCL-RETRIEVAL-COMPLETE')
+        self.assertEqual([(f['severity'], f['blocking']) for f in found], [('medium', False)])
+        scope = e_scope()
+        o = P.obligation('geo', 'geometry_identity', scope, object_id='object_01')
+        q = P.request(scope, [o])
+        complete = P.entry(q, P.evaluated(q, {'geo': ('AVAILABLE', [P.reference_item(
+            scope, 'geometry_identity', '/body_names', {'object_id': 'object_01'})], '')}))
+        self.assertFalse(flagged(review(e_request(complete, complete_claim=True)), check_id='CONCL-RETRIEVAL-COMPLETE'))
+
+    def test_conditional_assumptions_are_kept(self):
+        scope = e_scope()
+        o = P.obligation('j', 'raw.robot0_joint_pos', scope, frames=(0, 1), interpretation='conditional',
+                         allow_conditional=True, required_properties=['cache_offset_seconds'])
+        q = P.request(scope, [o])
+        item = P.channel_item(scope, 'raw.robot0_joint_pos', (0, 1), conditional=['cache_offset_seconds'])
+        entry = P.entry(q, P.evaluated(q, {'j': ('AVAILABLE', [item], 'ok', ['cache_offset_seconds'])}))
+        report = review(e_request(entry))
+        self.assertEqual(ret_ids(report), set())
+        self.assertEqual(report['structured_retrieval'][0]['conditional_assumptions'],
+                         [{'obligation_id': 'j', 'properties': ['cache_offset_seconds']}])
+        self.assertIn('assumptions, not verified properties', ' '.join(report['unresolved_concerns']))
+
+        def hidden(e):
+            e['bundle']['groups'][0]['conditional_assumptions'] = e['bundle']['conditional_assumptions'] = []
+
+        def undescribed(e):
+            del first_item(e, 'j')['interpretation_properties']['cache_offset_seconds']
+
+        def unreported(e):
+            e['bundle']['conditional_assumptions'] = []
+        units = P.obligation('u', 'raw.robot0_joint_pos', scope, frames=(0, 1), interpretation='verified_physical')
+        q2 = P.request(scope, [units])
+        si = P.channel_item(scope, 'raw.robot0_joint_pos', (0, 1))
+        si['samples'][0]['selected_unit_status'] = 'CONDITIONAL'
+        for name, e in (('hidden', copy.deepcopy(entry)), ('undescribed', copy.deepcopy(entry)),
+                        ('unreported', copy.deepcopy(entry)),
+                        ('SI units', P.entry(q2, P.evaluated(q2, {'u': ('AVAILABLE', [si], 'ok', [])})))):
+            with self.subTest(name):
+                {'hidden': hidden, 'undescribed': undescribed, 'unreported': unreported}.get(name, lambda e: None)(e)
+                self.assertEqual(ret_ids(review(e_request(e))), {'RET-CONDITIONAL'})
+        fixed = P.entry(q2, P.evaluated(q2, {'u': ('AVAILABLE', [si], 'ok', ['si_component_units'])}))
+        self.assertEqual(ret_ids(review(e_request(fixed))), set())
+        order = P.channel_item(scope, 'raw.robot0_joint_pos', (0, 1), conditional=['component_order'])
+        physical = P.entry(q2, P.evaluated(q2, {'u': ('AVAILABLE', [order], 'ok', ['component_order'])}))
+        self.assertEqual(ret_ids(review(e_request(physical))), set())  # verified_physical implies component_order
+
+    def test_solution_links_and_phase5_ids_in_solutions(self):
+        req = load(CASE_E)
+        row = review(req)['structured_retrieval'][0]
+        pose = req['evidence_package']['records'][3]  # object_01's pose record, the geometry item's original ID
+        self.assertEqual(pose['object_id'], 'object_01')
+        self.assertEqual([(x['object_id'], x['node_id'], x['evidence_id']) for x in row['linked_solutions']],
+                         [('object_01', 'E1', pose['id'])])
+        citation = row['citations'][0]['citation_id']
+        graph = req['argument_bundle']['graphs'][1]['graph']
+        next(n for n in graph['nodes'] if n['id'] == 'E1')['evidence_id'] = citation
+        report = review(req)
+        found = flagged(report, check_id='EV-MISSING', node_id='E1', object_id='object_01')
+        self.assertIn('Phase 5 structured-retrieval ID', found[0]['explanation'])
+        self.assertEqual(report['review_status'], 'rejected_invalid_input')
+
+    def test_the_model_cannot_cite_a_retrieval_citation(self):
+        citation = review(load(CASE_E))['structured_retrieval'][0]['citations'][0]['citation_id']
+        reply = json.dumps({'findings': [{'object_id': 'object_01', 'node_id': 'E1', 'category': 'C05',
+                                          'severity': 'medium', 'explanation': 'Overreads geometry.',
+                                          'evidence_ids': [citation], 'suggested_action': 'Narrow it.'}]})
+        report = review(load(CASE_E), L.ScriptedLLM(reply))
+        self.assertEqual(report['llm']['accepted'], 0)
+        self.assertIn('not in the package', report['rejected_llm_findings'][0]['reason'])
+
+    def test_malformed_section_and_changed_release(self):
+        req = load(CASE_E)
+        req['structured_evidence'] = {'request': {}}
+        report = review(req)
+        self.assertIn('RET-SHAPE', ret_ids(report))
+        self.assertEqual(report['review_status'], 'rejected_invalid_input')
+        original = K.PHASE5_QUERY_SCHEMA_SHA256
+        try:
+            K.PHASE5_QUERY_SCHEMA_SHA256 = '0' * 64
+            R._PINS = (('phase5_query', K.PHASE5_QUERY_SCHEMA_SHA256),) + R._PINS[1:]
+            report = review(load(CASE_E))
+        finally:
+            K.PHASE5_QUERY_SCHEMA_SHA256 = original
+            R._PINS = (('phase5_query', original),) + R._PINS[1:]
+        self.assertIn('RET-RELEASE', ret_ids(report))
+        self.assertEqual(review(load(CASE_E))['review_status'], 'completed')
+
+    def test_requests_without_structured_evidence_are_unchanged(self):
+        report = review(load('case_c_correct_unresolved.json'))
+        self.assertEqual(report['structured_retrieval'], [])
+        self.assertNotIn('Structured retrieval', ' '.join(report['unresolved_concerns']))
+
+    def test_fixtures_come_from_the_release_code(self):
+        """phase5.py runs api.py's own bundle assembly; the release's two schemas accept what it builds."""
+        from critic import schema as S
+        rel = P.release()
+        self.assertEqual(rel.response.__code__.co_filename, str(P.API))
+        bundle = load(CASE_E)['structured_evidence'][0]['bundle']
+        for name in ('phase5_bundle', 'phase5_consumer'):
+            self.assertEqual(S.errors(bundle, S.load(name)), [], name)
+
 
 class MalformedInput(unittest.TestCase):
     """The Critic must report bad input as findings, never crash."""
@@ -1531,12 +2060,12 @@ class MalformedInput(unittest.TestCase):
                 for i, v in enumerate(value):
                     yield from paths(v, prefix + (i,))
 
-        with_checker = load(CASE_D)
+        with_checker, with_bundle = load(CASE_D), load(CASE_E)
 
-        for trial in range(600):
-            # the last 200 trials corrupt the checker result only
-            req = copy.deepcopy(rng.choice(base) if trial < 400 else with_checker)
-            prefix = () if trial < 400 else ('checker_assessments',)
+        for trial in range(800):
+            # trials 400-599 corrupt the checker result only, 600-799 the structured evidence only
+            req = copy.deepcopy(rng.choice(base) if trial < 400 else with_checker if trial < 600 else with_bundle)
+            prefix = () if trial < 400 else ('checker_assessments',) if trial < 600 else ('structured_evidence',)
             target = rng.choice([p for p in paths(req) if p and p[:len(prefix)] == prefix and p != prefix])
             parent = req
             for step in target[:-1]:
@@ -1584,6 +2113,52 @@ class VocabularyInSync(unittest.TestCase):
         self.assertEqual(set(obj['properties']['outcome']['enum']), K.OUTCOMES)
         self.assertEqual({obj['properties']['validation_status']['const']}, set(A.SYNTHETIC_STATUSES))
         self.assertEqual(set(obj['properties']['coverage']['required']), set(A.COVERAGE_FIELDS))
+
+    def test_phase5_pins_match_the_release(self):
+        """contract.py's copies of the Phase 5 release constants, read from its config files without importing
+        them (they need the release's database paths), and the hashes of its schema files."""
+        import ast
+
+        def constants(path):
+            """Literal assignments, dict(k=literal, ...) calls, and the literal set of 'set(X)|{...}'."""
+            out = {}
+            for node in ast.parse((ROOT / path).read_text()).body:
+                if not (isinstance(node, ast.Assign) and isinstance(node.targets[0], ast.Name)):
+                    continue
+                name, value = node.targets[0].id, node.value
+                if isinstance(value, ast.Call) and ast.unparse(value.func) == 'dict' and not value.args:
+                    out[name] = {k.arg: ast.literal_eval(k.value) for k in value.keywords}
+                elif isinstance(value, ast.BinOp) and isinstance(value.right, ast.Set):
+                    out[name] = ('|', ast.unparse(value.left), ast.literal_eval(value.right))
+                else:
+                    try:
+                        out[name] = ast.literal_eval(value)
+                    except ValueError:
+                        pass
+            return out
+        release = constants('evaluation/r1_v4/rag_evidence_database/final_phase5_release/config.py')
+        base = constants('evaluation/r1_v4/rag_evidence_database/retrieval_remediation/config.py')
+        self.assertEqual(release['VERSION'], K.PHASE5_VERSION)
+        self.assertEqual(release['QUERY_SCHEMA_SHA'], K.PHASE5_QUERY_SCHEMA_SHA256)
+        self.assertEqual(base['DATABASE_SHA'], K.PHASE5_DATABASE_SHA256)
+        self.assertEqual(dict(zip(base['CHANNELS'], base['FIELDS'])), K.PHASE5_CHANNELS)
+        self.assertEqual({**K.PHASE5_CHANNELS, **release['GROUP_FIELDS']}, K.PHASE5_REGISTRY)
+        extra = K.PHASE5_TEMPORAL - set(K.PHASE5_CHANNELS)
+        self.assertEqual(release['TEMPORAL_FAMILIES'], ('|', 'set(CHANNELS)', extra))
+        from critic import schema as S
+        for name, pinned in (('phase5_query', K.PHASE5_QUERY_SCHEMA_SHA256),
+                             ('phase5_bundle', K.PHASE5_BUNDLE_SCHEMA_SHA256)):
+            self.assertEqual(hashlib.sha256(S.SCHEMAS[name].read_bytes()).hexdigest(), pinned, name)
+        bundle_schema = S.load('phase5_bundle')
+        self.assertEqual(tuple(bundle_schema['properties']['completeness_status']['enum']), K.PHASE5_STATUSES)
+        self.assertEqual(bundle_schema['properties']['schema_version']['const'], K.PHASE5_VERSION)
+
+    def test_digest_is_the_release_digest(self):
+        """Query IDs and citations are recomputed with contract.digest; the release uses provenance.digest."""
+        from evaluation.r1_v4 import provenance
+        entry = load(CASE_E)['structured_evidence'][0]
+        for value in (entry['request'], entry['bundle'], {'x': [1.0, -0.0, 'é', None, True]}):
+            self.assertEqual(K.digest(value), provenance.digest(value))
 
     def test_record_ids_reproduce_registry_hashes(self):
         records = json.loads((GSN_DIR / 'demo' / 'REGISTRY_EXPORT.json').read_text())['records']

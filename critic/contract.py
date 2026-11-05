@@ -8,8 +8,8 @@ redefines those formats; the tests check that these copies stay in sync.
 import hashlib
 import json
 
-REQUEST_SCHEMA_VERSION = 'critic-request/0.2.0'
-REPORT_SCHEMA_VERSION = 'critic-report/0.2.0'
+REQUEST_SCHEMA_VERSION = 'critic-request/0.3.0'
+REPORT_SCHEMA_VERSION = 'critic-report/0.3.0'
 
 # --- existing GSN 1.0.0 vocabulary (gsn.py / gsn_graph.schema.json) ---
 GSN_SCHEMA_VERSION = '1.0.0'
@@ -65,6 +65,46 @@ OPTIONAL_EVIDENCE = {'velocity', 'task_instruction'}
 AXIS_TO_CLOCK = {'saved_frame': ('frame', 'saved_frame_index')}
 CONFIG_SCHEMA_ID = 'urn:trustworthy:r1:generalized:configuration:2.0.1'
 
+# --- Phase 5 structured retrieval release (evaluation/r1_v4/rag_evidence_database/final_phase5_release) ---
+# Pinned from its config.py and retrieval_remediation/config.py; the tests check these copies, and
+# retrieval.py refuses every bundle if the release's schema files no longer match their hashes.
+PHASE5_VERSION = 'phase5-structured-1.0.0'
+PHASE5_DATABASE_SHA256 = 'f6dbea047ad16c5420c34ff002e068e4ade41ab52806c936816aaf7019f303c8'
+PHASE5_QUERY_SCHEMA_SHA256 = '3c1d109fca5fd80206c0c2f3b2640e015e4aa4d83b6993f623cac4aadc9c9313'
+PHASE5_BUNDLE_SCHEMA_SHA256 = '912461e96fa69efebee2a87197e96e8b6b2b844a58a801a1186a20e7297201c5'
+PHASE5_CITATION_VERSION = '1'
+PHASE5_COMPLETE = 'COMPLETE WITHIN VERIFIED CONTRACT'
+PHASE5_STATUSES = (PHASE5_COMPLETE, 'PARTIAL', 'UNAVAILABLE', 'UNSUPPORTED', 'INVALID SCOPE', 'UNVERIFIED PLAN')
+# Statuses of a request the release did not evaluate (refused, integrity failure, failed independent validation).
+PHASE5_NOT_EVALUATED = ('INVALID SCOPE', 'UNSUPPORTED', 'UNAVAILABLE', 'UNVERIFIED PLAN')
+# StructuredRetriever.response attaches these to every bundle; a consumer must keep them.
+PHASE5_LIMITATIONS = (
+    'Completeness covers mandatory explicit obligations only, never safety-claim sufficiency',
+    'Saved-index/recorded-label association is not sensor synchronization',
+    'Metadata/geometry/counts do not establish support/contact/falling',
+    'Historical binary identity and physical calibration remain unattested',
+)
+PHASE5_CHANNELS = {
+    'raw.robot0_gripper_qpos': 'raw_observation/robot0_gripper_qpos/value',
+    'raw.robot0_gripper_qvel': 'raw_observation/robot0_gripper_qvel/value',
+    'raw.robot0_joint_pos': 'raw_observation/robot0_joint_pos/value',
+    'raw.robot0_joint_vel': 'raw_observation/robot0_joint_vel/value',
+    'raw.simulator_actuator_force': 'simulator/actuator_force/value',
+    'simulator.ncon': 'simulator/ncon/value',
+}
+PHASE5_REGISTRY = {**PHASE5_CHANNELS,
+                   'source_provenance': 'source_identity',
+                   'execution_metadata': 'recorded_execution_metadata',
+                   'geometry_identity': 'native_object_identity',
+                   'main_table_identity': 'verified_symbolic_alias',
+                   'recorded_time': 'recorded_clock_labels',
+                   'action_metadata': 'policy_action_metadata',
+                   'inference_metadata': 'inference_call_metadata',
+                   'camera_references': 'saved_image_references',
+                   'contact_references': 'recorded_contact_references'}
+PHASE5_TEMPORAL = set(PHASE5_CHANNELS) | {'recorded_time', 'action_metadata', 'inference_metadata',
+                                          'camera_references', 'contact_references'}
+
 # --- criticism categories (Critic handoff, section 8) ---
 CATEGORIES = {
     'C01': 'Structural argument defect',
@@ -87,7 +127,7 @@ SEVERITIES = ('high', 'medium', 'low')
 # the request contract, checker input) put the review in the 'validation' phase: the input is invalid,
 # the LLM is not called and the report is a rejection, not a completed critique. The two exceptions are
 # argument defects Graph.validate accepts. Everything else (conclusions, LLM) is the 'review' phase.
-VALIDATION_PREFIXES = ('REQ-', 'SCHEMA-', 'CONFIG-', 'EV-', 'BUNDLE-', 'GSN-', 'CHK-')
+VALIDATION_PREFIXES = ('REQ-', 'SCHEMA-', 'CONFIG-', 'EV-', 'BUNDLE-', 'GSN-', 'CHK-', 'RET-')
 REVIEW_EXCEPTIONS = {'GSN-UNSUPPORTED-GOAL', 'EV-UNUSABLE'}
 REVIEW_STATUSES = ('completed', 'completed_llm_failed', 'rejected_invalid_input', 'internal_error')
 

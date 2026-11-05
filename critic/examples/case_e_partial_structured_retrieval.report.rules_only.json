@@ -1,0 +1,222 @@
+{
+  "schema_version": "critic-report/0.3.0",
+  "critic_version": "0.3.0",
+  "request_id": "CASE-E-partial-structured-retrieval",
+  "execution_id": "synthetic-execution",
+  "test_fixture": true,
+  "review_status": "completed",
+  "input_valid": true,
+  "status_detail": null,
+  "llm": {
+    "backend": "none",
+    "model": null,
+    "prompt_version": "critic-prompt/v3",
+    "called": false,
+    "ok": true,
+    "latency_s": null,
+    "error": null,
+    "prompt_sha256": null,
+    "input_sha256": null,
+    "request_sha256": null,
+    "settings": null,
+    "raw_response": null,
+    "raw_response_truncated": false,
+    "response_sha256": null,
+    "accepted": 0,
+    "rejected": 0
+  },
+  "checker_admission": [
+    {
+      "assessment_id": "ca:f9865d3b96a84f461592938d4984f8a23a453980d8c06a2d7ab75f929f4614b3:object_00",
+      "object_id": "object_00",
+      "outcome": "violation_observed",
+      "applicability": "applicable",
+      "interval": [
+        0,
+        2
+      ],
+      "admitted": true,
+      "route": "synthetic_test_fixture",
+      "problems": []
+    },
+    {
+      "assessment_id": "ca:f9865d3b96a84f461592938d4984f8a23a453980d8c06a2d7ab75f929f4614b3:object_01",
+      "object_id": "object_01",
+      "outcome": "no_violation_observed_within_validated_coverage",
+      "applicability": "applicable",
+      "interval": [
+        0,
+        2
+      ],
+      "admitted": true,
+      "route": "synthetic_test_fixture",
+      "problems": []
+    },
+    {
+      "assessment_id": "ca:f9865d3b96a84f461592938d4984f8a23a453980d8c06a2d7ab75f929f4614b3:object_02",
+      "object_id": "object_02",
+      "outcome": "not_applicable",
+      "applicability": "not_applicable",
+      "interval": [
+        0,
+        2
+      ],
+      "admitted": true,
+      "route": "synthetic_test_fixture",
+      "problems": []
+    }
+  ],
+  "structured_retrieval": [
+    {
+      "index": 0,
+      "accepted": true,
+      "query_id": "query:5279c6070e1eda723d32b4c4691ffc83b9b43a86920279c5fc95e5c81bf5ac18",
+      "request_sha256": "5279c6070e1eda723d32b4c4691ffc83b9b43a86920279c5fc95e5c81bf5ac18",
+      "bundle_sha256": "7cefd8231dec0efe07a8f7583f3adf60a4fc1c3293e2381868e1b33239629057",
+      "completeness_status": "PARTIAL",
+      "reason": "Missing mandatory evidence remains explicit",
+      "citations": [
+        {
+          "citation_id": "evidence-citation:6decd5f654befa81ef2e26ca6e653c22fb6923d4771e4eb98c55f63017cb216a",
+          "family": "geometry_identity",
+          "record_id": "source-ref:ae4d5a7c5ea3ba843df4de0cb074f309395868532764aedf858fbddba455e8a4",
+          "original_evidence_ids": [
+            "ev:1b4c6c87584982e25928e7dfa04f856bf0afc579517b1dbd7bf7e52f7b6fabda"
+          ],
+          "integrity_status": "verified_source",
+          "origin": "recorded_metadata_or_existing_derived_identity"
+        },
+        {
+          "citation_id": "evidence-citation:0a49aeea7771cf8d76bae4ede19d2afffdf2dec8813e50ed64d9d819fcee37a9",
+          "family": "raw.robot0_joint_pos",
+          "record_id": "channel:31122024212743ed54aa53fb52a6be9394ede0d7404d68651fa02d01d887cd27",
+          "original_evidence_ids": [
+            "channel:31122024212743ed54aa53fb52a6be9394ede0d7404d68651fa02d01d887cd27"
+          ],
+          "integrity_status": "verified_source",
+          "origin": "direct_recording"
+        }
+      ],
+      "missing_obligations": [
+        {
+          "obligation_id": "contacts_object_01",
+          "family": "contact_references",
+          "mandatory": true,
+          "status": "UNAVAILABLE",
+          "reason": "No recorded samples in requested scope",
+          "object_id": "object_01"
+        },
+        {
+          "obligation_id": "camera_frames",
+          "family": "camera_references",
+          "mandatory": false,
+          "status": "UNAVAILABLE",
+          "reason": "No recorded samples in requested scope",
+          "object_id": null
+        }
+      ],
+      "conditional_assumptions": [],
+      "assurance_status": {
+        "requested": "verified_source_values",
+        "satisfied": false,
+        "verification_mode": "verified_session",
+        "returned_values_verified": true,
+        "historical_runtime_attested": false,
+        "provenance": {
+          "scope": "current_source_identity_only",
+          "historical_runtime_attested": false
+        }
+      },
+      "limitations": [
+        "Completeness covers mandatory explicit obligations only, never safety-claim sufficiency",
+        "Saved-index/recorded-label association is not sensor synchronization",
+        "Metadata/geometry/counts do not establish support/contact/falling",
+        "Historical binary identity and physical calibration remain unattested"
+      ],
+      "linked_solutions": [
+        {
+          "object_id": "object_01",
+          "node_id": "E1",
+          "evidence_id": "ev:1b4c6c87584982e25928e7dfa04f856bf0afc579517b1dbd7bf7e52f7b6fabda",
+          "citation_id": "evidence-citation:6decd5f654befa81ef2e26ca6e653c22fb6923d4771e4eb98c55f63017cb216a"
+        }
+      ]
+    }
+  ],
+  "criticisms": [
+    {
+      "criticism_id": "CRIT-001",
+      "critic_version": "0.3.0",
+      "check_id": "CONCL-OBLIGATION-MISSING",
+      "phase": "review",
+      "category": "C04",
+      "category_name": "Missing object or temporal coverage",
+      "severity": "medium",
+      "blocking": false,
+      "object_id": "object_01",
+      "node_id": "G1",
+      "explanation": "The admitted checker assessment supports no violation for object_01, but structured retrieval query:5279c6070e1eda723d32b4c4691ffc83b9b43a86920279c5fc95e5c81bf5ac18 left the mandatory obligation contacts_object_01 (contact_references, frames [0, 2]) UNAVAILABLE: No recorded samples in requested scope. This does not by itself invalidate the assessment; check that the two sources agree.",
+      "evidence_ids": [
+        "ca:f9865d3b96a84f461592938d4984f8a23a453980d8c06a2d7ab75f929f4614b3:object_01"
+      ],
+      "requirement_refs": [
+        "evaluation/r1_v4/rag_evidence_database/final_phase5_release/DOWNSTREAM_HANDOFF.md"
+      ],
+      "finding_source": "deterministic",
+      "suggested_action": "Confirm the checker had the evidence the obligation asked for, or qualify the claim.",
+      "additional_evidence_needed": false,
+      "human_review_required": true
+    }
+  ],
+  "evidence_requests": [
+    {
+      "object_id": "object_01",
+      "measurement_type": "contact_references",
+      "interval": [
+        0,
+        2
+      ],
+      "reason": "Mandatory obligation contacts_object_01 of query:5279c6070e1eda723d32b4c4691ffc83b9b43a86920279c5fc95e5c81bf5ac18 is UNAVAILABLE.",
+      "criticism_id": "CRIT-001"
+    }
+  ],
+  "unresolved_concerns": [
+    "Admitted checker assessments are synthetic test-fixture outputs, not validated empirical results.",
+    "The admitted checker assessment ca:f9865d3b96a84f461592938d4984f8a23a453980d8c06a2d7ab75f929f4614b3:object_00 (object_00, violation_observed) reports its evidence is incomplete (complete: false).",
+    "Retrieval reports that the evidence package is incomplete for the requested scope.",
+    "Structured retrieval query:5279c6070e1eda723d32b4c4691ffc83b9b43a86920279c5fc95e5c81bf5ac18 is PARTIAL: Missing mandatory evidence remains explicit.",
+    "Structured retrieval query:5279c6070e1eda723d32b4c4691ffc83b9b43a86920279c5fc95e5c81bf5ac18: mandatory obligation contacts_object_01 (contact_references for object_01) is UNAVAILABLE: No recorded samples in requested scope.",
+    "Structured retrieval query:5279c6070e1eda723d32b4c4691ffc83b9b43a86920279c5fc95e5c81bf5ac18: optional obligation camera_frames (camera_references) is UNAVAILABLE: No recorded samples in requested scope.",
+    "Structured retrieval completeness covers only the explicit mandatory obligations of each request, not complete R1 observations or the sufficiency of any claim. The Critic checked the bundles for consistency and recomputed their hashes, but could not open the database or the sources to authenticate them. Retrieved items are recorded source references, not physical events.",
+    "This request contains synthetic test data; its results are not empirical findings."
+  ],
+  "rejected_llm_findings": [],
+  "summary": {
+    "objects_configured": [
+      "object_00",
+      "object_01",
+      "object_02"
+    ],
+    "objects_with_graphs": [
+      "object_00",
+      "object_01",
+      "object_02"
+    ],
+    "objects_missing": [],
+    "claimed_execution_outcome": "violation_observed",
+    "recomputed_execution_outcome": "violation_observed",
+    "accepted_execution_outcome": "violation_observed",
+    "empty_scope": false,
+    "counts_by_source": {
+      "deterministic": 1
+    },
+    "counts_by_category": {
+      "C04": 1
+    },
+    "blocking_defects": false,
+    "needs_human_review": [
+      "CRIT-001"
+    ],
+    "disclaimer": "A report with no blocking findings means only that this Critic found no issue within the supplied evidence and review scope. It does not show that R1 holds or that the robot was physically safe."
+  }
+}

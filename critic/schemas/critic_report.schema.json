@@ -1,13 +1,13 @@
 {
-  "$id": "urn:trustworthy:critic-report:0.2.0",
+  "$id": "urn:trustworthy:critic-report:0.3.0",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "Critic report",
   "description": "Machine-readable review for the future Revision component. No findings means only that this Critic found no issue within the supplied evidence and review scope; it is not evidence that R1 holds.",
   "type": "object",
   "additionalProperties": false,
-  "required": ["schema_version", "critic_version", "request_id", "execution_id", "test_fixture", "review_status", "input_valid", "status_detail", "llm", "checker_admission", "criticisms", "evidence_requests", "unresolved_concerns", "rejected_llm_findings", "summary"],
+  "required": ["schema_version", "critic_version", "request_id", "execution_id", "test_fixture", "review_status", "input_valid", "status_detail", "llm", "checker_admission", "structured_retrieval", "criticisms", "evidence_requests", "unresolved_concerns", "rejected_llm_findings", "summary"],
   "properties": {
-    "schema_version": {"const": "critic-report/0.2.0"},
+    "schema_version": {"const": "critic-report/0.3.0"},
     "critic_version": {"type": "string"},
     "request_id": {"type": "string"},
     "execution_id": {"type": "string"},
@@ -58,6 +58,75 @@
           "admitted": {"type": "boolean"},
           "route": {"enum": ["synthetic_test_fixture", "admitted_empirical", null]},
           "problems": {"type": "array", "items": {"type": "string"}}
+        }
+      }
+    },
+    "structured_retrieval": {
+      "description": "One row per structured_evidence entry: whether the Critic accepted it and, if so, what the bundle reported, unchanged: its status, citations, every missing obligation (mandatory or optional), conditional assumptions, assurance and limitations, plus the solution nodes whose registry record an item lists in original_evidence_ids. A missing obligation with status NOT INDEPENDENTLY FULFILLED is a group the release marked AVAILABLE that its independent validation did not accept. Nothing here is a checker assessment or a physical event.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["index", "accepted", "query_id", "request_sha256", "bundle_sha256", "completeness_status", "reason", "citations", "missing_obligations", "conditional_assumptions", "assurance_status", "limitations", "linked_solutions"],
+        "properties": {
+          "index": {"type": "integer", "minimum": 0},
+          "accepted": {"type": "boolean"},
+          "query_id": {"type": ["string", "null"]},
+          "request_sha256": {"type": ["string", "null"]},
+          "bundle_sha256": {"type": ["string", "null"]},
+          "completeness_status": {
+            "enum": ["COMPLETE WITHIN VERIFIED CONTRACT", "PARTIAL", "UNAVAILABLE", "UNSUPPORTED", "INVALID SCOPE", "UNVERIFIED PLAN", null]
+          },
+          "reason": {"type": ["string", "null"]},
+          "citations": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["citation_id", "family", "record_id", "original_evidence_ids", "integrity_status", "origin"],
+              "properties": {
+                "citation_id": {"type": "string"},
+                "family": {"type": "string"},
+                "record_id": {"type": "string"},
+                "original_evidence_ids": {"type": "array", "items": {"type": "string"}},
+                "integrity_status": {"type": "string"},
+                "origin": {"type": "string"}
+              }
+            }
+          },
+          "missing_obligations": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["obligation_id", "family", "mandatory", "status", "reason", "object_id"],
+              "properties": {
+                "obligation_id": {"type": "string"},
+                "family": {"type": "string"},
+                "mandatory": {"type": "boolean"},
+                "status": {"type": "string"},
+                "reason": {"type": "string"},
+                "object_id": {"type": ["string", "null"]}
+              }
+            }
+          },
+          "conditional_assumptions": {"type": "array", "items": {"type": "object"}},
+          "assurance_status": {"type": ["object", "null"]},
+          "limitations": {"type": "array", "items": {"type": "string"}},
+          "linked_solutions": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["object_id", "node_id", "evidence_id", "citation_id"],
+              "properties": {
+                "object_id": {"type": "string"},
+                "node_id": {"type": ["string", "null"]},
+                "evidence_id": {"type": "string"},
+                "citation_id": {"type": "string"}
+              }
+            }
+          }
         }
       }
     },

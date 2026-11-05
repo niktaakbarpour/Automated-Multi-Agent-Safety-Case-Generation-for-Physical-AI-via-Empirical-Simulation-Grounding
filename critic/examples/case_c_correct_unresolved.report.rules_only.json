@@ -1,6 +1,6 @@
 {
-  "schema_version": "critic-report/0.2.0",
-  "critic_version": "0.2.0",
+  "schema_version": "critic-report/0.3.0",
+  "critic_version": "0.3.0",
   "request_id": "CASE-C-correct-unresolved",
   "execution_id": "SYNTH-EXEC-001",
   "test_fixture": true,
@@ -26,6 +26,7 @@
     "rejected": 0
   },
   "checker_admission": [],
+  "structured_retrieval": [],
   "criticisms": [],
   "evidence_requests": [],
   "unresolved_concerns": [

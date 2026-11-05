@@ -1,5 +1,5 @@
 {
- "schema_version": "critic-request/0.2.0",
+ "schema_version": "critic-request/0.3.0",
  "request_id": "CASE-B-missing-or-wrong-evidence",
  "test_fixture": true,
  "evaluation_context": {

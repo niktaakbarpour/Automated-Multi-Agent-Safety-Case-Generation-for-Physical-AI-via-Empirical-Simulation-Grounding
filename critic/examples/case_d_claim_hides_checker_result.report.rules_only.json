@@ -1,6 +1,6 @@
 {
-  "schema_version": "critic-report/0.2.0",
-  "critic_version": "0.2.0",
+  "schema_version": "critic-report/0.3.0",
+  "critic_version": "0.3.0",
   "request_id": "CASE-D-claim-hides-checker-result",
   "execution_id": "synthetic-execution",
   "test_fixture": true,
@@ -66,10 +66,11 @@
       "problems": []
     }
   ],
+  "structured_retrieval": [],
   "criticisms": [
     {
       "criticism_id": "CRIT-001",
-      "critic_version": "0.2.0",
+      "critic_version": "0.3.0",
       "check_id": "CONCL-HIDES-VIOLATION",
       "phase": "review",
       "category": "C07",

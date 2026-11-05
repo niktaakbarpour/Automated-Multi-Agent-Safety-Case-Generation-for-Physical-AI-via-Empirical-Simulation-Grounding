@@ -6,7 +6,7 @@ from . import contract as K
 from . import llm as L
 from . import schema as SCHEMA
 
-CRITIC_VERSION = '0.2.0'
+CRITIC_VERSION = '0.3.0'
 DISCLAIMER = ('A report with no blocking findings means only that this Critic found no issue within the '
               'supplied evidence and review scope. It does not show that R1 holds or that the robot was '
               'physically safe.')
@@ -58,6 +58,7 @@ def review(request, llm=None):
         'status_detail': None,
         'llm': status,
         'checker_admission': info['checker_admission'],
+        'structured_retrieval': info['structured_retrieval'],
         'criticisms': criticisms,
         'evidence_requests': evidence_requests,
         'unresolved_concerns': _unresolved_concerns(req, info),
@@ -152,6 +153,36 @@ def _unresolved_concerns(req, info):
     for gap in retrieval.get('gaps') if isinstance(retrieval.get('gaps'), list) else []:
         if isinstance(gap, dict):
             out.append(f"Missing {gap.get('measurement_type')} for {gap.get('object_id')} over {gap.get('interval')}.")
+    out += _structured_concerns(info['structured'])
     if req.get('test_fixture'):
         out.append('This request contains synthetic test data; its results are not empirical findings.')
     return out
+
+
+def _structured_concerns(structured):
+    """Every non-complete status, missing obligation and conditional assumption of the admitted Phase 5
+    bundles, kept as the release reported it."""
+    out = []
+    for view in structured:
+        qid = view['query_id']
+        if view['status'] != K.PHASE5_COMPLETE:
+            out.append(f"Structured retrieval {qid} is {view['status']}: {_sentence(view['reason'])}")
+        for m in view['missing']:
+            kind = 'mandatory' if m['mandatory'] else 'optional'
+            about = f" for {m['object_id']}" if m['object_id'] else ''
+            out.append(f"Structured retrieval {qid}: {kind} obligation {m['obligation_id']} ({m['family']}{about}) is "
+                       f"{m['status']}: {_sentence(m['reason'])}")
+        for c in view['conditional']:
+            out.append(f"Structured retrieval {qid}: obligation {c['obligation_id']} uses a conditional interpretation "
+                       f"({', '.join(c['properties'])}); these are assumptions, not verified properties.")
+    if structured:
+        out.append('Structured retrieval completeness covers only the explicit mandatory obligations of each request, '
+                   'not complete R1 observations or the sufficiency of any claim. The Critic checked the bundles for '
+                   'consistency and recomputed their hashes, but could not open the database or the sources to '
+                   'authenticate them. Retrieved items are recorded source references, not physical events.')
+    return out
+
+
+def _sentence(text):
+    text = text.strip() or 'no reason given'
+    return text if text.endswith('.') else text + '.'

@@ -1,6 +1,6 @@
 {
-  "schema_version": "critic-report/0.2.0",
-  "critic_version": "0.2.0",
+  "schema_version": "critic-report/0.3.0",
+  "critic_version": "0.3.0",
   "request_id": "CASE-A-unsupported-safety-claim",
   "execution_id": "SYNTH-EXEC-001",
   "test_fixture": true,
@@ -17,7 +17,7 @@
     "error": null,
     "prompt_sha256": "cc1c4fed7fc20d006b83653c040343e1cbc5e8563794254f12eb4883daf0c950",
     "input_sha256": "d67a5b3c07ecb425e29ef9fae589b1210e03c8f4153840979b65f7fb8be1e6a3",
-    "request_sha256": "5c943a1ba56c17ac5026864540d15f0bdba3d01a7facaee6560e5d8eb895e7f1",
+    "request_sha256": "b64427bdbafb088831cfe6a7701c4c57879e7ccbd922b190c2de60f6bfd55046",
     "settings": {
       "scripted_reply_sha256": "cf18bfaeb7ce3d5e2033891bc612ac37f75b21df29d801354527deb7d397ee60"
     },
@@ -28,10 +28,11 @@
     "rejected": 2
   },
   "checker_admission": [],
+  "structured_retrieval": [],
   "criticisms": [
     {
       "criticism_id": "CRIT-001",
-      "critic_version": "0.2.0",
+      "critic_version": "0.3.0",
       "check_id": "CONCL-UNSUPPORTED",
       "phase": "review",
       "category": "C06",
@@ -53,7 +54,7 @@
     },
     {
       "criticism_id": "CRIT-002",
-      "critic_version": "0.2.0",
+      "critic_version": "0.3.0",
       "check_id": "CONCL-UNSUPPORTED",
       "phase": "review",
       "category": "C06",
@@ -75,7 +76,7 @@
     },
     {
       "criticism_id": "CRIT-003",
-      "critic_version": "0.2.0",
+      "critic_version": "0.3.0",
       "check_id": "CONCL-UNSUPPORTED",
       "phase": "review",
       "category": "C06",
@@ -97,7 +98,7 @@
     },
     {
       "criticism_id": "CRIT-004",
-      "critic_version": "0.2.0",
+      "critic_version": "0.3.0",
       "check_id": "LLM",
       "phase": "review",
       "category": "C05",
@@ -120,7 +121,7 @@
     },
     {
       "criticism_id": "CRIT-005",
-      "critic_version": "0.2.0",
+      "critic_version": "0.3.0",
       "check_id": "LLM",
       "phase": "review",
       "category": "C12",

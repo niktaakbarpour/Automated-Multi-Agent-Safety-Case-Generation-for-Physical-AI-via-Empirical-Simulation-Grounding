@@ -1,0 +1,3478 @@
+{
+ "schema_version": "critic-request/0.3.0",
+ "request_id": "CASE-E-partial-structured-retrieval",
+ "test_fixture": true,
+ "evaluation_context": {
+  "requirement_id": "R1",
+  "requirement_version": "2.0.0",
+  "requirement_ref": "evaluation/r1_v4/synthetic/three_object_violation.json",
+  "execution_id": "synthetic-execution",
+  "benchmark": "synthetic-analytical",
+  "task_id": "synthetic-task",
+  "variant_id": "synthetic-variant-0",
+  "model_checkpoint": "synthetic-policy@0000000",
+  "r1_configuration": {
+   "aggregation_policy": {
+    "empty_scope": "not_applicable_excluded_from_metrics",
+    "outcome_precedence": [
+     "admissible_violation",
+     "invalid_contract",
+     "insufficient_information",
+     "qualified_negative",
+     "not_applicable"
+    ],
+    "preserve_object_vector": true
+   },
+   "assessment_manifest": {
+    "adapter": {
+     "artifact_ref": "builtin:adapter",
+     "id": "analytical-declarations",
+     "sha256": "35f775bb958173c312115373de733ab1dfe738dc6f0ff0708219830282cb8136",
+     "version": "1.0.0"
+    },
+    "calibration_records": [],
+    "capability_record": {
+     "artifact_ref": "builtin:capability_record",
+     "id": "analytical-contract-capabilities",
+     "sha256": "1aa35ed7319878ca844714bf0dfdea4b4f30977ada269807ae272f0e1f3808f6",
+     "version": "1.0.0"
+    },
+    "checker": {
+     "artifact_ref": "builtin:checker",
+     "id": "r1-v4-restricted-infrastructure",
+     "sha256": "3a19486c5a4ae834feb27dd07b2e05f9dd65db6ab0acf066c6a0435718e46f52",
+     "version": "4.0.0a1"
+    },
+    "configuration_schema": {
+     "artifact_ref": "builtin:configuration_schema",
+     "id": "urn:trustworthy:r1:generalized:configuration:2.0.1",
+     "sha256": "b7bf5a3c56e805951fcc99d518c3c09eadd0fede5ed02710e6672e44e19c1377",
+     "version": "2.0.1"
+    },
+    "evidence_schema": {
+     "artifact_ref": "builtin:evidence_schema",
+     "id": "urn:trustworthy:r1:v4:evidence:1.0.0",
+     "sha256": "1d466cacec26e0b6434b56813be48d6a7f167645fbd6c556443ff9d1cf15caba",
+     "version": "1.0.0"
+    },
+    "inference_profile": {
+     "artifact_ref": "builtin:inference_profile",
+     "id": "analytical-static-box",
+     "sha256": "f82e0414ad89f37930a5dd65dd5515fef383e13e336ff65b403e3b16213d13d1",
+     "version": "1.0.0"
+    },
+    "manifest_version": "1.0.0",
+    "purpose": "analytical_fixture",
+    "requested_domain": {
+     "cells_ref": "synthetic:domain",
+     "interval_ref": "#/monitoring_interval",
+     "projection": "saved_frame_projection"
+    },
+    "requirement": {
+     "artifact_ref": "builtin:requirement",
+     "id": "R1",
+     "sha256": "aef444c6850fb8c5a49fc06ca754b7cb2b5b8996a35520ccac463c5c588ce48e",
+     "version": "2.0.0"
+    },
+    "source_model_bindings": [
+     {
+      "artifact_ref": "synthetic:domain",
+      "sha256": "814c414626b11524b8d1b5a4f2289290d18bdd3108cad2ac86151773740d7514"
+     },
+     {
+      "artifact_ref": "synthetic:model",
+      "sha256": "ea4bdc62c25e04cb164d26d752ac747be9bb0b7840d36ed10961ccbef580b3fb"
+     },
+     {
+      "artifact_ref": "synthetic:scope",
+      "sha256": "ab02ae4b97d7f534674beaee0b10930f5d0c332a120ece90b3ddae972bf62eaf"
+     },
+     {
+      "artifact_ref": "synthetic:source",
+      "sha256": "7fbf1e4e7897b927072c70f414dfdc4731cf3e2953d5115eeca56afba2649146"
+     }
+    ],
+    "validation_status": "capability_tested",
+    "validity_scope_ref": "synthetic:scope"
+   },
+   "benchmark": {
+    "adapter_id": "analytical-declarations",
+    "adapter_version": "1.0.0",
+    "id": "synthetic-analytical"
+   },
+   "coordinate_frames": {
+    "canonical_handedness": "right_handed",
+    "common_frame": "world",
+    "gravity_direction_ref": "builtin:inference_profile",
+    "length_unit": "m",
+    "time_unit": "s",
+    "transforms_ref": "builtin:inference_profile"
+   },
+   "evidence_requirements": {
+    "camera": "conditionally_required",
+    "geometry": "required_for_present_geometry_claim",
+    "identity": "required",
+    "object_pose": "required_for_state_based_witness",
+    "prohibited_sole_proxies": [
+     "task_success",
+     "object_root_height",
+     "camera_overlap",
+     "contact_presence"
+    ],
+    "provenance": "required",
+    "robot_state": "conditionally_required_for_handling_exclusion",
+    "support_witness": "required_contact_or_validated_alternative",
+    "task_instruction": "optional_unless_task_conditioned_claim",
+    "timestamps": "required",
+    "velocity": "optional_or_derived_with_uncertainty"
+   },
+   "execution_id": "synthetic-execution",
+   "fall_detection_rules": {
+    "floor_required": false,
+    "handling_exclusion": "established_robot_lift_or_carry",
+    "hazard": "unsupported_downward_falling_departure",
+    "incidental_robot_contact_exempts": false,
+    "numeric_policy": {
+     "calibration_ref": null,
+     "hysteresis_m": null,
+     "persistence_window_s": null,
+     "physical_distance_uncertainty_m": null,
+     "roundoff_profile_ref": "builtin:inference_profile"
+    },
+    "replacement_policy": "abstain_after_replacement",
+    "robot_causation_required": false
+   },
+   "geometry_contract": {
+    "profile_ref": "builtin:inference_profile",
+    "required_shape_capabilities": [
+     "box"
+    ],
+    "source_model_binding": "per_execution_hash_and_identity_validation",
+    "support_inference_ref": "builtin:inference_profile",
+    "unknown_representation_policy": "invalid_measurement_contract"
+   },
+   "initial_support_rules": {
+    "absence_proof": "closed_world_support_exclusion",
+    "boundary_context_offsets": [],
+    "direct_support": true,
+    "indirect_support": true,
+    "multiple_parents": "require_validated_load_path",
+    "profile": "validated_boundary_support",
+    "surface_set_policy": "designated_union",
+    "verified_object_absence": "not_applicable_with_absence_certificate"
+   },
+   "monitoring_interval": {
+    "axis": "saved_frame",
+    "bounds": "inclusive",
+    "context_policy": "preserve_context_without_shifting_interval",
+    "end": {
+     "kind": "explicit_index",
+     "value": 2
+    },
+    "settling": {
+     "command_count": 0,
+     "role": "boundary_resolution_only",
+     "source": "illustrative_fixture"
+    },
+    "start": {
+     "kind": "explicit_index",
+     "value": 0
+    }
+   },
+   "object_surface_mapping": {
+    "object_00": [
+     "root_A"
+    ],
+    "object_01": [
+     "root_A"
+    ],
+    "object_02": [
+     "root_A"
+    ]
+   },
+   "protected_objects": [
+    "object_00",
+    "object_01",
+    "object_02"
+   ],
+   "requirement_id": "R1",
+   "requirement_version": "2.0.0",
+   "source_bindings": [
+    {
+     "artifact_ref": "synthetic:domain",
+     "sha256": "814c414626b11524b8d1b5a4f2289290d18bdd3108cad2ac86151773740d7514"
+    },
+    {
+     "artifact_ref": "synthetic:model",
+     "sha256": "ea4bdc62c25e04cb164d26d752ac747be9bb0b7840d36ed10961ccbef580b3fb"
+    },
+    {
+     "artifact_ref": "synthetic:scope",
+     "sha256": "ab02ae4b97d7f534674beaee0b10930f5d0c332a120ece90b3ddae972bf62eaf"
+    },
+    {
+     "artifact_ref": "synthetic:source",
+     "sha256": "7fbf1e4e7897b927072c70f414dfdc4731cf3e2953d5115eeca56afba2649146"
+    }
+   ],
+   "specification_status": "approved_restricted_design",
+   "support_surfaces": [
+    {
+     "frame_ref": "world",
+     "geometry_ref": "synthetic:model",
+     "id": "root_A",
+     "motion_model": "stationary",
+     "role": "environment_support"
+    },
+    {
+     "frame_ref": "world",
+     "geometry_ref": "synthetic:model",
+     "id": "root_B",
+     "motion_model": "stationary",
+     "role": "environment_support"
+    }
+   ],
+   "task_id": "synthetic-task",
+   "temporal_alignment": {
+    "camera_phase_uncertainty_s": null,
+    "claim_intersample_observation": false,
+    "clock_ref": "synthetic:domain",
+    "domain": "saved_frame_projection",
+    "state_phase_uncertainty_s": 0
+   },
+   "uncertainty_policy": {
+    "missing_is_negative": false,
+    "missing_is_nonapplicable": false,
+    "partial_domain": "whole_claim_insufficient_retain_qualified_windows",
+    "preserve_unknown_intervals": true,
+    "unsupported_contract": "invalid_measurement_contract"
+   },
+   "validation_record": null,
+   "validation_status": "illustrative_unvalidated"
+  },
+  "r1_configuration_sha256": "e61b01f5bb853cd8481e6897d1c3fa598e0fa7dee30e2bc93f6d8a4e95de92a3",
+  "protected_objects": [
+   "object_00",
+   "object_01",
+   "object_02"
+  ],
+  "support_surfaces": [
+   "root_A",
+   "root_B"
+  ],
+  "monitored_interval": {
+   "domain": "frame",
+   "clock": "saved_frame_index",
+   "interval": [
+    0,
+    2
+   ]
+  },
+  "contract_versions": {
+   "gsn": "1.0.0",
+   "registry_record": "1.0.0",
+   "r1_config": "2.0.1"
+  }
+ },
+ "argument_bundle": {
+  "execution_id": "synthetic-execution",
+  "protected_objects": [
+   "object_00",
+   "object_01",
+   "object_02"
+  ],
+  "graphs": [
+   {
+    "object_id": "object_00",
+    "graph": {
+     "schema_version": "1.0.0",
+     "nodes": [
+      {
+       "id": "G1",
+       "type": "goal",
+       "statement": "object_00 did not undergo a verified falling departure from root_A or root_B during frames 0-2 (R1 v2.0.0).",
+       "scope": {
+        "requirement_id": "R1",
+        "requirement_version": "2.0.0",
+        "execution_id": "synthetic-execution",
+        "object_id": "object_00",
+        "interval": [
+         0,
+         2
+        ],
+        "domain": "frame",
+        "clock": "saved_frame_index"
+       },
+       "provenance": {
+        "producer": "mock-drafter",
+        "test_fixture": true
+       },
+       "validation_status": "unresolved",
+       "origin": "llm_proposal",
+       "evidence_id": null,
+       "physical_claim": true
+      },
+      {
+       "id": "S1",
+       "type": "strategy",
+       "statement": "Argue over initial support on the configured surface and possible falling departures across the monitored interval, using only retrieved target-execution measurements.",
+       "scope": {
+        "requirement_id": "R1",
+        "requirement_version": "2.0.0",
+        "execution_id": "synthetic-execution",
+        "object_id": "object_00",
+        "interval": [
+         0,
+         2
+        ],
+        "domain": "frame",
+        "clock": "saved_frame_index"
+       },
+       "provenance": {
+        "producer": "mock-drafter",
+        "test_fixture": true
+       },
+       "validation_status": "proposed",
+       "origin": "llm_proposal",
+       "evidence_id": null,
+       "physical_claim": false
+      },
+      {
+       "id": "C1",
+       "type": "context",
+       "statement": "R1 v2.0.0; protected objects object_00, object_01, object_02; support surfaces root_A, root_B; monitored frames 0-2; execution synthetic-execution.",
+       "scope": {
+        "requirement_id": "R1",
+        "requirement_version": "2.0.0",
+        "execution_id": "synthetic-execution",
+        "object_id": "object_00",
+        "interval": [
+         0,
+         2
+        ],
+        "domain": "frame",
+        "clock": "saved_frame_index"
+       },
+       "provenance": {
+        "producer": "mock-drafter",
+        "test_fixture": true
+       },
+       "validation_status": "provisional",
+       "origin": "normative_document",
+       "evidence_id": null,
+       "physical_claim": false
+      },
+      {
+       "id": "A1",
+       "type": "assumption",
+       "statement": "No assumption of load-bearing support or camera exposure alignment is made.",
+       "scope": {
+        "requirement_id": "R1",
+        "requirement_version": "2.0.0",
+        "execution_id": "synthetic-execution",
+        "object_id": "object_00",
+        "interval": [
+         0,
+         2
+        ],
+        "domain": "frame",
+        "clock": "saved_frame_index"
+       },
+       "provenance": {
+        "producer": "mock-drafter",
+        "test_fixture": true
+       },
+       "validation_status": "provisional",
+       "origin": "llm_proposal",
+       "evidence_id": null,
+       "physical_claim": false
+      },
+      {
+       "id": "E1",
+       "type": "solution",
+       "statement": "Object pose measurements for object_00, frames 0-2 (availability verified; physical interpretation not established).",
+       "scope": {
+        "requirement_id": "R1",
+        "requirement_version": "2.0.0",
+        "execution_id": "synthetic-execution",
+        "object_id": "object_00",
+        "interval": [
+         0,
+         2
+        ],
+        "domain": "frame",
+        "clock": "saved_frame_index"
+       },
+       "provenance": {
+        "source_path": "/synthetic/critic_test_fixture/synthetic-execution/trajectory.h5",
+        "source_sha256": "c9c450cf05a62cca0576118270a84d2cc8d1c127a82a2d45bd8047de20c285dc",
+        "selector": "/synthetic/object_00/object_pose"
+       },
+       "validation_status": "verified_measurement",
+       "origin": "retrieved_observation",
+       "evidence_id": "ev:2874ce7f85d0e350cb674b092bd808d6788b319bede12660c1ec69827b31674e",
+       "physical_claim": false
+      },
+      {
+       "id": "E2",
+       "type": "solution",
+       "statement": "Contact measurements for object_00, frames 0-2 (geometric contacts only).",
+       "scope": {
+        "requirement_id": "R1",
+        "requirement_version": "2.0.0",
+        "execution_id": "synthetic-execution",
+        "object_id": "object_00",
+        "interval": [
+         0,
+         2
+        ],
+        "domain": "frame",
+        "clock": "saved_frame_index"
+       },
+       "provenance": {
+        "source_path": "/synthetic/critic_test_fixture/synthetic-execution/trajectory.h5",
+        "source_sha256": "c9c450cf05a62cca0576118270a84d2cc8d1c127a82a2d45bd8047de20c285dc",
+        "selector": "/synthetic/object_00/contact"
+       },
+       "validation_status": "verified_measurement",
+       "origin": "retrieved_observation",
+       "evidence_id": "ev:42ec85146038ed87387b3314e20435defb794e76b231157f5b03cbcbabab0fbe",
+       "physical_claim": false
+      },
+      {
+       "id": "U1",
+       "type": "unresolved_claim",
+       "statement": "Initial load-bearing support of object_00 on root_A or root_B cannot be established: contact is geometric and the support capability is BLOCKED_ON_EVIDENCE.",
+       "scope": {
+        "requirement_id": "R1",
+        "requirement_version": "2.0.0",
+        "execution_id": "synthetic-execution",
+        "object_id": "object_00",
+        "interval": [
+         0,
+         2
+        ],
+        "domain": "frame",
+        "clock": "saved_frame_index"
+       },
+       "provenance": {
+        "producer": "mock-drafter",
+        "test_fixture": true
+       },
+       "validation_status": "unresolved",
+       "origin": "unresolved_conclusion",
+       "evidence_id": null,
+       "physical_claim": true
+      },
+      {
+       "id": "D1",
+       "type": "defeater",
+       "statement": "No validated falling witness or qualified no-violation certificate is available, so neither a violation nor its absence can be concluded.",
+       "scope": {
+        "requirement_id": "R1",
+        "requirement_version": "2.0.0",
+        "execution_id": "synthetic-execution",
+        "object_id": "object_00",
+        "interval": [
+         0,
+         2
+        ],
+        "domain": "frame",
+        "clock": "saved_frame_index"
+       },
+       "provenance": {
+        "producer": "mock-drafter",
+        "test_fixture": true
+       },
+       "validation_status": "unresolved",
+       "origin": "unresolved_conclusion",
+       "evidence_id": null,
+       "physical_claim": false
+      }
+     ],
+     "edges": [
+      {
+       "source": "G1",
+       "target": "S1",
+       "type": "supported_by"
+      },
+      {
+       "source": "G1",
+       "target": "C1",
+       "type": "in_context_of"
+      },
+      {
+       "source": "G1",
+       "target": "A1",
+       "type": "in_context_of"
+      },
+      {
+       "source": "G1",
+       "target": "D1",
+       "type": "challenged_by"
+      },
+      {
+       "source": "S1",
+       "target": "E1",
+       "type": "supported_by"
+      },
+      {
+       "source": "S1",
+       "target": "E2",
+       "type": "supported_by"
+      },
+      {
+       "source": "S1",
+       "target": "U1",
+       "type": "supported_by"
+      }
+     ],
+     "empirical_admission_enabled": false
+    }
+   },
+   {
+    "object_id": "object_01",
+    "graph": {
+     "schema_version": "1.0.0",
+     "nodes": [
+      {
+       "id": "G1",
+       "type": "goal",
+       "statement": "object_01 did not undergo a verified falling departure from root_A or root_B during frames 0-2 (R1 v2.0.0).",
+       "scope": {
+        "requirement_id": "R1",
+        "requirement_version": "2.0.0",
+        "execution_id": "synthetic-execution",
+        "object_id": "object_01",
+        "interval": [
+         0,
+         2
+        ],
+        "domain": "frame",
+        "clock": "saved_frame_index"
+       },
+       "provenance": {
+        "producer": "mock-drafter",
+        "test_fixture": true
+       },
+       "validation_status": "unresolved",
+       "origin": "llm_proposal",
+       "evidence_id": null,
+       "physical_claim": true
+      },
+      {
+       "id": "S1",
+       "type": "strategy",
+       "statement": "Argue over initial support on the configured surface and possible falling departures across the monitored interval, using only retrieved target-execution measurements.",
+       "scope": {
+        "requirement_id": "R1",
+        "requirement_version": "2.0.0",
+        "execution_id": "synthetic-execution",
+        "object_id": "object_01",
+        "interval": [
+         0,
+         2
+        ],
+        "domain": "frame",
+        "clock": "saved_frame_index"
+       },
+       "provenance": {
+        "producer": "mock-drafter",
+        "test_fixture": true
+       },
+       "validation_status": "proposed",
+       "origin": "llm_proposal",
+       "evidence_id": null,
+       "physical_claim": false
+      },
+      {
+       "id": "C1",
+       "type": "context",
+       "statement": "R1 v2.0.0; protected objects object_00, object_01, object_02; support surfaces root_A, root_B; monitored frames 0-2; execution synthetic-execution.",
+       "scope": {
+        "requirement_id": "R1",
+        "requirement_version": "2.0.0",
+        "execution_id": "synthetic-execution",
+        "object_id": "object_01",
+        "interval": [
+         0,
+         2
+        ],
+        "domain": "frame",
+        "clock": "saved_frame_index"
+       },
+       "provenance": {
+        "producer": "mock-drafter",
+        "test_fixture": true
+       },
+       "validation_status": "provisional",
+       "origin": "normative_document",
+       "evidence_id": null,
+       "physical_claim": false
+      },
+      {
+       "id": "A1",
+       "type": "assumption",
+       "statement": "No assumption of load-bearing support or camera exposure alignment is made.",
+       "scope": {
+        "requirement_id": "R1",
+        "requirement_version": "2.0.0",
+        "execution_id": "synthetic-execution",
+        "object_id": "object_01",
+        "interval": [
+         0,
+         2
+        ],
+        "domain": "frame",
+        "clock": "saved_frame_index"
+       },
+       "provenance": {
+        "producer": "mock-drafter",
+        "test_fixture": true
+       },
+       "validation_status": "provisional",
+       "origin": "llm_proposal",
+       "evidence_id": null,
+       "physical_claim": false
+      },
+      {
+       "id": "E1",
+       "type": "solution",
+       "statement": "Object pose measurements for object_01, frames 0-2 (availability verified; physical interpretation not established).",
+       "scope": {
+        "requirement_id": "R1",
+        "requirement_version": "2.0.0",
+        "execution_id": "synthetic-execution",
+        "object_id": "object_01",
+        "interval": [
+         0,
+         2
+        ],
+        "domain": "frame",
+        "clock": "saved_frame_index"
+       },
+       "provenance": {
+        "source_path": "/synthetic/critic_test_fixture/synthetic-execution/trajectory.h5",
+        "source_sha256": "c9c450cf05a62cca0576118270a84d2cc8d1c127a82a2d45bd8047de20c285dc",
+        "selector": "/synthetic/object_01/object_pose"
+       },
+       "validation_status": "verified_measurement",
+       "origin": "retrieved_observation",
+       "evidence_id": "ev:1b4c6c87584982e25928e7dfa04f856bf0afc579517b1dbd7bf7e52f7b6fabda",
+       "physical_claim": false
+      },
+      {
+       "id": "E2",
+       "type": "solution",
+       "statement": "Contact measurements for object_01, frames 0-2 (geometric contacts only).",
+       "scope": {
+        "requirement_id": "R1",
+        "requirement_version": "2.0.0",
+        "execution_id": "synthetic-execution",
+        "object_id": "object_01",
+        "interval": [
+         0,
+         2
+        ],
+        "domain": "frame",
+        "clock": "saved_frame_index"
+       },
+       "provenance": {
+        "source_path": "/synthetic/critic_test_fixture/synthetic-execution/trajectory.h5",
+        "source_sha256": "c9c450cf05a62cca0576118270a84d2cc8d1c127a82a2d45bd8047de20c285dc",
+        "selector": "/synthetic/object_01/contact"
+       },
+       "validation_status": "verified_measurement",
+       "origin": "retrieved_observation",
+       "evidence_id": "ev:16b67192aaec2fc7b1ec8d4eaef667ee126a2eb585316ce4782acff10b749dfe",
+       "physical_claim": false
+      },
+      {
+       "id": "U1",
+       "type": "unresolved_claim",
+       "statement": "Initial load-bearing support of object_01 on root_A or root_B cannot be established: contact is geometric and the support capability is BLOCKED_ON_EVIDENCE.",
+       "scope": {
+        "requirement_id": "R1",
+        "requirement_version": "2.0.0",
+        "execution_id": "synthetic-execution",
+        "object_id": "object_01",
+        "interval": [
+         0,
+         2
+        ],
+        "domain": "frame",
+        "clock": "saved_frame_index"
+       },
+       "provenance": {
+        "producer": "mock-drafter",
+        "test_fixture": true
+       },
+       "validation_status": "unresolved",
+       "origin": "unresolved_conclusion",
+       "evidence_id": null,
+       "physical_claim": true
+      },
+      {
+       "id": "D1",
+       "type": "defeater",
+       "statement": "No validated falling witness or qualified no-violation certificate is available, so neither a violation nor its absence can be concluded.",
+       "scope": {
+        "requirement_id": "R1",
+        "requirement_version": "2.0.0",
+        "execution_id": "synthetic-execution",
+        "object_id": "object_01",
+        "interval": [
+         0,
+         2
+        ],
+        "domain": "frame",
+        "clock": "saved_frame_index"
+       },
+       "provenance": {
+        "producer": "mock-drafter",
+        "test_fixture": true
+       },
+       "validation_status": "unresolved",
+       "origin": "unresolved_conclusion",
+       "evidence_id": null,
+       "physical_claim": false
+      }
+     ],
+     "edges": [
+      {
+       "source": "G1",
+       "target": "S1",
+       "type": "supported_by"
+      },
+      {
+       "source": "G1",
+       "target": "C1",
+       "type": "in_context_of"
+      },
+      {
+       "source": "G1",
+       "target": "A1",
+       "type": "in_context_of"
+      },
+      {
+       "source": "G1",
+       "target": "D1",
+       "type": "challenged_by"
+      },
+      {
+       "source": "S1",
+       "target": "E1",
+       "type": "supported_by"
+      },
+      {
+       "source": "S1",
+       "target": "E2",
+       "type": "supported_by"
+      },
+      {
+       "source": "S1",
+       "target": "U1",
+       "type": "supported_by"
+      }
+     ],
+     "empirical_admission_enabled": false
+    }
+   },
+   {
+    "object_id": "object_02",
+    "graph": {
+     "schema_version": "1.0.0",
+     "nodes": [
+      {
+       "id": "G1",
+       "type": "goal",
+       "statement": "object_02 did not undergo a verified falling departure from root_A or root_B during frames 0-2 (R1 v2.0.0).",
+       "scope": {
+        "requirement_id": "R1",
+        "requirement_version": "2.0.0",
+        "execution_id": "synthetic-execution",
+        "object_id": "object_02",
+        "interval": [
+         0,
+         2
+        ],
+        "domain": "frame",
+        "clock": "saved_frame_index"
+       },
+       "provenance": {
+        "producer": "mock-drafter",
+        "test_fixture": true
+       },
+       "validation_status": "unresolved",
+       "origin": "llm_proposal",
+       "evidence_id": null,
+       "physical_claim": true
+      },
+      {
+       "id": "S1",
+       "type": "strategy",
+       "statement": "Argue over initial support on the configured surface and possible falling departures across the monitored interval, using only retrieved target-execution measurements.",
+       "scope": {
+        "requirement_id": "R1",
+        "requirement_version": "2.0.0",
+        "execution_id": "synthetic-execution",
+        "object_id": "object_02",
+        "interval": [
+         0,
+         2
+        ],
+        "domain": "frame",
+        "clock": "saved_frame_index"
+       },
+       "provenance": {
+        "producer": "mock-drafter",
+        "test_fixture": true
+       },
+       "validation_status": "proposed",
+       "origin": "llm_proposal",
+       "evidence_id": null,
+       "physical_claim": false
+      },
+      {
+       "id": "C1",
+       "type": "context",
+       "statement": "R1 v2.0.0; protected objects object_00, object_01, object_02; support surfaces root_A, root_B; monitored frames 0-2; execution synthetic-execution.",
+       "scope": {
+        "requirement_id": "R1",
+        "requirement_version": "2.0.0",
+        "execution_id": "synthetic-execution",
+        "object_id": "object_02",
+        "interval": [
+         0,
+         2
+        ],
+        "domain": "frame",
+        "clock": "saved_frame_index"
+       },
+       "provenance": {
+        "producer": "mock-drafter",
+        "test_fixture": true
+       },
+       "validation_status": "provisional",
+       "origin": "normative_document",
+       "evidence_id": null,
+       "physical_claim": false
+      },
+      {
+       "id": "A1",
+       "type": "assumption",
+       "statement": "No assumption of load-bearing support or camera exposure alignment is made.",
+       "scope": {
+        "requirement_id": "R1",
+        "requirement_version": "2.0.0",
+        "execution_id": "synthetic-execution",
+        "object_id": "object_02",
+        "interval": [
+         0,
+         2
+        ],
+        "domain": "frame",
+        "clock": "saved_frame_index"
+       },
+       "provenance": {
+        "producer": "mock-drafter",
+        "test_fixture": true
+       },
+       "validation_status": "provisional",
+       "origin": "llm_proposal",
+       "evidence_id": null,
+       "physical_claim": false
+      },
+      {
+       "id": "E1",
+       "type": "solution",
+       "statement": "Object pose measurements for object_02, frames 0-2 (availability verified; physical interpretation not established).",
+       "scope": {
+        "requirement_id": "R1",
+        "requirement_version": "2.0.0",
+        "execution_id": "synthetic-execution",
+        "object_id": "object_02",
+        "interval": [
+         0,
+         2
+        ],
+        "domain": "frame",
+        "clock": "saved_frame_index"
+       },
+       "provenance": {
+        "source_path": "/synthetic/critic_test_fixture/synthetic-execution/trajectory.h5",
+        "source_sha256": "c9c450cf05a62cca0576118270a84d2cc8d1c127a82a2d45bd8047de20c285dc",
+        "selector": "/synthetic/object_02/object_pose"
+       },
+       "validation_status": "verified_measurement",
+       "origin": "retrieved_observation",
+       "evidence_id": "ev:807f9bdca0da4b3f0ac2db609c9bf730e53ff4cd17df4d924d6a9fcd03030160",
+       "physical_claim": false
+      },
+      {
+       "id": "E2",
+       "type": "solution",
+       "statement": "Contact measurements for object_02, frames 0-2 (geometric contacts only).",
+       "scope": {
+        "requirement_id": "R1",
+        "requirement_version": "2.0.0",
+        "execution_id": "synthetic-execution",
+        "object_id": "object_02",
+        "interval": [
+         0,
+         2
+        ],
+        "domain": "frame",
+        "clock": "saved_frame_index"
+       },
+       "provenance": {
+        "source_path": "/synthetic/critic_test_fixture/synthetic-execution/trajectory.h5",
+        "source_sha256": "c9c450cf05a62cca0576118270a84d2cc8d1c127a82a2d45bd8047de20c285dc",
+        "selector": "/synthetic/object_02/contact"
+       },
+       "validation_status": "verified_measurement",
+       "origin": "retrieved_observation",
+       "evidence_id": "ev:f324a1c584ad59461e7f0e1a1cc651e38fb6262377bf5c68d4a56bf877e9c9df",
+       "physical_claim": false
+      },
+      {
+       "id": "U1",
+       "type": "unresolved_claim",
+       "statement": "Initial load-bearing support of object_02 on root_A or root_B cannot be established: contact is geometric and the support capability is BLOCKED_ON_EVIDENCE.",
+       "scope": {
+        "requirement_id": "R1",
+        "requirement_version": "2.0.0",
+        "execution_id": "synthetic-execution",
+        "object_id": "object_02",
+        "interval": [
+         0,
+         2
+        ],
+        "domain": "frame",
+        "clock": "saved_frame_index"
+       },
+       "provenance": {
+        "producer": "mock-drafter",
+        "test_fixture": true
+       },
+       "validation_status": "unresolved",
+       "origin": "unresolved_conclusion",
+       "evidence_id": null,
+       "physical_claim": true
+      },
+      {
+       "id": "D1",
+       "type": "defeater",
+       "statement": "No validated falling witness or qualified no-violation certificate is available, so neither a violation nor its absence can be concluded.",
+       "scope": {
+        "requirement_id": "R1",
+        "requirement_version": "2.0.0",
+        "execution_id": "synthetic-execution",
+        "object_id": "object_02",
+        "interval": [
+         0,
+         2
+        ],
+        "domain": "frame",
+        "clock": "saved_frame_index"
+       },
+       "provenance": {
+        "producer": "mock-drafter",
+        "test_fixture": true
+       },
+       "validation_status": "unresolved",
+       "origin": "unresolved_conclusion",
+       "evidence_id": null,
+       "physical_claim": false
+      }
+     ],
+     "edges": [
+      {
+       "source": "G1",
+       "target": "S1",
+       "type": "supported_by"
+      },
+      {
+       "source": "G1",
+       "target": "C1",
+       "type": "in_context_of"
+      },
+      {
+       "source": "G1",
+       "target": "A1",
+       "type": "in_context_of"
+      },
+      {
+       "source": "G1",
+       "target": "D1",
+       "type": "challenged_by"
+      },
+      {
+       "source": "S1",
+       "target": "E1",
+       "type": "supported_by"
+      },
+      {
+       "source": "S1",
+       "target": "E2",
+       "type": "supported_by"
+      },
+      {
+       "source": "S1",
+       "target": "U1",
+       "type": "supported_by"
+      }
+     ],
+     "empirical_admission_enabled": false
+    }
+   }
+  ],
+  "execution_conclusion": {
+   "claimed_outcome": "violation_observed",
+   "statement": "The checker result reports a violation for object_00, no violation for object_01 and non-applicability for object_02.",
+   "object_outcomes": {
+    "object_00": "violation_observed",
+    "object_01": "no_violation_observed_within_validated_coverage",
+    "object_02": "not_applicable"
+   }
+  }
+ },
+ "evidence_package": {
+  "records": [
+   {
+    "id": "ev:2874ce7f85d0e350cb674b092bd808d6788b319bede12660c1ec69827b31674e",
+    "benchmark": "synthetic-analytical",
+    "capability": {
+     "measurement_availability": "VERIFIED",
+     "physical_support": "BLOCKED_ON_EVIDENCE",
+     "physical_fall": "BLOCKED_ON_EVIDENCE",
+     "exposure_alignment": "UNSUPPORTED"
+    },
+    "clock": "saved_frame_index",
+    "conflicts": [],
+    "coordinate_frame": "world",
+    "dependencies": [],
+    "domain": "frame",
+    "execution_id": "synthetic-execution",
+    "interval": [
+     0,
+     2
+    ],
+    "kind": "raw_measurement",
+    "limitations": [
+     "TEST FIXTURE: synthetic record for Critic development only."
+    ],
+    "measurement_type": "object_pose",
+    "missing_intervals": [],
+    "model_checkpoint": "synthetic-policy@0000000",
+    "object_id": "object_00",
+    "original": true,
+    "producer": "critic-test-fixture:0.1.0",
+    "provenance": {
+     "synthetic": true,
+     "physical_truth": "U"
+    },
+    "requirement_id": "R1",
+    "requirement_version": "2.0.0",
+    "schema_version": "1.0.0",
+    "selector": "/synthetic/object_00/object_pose",
+    "source_path": "/synthetic/critic_test_fixture/synthetic-execution/trajectory.h5",
+    "source_sha256": "c9c450cf05a62cca0576118270a84d2cc8d1c127a82a2d45bd8047de20c285dc",
+    "task_id": "synthetic-task",
+    "uncertainty": [],
+    "validation_status": "verified_measurement"
+   },
+   {
+    "id": "ev:42ec85146038ed87387b3314e20435defb794e76b231157f5b03cbcbabab0fbe",
+    "benchmark": "synthetic-analytical",
+    "capability": {
+     "measurement_availability": "VERIFIED",
+     "physical_support": "BLOCKED_ON_EVIDENCE",
+     "physical_fall": "BLOCKED_ON_EVIDENCE",
+     "exposure_alignment": "UNSUPPORTED"
+    },
+    "clock": "saved_frame_index",
+    "conflicts": [],
+    "coordinate_frame": "world",
+    "dependencies": [],
+    "domain": "frame",
+    "execution_id": "synthetic-execution",
+    "interval": [
+     0,
+     2
+    ],
+    "kind": "raw_measurement",
+    "limitations": [
+     "TEST FIXTURE: synthetic record for Critic development only."
+    ],
+    "measurement_type": "contact",
+    "missing_intervals": [],
+    "model_checkpoint": "synthetic-policy@0000000",
+    "object_id": "object_00",
+    "original": true,
+    "producer": "critic-test-fixture:0.1.0",
+    "provenance": {
+     "synthetic": true,
+     "physical_truth": "U"
+    },
+    "requirement_id": "R1",
+    "requirement_version": "2.0.0",
+    "schema_version": "1.0.0",
+    "selector": "/synthetic/object_00/contact",
+    "source_path": "/synthetic/critic_test_fixture/synthetic-execution/trajectory.h5",
+    "source_sha256": "c9c450cf05a62cca0576118270a84d2cc8d1c127a82a2d45bd8047de20c285dc",
+    "task_id": "synthetic-task",
+    "uncertainty": [
+     "Contacts are geometric; they do not establish load-bearing support."
+    ],
+    "validation_status": "verified_measurement"
+   },
+   {
+    "id": "ev:d4ee091af4d163cf5482ea163aa6800d22c9a137bfab4aa71868e1275f7f7403",
+    "benchmark": "synthetic-analytical",
+    "capability": {
+     "measurement_availability": "VERIFIED",
+     "physical_support": "BLOCKED_ON_EVIDENCE",
+     "physical_fall": "BLOCKED_ON_EVIDENCE",
+     "exposure_alignment": "UNSUPPORTED"
+    },
+    "clock": "saved_frame_index",
+    "conflicts": [],
+    "coordinate_frame": "world",
+    "dependencies": [],
+    "domain": "frame",
+    "execution_id": "synthetic-execution",
+    "interval": [
+     0,
+     2
+    ],
+    "kind": "raw_measurement",
+    "limitations": [
+     "TEST FIXTURE: synthetic record for Critic development only."
+    ],
+    "measurement_type": "camera_reference",
+    "missing_intervals": [],
+    "model_checkpoint": "synthetic-policy@0000000",
+    "object_id": "object_00",
+    "original": true,
+    "producer": "critic-test-fixture:0.1.0",
+    "provenance": {
+     "synthetic": true,
+     "physical_truth": "U"
+    },
+    "requirement_id": "R1",
+    "requirement_version": "2.0.0",
+    "schema_version": "1.0.0",
+    "selector": "/synthetic/object_00/camera_reference",
+    "source_path": "/synthetic/critic_test_fixture/synthetic-execution/trajectory.h5",
+    "source_sha256": "c9c450cf05a62cca0576118270a84d2cc8d1c127a82a2d45bd8047de20c285dc",
+    "task_id": "synthetic-task",
+    "uncertainty": [
+     "Camera exposure alignment with simulator state is unsupported."
+    ],
+    "validation_status": "verified_measurement"
+   },
+   {
+    "id": "ev:1b4c6c87584982e25928e7dfa04f856bf0afc579517b1dbd7bf7e52f7b6fabda",
+    "benchmark": "synthetic-analytical",
+    "capability": {
+     "measurement_availability": "VERIFIED",
+     "physical_support": "BLOCKED_ON_EVIDENCE",
+     "physical_fall": "BLOCKED_ON_EVIDENCE",
+     "exposure_alignment": "UNSUPPORTED"
+    },
+    "clock": "saved_frame_index",
+    "conflicts": [],
+    "coordinate_frame": "world",
+    "dependencies": [],
+    "domain": "frame",
+    "execution_id": "synthetic-execution",
+    "interval": [
+     0,
+     2
+    ],
+    "kind": "raw_measurement",
+    "limitations": [
+     "TEST FIXTURE: synthetic record for Critic development only."
+    ],
+    "measurement_type": "object_pose",
+    "missing_intervals": [],
+    "model_checkpoint": "synthetic-policy@0000000",
+    "object_id": "object_01",
+    "original": true,
+    "producer": "critic-test-fixture:0.1.0",
+    "provenance": {
+     "synthetic": true,
+     "physical_truth": "U"
+    },
+    "requirement_id": "R1",
+    "requirement_version": "2.0.0",
+    "schema_version": "1.0.0",
+    "selector": "/synthetic/object_01/object_pose",
+    "source_path": "/synthetic/critic_test_fixture/synthetic-execution/trajectory.h5",
+    "source_sha256": "c9c450cf05a62cca0576118270a84d2cc8d1c127a82a2d45bd8047de20c285dc",
+    "task_id": "synthetic-task",
+    "uncertainty": [],
+    "validation_status": "verified_measurement"
+   },
+   {
+    "id": "ev:16b67192aaec2fc7b1ec8d4eaef667ee126a2eb585316ce4782acff10b749dfe",
+    "benchmark": "synthetic-analytical",
+    "capability": {
+     "measurement_availability": "VERIFIED",
+     "physical_support": "BLOCKED_ON_EVIDENCE",
+     "physical_fall": "BLOCKED_ON_EVIDENCE",
+     "exposure_alignment": "UNSUPPORTED"
+    },
+    "clock": "saved_frame_index",
+    "conflicts": [],
+    "coordinate_frame": "world",
+    "dependencies": [],
+    "domain": "frame",
+    "execution_id": "synthetic-execution",
+    "interval": [
+     0,
+     2
+    ],
+    "kind": "raw_measurement",
+    "limitations": [
+     "TEST FIXTURE: synthetic record for Critic development only."
+    ],
+    "measurement_type": "contact",
+    "missing_intervals": [],
+    "model_checkpoint": "synthetic-policy@0000000",
+    "object_id": "object_01",
+    "original": true,
+    "producer": "critic-test-fixture:0.1.0",
+    "provenance": {
+     "synthetic": true,
+     "physical_truth": "U"
+    },
+    "requirement_id": "R1",
+    "requirement_version": "2.0.0",
+    "schema_version": "1.0.0",
+    "selector": "/synthetic/object_01/contact",
+    "source_path": "/synthetic/critic_test_fixture/synthetic-execution/trajectory.h5",
+    "source_sha256": "c9c450cf05a62cca0576118270a84d2cc8d1c127a82a2d45bd8047de20c285dc",
+    "task_id": "synthetic-task",
+    "uncertainty": [
+     "Contacts are geometric; they do not establish load-bearing support."
+    ],
+    "validation_status": "verified_measurement"
+   },
+   {
+    "id": "ev:565e6840547b71045c7cc99cd24a5307e7ba676fb829471f4cab987ef0e3df38",
+    "benchmark": "synthetic-analytical",
+    "capability": {
+     "measurement_availability": "VERIFIED",
+     "physical_support": "BLOCKED_ON_EVIDENCE",
+     "physical_fall": "BLOCKED_ON_EVIDENCE",
+     "exposure_alignment": "UNSUPPORTED"
+    },
+    "clock": "saved_frame_index",
+    "conflicts": [],
+    "coordinate_frame": "world",
+    "dependencies": [],
+    "domain": "frame",
+    "execution_id": "synthetic-execution",
+    "interval": [
+     0,
+     2
+    ],
+    "kind": "raw_measurement",
+    "limitations": [
+     "TEST FIXTURE: synthetic record for Critic development only."
+    ],
+    "measurement_type": "camera_reference",
+    "missing_intervals": [],
+    "model_checkpoint": "synthetic-policy@0000000",
+    "object_id": "object_01",
+    "original": true,
+    "producer": "critic-test-fixture:0.1.0",
+    "provenance": {
+     "synthetic": true,
+     "physical_truth": "U"
+    },
+    "requirement_id": "R1",
+    "requirement_version": "2.0.0",
+    "schema_version": "1.0.0",
+    "selector": "/synthetic/object_01/camera_reference",
+    "source_path": "/synthetic/critic_test_fixture/synthetic-execution/trajectory.h5",
+    "source_sha256": "c9c450cf05a62cca0576118270a84d2cc8d1c127a82a2d45bd8047de20c285dc",
+    "task_id": "synthetic-task",
+    "uncertainty": [
+     "Camera exposure alignment with simulator state is unsupported."
+    ],
+    "validation_status": "verified_measurement"
+   },
+   {
+    "id": "ev:807f9bdca0da4b3f0ac2db609c9bf730e53ff4cd17df4d924d6a9fcd03030160",
+    "benchmark": "synthetic-analytical",
+    "capability": {
+     "measurement_availability": "VERIFIED",
+     "physical_support": "BLOCKED_ON_EVIDENCE",
+     "physical_fall": "BLOCKED_ON_EVIDENCE",
+     "exposure_alignment": "UNSUPPORTED"
+    },
+    "clock": "saved_frame_index",
+    "conflicts": [],
+    "coordinate_frame": "world",
+    "dependencies": [],
+    "domain": "frame",
+    "execution_id": "synthetic-execution",
+    "interval": [
+     0,
+     2
+    ],
+    "kind": "raw_measurement",
+    "limitations": [
+     "TEST FIXTURE: synthetic record for Critic development only."
+    ],
+    "measurement_type": "object_pose",
+    "missing_intervals": [],
+    "model_checkpoint": "synthetic-policy@0000000",
+    "object_id": "object_02",
+    "original": true,
+    "producer": "critic-test-fixture:0.1.0",
+    "provenance": {
+     "synthetic": true,
+     "physical_truth": "U"
+    },
+    "requirement_id": "R1",
+    "requirement_version": "2.0.0",
+    "schema_version": "1.0.0",
+    "selector": "/synthetic/object_02/object_pose",
+    "source_path": "/synthetic/critic_test_fixture/synthetic-execution/trajectory.h5",
+    "source_sha256": "c9c450cf05a62cca0576118270a84d2cc8d1c127a82a2d45bd8047de20c285dc",
+    "task_id": "synthetic-task",
+    "uncertainty": [],
+    "validation_status": "verified_measurement"
+   },
+   {
+    "id": "ev:f324a1c584ad59461e7f0e1a1cc651e38fb6262377bf5c68d4a56bf877e9c9df",
+    "benchmark": "synthetic-analytical",
+    "capability": {
+     "measurement_availability": "VERIFIED",
+     "physical_support": "BLOCKED_ON_EVIDENCE",
+     "physical_fall": "BLOCKED_ON_EVIDENCE",
+     "exposure_alignment": "UNSUPPORTED"
+    },
+    "clock": "saved_frame_index",
+    "conflicts": [],
+    "coordinate_frame": "world",
+    "dependencies": [],
+    "domain": "frame",
+    "execution_id": "synthetic-execution",
+    "interval": [
+     0,
+     2
+    ],
+    "kind": "raw_measurement",
+    "limitations": [
+     "TEST FIXTURE: synthetic record for Critic development only."
+    ],
+    "measurement_type": "contact",
+    "missing_intervals": [],
+    "model_checkpoint": "synthetic-policy@0000000",
+    "object_id": "object_02",
+    "original": true,
+    "producer": "critic-test-fixture:0.1.0",
+    "provenance": {
+     "synthetic": true,
+     "physical_truth": "U"
+    },
+    "requirement_id": "R1",
+    "requirement_version": "2.0.0",
+    "schema_version": "1.0.0",
+    "selector": "/synthetic/object_02/contact",
+    "source_path": "/synthetic/critic_test_fixture/synthetic-execution/trajectory.h5",
+    "source_sha256": "c9c450cf05a62cca0576118270a84d2cc8d1c127a82a2d45bd8047de20c285dc",
+    "task_id": "synthetic-task",
+    "uncertainty": [
+     "Contacts are geometric; they do not establish load-bearing support."
+    ],
+    "validation_status": "verified_measurement"
+   },
+   {
+    "id": "ev:b70930a5aafc1d3f627b15f887c990ebfb55817667f9ad09e59e41bcbbdf9f4a",
+    "benchmark": "synthetic-analytical",
+    "capability": {
+     "measurement_availability": "VERIFIED",
+     "physical_support": "BLOCKED_ON_EVIDENCE",
+     "physical_fall": "BLOCKED_ON_EVIDENCE",
+     "exposure_alignment": "UNSUPPORTED"
+    },
+    "clock": "saved_frame_index",
+    "conflicts": [],
+    "coordinate_frame": "world",
+    "dependencies": [],
+    "domain": "frame",
+    "execution_id": "synthetic-execution",
+    "interval": [
+     0,
+     2
+    ],
+    "kind": "raw_measurement",
+    "limitations": [
+     "TEST FIXTURE: synthetic record for Critic development only."
+    ],
+    "measurement_type": "camera_reference",
+    "missing_intervals": [],
+    "model_checkpoint": "synthetic-policy@0000000",
+    "object_id": "object_02",
+    "original": true,
+    "producer": "critic-test-fixture:0.1.0",
+    "provenance": {
+     "synthetic": true,
+     "physical_truth": "U"
+    },
+    "requirement_id": "R1",
+    "requirement_version": "2.0.0",
+    "schema_version": "1.0.0",
+    "selector": "/synthetic/object_02/camera_reference",
+    "source_path": "/synthetic/critic_test_fixture/synthetic-execution/trajectory.h5",
+    "source_sha256": "c9c450cf05a62cca0576118270a84d2cc8d1c127a82a2d45bd8047de20c285dc",
+    "task_id": "synthetic-task",
+    "uncertainty": [
+     "Camera exposure alignment with simulator state is unsupported."
+    ],
+    "validation_status": "verified_measurement"
+   }
+  ]
+ },
+ "checker_assessments": [
+  {
+   "configuration": {
+    "aggregation_policy": {
+     "empty_scope": "not_applicable_excluded_from_metrics",
+     "outcome_precedence": [
+      "admissible_violation",
+      "invalid_contract",
+      "insufficient_information",
+      "qualified_negative",
+      "not_applicable"
+     ],
+     "preserve_object_vector": true
+    },
+    "assessment_manifest": {
+     "adapter": {
+      "artifact_ref": "builtin:adapter",
+      "id": "analytical-declarations",
+      "sha256": "35f775bb958173c312115373de733ab1dfe738dc6f0ff0708219830282cb8136",
+      "version": "1.0.0"
+     },
+     "calibration_records": [],
+     "capability_record": {
+      "artifact_ref": "builtin:capability_record",
+      "id": "analytical-contract-capabilities",
+      "sha256": "1aa35ed7319878ca844714bf0dfdea4b4f30977ada269807ae272f0e1f3808f6",
+      "version": "1.0.0"
+     },
+     "checker": {
+      "artifact_ref": "builtin:checker",
+      "id": "r1-v4-restricted-infrastructure",
+      "sha256": "3a19486c5a4ae834feb27dd07b2e05f9dd65db6ab0acf066c6a0435718e46f52",
+      "version": "4.0.0a1"
+     },
+     "configuration_schema": {
+      "artifact_ref": "builtin:configuration_schema",
+      "id": "urn:trustworthy:r1:generalized:configuration:2.0.1",
+      "sha256": "b7bf5a3c56e805951fcc99d518c3c09eadd0fede5ed02710e6672e44e19c1377",
+      "version": "2.0.1"
+     },
+     "evidence_schema": {
+      "artifact_ref": "builtin:evidence_schema",
+      "id": "urn:trustworthy:r1:v4:evidence:1.0.0",
+      "sha256": "1d466cacec26e0b6434b56813be48d6a7f167645fbd6c556443ff9d1cf15caba",
+      "version": "1.0.0"
+     },
+     "inference_profile": {
+      "artifact_ref": "builtin:inference_profile",
+      "id": "analytical-static-box",
+      "sha256": "f82e0414ad89f37930a5dd65dd5515fef383e13e336ff65b403e3b16213d13d1",
+      "version": "1.0.0"
+     },
+     "manifest_version": "1.0.0",
+     "purpose": "analytical_fixture",
+     "requested_domain": {
+      "cells_ref": "synthetic:domain",
+      "interval_ref": "#/monitoring_interval",
+      "projection": "saved_frame_projection"
+     },
+     "requirement": {
+      "artifact_ref": "builtin:requirement",
+      "id": "R1",
+      "sha256": "aef444c6850fb8c5a49fc06ca754b7cb2b5b8996a35520ccac463c5c588ce48e",
+      "version": "2.0.0"
+     },
+     "source_model_bindings": [
+      {
+       "artifact_ref": "synthetic:domain",
+       "sha256": "814c414626b11524b8d1b5a4f2289290d18bdd3108cad2ac86151773740d7514"
+      },
+      {
+       "artifact_ref": "synthetic:model",
+       "sha256": "ea4bdc62c25e04cb164d26d752ac747be9bb0b7840d36ed10961ccbef580b3fb"
+      },
+      {
+       "artifact_ref": "synthetic:scope",
+       "sha256": "ab02ae4b97d7f534674beaee0b10930f5d0c332a120ece90b3ddae972bf62eaf"
+      },
+      {
+       "artifact_ref": "synthetic:source",
+       "sha256": "7fbf1e4e7897b927072c70f414dfdc4731cf3e2953d5115eeca56afba2649146"
+      }
+     ],
+     "validation_status": "capability_tested",
+     "validity_scope_ref": "synthetic:scope"
+    },
+    "benchmark": {
+     "adapter_id": "analytical-declarations",
+     "adapter_version": "1.0.0",
+     "id": "synthetic-analytical"
+    },
+    "coordinate_frames": {
+     "canonical_handedness": "right_handed",
+     "common_frame": "world",
+     "gravity_direction_ref": "builtin:inference_profile",
+     "length_unit": "m",
+     "time_unit": "s",
+     "transforms_ref": "builtin:inference_profile"
+    },
+    "evidence_requirements": {
+     "camera": "conditionally_required",
+     "geometry": "required_for_present_geometry_claim",
+     "identity": "required",
+     "object_pose": "required_for_state_based_witness",
+     "prohibited_sole_proxies": [
+      "task_success",
+      "object_root_height",
+      "camera_overlap",
+      "contact_presence"
+     ],
+     "provenance": "required",
+     "robot_state": "conditionally_required_for_handling_exclusion",
+     "support_witness": "required_contact_or_validated_alternative",
+     "task_instruction": "optional_unless_task_conditioned_claim",
+     "timestamps": "required",
+     "velocity": "optional_or_derived_with_uncertainty"
+    },
+    "execution_id": "synthetic-execution",
+    "fall_detection_rules": {
+     "floor_required": false,
+     "handling_exclusion": "established_robot_lift_or_carry",
+     "hazard": "unsupported_downward_falling_departure",
+     "incidental_robot_contact_exempts": false,
+     "numeric_policy": {
+      "calibration_ref": null,
+      "hysteresis_m": null,
+      "persistence_window_s": null,
+      "physical_distance_uncertainty_m": null,
+      "roundoff_profile_ref": "builtin:inference_profile"
+     },
+     "replacement_policy": "abstain_after_replacement",
+     "robot_causation_required": false
+    },
+    "geometry_contract": {
+     "profile_ref": "builtin:inference_profile",
+     "required_shape_capabilities": [
+      "box"
+     ],
+     "source_model_binding": "per_execution_hash_and_identity_validation",
+     "support_inference_ref": "builtin:inference_profile",
+     "unknown_representation_policy": "invalid_measurement_contract"
+    },
+    "initial_support_rules": {
+     "absence_proof": "closed_world_support_exclusion",
+     "boundary_context_offsets": [],
+     "direct_support": true,
+     "indirect_support": true,
+     "multiple_parents": "require_validated_load_path",
+     "profile": "validated_boundary_support",
+     "surface_set_policy": "designated_union",
+     "verified_object_absence": "not_applicable_with_absence_certificate"
+    },
+    "monitoring_interval": {
+     "axis": "saved_frame",
+     "bounds": "inclusive",
+     "context_policy": "preserve_context_without_shifting_interval",
+     "end": {
+      "kind": "explicit_index",
+      "value": 2
+     },
+     "settling": {
+      "command_count": 0,
+      "role": "boundary_resolution_only",
+      "source": "illustrative_fixture"
+     },
+     "start": {
+      "kind": "explicit_index",
+      "value": 0
+     }
+    },
+    "object_surface_mapping": {
+     "object_00": [
+      "root_A"
+     ],
+     "object_01": [
+      "root_A"
+     ],
+     "object_02": [
+      "root_A"
+     ]
+    },
+    "protected_objects": [
+     "object_00",
+     "object_01",
+     "object_02"
+    ],
+    "requirement_id": "R1",
+    "requirement_version": "2.0.0",
+    "source_bindings": [
+     {
+      "artifact_ref": "synthetic:domain",
+      "sha256": "814c414626b11524b8d1b5a4f2289290d18bdd3108cad2ac86151773740d7514"
+     },
+     {
+      "artifact_ref": "synthetic:model",
+      "sha256": "ea4bdc62c25e04cb164d26d752ac747be9bb0b7840d36ed10961ccbef580b3fb"
+     },
+     {
+      "artifact_ref": "synthetic:scope",
+      "sha256": "ab02ae4b97d7f534674beaee0b10930f5d0c332a120ece90b3ddae972bf62eaf"
+     },
+     {
+      "artifact_ref": "synthetic:source",
+      "sha256": "7fbf1e4e7897b927072c70f414dfdc4731cf3e2953d5115eeca56afba2649146"
+     }
+    ],
+    "specification_status": "approved_restricted_design",
+    "support_surfaces": [
+     {
+      "frame_ref": "world",
+      "geometry_ref": "synthetic:model",
+      "id": "root_A",
+      "motion_model": "stationary",
+      "role": "environment_support"
+     },
+     {
+      "frame_ref": "world",
+      "geometry_ref": "synthetic:model",
+      "id": "root_B",
+      "motion_model": "stationary",
+      "role": "environment_support"
+     }
+    ],
+    "task_id": "synthetic-task",
+    "temporal_alignment": {
+     "camera_phase_uncertainty_s": null,
+     "claim_intersample_observation": false,
+     "clock_ref": "synthetic:domain",
+     "domain": "saved_frame_projection",
+     "state_phase_uncertainty_s": 0
+    },
+    "uncertainty_policy": {
+     "missing_is_negative": false,
+     "missing_is_nonapplicable": false,
+     "partial_domain": "whole_claim_insufficient_retain_qualified_windows",
+     "preserve_unknown_intervals": true,
+     "unsupported_contract": "invalid_measurement_contract"
+    },
+    "validation_record": null,
+    "validation_status": "illustrative_unvalidated"
+   },
+   "result": {
+    "requirement_id": "R1",
+    "requirement_version": "2.0.0",
+    "configuration_schema_version": "2.0.1",
+    "manifest_version": "1.0.0",
+    "checker_id": "r1-v4-restricted-infrastructure",
+    "checker_version": "4.0.0a1",
+    "evidence_schema_version": "1.0.0",
+    "assessment_schema_version": "1.0.0",
+    "validation_status": "analytical_infrastructure_only",
+    "synthetic": true,
+    "physical_safety_conclusion": false,
+    "empirical_profiles_enabled": false,
+    "configuration_hash": "e61b01f5bb853cd8481e6897d1c3fa598e0fa7dee30e2bc93f6d8a4e95de92a3",
+    "assessment_manifest": {
+     "adapter": {
+      "artifact_ref": "builtin:adapter",
+      "id": "analytical-declarations",
+      "sha256": "35f775bb958173c312115373de733ab1dfe738dc6f0ff0708219830282cb8136",
+      "version": "1.0.0"
+     },
+     "calibration_records": [],
+     "capability_record": {
+      "artifact_ref": "builtin:capability_record",
+      "id": "analytical-contract-capabilities",
+      "sha256": "1aa35ed7319878ca844714bf0dfdea4b4f30977ada269807ae272f0e1f3808f6",
+      "version": "1.0.0"
+     },
+     "checker": {
+      "artifact_ref": "builtin:checker",
+      "id": "r1-v4-restricted-infrastructure",
+      "sha256": "3a19486c5a4ae834feb27dd07b2e05f9dd65db6ab0acf066c6a0435718e46f52",
+      "version": "4.0.0a1"
+     },
+     "configuration_schema": {
+      "artifact_ref": "builtin:configuration_schema",
+      "id": "urn:trustworthy:r1:generalized:configuration:2.0.1",
+      "sha256": "b7bf5a3c56e805951fcc99d518c3c09eadd0fede5ed02710e6672e44e19c1377",
+      "version": "2.0.1"
+     },
+     "evidence_schema": {
+      "artifact_ref": "builtin:evidence_schema",
+      "id": "urn:trustworthy:r1:v4:evidence:1.0.0",
+      "sha256": "1d466cacec26e0b6434b56813be48d6a7f167645fbd6c556443ff9d1cf15caba",
+      "version": "1.0.0"
+     },
+     "inference_profile": {
+      "artifact_ref": "builtin:inference_profile",
+      "id": "analytical-static-box",
+      "sha256": "f82e0414ad89f37930a5dd65dd5515fef383e13e336ff65b403e3b16213d13d1",
+      "version": "1.0.0"
+     },
+     "manifest_version": "1.0.0",
+     "purpose": "analytical_fixture",
+     "requested_domain": {
+      "cells_ref": "synthetic:domain",
+      "interval_ref": "#/monitoring_interval",
+      "projection": "saved_frame_projection"
+     },
+     "requirement": {
+      "artifact_ref": "builtin:requirement",
+      "id": "R1",
+      "sha256": "aef444c6850fb8c5a49fc06ca754b7cb2b5b8996a35520ccac463c5c588ce48e",
+      "version": "2.0.0"
+     },
+     "source_model_bindings": [
+      {
+       "artifact_ref": "synthetic:domain",
+       "sha256": "814c414626b11524b8d1b5a4f2289290d18bdd3108cad2ac86151773740d7514"
+      },
+      {
+       "artifact_ref": "synthetic:model",
+       "sha256": "ea4bdc62c25e04cb164d26d752ac747be9bb0b7840d36ed10961ccbef580b3fb"
+      },
+      {
+       "artifact_ref": "synthetic:scope",
+       "sha256": "ab02ae4b97d7f534674beaee0b10930f5d0c332a120ece90b3ddae972bf62eaf"
+      },
+      {
+       "artifact_ref": "synthetic:source",
+       "sha256": "7fbf1e4e7897b927072c70f414dfdc4731cf3e2953d5115eeca56afba2649146"
+      }
+     ],
+     "validation_status": "capability_tested",
+     "validity_scope_ref": "synthetic:scope"
+    },
+    "configuration_status": "valid",
+    "configuration_diagnostics": [],
+    "assessed": true,
+    "input_rejection_count": 0,
+    "object_assessments": [
+     {
+      "object_id": "object_00",
+      "surfaces": [
+       "root_A"
+      ],
+      "applicability": "applicable",
+      "outcome": "violation_observed",
+      "reasons": [
+       "initial_support_established"
+      ],
+      "evidence_ids": [
+       "object_00_fall",
+       "object_00_geometry",
+       "object_00_identity",
+       "object_00_link",
+       "object_00_presence",
+       "object_00_support"
+      ],
+      "coverage": {
+       "requested": [
+        "s0",
+        "s1",
+        "s2",
+        "t01",
+        "t12"
+       ],
+       "available": [
+        "s1",
+        "s2",
+        "t12"
+       ],
+       "admitted": [
+        "s1",
+        "s2",
+        "t12"
+       ],
+       "negative": [],
+       "missing": [
+        "s0",
+        "s1",
+        "s2",
+        "t01",
+        "t12"
+       ],
+       "dependencies": [],
+       "source_groups": [],
+       "invalid": [],
+       "unobserved": [
+        "s0",
+        "t01"
+       ]
+      },
+      "uncertainty": [],
+      "complete": false,
+      "scope_mismatch": false,
+      "study_eligibility": "not_decided_by_checker",
+      "execution_id": "synthetic-execution",
+      "requirement_version": "2.0.0",
+      "checker_version": "4.0.0a1",
+      "adapter_version": "1.0.0",
+      "profile_version": "1.0.0",
+      "validation_status": "synthetic_analytical_only"
+     },
+     {
+      "object_id": "object_01",
+      "surfaces": [
+       "root_A"
+      ],
+      "applicability": "applicable",
+      "outcome": "no_violation_observed_within_validated_coverage",
+      "reasons": [
+       "initial_support_established"
+      ],
+      "evidence_ids": [
+       "object_01_clear",
+       "object_01_geometry",
+       "object_01_identity",
+       "object_01_link",
+       "object_01_presence",
+       "object_01_support"
+      ],
+      "coverage": {
+       "requested": [
+        "s0",
+        "s1",
+        "s2",
+        "t01",
+        "t12"
+       ],
+       "available": [
+        "s0",
+        "s1",
+        "s2",
+        "t01",
+        "t12"
+       ],
+       "admitted": [
+        "s0",
+        "s1",
+        "s2",
+        "t01",
+        "t12"
+       ],
+       "negative": [
+        "s0",
+        "s1",
+        "s2",
+        "t01",
+        "t12"
+       ],
+       "missing": [],
+       "dependencies": [
+        "object_01_clear",
+        "object_01_geometry",
+        "object_01_identity",
+        "object_01_link",
+        "object_01_presence",
+        "object_01_support",
+        "shared_context"
+       ],
+       "source_groups": [
+        [
+         "synthetic-constraint-ledger",
+         [
+          "synthetic:source"
+         ]
+        ]
+       ],
+       "invalid": [],
+       "unobserved": []
+      },
+      "uncertainty": [],
+      "complete": true,
+      "scope_mismatch": false,
+      "study_eligibility": "not_decided_by_checker",
+      "execution_id": "synthetic-execution",
+      "requirement_version": "2.0.0",
+      "checker_version": "4.0.0a1",
+      "adapter_version": "1.0.0",
+      "profile_version": "1.0.0",
+      "validation_status": "synthetic_analytical_only"
+     },
+     {
+      "object_id": "object_02",
+      "surfaces": [
+       "root_A"
+      ],
+      "applicability": "not_applicable",
+      "outcome": "not_applicable",
+      "reasons": [
+       "initial_support_excluded"
+      ],
+      "evidence_ids": [
+       "object_02_geometry",
+       "object_02_identity",
+       "object_02_link",
+       "object_02_presence",
+       "object_02_support"
+      ],
+      "coverage": {
+       "requested": [
+        "s0",
+        "s1",
+        "s2",
+        "t01",
+        "t12"
+       ],
+       "available": [],
+       "admitted": [],
+       "negative": [],
+       "missing": [
+        "s0",
+        "s1",
+        "s2",
+        "t01",
+        "t12"
+       ],
+       "dependencies": [],
+       "source_groups": [],
+       "invalid": [],
+       "unobserved": [
+        "s0",
+        "s1",
+        "s2",
+        "t01",
+        "t12"
+       ]
+      },
+      "uncertainty": [],
+      "complete": true,
+      "scope_mismatch": false,
+      "study_eligibility": "not_decided_by_checker",
+      "execution_id": "synthetic-execution",
+      "requirement_version": "2.0.0",
+      "checker_version": "4.0.0a1",
+      "adapter_version": "1.0.0",
+      "profile_version": "1.0.0",
+      "validation_status": "synthetic_analytical_only"
+     }
+    ],
+    "execution_outcome": "violation_observed",
+    "applicability_summary": "applicable_present",
+    "outcome_counts": {
+     "violation_observed": 1,
+     "no_violation_observed_within_validated_coverage": 1,
+     "not_applicable": 1,
+     "insufficient_information": 0,
+     "invalid_measurement_contract": 0
+    },
+    "applicability_counts": {
+     "applicable": 2,
+     "not_applicable": 1,
+     "indeterminate": 0,
+     "unsupported_evidence_contract": 0
+    },
+    "evidence_complete": false,
+    "empty_scope": false,
+    "eligible_safety_units": 2,
+    "empirical_metrics": null,
+    "admitted_evidence_ids": [
+     "object_00_fall",
+     "object_00_geometry",
+     "object_00_identity",
+     "object_00_link",
+     "object_00_presence",
+     "object_00_support",
+     "object_01_clear",
+     "object_01_geometry",
+     "object_01_identity",
+     "object_01_link",
+     "object_01_presence",
+     "object_01_support",
+     "object_02_geometry",
+     "object_02_identity",
+     "object_02_link",
+     "object_02_presence",
+     "object_02_support",
+     "shared_context"
+    ],
+    "rejected_evidence": [],
+    "evidence_admission": [
+     {
+      "evidence_id": "object_00_fall",
+      "status": "verified",
+      "reasons": [],
+      "dependencies": [
+       "object_00_fall",
+       "object_00_geometry",
+       "object_00_identity",
+       "object_00_link",
+       "object_00_presence",
+       "object_00_support",
+       "shared_context"
+      ],
+      "source_hash": "7fbf1e4e7897b927072c70f414dfdc4731cf3e2953d5115eeca56afba2649146"
+     },
+     {
+      "evidence_id": "object_00_geometry",
+      "status": "verified",
+      "reasons": [],
+      "dependencies": [
+       "object_00_geometry"
+      ],
+      "source_hash": "7fbf1e4e7897b927072c70f414dfdc4731cf3e2953d5115eeca56afba2649146"
+     },
+     {
+      "evidence_id": "object_00_identity",
+      "status": "verified",
+      "reasons": [],
+      "dependencies": [
+       "object_00_identity",
+       "shared_context"
+      ],
+      "source_hash": "7fbf1e4e7897b927072c70f414dfdc4731cf3e2953d5115eeca56afba2649146"
+     },
+     {
+      "evidence_id": "object_00_link",
+      "status": "verified",
+      "reasons": [],
+      "dependencies": [
+       "object_00_link"
+      ],
+      "source_hash": "7fbf1e4e7897b927072c70f414dfdc4731cf3e2953d5115eeca56afba2649146"
+     },
+     {
+      "evidence_id": "object_00_presence",
+      "status": "verified",
+      "reasons": [],
+      "dependencies": [
+       "object_00_presence"
+      ],
+      "source_hash": "7fbf1e4e7897b927072c70f414dfdc4731cf3e2953d5115eeca56afba2649146"
+     },
+     {
+      "evidence_id": "object_00_support",
+      "status": "verified",
+      "reasons": [],
+      "dependencies": [
+       "object_00_geometry",
+       "object_00_identity",
+       "object_00_link",
+       "object_00_presence",
+       "object_00_support",
+       "shared_context"
+      ],
+      "source_hash": "7fbf1e4e7897b927072c70f414dfdc4731cf3e2953d5115eeca56afba2649146"
+     },
+     {
+      "evidence_id": "object_01_clear",
+      "status": "verified",
+      "reasons": [],
+      "dependencies": [
+       "object_01_clear",
+       "object_01_geometry",
+       "object_01_identity",
+       "object_01_link",
+       "object_01_presence",
+       "object_01_support",
+       "shared_context"
+      ],
+      "source_hash": "7fbf1e4e7897b927072c70f414dfdc4731cf3e2953d5115eeca56afba2649146"
+     },
+     {
+      "evidence_id": "object_01_geometry",
+      "status": "verified",
+      "reasons": [],
+      "dependencies": [
+       "object_01_geometry"
+      ],
+      "source_hash": "7fbf1e4e7897b927072c70f414dfdc4731cf3e2953d5115eeca56afba2649146"
+     },
+     {
+      "evidence_id": "object_01_identity",
+      "status": "verified",
+      "reasons": [],
+      "dependencies": [
+       "object_01_identity",
+       "shared_context"
+      ],
+      "source_hash": "7fbf1e4e7897b927072c70f414dfdc4731cf3e2953d5115eeca56afba2649146"
+     },
+     {
+      "evidence_id": "object_01_link",
+      "status": "verified",
+      "reasons": [],
+      "dependencies": [
+       "object_01_link"
+      ],
+      "source_hash": "7fbf1e4e7897b927072c70f414dfdc4731cf3e2953d5115eeca56afba2649146"
+     },
+     {
+      "evidence_id": "object_01_presence",
+      "status": "verified",
+      "reasons": [],
+      "dependencies": [
+       "object_01_presence"
+      ],
+      "source_hash": "7fbf1e4e7897b927072c70f414dfdc4731cf3e2953d5115eeca56afba2649146"
+     },
+     {
+      "evidence_id": "object_01_support",
+      "status": "verified",
+      "reasons": [],
+      "dependencies": [
+       "object_01_geometry",
+       "object_01_identity",
+       "object_01_link",
+       "object_01_presence",
+       "object_01_support",
+       "shared_context"
+      ],
+      "source_hash": "7fbf1e4e7897b927072c70f414dfdc4731cf3e2953d5115eeca56afba2649146"
+     },
+     {
+      "evidence_id": "object_02_geometry",
+      "status": "verified",
+      "reasons": [],
+      "dependencies": [
+       "object_02_geometry"
+      ],
+      "source_hash": "7fbf1e4e7897b927072c70f414dfdc4731cf3e2953d5115eeca56afba2649146"
+     },
+     {
+      "evidence_id": "object_02_identity",
+      "status": "verified",
+      "reasons": [],
+      "dependencies": [
+       "object_02_identity",
+       "shared_context"
+      ],
+      "source_hash": "7fbf1e4e7897b927072c70f414dfdc4731cf3e2953d5115eeca56afba2649146"
+     },
+     {
+      "evidence_id": "object_02_link",
+      "status": "verified",
+      "reasons": [],
+      "dependencies": [
+       "object_02_link"
+      ],
+      "source_hash": "7fbf1e4e7897b927072c70f414dfdc4731cf3e2953d5115eeca56afba2649146"
+     },
+     {
+      "evidence_id": "object_02_presence",
+      "status": "verified",
+      "reasons": [],
+      "dependencies": [
+       "object_02_presence"
+      ],
+      "source_hash": "7fbf1e4e7897b927072c70f414dfdc4731cf3e2953d5115eeca56afba2649146"
+     },
+     {
+      "evidence_id": "object_02_support",
+      "status": "verified",
+      "reasons": [],
+      "dependencies": [
+       "object_02_geometry",
+       "object_02_identity",
+       "object_02_link",
+       "object_02_presence",
+       "object_02_support",
+       "shared_context"
+      ],
+      "source_hash": "7fbf1e4e7897b927072c70f414dfdc4731cf3e2953d5115eeca56afba2649146"
+     },
+     {
+      "evidence_id": "shared_context",
+      "status": "verified",
+      "reasons": [],
+      "dependencies": [
+       "shared_context"
+      ],
+      "source_hash": "7fbf1e4e7897b927072c70f414dfdc4731cf3e2953d5115eeca56afba2649146"
+     }
+    ],
+    "conflicts": [],
+    "missing_requirements": [],
+    "uncertainty": [],
+    "evidence_records": [
+     {
+      "id": "object_00_fall",
+      "kind": "declaration",
+      "claim": "violation",
+      "truth": "T",
+      "validity": "verified",
+      "object_id": "object_00",
+      "execution_id": "synthetic-execution",
+      "surfaces": [
+       "root_A"
+      ],
+      "interval": {
+       "start": 1,
+       "end": 2
+      },
+      "cells": [
+       "s1",
+       "s2",
+       "t12"
+      ],
+      "dependencies": [
+       "object_00_support"
+      ],
+      "source_ref": "synthetic:source",
+      "producer": "synthetic-constraint-ledger",
+      "frame": {
+       "id": "world",
+       "clock": "synthetic:domain",
+       "length_unit": "m",
+       "time_unit": "s",
+       "handedness": "right_handed"
+      },
+      "uncertainty": {
+       "temporal": 0,
+       "description": []
+      },
+      "payload": {
+       "items": [
+        [
+         "downward",
+         "T"
+        ],
+        [
+         "downward_interval",
+         [
+          1,
+          2
+         ]
+        ],
+        [
+         "handling_excluded",
+         "F"
+        ],
+        [
+         "loss",
+         "T"
+        ],
+        [
+         "onset",
+         [
+          1,
+          1
+         ]
+        ],
+        [
+         "origin",
+         "T"
+        ]
+       ]
+      }
+     },
+     {
+      "id": "object_00_geometry",
+      "kind": "geometry",
+      "claim": "geometry",
+      "truth": "T",
+      "validity": "verified",
+      "object_id": "object_00",
+      "execution_id": "synthetic-execution",
+      "surfaces": [
+       "root_A"
+      ],
+      "interval": {
+       "start": 0,
+       "end": 2
+      },
+      "cells": [],
+      "dependencies": [],
+      "source_ref": "synthetic:source",
+      "producer": "synthetic-constraint-ledger",
+      "frame": {
+       "id": "world",
+       "clock": "synthetic:domain",
+       "length_unit": "m",
+       "time_unit": "s",
+       "handedness": "right_handed"
+      },
+      "uncertainty": {
+       "temporal": 0,
+       "description": []
+      },
+      "payload": {
+       "shape": "box",
+       "dimensions": [
+        1,
+        1,
+        1
+       ],
+       "static": false,
+       "horizontal": false,
+       "complete": true
+      }
+     },
+     {
+      "id": "object_00_identity",
+      "kind": "declaration",
+      "claim": "identity",
+      "truth": "T",
+      "validity": "verified",
+      "object_id": "object_00",
+      "execution_id": "synthetic-execution",
+      "surfaces": [
+       "root_A"
+      ],
+      "interval": {
+       "start": 0,
+       "end": 0
+      },
+      "cells": [],
+      "dependencies": [
+       "shared_context"
+      ],
+      "source_ref": "synthetic:source",
+      "producer": "synthetic-constraint-ledger",
+      "frame": {
+       "id": "world",
+       "clock": "synthetic:domain",
+       "length_unit": "m",
+       "time_unit": "s",
+       "handedness": "right_handed"
+      },
+      "uncertainty": {
+       "temporal": 0,
+       "description": []
+      },
+      "payload": {
+       "items": [
+        [
+         "instance_id",
+         "instance_object_00"
+        ]
+       ]
+      }
+     },
+     {
+      "id": "object_00_link",
+      "kind": "declaration",
+      "claim": "support_link",
+      "truth": "T",
+      "validity": "verified",
+      "object_id": "object_00",
+      "execution_id": "synthetic-execution",
+      "surfaces": [
+       "root_A"
+      ],
+      "interval": {
+       "start": 0,
+       "end": 0
+      },
+      "cells": [],
+      "dependencies": [],
+      "source_ref": "synthetic:source",
+      "producer": "synthetic-constraint-ledger",
+      "frame": {
+       "id": "world",
+       "clock": "synthetic:domain",
+       "length_unit": "m",
+       "time_unit": "s",
+       "handedness": "right_handed"
+      },
+      "uncertainty": {
+       "temporal": 0,
+       "description": []
+      },
+      "payload": {
+       "items": [
+        [
+         "child",
+         "object_00"
+        ],
+        [
+         "parent",
+         "root_A"
+        ]
+       ]
+      }
+     },
+     {
+      "id": "object_00_presence",
+      "kind": "declaration",
+      "claim": "presence",
+      "truth": "T",
+      "validity": "verified",
+      "object_id": "object_00",
+      "execution_id": "synthetic-execution",
+      "surfaces": [
+       "root_A"
+      ],
+      "interval": {
+       "start": 0,
+       "end": 0
+      },
+      "cells": [],
+      "dependencies": [],
+      "source_ref": "synthetic:source",
+      "producer": "synthetic-constraint-ledger",
+      "frame": {
+       "id": "world",
+       "clock": "synthetic:domain",
+       "length_unit": "m",
+       "time_unit": "s",
+       "handedness": "right_handed"
+      },
+      "uncertainty": {
+       "temporal": 0,
+       "description": []
+      },
+      "payload": {
+       "items": [
+        [
+         "closed_roster",
+         true
+        ]
+       ]
+      }
+     },
+     {
+      "id": "object_00_support",
+      "kind": "declaration",
+      "claim": "initial_support",
+      "truth": "T",
+      "validity": "verified",
+      "object_id": "object_00",
+      "execution_id": "synthetic-execution",
+      "surfaces": [
+       "root_A"
+      ],
+      "interval": {
+       "start": 0,
+       "end": 0
+      },
+      "cells": [],
+      "dependencies": [
+       "object_00_geometry",
+       "object_00_identity",
+       "object_00_link",
+       "object_00_presence"
+      ],
+      "source_ref": "synthetic:source",
+      "producer": "synthetic-constraint-ledger",
+      "frame": {
+       "id": "world",
+       "clock": "synthetic:domain",
+       "length_unit": "m",
+       "time_unit": "s",
+       "handedness": "right_handed"
+      },
+      "uncertainty": {
+       "temporal": 0,
+       "description": []
+      },
+      "payload": {
+       "items": [
+        [
+         "all_support_excluded",
+         false
+        ],
+        [
+         "chain",
+         [
+          "object_00",
+          "root_A"
+         ]
+        ]
+       ]
+      }
+     },
+     {
+      "id": "object_01_clear",
+      "kind": "declaration",
+      "claim": "static_negative",
+      "truth": "T",
+      "validity": "verified",
+      "object_id": "object_01",
+      "execution_id": "synthetic-execution",
+      "surfaces": [
+       "root_A"
+      ],
+      "interval": {
+       "start": 0,
+       "end": 2
+      },
+      "cells": [
+       "s0",
+       "s1",
+       "s2",
+       "t01",
+       "t12"
+      ],
+      "dependencies": [
+       "object_01_support"
+      ],
+      "source_ref": "synthetic:source",
+      "producer": "synthetic-constraint-ledger",
+      "frame": {
+       "id": "world",
+       "clock": "synthetic:domain",
+       "length_unit": "m",
+       "time_unit": "s",
+       "handedness": "right_handed"
+      },
+      "uncertainty": {
+       "temporal": 0,
+       "description": []
+      },
+      "payload": {
+       "items": [
+        [
+         "method",
+         "exact_static_constraint"
+        ]
+       ]
+      }
+     },
+     {
+      "id": "object_01_geometry",
+      "kind": "geometry",
+      "claim": "geometry",
+      "truth": "T",
+      "validity": "verified",
+      "object_id": "object_01",
+      "execution_id": "synthetic-execution",
+      "surfaces": [
+       "root_A"
+      ],
+      "interval": {
+       "start": 0,
+       "end": 2
+      },
+      "cells": [],
+      "dependencies": [],
+      "source_ref": "synthetic:source",
+      "producer": "synthetic-constraint-ledger",
+      "frame": {
+       "id": "world",
+       "clock": "synthetic:domain",
+       "length_unit": "m",
+       "time_unit": "s",
+       "handedness": "right_handed"
+      },
+      "uncertainty": {
+       "temporal": 0,
+       "description": []
+      },
+      "payload": {
+       "shape": "box",
+       "dimensions": [
+        1,
+        1,
+        1
+       ],
+       "static": false,
+       "horizontal": false,
+       "complete": true
+      }
+     },
+     {
+      "id": "object_01_identity",
+      "kind": "declaration",
+      "claim": "identity",
+      "truth": "T",
+      "validity": "verified",
+      "object_id": "object_01",
+      "execution_id": "synthetic-execution",
+      "surfaces": [
+       "root_A"
+      ],
+      "interval": {
+       "start": 0,
+       "end": 0
+      },
+      "cells": [],
+      "dependencies": [
+       "shared_context"
+      ],
+      "source_ref": "synthetic:source",
+      "producer": "synthetic-constraint-ledger",
+      "frame": {
+       "id": "world",
+       "clock": "synthetic:domain",
+       "length_unit": "m",
+       "time_unit": "s",
+       "handedness": "right_handed"
+      },
+      "uncertainty": {
+       "temporal": 0,
+       "description": []
+      },
+      "payload": {
+       "items": [
+        [
+         "instance_id",
+         "instance_object_01"
+        ]
+       ]
+      }
+     },
+     {
+      "id": "object_01_link",
+      "kind": "declaration",
+      "claim": "support_link",
+      "truth": "T",
+      "validity": "verified",
+      "object_id": "object_01",
+      "execution_id": "synthetic-execution",
+      "surfaces": [
+       "root_A"
+      ],
+      "interval": {
+       "start": 0,
+       "end": 0
+      },
+      "cells": [],
+      "dependencies": [],
+      "source_ref": "synthetic:source",
+      "producer": "synthetic-constraint-ledger",
+      "frame": {
+       "id": "world",
+       "clock": "synthetic:domain",
+       "length_unit": "m",
+       "time_unit": "s",
+       "handedness": "right_handed"
+      },
+      "uncertainty": {
+       "temporal": 0,
+       "description": []
+      },
+      "payload": {
+       "items": [
+        [
+         "child",
+         "object_01"
+        ],
+        [
+         "parent",
+         "root_A"
+        ]
+       ]
+      }
+     },
+     {
+      "id": "object_01_presence",
+      "kind": "declaration",
+      "claim": "presence",
+      "truth": "T",
+      "validity": "verified",
+      "object_id": "object_01",
+      "execution_id": "synthetic-execution",
+      "surfaces": [
+       "root_A"
+      ],
+      "interval": {
+       "start": 0,
+       "end": 0
+      },
+      "cells": [],
+      "dependencies": [],
+      "source_ref": "synthetic:source",
+      "producer": "synthetic-constraint-ledger",
+      "frame": {
+       "id": "world",
+       "clock": "synthetic:domain",
+       "length_unit": "m",
+       "time_unit": "s",
+       "handedness": "right_handed"
+      },
+      "uncertainty": {
+       "temporal": 0,
+       "description": []
+      },
+      "payload": {
+       "items": [
+        [
+         "closed_roster",
+         true
+        ]
+       ]
+      }
+     },
+     {
+      "id": "object_01_support",
+      "kind": "declaration",
+      "claim": "initial_support",
+      "truth": "T",
+      "validity": "verified",
+      "object_id": "object_01",
+      "execution_id": "synthetic-execution",
+      "surfaces": [
+       "root_A"
+      ],
+      "interval": {
+       "start": 0,
+       "end": 0
+      },
+      "cells": [],
+      "dependencies": [
+       "object_01_geometry",
+       "object_01_identity",
+       "object_01_link",
+       "object_01_presence"
+      ],
+      "source_ref": "synthetic:source",
+      "producer": "synthetic-constraint-ledger",
+      "frame": {
+       "id": "world",
+       "clock": "synthetic:domain",
+       "length_unit": "m",
+       "time_unit": "s",
+       "handedness": "right_handed"
+      },
+      "uncertainty": {
+       "temporal": 0,
+       "description": []
+      },
+      "payload": {
+       "items": [
+        [
+         "all_support_excluded",
+         false
+        ],
+        [
+         "chain",
+         [
+          "object_01",
+          "root_A"
+         ]
+        ]
+       ]
+      }
+     },
+     {
+      "id": "object_02_geometry",
+      "kind": "geometry",
+      "claim": "geometry",
+      "truth": "T",
+      "validity": "verified",
+      "object_id": "object_02",
+      "execution_id": "synthetic-execution",
+      "surfaces": [
+       "root_A"
+      ],
+      "interval": {
+       "start": 0,
+       "end": 2
+      },
+      "cells": [],
+      "dependencies": [],
+      "source_ref": "synthetic:source",
+      "producer": "synthetic-constraint-ledger",
+      "frame": {
+       "id": "world",
+       "clock": "synthetic:domain",
+       "length_unit": "m",
+       "time_unit": "s",
+       "handedness": "right_handed"
+      },
+      "uncertainty": {
+       "temporal": 0,
+       "description": []
+      },
+      "payload": {
+       "shape": "box",
+       "dimensions": [
+        1,
+        1,
+        1
+       ],
+       "static": false,
+       "horizontal": false,
+       "complete": true
+      }
+     },
+     {
+      "id": "object_02_identity",
+      "kind": "declaration",
+      "claim": "identity",
+      "truth": "T",
+      "validity": "verified",
+      "object_id": "object_02",
+      "execution_id": "synthetic-execution",
+      "surfaces": [
+       "root_A"
+      ],
+      "interval": {
+       "start": 0,
+       "end": 0
+      },
+      "cells": [],
+      "dependencies": [
+       "shared_context"
+      ],
+      "source_ref": "synthetic:source",
+      "producer": "synthetic-constraint-ledger",
+      "frame": {
+       "id": "world",
+       "clock": "synthetic:domain",
+       "length_unit": "m",
+       "time_unit": "s",
+       "handedness": "right_handed"
+      },
+      "uncertainty": {
+       "temporal": 0,
+       "description": []
+      },
+      "payload": {
+       "items": [
+        [
+         "instance_id",
+         "instance_object_02"
+        ]
+       ]
+      }
+     },
+     {
+      "id": "object_02_link",
+      "kind": "declaration",
+      "claim": "support_link",
+      "truth": "T",
+      "validity": "verified",
+      "object_id": "object_02",
+      "execution_id": "synthetic-execution",
+      "surfaces": [
+       "root_A"
+      ],
+      "interval": {
+       "start": 0,
+       "end": 0
+      },
+      "cells": [],
+      "dependencies": [],
+      "source_ref": "synthetic:source",
+      "producer": "synthetic-constraint-ledger",
+      "frame": {
+       "id": "world",
+       "clock": "synthetic:domain",
+       "length_unit": "m",
+       "time_unit": "s",
+       "handedness": "right_handed"
+      },
+      "uncertainty": {
+       "temporal": 0,
+       "description": []
+      },
+      "payload": {
+       "items": [
+        [
+         "child",
+         "object_02"
+        ],
+        [
+         "parent",
+         "root_A"
+        ]
+       ]
+      }
+     },
+     {
+      "id": "object_02_presence",
+      "kind": "declaration",
+      "claim": "presence",
+      "truth": "T",
+      "validity": "verified",
+      "object_id": "object_02",
+      "execution_id": "synthetic-execution",
+      "surfaces": [
+       "root_A"
+      ],
+      "interval": {
+       "start": 0,
+       "end": 0
+      },
+      "cells": [],
+      "dependencies": [],
+      "source_ref": "synthetic:source",
+      "producer": "synthetic-constraint-ledger",
+      "frame": {
+       "id": "world",
+       "clock": "synthetic:domain",
+       "length_unit": "m",
+       "time_unit": "s",
+       "handedness": "right_handed"
+      },
+      "uncertainty": {
+       "temporal": 0,
+       "description": []
+      },
+      "payload": {
+       "items": [
+        [
+         "closed_roster",
+         true
+        ]
+       ]
+      }
+     },
+     {
+      "id": "object_02_support",
+      "kind": "declaration",
+      "claim": "initial_support",
+      "truth": "F",
+      "validity": "verified",
+      "object_id": "object_02",
+      "execution_id": "synthetic-execution",
+      "surfaces": [
+       "root_A"
+      ],
+      "interval": {
+       "start": 0,
+       "end": 0
+      },
+      "cells": [],
+      "dependencies": [
+       "object_02_geometry",
+       "object_02_identity",
+       "object_02_link",
+       "object_02_presence"
+      ],
+      "source_ref": "synthetic:source",
+      "producer": "synthetic-constraint-ledger",
+      "frame": {
+       "id": "world",
+       "clock": "synthetic:domain",
+       "length_unit": "m",
+       "time_unit": "s",
+       "handedness": "right_handed"
+      },
+      "uncertainty": {
+       "temporal": 0,
+       "description": []
+      },
+      "payload": {
+       "items": [
+        [
+         "all_support_excluded",
+         true
+        ],
+        [
+         "chain",
+         [
+          "object_02",
+          "root_A"
+         ]
+        ]
+       ]
+      }
+     },
+     {
+      "id": "shared_context",
+      "kind": "derived_observation",
+      "claim": "observation",
+      "truth": "T",
+      "validity": "verified",
+      "object_id": "*",
+      "execution_id": "synthetic-execution",
+      "surfaces": [],
+      "interval": {
+       "start": 0,
+       "end": 2
+      },
+      "cells": [],
+      "dependencies": [],
+      "source_ref": "synthetic:source",
+      "producer": "synthetic-constraint-ledger",
+      "frame": {
+       "id": "world",
+       "clock": "synthetic:domain",
+       "length_unit": "m",
+       "time_unit": "s",
+       "handedness": "right_handed"
+      },
+      "uncertainty": {
+       "temporal": 0,
+       "description": []
+      },
+      "payload": {
+       "quantity": "declared_fixture_context",
+       "values": [],
+       "unit": "fixture"
+      }
+     }
+    ],
+    "provenance": {
+     "requested_purpose": "analytical_fixture",
+     "admitted_purpose": "analytical_fixture",
+     "execution_id": "synthetic-execution",
+     "task_id": "synthetic-task",
+     "runtime_bindings": {
+      "requirement": {
+       "id": "R1",
+       "version": "2.0.0",
+       "artifact_ref": "builtin:requirement",
+       "sha256": "aef444c6850fb8c5a49fc06ca754b7cb2b5b8996a35520ccac463c5c588ce48e"
+      },
+      "configuration_schema": {
+       "id": "urn:trustworthy:r1:generalized:configuration:2.0.1",
+       "version": "2.0.1",
+       "artifact_ref": "builtin:configuration_schema",
+       "sha256": "b7bf5a3c56e805951fcc99d518c3c09eadd0fede5ed02710e6672e44e19c1377"
+      },
+      "evidence_schema": {
+       "id": "urn:trustworthy:r1:v4:evidence:1.0.0",
+       "version": "1.0.0",
+       "artifact_ref": "builtin:evidence_schema",
+       "sha256": "1d466cacec26e0b6434b56813be48d6a7f167645fbd6c556443ff9d1cf15caba"
+      },
+      "adapter": {
+       "id": "analytical-declarations",
+       "version": "1.0.0",
+       "artifact_ref": "builtin:adapter",
+       "sha256": "35f775bb958173c312115373de733ab1dfe738dc6f0ff0708219830282cb8136"
+      },
+      "inference_profile": {
+       "id": "analytical-static-box",
+       "version": "1.0.0",
+       "artifact_ref": "builtin:inference_profile",
+       "sha256": "f82e0414ad89f37930a5dd65dd5515fef383e13e336ff65b403e3b16213d13d1"
+      },
+      "checker": {
+       "id": "r1-v4-restricted-infrastructure",
+       "version": "4.0.0a1",
+       "artifact_ref": "builtin:checker",
+       "sha256": "3a19486c5a4ae834feb27dd07b2e05f9dd65db6ab0acf066c6a0435718e46f52"
+      },
+      "capability_record": {
+       "id": "analytical-contract-capabilities",
+       "version": "1.0.0",
+       "artifact_ref": "builtin:capability_record",
+       "sha256": "1aa35ed7319878ca844714bf0dfdea4b4f30977ada269807ae272f0e1f3808f6"
+      }
+     },
+     "source_bindings": [
+      {
+       "artifact_ref": "synthetic:domain",
+       "sha256": "814c414626b11524b8d1b5a4f2289290d18bdd3108cad2ac86151773740d7514"
+      },
+      {
+       "artifact_ref": "synthetic:model",
+       "sha256": "ea4bdc62c25e04cb164d26d752ac747be9bb0b7840d36ed10961ccbef580b3fb"
+      },
+      {
+       "artifact_ref": "synthetic:scope",
+       "sha256": "ab02ae4b97d7f534674beaee0b10930f5d0c332a120ece90b3ddae972bf62eaf"
+      },
+      {
+       "artifact_ref": "synthetic:source",
+       "sha256": "7fbf1e4e7897b927072c70f414dfdc4731cf3e2953d5115eeca56afba2649146"
+      }
+     ],
+     "input_hash": "d8ed7612ccfe5fe4943113d4ffe18aaeb346318b5c3391903479a672f9877cad",
+     "source_independence": "not_inferred_from_producers_or_filenames"
+    },
+    "excluded_events": [],
+    "study_eligibility": "not_decided_by_checker",
+    "assessment_hash": "f9865d3b96a84f461592938d4984f8a23a453980d8c06a2d7ab75f929f4614b3"
+   }
+  }
+ ],
+ "retrieval_context": {
+  "requested_measurement_types": [
+   "object_pose",
+   "contact",
+   "camera_reference"
+  ],
+  "complete_within_requested_scope": false,
+  "gaps": [],
+  "related_case_evidence_ids": [],
+  "limitations": [
+   "TEST FIXTURE: synthetic evidence package.",
+   "Structured retrieval is PARTIAL; see structured_evidence."
+  ]
+ },
+ "structured_evidence": [
+  {
+   "request": {
+    "schema_version": "phase5-structured-1.0.0",
+    "execution_id": "synthetic-execution",
+    "task_id": "synthetic-task",
+    "variant_id": "synthetic-variant-0",
+    "assurance": "verified_source_values",
+    "provenance": {
+     "level": "source_identity"
+    },
+    "obligations": [
+     {
+      "id": "geometry_object_01",
+      "execution_id": "synthetic-execution",
+      "family": "geometry_identity",
+      "field": "native_object_identity",
+      "mandatory": true,
+      "object_id": "object_01"
+     },
+     {
+      "id": "contacts_object_01",
+      "execution_id": "synthetic-execution",
+      "family": "contact_references",
+      "field": "recorded_contact_references",
+      "mandatory": true,
+      "selector": {
+       "kind": "frames",
+       "start": 0,
+       "end": 2
+      },
+      "object_id": "object_01"
+     },
+     {
+      "id": "joint_positions",
+      "execution_id": "synthetic-execution",
+      "family": "raw.robot0_joint_pos",
+      "field": "raw_observation/robot0_joint_pos/value",
+      "mandatory": true,
+      "selector": {
+       "kind": "frames",
+       "start": 0,
+       "end": 2
+      }
+     },
+     {
+      "id": "camera_frames",
+      "execution_id": "synthetic-execution",
+      "family": "camera_references",
+      "field": "saved_image_references",
+      "mandatory": false,
+      "selector": {
+       "kind": "frames",
+       "start": 0,
+       "end": 2
+      }
+     }
+    ]
+   },
+   "bundle": {
+    "schema_version": "phase5-structured-1.0.0",
+    "route": "production_structured",
+    "query_id": "query:5279c6070e1eda723d32b4c4691ffc83b9b43a86920279c5fc95e5c81bf5ac18",
+    "resolved_scope": {
+     "execution_id": "synthetic-execution",
+     "task_id": "synthetic-task",
+     "variant_id": "synthetic-variant-0"
+    },
+    "requested_obligations": [
+     {
+      "id": "geometry_object_01",
+      "execution_id": "synthetic-execution",
+      "family": "geometry_identity",
+      "field": "native_object_identity",
+      "mandatory": true,
+      "object_id": "object_01"
+     },
+     {
+      "id": "contacts_object_01",
+      "execution_id": "synthetic-execution",
+      "family": "contact_references",
+      "field": "recorded_contact_references",
+      "mandatory": true,
+      "selector": {
+       "kind": "frames",
+       "start": 0,
+       "end": 2
+      },
+      "object_id": "object_01"
+     },
+     {
+      "id": "joint_positions",
+      "execution_id": "synthetic-execution",
+      "family": "raw.robot0_joint_pos",
+      "field": "raw_observation/robot0_joint_pos/value",
+      "mandatory": true,
+      "selector": {
+       "kind": "frames",
+       "start": 0,
+       "end": 2
+      }
+     },
+     {
+      "id": "camera_frames",
+      "execution_id": "synthetic-execution",
+      "family": "camera_references",
+      "field": "saved_image_references",
+      "mandatory": false,
+      "selector": {
+       "kind": "frames",
+       "start": 0,
+       "end": 2
+      }
+     }
+    ],
+    "groups": [
+     {
+      "family": "geometry_identity",
+      "status": "AVAILABLE",
+      "items": [
+       {
+        "id": "source-ref:ae4d5a7c5ea3ba843df4de0cb074f309395868532764aedf858fbddba455e8a4",
+        "id_kind": "verified_source_reference_not_new_measurement_record",
+        "family": "geometry_identity",
+        "original_evidence_ids": [
+         "ev:1b4c6c87584982e25928e7dfa04f856bf0afc579517b1dbd7bf7e52f7b6fabda"
+        ],
+        "execution_id": "synthetic-execution",
+        "task_id": "synthetic-task",
+        "variant_id": "synthetic-variant-0",
+        "source_artifact": {
+         "path": "/synthetic/critic_test_fixture/phase5/synthetic-execution/geometry_identity.json",
+         "sha256": "15551acbb3184e3975c8ee79de1d4173083ddcbba137048ca43bdb94ba836107",
+         "selector": "/body_names,/geometries"
+        },
+        "value": {
+         "object_id": "object_01",
+         "symbolic_identity_only": true,
+         "physical_support_inferred": false
+        },
+        "integrity_status": "verified_source",
+        "origin": "recorded_metadata_or_existing_derived_identity",
+        "units": null,
+        "interpretation_status": "VERIFIED_RECORDED_METADATA",
+        "synchronized_physical_instant": false,
+        "citation_id": "evidence-citation:6decd5f654befa81ef2e26ca6e653c22fb6923d4771e4eb98c55f63017cb216a",
+        "citation_basis": {
+         "citation_version": "1",
+         "database_sha256": "f6dbea047ad16c5420c34ff002e068e4ade41ab52806c936816aaf7019f303c8",
+         "record_id": "source-ref:ae4d5a7c5ea3ba843df4de0cb074f309395868532764aedf858fbddba455e8a4",
+         "source_sha256": "15551acbb3184e3975c8ee79de1d4173083ddcbba137048ca43bdb94ba836107",
+         "execution_id": "synthetic-execution",
+         "task_id": "synthetic-task",
+         "variant_id": "synthetic-variant-0",
+         "selectors": [
+          "/body_names,/geometries"
+         ],
+         "component": null,
+         "units": null,
+         "interpretation": "recorded",
+         "required_properties": []
+        }
+       }
+      ],
+      "coverage": {},
+      "reason": "",
+      "obligation_id": "geometry_object_01",
+      "mandatory": true,
+      "request_digest": "a50693ef1565e7710fb0edb503fb250e6c350f53e349b49dfe1fea2f49151594",
+      "requested_interpretation": "recorded"
+     },
+     {
+      "family": "contact_references",
+      "status": "UNAVAILABLE",
+      "items": [],
+      "coverage": {},
+      "reason": "No recorded samples in requested scope",
+      "obligation_id": "contacts_object_01",
+      "mandatory": true,
+      "request_digest": "f446dcbed87b5c41a0e44e232f7560d1ba2e434142c373cf301509727a36e6fc",
+      "requested_interpretation": "recorded"
+     },
+     {
+      "family": "raw.robot0_joint_pos",
+      "status": "AVAILABLE",
+      "items": [
+       {
+        "id": "channel:31122024212743ed54aa53fb52a6be9394ede0d7404d68651fa02d01d887cd27",
+        "family": "raw.robot0_joint_pos",
+        "original_evidence_ids": [
+         "channel:31122024212743ed54aa53fb52a6be9394ede0d7404d68651fa02d01d887cd27"
+        ],
+        "execution_id": "synthetic-execution",
+        "task_id": "synthetic-task",
+        "variant_id": "synthetic-variant-0",
+        "source_artifact": {
+         "path": "/synthetic/critic_test_fixture/phase5/synthetic-execution/source.h5",
+         "sha256": "b4c500d4803362ef29b6b43acf4b66e37cda8b56f08bd354dc350225b391834a",
+         "selector": "raw_observation/robot0_joint_pos/value"
+        },
+        "samples": [
+         {
+          "saved_frame_index": 0,
+          "source_selector": "/frames/000000/raw_observation/robot0_joint_pos/value",
+          "source_status": "verified_source",
+          "value": [
+           0.0,
+           0.1
+          ],
+          "value_units": "rad",
+          "coordinate_frame": "native_joint_space"
+         },
+         {
+          "saved_frame_index": 1,
+          "source_selector": "/frames/000001/raw_observation/robot0_joint_pos/value",
+          "source_status": "verified_source",
+          "value": [
+           0.0,
+           0.1
+          ],
+          "value_units": "rad",
+          "coordinate_frame": "native_joint_space"
+         },
+         {
+          "saved_frame_index": 2,
+          "source_selector": "/frames/000002/raw_observation/robot0_joint_pos/value",
+          "source_status": "verified_source",
+          "value": [
+           0.0,
+           0.1
+          ],
+          "value_units": "rad",
+          "coordinate_frame": "native_joint_space"
+         }
+        ],
+        "units": {
+         "status": "VERIFIED",
+         "value": "rad"
+        },
+        "coordinate_frame": {
+         "status": "VERIFIED",
+         "value": "native_joint_space"
+        },
+        "interpretation_properties": {
+         "units": {
+          "status": "VERIFIED",
+          "value": "rad"
+         },
+         "coordinate_frame": {
+          "status": "VERIFIED",
+          "value": "native_joint_space"
+         },
+         "component_order": {
+          "status": "VERIFIED",
+          "value": null
+         },
+         "cache_offset_seconds": {
+          "status": "VERIFIED",
+          "value": null
+         }
+        },
+        "derived_interpretation": "semantic:a7a436cea134ba2779eb320d780f7b6a978193371246abfa2e17b79d5cc6a4c7",
+        "integrity_status": "verified_source",
+        "origin": "direct_recording",
+        "synchronized_physical_instant": false,
+        "citation_id": "evidence-citation:0a49aeea7771cf8d76bae4ede19d2afffdf2dec8813e50ed64d9d819fcee37a9",
+        "citation_basis": {
+         "citation_version": "1",
+         "database_sha256": "f6dbea047ad16c5420c34ff002e068e4ade41ab52806c936816aaf7019f303c8",
+         "record_id": "channel:31122024212743ed54aa53fb52a6be9394ede0d7404d68651fa02d01d887cd27",
+         "source_sha256": "b4c500d4803362ef29b6b43acf4b66e37cda8b56f08bd354dc350225b391834a",
+         "execution_id": "synthetic-execution",
+         "task_id": "synthetic-task",
+         "variant_id": "synthetic-variant-0",
+         "selectors": [
+          "/frames/000000/raw_observation/robot0_joint_pos/value",
+          "/frames/000001/raw_observation/robot0_joint_pos/value",
+          "/frames/000002/raw_observation/robot0_joint_pos/value"
+         ],
+         "component": null,
+         "units": null,
+         "interpretation": "recorded",
+         "required_properties": []
+        }
+       }
+      ],
+      "coverage": {},
+      "reason": "ok",
+      "conditional_assumptions": [],
+      "obligation_id": "joint_positions",
+      "mandatory": true,
+      "request_digest": "8263640783bd812878a3cacbe47c36b1faa02e9d2ec4bed1a8474e1109bfee78",
+      "requested_interpretation": "recorded"
+     },
+     {
+      "family": "camera_references",
+      "status": "UNAVAILABLE",
+      "items": [],
+      "coverage": {},
+      "reason": "No recorded samples in requested scope",
+      "obligation_id": "camera_frames",
+      "mandatory": false,
+      "request_digest": "bf2d52d330773129c3227b22d0ad5285fe964d39e2ceefd89db2380d742e74bf",
+      "requested_interpretation": "recorded"
+     }
+    ],
+    "missing_obligations": [
+     {
+      "obligation_id": "contacts_object_01",
+      "mandatory": true,
+      "status": "UNAVAILABLE",
+      "reason": "No recorded samples in requested scope"
+     },
+     {
+      "obligation_id": "camera_frames",
+      "mandatory": false,
+      "status": "UNAVAILABLE",
+      "reason": "No recorded samples in requested scope"
+     }
+    ],
+    "completeness_status": "PARTIAL",
+    "reason": "Missing mandatory evidence remains explicit",
+    "independent_validation": {
+     "passed": true,
+     "errors": [],
+     "obligations": [
+      {
+       "obligation_id": "geometry_object_01",
+       "mandatory": true,
+       "satisfied": true
+      },
+      {
+       "obligation_id": "contacts_object_01",
+       "mandatory": true,
+       "satisfied": false
+      },
+      {
+       "obligation_id": "joint_positions",
+       "mandatory": true,
+       "satisfied": true
+      },
+      {
+       "obligation_id": "camera_frames",
+       "mandatory": false,
+       "satisfied": false
+      }
+     ],
+     "mandatory_fulfilled": false,
+     "method": "Synthetic test fixture: groups accepted when AVAILABLE with evidence"
+    },
+    "assurance_status": {
+     "requested": "verified_source_values",
+     "satisfied": false,
+     "verification_mode": "verified_session",
+     "returned_values_verified": true,
+     "historical_runtime_attested": false,
+     "provenance": {
+      "scope": "current_source_identity_only",
+      "historical_runtime_attested": false
+     }
+    },
+    "conditional_assumptions": [],
+    "limitations": [
+     "Completeness covers mandatory explicit obligations only, never safety-claim sufficiency",
+     "Saved-index/recorded-label association is not sensor synchronization",
+     "Metadata/geometry/counts do not establish support/contact/falling",
+     "Historical binary identity and physical calibration remain unattested"
+    ],
+    "safety_claim_sufficiency": "NOT_EVALUATED",
+    "safety_claim_verified": false,
+    "empirical_admission_enabled": false
+   }
+  }
+ ]
+}

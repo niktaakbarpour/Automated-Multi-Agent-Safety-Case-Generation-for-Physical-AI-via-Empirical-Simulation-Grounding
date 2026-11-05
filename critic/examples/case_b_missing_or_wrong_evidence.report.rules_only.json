@@ -1,6 +1,6 @@
 {
-  "schema_version": "critic-report/0.2.0",
-  "critic_version": "0.2.0",
+  "schema_version": "critic-report/0.3.0",
+  "critic_version": "0.3.0",
   "request_id": "CASE-B-missing-or-wrong-evidence",
   "execution_id": "SYNTH-EXEC-001",
   "test_fixture": true,
@@ -26,10 +26,11 @@
     "rejected": 0
   },
   "checker_admission": [],
+  "structured_retrieval": [],
   "criticisms": [
     {
       "criticism_id": "CRIT-001",
-      "critic_version": "0.2.0",
+      "critic_version": "0.3.0",
       "check_id": "BUNDLE-MISSING",
       "phase": "validation",
       "category": "C04",
@@ -51,7 +52,7 @@
     },
     {
       "criticism_id": "CRIT-002",
-      "critic_version": "0.2.0",
+      "critic_version": "0.3.0",
       "check_id": "EV-MISSING",
       "phase": "validation",
       "category": "C02",
@@ -74,7 +75,7 @@
     },
     {
       "criticism_id": "CRIT-003",
-      "critic_version": "0.2.0",
+      "critic_version": "0.3.0",
       "check_id": "EV-WRONG-EXECUTION",
       "phase": "validation",
       "category": "C03",

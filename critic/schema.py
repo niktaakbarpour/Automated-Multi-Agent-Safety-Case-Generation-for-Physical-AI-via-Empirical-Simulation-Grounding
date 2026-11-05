@@ -1,7 +1,8 @@
 """A small JSON Schema (draft 2020-12) validator, standard library only.
 
 It supports exactly the keywords used by the Critic's own schemas and the team's
-GSN, registry-record, R1-configuration and checker-assessment schemas. Any other
+GSN, registry-record, R1-configuration, checker-assessment and Phase 5 structured
+retrieval schemas. Any other
 keyword raises UnsupportedKeyword, so a rule can never be skipped silently. The
 tests compare its verdicts with the jsonschema package wherever that is installed.
 """
@@ -13,10 +14,11 @@ from pathlib import Path
 
 ANNOTATIONS = {'$id', '$schema', 'title', 'description', '$comment', 'default', 'examples'}
 KEYWORDS = {'$defs', '$ref', 'type', 'enum', 'const', 'properties', 'required', 'additionalProperties',
-            'propertyNames', 'items', 'minItems', 'maxItems', 'uniqueItems', 'minLength', 'pattern', 'minimum',
-            'allOf', 'anyOf', 'oneOf', 'if', 'then', 'else'}
+            'propertyNames', 'items', 'contains', 'minItems', 'maxItems', 'uniqueItems', 'minLength', 'maxLength',
+            'pattern', 'minimum', 'allOf', 'anyOf', 'oneOf', 'if', 'then', 'else'}
 
 ROOT = Path(__file__).resolve().parents[1]
+PHASE5 = ROOT / 'evaluation' / 'r1_v4' / 'rag_evidence_database' / 'final_phase5_release'
 SCHEMAS = {
     'request': ROOT / 'critic' / 'schemas' / 'critic_request.schema.json',
     'report': ROOT / 'critic' / 'schemas' / 'critic_report.schema.json',
@@ -24,6 +26,9 @@ SCHEMAS = {
     'registry_record': ROOT / 'evaluation' / 'r1_v4' / 'evidence_registry_gsn' / 'registry_record.schema.json',
     'r1_configuration': ROOT / 'requirements' / 'r1_generalized_v2' / 'R1_V2_CONFIG_SCHEMA.json',
     'checker_assessment': ROOT / 'evaluation' / 'r1_v4' / 'assessment.schema.json',
+    'phase5_query': PHASE5 / 'STRUCTURED_QUERY_SCHEMA.json',
+    'phase5_bundle': PHASE5 / 'EVIDENCE_BUNDLE_SCHEMA.json',
+    'phase5_consumer': ROOT / 'critic' / 'schemas' / 'phase5_bundle_consumer.schema.json',
 }
 
 
@@ -52,7 +57,7 @@ def check_schema(schema, path='$'):
     for key in ('allOf', 'anyOf', 'oneOf'):
         for i, sub in enumerate(schema.get(key, [])):
             check_schema(sub, f'{path}.{key}[{i}]')
-    for key in ('items', 'additionalProperties', 'propertyNames', 'if', 'then', 'else'):
+    for key in ('items', 'contains', 'additionalProperties', 'propertyNames', 'if', 'then', 'else'):
         if key in schema:
             check_schema(schema[key], f'{path}.{key}')
 
@@ -145,6 +150,8 @@ def _check(v, s, root, path, out, limit):
     if isinstance(v, str):
         if 'minLength' in s and len(v) < s['minLength']:
             bad(f"shorter than {s['minLength']} characters")
+        if 'maxLength' in s and len(v) > s['maxLength']:
+            bad(f"longer than {s['maxLength']} characters")
         if 'pattern' in s and not re.search(s['pattern'], v):
             bad(f"{_short(v)} does not match {s['pattern']}")
     if _is_number(v) and 'minimum' in s and v < s['minimum']:
@@ -159,6 +166,8 @@ def _check(v, s, root, path, out, limit):
         if 'items' in s:
             for i, item in enumerate(v):
                 _check(item, s['items'], root, f'{path}[{i}]', out, limit)
+        if 'contains' in s and not any(is_valid_in(item, s['contains'], root) for item in v):
+            bad('no item matches the required form (contains)')
     if isinstance(v, dict):
         for k in s.get('required', []):
             if k not in v:

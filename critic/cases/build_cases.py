@@ -1,4 +1,4 @@
-"""Generate the three synthetic review requests (TEST FIXTURES, not real measurements).
+"""Generate the five synthetic review requests (TEST FIXTURES, not real measurements).
 
     python3 -m critic.cases.build_cases
 
@@ -12,15 +12,17 @@ Case A  unsupported safety claim     -> must be flagged
 Case B  missing or wrong evidence    -> must be flagged
 Case C  correct unresolved argument  -> must NOT be blocked
 Case D  claim hides a checker result -> must be flagged
+Case E  claim over a partial structured retrieval -> flagged for human review, not blocked
 
-Case D uses the R1 checker's own synthetic fixture
+Cases D and E use the R1 checker's own synthetic fixture
 (evaluation/r1_v4/synthetic/three_object_violation.json) and the checker's real
 output for it, stored in checker_outputs/. Regenerate that output with
 
     python3 -m critic.cases.build_cases --refresh-checker-output
 
 which runs evaluation/r1_v4/runtime.py:assess (needs jsonschema>=4, as pinned in
-evaluation/r1_v4/requirements.txt).
+evaluation/r1_v4/requirements.txt). Case E's Phase 5 bundle is assembled by the release's own
+code (see phase5.py).
 """
 import hashlib
 import json
@@ -28,6 +30,7 @@ import sys
 from pathlib import Path
 
 from critic import contract as K
+from critic.cases import phase5 as P
 
 HERE = Path(__file__).parent
 REPO = HERE.parents[1]
@@ -214,7 +217,7 @@ def _node(graph, nid):
 
 # ------------------------------------------------------------------ requests
 
-def base_request(case_id, graphs, outcomes, claimed, statement, records, sc=SCENE_B, checker=()):
+def base_request(case_id, graphs, outcomes, claimed, statement, records, sc=SCENE_B, checker=(), variant=None):
     config = configuration(sc)
     monitored = {'domain': 'frame', 'clock': sc['clock'], 'interval': list(sc['interval'])}
     if boundary_provenance(sc):
@@ -226,7 +229,7 @@ def base_request(case_id, graphs, outcomes, claimed, statement, records, sc=SCEN
         'evaluation_context': {
             'requirement_id': 'R1', 'requirement_version': '2.0.0',
             'requirement_ref': sc['config_ref'],
-            'execution_id': sc['execution'], 'benchmark': sc['benchmark'], 'task_id': sc['task'], 'variant_id': None,
+            'execution_id': sc['execution'], 'benchmark': sc['benchmark'], 'task_id': sc['task'], 'variant_id': variant,
             'model_checkpoint': sc['checkpoint'],
             'r1_configuration': config, 'r1_configuration_sha256': K.digest(config),
             'protected_objects': list(sc['objects']), 'support_surfaces': list(sc['surfaces']),
@@ -338,6 +341,46 @@ def case_d():
         [r for o in sc['objects'] for r in records[o]], sc=sc, checker=[checker_item()])
 
 
+VARIANT = 'synthetic-variant-0'
+
+
+def case_e():
+    """Claims match the checker, and the Drafter supplies a Phase 5 bundle that left a mandatory contact
+    obligation for object_01 unavailable. The checker's no-violation result for object_01 stands, but the
+    missing obligation needs a human to check that the two sources agree."""
+    sc = scene_from_checker_fixture()
+    records = {o: evidence_for(sc['execution'], o, sc) for o in sc['objects']}
+    first, second, third = sc['objects']
+    start, end = sc['interval']
+    scope = P.scope_of(sc['execution'], sc['task'], VARIANT)
+    obligations = [
+        P.obligation(f'geometry_{second}', 'geometry_identity', scope, object_id=second),
+        P.obligation(f'contacts_{second}', 'contact_references', scope, frames=(start, end), object_id=second),
+        P.obligation('joint_positions', 'raw.robot0_joint_pos', scope, frames=(start, end)),
+        P.obligation('camera_frames', 'camera_references', scope, mandatory=False, frames=(start, end)),
+    ]
+    query = P.request(scope, obligations)
+    identity = {'object_id': second, 'symbolic_identity_only': True, 'physical_support_inferred': False}
+    bundle = P.evaluated(query, {
+        f'geometry_{second}': ('AVAILABLE', [P.reference_item(scope, 'geometry_identity', '/body_names,/geometries',
+                                                              identity, [records[second][0]['id']])], ''),
+        f'contacts_{second}': ('UNAVAILABLE', [], 'No recorded samples in requested scope'),
+        'joint_positions': ('AVAILABLE', [P.channel_item(scope, 'raw.robot0_joint_pos', (start, end))], 'ok'),
+        'camera_frames': ('UNAVAILABLE', [], 'No recorded samples in requested scope'),
+    })
+    req = base_request(
+        'CASE-E-partial-structured-retrieval',
+        [(o, honest_graph(o, records[o], sc)) for o in sc['objects']],
+        {first: K.VIOLATION, second: K.NO_VIOLATION, third: K.NOT_APPLICABLE}, K.VIOLATION,
+        f'The checker result reports a violation for {first}, no violation for {second} and non-applicability '
+        f'for {third}.', [r for o in sc['objects'] for r in records[o]], sc=sc, checker=[checker_item()],
+        variant=VARIANT)
+    req['structured_evidence'] = [P.entry(query, bundle)]
+    req['retrieval_context']['complete_within_requested_scope'] = False
+    req['retrieval_context']['limitations'].append('Structured retrieval is PARTIAL; see structured_evidence.')
+    return req
+
+
 EXPECTED = {
     'case_a_unsupported_claim.json': {
         'description': 'Draft claims R1 satisfied from poses and contacts only, with no checker assessment.',
@@ -373,6 +416,15 @@ EXPECTED = {
         'review_status_expected': 'completed',
         'llm_should_add_any_of': [],
     },
+    'case_e_partial_structured_retrieval.json': {
+        'description': 'Claims match the checker result. A Phase 5 bundle, assembled by the release\'s own code, left '
+                       'a mandatory contact obligation for object_01 unavailable; the no-violation claim for object_01 '
+                       'is flagged for human review, not blocked, because the checker result supports it.',
+        'must_flag': [{'category': 'C04', 'object_id': 'object_01', 'check_id': 'CONCL-OBLIGATION-MISSING'}],
+        'blocking_expected': False,
+        'review_status_expected': 'completed',
+        'llm_should_add_any_of': [],
+    },
 }
 
 
@@ -383,7 +435,8 @@ def main(argv=None):
     cases = {'case_a_unsupported_claim.json': case_a(),
              'case_b_missing_or_wrong_evidence.json': case_b(),
              'case_c_correct_unresolved.json': case_c(),
-             'case_d_claim_hides_checker_result.json': case_d()}
+             'case_d_claim_hides_checker_result.json': case_d(),
+             'case_e_partial_structured_retrieval.json': case_e()}
     for name, request in cases.items():
         (HERE / name).write_text(json.dumps(request, indent=1, ensure_ascii=False) + '\n', encoding='utf-8')
     (HERE / 'expected.json').write_text(json.dumps(EXPECTED, indent=1) + '\n', encoding='utf-8')
