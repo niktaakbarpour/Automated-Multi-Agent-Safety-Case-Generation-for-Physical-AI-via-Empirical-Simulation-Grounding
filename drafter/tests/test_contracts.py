@@ -131,38 +131,28 @@ class OutputContractTests(unittest.TestCase):
     """In-memory contract probes only; these are not generated model results."""
     def setUp(self):
         self.request = read_json(FIXTURE)
-        config = self.request['requirement_configuration']
-        target = self.request['target_execution']
-        graphs = []
-        for object_id in config['protected_objects']:
-            node = {'id': 'G:' + object_id, 'type': 'goal',
-                    'statement': 'R1 physical conclusion remains unresolved.',
-                    'scope': {'requirement_id': 'R1', 'requirement_version': '2.0.0',
-                              'execution_id': target['execution_id'], 'object_id': object_id,
-                              'domain': 'frame', 'clock': 'saved_frame_index', 'interval': [10, 12]},
-                    'provenance': {'purpose': 'in_memory_contract_probe_no_model_executed'},
-                    'validation_status': 'unresolved', 'origin': 'unresolved_conclusion',
-                    'evidence_id': None, 'physical_claim': True}
-            graphs.append({'object_id': object_id, 'graph': {'schema_version': '1.0.0',
-                           'nodes': [node], 'edges': [], 'empirical_admission_enabled': False}})
+        from drafter.argument_checks import (authoritative_summary, authoritative_limitations,
+                                             REVIEW_WARNING)
+        from drafter.generation import _serialize_plan, PROMPT_VERSION
+        from .test_generation import model_plan
+        plan = model_plan(self.request)
+        provenance = {'run_id': 'TEST_VALUE_NOT_EXECUTED', 'prompt_sha256': '0' * 64}
         self.argument = {
             'schema_version': 'draft-argument/0.1.0', 'request_id': self.request['request_id'],
             'test_fixture': True, 'request_sha256': digest(self.request),
             'requirement_configuration_sha256': self.request['requirement_configuration_sha256'],
             'evidence_package_sha256': self.request['evidence_package_sha256'],
             'generation_status': 'accepted',
-            'argument_bundle': {'execution_id': target['execution_id'],
-                                'protected_objects': list(config['protected_objects']), 'graphs': graphs,
-                                'execution_conclusion': {'claimed_outcome': 'insufficient_information',
-                                                        'statement': 'Unresolved contract probe.',
-                                                        'object_outcomes': {o: 'insufficient_information' for o in config['protected_objects']}}},
-            'summary': 'Test-only object, not an executed Drafter result.',
-            'limitations': ['No model was executed; all run fields below are schema test values.'],
+            'argument_bundle': _serialize_plan(plan, self.request, provenance),
+            'summary': authoritative_summary(self.request),
+            'limitations': authoritative_limitations(self.request),
+            'reasoning_review': {'status': 'required', 'warning': REVIEW_WARNING,
+                                 'summary': plan['summary'], 'limitations': plan['limitations']},
             'diagnostics': [],
             'validation': {**{name: 'passed' for name in ('input_schema', 'input_semantics', 'output_schema', 'graph_semantics', 'evidence_references')},
                            'physical_sufficiency': 'not_assessed'},
             'generation_provenance': {'backend': 'local_llm', 'model_id': 'TEST_VALUE_NOT_EXECUTED',
-                                     'model_revision': None, 'prompt_version': 'TEST_VALUE_NOT_EXECUTED',
+                                     'model_revision': None, 'prompt_version': PROMPT_VERSION,
                                      'prompt_sha256': '0' * 64, 'run_id': 'TEST_VALUE_NOT_EXECUTED', 'raw_output_sha256': '0' * 64},
             'empirical_admission_enabled': False, 'safety_claim_verified': False,
         }
@@ -193,11 +183,11 @@ class OutputContractTests(unittest.TestCase):
 
     def test_cross_object_node_scope_is_rejected(self):
         self.argument['argument_bundle']['graphs'][0]['graph']['nodes'][0]['scope']['object_id'] = 'milk_1'
-        self.assert_rejected('argument_node_scope:')
+        self.assert_rejected('edge scope mismatch')
 
     def test_frame_graph_nodes_cannot_use_fractional_indices(self):
         self.argument['argument_bundle']['graphs'][0]['graph']['nodes'][0]['scope']['interval'] = [10.1, 11.2]
-        self.assert_rejected('argument_frame_indices_require_integers:')
+        self.assert_rejected('edge target outside parent scope')
 
     def test_promoted_physical_goal_is_rejected(self):
         self.argument['argument_bundle']['graphs'][0]['graph']['nodes'][0]['validation_status'] = 'proposed'

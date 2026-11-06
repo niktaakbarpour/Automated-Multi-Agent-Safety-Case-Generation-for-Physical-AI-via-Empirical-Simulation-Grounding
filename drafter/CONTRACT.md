@@ -1,222 +1,242 @@
-# Drafter foundation contract 0.1.0
+# Drafter contract
 
-These contracts define an example input and the argument output interface.
-Their standalone validators perform no inference or physical checking. Step-3 model
-connection commands can discover a configured model and run a fixed JSON probe;
-they neither send project evidence nor generate an argument. Step 4 provides an
-explicit generation command for this unresolved fixture profile. A complete Phase 5
-consumer adapter remains future work. The example is a software contract fixture containing an
-unchanged archived development registry export. The exported observations retain
-their original provenance; the fixture label does not turn them into synthetic
-measurements or newly verified source values.
+The Drafter organizes proposed reasoning and supplied observations. It does not
+perform physical checking or admit a verified R1 outcome. Input/output validators
+perform no inference; preparation/adaptation commands perform no database query.
 
 ## Authoritative contracts and versions
 
 - R1 requirement: `R1` version `2.0.0`.
-- R1 configuration schema: `requirements/r1_generalized_v2/R1_V2_CONFIG_SCHEMA.json`,
-  version `2.0.1`. This is distinct from the requirement version.
+- Configuration schema: `requirements/r1_generalized_v2/R1_V2_CONFIG_SCHEMA.json`,
+  version `2.0.1`; distinct from the requirement version.
 - Registry records: `evaluation/r1_v4/evidence_registry_gsn/registry_record.schema.json`
   and `models.Record`, version `1.0.0`.
-- GSN graphs: `evaluation/r1_v4/evidence_registry_gsn/gsn_graph.schema.json` and
-  `gsn.Graph`, version `1.0.0`.
-- Drafter wrappers: `drafter-request/0.1.0` and `draft-argument/0.1.0`.
+- Shared GSN: `gsn_graph.schema.json` and `gsn.Graph`, version `1.0.0`.
+- Wrapper identifiers remain `drafter-request/0.1.0` and `draft-argument/0.1.0`.
+  This extension adds input profiles and mandatory review semantics to accepted
+  output; older accepted envelopes without these semantics are rejected.
+- Intermediate plan: `urn:trustworthy:drafter-graph-plan:0.2.2`; prompt
+  `draft-argument-prompt/0.2.2`; serializer `graph-plan-to-gsn/0.2.0`.
+  Historical run traces can still record prompts 0.2.0 and 0.2.1; accepted live
+  arguments must declare the current prompt version. The 0.2.2 decoder minimum
+  is four nodes, matching the already-required distinct root,
+  strategy, context and subclaim; node order is not fixed. Complete core-shape
+  guidance does not insert or repair nodes/edges in returned proposals.
+- Phase 5 input: `phase5-structured-1.0.0`; retained output context:
+  `drafter-phase5-context/1.0.0`.
 
-The JSON schemas reference the repository's existing contracts rather than copying
-their definitions. Resolve external references locally relative to each schema
-file. Request and output schemas live in `drafter/schemas/`. Schema validation
-does not replace the upstream semantic validators or the cross-field rules below.
+Schemas resolve only shipped local contracts. Unknown wrapper fields, malformed
+JSON, nonfinite values and duplicate JSON keys are rejected. JSON schema does not
+replace shared semantic validators or the cross-field checks below.
 
-## Request: DraftRequest
+The supported runtime also rejects cyclic Python inputs, non-string JSON keys,
+nesting beyond 128 levels and numbers outside the shared interval validator's
+finite double range. A larger JSON integer can be syntactically valid JSON but
+is unsupported by this profile; it is rejected before model access. The supplied
+configuration must contain at least one protected object. An empty R1 scope is
+not invalid under the shared requirement contract, but this Drafter does not
+support an empty accepted argument.
 
-`schemas/draft_request.schema.json` accepts only `test_fixture=true` and
-`usage=contract_fixture`. It does not authorize empirical use.
+## DraftRequest profiles
 
-| Field | Meaning |
+| Profile | Binding and permitted input |
 | --- | --- |
-| `request_id` | Stable identity for this input. |
-| `requirement_configuration` | Complete R1 configuration, including its manifest, object/surface mapping and original validation status. |
-| `requirement_configuration_sha256` | Digest of the complete derived configuration. |
-| `target_execution` | Exact execution, benchmark, task and checkpoint; variant is null when unavailable, never guessed. |
-| `monitoring_scope` | Explicit fixture interval, clock/domain, inclusive bounds and boundary provenance. `fixture_declared` is not verified policy/terminal boundary resolution. |
-| `evidence_package` | Original registry export with all records and their unchanged content-derived IDs. |
-| `evidence_package_sha256` | Digest binding that complete export. |
-| `evidence_handling` | Archived-export origin, no source replay, disabled empirical admission, and the partition between graph-eligible and context-only record IDs. |
-| `checker_context` | `not_available` with an empty assessment list. No caller-provided checker authority is accepted. |
-| `safety_knowledge`, `related_cases` | Empty in this version; later scoped contracts can add these capabilities explicitly. |
-| `retrieval_context` | Requested objects/interval, known missing coverage and limitations. `not_evaluated` is not a completeness verdict. |
-| `input_provenance` | Pinned repository revision, original source-artifact identities and an explicit configuration derivation. |
-| `limitations` | Standalone caveats about the fixture, archived sources and unassessed physical claims. |
+| Omitted or `archived_registry` | The original pinned configuration derivation and unchanged archived registry export; `test_fixture=true`, `usage=contract_fixture`. |
+| `supplied_registry` | Complete supported R1 configuration and original registry records; supplied-snapshot provenance; `usage=proposed_argument`. |
+| `phase5_structured` | The same configurable envelope plus 1–16 exact structured query/bundle pairs and their digest; `usage=proposed_argument`. |
 
-Both admission and safety-verification flags are constant false. Unknown fields
-are rejected throughout the new envelope. Upstream configuration and graph schemas
-retain their own rules for their nested fields.
+The original archived admission rules remain separate; choosing a new profile does
+not make a changed archive pass its pinned verifier. Configurable profiles accept
+different valid object rosters and surface mappings without requiring equality to
+the five-object fixture. Analytical configurations require the fixture label.
+`test_fixture=false` is an input classification, never empirical authority.
 
-### Immutable input bindings
+### Common fields and admission
 
-Use `evaluation.r1_v4.provenance.canonical` and `digest` for canonical JSON hashes.
-Canonical content hashes are distinct from SHA-256 of original file bytes and from
-Git's SHA-1 blob identities. `source_artifacts` records all three under explicit
-names. Paths are repository-relative; the pinned revision identifies their bytes.
+- `requirement_configuration` preserves the complete configuration, assessment
+  manifest, declared validation status, object/surface mapping and source bindings.
+  Its digest must match `requirement_configuration_sha256`.
+- `target_execution` supplies execution, benchmark, task, checkpoint and variant.
+  Configuration checkpoint is required by this Drafter profile even though the
+  general configuration schema permits its omission. Missing/malformed fields
+  produce validation errors before any model access.
+- `monitoring_scope` contains an explicit inclusive saved-frame interval, clock
+  `saved_frame_index`, domain `frame`, boundary provenance and resolution status.
+  Configuration boundaries must agree exactly. Other clock mappings and unresolved
+  boundaries are currently unsupported; no nearest frame or inferred boundary is used.
+- `evidence_package` contains original version-1 registry records, unchanged
+  content-derived IDs and metadata. Its digest binds the complete export.
+- `evidence_handling` partitions records into unique disjoint graph-eligible and
+  context-only IDs whose union is the export. Eligibility means compatible scoped
+  observation metadata, not sufficient physical evidence.
+- `retrieval_context` reports the full requested roster/window, missing objects
+  and gaps in eligible registry observations. It remains `not_evaluated` for
+  physical completeness; actual Phase 5 statuses are retained separately.
+- `checker_context` remains `not_available` with no assessments.
+  `safety_knowledge` and `related_cases` remain empty pending separate contracts.
+- `limitations` remain attributed input caveats. All empirical-admission and
+  safety-verification flags are false.
 
-The fixture derives a configuration from the pinned example using a list of JSON
-Pointer changes, each with exact `before` and `after` values. Keep the original
-configuration and evidence export unchanged. Replay the changes and require exact
-equality with the embedded configuration, then verify its digest. This is an
-auditable fixture derivation, not approval or physical validation of the derived
-configuration.
+Parse registry records using the original `Record.parse`, check dependencies,
+bind requirement/execution/benchmark/task/checkpoint/object scope, and require
+eligible intervals to lie inside the declared monitoring scope. Preserve excluded
+records and gaps. Missing observations are not evidence of safety or a violation.
 
-### Required semantic checks
+Use `provenance.canonical` and `digest` for canonical JSON identities.
+These differ from hashes of original file bytes and Git blob SHA-1 identities.
 
-These are additional to JSON-schema validation:
+### Archived binding
 
-1. Parse finite JSON and reject duplicate keys. Resolve and validate the complete
-   existing R1 configuration, preserving illustrative/unresolved manifest status.
-2. Verify input artifact identities and canonical configuration/export digests.
-   Validate every registry record with the original `Record.parse`, including its
-   content-derived ID and permitted metadata semantics. This validates the archived
-   envelope; source files on Nikta's `/disk` environment have not been replayed.
-3. Bind execution, task, benchmark and checkpoint to the configuration and supplied
-   records. A null variant means unknown; it grants no cross-variant equivalence.
-4. Require finite ordered intervals, correct domain/clock, explicit fixture bounds,
-   the complete configured protected-object list and valid surface mappings.
-   Do not change the monitoring interval to fit available observations.
-5. Require graph-eligible and context-only ID lists to be disjoint, duplicate-free
-   and together equal the original export's record IDs. A graph-eligible record must
-   have compatible requirement/execution/object scope, matching clock/domain and an
-   interval contained in the declared monitoring scope. This label means eligible
-   as a scoped observation reference, not sufficient to establish a physical claim.
-6. Keep excluded observations and attributed interpretations as context-only.
-   Context-only records cannot be cited as solution nodes. Preserve gaps for every
-   configured object and uncovered interval without interpreting absence as safety.
-7. Keep checker assessments empty, all empirical-admission flags false and all
-   physical outcomes unresolved. Unsupported or unavailable evidence remains
-   explicit; it is not a negative result.
+The archive verifier retains its pinned repository revision, known source paths,
+exact Git blob/file/canonical hashes and five permitted configuration changes.
+It replays each declared before/after change and requires equality with the
+embedded configuration. This is reproducible fixture lineage, not approval of the
+derived configuration. Source paths inside evidence never authorize file reads.
 
-The foundation input validator may report schema/semantic success for this fixture.
-That result never upgrades `illustrative_unvalidated`, establishes load-bearing
-support, calibrates falls, authenticates unavailable producer binaries, or certifies
-the execution.
+### Supplied snapshot binding
 
-## Output: DraftArgument
+`request_profiles.build_supplied_request(...)` accepts a request ID, complete
+configuration, target, monitoring scope, optional original registry records,
+fixture classification and limitations. It computes the configuration/package
+digests, record partition and eligible-observation gaps, then validates the result.
 
-`schemas/draft_argument.schema.json` defines the final output envelope. The generation
-driver is implemented, but a live run of the selected Qwen3-32B model is pending
-deployment access. Offline scripted replies are not executed model results.
+`input_provenance.mode=supplied_snapshot` retains these digests and explicitly
+states `source_authentication=not_performed`. A matching hash is a consistency
+binding, not authentication of the caller's original source. Supplied files,
+producer binaries and Hestia source measurements are not opened or replayed.
 
-The interface validator `validate_argument(argument, request)` checks a supplied
-result against its validated input and the original graph/record contracts. These
-are contract checks, not generation or scientific validation. Tests may construct
-small graphs in memory to exercise these rules without delivering a generated
-argument. This archived fixture profile has a nonempty protected-object set;
-accepted results require nonempty graphs and an explicit complete object vector.
-Handling generalized empty scope needs an explicit later contract rather than an
-accepted empty draft.
+## Phase 5 structured adapter
 
-- `request_id` and the request/configuration/export digests bind a result to its
-  exact input; they must match the validated request.
-- `generation_status` is `accepted`, `rejected` or `failed`. Accepted means a draft
-  passed input, graph and reference checks, not that a safety claim was accepted.
-- `argument_bundle` is null on rejection/failure. On acceptance it contains
-  `execution_id`, the complete `protected_objects`, one `{object_id, graph}` entry
-  per configured object, and `execution_conclusion` with a full object-outcome map.
-- Each graph uses the existing GSN schema and must pass actual
-  `Graph.validate(registry)`. Every solution cites an original graph-eligible `ev:`
-  ID and retains exactly matching source path/hash/selector, object, requirement,
-  interval, clock, domain, origin and status. Existing GSN rules prohibit
-  cross-object edges; aggregate across graphs in the wrapper.
-- In this profile every physical goal remains unresolved and every object/execution
-  outcome is `insufficient_information`. Configured objects without evidence still
-  receive graph entries. More capable checker-backed output needs a later contract
-  and an enforced admission boundary, not a new caller flag.
-- `summary`, `limitations`, and structured `diagnostics` make uncertainty and failures
-  inspectable. `validation` separately reports input schema/semantics, output schema,
-  graph semantics and evidence-reference checks. Physical sufficiency is always
-  `not_assessed`.
-- Accepted output requires actual local-LLM run identity, model ID, prompt version
-  and digest, and raw-output digest. A missing model revision remains null instead
-  of being invented. Rejected/failed results may identify a backend as `not_run`.
-  The driver builds this trace from the actual response, never from model-written
-  fields. Offline scripted test identities remain explicitly test-only.
+`phase5_adapter.adapt_phase5_request(...)` additionally accepts the exact
+`structured_request` and returned `evidence_bundle`, with optional original
+registry records. It creates `structured_evidence=[{request,bundle}]`, records its
+digest and validates the complete supplied request. The builder also accepts a
+list of structured pairs for multiple queries.
 
-### Model plan and generation boundary
+The adapter composes the existing `critic.retrieval` consumer checks rather than
+copying their logic. It checks query/obligation identity, source/citation basis,
+release/assurance, scope, missing obligations, conditional interpretations and
+status relationships. It adds R1 object and monitoring-window checks. These are
+local consistency checks; trusted live source verification remains the retriever's
+separate responsibility.
 
-The model returns `graph_plan.schema.json`: graph node IDs/types/statements,
-physical-claim flags, selected evidence IDs, edges, a root per object, summary and
-limitations. This compact plan is an intermediate representation, not the final
-shared GSN. The serializer `graph-plan-to-gsn/0.1.0` attaches authoritative input
-bindings, scope, provenance and status, then validates the final DraftArgument.
-The model chooses the graph structure; the serializer does not add missing nodes,
-citations or edges, change evidence IDs, or repair invalid output.
+This route requires the repaired Critic consumer merged into main by PR #21
+(`cc0c9be`). A pre-repair consumer cannot safely validate all public request
+restrictions. The adapter fails closed when its frozen-public-request validator
+is unavailable; it does not fall back to older copied rules. Drafter's supported
+`jsonschema` range includes both the shared checker's/Critic's 4.19.1 pin and the
+recorded standalone Drafter client's 4.25.1. Both endpoints were tested on Hestia;
+SGLang and XGrammar versions are unchanged.
 
-Each object graph requires a physical root goal, a strategy with a subclaim,
-context, a connected graph and an eligible solution wherever metadata exists.
-Node IDs are object-prefixed and globally unique. Solutions use exact
-availability-only statements supplied in the catalogue; their original registry
-records are retained in provenance, including capabilities and limitations.
-Other statements remain proposed reasoning for review. All goals/unresolved
-claims are physical and unresolved in this deliberately restricted profile.
+Keep `COMPLETE WITHIN VERIFIED CONTRACT`, `PARTIAL`, `UNAVAILABLE`,
+`UNSUPPORTED`, `INVALID SCOPE` and `UNVERIFIED PLAN` distinct. Valid rejection
+or partial snapshots may remain explicit unresolved context; evidence cannot be
+silently promoted to a more complete status. Completeness covers the explicit
+mandatory obligations, not all facts needed to prove R1.
 
-The run report retains the exact messages, prompt/schema/serializer versions,
-original response and compact plan, settings, hashes and validation diagnostics.
-It distinguishes no completion attempt, an ambiguous transport failure and an
-actual received response. Structural acceptance does not verify proposed prose
-or qualify physical evidence. Missing deployment is a failure, not a reason to
-silently switch models or fabricate a successful graph.
+The context retains exact entries, retrieval rows, source artifacts, original item
+IDs, citation IDs/bases, obligations, missing evidence, values and assumptions.
+An existing `ev:` record is eligible only through an identical compatible
+`original_evidence_ids` source link. Raw `channel:`, `source-ref:` and
+`evidence-citation:` items remain context. They are never renamed into registry
+records, graph nodes, object-specific physical claims or checker outcomes.
 
-The execution wrapper follows the current Critic's graph/object structure. A future
-adapter must supply its surrounding request fields from the same original package.
-Passing this shape does not establish that the audited Critic has enforced its own
-input contracts or evidence authority. Do not rely on its present acceptance as a
-validation oracle.
+The model receives this attributed context. Accepted `evidence_context` must
+equal the ledger independently recomputed from the validated request. A caller
+cannot supply a different ledger or omit it from an accepted structured draft.
 
-## Phase 5 integration boundary
+CLI `--prepare-registry INPUTS.json` and `--adapt-phase5 INPUTS.json` accept JSON
+keyword arguments matching these APIs and save a prepared request with `--out`.
+They perform no inference, retrieval or source authentication. The standard
+validation, mock and generation commands accept the resulting request.
 
-The production `phase5-structured-1.0.0` route has grouped obligations and items,
-original IDs, `evidence-citation:` IDs, exact source references, assurance,
-interpretation conditions and distinct noncomplete statuses. Those groups are not
-registry records. This request profile accepts a registry export only; passing a
-Phase 5 bundle in its place must fail validation.
+## DraftArgument and validation
 
-A future lossless adapter must retain the original structured request/response,
-release binding, obligation identities, fulfilled/missing statuses, source selectors
-and hashes, scope, original IDs, canonical citations and interpretation limitations.
-It must define a verified mapping into graph-ready registry records without
-renaming citations to `ev:` or inventing object/time attribution. The present
-fixture does not claim production Phase 5 integration.
+`generation_status` is `accepted`, `rejected` or `failed`. Rejection/failure
+has a null `argument_bundle` and explicit diagnostics. Acceptance requires the
+exact request/configuration/evidence digests and fixture classification, complete
+ordered object roster, one graph per object and full outcome vector. Every object
+and execution outcome is `insufficient_information`.
 
-Retrieval completeness is relative to mandatory explicit obligations. It does not
-establish R1 satisfaction. Current source integrity is distinct from historical
-producer attestation, and available measurements are distinct from admitted
-physical events. All these boundaries remain unchanged.
+Generation and standalone output validation enforce the same Drafter rules:
+one physical root goal, strategy and context, a strategy subclaim, globally unique
+object-prefixed IDs, connected reachable nodes, declared edge endpoints, and an
+eligible original Solution citation when such records exist. The actual shared
+`Graph.validate` still enforces edge typing, cycles, evidence provenance and scope.
+Every Solution preserves its exact record source path/hash/selector, interval,
+clock/domain, status and complete registry metadata. Cross-object links and
+context-only citations are rejected.
 
-## Explicit deployment-blocked mock
+The decoder uses full-sentence string constraints without the incompatible
+substring regex. Node variants require correct physical flags, non-null eligible
+Solution evidence and null evidence elsewhere. `uniqueItems` is omitted only
+from the decoder limitations array for backend compatibility; host validation
+still checks duplicate limitations. Namespace constraints do not replace declared
+node membership, object scope or reference checks. Unusable single-character or
+repeated-placeholder prose is rejected. Invalid output is not repaired.
 
-`--mock-demo` runs `mock_demo.run_mock_demo(request)` without a model configuration
-or any network access. It validates the original request, builds a deterministic
-graph plan and passes the compiled bundle through the same shared GSN schema and
-actual graph/scope/reference checks used for live output. No source evidence is
-changed, and no physical outcome is promoted. This is the handoff's documented
-fallback for the currently unavailable selected model endpoint.
+Standalone validation also enforces the plan's identifier, text-length and graph
+size constraints (at most 24 nodes and 80 edges per graph). It rejects oversized
+graphs before the shared recursive validator. Reasoning text must have 8–1600
+normalized characters, no more than 1600 original characters, and at least two
+distinct alphabetic words; repeated
+placeholder labels are unusable text. These are usability constraints, not a
+semantic proof of meaningful reasoning. Reasoning-node provenance must match the
+accepted envelope's run/prompt and the exact request/serializer binding, and its
+status cannot be silently promoted from proposed/unresolved.
 
-The mock uses a distinct `drafter-mock-demo/0.1.0` envelope and
-`drafter-mock-run/0.1.0` run report. `generation_status` is `mock_demonstration`,
-never `accepted`; `model_called` and `live_model_result` are false. Model identity
-and prompt hash are null. The envelope includes the exact input bindings,
-deterministic plan and its hash, generator version and source hash, serializer
-version, shared `argument_bundle`, explanation, limitations and check results.
-`validate_mock_demo` checks those bindings and reproducibility before accepting
-the demonstration. Live `validate_argument` continues to reject mock envelopes
-and requires real-run provenance for accepted live drafts.
+### Host conclusions and model prose
 
-Reasoning nodes use the existing `unresolved_conclusion` origin and explicit
-`deterministic_mock` provenance; no node is falsely attributed to an executed
-model. Solution nodes retain their original observation origin, measurement
-status and complete record metadata. Stable graphs contain all configured objects,
-initial-support/fall subclaims, context, missing intervals and eligible citations.
-Every physical claim and object/execution outcome remains unresolved.
+Displayed `summary`, execution conclusion and required limitations come from
+trusted host templates and the validated input. The validator checks exact values;
+they cannot silently assert safety while structured outcomes remain unresolved.
+Input limitations are explicitly attributed as unverified text.
 
-The mock demonstrates the interface and its checks, not model performance,
-completed Critic integration or verified robot safety. Mock success is reported
-separately from live generation; no automatic fallback or fake model response is
-used. Its source hash binds the current generator implementation, so reproduction
-uses the same code version and input package.
+Original model summary/limitations remain in mandatory `reasoning_review` with
+`status=required` and a fixed review warning. LLM reasoning-node provenance also
+requires the review marker; physical goals stay unresolved. This explicitly flags
+arbitrary model prose, including possible contradictions, for human/Critic review.
+It does not claim that a keyword filter proves all free-form statements consistent
+or true. Graph acceptance and scientific argument quality are separate.
+
+### Trace and actual execution
+
+Accepted live output requires run identity, configured/effective model identity,
+prompt version/hash and original output digest. Unknown model revisions remain
+null; the pinned SGLang example records the revision used in Nikta's actual run.
+The report preserves exact messages/schema, raw response, plan and stage diagnostics.
+It distinguishes schema/serialization rejection from shared graph validation;
+a validator not reached is reported as not run.
+
+`schemas/generation_run.schema.json` describes complete generation-run reports,
+including invalid-input and failed-model attempts. Early CLI parsing or setup
+rejections use `schemas/operation_rejection.schema.json` and
+`drafter-operation-rejection/0.1.0`. The CLI continues to return 1 on rejection
+or failure (0 on success, argparse's 2 on invalid command syntax).
+
+Nikta's original Qwen response passed intermediate JSON schema, then failed
+serialization before shared graph validation. Its five graph plans, 26 nodes and
+25 edges are rejected-plan counts, not accepted GSN artifacts. The EOS-aware
+XGrammar diagnostic explains the observed single-character constraint. That run
+does not establish Qwen reasoning performance. Updated-code GPU generation and
+real-database adapter execution remain pending. Preserve original failed artifacts.
+
+## Explicit mock boundary
+
+`--mock-demo` assembles a fixed-rule plan for the supplied supported object roster
+without model configuration, inference or network access. It uses the same shared
+graph/reference checks and preserves unresolved outcomes. Its distinct
+`drafter-mock-demo/0.1.0` and `drafter-mock-run/0.1.0` envelopes keep
+`model_called=false`, `live_model_result=false`, null model/prompt identities
+and deterministic generator/source/plan bindings.
+
+Mock reasoning is labelled `deterministic_mock`; original Solution metadata
+retains its observation origin/status. The live validator rejects mock envelopes.
+A successful mock is an interface demonstration, not model performance, completed
+Critic integration or robot-safety validation. There is no automatic mock fallback.
+
+The request-specialized decoder uses Draft2020-12 `prefixItems` and `items:false`
+to bind graph positions to the exact configuration roster. Each position also
+binds node/edge namespaces and object-specific eligible registry citations.
+The host independently rejects roster/order/identity/evidence violations. No
+post-generation reordering, ID rewriting or evidence reassignment is performed.

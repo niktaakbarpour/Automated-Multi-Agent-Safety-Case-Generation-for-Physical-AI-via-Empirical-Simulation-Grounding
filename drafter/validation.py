@@ -5,6 +5,7 @@ separate. This foundation accepts archived registry fixtures only.
 """
 from pathlib import Path
 import hashlib
+import math
 
 from jsonschema import Draft202012Validator
 from referencing import Registry, Resource
@@ -41,6 +42,48 @@ def read_json(path):
     return strict_loads(Path(path).read_text(encoding='utf-8'))
 
 
+def json_value_issues(value):
+    """Reject unsupported Python/JSON values before upstream numeric consumers.
+
+    JSON integers are unbounded, but shared interval validation uses doubles.
+    Report that runtime limit explicitly, rather than crashing after inference.
+    Active-path tracking permits shared containers but rejects cyclic API input.
+    """
+    stack, active, issues = [('$', value, 0, False)], set(), []
+    while stack and len(issues) < 8:
+        path, item, depth, leaving = stack.pop()
+        if leaving:
+            active.remove(id(item))
+            continue
+        if depth > 128:
+            issues.append('unsupported_json_depth:' + path)
+            continue
+        if isinstance(item, (dict, list, tuple)):
+            if id(item) in active:
+                issues.append('cyclic_input:' + path)
+                continue
+            active.add(id(item))
+            stack.append((path, item, depth, True))
+            if isinstance(item, dict):
+                if any(not isinstance(key, str) for key in item):
+                    issues.append('non_string_json_key:' + path)
+                children = list(item.items())
+            else:
+                children = list(enumerate(item))
+            stack.extend((path + '/' + str(key), child, depth + 1, False)
+                         for key, child in reversed(children))
+        elif type(item) in (int, float):
+            try:
+                finite = math.isfinite(item)
+            except OverflowError:
+                finite = False
+            if not finite:
+                issues.append('number_outside_supported_finite_range:' + path)
+        elif item is not None and not isinstance(item, (str, bool)):
+            issues.append('non_json_value:' + path)
+    return issues
+
+
 def schema_validator(name, fragment=None):
     """Resolve only shipped schemas; never follow a request-supplied URL/path."""
     schema = read_json(HERE / 'schemas' / name)
@@ -73,9 +116,12 @@ def schema_validator(name, fragment=None):
 
 
 def schema_issues(value, name, fragment=None):
+    problems = json_value_issues(value)
+    if problems:
+        return problems
     try:
         canonical(value)
-    except (ValueError, TypeError) as error:
+    except (ValueError, TypeError, RecursionError) as error:
         return ['invalid_json:' + str(error)]
     return sorted('schema:' + '/'.join(map(str, e.absolute_path)) + ':' + e.message
                   for e in schema_validator(name, fragment).iter_errors(value))
@@ -115,7 +161,13 @@ def validate_request(request):
     issues = schema_issues(request, 'draft_request.schema.json')
     if issues:
         raise ContractError(issues)
+    if request.get('input_profile', 'archived_registry') != 'archived_registry':
+        from .request_profiles import validate_supplied_request
+        return validate_supplied_request(request)
     config, target = request['requirement_configuration'], request['target_execution']
+    checkpoint = config['benchmark'].get('policy_checkpoint')
+    if not isinstance(checkpoint, str) or not checkpoint.strip():
+        raise ContractError(['missing_or_invalid_model_checkpoint'])
     scope, export = request['monitoring_scope'], request['evidence_package']
     issues.extend(validate_configuration(config))
     if digest(config) != request['requirement_configuration_sha256']:
@@ -235,7 +287,9 @@ def validate_request(request):
 
 
 def validate_argument(argument, request):
-    """Check a result's contract; this neither generates nor critiques prose."""
+    """Check a draft, keeping the host outcome separate from review-only prose."""
+    from .argument_checks import (authoritative_summary, authoritative_limitations,
+                                  model_review_issues)
     validate_request(request)
     issues = schema_issues(argument, 'draft_argument.schema.json')
     if issues:
@@ -244,6 +298,7 @@ def validate_argument(argument, request):
         ('request_id', request['request_id']), ('request_sha256', digest(request)),
         ('requirement_configuration_sha256', request['requirement_configuration_sha256']),
         ('evidence_package_sha256', request['evidence_package_sha256']),
+        ('test_fixture', request['test_fixture']),
     ):
         if argument[field] != expected:
             issues.append('argument_input_binding:' + field)
@@ -252,15 +307,49 @@ def validate_argument(argument, request):
             raise ContractError(issues)
         return {'contract_status': 'valid_failure_contract', 'physical_sufficiency': 'not_evaluated',
                 'safety_claim_verified': False, 'model_called': False}
+    if argument['summary'] != authoritative_summary(request):
+        issues.append('argument_authoritative_summary_mismatch')
+    if argument['limitations'] != authoritative_limitations(request):
+        issues.append('argument_authoritative_limitations_mismatch')
+    from .generation import PROMPT_VERSION
+    if argument['generation_provenance']['prompt_version'] != PROMPT_VERSION:
+        issues.append('argument_prompt_version_binding')
+    issues.extend(model_review_issues(argument))
+    for wrapped in argument['argument_bundle']['graphs']:
+        for node in wrapped['graph']['nodes']:
+            if node['type'] != 'solution' and node['origin'] != 'llm_proposal':
+                issues.append('argument_model_prose_origin:' + node['id'])
+            if node['type'] != 'solution':
+                if node['provenance'].get('prose_review') != 'required':
+                    issues.append('argument_node_prose_review_required:' + node['id'])
+                from .generation import SERIALIZER_VERSION
+                provenance = argument['generation_provenance']
+                expected = {
+                    'run_id': provenance['run_id'], 'prompt_sha256': provenance['prompt_sha256'],
+                    'request_sha256': digest(request), 'serializer_version': SERIALIZER_VERSION,
+                    'role': 'proposed_reasoning_not_verified_physical_evidence',
+                    'prose_review': 'required',
+                }
+                if node['provenance'] != expected:
+                    issues.append('argument_reasoning_provenance_binding:' + node['id'])
     if issues:
         raise ContractError(issues)
     validate_argument_bundle(argument['argument_bundle'], request)
+    if request.get('structured_evidence'):
+        from .phase5_adapter import evidence_context
+        if argument.get('evidence_context') != evidence_context(request):
+            raise ContractError(['argument_structured_evidence_binding'])
+    elif 'evidence_context' in argument:
+        raise ContractError(['unexpected_argument_structured_evidence'])
     return {'contract_status': 'valid_output_contract', 'physical_sufficiency': 'not_evaluated',
-            'safety_claim_verified': False, 'model_called': False}
+            'safety_claim_verified': False, 'model_called': False,
+            'reasoning_review': 'required'}
 
 
 def validate_argument_bundle(bundle, request):
     """Shared graph checks for live drafts and explicitly labelled mock demos."""
+    from .argument_checks import (authoritative_conclusion, graph_structure_issues,
+                                  solution_statement)
     validate_request(request)
     issues = schema_issues(bundle, 'draft_argument.schema.json', '#/$defs/argument_bundle')
     if issues:
@@ -270,19 +359,34 @@ def validate_argument_bundle(bundle, request):
     if bundle['execution_id'] != request['target_execution']['execution_id'] or bundle['protected_objects'] != roster:
         issues.append('argument_execution_or_roster_mismatch')
     wrapped_objects = [item['object_id'] for item in bundle['graphs']]
-    if len(wrapped_objects) != len(set(wrapped_objects)) or set(wrapped_objects) != set(roster):
+    if wrapped_objects != roster:
         issues.append('argument_graph_roster_mismatch')
     if set(bundle['execution_conclusion']['object_outcomes']) != set(roster):
         issues.append('argument_outcome_roster_mismatch')
+    if bundle['execution_conclusion']['statement'] != authoritative_conclusion():
+        issues.append('argument_authoritative_conclusion_mismatch')
     records = tuple(Record.parse(value) for value in request['evidence_package']['records'])
+    by_record_id = {record['id']: record for record in request['evidence_package']['records']}
 
     class ExportView:
         def records(self):
             return records
 
     eligible = set(request['evidence_handling']['graph_eligible_evidence_ids'])
+    global_ids = set()
     for item in bundle['graphs']:
         object_id, value = item['object_id'], item['graph']
+        issues.extend(graph_structure_issues(value, object_id))
+        from .plan_schema import serialized_graph_issues
+        issues.extend(serialized_graph_issues(value, object_id, request))
+        if len(value['nodes']) > 24 or len(value['edges']) > 80:
+            # The decoder cannot produce these shapes. Do not send an unbounded
+            # standalone graph into the shared recursive cycle validator.
+            continue
+        ids = {node['id'] for node in value['nodes']}
+        if ids.intersection(global_ids):
+            issues.append('argument_global_node_identity:' + object_id)
+        global_ids.update(ids)
         try:
             graph = Graph(tuple(Node(**n) for n in value['nodes']),
                           tuple(Edge(**e) for e in value['edges']), value['schema_version'])
@@ -301,8 +405,31 @@ def validate_argument_bundle(bundle, request):
                     issues.append('argument_node_outside_window:' + node.id)
                 elif scope['domain'] == 'frame' and any(type(v) is not int or v < 0 for v in node.scope['interval']):
                     issues.append('argument_frame_indices_require_integers:' + node.id)
+                elif node.type != 'solution' and node.scope['interval'] != scope['interval']:
+                    issues.append('argument_reasoning_window_mismatch:' + node.id)
                 if node.type == 'solution' and node.evidence_id not in eligible:
                     issues.append('argument_ineligible_solution:' + node.id)
+                if node.type == 'solution' and node.evidence_id in by_record_id:
+                    record = by_record_id[node.evidence_id]
+                    if node.statement != solution_statement(record):
+                        issues.append('argument_solution_statement_mismatch:' + node.id)
+                    if node.provenance.get('registry_record') != record:
+                        issues.append('argument_solution_record_binding:' + node.id)
+                if node.type != 'solution' and node.provenance.get('prose_review') != 'required':
+                    issues.append('argument_node_prose_review_required:' + node.id)
+                if node.type != 'solution':
+                    from .generation import SERIALIZER_VERSION
+                    if (node.provenance.get('request_sha256') != digest(request)
+                            or node.provenance.get('serializer_version') != SERIALIZER_VERSION):
+                        issues.append('argument_node_provenance_binding:' + node.id)
+                    if node.validation_status != ('unresolved' if node.physical_claim else 'proposed'):
+                        issues.append('argument_reasoning_status:' + node.id)
+                if node.physical_claim and node.validation_status != 'unresolved':
+                    issues.append('argument_unresolved_physical_status:' + node.id)
+            available = {key for key in eligible if by_record_id[key]['object_id'] == object_id}
+            cited = {node.evidence_id for node in graph.nodes if node.type == 'solution'}
+            if available and not cited.intersection(available):
+                issues.append('argument_missing_available_evidence:' + object_id)
         except (ValueError, TypeError, KeyError) as error:
             issues.append('graph:' + object_id + ':' + str(error))
     if issues:

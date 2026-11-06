@@ -1,1 +1,3 @@
-jsonschema==4.25.1
+# Compatible with the authoritative checker's/Critic's 4.19.1 pin as well as the
+# recorded standalone Drafter client. Both endpoints are verified on Hestia.
+jsonschema>=4.19.1,<=4.25.1

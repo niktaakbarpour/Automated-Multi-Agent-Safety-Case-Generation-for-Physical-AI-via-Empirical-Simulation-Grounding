@@ -42,7 +42,7 @@ def _build_plan(request):
             node('C1', 'context',
                  f"R1 {config['requirement_version']}; saved frames {start}-{end}, inclusive. "
                  'Designated surfaces: ' + ', '.join(config['object_surface_mapping'][obj]) +
-                 '. The input provides archived metadata, not physical verification.'),
+                 '. The supplied evidence does not establish a verified physical outcome.'),
             node('G2', 'unresolved_claim',
                  f'Initial load-bearing support for {obj} at saved frame {start} remains unresolved. '
                  'The supplied package cannot establish applicability.'),
@@ -94,6 +94,7 @@ def validate_mock_demo(demo, request):
         raise ContractError(issues)
     for field, expected in (
         ('request_id', request['request_id']), ('request_sha256', digest(request)),
+        ('test_fixture', request['test_fixture']),
         ('requirement_configuration_sha256', request['requirement_configuration_sha256']),
         ('evidence_package_sha256', request['evidence_package_sha256']),
     ):
@@ -142,7 +143,7 @@ def run_mock_demo(request):
             'schema_version': 'drafter-mock-demo/0.1.0', 'mode': 'mock_demonstration',
             'generation_status': 'mock_demonstration', 'deployment_status': 'blocked',
             'deployment_reason': DEPLOYMENT_REASON, 'run_id': report['run_id'],
-            'request_id': request['request_id'], 'test_fixture': True,
+            'request_id': request['request_id'], 'test_fixture': request['test_fixture'],
             'request_sha256': digest(request),
             'requirement_configuration_sha256': request['requirement_configuration_sha256'],
             'evidence_package_sha256': request['evidence_package_sha256'],

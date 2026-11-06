@@ -9,13 +9,24 @@
   "properties": {
     "schema_version": {"const": "draft-argument/0.1.0"},
     "request_id": {"$ref": "#/$defs/text"},
-    "test_fixture": {"const": true},
+    "test_fixture": {"type": "boolean"},
     "request_sha256": {"$ref": "#/$defs/sha256"},
     "requirement_configuration_sha256": {"$ref": "#/$defs/sha256"},
     "evidence_package_sha256": {"$ref": "#/$defs/sha256"},
     "generation_status": {"enum": ["accepted", "rejected", "failed"]},
     "argument_bundle": {"oneOf": [{"type": "null"}, {"$ref": "#/$defs/argument_bundle"}]},
     "summary": {"$ref": "#/$defs/text"},
+    "evidence_context": {"type": "object", "description": "Exact consistency-checked structured retrieval ledger, bound to the input. Never a verified safety verdict."},
+    "reasoning_review": {
+      "type": "object", "additionalProperties": false,
+      "required": ["status", "warning", "summary", "limitations"],
+      "properties": {
+        "status": {"const": "required"},
+        "warning": {"$ref": "#/$defs/text"},
+        "summary": {"$ref": "#/$defs/text"},
+        "limitations": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"$ref": "#/$defs/text"}}
+      }
+    },
     "limitations": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"$ref": "#/$defs/text"}},
     "diagnostics": {
       "type": "array", "items": {
@@ -56,6 +67,7 @@
     {
       "if": {"properties": {"generation_status": {"const": "accepted"}}, "required": ["generation_status"]},
       "then": {
+        "required": ["reasoning_review"],
         "properties": {
           "argument_bundle": {"$ref": "#/$defs/argument_bundle"},
           "validation": {"properties": {"input_schema": {"const": "passed"}, "input_semantics": {"const": "passed"}, "output_schema": {"const": "passed"}, "graph_semantics": {"const": "passed"}, "evidence_references": {"const": "passed"}}},
