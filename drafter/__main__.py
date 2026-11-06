@@ -62,7 +62,8 @@ def main():
             report = check_connection(load_local_model_config(args.model_config), args.smoke_test_model)
             success = report['status'] in ('ready', 'passed')
     except (ContractError, ValueError, TypeError, OSError, RecursionError) as error:
-        report = {'contract_status': 'rejected', 'model_called': False,
+        report = {'schema_version': 'drafter-operation-rejection/0.1.0',
+                  'contract_status': 'rejected', 'model_called': False,
                   'diagnostics': getattr(error, 'issues', [str(error)])}
         success = False
     if args.out:

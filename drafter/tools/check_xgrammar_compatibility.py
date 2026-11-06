@@ -75,6 +75,10 @@ def main():
     corrected = report['checks']['corrected_text']
     report['passed'] = (report['full_plan_schema_compiled']
                         and corrected[2]['complete'] and not corrected[0]['complete'])
+    if args.plan:
+        report['passed'] = (report['passed'] and
+                            report['supplied_plan']['json_schema_valid'] ==
+                            report['supplied_plan']['complete'])
     with args.out.open('x', encoding='utf-8') as stream:
         json.dump(report, stream, indent=2)
         stream.write('\n')

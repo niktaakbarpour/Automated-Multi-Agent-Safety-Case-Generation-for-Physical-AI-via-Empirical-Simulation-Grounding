@@ -31,6 +31,8 @@ def _input_parts(request):
         raise _contract_error(['unsupported_supplied_input_profile'])
     config = request['requirement_configuration']
     issues = validate_configuration(config)
+    if not config['protected_objects']:
+        issues.append('nonempty_drafter_object_scope_required')
     checkpoint = config['benchmark'].get('policy_checkpoint')
     if not isinstance(checkpoint, str) or not checkpoint.strip():
         issues.append('configuration_checkpoint_required')
@@ -153,6 +155,11 @@ def build_supplied_request(*, request_id, requirement_configuration, target_exec
         raise _contract_error(['supplied_builder_registry_records_must_be_array'])
     if not isinstance(limitations, (list, tuple)) or any(not isinstance(value, str) for value in limitations):
         raise _contract_error(['supplied_builder_limitations_must_be_text_array'])
+    from .validation import json_value_issues
+    problems = json_value_issues([request_id, requirement_configuration, target_execution,
+                                 monitoring_scope, registry_records, limitations, structured_evidence])
+    if problems:
+        raise _contract_error(problems)
     config, target, scope = map(deepcopy, (requirement_configuration, target_execution, monitoring_scope))
     export = {'schema_version': '1.0.0', 'records': deepcopy(list(registry_records))}
     request = {'schema_version': 'drafter-request/0.1.0', 'input_profile': 'supplied_registry',

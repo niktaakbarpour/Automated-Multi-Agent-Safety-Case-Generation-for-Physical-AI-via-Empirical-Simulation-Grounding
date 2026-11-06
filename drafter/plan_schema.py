@@ -88,3 +88,21 @@ def validate_plan_prose(plan):
                                       f'plan/graphs/{graph_index}/nodes/{node_index}/statement'))
     if issues:
         raise ContractError(issues)
+
+
+def serialized_graph_issues(graph, object_id, request):
+    """Apply the same plan shape limits to standalone serialized graphs.
+
+    This is a validation projection only; it never changes the supplied graph.
+    The unparented physical root is also independently checked by shared rules.
+    """
+    full = build_plan_schema(request)
+    schema = {**deepcopy(full['properties']['graphs']['items']), '$defs': full['$defs']}
+    incoming = {edge['target'] for edge in graph['edges']}
+    roots = [node['id'] for node in graph['nodes'] if node['id'] not in incoming
+             and node['type'] == 'goal' and node['physical_claim']]
+    value = {'object_id': object_id, 'root_id': roots[0] if len(roots) == 1 else None,
+             'nodes': [{key: node[key] for key in ('id', 'type', 'statement', 'evidence_id', 'physical_claim')}
+                       for node in graph['nodes']], 'edges': graph['edges']}
+    return ['argument_plan_schema:' + object_id + ':' + '/'.join(map(str, error.absolute_path))
+            for error in Draft202012Validator(schema).iter_errors(value)]

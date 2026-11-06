@@ -48,6 +48,23 @@ def evidence_context(request):
     # missing/conditional/status relationships. It never verifies physical truth.
     registry_records = {value['id']: value for value in request.get('evidence_package', {}).get('records', [])
                         if isinstance(value, dict) and isinstance(value.get('id'), str)}
+    # Fail closed on the pre-repair consumer shipped at the PR's original base.
+    # Its copied request rules accepted unsupported requests as complete bundles.
+    # Reuse the frozen public predicates; do not copy them into the Drafter.
+    try:
+        from critic.phase5_request import refusal
+    except ImportError:
+        _fail(['phase5_current_consumer_required: update to the merged Critic public-request validator'])
+    for entry in entries:
+        if isinstance(entry, dict) and isinstance(entry.get('request'), dict) \
+                and isinstance(entry.get('bundle'), dict):
+            bundle = entry['bundle']
+            validation = bundle.get('independent_validation')
+            if isinstance(validation, dict) and validation.get('passed') is True:
+                problem = refusal(entry['request'])
+                if problem:
+                    _fail(['phase5_public_request_refused:' + problem[0] + ':' + problem[1]])
+                # Shape-dependent window validation remains inside consumer.admit.
     try:
         problems, admitted, rows = consumer.admit({
             'structured_evidence': entries, 'evaluation_context': {

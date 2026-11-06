@@ -75,7 +75,10 @@ def direct_registry_link(parts):
     group, item = linked_registry_item(parts)
     obligation = next(o for o in parts['structured_request']['obligations']
                       if o['id'] == group['obligation_id'])
-    obj = obligation['object_id']
+    # Frozen public contact_references accepts no object filter. This explicit
+    # synthetic Record belongs to a configured object; the global contact source
+    # is not relabelled as an object-specific retrieval obligation.
+    obj = parts['requirement_configuration']['protected_objects'][0]
     frame = item['value']['saved_frame_index']
     target = parts['target_execution']
     record.update(object_id=obj, execution_id=target['execution_id'], task_id=target['task_id'],
@@ -116,7 +119,7 @@ class Phase5AdapterTests(unittest.TestCase):
         request = request_with()
         row = evidence_context(request)['retrieval'][0]
         missing = {entry['obligation_id']: entry for entry in row['missing_obligations']}
-        self.assertTrue(missing['contacts_object_01']['mandatory'])
+        self.assertTrue(missing['settling_actions']['mandatory'])
         self.assertFalse(missing['camera_frames']['mandatory'])
         self.assertFalse(request['empirical_admission_enabled'])
 
@@ -187,7 +190,8 @@ class Phase5AdapterTests(unittest.TestCase):
                 parts = fixture_parts()
                 if key == 'object':
                     # Missing group has no item: object scope still needs checking.
-                    parts['structured_request']['obligations'][1]['object_id'] = 'object_not_configured'
+                    parts['structured_request']['obligations'][0]['object_id'] = 'object_not_configured'
+                    parts['evidence_bundle']['groups'][0]['items'][0]['value']['object_id'] = 'object_not_configured'
                 else:
                     parts['monitoring_scope']['interval'] = [1, 2]
                     parts['requirement_configuration']['monitoring_interval']['start']['value'] = 1

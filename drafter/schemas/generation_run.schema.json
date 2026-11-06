@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:trustworthy:drafter-generation-run:0.1.0",
+  "title": "One Drafter attempt, including invalid-input and model-failure reports",
+  "type": "object", "additionalProperties": false,
+  "required": ["schema_version", "run_id", "started_at", "elapsed_seconds", "status", "configuration", "configuration_sha256", "request_sha256", "argument", "diagnostics", "trace", "model_called", "completion_attempted", "argument_generated", "project_evidence_sent", "empirical_admission_enabled", "safety_claim_verified"],
+  "properties": {
+    "schema_version": {"const": "drafter-generation-run/0.1.0"},
+    "run_id": {"type": "string", "minLength": 1},
+    "started_at": {"type": "string", "minLength": 1},
+    "elapsed_seconds": {"type": "number", "minimum": 0},
+    "status": {"enum": ["accepted", "rejected", "failed"]},
+    "failure_stage": {"enum": ["input", "configuration", "discovery", "completion", "plan", "serialization", "graph_validation"]},
+    "configuration": {"type": ["object", "null"]},
+    "configuration_sha256": {"$ref": "#/$defs/nullable_hash"},
+    "request_sha256": {"$ref": "#/$defs/nullable_hash"},
+    "argument": {"oneOf": [{"type": "null"}, {"$ref": "draft_argument.schema.json"}]},
+    "diagnostics": {"type": "array", "items": {
+      "type": "object", "additionalProperties": false, "required": ["code", "path", "message"],
+      "properties": {"code": {"type": "string", "minLength": 1}, "path": {"type": "string"}, "message": {"type": "string", "minLength": 1}}
+    }},
+    "trace": {
+      "type": "object", "additionalProperties": false,
+      "required": ["serializer_version", "prompt_version", "messages", "prompt_sha256", "json_schema", "discovery", "completion"],
+      "properties": {
+        "serializer_version": {"const": "graph-plan-to-gsn/0.2.0"},
+        "prompt_version": {"const": "draft-argument-prompt/0.2.0"},
+        "messages": {"type": ["array", "null"]},
+        "prompt_sha256": {"$ref": "#/$defs/nullable_hash"},
+        "json_schema": {"type": ["object", "null"]},
+        "discovery": {"type": ["object", "null"]},
+        "completion": {"type": ["object", "null"]}
+      }
+    },
+    "model_called": {"type": ["boolean", "null"]},
+    "completion_attempted": {"type": "boolean"},
+    "argument_generated": {"type": "boolean"},
+    "project_evidence_sent": {"type": ["boolean", "null"]},
+    "empirical_admission_enabled": {"const": false},
+    "safety_claim_verified": {"const": false}
+  },
+  "$defs": {"nullable_hash": {"type": ["string", "null"], "pattern": "^[a-f0-9]{64}$"}},
+  "allOf": [
+    {
+      "if": {"properties": {"status": {"const": "accepted"}}},
+      "then": {"properties": {
+        "argument": {"$ref": "draft_argument.schema.json"}, "argument_generated": {"const": true},
+        "model_called": {"const": true}, "completion_attempted": {"const": true},
+        "project_evidence_sent": {"const": true}, "diagnostics": {"maxItems": 0}
+      }},
+      "else": {"required": ["failure_stage"], "properties": {"argument_generated": {"const": false}, "diagnostics": {"minItems": 1}}}
+    },
+    {
+      "if": {"properties": {"failure_stage": {"const": "input"}}, "required": ["failure_stage"]},
+      "then": {"properties": {"status": {"const": "rejected"}, "model_called": {"const": false}, "completion_attempted": {"const": false}, "project_evidence_sent": {"const": false}, "argument": {"type": "null"}}}
+    }
+  ]
+}

@@ -133,7 +133,7 @@ class OutputContractTests(unittest.TestCase):
         self.request = read_json(FIXTURE)
         from drafter.argument_checks import (authoritative_summary, authoritative_limitations,
                                              REVIEW_WARNING)
-        from drafter.generation import _serialize_plan
+        from drafter.generation import _serialize_plan, PROMPT_VERSION
         from .test_generation import model_plan
         plan = model_plan(self.request)
         provenance = {'run_id': 'TEST_VALUE_NOT_EXECUTED', 'prompt_sha256': '0' * 64}
@@ -152,7 +152,7 @@ class OutputContractTests(unittest.TestCase):
             'validation': {**{name: 'passed' for name in ('input_schema', 'input_semantics', 'output_schema', 'graph_semantics', 'evidence_references')},
                            'physical_sufficiency': 'not_assessed'},
             'generation_provenance': {'backend': 'local_llm', 'model_id': 'TEST_VALUE_NOT_EXECUTED',
-                                     'model_revision': None, 'prompt_version': 'TEST_VALUE_NOT_EXECUTED',
+                                     'model_revision': None, 'prompt_version': PROMPT_VERSION,
                                      'prompt_sha256': '0' * 64, 'run_id': 'TEST_VALUE_NOT_EXECUTED', 'raw_output_sha256': '0' * 64},
             'empirical_admission_enabled': False, 'safety_claim_verified': False,
         }

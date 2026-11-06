@@ -47,7 +47,10 @@ deliberately separate from the constrained decoder's string representation.
     if not isinstance(text, str):
         return ['unusable_prose:' + path]
     normalized = ' '.join(text.split())
-    if (len(normalized) < 8 or not re.search(r'[A-Za-z]{2,}', normalized)
+    words = re.findall(r'[A-Za-z]+', normalized.casefold())
+    placeholders = {'todo', 'tbd', 'placeholder', 'lorem', 'ipsum', 'insert', 'text', 'here'}
+    if (len(text) > 1600 or not 8 <= len(normalized) <= 1600 or not re.search(r'[A-Za-z]{2,}', normalized)
+            or len(words) < 2 or len(set(words)) < 2 or set(words) <= placeholders
             or len(set(normalized.casefold())) < 3):
         return ['unusable_prose:' + path]
     return []

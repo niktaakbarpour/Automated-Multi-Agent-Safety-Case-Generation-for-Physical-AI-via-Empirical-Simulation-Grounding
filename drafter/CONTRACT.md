@@ -24,6 +24,14 @@ Schemas resolve only shipped local contracts. Unknown wrapper fields, malformed
 JSON, nonfinite values and duplicate JSON keys are rejected. JSON schema does not
 replace shared semantic validators or the cross-field checks below.
 
+The supported runtime also rejects cyclic Python inputs, non-string JSON keys,
+nesting beyond 128 levels and numbers outside the shared interval validator's
+finite double range. A larger JSON integer can be syntactically valid JSON but
+is unsupported by this profile; it is rejected before model access. The supplied
+configuration must contain at least one protected object. An empty R1 scope is
+not invalid under the shared requirement contract, but this Drafter does not
+support an empty accepted argument.
+
 ## DraftRequest profiles
 
 | Profile | Binding and permitted input |
@@ -107,6 +115,14 @@ status relationships. It adds R1 object and monitoring-window checks. These are
 local consistency checks; trusted live source verification remains the retriever's
 separate responsibility.
 
+This route requires the repaired Critic consumer merged into main by PR #21
+(`cc0c9be`). A pre-repair consumer cannot safely validate all public request
+restrictions. The adapter fails closed when its frozen-public-request validator
+is unavailable; it does not fall back to older copied rules. Drafter's supported
+`jsonschema` range includes both the shared checker's/Critic's 4.19.1 pin and the
+recorded standalone Drafter client's 4.25.1. Both endpoints were tested on Hestia;
+SGLang and XGrammar versions are unchanged.
+
 Keep `COMPLETE WITHIN VERIFIED CONTRACT`, `PARTIAL`, `UNAVAILABLE`,
 `UNSUPPORTED`, `INVALID SCOPE` and `UNVERIFIED PLAN` distinct. Valid rejection
 or partial snapshots may remain explicit unresolved context; evidence cannot be
@@ -154,6 +170,16 @@ still checks duplicate limitations. Namespace constraints do not replace declare
 node membership, object scope or reference checks. Unusable single-character or
 repeated-placeholder prose is rejected. Invalid output is not repaired.
 
+Standalone validation also enforces the plan's identifier, text-length and graph
+size constraints (at most 24 nodes and 80 edges per graph). It rejects oversized
+graphs before the shared recursive validator. Reasoning text must have 8–1600
+normalized characters, no more than 1600 original characters, and at least two
+distinct alphabetic words; repeated
+placeholder labels are unusable text. These are usability constraints, not a
+semantic proof of meaningful reasoning. Reasoning-node provenance must match the
+accepted envelope's run/prompt and the exact request/serializer binding, and its
+status cannot be silently promoted from proposed/unresolved.
+
 ### Host conclusions and model prose
 
 Displayed `summary`, execution conclusion and required limitations come from
@@ -176,6 +202,12 @@ null; the pinned SGLang example records the revision used in Nikta's actual run.
 The report preserves exact messages/schema, raw response, plan and stage diagnostics.
 It distinguishes schema/serialization rejection from shared graph validation;
 a validator not reached is reported as not run.
+
+`schemas/generation_run.schema.json` describes complete generation-run reports,
+including invalid-input and failed-model attempts. Early CLI parsing or setup
+rejections use `schemas/operation_rejection.schema.json` and
+`drafter-operation-rejection/0.1.0`. The CLI continues to return 1 on rejection
+or failure (0 on success, argparse's 2 on invalid command syntax).
 
 Nikta's original Qwen response passed intermediate JSON schema, then failed
 serialization before shared graph validation. Its five graph plans, 26 nodes and
