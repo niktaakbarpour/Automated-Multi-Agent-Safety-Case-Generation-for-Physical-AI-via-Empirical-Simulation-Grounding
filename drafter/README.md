@@ -1,13 +1,17 @@
-# Drafter development
+# Drafter
 
-The current demonstration uses the handoff's **deployment-blocked mock option**.
-It runs on this Mac without a model, GPU server, API key or network connection.
-The example is clearly labelled as a mock; it does not measure model performance.
+The Drafter proposes one GSN graph for every object in a supplied R1 configuration.
+It preserves evidence scope and uncertainty; every physical outcome remains
+`insufficient_information`. Structural acceptance does not establish robot safety.
 
-Steps 1-2 provide an example input and versioned input/output contracts. Step 3
-adds a local-model connection and fixed JSON probe. Step 4 adds argument generation
-for the unresolved fixture profile, using the shared GSN graph schema and validator.
-Only the explicit generation command sends the example evidence catalogue.
+Nikta ran the original code with full BF16 Qwen3-32B on Hestia. One complete
+response was rejected: evidence IDs appeared as edge endpoints, Solution citations
+were empty, and a decoder/schema mismatch restricted prose to single characters.
+The recorded successful server was **SGLang 0.5.4.post3 / XGrammar 0.1.25**.
+See [the execution report](../DRAFTER_QWEN3_32B_EXECUTION_REPORT.md).
+The fixes below have local software tests; **their actual GPU/database rerun is pending**.
+
+## Install and test
 
 From the repository root, using Python 3.12:
 
@@ -17,165 +21,173 @@ python3 -m drafter --validate-request drafter/cases/scenario_a.request.json
 python3 -m unittest discover -s drafter/tests -t . -v
 ```
 
-The validation command returns zero for a valid **fixture contract**, and one for
-rejected input. It does not certify the evidence or robot behavior.
+The tests use saved or constructed inputs, scripted replies and temporary local
+servers. They measure software behavior, not LLM performance. XGrammar and model
+weights are not required for this test suite.
 
-The example preserves Nikta's original archived registry export and all five
-configured objects. Its new illustrative configuration limits the demonstration
-to saved frames 10-12; it is not a full-execution assessment. The export provides
-metadata and source references, not numerical observation arrays. Original
-producer statuses remain unchanged; their source files were not replayed here.
-Physical support/fall evidence remains blocked and missing objects/frames remain
-explicit. The input supplies no checker assessment or safety conclusion.
+## Input profiles
 
-See [CONTRACT.md](CONTRACT.md) for the exact input/output boundary, versions,
-provenance rules and remaining Critic/retrieval integration.
+| Profile | Input and validation |
+| --- | --- |
+| Omitted or `archived_registry` | Original pinned Scenario A fixture, source-byte bindings and explicit configuration derivation. |
+| `supplied_registry` | Another valid supported R1 configuration plus original registry records; no pinned five-object restriction. |
+| `phase5_structured` | Exact Phase 5 structured query and returned bundle, with optional original registry records. |
 
-Regenerate the example without changing source evidence:
+The configurable routes support explicit inclusive saved-frame boundaries.
+Unmapped clock domains or unresolved boundaries are rejected clearly.
+They validate configuration, checkpoint, target scope, digests, evidence partition,
+object roster and gaps before inference. Missing or malformed input returns
+diagnostics rather than a traceback. Analytical fixtures must remain labelled
+`test_fixture=true`; neither real nor synthetic inputs enable physical admission.
 
-```sh
-python3 drafter/tools/build_scenario_a.py
-```
-
-This foundation uses the original registry export format. A Phase 5 bundle needs a
-separate lossless adapter; grouped citations cannot be inserted as registry records.
-The current fixture profile deliberately keeps empirical admission disabled.
-
-## Run the deployment-blocked mock
-
-From the repository root, after installing `drafter/requirements.txt`:
+Python APIs are `request_profiles.build_supplied_request(...)` and
+`phase5_adapter.adapt_phase5_request(...)`. The CLI accepts JSON objects containing
+the same keyword arguments. This local example prepares both kinds of input:
 
 ```sh
 mkdir -p drafter/runs
+python3 - <<'PY'
+import json
+from copy import deepcopy
+from pathlib import Path
+
+runs = Path("drafter/runs")
+legacy = json.loads(Path("drafter/cases/scenario_a.request.json").read_text())
+registry = {
+    "request_id": "supplied-registry-example",
+    "requirement_configuration": legacy["requirement_configuration"],
+    "target_execution": legacy["target_execution"],
+    "monitoring_scope": legacy["monitoring_scope"],
+    "registry_records": legacy["evidence_package"]["records"],
+    "test_fixture": True,
+}
+case = json.loads(Path("critic/cases/case_e_partial_structured_retrieval.json").read_text())
+ctx, entry = case["evaluation_context"], case["structured_evidence"][0]
+phase_config = deepcopy(ctx["r1_configuration"])
+phase_config["benchmark"]["policy_checkpoint"] = ctx["model_checkpoint"]
+phase5 = {
+    "request_id": "phase5-synthetic-example",
+    "requirement_configuration": phase_config,
+    "target_execution": {key: ctx[key] for key in (
+        "execution_id", "benchmark", "task_id", "model_checkpoint", "variant_id")},
+    "monitoring_scope": {
+        **ctx["monitored_interval"], "bounds": "inclusive",
+        "resolution_status": "provided_explicit",
+        "boundary_provenance": ["Synthetic consumer fixture; not a verified execution boundary."]},
+    "structured_request": entry["request"], "evidence_bundle": entry["bundle"],
+    "test_fixture": True,
+}
+for name, value in (("registry-inputs", registry), ("phase5-inputs", phase5)):
+    with (runs / (name + ".json")).open("x") as stream:
+        json.dump(value, stream, indent=2)
+PY
+python3 -m drafter --prepare-registry drafter/runs/registry-inputs.json \
+  --out drafter/runs/registry.request.json
+python3 -m drafter --adapt-phase5 drafter/runs/phase5-inputs.json \
+  --out drafter/runs/phase5.request.json
+python3 -m drafter --validate-request drafter/runs/phase5.request.json
+```
+
+For a real retrieved response, replace the synthetic query/bundle and configuration
+with the exact supplied values. The adapter performs no database call or source
+replay. It preserves obligations, citations, source hashes, statuses, assumptions,
+scope, values and missing evidence. It reuses the Critic's consumer consistency
+checks, not a second independently maintained validator.
+
+Raw Phase 5 channels remain attributed context; they are never fabricated into
+`ev:` registry records. Only original compatible registry records with exact
+source links can become GSN Solutions. The accepted argument's `evidence_context`
+must equal the context recomputed from its input. Complete retrieval concerns
+explicit requested observations, not sufficient evidence that R1 holds.
+Hashes and local consistency checks do not independently authenticate source bytes.
+
+## Explicit mock
+
+```sh
 python3 -m drafter --mock-demo drafter/cases/scenario_a.request.json \
   --out drafter/runs/scenario_a.mock.run.json \
   --argument-out drafter/runs/scenario_a.mock.argument.json \
   --review-out drafter/runs/scenario_a.mock.review.md
 ```
 
-Open the `.review.md` file to read the argument. The `.argument.json` contains the
-machine-readable graph bundle, and the `.run.json` records how it was built.
-A saved example is in [examples/mock_deployment_blocked](examples/mock_deployment_blocked/).
-Choose fresh output names on later runs; existing files are never overwritten.
+A prepared configurable request can replace Scenario A. Fixed rules build graphs
+for its actual object roster. Mock mode never calls a model or automatically
+replaces a failed live run. Its distinct envelope records `model_called=false`
+and `live_model_result=false`; it cannot count as accepted LLM output.
+Saved mock examples are in [examples/mock_deployment_blocked](examples/mock_deployment_blocked/).
 
-Fixed program rules build one graph for each of the five configured objects.
-They describe initial support, possible falling departures and the known evidence
-gaps. Original evidence IDs and source references are retained. The example cites
-the available cream-cheese metadata for frames 10 and 11 and retains its missing
-frame 12, plus the other four objects' missing records. All outcomes remain unresolved.
+## Qwen rerun on the GPU host
 
-This is a software/interface demonstration using real archived metadata, not a new
-robot experiment or model result. The selected Qwen3-32B endpoint is unavailable
-and no Hestia connection is configured. Mock mode never attempts a connection,
-selects another model, or changes the source package. It is explicit, rather than
-an automatic fallback after a failed model call.
+Reuse Nikta's recorded SGLang environment and local checkpoint revision
+`9216db5781bf21249d130ec9da846c4624c16137`. Set the client/server Python paths and
+checkpoint path for that host. The observed run used two L40S GPUs numbered 0/3;
+use only the GPU assignment allocated for the new run.
 
-The mock graphs pass the same shared GSN schema, `Graph.validate`, scope and
-evidence-reference checks as live drafts. The enclosing
-`drafter-mock-demo/0.1.0` contract keeps `model_called=false`,
-`live_model_result=false` and model/prompt identities null. Fixed-rule reasoning
-is labelled in graph provenance. The live `DraftArgument` validator rejects this
-mock envelope; it cannot count as accepted model execution.
-
-Exit zero means a valid mock demonstration was saved, not a successful model run.
-Inspect the graphs through `argument_bundle`; a full Critic request adapter is
-still separate work. Live generation can be tested later using the commands below.
-
-## Local-model connection
-
-The selected model is **Qwen/Qwen3-32B**, the Qwen candidate named in the Drafter
-handoff. Both `config/local_model.example.json` and
-`config/qwen3_32b_vllm.example.json` select that exact model ID. Model identity,
-server address, sampling, output format, timeout and response-size limits remain
-explicit settings.
-
-Deployment target: a suitably sized GPU server such as Hestia. The standard model
-weights exceed this Mac's 16-GB memory. Qwen3-32B has not been downloaded or run on
-this Mac, and no successful live run of the selected model is claimed.
+First, in the serving environment, run the CPU grammar diagnostic:
 
 ```sh
-# On the GPU host, with a compatible vLLM environment and enough GPU memory:
-vllm serve Qwen/Qwen3-32B --host 127.0.0.1 --port 8000
-
-# List models and check that the configured ID is available; no inference.
-python3 -m drafter --check-model \
-  --model-config drafter/config/qwen3_32b_vllm.example.json
-
-# Send a fixed two-field JSON probe and save a new trace file.
-mkdir -p drafter/runs
-python3 -m drafter --smoke-test-model \
-  --model-config drafter/config/qwen3_32b_vllm.example.json \
-  --out drafter/runs/connection-check.json
+"$SERVING_PY" drafter/tools/check_xgrammar_compatibility.py \
+  --expected-xgrammar-version 0.1.25 --out drafter/runs/xgrammar-check.json
 ```
 
-These commands assume the client is on the GPU host or has an explicitly arranged
-local port forward to it. The host address/access details have not been supplied.
-Use a local config copy for the actual server address and checkpoint revision.
-The runtime/weights, `runs/`, `.env` and `config/*.local.json` are ignored.
-Do not commit credentials or runtime files. If a server needs an API key, configure
-its environment-variable name in `api_key_env`; no key value belongs in JSON.
+This checks complete strings through EOS and compiles the full new plan schema.
+It uses a tiny ASCII vocabulary, not Qwen's tokenizer, and performs no inference.
+It must pass before the full server test; it does not replace that test.
+The Mac test run did not execute this optional compiler diagnostic.
 
-The Qwen3-32B vLLM profile uses the documented hard switch
-`chat_template_kwargs.enable_thinking=false`, through config `enable_thinking`,
-with temperature 0.7 and top-p 0.8. The server/model revision remains unknown until
-the intended deployment is available. Model choice stays configurable.
-[Model card](https://huggingface.co/Qwen/Qwen3-32B),
-[Qwen vLLM configuration](https://qwen.readthedocs.io/en/latest/deployment/vllm.html).
-
-Connection reports retain public settings, model identity, prompt/version/hash,
-raw response, request/response hashes and diagnostics. Known API secrets are
-redacted. Discovery must find the configured model before a smoke request; there
-is no automatic retry, redirect, model fallback or format fallback. Team-hosted
-servers require explicit opt-in. Success proves this fixed connection/JSON probe
-worked; it does not demonstrate argument quality or physical safety.
-
-The existing validation command still performs no inference. Connection commands
-exit zero for ready/passed and one for failure, and refuse to overwrite reports.
-
-Existing local connection-test logs retain their original model identities; they
-are not validation of Qwen3-32B. Offline tests exercise the client and explicit
-request settings with temporary loopback servers. Live Qwen3-32B verification and
-live argument generation with that model remain pending deployment access.
-
-## Generate and review an argument
-
-Once the configured model server is available:
+Start the recorded server configuration in a separate terminal, with its saved
+CUDA_HOME/local-cache environment and available GPU allocation:
 
 ```sh
-mkdir -p drafter/runs
-python3 -m drafter --generate drafter/cases/scenario_a.request.json \
-  --model-config drafter/config/qwen3_32b_vllm.example.json \
-  --out drafter/runs/scenario_a.run.json \
-  --argument-out drafter/runs/scenario_a.argument.json \
-  --review-out drafter/runs/scenario_a.review.md
+CUDA_VISIBLE_DEVICES=0,3 "$SERVING_PY" -m sglang.launch_server \
+  --model-path "$QWEN_CHECKPOINT" --served-model-name Qwen/Qwen3-32B \
+  --host 127.0.0.1 --port 8000 --tp-size 2 --dtype bfloat16 \
+  --context-length 24576 --max-running-requests 1 --max-total-tokens 24576 \
+  --mem-fraction-static 0.88 --chunked-prefill-size 2048 \
+  --disable-cuda-graph --disable-custom-all-reduce --attention-backend triton \
+  --sampling-backend pytorch --grammar-backend xgrammar --sampling-defaults model \
+  --random-seed 42
 ```
 
-The JSON argument is the primary GSN output. The Markdown file shows the claims,
-evidence IDs, connections and limitations for review. The run report preserves the
-exact prompt, compact model plan, original model response, settings and hashes.
-Output files are never overwritten. Exit zero means the draft passed graph and
-reference checks; exit one means rejection, transport failure or a saving error.
+From the repository root on that host, using the client environment:
 
-The model chooses nodes, reasoning, evidence references and edges in an intermediate
-graph plan. The serializer binds them to the validated requirement, execution and
-object scope. For solutions, it copies the exact original source references,
-intervals, status and registry metadata. Solution wording must match the supplied
-availability-only statement; unsupported physical assertions are rejected.
-The model cannot choose authoritative status, provenance or final safety outcomes.
+```sh
+"$DRAFTER_PY" -m drafter --check-model \
+  --model-config drafter/config/qwen3_32b_sglang.example.json
+"$DRAFTER_PY" -m drafter --smoke-test-model \
+  --model-config drafter/config/qwen3_32b_sglang.example.json \
+  --out drafter/runs/qwen.smoke.json
+"$DRAFTER_PY" -m drafter --generate drafter/cases/scenario_a.request.json \
+  --model-config drafter/config/qwen3_32b_sglang.example.json \
+  --out drafter/runs/qwen.run.json \
+  --argument-out drafter/runs/qwen.argument.json \
+  --review-out drafter/runs/qwen.review.md
+```
 
-The resulting graphs pass the existing `Graph.validate` and the Drafter's full
-output validator. Additional checks require a connected physical root, strategy,
-context, subclaims, and an evidence citation wherever eligible metadata exists.
-No missing structure, evidence IDs or invalid edges are silently repaired. Invalid
-input is rejected before model access, and failed runs contain no accepted graph.
+Use a prepared request to test Phase 5 integration. Discovery/probe success is
+only a connection check. Keep all failed runs and choose new output names;
+existing files are never overwritten. SGLang 0.5.4.post3 ignores the per-request
+seed; the server seed is recorded, but bitwise reproducibility is not established.
+Earlier vLLM profiles remain configurable alternatives, not demonstrated working
+full-schema deployments. No model, backend or output-format fallback is automatic.
 
-All five objects remain in scope. Every physical goal stays unresolved and all
-outcomes are `insufficient_information`. The original input's evidence gaps and
-limitations are retained. Graph checks do not establish that free-form reasoning
-is scientifically correct; review the proposed statements before submission.
+## Output and review
 
-Offline generation tests use explicitly scripted replies, including a temporary
-loopback server for the full CLI path. They verify software behavior, not model
-quality. No actual Qwen3-32B argument has been generated yet. The model remains
-Qwen3-32B; no smaller model is automatically selected. A complete Critic request
-adapter and the production Phase 5 retrieval adapter remain separate work.
+The run report retains exact input/prompt/schema hashes, model settings, response,
+plan and diagnostics. Accepted output uses the original shared GSN validator and
+the same complete Drafter graph checks as standalone validation. Nodes, edges,
+citations or missing evidence are never silently repaired.
+
+The decoder schema now permits full sentences, distinguishes graph-node IDs from
+evidence IDs, and requires non-null Solution citations. Host checks still enforce
+declared endpoints, scope, evidence eligibility, usable prose and uniqueness.
+
+The displayed summary and execution conclusion are host-controlled and unresolved.
+Model summary/limitations are retained separately in `reasoning_review`, explicitly
+marked for review; LLM node prose has corresponding review markers. This flags
+possible contradictory text without pretending that a keyword filter can prove
+arbitrary reasoning correct. Read the Markdown review before using a draft.
+
+Runtime files, local configuration and credentials stay outside committed examples.
+Use `api_key_env` for an environment-variable name if authentication is needed;
+never place a key value in JSON. See [CONTRACT.md](CONTRACT.md) for exact boundaries.

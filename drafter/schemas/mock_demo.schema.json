@@ -12,7 +12,7 @@
     "deployment_reason": {"$ref": "#/$defs/text"},
     "run_id": {"$ref": "#/$defs/text"},
     "request_id": {"$ref": "#/$defs/text"},
-    "test_fixture": {"const": true},
+    "test_fixture": {"type": "boolean"},
     "request_sha256": {"$ref": "#/$defs/sha256"},
     "requirement_configuration_sha256": {"$ref": "#/$defs/sha256"},
     "evidence_package_sha256": {"$ref": "#/$defs/sha256"},
@@ -25,7 +25,7 @@
       "required": ["generator_version", "serializer_version", "template_sha256", "plan_sha256", "plan"],
       "properties": {
         "generator_version": {"const": "mock-argument-generator/0.1.0"},
-        "serializer_version": {"const": "graph-plan-to-gsn/0.1.0"},
+        "serializer_version": {"const": "graph-plan-to-gsn/0.2.0"},
         "template_sha256": {"$ref": "#/$defs/sha256"},
         "plan_sha256": {"$ref": "#/$defs/sha256"},
         "plan": {"type": "object"}

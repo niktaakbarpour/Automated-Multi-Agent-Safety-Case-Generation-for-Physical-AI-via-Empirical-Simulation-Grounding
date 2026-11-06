@@ -13,6 +13,8 @@ def main():
     actions.add_argument('--smoke-test-model', action='store_true')
     actions.add_argument('--generate', metavar='JSON', help='Generate a GSN draft from a validated fixture request.')
     actions.add_argument('--mock-demo', metavar='JSON', help='Run the deployment-blocked mock without a model or network.')
+    actions.add_argument('--adapt-phase5', metavar='JSON', help='Prepare a validated Drafter request from saved Phase 5 adapter inputs; no model or database call.')
+    actions.add_argument('--prepare-registry', metavar='JSON', help='Prepare a configurable request from supplied R1 configuration and original registry records.')
     parser.add_argument('--model-config', metavar='JSON')
     parser.add_argument('--out', metavar='JSON', help='Write a new report file; never overwrite an existing file.')
     parser.add_argument('--argument-out', metavar='JSON', help='Save the live draft or mock envelope separately.')
@@ -20,7 +22,7 @@ def main():
     args = parser.parse_args()
     if (args.check_model or args.smoke_test_model or args.generate) and not args.model_config:
         parser.error('--model-config is required for a model operation')
-    if (args.validate_request or args.mock_demo) and args.model_config:
+    if (args.validate_request or args.mock_demo or args.adapt_phase5 or args.prepare_registry) and args.model_config:
         parser.error('--model-config is only used by model operations')
     if (args.argument_out or args.review_out) and not (args.generate or args.mock_demo):
         parser.error('--argument-out and --review-out require --generate or --mock-demo')
@@ -35,7 +37,14 @@ def main():
                 raise FileExistsError('Output file already exists; choose a new report path.')
             if (args.generate or args.mock_demo) and not path.parent.is_dir():
                 raise FileNotFoundError('Create the output folder before running a model operation.')
-        if args.validate_request:
+        if args.adapt_phase5 or args.prepare_registry:
+            if args.adapt_phase5:
+                from .phase5_adapter import adapt_phase5_request as prepare
+            else:
+                from .request_profiles import build_supplied_request as prepare
+            report = prepare(**read_json(args.adapt_phase5 or args.prepare_registry))
+            success = True
+        elif args.validate_request:
             report = validate_request(read_json(args.validate_request))
             success = True
         elif args.mock_demo:
@@ -52,11 +61,10 @@ def main():
             from .llm import load_local_model_config
             report = check_connection(load_local_model_config(args.model_config), args.smoke_test_model)
             success = report['status'] in ('ready', 'passed')
-    except (ContractError, ValueError, TypeError, OSError) as error:
+    except (ContractError, ValueError, TypeError, OSError, RecursionError) as error:
         report = {'contract_status': 'rejected', 'model_called': False,
                   'diagnostics': getattr(error, 'issues', [str(error)])}
-        print(json.dumps(report, indent=2))
-        return 1
+        success = False
     if args.out:
         from evaluation.r1_v4.provenance import canonical
         try:

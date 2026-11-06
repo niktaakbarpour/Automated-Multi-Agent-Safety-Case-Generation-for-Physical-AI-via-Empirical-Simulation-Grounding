@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "urn:trustworthy:drafter-graph-plan:0.1.0",
+  "$id": "urn:trustworthy:drafter-graph-plan:0.2.0",
   "title": "Intermediate model graph plan, not the final shared GSN graph",
   "type": "object",
   "additionalProperties": false,
@@ -44,10 +44,10 @@
       }
     },
     "summary": {"$ref": "#/$defs/text"},
-    "limitations": {"type": "array", "minItems": 1, "maxItems": 20, "uniqueItems": true, "items": {"$ref": "#/$defs/text"}}
+    "limitations": {"type": "array", "minItems": 1, "maxItems": 20, "items": {"$ref": "#/$defs/text"}}
   },
   "$defs": {
-    "id": {"type": "string", "minLength": 1, "maxLength": 128, "pattern": "^[A-Za-z0-9_.:-]+$"},
-    "text": {"type": "string", "minLength": 1, "maxLength": 1600, "pattern": "\\S"}
+    "id": {"type": "string", "pattern": "^[A-Za-z0-9_.:-]{1,128}$"},
+    "text": {"type": "string", "minLength": 8, "maxLength": 1600}
   }
 }

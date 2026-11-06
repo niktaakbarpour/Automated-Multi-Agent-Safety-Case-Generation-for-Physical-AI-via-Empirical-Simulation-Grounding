@@ -16,22 +16,18 @@ from jsonschema import Draft202012Validator
 from evaluation.r1_v4.provenance import canonical, digest
 from .llm import ConfigError, LocalModelClient
 from .validation import ContractError, read_json, validate_request, validate_argument
+from .argument_checks import (authoritative_summary, authoritative_limitations,
+                              authoritative_conclusion, REVIEW_WARNING,
+                              graph_structure_issues, solution_statement)
+from .plan_schema import build_plan_schema, validate_plan_prose
 
-PROMPT_VERSION = 'draft-argument-prompt/0.1.0'
-SERIALIZER_VERSION = 'graph-plan-to-gsn/0.1.0'
+PROMPT_VERSION = 'draft-argument-prompt/0.2.0'
+SERIALIZER_VERSION = 'graph-plan-to-gsn/0.2.0'
 HERE = Path(__file__).resolve().parent
 CHECK_NAMES = ('input_schema', 'input_semantics', 'output_schema',
                'graph_semantics', 'evidence_references')
 REVIEW_LIMITATION = ('Graph and reference checks do not verify the scientific correctness '
                      'of proposed reasoning. Review the statements before submission.')
-
-
-def solution_statement(record):
-    """Availability-only wording; no numerical or physical observations supplied."""
-    return (f"Archived {record['measurement_type']} metadata is listed for "
-            f"{record['object_id']} at saved frames {record['interval'][0]}-"
-            f"{record['interval'][1]}. The source values were not supplied; "
-            'physical support and falling remain unresolved.')
 
 
 def _model_input(request):
@@ -46,7 +42,7 @@ def _model_input(request):
             item = {key: deepcopy(record[key]) for key in fields}
             item['solution_statement'] = solution_statement(record)
             catalogue.append(item)
-    return {
+    payload = {
         'request_id': request['request_id'], 'request_sha256': digest(request),
         'requirement_configuration': deepcopy(request['requirement_configuration']),
         'target_execution': deepcopy(request['target_execution']),
@@ -58,18 +54,14 @@ def _model_input(request):
         'limitations': list(request['limitations']),
         'physical_outcome': 'insufficient_information',
     }
+    if request.get('structured_evidence'):
+        from .phase5_adapter import evidence_context
+        payload['structured_evidence'] = evidence_context(request)
+    return payload
 
 
 def _plan_schema(request):
-    schema = read_json(HERE / 'schemas' / 'graph_plan.schema.json')
-    roster = request['requirement_configuration']['protected_objects']
-    graphs = schema['properties']['graphs']
-    graphs['minItems'] = graphs['maxItems'] = len(roster)
-    graphs['items']['properties']['object_id'] = {'enum': roster}
-    evidence = graphs['items']['properties']['nodes']['items']['properties']['evidence_id']
-    evidence['enum'] = [None, *request['evidence_handling']['graph_eligible_evidence_ids']]
-    Draft202012Validator.check_schema(schema)
-    return schema
+    return build_plan_schema(request)
 
 
 def _serialize_plan(plan, request, provenance, *, mock=False):
@@ -90,31 +82,9 @@ def _serialize_plan(plan, request, provenance, *, mock=False):
                 or any(not key.startswith(object_id + ':') for key in ids)):
             raise ContractError(['plan_node_identity:' + object_id])
         global_ids.update(ids)
-        root = next((n for n in value['nodes'] if n['id'] == value['root_id']), None)
-        if root is None or root['type'] != 'goal' or not root['physical_claim']:
-            raise ContractError(['plan_physical_root_required:' + object_id])
-        types = {n['type'] for n in value['nodes']}
-        if not {'strategy', 'context'} <= types:
-            raise ContractError(['plan_strategy_and_context_required:' + object_id])
-        adjacency = {key: [] for key in ids}
-        for edge in value['edges']:
-            if edge['source'] not in adjacency or edge['target'] not in adjacency:
-                raise ContractError(['plan_invalid_edge_endpoint:' + object_id])
-            adjacency[edge['source']].append(edge['target'])
-        reached, pending = set(), [root['id']]
-        while pending:
-            key = pending.pop()
-            if key not in reached:
-                reached.add(key)
-                pending.extend(adjacency[key])
-        if reached != set(ids):
-            raise ContractError(['plan_disconnected_nodes:' + object_id])
-        by_id = {n['id']: n for n in value['nodes']}
-        for strategy in (n for n in value['nodes'] if n['type'] == 'strategy'):
-            if not any(e['source'] == strategy['id'] and e['type'] == 'supported_by'
-                       and by_id[e['target']]['type'] in ('goal', 'unresolved_claim')
-                       for e in value['edges']):
-                raise ContractError(['plan_strategy_needs_subclaim:' + strategy['id']])
+        shape_issues = graph_structure_issues(value, object_id, prefix='plan')
+        if shape_issues:
+            raise ContractError(shape_issues)
         nodes, cited = [], set()
         for n in value['nodes']:
             node = deepcopy(n)
@@ -139,6 +109,7 @@ def _serialize_plan(plan, request, provenance, *, mock=False):
                 'run_id': provenance['run_id'], 'prompt_sha256': provenance['prompt_sha256'],
                 'request_sha256': digest(request), 'serializer_version': SERIALIZER_VERSION,
                 'role': 'proposed_reasoning_not_verified_physical_evidence',
+                'prose_review': 'required',
             })
             if node['type'] == 'solution':
                 record = records.get(node['evidence_id'])
@@ -158,6 +129,8 @@ def _serialize_plan(plan, request, provenance, *, mock=False):
                 node['validation_status'] = record['validation_status']
             elif node['evidence_id'] is not None:
                 raise ContractError(['plan_evidence_id_only_on_solution:' + node['id']])
+            else:
+                node['provenance']['prose_review'] = 'required'
             nodes.append(node)
         available = {key for key in eligible if records[key]['object_id'] == object_id}
         if available and not cited:
@@ -169,7 +142,7 @@ def _serialize_plan(plan, request, provenance, *, mock=False):
     return {'execution_id': target['execution_id'], 'protected_objects': list(roster),
             'graphs': graphs, 'execution_conclusion': {
                 'claimed_outcome': 'insufficient_information',
-                'statement': 'R1 remains unresolved for all protected objects in the declared window.',
+                'statement': authoritative_conclusion(),
                 'object_outcomes': {obj: 'insufficient_information' for obj in roster},
             }}
 
@@ -177,7 +150,7 @@ def _serialize_plan(plan, request, provenance, *, mock=False):
 def _envelope(request, run_id):
     return {
         'schema_version': 'draft-argument/0.1.0', 'request_id': request['request_id'],
-        'test_fixture': True, 'request_sha256': digest(request),
+        'test_fixture': request['test_fixture'], 'request_sha256': digest(request),
         'requirement_configuration_sha256': request['requirement_configuration_sha256'],
         'evidence_package_sha256': request['evidence_package_sha256'],
         'generation_status': 'failed', 'argument_bundle': None,
@@ -265,20 +238,26 @@ def generate_argument(request, config):
         if errors:
             raise ContractError(['plan_schema:' + '/'.join(map(str, e.absolute_path)) for e in errors])
         argument['validation']['output_schema'] = 'passed'
-        stage = 'graph'
+        stage = 'serialization'
+        validate_plan_prose(completion.parsed_json)
         bundle = _serialize_plan(completion.parsed_json, request, argument['generation_provenance'])
         candidate = deepcopy(argument)
         candidate.update(
             generation_status='accepted', argument_bundle=bundle,
-            summary=completion.parsed_json['summary'],
-            limitations=list(dict.fromkeys([
-                'The archived-package limitations describe the supplied input; this new proposed draft has separate generation details.',
-                *argument['limitations'], *completion.parsed_json['limitations']])))
+            summary=authoritative_summary(request),
+            limitations=authoritative_limitations(request),
+            reasoning_review={'status': 'required', 'warning': REVIEW_WARNING,
+                              'summary': completion.parsed_json['summary'],
+                              'limitations': deepcopy(completion.parsed_json['limitations'])})
         candidate['validation'].update({name: 'passed' for name in CHECK_NAMES})
+        if request.get('structured_evidence'):
+            from .phase5_adapter import evidence_context
+            candidate['evidence_context'] = evidence_context(request)
+        stage = 'graph_validation'
         validate_argument(candidate, request)
         report.update(status='accepted', argument=candidate, argument_generated=True)
     except (ContractError, ConfigError, ValueError, TypeError, OSError, RecursionError) as error:
-        rejected = stage in ('input', 'plan', 'graph')
+        rejected = stage in ('input', 'plan', 'serialization', 'graph_validation')
         report['status'] = 'rejected' if rejected else 'failed'
         codes = error.issues if isinstance(error, ContractError) else [getattr(error, 'code', 'generation_error')]
         report['diagnostics'] = [{'code': code, 'path': stage,
@@ -289,9 +268,13 @@ def generate_argument(request, config):
             argument['diagnostics'] = deepcopy(report['diagnostics'])
             if stage == 'plan':
                 argument['validation']['output_schema'] = 'failed'
-            if stage == 'graph':
-                argument['validation'].update(graph_semantics='failed', evidence_references='failed')
+            if stage in ('serialization', 'graph_validation'):
+                evidence_error = any(any(part in code for part in (
+                    'ineligible_solution', 'solution_statement_mismatch',
+                    'evidence_id_only_on_solution', 'missing_available_evidence')) for code in codes)
+                argument['validation']['evidence_references' if evidence_error else 'graph_semantics'] = 'failed'
             report['argument'] = argument
+        report['failure_stage'] = stage
     report['elapsed_seconds'] = round(time.monotonic() - started, 6)
     return report
 
@@ -302,8 +285,8 @@ def render_review(report):
     heading = '# Drafter mock demonstration' if is_mock else '# Drafter review'
     model = ('No model was run (mock demonstration)' if is_mock else
              (report.get('configuration') or {}).get('model_id', 'not run'))
-    lines = [heading, '', f"Run: {report['run_id']}",
-             f"Result: {report['status']}",
+    lines = [heading, '', f"Run: {report.get('run_id', 'not started')}",
+             f"Result: {report.get('status', report.get('contract_status', 'rejected'))}",
              f"Model: {model}",
              '', 'Passing the graph checks does not establish physical safety.', '']
     if is_mock:
@@ -312,9 +295,16 @@ def render_review(report):
     argument = report.get('argument')
     if argument is None or argument['argument_bundle'] is None:
         lines += ['No argument was accepted.', '']
-        lines += ['- ' + d['code'] + ': ' + d['message'] for d in report['diagnostics']]
+        lines += ['- ' + (d['code'] + ': ' + d['message'] if isinstance(d, dict) else str(d))
+                  for d in report['diagnostics']]
         return '\n'.join(lines) + '\n'
     lines += [argument['summary'], '']
+    if argument.get('reasoning_review'):
+        review = argument['reasoning_review']
+        lines += ['## Model-written reasoning — review required', '', review['warning'],
+                  '', 'Model summary: ' + review['summary'], '', 'Model limitations:']
+        lines += ['- ' + text for text in review['limitations']]
+        lines += ['', 'All model-written graph statements below require the same review.', '']
     for item in argument['argument_bundle']['graphs']:
         lines += ['## ' + item['object_id'], '', 'Outcome: unresolved.', '']
         for node in item['graph']['nodes']:
