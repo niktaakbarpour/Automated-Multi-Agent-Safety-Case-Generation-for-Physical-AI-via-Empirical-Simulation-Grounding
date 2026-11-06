@@ -15,7 +15,9 @@ Each call leaves a trace in the report (prompt, input and request hashes, effect
 raw reply, and the server's response id, model, finish_reason and token usage).
 """
 import hashlib
+import copy
 import json
+import math
 import os
 import re
 import time
@@ -28,8 +30,8 @@ from . import contract as K
 from . import schema as SCHEMA
 from .checks import _interval, _list, _overlaps, _scope, finding
 
-PROMPT_VERSION = 'critic-prompt/v4'
-PROMPT_PATH = Path(__file__).with_name('prompts') / 'critic_system_v4.md'
+PROMPT_VERSION = 'critic-prompt/v5'
+PROMPT_PATH = Path(__file__).with_name('prompts') / 'critic_system_v5.md'
 # Node types that state the conclusion side of an argument; an unresolved one keeps its uncertainty open.
 CONCLUSION_NODES = {'goal', 'unresolved_claim', 'defeater'}
 RAW_RESPONSE_LIMIT = 65536  # characters kept in the report; the hash always covers the whole reply
@@ -61,12 +63,15 @@ def _sha256_text(text):
 
 def _without_credentials(url):
     parts = urllib.parse.urlsplit(url)
-    if parts.username is None and parts.password is None:
+    if parts.username is None and parts.password is None and not parts.query and not parts.fragment:
         return url
     host = parts.hostname or ''
     host = f'[{host}]' if ':' in host else host  # IPv6
     netloc = host + (f':{parts.port}' if parts.port else '')
-    return urllib.parse.urlunsplit((parts.scheme, netloc, parts.path, parts.query, parts.fragment))
+    sensitive = {'key', 'api_key', 'apikey', 'token', 'access_token', 'password', 'secret', 'authorization'}
+    query = urllib.parse.urlencode([(key, value) for key, value in urllib.parse.parse_qsl(parts.query)
+                                  if key.casefold() not in sensitive])
+    return urllib.parse.urlunsplit((parts.scheme, netloc, parts.path, query, ''))
 
 
 def _safe_digest(value):
@@ -146,19 +151,30 @@ class OpenAICompatibleLLM(_Backend):
                  max_tokens=8192, timeout=600, extra_body=None, accepted_models=()):
         base_url = base_url or os.environ.get('CRITIC_LLM_BASE_URL', 'http://localhost:8000/v1')
         self.base_url = base_url.rstrip('/')
-        self.name = model or os.environ.get('CRITIC_LLM_MODEL')
-        if not self.name:
+        self.name = os.environ.get('CRITIC_LLM_MODEL') if model is None else model
+        if not isinstance(self.name, str) or not self.name.strip() or self.name != self.name.strip():
             raise ValueError('Set a model name (--model or CRITIC_LLM_MODEL).')
         self.api_key = api_key or os.environ.get('CRITIC_LLM_API_KEY', 'EMPTY')
         preset = preset_for(self.name)
         self.temperature = preset.get('temperature', 0.0) if temperature is None else temperature
         self.max_tokens, self.timeout = max_tokens, timeout
-        self.extra_body = {**preset.get('extra_body', {}), **(extra_body or {})}
+        if not isinstance(accepted_models, (list, tuple)) or any(
+                not isinstance(x, str) or not x.strip() or x != x.strip() for x in accepted_models):
+            raise ValueError('Model aliases must be explicitly configured non-empty strings without surrounding whitespace.')
+        self.extra_body = copy.deepcopy({**preset.get('extra_body', {}), **(extra_body or {})})
+        self._extra_options()
         self.system_in_user = preset.get('system_in_user', False)
         self.system_suffix = preset.get('system_suffix', '')
         # The server must answer as the requested model, or as an alias the caller names explicitly (e.g. a
         # served-model-name or a pinned checkpoint path); nothing is assumed.
         self.accepted_models = sorted({self.name, *accepted_models})
+
+    def _extra_options(self):
+        options = copy.deepcopy(self.extra_body)
+        reserved = {'model', 'messages', 'temperature', 'max_tokens', 'api_key', 'authorization', 'headers'}
+        if not isinstance(options, dict) or reserved & set(options):
+            raise ValueError('extra_body cannot override core request or authentication fields.')
+        return options
 
     def messages(self, system, user):
         system += self.system_suffix
@@ -169,10 +185,10 @@ class OpenAICompatibleLLM(_Backend):
     def settings(self):
         """Every setting that shapes the request. The API key, and any user:password in the URL, are never
         recorded."""
-        return {'base_url': _without_credentials(self.base_url), 'model': self.name, 'temperature': self.temperature,
-                'max_tokens': self.max_tokens, 'timeout_s': self.timeout, 'extra_body': self.extra_body,
+        return copy.deepcopy({'base_url': _without_credentials(self.base_url), 'model': self.name, 'temperature': self.temperature,
+                'max_tokens': self.max_tokens, 'timeout_s': self.timeout, 'extra_body': self._extra_options(),
                 'system_in_user': self.system_in_user, 'system_suffix': self.system_suffix,
-                'accepted_models': self.accepted_models}
+                'accepted_models': self.accepted_models})
 
     def complete(self, system, user):
         return self.call(system, user)[0]
@@ -181,20 +197,22 @@ class OpenAICompatibleLLM(_Backend):
         if metadata['finish_reason'] != 'stop':
             return (f"the server reply did not finish normally (finish_reason {metadata['finish_reason']!r}, not "
                     "'stop'), so it may be cut off or filtered and is not used")
-        if metadata['model'] not in self.accepted_models:
+        if not isinstance(metadata['model'], str) or not metadata['model'].strip() \
+                or metadata['model'] not in self.accepted_models:
             return (f"the server answered as model {metadata['model']!r}, not the requested "
                     f"{', '.join(map(repr, self.accepted_models))}")
         return None
 
     def call(self, system, user):
         body = {'model': self.name, 'temperature': self.temperature, 'max_tokens': self.max_tokens,
-                'messages': self.messages(system, user), **self.extra_body}
+                'messages': self.messages(system, user), **self._extra_options()}
         request = urllib.request.Request(
-            self.base_url + '/chat/completions', data=json.dumps(body).encode('utf-8'),
+            self.base_url + '/chat/completions', data=json.dumps(body, allow_nan=False).encode('utf-8'),
             headers={'Content-Type': 'application/json', 'Authorization': 'Bearer ' + self.api_key})
         try:
             with urllib.request.urlopen(request, timeout=self.timeout) as response:
-                payload = json.loads(response.read().decode('utf-8'))
+                payload = json.loads(response.read().decode('utf-8'), parse_constant=_invalid_constant,
+                                     parse_float=_finite_float)
         except urllib.error.HTTPError as exc:
             raise RuntimeError(f'LLM server returned HTTP {exc.code}: {exc.read()[:300]!r}') from exc
         return completion(payload)
@@ -266,13 +284,24 @@ def build_messages(req, deterministic, records, admission=()):
 _THINK = re.compile(r'<think>.*?</think>', re.S)
 
 
+def _invalid_constant(token):
+    raise ValueError(f'Non-standard JSON numeric value: {token}')
+
+
+def _finite_float(token):
+    value = float(token)
+    if not math.isfinite(value):
+        raise ValueError(f'JSON numeric value exceeds finite range: {token}')
+    return value
+
+
 def extract_json(text):
     """Return the first JSON object with a "findings" key in a model reply.
 
     Tolerates <think> blocks, markdown fences and text around the JSON.
     """
     text = _THINK.sub('', text or '')
-    decoder = json.JSONDecoder()
+    decoder = json.JSONDecoder(parse_constant=_invalid_constant, parse_float=_finite_float)
     for match in re.finditer(r'\{', text):
         try:
             value, _ = decoder.raw_decode(text[match.start():])
@@ -291,6 +320,7 @@ def screen(raw_findings, req, records, deterministic, admission=()):
     ctx = req['evaluation_context']
     configured = set(ctx['protected_objects'])
     nodes_by_object, kinds_by_object = {}, {}
+    statements_by_object = {}
     for item in req['argument_bundle']['graphs']:
         g = item['graph'] if isinstance(item.get('graph'), dict) else {}
         nodes = _list(g.get('nodes'))
@@ -299,6 +329,7 @@ def screen(raw_findings, req, records, deterministic, admission=()):
         kinds_by_object[item['object_id']] = {
             n['id']: (n.get('type'), n.get('validation_status')) for n in nodes
             if isinstance(n, dict) and isinstance(n.get('id'), str)}
+        statements_by_object[item['object_id']] = {n['id']: n['statement'] for n in g['nodes']}
     known = {rid: {'execution': r.get('execution_id'), 'object': r.get('object_id'), 'interval': r.get('interval'),
                    'when': (r.get('domain'), r.get('clock'))} for rid, r in records.items()}
     assessments = {a['assessment_id']: a['object_id'] for a in admission if a['admitted']}
@@ -307,7 +338,7 @@ def screen(raw_findings, req, records, deterministic, admission=()):
     scope = {'configured': configured, 'nodes': nodes_by_object, 'records': known, 'assessments': assessments,
              'execution': ctx['execution_id'], 'taken': taken, 'monitored': _interval(monitored.get('interval')),
              'when': (monitored.get('domain'), monitored.get('clock')), 'kinds': kinds_by_object,
-             'conclusion': req['argument_bundle']['execution_conclusion']}
+             'conclusion': req['argument_bundle']['execution_conclusion'], 'statements': statements_by_object}
 
     accepted, rejected = [], []
     for f in raw_findings:
@@ -360,7 +391,7 @@ def _rejection_reason(f, scope):
             if reason:
                 return reason
     if category == 'C09':
-        reason = _already_cautious(about_object, target, nid, scope)
+        reason = _unanchored_c09(f, about_object, target, nid, scope)
         if reason:
             return reason
     if category == 'C07' and (oid is None or not any(scope['assessments'].get(e) == oid for e in evidence)):
@@ -370,10 +401,13 @@ def _rejection_reason(f, scope):
     return None
 
 
-def _already_cautious(oid, target, nid, scope):
-    """A C09 (ignored uncertainty) aimed at a conclusion that is already insufficient_information, the most cautious
-    outcome, through an unresolved conclusion node or no node at all, has nothing to object to: nothing there
-    treats the uncertain evidence as exact. Seen with Qwen3-32B on Case C in the R2 audit."""
+def _unanchored_c09(finding, oid, target, nid, scope):
+    """A cautious status cannot prove cautious prose. Require a statement anchor,
+    otherwise defer the objection for human review; do not declare it false.
+
+    This is a grounding check, not an automatic semantic truth classifier. A
+    quotation can still be misinterpreted, so accepted C09s remain proposals.
+    """
     conclusion = scope['conclusion']
     claims = conclusion.get('object_outcomes') if isinstance(conclusion.get('object_outcomes'), dict) else {}
     objects = [oid] if oid is not None else sorted(scope['configured'])
@@ -385,10 +419,32 @@ def _already_cautious(oid, target, nid, scope):
         kind, status = scope['kinds'].get(target, {}).get(nid, (None, None))
         if kind not in CONCLUSION_NODES or status not in ('unresolved', 'proposed'):
             return None
-    where = f'node {nid} ({kind}, {status})' if nid is not None else 'the conclusion'
-    about = oid if oid is not None else 'every object and the execution'
-    return (f'C09 says uncertainty was ignored, but the draft concludes insufficient_information for {about} and '
-            f'{where} keeps the question open; a C09 must name a statement that treats uncertain evidence as exact')
+    statement = scope['statements'][target][nid] if nid is not None else conclusion['statement']
+    normalize = lambda text: ' '.join(text.split()).casefold()
+    if normalize(statement) in normalize(finding['explanation']) or _assertive_uncertainty_claim(statement):
+        return None
+    return ('C09_UNRESOLVED: the draft concludes insufficient_information, but this does not establish that its '
+            'prose preserves uncertainty. The objection does not quote the complete targeted statement; '
+            'retained as an unresolved concern for human review, not accepted as an established criticism.')
+
+
+def _assertive_uncertainty_claim(statement):
+    """Conservative positive cue: KEEP an objection for review, never prove it true.
+
+    This is deliberately not a classifier for safe prose. Unknown wording stays
+    an unresolved human concern. Contrast clauses avoid allowing a cautious
+    preamble to hide a later definite assertion.
+    """
+    for clause in re.split(r'[.;:]|\b(?:but|however|nevertheless|yet)\b', statement.casefold()):
+        if re.search(r'\b(?:never fell|did not fall)\b|\bno\b.*\bviolation\w*\b.*\b(?:safe|prove\w*)\b', clause):
+            return True
+        if re.search(r'\b(?:not|no|cannot|neither|unresolved)\b', clause):
+            continue
+        if re.search(r'\b(?:safe|certain|certainty|exact|proves?|proved|guaranteed?|certified)\b', clause) \
+                or re.search(r'\bestablish(?:es|ed)?\b.{0,80}\bsupport\b|\bsupport\b.{0,80}\bestablish(?:es|ed)?\b', clause) \
+                or re.search(r'\buncertainty\b.{0,40}\bignored?\b', clause):
+            return True
+    return False
 
 
 def _time_reason(e, rec, scope, node_scope):
@@ -434,9 +490,12 @@ def run(llm, req, deterministic, records, admission=()):
         status['prompt_sha256'] = _sha256_text(PROMPT_PATH.read_text(encoding='utf-8'))
         status['input_sha256'] = K.digest(llm.messages(system, user))
         status['request_sha256'] = _safe_digest(req)
-        status['settings'] = llm.settings()
+        settings = copy.deepcopy(llm.settings())
+        K.canonical(settings)  # do not retain non-finite or non-JSON settings in a report
+        status['settings'] = settings
         status['called'] = True
-        reply, status['response'] = llm.call(system, user)
+        reply, metadata = llm.call(system, user)
+        status['response'] = copy.deepcopy(metadata)
         if not isinstance(reply, str):
             raise ValueError(f'the model returned {type(reply).__name__}, not text')
         status['response_sha256'] = _sha256_text(reply)

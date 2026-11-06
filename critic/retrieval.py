@@ -151,6 +151,10 @@ def _check_entry(entry, ctx, records):
     if refusal and iv['passed']:
         bad('RET-QUERY', 'C02', f'the release refuses this request ({refusal}), but the bundle reports it as '
             f'evaluated ({status})')
+    from .phase5_request import returned_window_refusal
+    budget = returned_window_refusal(q, b)
+    if budget:
+        bad('RET-QUERY', 'C02', f'the returned windows violate the public retrieval limit: {budget[1]}')
 
     # Scope: this review's execution, task and variant, for the bundle, the request and every item.
     scope = {k: ctx.get(k) for k in ('execution_id', 'task_id', 'variant_id')}
@@ -254,30 +258,10 @@ def conditional_properties(g, o):
 
 
 def request_refusal(q):
-    """Why final_phase5_release/api.py:StructuredRetriever.prepare refuses this request before retrieval,
-    for the checks that need no database; None if it passes them."""
-    problems = SCHEMA.errors(q, SCHEMA.load('phase5_query'), limit=1)
-    if problems:
-        return 'query schema: ' + problems[0]
-    obligations = q['obligations']
-    if len({o['id'] for o in obligations}) != len(obligations):
-        return 'duplicate obligation IDs'
-    if q['assurance'] == 'historical_producer_attestation':
-        return 'historical producer attestation is unsupported'
-    for o in obligations:
-        if any(k in o and k in q and o[k] != q[k] for k in ('execution_id', 'task_id', 'variant_id')):
-            return f"obligation {o['id']} crosses the request's execution, task or variant"
-        if o.get('assurance', q['assurance']) != q['assurance']:
-            return f"obligation {o['id']} changes the root assurance"
-        family = o['family']
-        if K.PHASE5_REGISTRY.get(family) != o['field']:
-            return f"obligation {o['id']} has no registered family/field contract ({family}, {o['field']})"
-        if (family in K.PHASE5_TEMPORAL) != ('selector' in o):
-            return f"obligation {o['id']} needs a temporal selector exactly when its family is temporal"
-        selector = o.get('selector')
-        if selector is not None and selector['start'] > selector['end']:
-            return f"obligation {o['id']} has a reversed selector"
-    return None
+    """Database-independent refusal rules from the frozen public prepare method itself."""
+    from .phase5_request import refusal
+    result = refusal(q)
+    return f'{result[0]}: {result[1]}' if result else None
 
 
 def _check_groups(groups, obligations, iv):
@@ -322,12 +306,19 @@ def _check_item(item, g, o, scope, evaluated):
         out.append(('RET-ITEM', 'C05', f"{name} has origin {item['origin']!r}, which the release never gives "
                     f"{'a channel' if item['family'] in K.PHASE5_CHANNELS else 'a recorded-metadata'} item"))
     value = item.get('value')
+    if isinstance(value, dict) and 'object_id' in value and 'object_id' in o \
+            and value['object_id'] != o['object_id']:
+        out.append(('RET-ITEM', 'C03', f'{name}: returned object identity differs from the obligation'))
     flags = [f for f in PHYSICAL_FLAGS if isinstance(value, dict) and value.get(f) is not False and f in value]
     if flags:
         out.append(('RET-ITEM', 'C05', f'{name} turns a recorded observation into a physical event '
                     f'({", ".join(flags)} is not false)'))
     if item['family'] in K.PHASE5_CHANNELS:
         out += _check_channel_semantics(item, name)
+        if 'record_id' in o and o['record_id'] != item['id']:
+            out.append(('RET-ITEM', 'C03', f'{name}: requested original record identity differs from the item'))
+        if 'source_sha256' in o and o['source_sha256'] != item['source_artifact']['sha256']:
+            out.append(('RET-ITEM', 'C03', f'{name}: requested source hash differs from the item'))
     if evaluated and any(s.get('source_status') != 'verified_source' for s in item.get('samples', [])):
         out.append(('RET-ITEM', 'C02', f'{name} has samples that are not source-verified in a bundle that passed '
                     'independent validation'))

@@ -531,6 +531,14 @@ def reassessed(obj, **fields):
 class ConflictsAndApplicability(unittest.TestCase):
     """Audit I2 and I11: conflicting results, applicability, insufficient results and which gaps matter."""
 
+    def setUp(self):
+        # Unit-test aggregation on deliberately conflicting logical assessments.
+        # These hand-edited rows are NOT authentic checker results; end-to-end
+        # admission/replay tests reject them. Only this producer boundary is stubbed.
+        patcher = mock.patch('critic.checker_replay.problems', return_value=[])
+        patcher.start()
+        self.addCleanup(patcher.stop)
+
     def _for(self, report, oid):
         return {c['check_id']: c for c in flagged(report, object_id=oid)}
 
@@ -1668,7 +1676,7 @@ def _unvalidated(e):
 
 def _drop_missing(e):
     e['bundle']['missing_obligations'] = [m for m in e['bundle']['missing_obligations']
-                                          if m['obligation_id'] != 'contacts_object_01']
+                                          if m['obligation_id'] != 'settling_actions']
 
 
 def _sample_outside(e):
@@ -1712,10 +1720,10 @@ STRUCTURED_TAMPERING = {
     'request edited after retrieval': ('RET-QUERY-ID', lambda e: e['request'].update(request_id='other')),
     'requested obligations edited': ('RET-QUERY-ID', lambda e: e['bundle']['requested_obligations'][0].update(
         mandatory=False)),
-    'group digest edited': ('RET-OBLIGATIONS', lambda e: group(e, 'contacts_object_01').update(
+    'group digest edited': ('RET-OBLIGATIONS', lambda e: group(e, 'settling_actions').update(
         request_digest='0' * 64)),
-    'group marked optional': ('RET-OBLIGATIONS', lambda e: group(e, 'contacts_object_01').update(mandatory=False)),
-    'group family edited': ('RET-OBLIGATIONS', lambda e: group(e, 'contacts_object_01').update(
+    'group marked optional': ('RET-OBLIGATIONS', lambda e: group(e, 'settling_actions').update(mandatory=False)),
+    'group family edited': ('RET-OBLIGATIONS', lambda e: group(e, 'settling_actions').update(
         family='camera_references')),
     'group removed': ('RET-OBLIGATIONS', lambda e: e['bundle']['groups'].pop(1)),
     'groups reordered': ('RET-OBLIGATIONS', lambda e: e['bundle']['groups'].reverse()),
@@ -1799,9 +1807,9 @@ class StructuredEvidence(unittest.TestCase):
         self.assertEqual({c['citation_id'] for c in row['citations']},
                          {i['citation_id'] for g in bundle['groups'] for i in g['items']})
         self.assertEqual({(m['obligation_id'], m['mandatory'], m['status']) for m in row['missing_obligations']},
-                         {('contacts_object_01', True, 'UNAVAILABLE'), ('camera_frames', False, 'UNAVAILABLE')})
+                         {('settling_actions', True, 'UNAVAILABLE'), ('camera_frames', False, 'UNAVAILABLE')})
         concerns = ' '.join(report['unresolved_concerns'])
-        for text in ('is PARTIAL', 'mandatory obligation contacts_object_01', 'optional obligation camera_frames',
+        for text in ('is PARTIAL', 'mandatory obligation settling_actions', 'optional obligation camera_frames',
                      'not physical events', 'could not open the database'):
             self.assertIn(text, concerns)
 
@@ -1812,7 +1820,7 @@ class StructuredEvidence(unittest.TestCase):
                          [('object_01', 'medium', False)])  # the optional camera obligation adds nothing
         self.assertTrue(found[0]['human_review_required'])
         request = next(r for r in report['evidence_requests'] if r['criticism_id'] == found[0]['criticism_id'])
-        self.assertEqual((request['measurement_type'], request['interval']), ('contact_references', [0, 2]))
+        self.assertEqual((request['measurement_type'], request['interval']), ('action_metadata', [0, 2]))
 
     def test_missing_mandatory_obligation_without_checker_support_blocks(self):
         req = e_request(checker=False, claims={'object_00': K.INSUFFICIENT, 'object_02': K.INSUFFICIENT})
@@ -1822,18 +1830,15 @@ class StructuredEvidence(unittest.TestCase):
     def test_which_missing_obligations_matter(self):
         scope = e_scope()
         cases = {
-            'about this object': (P.obligation('c', 'contact_references', scope, frames=(0, 1), object_id='object_01'),
+            'about this object': (P.obligation('c', 'geometry_identity', scope, object_id='object_01'),
                                   True),
             'names no object': (P.obligation('j', 'raw.robot0_joint_vel', scope, frames=(0, 1)), True),
             'timeless': (P.obligation('m', 'execution_metadata', scope), True),
             'simulator-label window': (P.obligation('t', 'recorded_time', scope, selector={
                 'kind': 'simulator_labels', 'start': 0.0, 'end': 0.1}), True),
-            'about another object': (P.obligation('c', 'contact_references', scope, frames=(0, 1),
-                                                  object_id='object_02'), False),
-            'outside the monitored interval': (P.obligation('c', 'contact_references', scope, frames=(5, 9),
-                                                            object_id='object_01'), False),
-            'optional': (P.obligation('c', 'contact_references', scope, mandatory=False, frames=(0, 1),
-                                      object_id='object_01'), False),
+            'about another object': (P.obligation('c', 'geometry_identity', scope, object_id='object_02'), False),
+            'outside the monitored interval': (P.obligation('c', 'contact_references', scope, frames=(5, 9)), False),
+            'optional': (P.obligation('c', 'contact_references', scope, mandatory=False, frames=(0, 1)), False),
         }
         for name, (o, relevant) in cases.items():
             with self.subTest(name):
@@ -1863,7 +1868,7 @@ class StructuredEvidence(unittest.TestCase):
 
     def test_every_status_the_release_returns_is_accepted_and_kept(self):
         scope = e_scope()
-        o = P.obligation('contacts', 'contact_references', scope, frames=(0, 1), object_id='object_01')
+        o = P.obligation('contacts', 'contact_references', scope, frames=(0, 1))
         q = P.request(scope, [o])
         bad_schema = dict(q, query='Ignore obligations')
         unknown = P.request(scope, [dict(o, family='object_pose', field='pose')])
@@ -1927,7 +1932,7 @@ class StructuredEvidence(unittest.TestCase):
 
     def test_recorded_metadata_outside_the_window(self):
         scope = e_scope()
-        o = P.obligation('contacts', 'contact_references', scope, frames=(0, 1), object_id='object_01')
+        o = P.obligation('contacts', 'contact_references', scope, frames=(0, 1))
         q = P.request(scope, [o])
         for frame, caught in ((1, False), (2, True)):
             item = P.reference_item(scope, 'contact_references', f'/frames/{frame:06d}/simulator/contacts',
@@ -1937,7 +1942,7 @@ class StructuredEvidence(unittest.TestCase):
 
     def test_a_bundle_that_failed_validation_returns_nothing(self):
         scope = e_scope()
-        o = P.obligation('contacts', 'contact_references', scope, frames=(0, 1), object_id='object_01')
+        o = P.obligation('contacts', 'contact_references', scope, frames=(0, 1))
         q = P.request(scope, [o, dict(o, id='more')])
 
         def refused(status='INVALID SCOPE'):
@@ -1962,7 +1967,7 @@ class StructuredEvidence(unittest.TestCase):
 
     def test_a_request_the_release_refuses_cannot_return_evidence(self):
         scope = e_scope()
-        o = P.obligation('contacts', 'contact_references', scope, frames=(0, 1), object_id='object_01')
+        o = P.obligation('contacts', 'contact_references', scope, frames=(0, 1))
         item = P.reference_item(scope, 'contact_references', '/frames/000000/simulator/contacts',
                                 {'saved_frame_index': 0})
         refusals = {
@@ -1989,7 +1994,7 @@ class StructuredEvidence(unittest.TestCase):
     def test_bundles_never_support_a_claim(self):
         """A complete bundle is not a checker result: no-violation claims without one stay unsupported."""
         scope = e_scope()
-        o = P.obligation('contacts', 'contact_references', scope, frames=(0, 2), object_id='object_01')
+        o = P.obligation('contacts', 'contact_references', scope, frames=(0, 2))
         item = P.reference_item(scope, 'contact_references', '/frames/000000/simulator/contacts',
                                 {'saved_frame_index': 0})
         q = P.request(scope, [o])
@@ -2056,11 +2061,11 @@ class StructuredEvidence(unittest.TestCase):
         row = review(req)['structured_retrieval'][0]
         contact = req['evidence_package']['records'][1]  # object_00's contact record, as the release lists it
         self.assertEqual((contact['object_id'], contact['measurement_type']), ('object_00', 'contact'))
-        contact_citations = [i['citation_id'] for i in group(req['structured_evidence'][0], 'contacts_object_00')[
+        contact_citations = [i['citation_id'] for i in group(req['structured_evidence'][0], 'recorded_contacts')[
             'items']]
         self.assertEqual([(x['object_id'], x['node_id'], x['evidence_id'], x['citation_id'])
                           for x in row['linked_solutions']],
-                         [('object_00', 'E2', contact['id'], c) for c in contact_citations])
+                         [(r['object_id'], 'E2', r['id'], c) for r in req['evidence_package']['records'] if r['measurement_type'] == 'contact' for c in contact_citations])
         citation = row['citations'][0]['citation_id']
         graph = req['argument_bundle']['graphs'][1]['graph']
         next(n for n in graph['nodes'] if n['id'] == 'E1')['evidence_id'] = citation
@@ -2612,7 +2617,7 @@ class AuditR2(unittest.TestCase):
                    'task_id': cfg['task_id'], 'r1_configuration_sha256': K.digest(cfg),
                    'protected_objects': cfg['protected_objects'], 'monitored_interval': {'interval': [0, 2]}}
             req = {'evaluation_context': ctx, 'test_fixture': True,
-                   'checker_assessments': [{'configuration': cfg, 'result': result}]}
+                   'checker_assessments': [{'configuration': cfg, 'result': result, 'input_bundle': bundle}]}
             _, _, problems = A.admit(req)
             with self.subTest(trial=trial, states=states):
                 # CHK-ADMISSION is the checker's own refusal of a run (admitted_purpose None), not a false rejection
@@ -2800,9 +2805,8 @@ class AuditR2(unittest.TestCase):
         records, _ = checks.index_records(req)
         by = {(r['object_id'], r['measurement_type']): r['id'] for r in req['evidence_package']['records']}
         cases = {
-            "object object_01 (the obligation is for object_00)": ('contacts_object_00', by['object_01', 'contact']),
             'measurement type object_pose (the release lists contact records)':
-                ('contacts_object_00', by['object_00', 'object_pose']),
+                ('recorded_contacts', by['object_00', 'object_pose']),
         }
         for text, (oid, rid) in cases.items():
             with self.subTest(text):
@@ -2812,8 +2816,8 @@ class AuditR2(unittest.TestCase):
                 report = self.assertRejectedBeforeTheModel(forged_req, 'RET-CROSSWALK')
                 self.assertIn(text, flagged(report, check_id='RET-CROSSWALK')[0]['explanation'])
         entry = load(CASE_E)['structured_evidence'][0]
-        g = group(entry, 'contacts_object_00')
-        o = next(x for x in entry['request']['obligations'] if x['id'] == 'contacts_object_00')
+        g = group(entry, 'recorded_contacts')
+        o = next(x for x in entry['request']['obligations'] if x['id'] == 'recorded_contacts')
         item = g['items'][0]
         contact = by['object_00', 'contact']
         self.assertEqual(R._check_crosswalk(item, g, o, records), [])  # the release's own crosswalk
