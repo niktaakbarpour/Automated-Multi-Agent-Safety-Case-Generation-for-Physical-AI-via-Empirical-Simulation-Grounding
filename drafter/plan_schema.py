@@ -24,44 +24,47 @@ def build_plan_schema(request):
     roster = request['requirement_configuration']['protected_objects']
     graphs = schema['properties']['graphs']
     graphs['minItems'] = graphs['maxItems'] = len(roster)
-    graph = graphs['items']['properties']
-    graph['object_id'] = {'enum': deepcopy(roster)}
-    # An evidence identity such as ev:<hash> is not a graph endpoint. The declared
-    # node existence and exact per-object namespace are still host-side checks.
-    namespace = '|'.join(re.escape(value) for value in roster)
-    schema['$defs']['node_id'] = {
-        'type': 'string',
-        'pattern': '^(?:' + namespace + '):[A-Za-z0-9_.:-]{1,128}$',
-    }
-    for target in (graph, graph['nodes']['items']['properties'],
-                   graph['edges']['items']['properties']):
-        for key in ('root_id', 'id', 'source', 'target'):
-            if key in target:
-                target[key] = {'$ref': '#/$defs/node_id'}
-    node = graph['nodes']['items']
-    eligible = request['evidence_handling']['graph_eligible_evidence_ids']
-    variants = []
-    for kinds, physical in (
-        (['goal', 'unresolved_claim'], True),
-        (['strategy', 'context', 'assumption', 'justification', 'defeater'], False),
-    ):
-        variant = deepcopy(node)
-        props = variant['properties']
-        props['type'] = {'enum': kinds}
-        props['physical_claim'] = {'const': physical}
-        props['evidence_id'] = {'type': 'null'}
-        variants.append(variant)
-    if eligible:
-        solution = deepcopy(node)
-        props = solution['properties']
-        props['type'] = {'enum': ['solution']}
-        props['physical_claim'] = {'const': False}
-        props['evidence_id'] = {'enum': deepcopy(eligible)}
-        variants.append(solution)
-    # Complete shapes, rather than conditionals interpreted inconsistently by
-    # decoders, prevent null Solution citations and citations on reasoning nodes.
-    # A missing eligible catalogue simply omits the Solution alternative.
-    graph['nodes']['items'] = {'anyOf': variants}
+    template = graphs.pop('items')
+    records = {record['id']: record for record in request['evidence_package']['records']}
+    eligible = set(request['evidence_handling']['graph_eligible_evidence_ids'])
+    # Encode the existing ordered-roster contract before sampling. Tuple positions
+    # are not a sorting instruction and never mutate a returned model response.
+    graphs['prefixItems'] = []
+    graphs['items'] = False
+    for object_id in roster:
+        graph_schema = deepcopy(template)
+        graph = graph_schema['properties']
+        graph['object_id'] = {'const': object_id}
+        node_id = {'type': 'string',
+                   'pattern': '^' + re.escape(object_id) + ':[A-Za-z0-9_.:-]{1,128}$'}
+        for target in (graph, graph['nodes']['items']['properties'],
+                       graph['edges']['items']['properties']):
+            for key in ('root_id', 'id', 'source', 'target'):
+                if key in target:
+                    target[key] = deepcopy(node_id)
+        node = graph['nodes']['items']
+        variants = []
+        for kinds, physical in (
+            (['goal', 'unresolved_claim'], True),
+            (['strategy', 'context', 'assumption', 'justification', 'defeater'], False),
+        ):
+            variant = deepcopy(node)
+            props = variant['properties']
+            props['type'] = {'enum': kinds}
+            props['physical_claim'] = {'const': physical}
+            props['evidence_id'] = {'type': 'null'}
+            variants.append(variant)
+        object_evidence = sorted(key for key in eligible
+                                 if key in records and records[key]['object_id'] == object_id)
+        if object_evidence:
+            solution = deepcopy(node)
+            props = solution['properties']
+            props['type'] = {'enum': ['solution']}
+            props['physical_claim'] = {'const': False}
+            props['evidence_id'] = {'enum': object_evidence}
+            variants.append(solution)
+        graph['nodes']['items'] = {'anyOf': variants}
+        graphs['prefixItems'].append(graph_schema)
     Draft202012Validator.check_schema(schema)
     return schema
 
@@ -97,7 +100,8 @@ def serialized_graph_issues(graph, object_id, request):
     The unparented physical root is also independently checked by shared rules.
     """
     full = build_plan_schema(request)
-    schema = {**deepcopy(full['properties']['graphs']['items']), '$defs': full['$defs']}
+    position = request['requirement_configuration']['protected_objects'].index(object_id)
+    schema = {**deepcopy(full['properties']['graphs']['prefixItems'][position]), '$defs': full['$defs']}
     incoming = {edge['target'] for edge in graph['edges']}
     roots = [node['id'] for node in graph['nodes'] if node['id'] not in incoming
              and node['type'] == 'goal' and node['physical_claim']]

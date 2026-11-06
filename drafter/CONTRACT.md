@@ -15,10 +15,10 @@ perform no inference; preparation/adaptation commands perform no database query.
 - Wrapper identifiers remain `drafter-request/0.1.0` and `draft-argument/0.1.0`.
   This extension adds input profiles and mandatory review semantics to accepted
   output; older accepted envelopes without these semantics are rejected.
-- Intermediate plan: `urn:trustworthy:drafter-graph-plan:0.2.1`; prompt
-  `draft-argument-prompt/0.2.1`; serializer `graph-plan-to-gsn/0.2.0`.
-  Historical failed-run traces can still record prompt 0.2.0; accepted live
-  arguments must declare the current prompt version. The 0.2.1 decoder minimum
+- Intermediate plan: `urn:trustworthy:drafter-graph-plan:0.2.2`; prompt
+  `draft-argument-prompt/0.2.2`; serializer `graph-plan-to-gsn/0.2.0`.
+  Historical run traces can still record prompts 0.2.0 and 0.2.1; accepted live
+  arguments must declare the current prompt version. The 0.2.2 decoder minimum
   is four nodes, matching the already-required distinct root,
   strategy, context and subclaim; node order is not fixed. Complete core-shape
   guidance does not insert or repair nodes/edges in returned proposals.
@@ -234,3 +234,9 @@ Mock reasoning is labelled `deterministic_mock`; original Solution metadata
 retains its observation origin/status. The live validator rejects mock envelopes.
 A successful mock is an interface demonstration, not model performance, completed
 Critic integration or robot-safety validation. There is no automatic mock fallback.
+
+The request-specialized decoder uses Draft2020-12 `prefixItems` and `items:false`
+to bind graph positions to the exact configuration roster. Each position also
+binds node/edge namespaces and object-specific eligible registry citations.
+The host independently rejects roster/order/identity/evidence violations. No
+post-generation reordering, ID rewriting or evidence reassignment is performed.

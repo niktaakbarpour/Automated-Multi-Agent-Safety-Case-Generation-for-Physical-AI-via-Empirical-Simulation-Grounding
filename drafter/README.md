@@ -192,7 +192,7 @@ citations or missing evidence are never silently repaired.
 The decoder schema now permits full sentences, distinguishes graph-node IDs from
 evidence IDs, and requires non-null Solution citations. Host checks still enforce
 declared endpoints, scope, evidence eligibility, usable prose and uniqueness.
-Plan/prompt version 0.2.1 uses a minimum of four nodes for the four already-required
+Plan/prompt version 0.2.2 uses a minimum of four nodes for the four already-required
 core roles and gives a complete, typed core-structure example. It does not fix
 node ordering, insert missing structure, repair model responses or establish
 scientific correctness. Unresolved claims must be connected through their strategy;
@@ -207,3 +207,13 @@ arbitrary reasoning correct. Read the Markdown review before using a draft.
 Runtime files, local configuration and credentials stay outside committed examples.
 Use `api_key_env` for an environment-variable name if authentication is needed;
 never place a key value in JSON. See [CONTRACT.md](CONTRACT.md) for exact boundaries.
+
+### Ordered object generation
+
+The request-specialized decoder binds each graph array position to the exact
+`protected_objects` configuration order using Draft2020-12 `prefixItems`. It also
+restricts node and edge namespaces and eligible Solution IDs to that position's
+object. An empty eligible catalogue permits no Solution node. This applies to
+archived, supplied-registry and Phase 5 profiles. It does not sort returned graphs
+or change evidence identity, scope or provenance. Host validation still rejects
+any roster, order, endpoint or evidence violation independently of the decoder.

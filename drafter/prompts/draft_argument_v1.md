@@ -21,7 +21,11 @@ configuration's validation status. Do not describe any object as observed statio
 falling, absent, safely handled or safe. Preserve all missing objects and intervals.
 Frame metadata availability is not physical evidence coverage.
 
-Make one graph for EVERY configured protected object, in the supplied order.
+Make one graph for EVERY configured protected object, in the exact protected_objects
+configuration order, not alphabetically and not in evidence/group order. The schema
+binds each graph array position to its object identity, namespace and eligible
+citations. Never move evidence between objects or invent a citation for an empty
+object catalogue.
 Choose meaningful claims, reasoning and evidence links; do not merely repeat a
 single isolated goal. Each graph needs:
 - A root goal about unresolved R1 for that object over the full monitoring window.

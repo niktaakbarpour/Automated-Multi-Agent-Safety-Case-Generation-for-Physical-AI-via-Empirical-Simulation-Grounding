@@ -24,7 +24,7 @@
       "required": ["serializer_version", "prompt_version", "messages", "prompt_sha256", "json_schema", "discovery", "completion"],
       "properties": {
         "serializer_version": {"const": "graph-plan-to-gsn/0.2.0"},
-        "prompt_version": {"enum": ["draft-argument-prompt/0.2.0", "draft-argument-prompt/0.2.1"]},
+        "prompt_version": {"enum": ["draft-argument-prompt/0.2.0", "draft-argument-prompt/0.2.1", "draft-argument-prompt/0.2.2"]},
         "messages": {"type": ["array", "null"]},
         "prompt_sha256": {"$ref": "#/$defs/nullable_hash"},
         "json_schema": {"type": ["object", "null"]},

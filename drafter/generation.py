@@ -21,7 +21,7 @@ from .argument_checks import (authoritative_summary, authoritative_limitations,
                               graph_structure_issues, solution_statement)
 from .plan_schema import build_plan_schema, validate_plan_prose
 
-PROMPT_VERSION = 'draft-argument-prompt/0.2.1'
+PROMPT_VERSION = 'draft-argument-prompt/0.2.2'
 SERIALIZER_VERSION = 'graph-plan-to-gsn/0.2.0'
 HERE = Path(__file__).resolve().parent
 CHECK_NAMES = ('input_schema', 'input_semantics', 'output_schema',

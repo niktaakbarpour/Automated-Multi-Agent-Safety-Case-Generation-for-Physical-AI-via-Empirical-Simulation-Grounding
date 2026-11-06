@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "urn:trustworthy:drafter-graph-plan:0.2.1",
+  "$id": "urn:trustworthy:drafter-graph-plan:0.2.2",
   "title": "Intermediate model graph plan, not the final shared GSN graph",
   "type": "object",
   "additionalProperties": false,
