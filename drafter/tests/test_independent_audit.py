@@ -132,6 +132,32 @@ class IndependentAuditTests(unittest.TestCase):
                 with self.assertRaisesRegex(ContractError, 'unusable_prose'):
                     validate_argument(argument, self.request)
 
+    def test_decoder_minimum_matches_four_distinct_required_roles(self):
+        from drafter.plan_schema import build_plan_schema
+        from jsonschema import Draft202012Validator
+        plan = model_plan(self.request)
+        graph = plan['graphs'][1]  # No eligible Solution for this object.
+        graph['nodes'] = [n for n in graph['nodes'] if n['type'] != 'strategy']
+        obj = graph['object_id']
+        graph['edges'] = [
+            {'source': obj + ':G1', 'target': obj + ':U1', 'type': 'supported_by'},
+            {'source': obj + ':G1', 'target': obj + ':C1', 'type': 'in_context_of'}]
+        self.assertEqual(len(graph['nodes']), 3)
+        self.assertFalse(Draft202012Validator(build_plan_schema(self.request)).is_valid(plan))
+
+    def test_core_minimum_does_not_require_a_fixed_node_order(self):
+        plan = model_plan(self.request)
+        for graph in plan['graphs']:
+            graph['nodes'].reverse()
+        result = self.generated(plan=plan)
+        self.assertEqual(result['status'], 'accepted')
+
+    def test_current_output_cannot_claim_the_previous_prompt_version(self):
+        argument = self.generated()['argument']
+        argument['generation_provenance']['prompt_version'] = 'draft-argument-prompt/0.2.0'
+        with self.assertRaisesRegex(ContractError, 'prompt_version_binding'):
+            validate_argument(argument, self.request)
+
     def test_huge_numeric_request_is_rejected_before_client(self):
         for where in ('scope', 'configuration', 'record', 'nested_provenance'):
             with self.subTest(where=where):

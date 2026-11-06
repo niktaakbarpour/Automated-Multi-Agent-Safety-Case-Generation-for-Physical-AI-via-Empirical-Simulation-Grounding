@@ -9,7 +9,11 @@ response was rejected: evidence IDs appeared as edge endpoints, Solution citatio
 were empty, and a decoder/schema mismatch restricted prose to single characters.
 The recorded successful server was **SGLang 0.5.4.post3 / XGrammar 0.1.25**.
 See [the execution report](../DRAFTER_QWEN3_32B_EXECUTION_REPORT.md).
-The fixes below have local software tests; **their actual GPU/database rerun is pending**.
+The independent audit also exercises the frozen database, the recorded decoder
+environment and actual Qwen drafting on Hestia. See
+[the PR20 verification report](DRAFTER_PR20_AUDIT_AND_COMPLETION_REPORT.md) for
+the exact source revisions, accepted and rejected attempts, remaining limitations
+and GPU recovery evidence. Mock and scripted tests remain separate from those runs.
 
 ## Install and test
 
@@ -24,6 +28,13 @@ python3 -m unittest discover -s drafter/tests -t . -v
 The tests use saved or constructed inputs, scripted replies and temporary local
 servers. They measure software behavior, not LLM performance. XGrammar and model
 weights are not required for this test suite.
+
+The supported `jsonschema` range includes 4.19.1 (the current checker's/Critic's
+pin) and 4.25.1 (the original standalone client). Both endpoints are tested on
+Hestia. Structured adaptation requires the repaired Critic consumer merged by
+PR21; an older consumer fails closed rather than accepting unsupported requests
+as complete evidence. See the contract for supported numeric/depth and nonempty
+scope limits, and for the schemas of generation/early-rejection reports.
 
 ## Input profiles
 
@@ -181,6 +192,11 @@ citations or missing evidence are never silently repaired.
 The decoder schema now permits full sentences, distinguishes graph-node IDs from
 evidence IDs, and requires non-null Solution citations. Host checks still enforce
 declared endpoints, scope, evidence eligibility, usable prose and uniqueness.
+Plan/prompt version 0.2.1 uses a minimum of four nodes for the four already-required
+core roles and gives a complete, typed core-structure example. It does not fix
+node ordering, insert missing structure, repair model responses or establish
+scientific correctness. Unresolved claims must be connected through their strategy;
+they are not defeaters. Invalid proposals remain saved rejections.
 
 The displayed summary and execution conclusion are host-controlled and unresolved.
 Model summary/limitations are retained separately in `reasoning_review`, explicitly

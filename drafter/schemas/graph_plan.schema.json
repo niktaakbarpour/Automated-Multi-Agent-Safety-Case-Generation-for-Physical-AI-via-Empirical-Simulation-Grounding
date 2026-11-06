@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "urn:trustworthy:drafter-graph-plan:0.2.0",
+  "$id": "urn:trustworthy:drafter-graph-plan:0.2.1",
   "title": "Intermediate model graph plan, not the final shared GSN graph",
   "type": "object",
   "additionalProperties": false,
@@ -15,7 +15,7 @@
           "object_id": {"$ref": "#/$defs/id"},
           "root_id": {"$ref": "#/$defs/id"},
           "nodes": {
-            "type": "array", "minItems": 3, "maxItems": 24,
+            "type": "array", "minItems": 4, "maxItems": 24,
             "items": {
               "type": "object", "additionalProperties": false,
               "required": ["id", "type", "statement", "evidence_id", "physical_claim"],

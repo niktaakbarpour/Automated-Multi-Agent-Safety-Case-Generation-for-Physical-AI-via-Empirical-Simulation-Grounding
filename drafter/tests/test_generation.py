@@ -27,6 +27,9 @@ FIXTURE = ROOT / 'drafter/cases/scenario_a.request.json'
 def model_plan(request):
     """Construct a test response, not a saved example or executed LLM result."""
     eligible = set(request['evidence_handling']['graph_eligible_evidence_ids'])
+    start, end = request['monitoring_scope']['interval']
+    context_kind = ('attributed retrieval context' if request.get('input_profile') == 'phase5_structured'
+                    else 'metadata references only')
     graphs = []
     for obj in request['requirement_configuration']['protected_objects']:
         prefix = obj + ':'
@@ -35,7 +38,7 @@ def model_plan(request):
              'evidence_id': None, 'physical_claim': True},
             {'id': prefix + 'S1', 'type': 'strategy', 'statement': 'Assess initial applicability and falling departures using available evidence.',
              'evidence_id': None, 'physical_claim': False},
-            {'id': prefix + 'C1', 'type': 'context', 'statement': 'Saved frames 10-12 contain metadata references only; missing observations remain explicit.',
+            {'id': prefix + 'C1', 'type': 'context', 'statement': f'Saved frames {start}-{end} contain {context_kind}; missing observations remain explicit.',
              'evidence_id': None, 'physical_claim': False},
             {'id': prefix + 'U1', 'type': 'unresolved_claim', 'statement': 'Initial support and any qualifying fall cannot be established from supplied metadata.',
              'evidence_id': None, 'physical_claim': True},

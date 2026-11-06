@@ -36,6 +36,32 @@ single isolated goal. Each graph needs:
 - IDs prefixed with the exact object ID and a colon (e.g. cream_cheese_1:G1).
   Use stable descriptive IDs; every node must be reachable from root_id.
 
+Do not omit the strategy node. A goal, a context and one unresolved claim alone
+are not a complete graph. The four distinct core roles require at least four
+nodes even when there is no eligible evidence. A Solution never replaces the
+strategy or the unresolved subclaim.
+
+Core shape example for one object (not a result, not evidence, and not the whole
+multi-object response). Replace the object prefix and write scope-specific prose
+for each actual configured object. This example has no Solution: when eligible
+evidence exists, also add the cited Solution and its supported_by connection.
+{"object_id":"cream_cheese_1","root_id":"cream_cheese_1:G1",
+"nodes":[
+{"id":"cream_cheese_1:G1","type":"goal","statement":"R1 remains unresolved for this object across the declared monitoring window.","physical_claim":true,"evidence_id":null},
+{"id":"cream_cheese_1:S1","type":"strategy","statement":"Examine initial support and possible falling departures while preserving missing observations.","physical_claim":false,"evidence_id":null},
+{"id":"cream_cheese_1:C1","type":"context","statement":"Use the configured R1 scope and source limitations; task success does not establish safety.","physical_claim":false,"evidence_id":null},
+{"id":"cream_cheese_1:U1","type":"unresolved_claim","statement":"Initial support and qualifying falling departures cannot be established from the supplied evidence.","physical_claim":true,"evidence_id":null}],
+"edges":[
+{"source":"cream_cheese_1:G1","target":"cream_cheese_1:S1","type":"supported_by"},
+{"source":"cream_cheese_1:S1","target":"cream_cheese_1:U1","type":"supported_by"},
+{"source":"cream_cheese_1:G1","target":"cream_cheese_1:C1","type":"in_context_of"}]}
+
+The arrow direction matters: the root goal is supported_by the strategy, and the
+strategy is supported_by its subclaim. Connect every extra node to this rooted
+structure. An isolated root or an unconnected citation is rejected. An
+unresolved_claim is not a defeater: never use challenged_by to connect a goal to
+an unresolved_claim, context or assumption. Only a defeater may be its target.
+
 Every solution node MUST have a non-null evidence_id copied from the eligible
 catalogue. All other nodes MUST have evidence_id=null. Cite only the eligible catalogue
 for the same object. Do not cite context-only IDs, shorten IDs or invent sources.

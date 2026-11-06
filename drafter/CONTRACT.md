@@ -15,8 +15,13 @@ perform no inference; preparation/adaptation commands perform no database query.
 - Wrapper identifiers remain `drafter-request/0.1.0` and `draft-argument/0.1.0`.
   This extension adds input profiles and mandatory review semantics to accepted
   output; older accepted envelopes without these semantics are rejected.
-- Intermediate plan: `urn:trustworthy:drafter-graph-plan:0.2.0`; prompt
-  `draft-argument-prompt/0.2.0`; serializer `graph-plan-to-gsn/0.2.0`.
+- Intermediate plan: `urn:trustworthy:drafter-graph-plan:0.2.1`; prompt
+  `draft-argument-prompt/0.2.1`; serializer `graph-plan-to-gsn/0.2.0`.
+  Historical failed-run traces can still record prompt 0.2.0; accepted live
+  arguments must declare the current prompt version. The 0.2.1 decoder minimum
+  is four nodes, matching the already-required distinct root,
+  strategy, context and subclaim; node order is not fixed. Complete core-shape
+  guidance does not insert or repair nodes/edges in returned proposals.
 - Phase 5 input: `phase5-structured-1.0.0`; retained output context:
   `drafter-phase5-context/1.0.0`.
 
