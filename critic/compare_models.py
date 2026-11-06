@@ -7,12 +7,14 @@ Start one vLLM server per model, then:
         --model Qwen/Qwen3-32B=http://localhost:8001/v1 \
         --repeats 3 --out critic/examples/model_comparison.md
 
-Per model and case it records whether the LLM added an expected finding, whether it
-criticised the correct unresolved argument (false positive), whether it cited
-invented evidence/nodes, whether its JSON parsed, and latency; the raw rows also keep
-each call's trace hashes and settings. Cases whose input the Critic rejects before
-the model step (Case B) are skipped, because no model is asked about them. A few
-synthetic cases are an exploratory comparison, not a benchmark.
+Per model and case it records whether the model step worked (llm.ok: the server answered,
+the reply finished and parsed), whether the LLM added an expected finding, how many of its
+findings were accepted, whether it criticised an argument that is correct as it stands (a
+false positive: only Case C is marked so, model_findings_expected false; findings on other
+cases need reading, not counting), whether it cited invented evidence/nodes, and latency;
+the raw rows also keep each call's trace hashes, settings and the server's response metadata.
+Cases whose input the Critic rejects before the model step (Case B) are skipped, because no
+model is asked about them. A few synthetic cases are an exploratory comparison, not a benchmark.
 """
 import argparse
 import json
@@ -42,23 +44,24 @@ def evaluate(model, base_url, repeats, max_tokens, json_mode):
             wanted = set(exp['llm_should_add_any_of'])
             rows.append({
                 'model': model, 'case': name, 'run': run,
-                'json_ok': report['llm']['ok'], 'error': report['llm']['error'],
+                'model_step_ok': report['llm']['ok'], 'error': report['llm']['error'],
                 'latency_s': report['llm']['latency_s'],
                 'llm_findings': len(llm_findings),
                 'categories': sorted({c['category'] for c in llm_findings}),
                 'hit_expected': bool(wanted & {c['category'] for c in llm_findings}) if wanted else None,
-                'false_positive': bool(llm_findings) if not exp['blocking_expected'] else None,
+                'false_positive': bool(llm_findings) if exp.get('model_findings_expected') is False else None,
                 'invented_refs': len(invented),
                 'rejected_total': len(report['rejected_llm_findings']),
                 'review_status': report['review_status'],
                 'trace': {k: report['llm'][k] for k in ('prompt_version', 'prompt_sha256', 'input_sha256',
-                                                        'request_sha256', 'response_sha256', 'settings')},
+                                                        'request_sha256', 'response_sha256', 'settings',
+                                                        'response')},
             })
     return rows
 
 
-COLUMNS = ('Model', 'Case', 'JSON valid', 'Expected issue found', 'False positive on Case C',
-           'Invented IDs', 'LLM categories', 'Median latency (s)')
+COLUMNS = ('Model', 'Case', 'Model step OK', 'Expected issue found', 'Accepted LLM findings',
+           'False positive (correct argument)', 'Invented IDs', 'LLM categories', 'Median latency (s)')
 
 
 def _share(runs, key):
@@ -79,8 +82,9 @@ def table(rows):
         cells = [
             model,
             case.replace('.json', ''),
-            _share(runs, 'json_ok'),
+            _share(runs, 'model_step_ok'),
             _share(runs, 'hit_expected'),
+            str(sum(r['llm_findings'] for r in runs)),
             _share(runs, 'false_positive'),
             str(sum(r['invented_refs'] for r in runs)),
             ', '.join(sorted({c for r in runs for c in r['categories']})) or '-',
@@ -108,7 +112,10 @@ def main(argv=None):
     cases = len({r['case'] for r in rows})
     out.write_text(f'# Exploratory Critic model comparison ({cases} synthetic cases)\n\n' + table(rows) +
                    f'\n\nExploratory only: {cases} synthetic cases, not a benchmark. Case B is not included because '
-                   'the Critic rejects its input before the model step. Raw rows, with each call\'s trace, in '
+                   'the Critic rejects its input before the model step. "Model step OK" means the server answered, '
+                   'the reply finished and it parsed, not that the findings are right. A false positive is counted '
+                   'only on Case C, the one argument that is correct as it stands; findings on the other cases are '
+                   'counted, not judged, and need reading. Raw rows, with each call\'s trace, in '
                    + out.with_suffix('.json').name + '.\n')
     print(table(rows))
 

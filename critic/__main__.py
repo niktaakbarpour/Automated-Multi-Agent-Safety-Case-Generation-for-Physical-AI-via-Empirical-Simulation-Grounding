@@ -39,7 +39,7 @@ def make_llm(args):
             return L.ScriptedLLM(fh.read())
     extra = {'response_format': {'type': 'json_object'}} if args.json_mode else {}
     return L.OpenAICompatibleLLM(base_url=args.base_url, model=args.model, temperature=args.temperature,
-                                 max_tokens=args.max_tokens, extra_body=extra)
+                                 max_tokens=args.max_tokens, extra_body=extra, accepted_models=args.accept_model)
 
 
 def main(argv=None):
@@ -54,6 +54,9 @@ def main(argv=None):
                    help="default: the model card's setting (see llm.MODEL_PRESETS)")
     p.add_argument('--max-tokens', type=int, default=8192)
     p.add_argument('--json-mode', action='store_true', help='ask the server for response_format=json_object')
+    p.add_argument('--accept-model', action='append', default=[], metavar='NAME',
+                   help='another model name the server may answer as (e.g. its served-model-name); repeatable. '
+                        'By default the reply must name the requested model')
     p.add_argument('--scripted-reply', help='file with a fixed model reply (used with --backend scripted)')
     p.add_argument('--out', help='write the report here instead of stdout')
     args = p.parse_args(argv)

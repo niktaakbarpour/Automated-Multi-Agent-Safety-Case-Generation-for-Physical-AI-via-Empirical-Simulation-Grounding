@@ -27,6 +27,10 @@ consistency, not authenticated (EVIDENCE_CITATION_CONTRACT.md).
 
 GSN 1.0.0 solution nodes keep citing registry records, as Graph.validate requires. link() reports which
 bundle items back a solution: those whose original_evidence_ids include the solution's registry record.
+That crosswalk is checked first (audit R2-06): an original ID that names a record in the evidence package
+must be one the release itself would list for that item (retrieval_remediation/bundle.py: Retriever.retrieve
+selects them by execution, measurement type, object and frame window, per family), or the bundle is
+refused (RET-CROSSWALK). An original ID that is not in the package cannot be checked and links nothing.
 """
 import hashlib
 
@@ -45,6 +49,17 @@ CHANNEL_ORIGIN = 'direct_recording'
 REFERENCE_ORIGINS = ('recorded_metadata_or_existing_derived_identity', 'existing_derived_symbolic_identity')
 _PINS = (('phase5_query', K.PHASE5_QUERY_SCHEMA_SHA256), ('phase5_bundle', K.PHASE5_BUNDLE_SCHEMA_SHA256))
 
+# Which registry records the release lists in an item's original_evidence_ids (retrieval_remediation/bundle.py,
+# Retriever.retrieve): family -> (measurement_type, object rule, frame window rule). 'object' means the record's
+# object must be the obligation's object; 'object_if_named' only when the obligation names one. Every other
+# family lists none (channel items list themselves).
+CROSSWALK = {
+    'geometry_identity': ('object_identity', 'object', False),
+    'execution_metadata': ('execution_metadata', None, False),
+    'contact_references': ('contact', 'object_if_named', True),
+    'camera_references': ('camera_reference', 'object_if_named', True),
+}
+
 
 def release_problems():
     """Release schema files that do not match their pinned hashes (empty when all match)."""
@@ -60,8 +75,8 @@ def release_problems():
     return out
 
 
-def admit(req):
-    """Check every structured_evidence entry.
+def admit(req, records=None):
+    """Check every structured_evidence entry. records: the request's registry records by ID, for the crosswalk.
 
     Returns (problems [(check_id, category, text, query_id)], admitted bundles for the review,
     rows for the report's structured_retrieval list).
@@ -72,7 +87,7 @@ def admit(req):
     release = release_problems() if entries else []
     problems, admitted, rows = [], [], []
     for index, entry in enumerate(entries):
-        found, view = _check_entry(entry, req['evaluation_context'])
+        found, view = _check_entry(entry, req['evaluation_context'], records or {})
         if release:
             found.insert(0, ('RET-RELEASE', 'C02', 'the Phase 5 release files changed since the Critic pinned them: '
                              + ', '.join(release)))
@@ -110,7 +125,7 @@ def link(req, admitted, rows):
 
 # ------------------------------------------------------------------ one entry
 
-def _check_entry(entry, ctx):
+def _check_entry(entry, ctx, records):
     """Return (problems [(check_id, category, text)], view or None)."""
     if not isinstance(entry, dict) or not isinstance(entry.get('request'), dict) \
             or not isinstance(entry.get('bundle'), dict):
@@ -164,6 +179,7 @@ def _check_entry(entry, ctx):
         o = by_id.get(g['obligation_id'], {})
         for item in g['items']:
             out += _check_item(item, g, o, resolved, iv['passed'])
+            out += _check_crosswalk(item, g, o, records)
         if g['family'] in K.PHASE5_CHANNELS and g['items'] and iv['passed']:
             expected = conditional_properties(g, o)
             if expected is None or not _same(g.get('conditional_assumptions', []), expected):
@@ -184,6 +200,42 @@ def _check_entry(entry, ctx):
     out += _check_status(b, groups, items, status, iv)
     view = _view(b, q, groups, iv) if not out else {'query_id': b['query_id']}
     return out, view
+
+
+def _check_crosswalk(item, g, o, records):
+    """original_evidence_ids that name a registry record in the package must be ones the release would list."""
+    out = []
+    rule = CROSSWALK.get(item['family'])
+    for rid in item['original_evidence_ids']:
+        rec = records.get(rid)
+        if rec is None:
+            continue  # not in the package: cannot be checked, and links nothing
+        name = f"group {g['obligation_id']} item {item['id']}"
+        if rule is None:
+            out.append(('RET-CROSSWALK', 'C03', f"{name} lists registry record {rid} as its original evidence, but the "
+                        f"release lists none for a {item['family']} item"))
+            continue
+        kind, object_rule, windowed = rule
+        wanted = o.get('object_id') if object_rule == 'object' or (object_rule and 'object_id' in o) else None
+        window = _frames(o.get('selector')) if windowed else None
+        interval = rec.get('interval')
+        wrong = []
+        if rec.get('execution_id') != item['execution_id']:
+            wrong.append(f"execution {rec.get('execution_id')}")
+        if rec.get('measurement_type') != kind:
+            wrong.append(f"measurement type {rec.get('measurement_type')} (the release lists {kind} records)")
+        if (object_rule == 'object' and not isinstance(wanted, str)) \
+                or (wanted is not None and rec.get('object_id') != wanted):
+            wrong.append(f"object {rec.get('object_id')} (the obligation is for {wanted})")
+        if windowed and (window is None or not (isinstance(interval, list) and len(interval) == 2
+                                                and all(K.finite_number(x) for x in interval)
+                                                and interval[0] <= window[1] and interval[1] >= window[0])):
+            wrong.append(f'interval {interval} outside the requested frames {list(window) if window else None}')
+        if wrong:
+            out.append(('RET-CROSSWALK', 'C03', f"{name} lists registry record {rid} as its original evidence, but "
+                        f"the release would not: that record has {'; '.join(wrong)}. Its link to a GSN solution "
+                        'would be false'))
+    return out
 
 
 def conditional_properties(g, o):

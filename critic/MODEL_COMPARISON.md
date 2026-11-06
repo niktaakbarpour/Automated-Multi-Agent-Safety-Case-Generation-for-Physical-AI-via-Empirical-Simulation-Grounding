@@ -1,6 +1,6 @@
 # Critic LLM: short model comparison
 
-Status: desk comparison from the official model cards. The practical run on the synthetic cases on Hestia (`python3 -m critic.compare_models`; Case B is skipped because the Critic rejects its input before the model step) has not been run yet, so the choice below is provisional until it has.
+Status: desk comparison from the official model cards, plus one exploratory run by the R2 audit (AUDIT_REPORT_2026-11-05_R2.md) on Hestia: GPT-OSS-20B and Qwen3-32B, Cases A, C, D and E, one repeat, prompt v3. All eight real replies finished and parsed. Qwen3-32B raised three unsupported C09s on Case C, the correct unresolved argument; GPT-OSS-20B raised none there. Prompt v4 and a C09 screening rule respond to that, so the comparison should be re-run with v4 and three repeats before choosing; the choice below stays provisional.
 
 ## What the Critic needs from a model
 
@@ -46,7 +46,7 @@ python3 -m critic.compare_models \
   --repeats 3 --out critic/examples/model_comparison.md
 ```
 
-It writes a table with JSON validity, whether the expected issue was found in Case A, false positives on Case C, invented IDs and latency per model, and keeps each call's trace (prompt, input and reply hashes, settings) in the raw rows. A few synthetic cases make this an exploratory comparison, not a benchmark.
+It writes a table with whether the model step worked ("Model step OK": the server answered, the reply finished and parsed), whether the expected issue was found in Case A, how many model findings were accepted per case, false positives on Case C (the only case marked as correct as it stands; findings on D and E are counted, not judged), invented IDs and latency per model, and keeps each call's trace (prompt, input and reply hashes, settings, and the server's response id, model, finish reason and token usage) in the raw rows. If the server answers under another name than the one requested, the call fails as a model-identity mismatch; serve the model under its requested name. A few synthetic cases make this an exploratory comparison, not a benchmark.
 
 ## Sources
 

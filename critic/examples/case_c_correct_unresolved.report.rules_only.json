@@ -1,6 +1,6 @@
 {
-  "schema_version": "critic-report/0.3.0",
-  "critic_version": "0.3.0",
+  "schema_version": "critic-report/0.4.0",
+  "critic_version": "0.4.0",
   "request_id": "CASE-C-correct-unresolved",
   "execution_id": "SYNTH-EXEC-001",
   "test_fixture": true,
@@ -10,7 +10,7 @@
   "llm": {
     "backend": "none",
     "model": null,
-    "prompt_version": "critic-prompt/v3",
+    "prompt_version": "critic-prompt/v4",
     "called": false,
     "ok": true,
     "latency_s": null,
@@ -22,6 +22,7 @@
     "raw_response": null,
     "raw_response_truncated": false,
     "response_sha256": null,
+    "response": null,
     "accepted": 0,
     "rejected": 0
   },

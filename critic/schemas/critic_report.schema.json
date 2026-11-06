@@ -1,5 +1,5 @@
 {
-  "$id": "urn:trustworthy:critic-report:0.3.0",
+  "$id": "urn:trustworthy:critic-report:0.4.0",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "Critic report",
   "description": "Machine-readable review for the future Revision component. No findings means only that this Critic found no issue within the supplied evidence and review scope; it is not evidence that R1 holds.",
@@ -7,7 +7,7 @@
   "additionalProperties": false,
   "required": ["schema_version", "critic_version", "request_id", "execution_id", "test_fixture", "review_status", "input_valid", "status_detail", "llm", "checker_admission", "structured_retrieval", "criticisms", "evidence_requests", "unresolved_concerns", "rejected_llm_findings", "summary"],
   "properties": {
-    "schema_version": {"const": "critic-report/0.3.0"},
+    "schema_version": {"const": "critic-report/0.4.0"},
     "critic_version": {"type": "string"},
     "request_id": {"type": "string"},
     "execution_id": {"type": "string"},
@@ -21,8 +21,8 @@
     "llm": {
       "type": "object",
       "additionalProperties": false,
-      "description": "The model step and its trace. Hashes are sha256: prompt_sha256 of the system prompt file, input_sha256 of the canonical JSON of the exact chat messages sent, request_sha256 of the canonical review request, response_sha256 of the full reply. raw_response keeps the reply (cut at 65536 characters, see raw_response_truncated). settings are the effective model settings; an API key is never recorded.",
-      "required": ["backend", "model", "prompt_version", "called", "ok", "latency_s", "error", "prompt_sha256", "input_sha256", "request_sha256", "settings", "raw_response", "raw_response_truncated", "response_sha256", "accepted", "rejected"],
+      "description": "The model step and its trace. Hashes are sha256: prompt_sha256 of the system prompt file, input_sha256 of the canonical JSON of the exact chat messages sent, request_sha256 of the canonical review request, response_sha256 of the full reply. raw_response keeps the reply (cut at 65536 characters, see raw_response_truncated). settings are the effective model settings (an API key is never recorded); response is the server's own account of the reply. A reply whose finish_reason is not stop, or that came from a model other than the requested one or an explicitly accepted alias, is not used (ok false).",
+      "required": ["backend", "model", "prompt_version", "called", "ok", "latency_s", "error", "prompt_sha256", "input_sha256", "request_sha256", "settings", "raw_response", "raw_response_truncated", "response_sha256", "response", "accepted", "rejected"],
       "properties": {
         "backend": {"type": "string"},
         "model": {"type": ["string", "null"]},
@@ -38,6 +38,27 @@
         "raw_response": {"type": ["string", "null"]},
         "raw_response_truncated": {"type": "boolean"},
         "response_sha256": {"type": ["string", "null"]},
+        "response": {
+          "type": ["object", "null"],
+          "additionalProperties": false,
+          "description": "What the model server said about its reply: response id, the model it answered as, finish_reason and token usage. Null when no server was called (no model, a scripted reply, or a call that failed before a reply).",
+          "required": ["id", "model", "finish_reason", "usage"],
+          "properties": {
+            "id": {"type": ["string", "null"]},
+            "model": {"type": ["string", "null"]},
+            "finish_reason": {"type": ["string", "null"]},
+            "usage": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["prompt_tokens", "completion_tokens", "total_tokens"],
+              "properties": {
+                "prompt_tokens": {"type": ["integer", "null"], "minimum": 0},
+                "completion_tokens": {"type": ["integer", "null"], "minimum": 0},
+                "total_tokens": {"type": ["integer", "null"], "minimum": 0}
+              }
+            }
+          }
+        },
         "accepted": {"type": "integer", "minimum": 0},
         "rejected": {"type": "integer", "minimum": 0}
       }

@@ -8,7 +8,10 @@ import copy
 import hashlib
 import json
 import unittest
+from collections import Counter
+from contextlib import contextmanager
 from pathlib import Path
+from unittest import mock
 from types import SimpleNamespace
 
 from critic import assessments as A, checks, contract as K, llm as L, retrieval as R, review
@@ -52,6 +55,52 @@ def forged(change):
     item = copy.deepcopy(B.checker_item())
     change(item)
     return A.rehash(item)
+
+
+@contextmanager
+def checker_schema_off():
+    """Switch off only the full checker-schema check, to test the Critic's own rules behind it."""
+    real, checker = A.SCHEMA.errors, A.SCHEMA.load('checker_assessment')
+
+    def errors(instance, schema, limit=20):
+        return [] if schema is checker else real(instance, schema, limit)
+    with mock.patch.object(A.SCHEMA, 'errors', errors):
+        yield
+
+
+def vllm_reply(content, model, finish_reason='stop'):
+    """A chat-completions response shaped like vLLM's (one choice, id, model, finish_reason, usage)."""
+    return {'id': 'chatcmpl-test', 'object': 'chat.completion', 'created': 0, 'model': model,
+            'choices': [{'index': 0, 'message': {'role': 'assistant', 'content': content},
+                         'finish_reason': finish_reason}],
+            'usage': {'prompt_tokens': 100, 'completion_tokens': 20, 'total_tokens': 120}}
+
+
+@contextmanager
+def fake_server(answer):
+    """A local HTTP server for /v1/chat/completions; answer(request body) -> response dict. Yields its base URL."""
+    import threading
+    from http.server import BaseHTTPRequestHandler, HTTPServer
+
+    class Handler(BaseHTTPRequestHandler):
+        def do_POST(self):
+            body = json.loads(self.rfile.read(int(self.headers['Content-Length'])))
+            out = json.dumps(answer(body)).encode()
+            self.send_response(200)
+            self.send_header('Content-Type', 'application/json')
+            self.send_header('Content-Length', str(len(out)))
+            self.end_headers()
+            self.wfile.write(out)
+
+        def log_message(self, *args):
+            pass
+    server = HTTPServer(('127.0.0.1', 0), Handler)
+    threading.Thread(target=server.serve_forever, daemon=True).start()
+    try:
+        yield f'http://127.0.0.1:{server.server_port}/v1'
+    finally:
+        server.shutdown()
+        server.server_close()
 
 
 def check_ids(report):
@@ -292,16 +341,21 @@ class CheckerAdmission(unittest.TestCase):
 
     def test_empirical_admission_is_disabled(self):
         self.assertEqual(A.EMPIRICAL_ADMITTED_STATUSES, frozenset())
+        not_synthetic = forged(lambda i: i['result'].update(synthetic=False))
         for fixture in (True, False):
-            report = review(checker_request(forged(lambda i: i['result'].update(synthetic=False)),
-                                            test_fixture=fixture))
+            report = review(checker_request(not_synthetic, test_fixture=fixture))
+            self.assertEqual(admitted_objects(report), set())
+            text = ' '.join(c['explanation'] for c in flagged(report, check_id='CHK-SCHEMA'))
+            self.assertIn('$.synthetic: must be true', text)  # the checker's own schema says so
+            with checker_schema_off():  # and the Critic's own rule behind it
+                report = review(checker_request(not_synthetic, test_fixture=fixture))
             self.assertEqual(admitted_objects(report), set())
             text = ' '.join(c['explanation'] for c in flagged(report, check_id='CHK-ADMISSION'))
             self.assertIn('empirical admission is disabled', text)
 
     def test_edited_result_or_configuration_fails_its_hash(self):
         item = B.checker_item()
-        item['result']['object_assessments'][0]['outcome'] = K.INSUFFICIENT
+        item['result']['object_assessments'][0]['reasons'].append('edited after the run')
         report = review(checker_request(item))
         # reported once, against the whole result, not once per object
         hashes = flagged(report, check_id='CHK-HASH')
@@ -331,7 +385,8 @@ class CheckerAdmission(unittest.TestCase):
             ('CHK-CONFIGURATION', ''): lambda i: i['configuration']['monitoring_interval'].update(
                 end={'kind': 'terminal_recorded_snapshot', 'value': None}),
             ('CHK-EXECUTION', 'CHK-CONFIGURATION', ''): template,
-            ('CHK-PRODUCER',): lambda i: i['result'].update(checker_version='9.9.9'),
+            ('CHK-PRODUCER',): lambda i: i['result'].update(checker_id='another-checker'),
+            ('CHK-SCHEMA',): lambda i: i['result'].update(checker_version='9.9.9'),
         }
         for expected, change in cases.items():
             with self.subTest(expected):
@@ -364,15 +419,22 @@ class CheckerAdmission(unittest.TestCase):
         cases = {
             'not one of the checker records': lambda oa, r: oa['evidence_ids'].append('made_up_record'),
             'another object\'s record': lambda oa, r: oa['evidence_ids'].append('object_01_clear'),
-            'evidence the checker did not admit': lambda oa, r: r['admitted_evidence_ids'].remove('object_00_fall'),
+            'evidence the checker did not admit': lambda oa, r: next(
+                a for a in r['evidence_admission'] if a['evidence_id'] == 'object_00_fall').update(
+                status='missing', reasons=['x']) or r['admitted_evidence_ids'].remove('object_00_fall')
+                or r['rejected_evidence'].append(copy.deepcopy(next(
+                    a for a in r['evidence_admission'] if a['evidence_id'] == 'object_00_fall'))),
             'no evidence at all': lambda oa, r: oa.update(evidence_ids=[]),
+            'admitted evidence left out': lambda oa, r: oa['evidence_ids'].remove('object_00_geometry'),
         }
         for name, change in cases.items():
             with self.subTest(name):
                 report = self._object_change(change)
                 self.assertIn('CHK-EVIDENCE', check_ids(report))
-                self.assertNotIn('object_00', admitted_objects(report))
-                self.assertIn('object_01', admitted_objects(report))  # other objects are unaffected
+                # one forged object assessment makes the whole result unusable (the hash covers all of them)
+                self.assertEqual(admitted_objects(report), set())
+                self.assertIn('CHK-RESULT', check_ids(report))
+                self.assertEqual(len(flagged(report, check_id='CHK-RESULT')), 1)
                 self.assertFalse(flagged(report, category='C07'))
 
     def test_object_consistency_rules(self):
@@ -392,16 +454,27 @@ class CheckerAdmission(unittest.TestCase):
         cases = {
             'CHK-OBJECT': lambda oa, r: oa.update(object_id='object_99'),
             'CHK-EXECUTION': lambda oa, r: oa.update(execution_id='other-execution'),
-            'CHK-REQUIREMENT': lambda oa, r: oa.update(requirement_version='9.9.9'),
             'CHK-SURFACES': lambda oa, r: oa.update(surfaces=['root_B']),  # configured, but not mapped to object_00
+        }
+        # These also break the checker's own schema, so normally the whole result is refused (CHK-SCHEMA);
+        # with that check switched off, the Critic's own rule refuses the one object.
+        behind_the_schema = {
+            'CHK-REQUIREMENT': lambda oa, r: oa.update(requirement_version='9.9.9'),
             'CHK-ADMISSION': lambda oa, r: oa.update(validation_status='validated_empirical'),
             'CHK-SHAPE': lambda oa, r: oa.update(outcome=['violation_observed']),
         }
-        for check_id, change in cases.items():
+        for check_id, change in {**cases, **behind_the_schema}.items():
             with self.subTest(check_id):
                 report = self._object_change(change)
-                self.assertIn(check_id, check_ids(report))
+                self.assertIn('CHK-SCHEMA' if check_id in behind_the_schema else check_id, check_ids(report))
                 self.assertFalse(flagged(report, category='C07'))
+                if check_id in behind_the_schema:
+                    self.assertEqual(admitted_objects(report), set())
+                    with checker_schema_off():
+                        report = self._object_change(change)
+                    self.assertIn(check_id, check_ids(report))
+                    self.assertNotIn('object_00', admitted_objects(report))
+                    self.assertFalse(flagged(report, category='C07'))
 
     def test_duplicate_result(self):
         report = review(checker_request(B.checker_item(), B.checker_item()))
@@ -433,13 +506,25 @@ class CheckerAdmission(unittest.TestCase):
 
 
 def reassessed(obj, **fields):
-    """A second, consistent checker result in which one object's assessment differs (hashes recomputed)."""
+    """A second, consistent checker result in which one object's assessment differs (hashes recomputed).
+
+    If the object no longer has a violation outcome, its violation record is written as the checker
+    writes a record it did not admit (status missing, in rejected_evidence, not cited)."""
     def change(item):
-        oa = next(o for o in item['result']['object_assessments'] if o['object_id'] == obj)
+        result = item['result']
+        oa = next(o for o in result['object_assessments'] if o['object_id'] == obj)
         coverage = fields.pop('missing', None)
         oa.update(fields)
         if coverage is not None:
             oa['coverage']['missing'] = coverage
+        if oa['outcome'] != K.VIOLATION:
+            falls = {r['id'] for r in result['evidence_records'] if r['object_id'] == obj and r['claim'] == 'violation'}
+            for row in result['evidence_admission']:
+                if row['evidence_id'] in falls:
+                    row.update(status='missing', reasons=['fall_predicates_not_established'])
+            result['rejected_evidence'] = [r for r in result['evidence_admission'] if r['status'] != 'verified']
+            result['admitted_evidence_ids'] = [i for i in result['admitted_evidence_ids'] if i not in falls]
+            oa['evidence_ids'] = [i for i in oa['evidence_ids'] if i not in falls]
     return forged(change)
 
 
@@ -1311,7 +1396,7 @@ class LLMStep(unittest.TestCase):
                 body = json.loads(self.rfile.read(int(self.headers['Content-Length'])))
                 seen.update(path=self.path, model=body['model'], roles=[m['role'] for m in body['messages']])
                 received.update(messages=body['messages'], auth=self.headers['Authorization'])
-                out = json.dumps({'choices': [{'message': {'role': 'assistant', 'content': reply}}]}).encode()
+                out = json.dumps(vllm_reply(reply, body['model'])).encode()
                 self.send_response(200)
                 self.send_header('Content-Type', 'application/json')
                 self.send_header('Content-Length', str(len(out)))
@@ -1342,6 +1427,9 @@ class LLMStep(unittest.TestCase):
         self.assertNotIn('SECRET-TEST-KEY', json.dumps(report))
         self.assertEqual((report['llm']['settings']['model'], report['llm']['settings']['system_suffix']),
                          ('fake-gpt-oss', '\nReasoning: medium'))
+        usage = {'prompt_tokens': 100, 'completion_tokens': 20, 'total_tokens': 120}
+        self.assertEqual(report['llm']['response'],
+                         {'id': 'chatcmpl-test', 'model': 'fake-gpt-oss', 'finish_reason': 'stop', 'usage': usage})
 
     def test_credentials_in_the_server_url_are_not_recorded(self):
         for url, kept in (('http://user:S3CRET@host:8001/v1', 'http://host:8001/v1'),
@@ -1363,8 +1451,8 @@ class LLMStep(unittest.TestCase):
 
         class Handler(BaseHTTPRequestHandler):
             def do_POST(self):
-                self.rfile.read(int(self.headers['Content-Length']))
-                out = json.dumps({'choices': [{'message': {'content': '{"findings": []}'}}]}).encode()
+                body = json.loads(self.rfile.read(int(self.headers['Content-Length'])))
+                out = json.dumps(vllm_reply('{"findings": []}', body['model'])).encode()
                 self.send_response(200)
                 self.send_header('Content-Length', str(len(out)))
                 self.end_headers()
@@ -1388,7 +1476,12 @@ class LLMStep(unittest.TestCase):
         cases = {r['case'] for r in rows}
         self.assertNotIn('case_b_missing_or_wrong_evidence.json', cases)  # rejected input: no model is asked
         self.assertEqual(len(cases), len(EXPECTED) - 1)
-        self.assertTrue(all(r['json_ok'] and r['review_status'] == 'completed' for r in rows))
+        self.assertTrue(all(r['model_step_ok'] and r['review_status'] == 'completed' for r in rows))
+        # a false positive is counted only on the argument that is correct as it stands (Case C)
+        self.assertEqual({r['case'] for r in rows if r['false_positive'] is not None},
+                         {'case_c_correct_unresolved.json'})
+        self.assertIn('| Accepted LLM findings | False positive (correct argument) |', text)
+        self.assertTrue(all(r['trace']['response']['finish_reason'] == 'stop' for r in rows))
         self.assertTrue(all(r['trace']['response_sha256'] and r['trace']['settings']['model'] == 'fake'
                             for r in rows))
         self.assertIn(f'({len(cases)} synthetic cases)', text)
@@ -1435,9 +1528,13 @@ def m_duplicate_node(g): g['nodes'].append(copy.deepcopy(_nodes(g)['A1']))
 def m_duplicate_edge(g): g['edges'].append(copy.deepcopy(g['edges'][0]))
 
 
+def m_nan_provenance(g): _nodes(g)['G1']['provenance']['note'] = float('nan')  # audit R2-03
+def m_infinite_provenance(g): _nodes(g)['S1']['provenance']['weight'] = [1.0, float('-inf')]
+
+
 GRAPH_MUTATIONS = [m_fake_evidence, m_goal_promoted, m_physical_strategy, m_bad_edge_type, m_dangling_edge, m_cycle,
                    m_interval_stretch, m_source_mismatch, m_evidence_on_goal, m_status_mismatch, m_duplicate_node,
-                   m_duplicate_edge]
+                   m_duplicate_edge, m_nan_provenance, m_infinite_provenance]
 
 
 class AgreementWithOriginalGraphValidator(unittest.TestCase):
@@ -1957,10 +2054,13 @@ class StructuredEvidence(unittest.TestCase):
     def test_solution_links_and_phase5_ids_in_solutions(self):
         req = load(CASE_E)
         row = review(req)['structured_retrieval'][0]
-        pose = req['evidence_package']['records'][3]  # object_01's pose record, the geometry item's original ID
-        self.assertEqual(pose['object_id'], 'object_01')
-        self.assertEqual([(x['object_id'], x['node_id'], x['evidence_id']) for x in row['linked_solutions']],
-                         [('object_01', 'E1', pose['id'])])
+        contact = req['evidence_package']['records'][1]  # object_00's contact record, as the release lists it
+        self.assertEqual((contact['object_id'], contact['measurement_type']), ('object_00', 'contact'))
+        contact_citations = [i['citation_id'] for i in group(req['structured_evidence'][0], 'contacts_object_00')[
+            'items']]
+        self.assertEqual([(x['object_id'], x['node_id'], x['evidence_id'], x['citation_id'])
+                          for x in row['linked_solutions']],
+                         [('object_00', 'E2', contact['id'], c) for c in contact_citations])
         citation = row['citations'][0]['citation_id']
         graph = req['argument_bundle']['graphs'][1]['graph']
         next(n for n in graph['nodes'] if n['id'] == 'E1')['evidence_id'] = citation
@@ -2030,7 +2130,7 @@ class MalformedInput(unittest.TestCase):
         import random
         rng = random.Random(6467)
         report_schema = json.loads((ROOT / 'critic/schemas/critic_report.schema.json').read_text())
-        junk = [None, 7, 'x', [], {}, [1, 2], {'a': 1}, True, -1.5]
+        junk = [None, 7, 'x', [], {}, [1, 2], {'a': 1}, True, -1.5, 10 ** 1000, float('nan')]
         base = [load(name) for name in EXPECTED]
 
         def paths(value, prefix=()):
@@ -2059,6 +2159,7 @@ class MalformedInput(unittest.TestCase):
             with self.subTest(trial=trial, path=target):
                 report = review(req, L.ScriptedLLM('{"findings": []}'))
                 self.assertIn('summary', report)
+                self.assertNotEqual(report['review_status'], 'internal_error', report['status_detail'])
                 O.validate(report, report_schema)
 
 
@@ -2186,6 +2287,691 @@ class VocabularyInSync(unittest.TestCase):
     def test_record_ids_reproduce_registry_hashes(self):
         records = json.loads((GSN_DIR / 'demo' / 'REGISTRY_EXPORT.json').read_text())['records']
         self.assertTrue(all(K.record_content_id(r) == r['id'] for r in records))
+
+
+def _place(doc, rng, values):
+    """Put one of values at a random place in doc; returns the path."""
+    def paths(v, prefix=()):
+        if isinstance(v, dict):
+            for k, x in v.items():
+                yield prefix + (k,)
+                yield from paths(x, prefix + (k,))
+        elif isinstance(v, list):
+            for n, x in enumerate(v):
+                yield prefix + (n,)
+                yield from paths(x, prefix + (n,))
+    target = rng.choice(list(paths(doc)))
+    parent = doc
+    for step in target[:-1]:
+        parent = parent[step]
+    parent[target[-1]] = copy.deepcopy(rng.choice(values))
+    return target
+
+
+class SpyLLM(L.ScriptedLLM):
+    """A scripted model that counts how often it is asked (the audit's spy backend)."""
+
+    def __init__(self, text='{"findings": []}'):
+        super().__init__(text, name='spy')
+        self.calls = 0
+
+    def complete(self, system, user):
+        self.calls += 1
+        return super().complete(system, user)
+
+
+def run_cli(request):
+    """Run the CLI on a request dict; returns (exit code, report or None)."""
+    import io
+    import tempfile
+    from contextlib import redirect_stderr, redirect_stdout
+    from critic.__main__ import main
+    with tempfile.TemporaryDirectory() as tmp:
+        path, out = Path(tmp) / 'request.json', Path(tmp) / 'report.json'
+        path.write_text(json.dumps(request))
+        with redirect_stderr(io.StringIO()), redirect_stdout(io.StringIO()):
+            code = main(['--request', str(path), '--out', str(out)])
+        return code, (json.loads(out.read_text()) if out.exists() else None)
+
+
+# The audit's R2-01 forgeries of the checker result (AUDIT_REPORT_2026-11-05_R2.md), each rehashed.
+R2_01_FORGERIES = {
+    'missing rejected_evidence': lambda i: i['result'].pop('rejected_evidence'),
+    'assessment_manifest is a list': lambda i: i['result'].update(assessment_manifest=[]),
+    'execution_outcome "safe"': lambda i: i['result'].update(execution_outcome='safe'),
+    'evidence_schema_version 999': lambda i: i['result'].update(evidence_schema_version='999'),
+    'manifest_version 999': lambda i: i['result'].update(manifest_version='999'),
+}
+
+
+def _row(result, rid):
+    return next(a for a in result['evidence_admission'] if a['evidence_id'] == rid)
+
+
+def _record(result, rid):
+    return next(r for r in result['evidence_records'] if r['id'] == rid)
+
+
+def _reject_dependency_only_in_its_row(item):
+    _row(item['result'], 'object_00_support').update(status='missing', reasons=['initial_boundary_not_t0'])
+
+
+def _reject_dependency_consistently(item):
+    # the dependency is listed as rejected everywhere, but the records that depend on it stay verified
+    r = item['result']
+    _row(r, 'object_00_support').update(status='missing', reasons=['initial_boundary_not_t0'])
+    r['admitted_evidence_ids'].remove('object_00_support')
+    r['rejected_evidence'].append(copy.deepcopy(_row(r, 'object_00_support')))
+    next(o for o in r['object_assessments'] if o['object_id'] == 'object_00')['evidence_ids'].remove(
+        'object_00_support')
+
+
+def _far_interval(item):
+    for rid in ('object_00_fall', 'object_00_geometry'):
+        _record(item['result'], rid)['interval'] = {'start': 10000, 'end': 10001}
+
+
+def _scope_mismatch(item):
+    next(o for o in item['result']['object_assessments'] if o['object_id'] == 'object_00')['scope_mismatch'] = True
+
+
+# The audit's R2-02 forgeries: internally inconsistent admission ledgers, each rehashed.
+R2_02_FORGERIES = {
+    'evidence_admission cleared': ('CHK-LEDGER', 'object_00', lambda i: i['result'].update(evidence_admission=[])),
+    'cited dependency rejected, still in admitted_evidence_ids':
+        ('CHK-LEDGER', 'object_00', _reject_dependency_only_in_its_row),
+    'cited dependency rejected, dependants still verified':
+        ('CHK-LEDGER', 'object_00', _reject_dependency_consistently),
+    'cited evidence moved to [10000, 10001]': ('CHK-LEDGER', 'object_00', _far_interval),
+    'object assessment scope_mismatch': ('CHK-CONSISTENCY', 'object_00', _scope_mismatch),
+    'evidence on another clock': ('CHK-LEDGER', 'object_00', lambda i: _record(
+        i['result'], 'object_00_fall')['frame'].update(clock='simulation_time_s')),
+    'conflict between two verified records': ('CHK-LEDGER', 'object_00', lambda i: i['result']['conflicts'].append(
+        ['object_00_fall', 'object_00_geometry', 'declared'])),
+    'violation outcome without a violation record': ('CHK-CONSISTENCY', 'object_01', lambda i: next(
+        o for o in i['result']['object_assessments'] if o['object_id'] == 'object_01').update(
+        outcome=K.VIOLATION)),
+}
+
+
+def _dup_row(r):
+    r['evidence_admission'].append(copy.deepcopy(_row(r, 'object_00_geometry')))
+
+
+def _ghost_row(r):
+    ghost = {'evidence_id': 'ghost', 'status': 'missing', 'reasons': ['x'], 'dependencies': ['ghost'],
+             'source_hash': None}
+    r['evidence_admission'].append(ghost)
+    r['rejected_evidence'].append(copy.deepcopy(ghost))
+
+
+def _cross_object_dependency(r):
+    _record(r, 'object_00_fall')['dependencies'].append('object_01_support')
+    _row(r, 'object_00_fall')['dependencies'].append('object_01_support')
+
+
+def _foreign_record(r):
+    _record(r, 'shared_context')['execution_id'] = 'other-execution'
+
+
+def _absent_but_indeterminate(r):
+    # object_02 verified absent, as the checker writes it, except that its applicability is indeterminate
+    _record(r, 'object_02_presence')['truth'] = 'F'
+    next(o for o in r['object_assessments'] if o['object_id'] == 'object_02').update(
+        scope_mismatch=True, study_eligibility='pending_protocol_decision', applicability='indeterminate',
+        outcome=K.INSUFFICIENT)
+    r['study_eligibility'] = 'pending_protocol_decision'
+
+
+# One forgery per ledger or consistency rule, each breaking that rule alone (rehashed), with the text
+# only that rule writes. Used to check that every rule is really in force, not covered by another.
+LEDGER_RULES = {
+    'IDs repeat': _dup_row,
+    'do not match the evidence records': _ghost_row,
+    'differ from the verified admission rows': lambda r: r['admitted_evidence_ids'].append('ghost'),
+    'rejected_evidence is not exactly': lambda r: r['rejected_evidence'].append(
+        copy.deepcopy(_row(r, 'object_00_geometry'))),
+    'verified although it has rejection reasons': lambda r: _row(r, 'object_00_geometry')['reasons'].append('x'),
+    'was declared missing': lambda r: _record(r, 'object_00_geometry').update(validity='missing'),
+    'dependency closure that does not match': lambda r: _row(r, 'object_00_geometry')['dependencies'].clear(),
+    'which the checker did not admit': lambda r: _reject_dependency_consistently({'result': r}),
+    'lies outside the monitored interval': lambda r: _far_interval({'result': r}),
+    "not the configuration's": lambda r: _record(r, 'object_00_geometry')['frame'].update(id='camera'),
+    'is verified but is for other-execution': _foreign_record,
+    "depends on another object's record": _cross_object_dependency,
+    'names an unknown record': lambda r: r['conflicts'].append(['object_00_fall', 'ghost', 'x']),
+    'conflict but both are verified': lambda r: r['conflicts'].append(['object_00_fall', 'object_00_geometry', 'x']),
+    "does not follow the objects' scope_mismatch": lambda r: r.update(study_eligibility='pending_protocol_decision'),
+    'does not follow its evidence': lambda r: next(
+        o for o in r['object_assessments'] if o['object_id'] == 'object_01').update(outcome=K.VIOLATION),
+    'admitted absence record: no': lambda r: next(
+        o for o in r['object_assessments'] if o['object_id'] == 'object_02').update(
+        scope_mismatch=True, study_eligibility='pending_protocol_decision') or r.update(
+        study_eligibility='pending_protocol_decision'),
+    'admitted absence record: yes': lambda r: _record(r, 'object_02_presence').update(truth='F'),
+    'leaves out admitted evidence': lambda r: r['object_assessments'][0]['evidence_ids'].pop(),
+    'scope_mismatch False with applicability applicable and study_eligibility': lambda r: r['object_assessments'][
+        0].update(study_eligibility='pending_protocol_decision'),
+    'scope_mismatch True with applicability indeterminate': _absent_but_indeterminate,
+}
+
+
+class AuditR2(unittest.TestCase):
+    """Regression tests for the counterexamples in AUDIT_REPORT_2026-11-05_R2.md, one group per finding."""
+
+    def assertRejectedBeforeTheModel(self, request, check_id):
+        spy = SpyLLM()
+        report = review(request, spy)
+        self.assertEqual((report['review_status'], report['input_valid']), ('rejected_invalid_input', False))
+        self.assertEqual((spy.calls, report['llm']['called']), (0, False))
+        self.assertIn(check_id, check_ids(report))
+        return report
+
+    # ---- R2-01: the checker's own output contract is enforced in full
+
+    def test_r2_01_forged_checker_results_are_refused(self):
+        for name, change in R2_01_FORGERIES.items():
+            with self.subTest(name):
+                item = forged(change)
+                report = self.assertRejectedBeforeTheModel(checker_request(item), 'CHK-SCHEMA')
+                self.assertEqual(admitted_objects(report), set())
+                self.assertFalse(flagged(report, check_id='CONCL-HIDES-VIOLATION'))
+                self.assertFalse(flagged(report, category='C07'))
+                # the hashes were recomputed, so only the schema catches it
+                self.assertFalse(check_ids(report) & {'CHK-HASH', 'CHK-CONFIG-HASH'})
+                code, cli_report = run_cli(checker_request(item))
+                self.assertEqual((code, cli_report['review_status']), (3, 'rejected_invalid_input'))
+
+    def test_r2_01_the_original_schema_rejects_the_same_forgeries(self):
+        O.require(self, O.has_jsonschema4(), 'the original-schema oracle needs jsonschema>=4')
+        schema = json.loads((ROOT / A.CONTRACT_REF).read_text())
+        oracle = jsonschema.Draft202012Validator(schema)
+        self.assertTrue(oracle.is_valid(B.checker_item()['result']))
+        for name, change in R2_01_FORGERIES.items():
+            with self.subTest(name):
+                self.assertFalse(oracle.is_valid(forged(change)['result']))
+
+    def test_r2_01_nothing_the_original_schema_rejects_is_admitted(self):
+        # Random edits of the real checker result, rehashed: whenever the checker's own schema
+        # (jsonschema) rejects the edited result, the Critic must admit none of it.
+        O.require(self, O.has_jsonschema4(), 'the original-schema oracle needs jsonschema>=4')
+        import random
+        oracle = jsonschema.Draft202012Validator(json.loads((ROOT / A.CONTRACT_REF).read_text()))
+        rng = random.Random(20261105)
+        junk = [None, 7, -1, 'x', '', [], {}, True, 1.5, 'safe', '999', [None], {'a': 1}]
+        base = B.checker_item()
+
+        def paths(v, prefix=()):
+            if isinstance(v, dict):
+                for k, x in v.items():
+                    yield prefix + (k,)
+                    yield from paths(x, prefix + (k,))
+            elif isinstance(v, list):
+                for n, x in enumerate(v):
+                    yield prefix + (n,)
+                    yield from paths(x, prefix + (n,))
+        constrained = set(oracle.schema['properties']) | set(oracle.schema['allOf'][0]['else']['required'])
+        targets = [p for p in paths(base['result'])  # fields the schema constrains, apart from the two hashes
+                   if p[0] in constrained and p[0] not in ('assessment_hash', 'configuration_hash')]
+        rejected = 0
+        for trial in range(250):
+            item = copy.deepcopy(base)
+            target = rng.choice(targets)
+            parent = item['result']
+            for step in target[:-1]:
+                parent = parent[step]
+            if isinstance(parent, dict) and rng.random() < 0.3:
+                del parent[target[-1]]
+            else:
+                parent[target[-1]] = copy.deepcopy(rng.choice(junk))
+            item = A.rehash(item)
+            if oracle.is_valid(item['result']):
+                continue
+            rejected += 1
+            with self.subTest(trial=trial, path=target):
+                admitted, _, problems = A.admit(checker_request(item))
+                self.assertEqual(admitted, {})
+                self.assertIn('CHK-SCHEMA', {p[0] for p in problems})
+        self.assertGreater(rejected, 50)  # the trial really exercised the schema
+
+    # ---- R2-02: the admission ledger and evidence intervals must agree with the admitted assessment
+
+    def test_r2_02_inconsistent_admission_ledgers_are_refused(self):
+        for name, (check_id, oid, change) in R2_02_FORGERIES.items():
+            with self.subTest(name):
+                item = forged(change)
+                report = self.assertRejectedBeforeTheModel(checker_request(item), check_id)
+                self.assertNotIn(oid, admitted_objects(report))
+                self.assertEqual(admitted_objects(report), set())  # the whole result is refused
+                self.assertFalse(flagged(report, check_id='CONCL-HIDES-VIOLATION'))
+                self.assertFalse(flagged(report, category='C07'))
+                self.assertFalse(check_ids(report) & {'CHK-HASH', 'CHK-CONFIG-HASH', 'CHK-SCHEMA'})
+                code, _ = run_cli(checker_request(item))
+                self.assertEqual(code, 3)
+
+    def test_r2_02_every_ledger_rule_is_in_force(self):
+        for text, change in LEDGER_RULES.items():
+            with self.subTest(text):
+                item = forged(lambda i: change(i['result']))
+                report = self.assertRejectedBeforeTheModel(checker_request(item), 'CHK-RESULT'
+                                                           if text.startswith(('does not follow its', 'admitted abs',
+                                                                               'leaves out', 'scope_mismatch'))
+                                                           else 'CHK-LEDGER')
+                self.assertEqual(admitted_objects(report), set())
+                self.assertIn(text, ' '.join(c['explanation'] for c in report['criticisms']))
+
+    def test_r2_02_admitted_evidence_lies_inside_the_reviewed_interval(self):
+        report = review(load(CASE_D))
+        ctx = load(CASE_D)['evaluation_context']
+        lo, hi = ctx['monitored_interval']['interval']
+        result = B.checker_item()['result']
+        for row in report['checker_admission']:
+            self.assertEqual(row['interval'], [lo, hi])
+            cited = next(o for o in result['object_assessments'] if o['object_id'] == row['object_id'])['evidence_ids']
+            for rid in cited:
+                iv = _record(result, rid)['interval']
+                self.assertTrue(lo <= iv['start'] <= iv['end'] <= hi, rid)
+
+    def test_r2_02_real_checker_output_passes_every_ledger_rule(self):
+        # The other direction: what the team's checker really writes must never be refused. The checker is
+        # run on its own fixture builder with random objects and states and random edits of the evidence
+        # (validity, intervals, dependencies, conflicts, clocks, truth values), so its ledgers include
+        # rejected rows, conflicts and absent objects.
+        O.require(self, O.has_jsonschema4(), 'the R1 checker needs jsonschema>=4')
+        import random
+        from evaluation.r1_v4 import fixtures as F
+        from evaluation.r1_v4.runtime import assess
+        rng = random.Random(6467)
+        seen = Counter()
+        for trial in range(300):
+            states = tuple(rng.choice(['V', 'N', 'NA', 'U', 'IC', 'ABSENT']) for _ in range(rng.randint(1, 5)))
+            bundle = F.make_bundle(states, rng.random() < 0.3)
+            rows = bundle['evidence']['records']
+            for _ in range(rng.randint(0, 3) if trial % 4 else 0):
+                r, kind = rng.choice(rows), rng.randrange(7)
+                if kind == 0:
+                    r['validity'] = rng.choice(['missing', 'invalid_local', 'invalid_contract', 'contradictory'])
+                elif kind == 1:
+                    r['interval'] = sorted([rng.choice([0, 1, 5]), rng.choice([2, 3, 9])])
+                elif kind == 2:
+                    r['dependencies'] = r['dependencies'][:-1] + [rng.choice(rows)['id']]
+                elif kind == 3:
+                    r['uncertainty']['description'] = ['sparse']
+                elif kind == 4:
+                    a, b = rng.sample(rows, 2)
+                    bundle['evidence']['conflicts'].append({'left': a['id'], 'right': b['id'], 'reason': 'x'})
+                elif kind == 5:
+                    r['frame']['clock'] = 'other'
+                else:
+                    r['truth'] = rng.choice('TFU')
+            result = assess(F.seal(bundle))
+            if not result.get('assessed'):
+                continue
+            cfg = bundle['configuration']
+            ctx = {'requirement_id': 'R1', 'requirement_version': '2.0.0', 'execution_id': cfg['execution_id'],
+                   'task_id': cfg['task_id'], 'r1_configuration_sha256': K.digest(cfg),
+                   'protected_objects': cfg['protected_objects'], 'monitored_interval': {'interval': [0, 2]}}
+            req = {'evaluation_context': ctx, 'test_fixture': True,
+                   'checker_assessments': [{'configuration': cfg, 'result': result}]}
+            _, _, problems = A.admit(req)
+            with self.subTest(trial=trial, states=states):
+                # CHK-ADMISSION is the checker's own refusal of a run (admitted_purpose None), not a false rejection
+                self.assertEqual([p for p in problems if p[0] != 'CHK-ADMISSION'], [])
+            seen['rejected rows'] += bool(result['rejected_evidence'])
+            seen['conflicts'] += bool(result['conflicts'])
+            seen['scope mismatch'] += any(o['scope_mismatch'] for o in result['object_assessments'])
+            seen.update(o['outcome'] for o in result['object_assessments'])
+        # the trial really covered the hard ledgers and every outcome
+        self.assertTrue(all(seen[k] >= 20 for k in ('rejected rows', 'conflicts', 'scope mismatch')), seen)
+        self.assertTrue(all(seen[o] >= 20 for o in K.OUTCOMES), seen)
+
+    # ---- R2-03: a graph the shared validator refuses never reaches the model
+
+    def test_r2_03_nan_in_graph_provenance_is_refused_before_the_model(self):
+        req = load('case_c_correct_unresolved.json')
+        _nodes(req['argument_bundle']['graphs'][0]['graph'])['G1']['provenance']['note'] = float('nan')
+        # through JSON text too: Python's json module reads the NaN token, which is not standard JSON
+        text = json.dumps(req)
+        self.assertIn('NaN', text)
+        for request in (req, json.loads(text)):
+            report = self.assertRejectedBeforeTheModel(request, 'GSN-CANONICAL')
+            self.assertIn('REQ-JSON', check_ids(report))
+            self.assertIn('$.argument_bundle.graphs[0].graph.nodes', flagged(report, check_id='REQ-JSON')[0][
+                'explanation'])
+            json.dumps(report, allow_nan=False)  # the report itself is standard JSON
+            self.assertIsNone(report['llm']['request_sha256'])
+        code, cli_report = run_cli(req)
+        self.assertEqual((code, cli_report['review_status']), (3, 'rejected_invalid_input'))
+
+    def test_r2_03_nonstandard_numbers_anywhere_are_refused(self):
+        import random
+        rng = random.Random(1105)
+        docs = [load(n) for n in EXPECTED]
+        for trial in range(300):
+            doc = copy.deepcopy(rng.choice(docs))
+            target = _place(doc, rng, [float('nan'), float('inf'), float('-inf')])
+            with self.subTest(trial=trial, path=target):
+                spy = SpyLLM()
+                report = review(doc, spy)
+                self.assertEqual((report['review_status'], spy.calls), ('rejected_invalid_input', 0))
+                self.assertEqual(checks.nonstandard_json(report), [])
+
+    # ---- R2-04: a huge integer is invalid input, never a crash
+
+    def test_r2_04_huge_interval_endpoint(self):
+        req = load('case_c_correct_unresolved.json')
+        req['evaluation_context']['monitored_interval']['interval'][1] = 10 ** 1000
+        report = self.assertRejectedBeforeTheModel(req, 'REQ-JSON')
+        self.assertIn('$.evaluation_context.monitored_interval.interval[1]', report['criticisms'][0]['explanation'])
+        O.validate(report, json.loads((ROOT / 'critic/schemas/critic_report.schema.json').read_text()))
+        # the CLI reads the 1001-digit integer from the file and writes a report with exit code 3
+        code, cli_report = run_cli(req)
+        self.assertEqual((code, cli_report['review_status']), (3, 'rejected_invalid_input'))
+
+    def test_r2_04_integers_beyond_a_double_anywhere(self):
+        import random
+        rng = random.Random(1000)
+        docs = [load(n) for n in EXPECTED]
+        # 10**5000 is past Python's 4300-digit limit for printing an int: only the API can pass it in
+        huge = [10 ** 1000, -10 ** 1000, 2 ** 1024, 10 ** 5000, [0, 10 ** 400]]
+        for trial in range(300):
+            doc = copy.deepcopy(rng.choice(docs))
+            target = _place(doc, rng, huge)
+            with self.subTest(trial=trial, path=target):
+                spy = SpyLLM()
+                report = review(doc, spy)
+                self.assertEqual((report['review_status'], spy.calls), ('rejected_invalid_input', 0))
+                self.assertIn('REQ-JSON', check_ids(report))
+                json.dumps(report, allow_nan=False)
+        # 2**1023 fits in a double, so it is an ordinary (if odd) number
+        self.assertTrue(K.finite_number(2 ** 1023))
+        self.assertFalse(K.finite_number(2 ** 1024))
+
+    def test_r2_04_schema_verdicts_on_huge_integers_match_jsonschema(self):
+        O.require(self, O.has_jsonschema4(), 'comparing with jsonschema needs jsonschema>=4')
+        from critic import schema as S
+        for kind in ('integer', 'number'):
+            for value in (10 ** 1000, -10 ** 1000, 2 ** 1024, 10 ** 5000):
+                with self.subTest(kind=kind, value=value.bit_length()):
+                    schema = {'type': kind, 'minimum': 0}
+                    self.assertEqual(S.is_valid(value, schema),
+                                     jsonschema.Draft202012Validator(schema).is_valid(value))
+
+    # ---- R2-05: a model citation must fit the review's time and a unique graph target
+
+    @staticmethod
+    def _model(**finding):
+        base = {'object_id': 'widget_a', 'node_id': 'G1', 'category': 'C05', 'severity': 'medium',
+                'explanation': 'The cited observation does not support the goal.', 'evidence_ids': [],
+                'suggested_action': 'Cite evidence that covers the goal.'}
+        return L.ScriptedLLM(json.dumps({'findings': [{**base, **finding}]}))
+
+    @staticmethod
+    def _with_record(req, interval):
+        rec = copy.deepcopy(req['evidence_package']['records'][0])
+        rec['interval'] = interval
+        rec['id'] = K.record_content_id(rec)
+        req['evidence_package']['records'].append(rec)
+        return rec['id']
+
+    def test_r2_05_citation_outside_the_monitored_interval(self):
+        req = load('case_c_correct_unresolved.json')
+        far = self._with_record(req, [10000, 10001])  # same object and execution, properly hashed
+        report = review(req, self._model(evidence_ids=[far]))
+        self.assertEqual((report['review_status'], report['input_valid']), ('completed', True))  # admissible input
+        self.assertEqual(report['llm']['accepted'], 0)
+        self.assertIn('outside the monitored interval [8, 120]', report['rejected_llm_findings'][0]['reason'])
+        # the control: a record of the same object inside the interval is accepted
+        inside = req['evidence_package']['records'][0]['id']
+        report = review(load('case_c_correct_unresolved.json'), self._model(evidence_ids=[inside]))
+        self.assertEqual(report['llm']['accepted'], 1)
+        self.assertTrue(flagged(report, finding_source='llm_proposed', human_review_required=True, blocking=False))
+
+    def test_r2_05_ambiguous_node_without_an_object(self):
+        req = load('case_c_correct_unresolved.json')  # every graph has a G1
+        other = next(r['id'] for r in req['evidence_package']['records'] if r['object_id'] == 'vial_b')
+        report = review(req, self._model(object_id=None, evidence_ids=[other]))
+        self.assertEqual(report['llm']['accepted'], 0)
+        self.assertIn('no unique target', report['rejected_llm_findings'][0]['reason'])
+        # the real GPT-OSS-20B finding from the audit: object null, node D1 (in every graph), assessments
+        # for several objects
+        req = load(CASE_D)
+        admitted = [a['assessment_id'] for a in review(req)['checker_admission'] if a['admitted']]
+        report = review(req, self._model(object_id=None, node_id='D1', category='C06', evidence_ids=admitted[:2]))
+        self.assertEqual(report['llm']['accepted'], 0)
+        self.assertIn("node 'D1' exists in the graphs of object_00, object_01, object_02",
+                      report['rejected_llm_findings'][0]['reason'])
+
+    def test_r2_05_unique_node_binds_the_object(self):
+        req = load('case_c_correct_unresolved.json')
+        records, _ = checks.index_records(req)
+        _nodes(req['argument_bundle']['graphs'][0]['graph'])['G1']['id'] = 'G1-widget'  # unique to widget_a
+        own = next(r for r in req['evidence_package']['records'] if r['object_id'] == 'widget_a')['id']
+        other = next(r for r in req['evidence_package']['records'] if r['object_id'] == 'vial_b')['id']
+        f = json.loads(self._model(object_id=None, node_id='G1-widget', evidence_ids=[own]).text)['findings']
+        self.assertEqual(len(L.screen(f, req, records, [])[0]), 1)
+        f[0]['evidence_ids'] = [other]
+        accepted, rejected = L.screen(f, req, records, [])
+        self.assertEqual(accepted, [])
+        self.assertIn("not the finding's object", rejected[0]['reason'])
+
+    def test_r2_05_citation_outside_the_cited_node(self):
+        req = load('case_c_correct_unresolved.json')
+        late = self._with_record(req, [100, 120])  # inside the monitored interval [8, 120]
+        records, _ = checks.index_records(req)
+        f = json.loads(self._model(evidence_ids=[late]).text)['findings']
+        self.assertEqual(len(L.screen(f, req, records, [])[0]), 1)  # G1 covers [8, 120]
+        _nodes(req['argument_bundle']['graphs'][0]['graph'])['G1']['scope']['interval'] = [8, 20]
+        accepted, rejected = L.screen(f, req, records, [])
+        self.assertEqual(accepted, [])
+        self.assertIn("does not overlap the cited node's [8, 20]", rejected[0]['reason'])
+        # the node's own clock must match too, even where the frames would overlap
+        _nodes(req['argument_bundle']['graphs'][0]['graph'])['G1']['scope'].update(interval=[8, 120],
+                                                                                    clock='simulation_time_s')
+        self.assertEqual(L.screen(f, req, records, [])[0], [])
+        # a record on another clock does not fit the review at all
+        rec = records[late]
+        records[late] = {**rec, 'clock': 'simulation_time_s'}
+        self.assertIn('outside the monitored interval', L.screen(f, load('case_c_correct_unresolved.json'),
+                                                                 records, [])[1][0]['reason'])
+
+    # ---- R2-06: a Phase 5 item links to a GSN solution only through a crosswalk the release would make
+
+    def test_r2_06_forged_original_id_cannot_link_another_objects_solution(self):
+        # The auditor's crosswalk.py: the object_01 geometry item lists object_02's E1 registry record as its
+        # original evidence; the citation basis and citation ID are left unchanged.
+        req = load(CASE_E)
+        e1 = next(n for n in req['argument_bundle']['graphs'][2]['graph']['nodes'] if n['id'] == 'E1')
+        self.assertEqual(req['argument_bundle']['graphs'][2]['object_id'], 'object_02')
+        item = first_item(req['structured_evidence'][0], 'geometry_object_01')
+        basis, citation = copy.deepcopy(item['citation_basis']), item['citation_id']
+        item['original_evidence_ids'] = [e1['evidence_id']]
+        self.assertEqual((item['citation_basis'], item['citation_id']), (basis, citation))
+        report = self.assertRejectedBeforeTheModel(req, 'RET-CROSSWALK')
+        text = flagged(report, check_id='RET-CROSSWALK')[0]['explanation']
+        self.assertIn('object object_02 (the obligation is for object_01)', text)
+        self.assertIn('measurement type object_pose (the release lists object_identity records)', text)
+        row = report['structured_retrieval'][0]
+        self.assertEqual((row['accepted'], row['linked_solutions']), (False, []))
+        self.assertEqual(run_cli(req)[0], 3)
+
+    def test_r2_06_each_crosswalk_rule(self):
+        req = load(CASE_E)
+        records, _ = checks.index_records(req)
+        by = {(r['object_id'], r['measurement_type']): r['id'] for r in req['evidence_package']['records']}
+        cases = {
+            "object object_01 (the obligation is for object_00)": ('contacts_object_00', by['object_01', 'contact']),
+            'measurement type object_pose (the release lists contact records)':
+                ('contacts_object_00', by['object_00', 'object_pose']),
+        }
+        for text, (oid, rid) in cases.items():
+            with self.subTest(text):
+                forged_req = load(CASE_E)
+                for it in group(forged_req['structured_evidence'][0], oid)['items']:
+                    it['original_evidence_ids'] = [rid]
+                report = self.assertRejectedBeforeTheModel(forged_req, 'RET-CROSSWALK')
+                self.assertIn(text, flagged(report, check_id='RET-CROSSWALK')[0]['explanation'])
+        entry = load(CASE_E)['structured_evidence'][0]
+        g = group(entry, 'contacts_object_00')
+        o = next(x for x in entry['request']['obligations'] if x['id'] == 'contacts_object_00')
+        item = g['items'][0]
+        contact = by['object_00', 'contact']
+        self.assertEqual(R._check_crosswalk(item, g, o, records), [])  # the release's own crosswalk
+        for text, change in {'outside the requested frames': {'interval': [50, 60]},
+                             'execution other-execution': {'execution_id': 'other-execution'}}.items():
+            with self.subTest(text):
+                found = R._check_crosswalk(item, g, o, {contact: {**records[contact], **change}})
+                self.assertIn(text, found[0][2])
+        # a family the release lists no registry records for
+        joint = group(entry, 'geometry_object_01')
+        found = R._check_crosswalk({**joint['items'][0], 'family': 'recorded_time',
+                                    'original_evidence_ids': [contact]}, joint, {}, records)
+        self.assertIn('the release lists none for a recorded_time item', found[0][2])
+        # an original ID that is not in the package cannot be checked and links nothing
+        self.assertEqual(R._check_crosswalk({**item, 'original_evidence_ids': ['ev:' + '0' * 64]}, g, o, records), [])
+
+    def test_r2_06_crosswalk_table_is_the_releases(self):
+        """CROSSWALK follows retrieval_remediation/bundle.py: the families whose items get original IDs, and the
+        selection each one makes."""
+        import ast
+        path = ROOT / 'evaluation/r1_v4/rag_evidence_database/retrieval_remediation/bundle.py'
+        src = path.read_text(encoding='utf-8')
+        tree = ast.parse(src)
+        parents = {c: n for n in ast.walk(tree) for c in ast.iter_child_nodes(n)}
+        with_ids = set()
+        for n in ast.walk(tree):
+            if isinstance(n, ast.Call) and ast.unparse(n.func) == 'self.item' and len(n.args) > 6:
+                p = n
+                while p in parents and not (isinstance(p, ast.If) and 'family' in ast.unparse(p.test)):
+                    p = parents[p]
+                with_ids |= {c.value for c in ast.walk(p.test) if isinstance(c, ast.Constant)}
+        self.assertEqual(with_ids, set(R.CROSSWALK))
+        compact = src.replace(' ', '')
+        for fragment in ("object_id=?andjson_extract(body,'$.measurement_type')='object_identity'",
+                         "json_extract(body,'$.measurement_type')='execution_metadata'",
+                         "typ='contact'iffamily=='contact_references'else'camera_reference'",
+                         "r['interval'][0]<=frames[1]andr['interval'][1]>=frames[0]",
+                         "(plan['object_id']isNoneorr['object_id']==plan['object_id'])"):
+            self.assertIn(fragment, compact)
+        self.assertEqual({f: r[0] for f, r in R.CROSSWALK.items()},
+                         {'geometry_identity': 'object_identity', 'execution_metadata': 'execution_metadata',
+                          'contact_references': 'contact', 'camera_references': 'camera_reference'})
+
+    # ---- R2-07: the server's model identity and finish reason are checked and kept
+
+    def _against(self, answer, **client):
+        with fake_server(answer) as url:
+            llm = L.OpenAICompatibleLLM(base_url=url, model=client.pop('model', 'openai/gpt-oss-20b'), **client)
+            return review(load('case_c_correct_unresolved.json'), llm)
+
+    def test_r2_07_cut_off_reply_is_not_used(self):
+        # the auditor's probe: valid {"findings": []} inside a reply that stopped at the token limit
+        for reason in ('length', 'content_filter', None):
+            with self.subTest(finish_reason=reason):
+                report = self._against(lambda body: vllm_reply('{"findings": []}', body['model'], reason))
+                self.assertEqual((report['review_status'], report['llm']['ok']), ('completed_llm_failed', False))
+                self.assertIn("did not finish normally", report['llm']['error'])
+                self.assertEqual(report['llm']['response']['finish_reason'], reason)  # kept for the record
+                self.assertTrue(report['llm']['raw_response'])
+
+    def test_r2_07_reply_from_another_model_is_not_used(self):
+        report = self._against(lambda body: vllm_reply('{"findings": []}', 'ANOTHER-MODEL'))
+        self.assertEqual((report['review_status'], report['llm']['ok']), ('completed_llm_failed', False))
+        self.assertIn("answered as model 'ANOTHER-MODEL', not the requested 'openai/gpt-oss-20b'",
+                      report['llm']['error'])
+        self.assertEqual(report['llm']['response']['model'], 'ANOTHER-MODEL')
+        self.assertEqual(self._against(lambda body: vllm_reply('{"findings": []}', None))['review_status'],
+                         'completed_llm_failed')
+        # an alias is accepted only when the caller names it
+        report = self._against(lambda body: vllm_reply('{"findings": []}', '/models/gpt-oss-20b'),
+                               accepted_models=['/models/gpt-oss-20b'])
+        self.assertEqual((report['review_status'], report['llm']['ok']), ('completed', True))
+        self.assertEqual(report['llm']['settings']['accepted_models'], ['/models/gpt-oss-20b', 'openai/gpt-oss-20b'])
+
+    def test_r2_07_normal_reply_keeps_its_metadata(self):
+        report = self._against(lambda body: vllm_reply('{"findings": []}', body['model']))
+        self.assertEqual((report['review_status'], report['llm']['ok']), ('completed', True))
+        self.assertEqual(report['llm']['response'], {
+            'id': 'chatcmpl-test', 'model': 'openai/gpt-oss-20b', 'finish_reason': 'stop',
+            'usage': {'prompt_tokens': 100, 'completion_tokens': 20, 'total_tokens': 120}})
+        O.validate(report, json.loads((ROOT / 'critic/schemas/critic_report.schema.json').read_text()))
+        # no server, no metadata
+        self.assertIsNone(review(load('case_c_correct_unresolved.json'), SpyLLM())['llm']['response'])
+
+    def test_r2_07_malformed_server_replies(self):
+        ok = '{"findings": []}'
+        for error, answer in {
+            'exactly one choice': lambda body: {'id': 'x', 'model': body['model']},
+            'exactly one choice ': lambda body: {**vllm_reply(ok, body['model']),
+                                                 'choices': [vllm_reply(ok, body['model'])['choices'][0]] * 2},
+            'content is list, not text': lambda body: vllm_reply([ok], body['model']),
+            None: lambda body: {**vllm_reply(ok, body['model']),
+                                'usage': {'prompt_tokens': -1, 'completion_tokens': True}},
+        }.items():
+            with self.subTest(error):
+                report = self._against(answer)
+                O.validate(report, json.loads((ROOT / 'critic/schemas/critic_report.schema.json').read_text()))
+                if error is None:  # unusable token counts are dropped; the reply itself is fine
+                    self.assertEqual(report['llm']['response']['usage'],
+                                     {'prompt_tokens': None, 'completion_tokens': None, 'total_tokens': None})
+                    self.assertEqual(report['review_status'], 'completed')
+                else:
+                    self.assertEqual(report['review_status'], 'completed_llm_failed')
+                    self.assertIn(error.strip(), report['llm']['error'])
+
+    def test_r2_07_cli_accepts_an_explicit_alias(self):
+        import io
+        import tempfile
+        from contextlib import redirect_stderr
+        from critic.__main__ import main
+        with fake_server(lambda body: vllm_reply('{"findings": []}', 'served-name')) as url, \
+                tempfile.TemporaryDirectory() as tmp:
+            out = str(Path(tmp) / 'report.json')
+            args = ['--request', str(CASES / 'case_c_correct_unresolved.json'), '--backend', 'openai',
+                    '--base-url', url, '--model', 'Qwen/Qwen3-32B', '--out', out]
+            with redirect_stderr(io.StringIO()):
+                self.assertEqual(main(args), 4)
+                self.assertEqual(main(args + ['--accept-model', 'served-name']), 0)
+
+    # ---- the Qwen3-32B false positives on Case C (audit, final execution supplement)
+
+    def test_c09_against_an_already_cautious_conclusion_is_rejected(self):
+        # Qwen3-32B raised three C09s on Case C saying geometric-contact uncertainty was not carried into the
+        # conclusion, which already says R1 cannot be determined for every object. Its exact texts stay on
+        # Hestia; these findings have the same target and claim.
+        claim = 'The geometric-contact uncertainty is not propagated to the final conclusion.'
+        for oid, nid in (('widget_a', 'G1'), ('widget_a', 'U1'), ('vial_b', 'D1'), ('carton_c', None),
+                         (None, None)):
+            with self.subTest(object=oid, node=nid):
+                report = review(load('case_c_correct_unresolved.json'),
+                                self._model(object_id=oid, node_id=nid, category='C09', explanation=claim))
+                self.assertEqual(report['llm']['accepted'], 0)
+                self.assertIn('the draft concludes insufficient_information',
+                              report['rejected_llm_findings'][0]['reason'])
+                self.assertFalse(flagged(report, finding_source='llm_proposed'))
+        # the same objection against a statement that could treat uncertain evidence as exact is kept
+        report = review(load('case_c_correct_unresolved.json'), self._model(node_id='E2', category='C09'))
+        self.assertEqual(report['llm']['accepted'], 1)
+        # and against a definite conclusion (Case D: object_01 is claimed no violation)
+        report = review(load(CASE_D), self._model(object_id='object_01', node_id='G1', category='C09'))
+        self.assertEqual(report['llm']['accepted'], 1)
+        # an execution-level C09 still stands when the execution conclusion itself is not the cautious one
+        req = load('case_c_correct_unresolved.json')
+        req['argument_bundle']['execution_conclusion']['claimed_outcome'] = K.NO_VIOLATION
+        self.assertEqual(review(req, self._model(object_id=None, node_id=None, category='C09'))['llm']['accepted'], 1)
+        # other categories against the cautious conclusion are left to the existing rules and human review
+        report = review(load('case_c_correct_unresolved.json'), self._model(category='C13'))
+        self.assertEqual(report['llm']['accepted'], 1)
+
+    def test_r2_04_review_never_raises(self):
+        # the last resort: an unexpected exception inside the Critic becomes an internal_error report
+        with mock.patch.object(checks, 'run_all', side_effect=RuntimeError('a Critic bug')):
+            report = review(load('case_c_correct_unresolved.json'))
+            code, cli_report = run_cli(load('case_c_correct_unresolved.json'))
+        self.assertEqual(report['review_status'], 'internal_error')
+        self.assertIn('RuntimeError', report['status_detail'])
+        O.validate(report, json.loads((ROOT / 'critic/schemas/critic_report.schema.json').read_text()))
+        self.assertEqual((code, cli_report['review_status']), (5, 'internal_error'))
 
 
 if __name__ == '__main__':

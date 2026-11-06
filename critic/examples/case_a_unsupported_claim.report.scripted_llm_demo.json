@@ -1,6 +1,6 @@
 {
-  "schema_version": "critic-report/0.3.0",
-  "critic_version": "0.3.0",
+  "schema_version": "critic-report/0.4.0",
+  "critic_version": "0.4.0",
   "request_id": "CASE-A-unsupported-safety-claim",
   "execution_id": "SYNTH-EXEC-001",
   "test_fixture": true,
@@ -10,13 +10,13 @@
   "llm": {
     "backend": "scripted",
     "model": "scripted",
-    "prompt_version": "critic-prompt/v3",
+    "prompt_version": "critic-prompt/v4",
     "called": true,
     "ok": true,
     "latency_s": 0.001,
     "error": null,
-    "prompt_sha256": "cc1c4fed7fc20d006b83653c040343e1cbc5e8563794254f12eb4883daf0c950",
-    "input_sha256": "d67a5b3c07ecb425e29ef9fae589b1210e03c8f4153840979b65f7fb8be1e6a3",
+    "prompt_sha256": "8a3452569f4600f1848d8d1c61a9cab68e453a1aac4ec8561c83e1789a568245",
+    "input_sha256": "850ea7c2b37a658a4267aa7ed888a474af4842c2d4bd508cac407f735323a8be",
     "request_sha256": "b64427bdbafb088831cfe6a7701c4c57879e7ccbd922b190c2de60f6bfd55046",
     "settings": {
       "scripted_reply_sha256": "cf18bfaeb7ce3d5e2033891bc612ac37f75b21df29d801354527deb7d397ee60"
@@ -24,6 +24,7 @@
     "raw_response": "<think>Checking statements against evidence limitations.</think>\n{\n \"findings\": [\n  {\n   \"object_id\": \"widget_a\",\n   \"node_id\": \"S1\",\n   \"category\": \"C05\",\n   \"severity\": \"high\",\n   \"explanation\": \"S1 infers that widget_a was supported and never fell because its pose height did not drop and it stayed in contact with workbench_B. Constant height and geometric contact do not establish load-bearing support or rule out a falling departure; the contact record itself lists that limitation.\",\n   \"evidence_ids\": [\n    \"ev:07e99b1737cf6084a48708925d6028995d29133b3f7e3ae98bd4dd3bda82e4a6\"\n   ],\n   \"suggested_action\": \"State only what the pose and contact measurements show, and add an unresolved claim that support and falling departures are not established.\"\n  },\n  {\n   \"object_id\": null,\n   \"node_id\": null,\n   \"category\": \"C12\",\n   \"severity\": \"high\",\n   \"explanation\": \"The execution conclusion says the robot is certified safe for this task. One synthetic execution with no validated checker assessment cannot support certification language.\",\n   \"evidence_ids\": [],\n   \"suggested_action\": \"Remove the certification claim and report insufficient_information for the execution.\"\n  },\n  {\n   \"object_id\": \"vial_b\",\n   \"node_id\": \"E2\",\n   \"category\": \"C05\",\n   \"severity\": \"medium\",\n   \"explanation\": \"E2 says contact at every frame shows load-bearing support, citing a camera timing record.\",\n   \"evidence_ids\": [\n    \"ev:0000000000000000000000000000000000000000000000000000000000000000\"\n   ],\n   \"suggested_action\": \"Remove the support inference.\"\n  },\n  {\n   \"object_id\": \"vial_b\",\n   \"node_id\": \"G9\",\n   \"category\": \"C10\",\n   \"severity\": \"low\",\n   \"explanation\": \"Goal G9 generalizes.\",\n   \"evidence_ids\": [],\n   \"suggested_action\": \"Narrow it.\"\n  }\n ]\n}",
     "raw_response_truncated": false,
     "response_sha256": "cf18bfaeb7ce3d5e2033891bc612ac37f75b21df29d801354527deb7d397ee60",
+    "response": null,
     "accepted": 2,
     "rejected": 2
   },
@@ -32,7 +33,7 @@
   "criticisms": [
     {
       "criticism_id": "CRIT-001",
-      "critic_version": "0.3.0",
+      "critic_version": "0.4.0",
       "check_id": "CONCL-UNSUPPORTED",
       "phase": "review",
       "category": "C06",
@@ -54,7 +55,7 @@
     },
     {
       "criticism_id": "CRIT-002",
-      "critic_version": "0.3.0",
+      "critic_version": "0.4.0",
       "check_id": "CONCL-UNSUPPORTED",
       "phase": "review",
       "category": "C06",
@@ -76,7 +77,7 @@
     },
     {
       "criticism_id": "CRIT-003",
-      "critic_version": "0.3.0",
+      "critic_version": "0.4.0",
       "check_id": "CONCL-UNSUPPORTED",
       "phase": "review",
       "category": "C06",
@@ -98,7 +99,7 @@
     },
     {
       "criticism_id": "CRIT-004",
-      "critic_version": "0.3.0",
+      "critic_version": "0.4.0",
       "check_id": "LLM",
       "phase": "review",
       "category": "C05",
@@ -112,7 +113,7 @@
         "ev:07e99b1737cf6084a48708925d6028995d29133b3f7e3ae98bd4dd3bda82e4a6"
       ],
       "requirement_refs": [
-        "critic-prompt/v3"
+        "critic-prompt/v4"
       ],
       "finding_source": "llm_proposed",
       "suggested_action": "State only what the pose and contact measurements show, and add an unresolved claim that support and falling departures are not established.",
@@ -121,7 +122,7 @@
     },
     {
       "criticism_id": "CRIT-005",
-      "critic_version": "0.3.0",
+      "critic_version": "0.4.0",
       "check_id": "LLM",
       "phase": "review",
       "category": "C12",
@@ -133,7 +134,7 @@
       "explanation": "The execution conclusion says the robot is certified safe for this task. One synthetic execution with no validated checker assessment cannot support certification language.",
       "evidence_ids": [],
       "requirement_refs": [
-        "critic-prompt/v3"
+        "critic-prompt/v4"
       ],
       "finding_source": "llm_proposed",
       "suggested_action": "Remove the certification claim and report insufficient_information for the execution.",
