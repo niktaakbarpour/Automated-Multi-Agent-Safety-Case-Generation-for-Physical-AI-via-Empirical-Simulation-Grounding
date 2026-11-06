@@ -313,9 +313,10 @@ def case_b():
 
 def checker_item():
     """The R1 checker's configuration and its real, unchanged output for that configuration."""
-    config = json.loads((REPO / CHECKER_FIXTURE).read_text())['configuration']
+    source = json.loads((REPO / CHECKER_FIXTURE).read_text())
+    config = source['configuration']
     result = json.loads(CHECKER_OUTPUT.read_text())
-    return {'configuration': config, 'result': result}
+    return {'configuration': config, 'result': result, 'input_bundle': source}
 
 
 def refresh_checker_output():
@@ -346,9 +347,9 @@ VARIANT = 'synthetic-variant-0'
 
 def case_e():
     """Claims match the checker, and the Drafter supplies a Phase 5 bundle that left a mandatory contact
-    obligation for object_01 unavailable. The checker's no-violation result for object_01 stands, but the
+    obligation during settling unavailable. The checker's no-violation result for object_01 stands, but the
     missing obligation needs a human to check that the two sources agree. The bundle's contact references
-    for object_00 list object_00's contact record, as the release does, so they link to its solution E2."""
+    cover every object in the frame window, without an unsupported object filter."""
     sc = scene_from_checker_fixture()
     records = {o: evidence_for(sc['execution'], o, sc) for o in sc['objects']}
     first, second, third = sc['objects']
@@ -356,25 +357,25 @@ def case_e():
     scope = P.scope_of(sc['execution'], sc['task'], VARIANT)
     obligations = [
         P.obligation(f'geometry_{second}', 'geometry_identity', scope, object_id=second),
-        P.obligation(f'contacts_{second}', 'contact_references', scope, frames=(start, end), object_id=second),
+        P.obligation('settling_actions', 'action_metadata', scope, frames=(start, end)),
         P.obligation('joint_positions', 'raw.robot0_joint_pos', scope, frames=(start, end)),
         P.obligation('camera_frames', 'camera_references', scope, mandatory=False, frames=(start, end)),
-        P.obligation(f'contacts_{first}', 'contact_references', scope, frames=(start, end), object_id=first),
+        P.obligation('recorded_contacts', 'contact_references', scope, frames=(start, end)),
     ]
     query = P.request(scope, obligations)
     identity = {'object_id': second, 'symbolic_identity_only': True, 'physical_support_inferred': False}
     # The release lists object_identity records for a geometry item (none in this package) and the contact
     # records of the object and window for contact references (retrieval_remediation/bundle.py).
-    contact = next(r['id'] for r in records[first] if r['measurement_type'] == 'contact')
+    contact_ids = [r['id'] for rows in records.values() for r in rows if r['measurement_type'] == 'contact']
     contacts = [P.reference_item(scope, 'contact_references', f'/frames/{i:06d}/simulator/contacts',
                                  {'saved_frame_index': i, 'materialized': False, 'reference_kind': 'contact',
                                   'physical_contact_or_support_inferred': False, 'camera_exposure_time': None},
-                                 [contact]) for i in range(start, end + 1)]
+                                 contact_ids) for i in range(start, end + 1)]
     bundle = P.evaluated(query, {
         f'geometry_{second}': ('AVAILABLE', [P.reference_item(scope, 'geometry_identity', '/body_names,/geometries',
                                                               identity)], ''),
-        f'contacts_{first}': ('AVAILABLE', contacts, ''),
-        f'contacts_{second}': ('UNAVAILABLE', [], 'No recorded samples in requested scope'),
+        'recorded_contacts': ('AVAILABLE', contacts, ''),
+        'settling_actions': ('UNAVAILABLE', [], 'No policy actions during settling frames 0-2'),
         'joint_positions': ('AVAILABLE', [P.channel_item(scope, 'raw.robot0_joint_pos', (start, end))], 'ok'),
         'camera_frames': ('UNAVAILABLE', [], 'No recorded samples in requested scope'),
     })
@@ -434,7 +435,7 @@ EXPECTED = {
     },
     'case_e_partial_structured_retrieval.json': {
         'description': 'Claims match the checker result. A Phase 5 bundle, assembled by the release\'s own code, left '
-                       'a mandatory contact obligation for object_01 unavailable; the no-violation claim for object_01 '
+                       'a mandatory settling-action obligation unavailable; the no-violation claim for object_01 '
                        'is flagged for human review, not blocked, because the checker result supports it.',
         'must_flag': [{'category': 'C04', 'object_id': 'object_01', 'check_id': 'CONCL-OBLIGATION-MISSING'}],
         'blocking_expected': False,

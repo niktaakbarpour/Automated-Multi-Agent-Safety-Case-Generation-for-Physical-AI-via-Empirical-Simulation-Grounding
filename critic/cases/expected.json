@@ -76,7 +76,7 @@
   "model_findings_expected": null
  },
  "case_e_partial_structured_retrieval.json": {
-  "description": "Claims match the checker result. A Phase 5 bundle, assembled by the release's own code, left a mandatory contact obligation for object_01 unavailable; the no-violation claim for object_01 is flagged for human review, not blocked, because the checker result supports it.",
+  "description": "Claims match the checker result. A Phase 5 bundle, assembled by the release's own code, left a mandatory settling-action obligation unavailable; the no-violation claim for object_01 is flagged for human review, not blocked, because the checker result supports it.",
   "must_flag": [
    {
     "category": "C04",

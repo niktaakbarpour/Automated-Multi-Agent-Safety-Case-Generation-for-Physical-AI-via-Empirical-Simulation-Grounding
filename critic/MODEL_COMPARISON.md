@@ -1,6 +1,6 @@
 # Critic LLM: short model comparison
 
-Status: desk comparison from the official model cards, plus one exploratory run by the R2 audit (AUDIT_REPORT_2026-11-05_R2.md) on Hestia: GPT-OSS-20B and Qwen3-32B, Cases A, C, D and E, one repeat, prompt v3. All eight real replies finished and parsed. Qwen3-32B raised three unsupported C09s on Case C, the correct unresolved argument; GPT-OSS-20B raised none there. Prompt v4 and a C09 screening rule respond to that, so the comparison should be re-run with v4 and three repeats before choosing; the choice below stays provisional.
+Status: exploratory comparisons on synthetic arguments, not a model-reliability benchmark. The R2 audit records prompt v3; AUDIT_REPORT_PR18_R3.md on Hestia records prompt v4. The repair's prompt v5 tests, repeated actual calls and four preserved C09 counterexamples are reported in CRITIC_PR18_FIXES_AND_VERIFICATION_REPORT.md. Use the recorded model/checkpoint, prompt, sampling settings, seeds, completion metadata and source revision for each series; do not combine different prompt versions as one controlled result.
 
 ## What the Critic needs from a model
 

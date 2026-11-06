@@ -68,8 +68,12 @@ def main(argv=None):
     except (OSError, ValueError) as exc:
         print(f'cannot read {args.request}: {exc}', file=sys.stderr)
         return EXIT_UNREADABLE
-    report = review(request, make_llm(args))
-    text = json.dumps(report, indent=2, ensure_ascii=False) + '\n'
+    try:
+        backend = make_llm(args)
+    except ValueError as exc:
+        p.error(str(exc))
+    report = review(request, backend)
+    text = json.dumps(report, indent=2, ensure_ascii=False, allow_nan=False) + '\n'
     if args.out:
         with open(args.out, 'w', encoding='utf-8') as fh:
             fh.write(text)
