@@ -4,7 +4,8 @@ Each entry in checker_assessments is the R1 v4 checker's own output, unchanged,
 together with the R1 configuration it was run on:
 
     {"configuration": <R1 v2 configuration>,
-     "result": <evaluation.r1_v4.runtime.assess(...) output, assessment.schema.json>}
+     "result": <evaluation.r1_v4.runtime.assess(...) output, assessment.schema.json>,
+     "input_bundle": <original configuration, artifacts and evidence>}
 
 The Critic does not trust a label the caller writes. A per-object assessment
 inside a result is used only if all of these hold:
@@ -20,6 +21,8 @@ inside a result is used only if all of these hold:
   evaluation_context.r1_configuration_sha256, which checks.check_configuration binds
   to the context's objects, surfaces and monitored interval), and the result is for
   this requirement, execution and task;
+- the original input hash matches and authoritative runtime.assess replay equals the complete result
+  (see checker_replay.py); a result without replayable source inputs is not admitted;
 - the checker accepted the run (provenance.admitted_purpose is set);
 - the result's admission ledger is the one the checker writes (evaluation/r1_v4/admission.py
   and runtime.py): one admission row per evidence record; admitted_evidence_ids are exactly
@@ -149,8 +152,9 @@ def _interval(value):
 
 def _result_problems(item, ctx, test_fixture):
     """Problems that make every object assessment in this result unusable. Returns [(check_id, category, text)]."""
-    if not isinstance(item, dict) or set(item) != {'configuration', 'result'}:
-        return [('CHK-SHAPE', 'C02', 'each entry must be exactly {"configuration": ..., "result": ...} holding the '
+    if not isinstance(item, dict) or not {'configuration', 'result'} <= set(item) \
+            or set(item) - {'configuration', 'result', 'input_bundle'}:
+        return [('CHK-SHAPE', 'C02', 'each entry must hold configuration and result, with optional input_bundle, holding the '
                  'R1 checker output and the configuration it ran on')]
     config, result = item['configuration'], item['result']
     if not isinstance(config, dict) or not isinstance(result, dict):
@@ -235,6 +239,10 @@ def _result_problems(item, ctx, test_fixture):
     elif test_fixture is not True:
         bad('CHK-ADMISSION', 'C02', 'it is synthetic analytical output, which can only be used in a request marked '
             'test_fixture; empirical admission is disabled in this project')
+    if not out:
+        from .checker_replay import problems as replay_problems
+        for text in replay_problems(item):
+            bad('CHK-REPLAY', 'C02', text)
     return out
 
 

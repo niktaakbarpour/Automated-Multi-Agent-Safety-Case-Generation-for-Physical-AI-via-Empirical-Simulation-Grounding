@@ -130,6 +130,13 @@
         "additionalProperties": false,
         "required": ["configuration", "result"],
         "properties": {
+          "input_bundle": {
+            "type": "object",
+            "description": "Original hash-bound input to runtime.assess: configuration, artifacts and evidence. Required for admission; legacy result-only entries are rejected with CHK-REPLAY because their source semantics cannot be verified. No external artifact paths are opened.",
+            "additionalProperties": false,
+            "required": ["configuration", "artifacts", "evidence"],
+            "properties": {"configuration": {"type": "object"}, "artifacts": {"type": "object"}, "evidence": {"type": "object"}}
+          },
           "configuration": {
             "type": "object",
             "description": "The R1 v2 configuration the checker ran on (requirements/r1_generalized_v2/R1_V2_CONFIG_SCHEMA.json); its content hash must equal result.configuration_hash."

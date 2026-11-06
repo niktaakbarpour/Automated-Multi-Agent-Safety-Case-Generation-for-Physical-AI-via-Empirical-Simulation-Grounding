@@ -1,3 +1,2 @@
-# Test oracles: the R1 checker and the jsonschema comparison need this. Same pin as
-# evaluation/r1_v4/requirements.txt. The Critic itself needs only the standard library.
-jsonschema==4.19.1
+# Runtime validation and independent schema/checker oracles share the same pin.
+-r requirements.txt

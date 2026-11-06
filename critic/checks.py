@@ -153,15 +153,24 @@ def check_request_shape(req):
 
 def nonstandard_json(value, path='$', limit=5):
     """Paths of values that canonical JSON (provenance.canonical, allow_nan=False) cannot encode."""
-    out, stack = [], [(path, value)]
+    out, stack, active = [], [(path, value, False)], set()
     while stack and len(out) < limit:
-        at, v = stack.pop()
+        at, v, leaving = stack.pop()
+        if leaving:
+            active.discard(id(v))
+            continue
+        if isinstance(v, (dict, list)):
+            if id(v) in active:
+                out.append(at + ' (cyclic Python object is not JSON)')
+                continue
+            active.add(id(v))
+            stack.append((at, v, True))
         if isinstance(v, dict):
             if not all(isinstance(k, str) for k in v):
                 out.append(at + ' (non-string key)')
-            stack.extend((f'{at}.{k}', x) for k, x in reversed(list(v.items())))
+            stack.extend((f'{at}.{k}', x, False) for k, x in reversed(list(v.items())))
         elif isinstance(v, list):
-            stack.extend((f'{at}[{i}]', x) for i, x in reversed(list(enumerate(v))))
+            stack.extend((f'{at}[{i}]', x, False) for i, x in reversed(list(enumerate(v))))
         elif isinstance(v, float) and not math.isfinite(v):
             out.append(f'{at} ({v!r})')
         elif _oversized(v):

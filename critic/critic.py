@@ -1,5 +1,6 @@
 """Critic.review: rule-based checks, then an optional LLM pass, then one report."""
 from collections import Counter
+import copy
 
 from . import checks
 from . import contract as K
@@ -28,7 +29,7 @@ def review(request, llm=None):
     """
     llm = llm or L.NullLLM()
     try:
-        return _review(request, llm)
+        return copy.deepcopy(_review(request, llm))
     except Exception as exc:  # a Critic bug: the tests and fuzzing check that no input gets here
         return _crash_report(request, llm, exc)
 
@@ -89,7 +90,9 @@ def _review(request, llm):
         'structured_retrieval': info['structured_retrieval'],
         'criticisms': criticisms,
         'evidence_requests': evidence_requests,
-        'unresolved_concerns': _unresolved_concerns(req, info),
+        'unresolved_concerns': _unresolved_concerns(req, info) + [
+            x['reason'] + ' Objection: ' + x['finding']['explanation'] for x in rejected
+            if x['reason'].startswith('C09_UNRESOLVED:')],
         'rejected_llm_findings': rejected,
         'summary': _summary(req, info, criticisms),
     }
@@ -98,6 +101,10 @@ def _review(request, llm):
 
 def _checked(report):
     """Validate the report against its own schema; a failure is a Critic bug, reported, never hidden."""
+    try:
+        K.canonical(report)
+    except (ValueError, TypeError, OverflowError, RecursionError) as exc:
+        return _crash_report({'request_id': report.get('request_id', '')}, L.NullLLM(), exc)
     try:
         problems = SCHEMA.errors(report, SCHEMA.load('report'), limit=5)
     except Exception as exc:  # pragma: no cover - only a broken schema file gets here

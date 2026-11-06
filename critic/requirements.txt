@@ -1,0 +1,2 @@
+# Authoritative R1 checker replay and frozen Phase 5 request schema validation.
+jsonschema==4.19.1
