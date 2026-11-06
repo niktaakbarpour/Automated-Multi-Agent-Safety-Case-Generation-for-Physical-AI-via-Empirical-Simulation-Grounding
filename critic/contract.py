@@ -7,9 +7,10 @@ redefines those formats; the tests check that these copies stay in sync.
 """
 import hashlib
 import json
+import math
 
 REQUEST_SCHEMA_VERSION = 'critic-request/0.3.0'
-REPORT_SCHEMA_VERSION = 'critic-report/0.3.0'
+REPORT_SCHEMA_VERSION = 'critic-report/0.4.0'
 
 # --- existing GSN 1.0.0 vocabulary (gsn.py / gsn_graph.schema.json) ---
 GSN_SCHEMA_VERSION = '1.0.0'
@@ -138,6 +139,20 @@ def phase_of(check_id):
     return 'review'
 
 FINDING_SOURCES = ('deterministic', 'evidence_grounded', 'llm_proposed')
+
+
+def finite_number(value):
+    """A JSON number usable as one: int or float (not bool), finite, and within the range of a double.
+
+    An integer too large for a double (e.g. 10**1000) is valid JSON and Python reads it, but math.isfinite
+    raises OverflowError on it and other tools cannot represent it; the team's models.interval crashes on it.
+    The Critic treats it as not a usable number (audit R2-04)."""
+    if isinstance(value, bool) or not isinstance(value, (int, float)):
+        return False
+    try:
+        return math.isfinite(value)
+    except OverflowError:
+        return False
 
 
 def canonical(value):

@@ -24,7 +24,8 @@
    "C05",
    "C06",
    "C12"
-  ]
+  ],
+  "model_findings_expected": null
  },
  "case_b_missing_or_wrong_evidence.json": {
   "description": "Cites an evidence ID that was never retrieved, uses another execution as proof, and omits one configured object.",
@@ -49,14 +50,16 @@
   ],
   "blocking_expected": true,
   "review_status_expected": "rejected_invalid_input",
-  "llm_should_add_any_of": []
+  "llm_should_add_any_of": [],
+  "model_findings_expected": null
  },
  "case_c_correct_unresolved.json": {
   "description": "Honest unresolved argument that keeps uncertainty; must not be rejected.",
   "must_flag": [],
   "blocking_expected": false,
   "review_status_expected": "completed",
-  "llm_should_add_any_of": []
+  "llm_should_add_any_of": [],
+  "model_findings_expected": false
  },
  "case_d_claim_hides_checker_result.json": {
   "description": "Uses the R1 checker's own synthetic fixture and its real output. The draft leaves object_00 unresolved although the checker reports a violation; the other two claims match the checker.",
@@ -69,7 +72,8 @@
   ],
   "blocking_expected": true,
   "review_status_expected": "completed",
-  "llm_should_add_any_of": []
+  "llm_should_add_any_of": [],
+  "model_findings_expected": null
  },
  "case_e_partial_structured_retrieval.json": {
   "description": "Claims match the checker result. A Phase 5 bundle, assembled by the release's own code, left a mandatory contact obligation for object_01 unavailable; the no-violation claim for object_01 is flagged for human review, not blocked, because the checker result supports it.",
@@ -82,6 +86,7 @@
   ],
   "blocking_expected": false,
   "review_status_expected": "completed",
-  "llm_should_add_any_of": []
+  "llm_should_add_any_of": [],
+  "model_findings_expected": null
  }
 }

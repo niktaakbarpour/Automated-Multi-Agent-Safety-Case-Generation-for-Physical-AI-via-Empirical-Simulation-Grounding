@@ -1,6 +1,6 @@
 {
-  "schema_version": "critic-report/0.3.0",
-  "critic_version": "0.3.0",
+  "schema_version": "critic-report/0.4.0",
+  "critic_version": "0.4.0",
   "request_id": "CASE-E-partial-structured-retrieval",
   "execution_id": "synthetic-execution",
   "test_fixture": true,
@@ -10,7 +10,7 @@
   "llm": {
     "backend": "none",
     "model": null,
-    "prompt_version": "critic-prompt/v3",
+    "prompt_version": "critic-prompt/v4",
     "called": false,
     "ok": true,
     "latency_s": null,
@@ -22,6 +22,7 @@
     "raw_response": null,
     "raw_response_truncated": false,
     "response_sha256": null,
+    "response": null,
     "accepted": 0,
     "rejected": 0
   },
@@ -70,9 +71,9 @@
     {
       "index": 0,
       "accepted": true,
-      "query_id": "query:5279c6070e1eda723d32b4c4691ffc83b9b43a86920279c5fc95e5c81bf5ac18",
-      "request_sha256": "5279c6070e1eda723d32b4c4691ffc83b9b43a86920279c5fc95e5c81bf5ac18",
-      "bundle_sha256": "7cefd8231dec0efe07a8f7583f3adf60a4fc1c3293e2381868e1b33239629057",
+      "query_id": "query:b56339f49ad95973e6bbc003ccc417d0da7e7e0a90d183b7ab9cd52a53b06fac",
+      "request_sha256": "b56339f49ad95973e6bbc003ccc417d0da7e7e0a90d183b7ab9cd52a53b06fac",
+      "bundle_sha256": "a258d6c6c8df42ddb4207fb2d00675d9a8e5010d289766f0e41e1edf27df45e6",
       "completeness_status": "PARTIAL",
       "reason": "Missing mandatory evidence remains explicit",
       "citations": [
@@ -80,9 +81,7 @@
           "citation_id": "evidence-citation:6decd5f654befa81ef2e26ca6e653c22fb6923d4771e4eb98c55f63017cb216a",
           "family": "geometry_identity",
           "record_id": "source-ref:ae4d5a7c5ea3ba843df4de0cb074f309395868532764aedf858fbddba455e8a4",
-          "original_evidence_ids": [
-            "ev:1b4c6c87584982e25928e7dfa04f856bf0afc579517b1dbd7bf7e52f7b6fabda"
-          ],
+          "original_evidence_ids": [],
           "integrity_status": "verified_source",
           "origin": "recorded_metadata_or_existing_derived_identity"
         },
@@ -95,6 +94,36 @@
           ],
           "integrity_status": "verified_source",
           "origin": "direct_recording"
+        },
+        {
+          "citation_id": "evidence-citation:429a1f1c6df848e3db78ff2c286fb42de89e699c13261607693abc412a13e694",
+          "family": "contact_references",
+          "record_id": "source-ref:441ee5ffb2de2831021126ce511662db11198d1f95fb5dbb055fc8feffd88b64",
+          "original_evidence_ids": [
+            "ev:42ec85146038ed87387b3314e20435defb794e76b231157f5b03cbcbabab0fbe"
+          ],
+          "integrity_status": "verified_source",
+          "origin": "recorded_metadata_or_existing_derived_identity"
+        },
+        {
+          "citation_id": "evidence-citation:5a55b97684ec097e70bcae3abc3de1441196535b4053e6ae44c8a23020ae7293",
+          "family": "contact_references",
+          "record_id": "source-ref:1a7febb6ceb78a3e8b0a6b0fcfd0620bc9151e2ce336e4d483c05900b61486c8",
+          "original_evidence_ids": [
+            "ev:42ec85146038ed87387b3314e20435defb794e76b231157f5b03cbcbabab0fbe"
+          ],
+          "integrity_status": "verified_source",
+          "origin": "recorded_metadata_or_existing_derived_identity"
+        },
+        {
+          "citation_id": "evidence-citation:4b16fa2f82ee8725a6034911b94d9339bca5ba877b1599d987eb8173ea627190",
+          "family": "contact_references",
+          "record_id": "source-ref:dc12ddb98eac1da2ad3d04df1d87852e809729f13c0c53e918ae1af6254b2fc1",
+          "original_evidence_ids": [
+            "ev:42ec85146038ed87387b3314e20435defb794e76b231157f5b03cbcbabab0fbe"
+          ],
+          "integrity_status": "verified_source",
+          "origin": "recorded_metadata_or_existing_derived_identity"
         }
       ],
       "missing_obligations": [
@@ -135,10 +164,22 @@
       ],
       "linked_solutions": [
         {
-          "object_id": "object_01",
-          "node_id": "E1",
-          "evidence_id": "ev:1b4c6c87584982e25928e7dfa04f856bf0afc579517b1dbd7bf7e52f7b6fabda",
-          "citation_id": "evidence-citation:6decd5f654befa81ef2e26ca6e653c22fb6923d4771e4eb98c55f63017cb216a"
+          "object_id": "object_00",
+          "node_id": "E2",
+          "evidence_id": "ev:42ec85146038ed87387b3314e20435defb794e76b231157f5b03cbcbabab0fbe",
+          "citation_id": "evidence-citation:429a1f1c6df848e3db78ff2c286fb42de89e699c13261607693abc412a13e694"
+        },
+        {
+          "object_id": "object_00",
+          "node_id": "E2",
+          "evidence_id": "ev:42ec85146038ed87387b3314e20435defb794e76b231157f5b03cbcbabab0fbe",
+          "citation_id": "evidence-citation:5a55b97684ec097e70bcae3abc3de1441196535b4053e6ae44c8a23020ae7293"
+        },
+        {
+          "object_id": "object_00",
+          "node_id": "E2",
+          "evidence_id": "ev:42ec85146038ed87387b3314e20435defb794e76b231157f5b03cbcbabab0fbe",
+          "citation_id": "evidence-citation:4b16fa2f82ee8725a6034911b94d9339bca5ba877b1599d987eb8173ea627190"
         }
       ]
     }
@@ -146,7 +187,7 @@
   "criticisms": [
     {
       "criticism_id": "CRIT-001",
-      "critic_version": "0.3.0",
+      "critic_version": "0.4.0",
       "check_id": "CONCL-OBLIGATION-MISSING",
       "phase": "review",
       "category": "C04",
@@ -155,7 +196,7 @@
       "blocking": false,
       "object_id": "object_01",
       "node_id": "G1",
-      "explanation": "The admitted checker assessment supports no violation for object_01, but structured retrieval query:5279c6070e1eda723d32b4c4691ffc83b9b43a86920279c5fc95e5c81bf5ac18 left the mandatory obligation contacts_object_01 (contact_references, frames [0, 2]) UNAVAILABLE: No recorded samples in requested scope. This does not by itself invalidate the assessment; check that the two sources agree.",
+      "explanation": "The admitted checker assessment supports no violation for object_01, but structured retrieval query:b56339f49ad95973e6bbc003ccc417d0da7e7e0a90d183b7ab9cd52a53b06fac left the mandatory obligation contacts_object_01 (contact_references, frames [0, 2]) UNAVAILABLE: No recorded samples in requested scope. This does not by itself invalidate the assessment; check that the two sources agree.",
       "evidence_ids": [
         "ca:f9865d3b96a84f461592938d4984f8a23a453980d8c06a2d7ab75f929f4614b3:object_01"
       ],
@@ -176,7 +217,7 @@
         0,
         2
       ],
-      "reason": "Mandatory obligation contacts_object_01 of query:5279c6070e1eda723d32b4c4691ffc83b9b43a86920279c5fc95e5c81bf5ac18 is UNAVAILABLE.",
+      "reason": "Mandatory obligation contacts_object_01 of query:b56339f49ad95973e6bbc003ccc417d0da7e7e0a90d183b7ab9cd52a53b06fac is UNAVAILABLE.",
       "criticism_id": "CRIT-001"
     }
   ],
@@ -184,9 +225,9 @@
     "Admitted checker assessments are synthetic test-fixture outputs, not validated empirical results.",
     "The admitted checker assessment ca:f9865d3b96a84f461592938d4984f8a23a453980d8c06a2d7ab75f929f4614b3:object_00 (object_00, violation_observed) reports its evidence is incomplete (complete: false).",
     "Retrieval reports that the evidence package is incomplete for the requested scope.",
-    "Structured retrieval query:5279c6070e1eda723d32b4c4691ffc83b9b43a86920279c5fc95e5c81bf5ac18 is PARTIAL: Missing mandatory evidence remains explicit.",
-    "Structured retrieval query:5279c6070e1eda723d32b4c4691ffc83b9b43a86920279c5fc95e5c81bf5ac18: mandatory obligation contacts_object_01 (contact_references for object_01) is UNAVAILABLE: No recorded samples in requested scope.",
-    "Structured retrieval query:5279c6070e1eda723d32b4c4691ffc83b9b43a86920279c5fc95e5c81bf5ac18: optional obligation camera_frames (camera_references) is UNAVAILABLE: No recorded samples in requested scope.",
+    "Structured retrieval query:b56339f49ad95973e6bbc003ccc417d0da7e7e0a90d183b7ab9cd52a53b06fac is PARTIAL: Missing mandatory evidence remains explicit.",
+    "Structured retrieval query:b56339f49ad95973e6bbc003ccc417d0da7e7e0a90d183b7ab9cd52a53b06fac: mandatory obligation contacts_object_01 (contact_references for object_01) is UNAVAILABLE: No recorded samples in requested scope.",
+    "Structured retrieval query:b56339f49ad95973e6bbc003ccc417d0da7e7e0a90d183b7ab9cd52a53b06fac: optional obligation camera_frames (camera_references) is UNAVAILABLE: No recorded samples in requested scope.",
     "Structured retrieval completeness covers only the explicit mandatory obligations of each request, not complete R1 observations or the sufficiency of any claim. The Critic checked the bundles for consistency and recomputed their hashes, but could not open the database or the sources to authenticate them. Retrieved items are recorded source references, not physical events.",
     "This request contains synthetic test data; its results are not empirical findings."
   ],

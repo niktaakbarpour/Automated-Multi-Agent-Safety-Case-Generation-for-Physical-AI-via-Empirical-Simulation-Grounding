@@ -90,10 +90,10 @@ def _type_ok(v, kind):
         return isinstance(v, list)
     if kind == 'string':
         return isinstance(v, str)
-    if kind == 'number':
-        return _is_number(v) and math.isfinite(v)
+    if kind == 'number':  # every int is a finite JSON number (math.isfinite would overflow on a huge one)
+        return _is_number(v) and (isinstance(v, int) or math.isfinite(v))
     if kind == 'integer':
-        return _is_number(v) and math.isfinite(v) and float(v).is_integer()
+        return _is_number(v) and (isinstance(v, int) or (math.isfinite(v) and v.is_integer()))
     raise UnsupportedKeyword(f'type {kind!r}')
 
 

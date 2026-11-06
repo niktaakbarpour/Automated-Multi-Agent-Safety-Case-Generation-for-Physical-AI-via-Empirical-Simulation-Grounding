@@ -6,7 +6,7 @@ from . import contract as K
 from . import llm as L
 from . import schema as SCHEMA
 
-CRITIC_VERSION = '0.3.0'
+CRITIC_VERSION = '0.4.0'
 DISCLAIMER = ('A report with no blocking findings means only that this Critic found no issue within the '
               'supplied evidence and review scope. It does not show that R1 holds or that the robot was '
               'physically safe.')
@@ -27,6 +27,34 @@ def review(request, llm=None):
       internal_error          the report itself failed its schema (a Critic bug); see status_detail
     """
     llm = llm or L.NullLLM()
+    try:
+        return _review(request, llm)
+    except Exception as exc:  # a Critic bug: the tests and fuzzing check that no input gets here
+        return _crash_report(request, llm, exc)
+
+
+def _crash_report(request, llm, exc):
+    """The last resort behind review()'s promise never to raise: a schema-valid internal_error report."""
+    req = request if isinstance(request, dict) else {}
+    request_id = req.get('request_id')
+    detail = f'The Critic raised {type(exc).__name__} while reviewing this request; this is a Critic bug.'
+    return {
+        'schema_version': K.REPORT_SCHEMA_VERSION, 'critic_version': CRITIC_VERSION,
+        'request_id': request_id if isinstance(request_id, str) else '', 'execution_id': '',
+        'test_fixture': req.get('test_fixture') is True, 'review_status': 'internal_error', 'input_valid': False,
+        'status_detail': detail,
+        'llm': L.empty_status(llm, 'Skipped: the Critic failed before the model step could be trusted.'),
+        'checker_admission': [], 'structured_retrieval': [], 'criticisms': [], 'evidence_requests': [],
+        'unresolved_concerns': [detail], 'rejected_llm_findings': [],
+        'summary': {'objects_configured': [], 'objects_with_graphs': [], 'objects_missing': [],
+                    'claimed_execution_outcome': None, 'recomputed_execution_outcome': None,
+                    'accepted_execution_outcome': None, 'empty_scope': False, 'counts_by_source': {},
+                    'counts_by_category': {}, 'blocking_defects': True, 'needs_human_review': [],
+                    'disclaimer': DISCLAIMER},
+    }
+
+
+def _review(request, llm):
     deterministic, info = checks.run_all(request)
     if not info['input_valid']:
         accepted, rejected = [], []

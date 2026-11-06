@@ -63,7 +63,7 @@ def _interval(value):
     """Return (start, end) for a valid finite interval, else None."""
     if not isinstance(value, (list, tuple)) or len(value) != 2:
         return None
-    if any(isinstance(x, bool) or not isinstance(x, (int, float)) or not math.isfinite(x) for x in value):
+    if not all(K.finite_number(x) for x in value):
         return None
     return tuple(value) if value[0] <= value[1] else None
 
@@ -151,6 +151,56 @@ def check_request_shape(req):
     return [], False
 
 
+def nonstandard_json(value, path='$', limit=5):
+    """Paths of values that canonical JSON (provenance.canonical, allow_nan=False) cannot encode."""
+    out, stack = [], [(path, value)]
+    while stack and len(out) < limit:
+        at, v = stack.pop()
+        if isinstance(v, dict):
+            if not all(isinstance(k, str) for k in v):
+                out.append(at + ' (non-string key)')
+            stack.extend((f'{at}.{k}', x) for k, x in reversed(list(v.items())))
+        elif isinstance(v, list):
+            stack.extend((f'{at}[{i}]', x) for i, x in reversed(list(enumerate(v))))
+        elif isinstance(v, float) and not math.isfinite(v):
+            out.append(f'{at} ({v!r})')
+        elif _oversized(v):
+            out.append(f'{at} (an integer of {v.bit_length()} bits, too large for a double)')
+        elif not (v is None or isinstance(v, (str, bool, int, float))):
+            out.append(f'{at} ({type(v).__name__})')
+    return out
+
+
+def _oversized(v):
+    return isinstance(v, int) and not isinstance(v, bool) and not K.finite_number(v)
+
+
+def check_oversized_numbers(req):
+    """An integer beyond the range of a double stops the review before anything else reads the request: the team's
+    interval checks crash on it, and past Python's digit limit it cannot even be written into a message (R2-04).
+    Returns (findings, fatal)."""
+    bad = [p for p in nonstandard_json(req) if 'too large for a double' in p]
+    if not bad:
+        return [], False
+    return [finding('REQ-JSON', 'C01', 'The review request contains integers too large for a double, which the '
+                    f'team\'s validators cannot handle: {", ".join(bad)}.',
+                    'Use JSON numbers within the range of a double (frame indices, intervals and counts are small).',
+                    requirement_refs=['evaluation/r1_v4/evidence_registry_gsn/models.py:interval'])], True
+
+
+def check_canonical_json(req):
+    """The team hashes and validates with canonical JSON, which has no NaN or Infinity (audit R2-03), and its
+    interval checks cannot take integers beyond the range of a double (audit R2-04)."""
+    bad = nonstandard_json(req)
+    if not bad:
+        return []
+    return [finding('REQ-JSON', 'C01', 'The review request contains numbers that standard JSON, the team\'s '
+                    'canonical JSON or its validators cannot handle, so it cannot be checked like the original: '
+                    f'{", ".join(bad)}.', 'Remove NaN and Infinity values and integers beyond the range of a double; '
+                    'JSON numbers must be finite.',
+                    requirement_refs=['evaluation/r1_v4/provenance.py:canonical'])]
+
+
 # ------------------------------------------------------------------ evidence records
 
 def index_records(req):
@@ -227,7 +277,7 @@ def _record_interval(value):
     """models.interval: a finite [start, end] pair of int/float (not bool) with start <= end."""
     if not isinstance(value, list) or len(value) != 2:
         return None
-    if any(type(x) not in (int, float) or not math.isfinite(x) for x in value) or value[0] > value[1]:
+    if any(type(x) not in (int, float) or not K.finite_number(x) for x in value) or value[0] > value[1]:
         return None
     return tuple(value)
 
@@ -553,6 +603,10 @@ def check_graph(req, item, records):
         out.extend(_check_edge_scope(oid, s, t, _scope(a), _scope(b)))
         adjacency[s].append(t)
 
+    bad = nonstandard_json(g, '$.graph')
+    if bad:  # Graph.validate ends with canonical(self.export()), which refuses these
+        add('GSN-CANONICAL', 'C01', f'Graph for {oid} contains values canonical JSON cannot encode, so '
+            f'Graph.validate refuses it: {", ".join(bad)}.', 'Use only finite JSON numbers in nodes and edges.')
     cycle = _find_cycle(adjacency)
     if cycle:
         add('GSN-CYCLE', 'C01', f'Circular argument in the {oid} graph: {" -> ".join(cycle)}.',
@@ -747,12 +801,12 @@ def check_assessments(req):
     return out, admitted, log
 
 
-def check_structured_evidence(req):
+def check_structured_evidence(req, records=None):
     """Validate every Phase 5 structured-evidence entry before anything relies on it (see retrieval.py).
 
     Returns (findings, admitted bundles, rows for the report's structured_retrieval list).
     """
-    problems, admitted, rows = R.admit(req)
+    problems, admitted, rows = R.admit(req, records)
     out = [finding(check_id, category, f'Structured evidence is not used: {text}.',
                    'Pass the structured request and the bundle the Phase 5 release returned for it unchanged, for '
                    'this execution, task and variant.', evidence_ids=[qid] if qid else [],
@@ -1035,11 +1089,14 @@ def _root_goal(g):
 
 def run_all(req):
     """Run every deterministic check. Returns (findings, info for the LLM step and report)."""
-    findings, fatal = check_request_shape(req)
+    findings, fatal = check_oversized_numbers(req)
+    if not fatal:
+        findings, fatal = check_request_shape(req)
     if fatal:
         return findings, {'fatal': True, 'records': {}, 'expected_outcome': None, 'admitted': {},
                           'checker_admission': [], 'structured': [], 'structured_retrieval': [],
                           'input_valid': False}
+    findings += check_canonical_json(req)
     problems = SCHEMA.errors(req, SCHEMA.load('request'), limit=10)
     if problems:
         findings.append(finding('SCHEMA-REQUEST', 'C01', 'The review request does not match '
@@ -1055,7 +1112,7 @@ def run_all(req):
         findings += check_graph(req, item, records)
     assessment_findings, admitted, admission = check_assessments(req)
     findings += assessment_findings
-    structured_findings, structured, retrieval_rows = check_structured_evidence(req)
+    structured_findings, structured, retrieval_rows = check_structured_evidence(req, records)
     findings += structured_findings
     R.link(req, structured, retrieval_rows)
     conclusion_findings, expected = check_conclusions(req, admitted, structured)

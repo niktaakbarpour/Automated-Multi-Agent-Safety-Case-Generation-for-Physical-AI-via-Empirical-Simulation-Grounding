@@ -3157,13 +3157,26 @@
        "start": 0,
        "end": 2
       }
+     },
+     {
+      "id": "contacts_object_00",
+      "execution_id": "synthetic-execution",
+      "family": "contact_references",
+      "field": "recorded_contact_references",
+      "mandatory": true,
+      "selector": {
+       "kind": "frames",
+       "start": 0,
+       "end": 2
+      },
+      "object_id": "object_00"
      }
     ]
    },
    "bundle": {
     "schema_version": "phase5-structured-1.0.0",
     "route": "production_structured",
-    "query_id": "query:5279c6070e1eda723d32b4c4691ffc83b9b43a86920279c5fc95e5c81bf5ac18",
+    "query_id": "query:b56339f49ad95973e6bbc003ccc417d0da7e7e0a90d183b7ab9cd52a53b06fac",
     "resolved_scope": {
      "execution_id": "synthetic-execution",
      "task_id": "synthetic-task",
@@ -3214,6 +3227,19 @@
        "start": 0,
        "end": 2
       }
+     },
+     {
+      "id": "contacts_object_00",
+      "execution_id": "synthetic-execution",
+      "family": "contact_references",
+      "field": "recorded_contact_references",
+      "mandatory": true,
+      "selector": {
+       "kind": "frames",
+       "start": 0,
+       "end": 2
+      },
+      "object_id": "object_00"
      }
     ],
     "groups": [
@@ -3225,9 +3251,7 @@
         "id": "source-ref:ae4d5a7c5ea3ba843df4de0cb074f309395868532764aedf858fbddba455e8a4",
         "id_kind": "verified_source_reference_not_new_measurement_record",
         "family": "geometry_identity",
-        "original_evidence_ids": [
-         "ev:1b4c6c87584982e25928e7dfa04f856bf0afc579517b1dbd7bf7e52f7b6fabda"
-        ],
+        "original_evidence_ids": [],
         "execution_id": "synthetic-execution",
         "task_id": "synthetic-task",
         "variant_id": "synthetic-variant-0",
@@ -3405,6 +3429,153 @@
       "mandatory": false,
       "request_digest": "bf2d52d330773129c3227b22d0ad5285fe964d39e2ceefd89db2380d742e74bf",
       "requested_interpretation": "recorded"
+     },
+     {
+      "family": "contact_references",
+      "status": "AVAILABLE",
+      "items": [
+       {
+        "id": "source-ref:441ee5ffb2de2831021126ce511662db11198d1f95fb5dbb055fc8feffd88b64",
+        "id_kind": "verified_source_reference_not_new_measurement_record",
+        "family": "contact_references",
+        "original_evidence_ids": [
+         "ev:42ec85146038ed87387b3314e20435defb794e76b231157f5b03cbcbabab0fbe"
+        ],
+        "execution_id": "synthetic-execution",
+        "task_id": "synthetic-task",
+        "variant_id": "synthetic-variant-0",
+        "source_artifact": {
+         "path": "/synthetic/critic_test_fixture/phase5/synthetic-execution/contact_references.json",
+         "sha256": "2ff33b255cd162dfdf019779606b624bf361412897de3680bffb10c521f06e18",
+         "selector": "/frames/000000/simulator/contacts"
+        },
+        "value": {
+         "saved_frame_index": 0,
+         "materialized": false,
+         "reference_kind": "contact",
+         "physical_contact_or_support_inferred": false,
+         "camera_exposure_time": null
+        },
+        "integrity_status": "verified_source",
+        "origin": "recorded_metadata_or_existing_derived_identity",
+        "units": null,
+        "interpretation_status": "VERIFIED_RECORDED_METADATA",
+        "synchronized_physical_instant": false,
+        "citation_id": "evidence-citation:429a1f1c6df848e3db78ff2c286fb42de89e699c13261607693abc412a13e694",
+        "citation_basis": {
+         "citation_version": "1",
+         "database_sha256": "f6dbea047ad16c5420c34ff002e068e4ade41ab52806c936816aaf7019f303c8",
+         "record_id": "source-ref:441ee5ffb2de2831021126ce511662db11198d1f95fb5dbb055fc8feffd88b64",
+         "source_sha256": "2ff33b255cd162dfdf019779606b624bf361412897de3680bffb10c521f06e18",
+         "execution_id": "synthetic-execution",
+         "task_id": "synthetic-task",
+         "variant_id": "synthetic-variant-0",
+         "selectors": [
+          "/frames/000000/simulator/contacts"
+         ],
+         "component": null,
+         "units": null,
+         "interpretation": "recorded",
+         "required_properties": []
+        }
+       },
+       {
+        "id": "source-ref:1a7febb6ceb78a3e8b0a6b0fcfd0620bc9151e2ce336e4d483c05900b61486c8",
+        "id_kind": "verified_source_reference_not_new_measurement_record",
+        "family": "contact_references",
+        "original_evidence_ids": [
+         "ev:42ec85146038ed87387b3314e20435defb794e76b231157f5b03cbcbabab0fbe"
+        ],
+        "execution_id": "synthetic-execution",
+        "task_id": "synthetic-task",
+        "variant_id": "synthetic-variant-0",
+        "source_artifact": {
+         "path": "/synthetic/critic_test_fixture/phase5/synthetic-execution/contact_references.json",
+         "sha256": "2ff33b255cd162dfdf019779606b624bf361412897de3680bffb10c521f06e18",
+         "selector": "/frames/000001/simulator/contacts"
+        },
+        "value": {
+         "saved_frame_index": 1,
+         "materialized": false,
+         "reference_kind": "contact",
+         "physical_contact_or_support_inferred": false,
+         "camera_exposure_time": null
+        },
+        "integrity_status": "verified_source",
+        "origin": "recorded_metadata_or_existing_derived_identity",
+        "units": null,
+        "interpretation_status": "VERIFIED_RECORDED_METADATA",
+        "synchronized_physical_instant": false,
+        "citation_id": "evidence-citation:5a55b97684ec097e70bcae3abc3de1441196535b4053e6ae44c8a23020ae7293",
+        "citation_basis": {
+         "citation_version": "1",
+         "database_sha256": "f6dbea047ad16c5420c34ff002e068e4ade41ab52806c936816aaf7019f303c8",
+         "record_id": "source-ref:1a7febb6ceb78a3e8b0a6b0fcfd0620bc9151e2ce336e4d483c05900b61486c8",
+         "source_sha256": "2ff33b255cd162dfdf019779606b624bf361412897de3680bffb10c521f06e18",
+         "execution_id": "synthetic-execution",
+         "task_id": "synthetic-task",
+         "variant_id": "synthetic-variant-0",
+         "selectors": [
+          "/frames/000001/simulator/contacts"
+         ],
+         "component": null,
+         "units": null,
+         "interpretation": "recorded",
+         "required_properties": []
+        }
+       },
+       {
+        "id": "source-ref:dc12ddb98eac1da2ad3d04df1d87852e809729f13c0c53e918ae1af6254b2fc1",
+        "id_kind": "verified_source_reference_not_new_measurement_record",
+        "family": "contact_references",
+        "original_evidence_ids": [
+         "ev:42ec85146038ed87387b3314e20435defb794e76b231157f5b03cbcbabab0fbe"
+        ],
+        "execution_id": "synthetic-execution",
+        "task_id": "synthetic-task",
+        "variant_id": "synthetic-variant-0",
+        "source_artifact": {
+         "path": "/synthetic/critic_test_fixture/phase5/synthetic-execution/contact_references.json",
+         "sha256": "2ff33b255cd162dfdf019779606b624bf361412897de3680bffb10c521f06e18",
+         "selector": "/frames/000002/simulator/contacts"
+        },
+        "value": {
+         "saved_frame_index": 2,
+         "materialized": false,
+         "reference_kind": "contact",
+         "physical_contact_or_support_inferred": false,
+         "camera_exposure_time": null
+        },
+        "integrity_status": "verified_source",
+        "origin": "recorded_metadata_or_existing_derived_identity",
+        "units": null,
+        "interpretation_status": "VERIFIED_RECORDED_METADATA",
+        "synchronized_physical_instant": false,
+        "citation_id": "evidence-citation:4b16fa2f82ee8725a6034911b94d9339bca5ba877b1599d987eb8173ea627190",
+        "citation_basis": {
+         "citation_version": "1",
+         "database_sha256": "f6dbea047ad16c5420c34ff002e068e4ade41ab52806c936816aaf7019f303c8",
+         "record_id": "source-ref:dc12ddb98eac1da2ad3d04df1d87852e809729f13c0c53e918ae1af6254b2fc1",
+         "source_sha256": "2ff33b255cd162dfdf019779606b624bf361412897de3680bffb10c521f06e18",
+         "execution_id": "synthetic-execution",
+         "task_id": "synthetic-task",
+         "variant_id": "synthetic-variant-0",
+         "selectors": [
+          "/frames/000002/simulator/contacts"
+         ],
+         "component": null,
+         "units": null,
+         "interpretation": "recorded",
+         "required_properties": []
+        }
+       }
+      ],
+      "coverage": {},
+      "reason": "",
+      "obligation_id": "contacts_object_00",
+      "mandatory": true,
+      "request_digest": "fb8ab578b1938aea851fddb95c69bf62723675ccdeafe06aa5005f6fd3fe5fc6",
+      "requested_interpretation": "recorded"
      }
     ],
     "missing_obligations": [
@@ -3446,6 +3617,11 @@
        "obligation_id": "camera_frames",
        "mandatory": false,
        "satisfied": false
+      },
+      {
+       "obligation_id": "contacts_object_00",
+       "mandatory": true,
+       "satisfied": true
       }
      ],
      "mandatory_fulfilled": false,

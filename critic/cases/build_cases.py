@@ -347,7 +347,8 @@ VARIANT = 'synthetic-variant-0'
 def case_e():
     """Claims match the checker, and the Drafter supplies a Phase 5 bundle that left a mandatory contact
     obligation for object_01 unavailable. The checker's no-violation result for object_01 stands, but the
-    missing obligation needs a human to check that the two sources agree."""
+    missing obligation needs a human to check that the two sources agree. The bundle's contact references
+    for object_00 list object_00's contact record, as the release does, so they link to its solution E2."""
     sc = scene_from_checker_fixture()
     records = {o: evidence_for(sc['execution'], o, sc) for o in sc['objects']}
     first, second, third = sc['objects']
@@ -358,12 +359,21 @@ def case_e():
         P.obligation(f'contacts_{second}', 'contact_references', scope, frames=(start, end), object_id=second),
         P.obligation('joint_positions', 'raw.robot0_joint_pos', scope, frames=(start, end)),
         P.obligation('camera_frames', 'camera_references', scope, mandatory=False, frames=(start, end)),
+        P.obligation(f'contacts_{first}', 'contact_references', scope, frames=(start, end), object_id=first),
     ]
     query = P.request(scope, obligations)
     identity = {'object_id': second, 'symbolic_identity_only': True, 'physical_support_inferred': False}
+    # The release lists object_identity records for a geometry item (none in this package) and the contact
+    # records of the object and window for contact references (retrieval_remediation/bundle.py).
+    contact = next(r['id'] for r in records[first] if r['measurement_type'] == 'contact')
+    contacts = [P.reference_item(scope, 'contact_references', f'/frames/{i:06d}/simulator/contacts',
+                                 {'saved_frame_index': i, 'materialized': False, 'reference_kind': 'contact',
+                                  'physical_contact_or_support_inferred': False, 'camera_exposure_time': None},
+                                 [contact]) for i in range(start, end + 1)]
     bundle = P.evaluated(query, {
         f'geometry_{second}': ('AVAILABLE', [P.reference_item(scope, 'geometry_identity', '/body_names,/geometries',
-                                                              identity, [records[second][0]['id']])], ''),
+                                                              identity)], ''),
+        f'contacts_{first}': ('AVAILABLE', contacts, ''),
         f'contacts_{second}': ('UNAVAILABLE', [], 'No recorded samples in requested scope'),
         'joint_positions': ('AVAILABLE', [P.channel_item(scope, 'raw.robot0_joint_pos', (start, end))], 'ok'),
         'camera_frames': ('UNAVAILABLE', [], 'No recorded samples in requested scope'),
@@ -381,6 +391,8 @@ def case_e():
     return req
 
 
+# model_findings_expected: False for an argument that is correct as it stands, so any accepted model finding on it
+# is a false positive; None where model findings are possible and need reading (compare_models reports them).
 EXPECTED = {
     'case_a_unsupported_claim.json': {
         'description': 'Draft claims R1 satisfied from poses and contacts only, with no checker assessment.',
@@ -388,6 +400,7 @@ EXPECTED = {
         'blocking_expected': True,
         'review_status_expected': 'completed',
         'llm_should_add_any_of': ['C05', 'C06', 'C12'],
+        'model_findings_expected': None,
     },
     'case_b_missing_or_wrong_evidence.json': {
         'description': 'Cites an evidence ID that was never retrieved, uses another execution as proof, '
@@ -400,6 +413,7 @@ EXPECTED = {
         'blocking_expected': True,
         'review_status_expected': 'rejected_invalid_input',
         'llm_should_add_any_of': [],
+        'model_findings_expected': None,
     },
     'case_c_correct_unresolved.json': {
         'description': 'Honest unresolved argument that keeps uncertainty; must not be rejected.',
@@ -407,6 +421,7 @@ EXPECTED = {
         'blocking_expected': False,
         'review_status_expected': 'completed',
         'llm_should_add_any_of': [],
+        'model_findings_expected': False,
     },
     'case_d_claim_hides_checker_result.json': {
         'description': 'Uses the R1 checker\'s own synthetic fixture and its real output. The draft leaves object_00 '
@@ -415,6 +430,7 @@ EXPECTED = {
         'blocking_expected': True,
         'review_status_expected': 'completed',
         'llm_should_add_any_of': [],
+        'model_findings_expected': None,
     },
     'case_e_partial_structured_retrieval.json': {
         'description': 'Claims match the checker result. A Phase 5 bundle, assembled by the release\'s own code, left '
@@ -424,6 +440,7 @@ EXPECTED = {
         'blocking_expected': False,
         'review_status_expected': 'completed',
         'llm_should_add_any_of': [],
+        'model_findings_expected': None,
     },
 }
 
