@@ -1,0 +1,47 @@
+{
+  "baseline_tests": 578,
+  "new_tests": 83,
+  "passed": true,
+  "skipped": 0,
+  "suites": {
+    "phase5g": {
+      "PYTHONPATH": "/disk/1/data/niktakbr/trustworthy-phase16/src:/disk/1/data/niktakbr/trustworthy-phase16:/disk/0/home/niktakbr/groot-n17-libero-gpu0-queue/.venv/lib/python3.12/site-packages:/usr/lib/python3.12/site-packages:/usr/lib64/python3.12/site-packages",
+      "command": [
+        "/usr/bin/python3",
+        "-S",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/measurement_channel_expansion/tests",
+        "-v"
+      ],
+      "cwd": "/disk/1/data/niktakbr/trustworthy-phase16",
+      "log_sha256": "f3ec3754814bf540cbacb6481862e13ea17709a064232d2843669f6b63c3ecf0",
+      "problem_tests": [],
+      "returncode": 0,
+      "skipped": 0,
+      "tests_run": 57
+    },
+    "phase5h": {
+      "PYTHONPATH": "/disk/1/data/niktakbr/trustworthy-phase16/src:/disk/1/data/niktakbr/trustworthy-phase16:/disk/0/home/niktakbr/groot-n17-libero-gpu0-queue/.venv/lib/python3.12/site-packages:/usr/lib/python3.12/site-packages:/usr/lib64/python3.12/site-packages",
+      "command": [
+        "/usr/bin/python3",
+        "-S",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/physical_semantics_alignment/tests",
+        "-v"
+      ],
+      "cwd": "/disk/1/data/niktakbr/trustworthy-phase16",
+      "log_sha256": "9de800385111e20d8107b068ef150d8cab68c80f44aa03b8be1369ab6e2dec18",
+      "problem_tests": [],
+      "returncode": 0,
+      "skipped": 0,
+      "tests_run": 83
+    }
+  },
+  "tests": 661
+}
