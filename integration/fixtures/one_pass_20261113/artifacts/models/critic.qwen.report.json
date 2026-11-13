@@ -1,0 +1,148 @@
+{
+  "schema_version": "critic-report/0.4.0",
+  "critic_version": "0.4.0",
+  "request_id": "b8dbf1f3-c590-4cdd-8527-1526fdb597d9:critic",
+  "execution_id": "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db",
+  "test_fixture": true,
+  "review_status": "completed",
+  "input_valid": true,
+  "status_detail": null,
+  "llm": {
+    "backend": "openai_compatible",
+    "model": "Qwen/Qwen3-32B",
+    "prompt_version": "critic-prompt/v5",
+    "called": true,
+    "ok": true,
+    "latency_s": 1.57,
+    "error": null,
+    "prompt_sha256": "6e93b4c00e4fc042e281c319b44c798e9b43bc77b82aa366d5edd181ece7ede2",
+    "input_sha256": "40eddca2dda54eb4d2651e01cc1a779f6caa396c38c206c1e1f2e68f67d5cfa6",
+    "request_sha256": "34f6f8f003a0ab57b5e5a221bf9f6b4dc8c8a678d0d317978598f20a10f7a95e",
+    "settings": {
+      "base_url": "http://127.0.0.1:18031/v1",
+      "model": "Qwen/Qwen3-32B",
+      "temperature": 0.6,
+      "max_tokens": 8192,
+      "timeout_s": 600,
+      "extra_body": {
+        "top_p": 0.95,
+        "top_k": 20,
+        "response_format": {
+          "type": "json_object"
+        },
+        "chat_template_kwargs": {
+          "enable_thinking": false
+        }
+      },
+      "system_in_user": false,
+      "system_suffix": "",
+      "accepted_models": [
+        "Qwen/Qwen3-32B"
+      ]
+    },
+    "raw_response": "{\"findings\": []}",
+    "raw_response_truncated": false,
+    "response_sha256": "6e96a492bc9fa40d22212c5be0396a203f3dbd4916cf97ebe2f66b6d54fa4a9a",
+    "response": {
+      "id": "703472dd95f34b8abc8ea1e72ab3b6e8",
+      "model": "Qwen/Qwen3-32B",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 4657,
+        "completion_tokens": 7,
+        "total_tokens": 4664
+      }
+    },
+    "accepted": 0,
+    "rejected": 0
+  },
+  "checker_admission": [],
+  "structured_retrieval": [
+    {
+      "index": 0,
+      "accepted": true,
+      "query_id": "query:0867d300d28ad5dfa25b7edd973083be9a2b3f1ab2d7b7225de9610b52be902e",
+      "request_sha256": "0867d300d28ad5dfa25b7edd973083be9a2b3f1ab2d7b7225de9610b52be902e",
+      "bundle_sha256": "0b55cc48598c3890f0a66f3bd6c1d9c1be36509110a6df54fde67adaa4d33c0a",
+      "completeness_status": "COMPLETE WITHIN VERIFIED CONTRACT",
+      "reason": "All mandatory explicit obligations fulfilled",
+      "citations": [
+        {
+          "citation_id": "evidence-citation:5f05c562285ad77c6da233d1a2b13ab28d5946b775262746a463a0fd7ff9aec5",
+          "family": "raw.robot0_joint_pos",
+          "record_id": "channel:19803e4a3fa40781d5c512d197a435b12254e00e9e4c57e09f97b1008a5cfaae",
+          "original_evidence_ids": [
+            "channel:19803e4a3fa40781d5c512d197a435b12254e00e9e4c57e09f97b1008a5cfaae"
+          ],
+          "integrity_status": "verified_source",
+          "origin": "direct_recording"
+        },
+        {
+          "citation_id": "evidence-citation:f03ab92f9a8f1ec2c862ba4c447ff518f3a1ebe60d33b30f6ef1defd82b41a1d",
+          "family": "geometry_identity",
+          "record_id": "source-ref:43f97022cb7fb8cbb9458a463a71853d5cfd4f72fb3e02bc8d6ff86921148c4c",
+          "original_evidence_ids": [
+            "ev:7126edc433d57ab614d55a8f16215a2a0dde90b8168fab5a5a41423df7e09ceb"
+          ],
+          "integrity_status": "verified_source",
+          "origin": "recorded_metadata_or_existing_derived_identity"
+        }
+      ],
+      "missing_obligations": [],
+      "conditional_assumptions": [],
+      "assurance_status": {
+        "requested": "verified_source_values",
+        "satisfied": true,
+        "verification_mode": "verified_session",
+        "returned_values_verified": true,
+        "historical_runtime_attested": false,
+        "provenance": {
+          "scope": "current_source_identity_only",
+          "historical_runtime_attested": false
+        }
+      },
+      "limitations": [
+        "Completeness covers mandatory explicit obligations only, never safety-claim sufficiency",
+        "Saved-index/recorded-label association is not sensor synchronization",
+        "Metadata/geometry/counts do not establish support/contact/falling",
+        "Historical binary identity and physical calibration remain unattested"
+      ],
+      "linked_solutions": []
+    }
+  ],
+  "criticisms": [],
+  "evidence_requests": [],
+  "unresolved_concerns": [
+    "No admitted checker assessment (0 supplied, 0 admitted). Treated as unavailable, not as \"no violation\"; violation, no-violation and non-applicability outcomes cannot be established from this package.",
+    "Retrieval reports that the evidence package is incomplete for the requested scope.",
+    "Structured retrieval completeness covers only the explicit mandatory obligations of each request, not complete R1 observations or the sufficiency of any claim. The Critic checked the bundles for consistency and recomputed their hashes, but could not open the database or the sources to authenticate them. Retrieved items are recorded source references, not physical events.",
+    "This request contains synthetic test data; its results are not empirical findings."
+  ],
+  "rejected_llm_findings": [],
+  "summary": {
+    "objects_configured": [
+      "cream_cheese_1",
+      "ketchup_1",
+      "orange_juice_1",
+      "milk_1",
+      "butter_1"
+    ],
+    "objects_with_graphs": [
+      "cream_cheese_1",
+      "ketchup_1",
+      "orange_juice_1",
+      "milk_1",
+      "butter_1"
+    ],
+    "objects_missing": [],
+    "claimed_execution_outcome": "insufficient_information",
+    "recomputed_execution_outcome": "insufficient_information",
+    "accepted_execution_outcome": "insufficient_information",
+    "empty_scope": false,
+    "counts_by_source": {},
+    "counts_by_category": {},
+    "blocking_defects": false,
+    "needs_human_review": [],
+    "disclaimer": "A report with no blocking findings means only that this Critic found no issue within the supplied evidence and review scope. It does not show that R1 holds or that the robot was physically safe."
+  }
+}

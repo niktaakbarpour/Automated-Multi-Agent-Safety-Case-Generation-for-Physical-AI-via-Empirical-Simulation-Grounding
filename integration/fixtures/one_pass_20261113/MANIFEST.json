@@ -1,0 +1,84 @@
+{
+  "artifacts": [
+    {
+      "bytes": 39277,
+      "classification": "real",
+      "file": "artifacts/models/drafter.argument.json",
+      "sha256": "981f1c81056d355f045805852d0c37aa4c630aec9448e1e2f15658a06fb978ea",
+      "source": "/disk/1/data/niktakbr/trustworthy-integration-first-run/artifacts/models/drafter.argument.json"
+    },
+    {
+      "bytes": 61693,
+      "classification": "real",
+      "file": "artifacts/models/critic.request.json",
+      "sha256": "fb84dec4a8e690277bd2d835dd52d64e44c6386ee23176a19596b1c8cf2ca3cc",
+      "source": "/disk/1/data/niktakbr/trustworthy-integration-first-run/artifacts/models/critic.request.json"
+    },
+    {
+      "bytes": 5944,
+      "classification": "real",
+      "file": "artifacts/models/critic.qwen.report.json",
+      "sha256": "4cf713a5c67ce0329a83902b27a98b024794fdeab0fc5736b005a1256ac8259c",
+      "source": "/disk/1/data/niktakbr/trustworthy-integration-first-run/artifacts/models/critic.qwen.report.json"
+    },
+    {
+      "bytes": 19893,
+      "classification": "real",
+      "file": "artifacts/models/critic.qwen.messages.json",
+      "sha256": "29b757fbc409563ff3f38b38230b6f4163e9993b1e2e7b25cac2e4afe1e49bb6",
+      "source": "/disk/1/data/niktakbr/trustworthy-integration-first-run/artifacts/models/critic.qwen.messages.json"
+    },
+    {
+      "bytes": 381,
+      "classification": "controlled mutation",
+      "file": "artifacts/models/controlled-mutation.json",
+      "sha256": "574448b98d0f6d91f72f02f1aa4e4e4a18009694d995e41f1ac7ee334d5e1e8d",
+      "source": "/disk/1/data/niktakbr/trustworthy-integration-first-run/artifacts/models/controlled-mutation.json"
+    },
+    {
+      "bytes": 61725,
+      "classification": "controlled mutation",
+      "file": "artifacts/models/critic.controlled-negative.request.json",
+      "sha256": "5caa4fd81f5169df3105b9dc05e9b845de5fc397e42a900bd08783de7bd9241a",
+      "source": "/disk/1/data/niktakbr/trustworthy-integration-first-run/artifacts/models/critic.controlled-negative.request.json"
+    },
+    {
+      "bytes": 5981,
+      "classification": "controlled mutation",
+      "file": "artifacts/models/critic.controlled-negative.qwen.report.json",
+      "sha256": "a3e9857f86380ac9d27da21e4edf1cb1db139044f678dfe89c774b1d56dc1c91",
+      "source": "/disk/1/data/niktakbr/trustworthy-integration-first-run/artifacts/models/critic.controlled-negative.qwen.report.json"
+    },
+    {
+      "bytes": 19889,
+      "classification": "controlled mutation",
+      "file": "artifacts/models/critic.controlled-negative.qwen.messages.json",
+      "sha256": "4002f3b00d693b7f2c3f67bd3c5a0f8c4bdf6a0395d420cb88ce4f9bb91b8ff2",
+      "source": "/disk/1/data/niktakbr/trustworthy-integration-first-run/artifacts/models/critic.controlled-negative.qwen.messages.json"
+    }
+  ],
+  "fixture": "one_pass_20261113",
+  "schema_validation": {
+    "reason": "Requested checkout contains no Drafter/Critic schemas or validators; schemas/ only has tasks, runs, empty_safety_collection, candidate_requirements, candidate_requirements.v2.",
+    "result": "not available"
+  },
+  "source_report": "/disk/1/data/niktakbr/trustworthy-integration-first-run/END_TO_END_QWEN_INTEGRATION_REPORT.md",
+  "source_revision_metadata": {
+    "agents_and_frozen_diff": "",
+    "local_only": true,
+    "merged_main": "c1b14f55d72cb29f91928eb8d8ebcef295caf56b",
+    "source": "23072bd9fec96362c84414f613dfdd785cec37c3"
+  },
+  "versions": {
+    "R1_requirement": "2.0.0",
+    "configuration": "2.0.1",
+    "critic_prompt": "v5",
+    "critic_report": "0.4.0",
+    "critic_request": "0.3.0",
+    "drafter_prompt_schema": "0.2.2",
+    "drafter_serializer": "0.2.0",
+    "phase5": "phase5-structured-1.0.0",
+    "restricted_checker": "4.0.0a1",
+    "shared_GSN_registry": "1.0.0"
+  }
+}
