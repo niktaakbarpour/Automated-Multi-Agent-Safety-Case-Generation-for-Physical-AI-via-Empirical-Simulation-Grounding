@@ -1,0 +1,30 @@
+{
+  "database_copied": false,
+  "executions": 1,
+  "historical_binary_attestation": false,
+  "manifest_path": "/disk/1/data/niktakbr/trustworthy-phase5k-working/bounded_restore/RESTORE.json",
+  "manifest_sha256": "5b274253b9b6f5b43c21ee9631cc4d11203a77e762c068b7b3be55f1c865b1f3",
+  "mapped_artifacts": 127,
+  "mapped_bytes": 150278235,
+  "outcomes": [
+    {
+      "query": "Collect finger positions, recorded time labels and source hash at frame 20.",
+      "status": "COMPLETE WITHIN VERIFIED CONTRACT"
+    },
+    {
+      "query": "Which native geometry identifies akita_black_bowl_1?",
+      "status": "COMPLETE WITHIN VERIFIED CONTRACT"
+    },
+    {
+      "query": "Identify main_table body and geometry.",
+      "status": "COMPLETE WITHIN VERIFIED CONTRACT"
+    }
+  ],
+  "passed": true,
+  "required_prerequisites": [
+    "separately pinned original database",
+    "pinned K catalogue"
+  ],
+  "unique_contents": 125,
+  "variants": 1
+}

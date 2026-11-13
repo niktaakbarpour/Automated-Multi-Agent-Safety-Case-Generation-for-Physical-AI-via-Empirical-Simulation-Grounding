@@ -1,0 +1,81 @@
+{
+  "frozen": {
+    "all_existing_tracked_files_unchanged": true,
+    "audited_sources": 16,
+    "baseline": "609ac744b1b2fb899c783de5bb3df3c39943f57e",
+    "human_freeze_sha256": "6a9b6d2f39422e010ad8a13bf29278ac2255da673473ce8d5a4e8c0301cb23ff",
+    "human_scoring_protected_files": 8,
+    "live_frozen_hashes": {
+      "/disk/1/data/niktakbr/r1-checker-v3-20261027/evaluation/r1_v3/config.json": "fd3464dc0ee0ac44ee81c325e951832896eab489517aeed0a715f8e4d0088375",
+      "/disk/1/data/niktakbr/r1-checker-v3-20261027/evaluation/r1_v3/execute.py": "e94ad1c34c47826a6e8a2a1b4b90543268a19d41045611c17a45287c45497cbc",
+      "/disk/1/data/niktakbr/r1-checker-v3-20261027/evaluation/r1_v3/r1_checker.py": "d2914d64596f585a60021f426eb761439d604907450ebf318ca48590db0fc94f",
+      "/disk/1/data/niktakbr/r1-v3-generalization-20261027/execution/predictions.json": "0ef93ece9c3d0cb02a49a450979315a4e3be3d5f127aa48105970321f5b34984",
+      "/disk/1/data/niktakbr/trustworthy-ai3-preserved-20261030/assessment/AI_EVALUATOR_3_SEAL.json": "52d84dc7440ba256b87e9f5a59f1df201da291c04fedf368da4474ebb5711c73",
+      "/disk/1/data/niktakbr/trustworthy-ai3-preserved-20261030/comparison/AI_REFERENCE_SEAL.json": "6351e474de196fb7d0c801989921765b9e66686c54c003e0b15372db4e7cca4b"
+    },
+    "new_v4_tracked_files": 648,
+    "passed": true,
+    "sealed_members_verified": 12
+  },
+  "passed": true,
+  "suites": {
+    "phase5g": {
+      "PYTHONPATH": "/disk/1/data/niktakbr/trustworthy-phase16/src:/disk/1/data/niktakbr/trustworthy-phase16:/disk/0/home/niktakbr/groot-n17-libero-gpu0-queue/.venv/lib/python3.12/site-packages:/usr/lib/python3.12/site-packages:/usr/lib64/python3.12/site-packages",
+      "command": [
+        "/usr/bin/python3",
+        "-S",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/measurement_channel_expansion/tests",
+        "-v"
+      ],
+      "cwd": "/disk/1/data/niktakbr/trustworthy-phase16",
+      "log_sha256": "51a6b95419e844c9d7cea2454f438f726164ac8023d298ade62612d63f4308ce",
+      "problem_tests": [],
+      "returncode": 0,
+      "skipped": 0,
+      "tests_run": 57
+    },
+    "phase5h": {
+      "PYTHONPATH": "/disk/1/data/niktakbr/trustworthy-phase16/src:/disk/1/data/niktakbr/trustworthy-phase16:/disk/0/home/niktakbr/groot-n17-libero-gpu0-queue/.venv/lib/python3.12/site-packages:/usr/lib/python3.12/site-packages:/usr/lib64/python3.12/site-packages",
+      "command": [
+        "/usr/bin/python3",
+        "-S",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/physical_semantics_alignment/tests",
+        "-v"
+      ],
+      "cwd": "/disk/1/data/niktakbr/trustworthy-phase16",
+      "log_sha256": "f8a7885124f3eef94cfc3ca9ac7abb1bd03eb04aced8c3923f228017fde6d4da",
+      "problem_tests": [],
+      "returncode": 0,
+      "skipped": 0,
+      "tests_run": 87
+    },
+    "phase5i": {
+      "PYTHONPATH": "/disk/1/data/niktakbr/trustworthy-phase16/src:/disk/1/data/niktakbr/trustworthy-phase16:/disk/0/home/niktakbr/groot-n17-libero-gpu0-queue/.venv/lib/python3.12/site-packages:/usr/lib/python3.12/site-packages:/usr/lib64/python3.12/site-packages",
+      "command": [
+        "/usr/bin/python3",
+        "-S",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "/disk/1/data/niktakbr/trustworthy-phase16/evaluation/r1_v4/rag_evidence_database/source_reproducibility/tests",
+        "-v"
+      ],
+      "cwd": "/disk/1/data/niktakbr/trustworthy-phase16",
+      "log_sha256": "44c7a3adcafd5c96ee0ff1d6187514b5329664c2e12472452bf16ec62dd6afd9",
+      "problem_tests": [],
+      "returncode": 0,
+      "skipped": 0,
+      "tests_run": 53
+    }
+  },
+  "total_tests": 718
+}

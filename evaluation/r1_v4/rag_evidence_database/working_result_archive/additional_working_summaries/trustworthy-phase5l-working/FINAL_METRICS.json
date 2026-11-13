@@ -1,0 +1,144 @@
+{
+  "cases": 448,
+  "complete_mandatory_available": 376,
+  "complete_mandatory_requested": 376,
+  "critical": 264,
+  "critical_rejected": 264,
+  "errors": {},
+  "executions": 16,
+  "false_assurance": 0,
+  "false_complete": 0,
+  "latency_seconds": {
+    "maximum": 5.590435245074332,
+    "median": 0.06044119689613581
+  },
+  "mandatory_available": 392,
+  "mandatory_requested": 656,
+  "max_numeric_error": 0,
+  "metadata_comparisons": 152,
+  "missing_reporting_correct": 448,
+  "per_kind": {
+    "bounded_provenance": {
+      "cases": 16,
+      "correct": 16
+    },
+    "conditional_cache": {
+      "cases": 16,
+      "correct": 16
+    },
+    "cross_obligation_scope": {
+      "cases": 16,
+      "correct": 16
+    },
+    "empty_obligations": {
+      "cases": 16,
+      "correct": 16
+    },
+    "geometry_and_provenance": {
+      "cases": 16,
+      "correct": 16
+    },
+    "historical_attestation": {
+      "cases": 16,
+      "correct": 16
+    },
+    "initial_six": {
+      "cases": 16,
+      "correct": 16
+    },
+    "invalid_assurance": {
+      "cases": 16,
+      "correct": 16
+    },
+    "middle_multi": {
+      "cases": 16,
+      "correct": 16
+    },
+    "missing_field_contract": {
+      "cases": 16,
+      "correct": 16
+    },
+    "missing_selector": {
+      "cases": 16,
+      "correct": 16
+    },
+    "missing_source": {
+      "cases": 16,
+      "correct": 16
+    },
+    "modified_source": {
+      "cases": 16,
+      "correct": 16
+    },
+    "optional_absence": {
+      "cases": 16,
+      "correct": 16
+    },
+    "partial_missing_action": {
+      "cases": 16,
+      "correct": 16
+    },
+    "recorded_time_label": {
+      "cases": 16,
+      "correct": 16
+    },
+    "symbolic_table": {
+      "cases": 16,
+      "correct": 16
+    },
+    "terminal_window": {
+      "cases": 16,
+      "correct": 16
+    },
+    "timed_metadata_set": {
+      "cases": 16,
+      "correct": 16
+    },
+    "unavailable_frame": {
+      "cases": 16,
+      "correct": 16
+    },
+    "unsupported_world": {
+      "cases": 16,
+      "correct": 16
+    },
+    "verified_component": {
+      "cases": 16,
+      "correct": 16
+    },
+    "wrong_component": {
+      "cases": 16,
+      "correct": 16
+    },
+    "wrong_execution": {
+      "cases": 16,
+      "correct": 16
+    },
+    "wrong_object": {
+      "cases": 16,
+      "correct": 16
+    },
+    "wrong_source_identity": {
+      "cases": 16,
+      "correct": 16
+    },
+    "wrong_task": {
+      "cases": 16,
+      "correct": 16
+    },
+    "wrong_variant": {
+      "cases": 16,
+      "correct": 16
+    }
+  },
+  "source_sample_comparisons": 272,
+  "status_correct": 448,
+  "status_counts": {
+    "COMPLETE WITHIN VERIFIED CONTRACT": 168,
+    "INVALID SCOPE": 160,
+    "PARTIAL": 16,
+    "UNAVAILABLE": 48,
+    "UNSUPPORTED": 56
+  },
+  "structured_case_types": 28
+}
