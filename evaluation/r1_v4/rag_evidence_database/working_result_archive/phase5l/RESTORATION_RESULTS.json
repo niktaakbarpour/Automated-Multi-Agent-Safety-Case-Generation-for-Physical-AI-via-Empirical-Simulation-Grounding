@@ -1,0 +1,14 @@
+{
+  "bytes": 148459848,
+  "citation_identity_preserved": true,
+  "executions": 1,
+  "historical_environment_reproduced": false,
+  "incomplete_mapping_rejected_without_fallback": true,
+  "manifest_path": "/disk/1/data/niktakbr/trustworthy-phase5l-working/bounded_restore/RESTORE.json",
+  "manifest_sha256": "e6e648d910e1bf145da0c73b27de21c907e1a0a2b950989e5e53ea7049fb7e8f",
+  "mappings": 122,
+  "passed": true,
+  "prerequisites": "Separately pinned original database and catalogue; these were not copied",
+  "unique_contents": 120,
+  "variants": 1
+}

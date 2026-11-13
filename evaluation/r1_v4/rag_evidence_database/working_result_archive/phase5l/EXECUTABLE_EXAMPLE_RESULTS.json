@@ -1,0 +1,1416 @@
+[
+  {
+    "bundle": {
+      "assurance_status": {
+        "historical_runtime_attested": false,
+        "provenance": {
+          "historical_runtime_attested": false,
+          "scope": "current_source_identity_only"
+        },
+        "requested": "verified_source_values",
+        "returned_values_verified": true,
+        "satisfied": true,
+        "verification_mode": "strict"
+      },
+      "completeness_status": "COMPLETE WITHIN VERIFIED CONTRACT",
+      "conditional_assumptions": [],
+      "empirical_admission_enabled": false,
+      "groups": [
+        {
+          "conditional_assumptions": [],
+          "coverage": {
+            "requested_frames": [
+              20,
+              20
+            ],
+            "returned": [
+              20
+            ]
+          },
+          "family": "raw.robot0_joint_pos",
+          "items": [
+            {
+              "citation_basis": {
+                "citation_version": "1",
+                "component": null,
+                "database_sha256": "f6dbea047ad16c5420c34ff002e068e4ade41ab52806c936816aaf7019f303c8",
+                "execution_id": "libero_goal_openvla_oft_task07_seed1001_trial001_cfafd9ddc3db",
+                "interpretation": "recorded",
+                "record_id": "channel:4d82cb3f658649cff34372461dc46d926904b4f49dc9cf434ae4d7bd29d4ebf5",
+                "required_properties": [],
+                "selectors": [
+                  "/frames/000020/raw_observation/robot0_joint_pos/value"
+                ],
+                "source_sha256": "3df70bacbd1ae08e2ca355a3059ed0367cfb6e98ba9b34968efb7deda582479e",
+                "task_id": "1b921c8dfd61bb78bb84",
+                "units": null,
+                "variant_id": "xmlenv:d02d90e60827185fe9b5744dde1b3a15d29c2c50172834d6e2dad240843af972"
+              },
+              "citation_id": "evidence-citation:49550565be8a502e06861731a159d2bed4ea92800a9dd28e94c0cf3434c16c0f",
+              "coordinate_frame": {
+                "basis": "exact recorded source and version-bound model validation",
+                "status": "VERIFIED",
+                "value": "joint_configuration"
+              },
+              "derived_interpretation": "semantics:30c8b3159c371a5492bb4ab65171e20ef62af2c44e20093aa190d06f595ed012",
+              "execution_id": "libero_goal_openvla_oft_task07_seed1001_trial001_cfafd9ddc3db",
+              "family": "raw.robot0_joint_pos",
+              "id": "channel:4d82cb3f658649cff34372461dc46d926904b4f49dc9cf434ae4d7bd29d4ebf5",
+              "integrity_status": "verified_source",
+              "interpretation_properties": {
+                "action_recording_order": {
+                  "basis": "exact recorded source and version-bound model validation",
+                  "status": "VERIFIED",
+                  "value": "frame k+11 saved after action k; inference input follows recorded chunk metadata"
+                },
+                "algebraic_preintegration_relation": {
+                  "basis": "Full source/model comparisons; fixed float64 roundoff bounds",
+                  "status": "VERIFIED",
+                  "value": "q_raw=q_endpoint-h*v_endpoint"
+                },
+                "cache_offset_seconds": {
+                  "basis": "Euler-consistent preintegration interpretation; no runtime cache timestamp or binary attestation",
+                  "status": "CONDITIONAL",
+                  "value": {
+                    "initial": 0.0,
+                    "noninitial": -0.002
+                  }
+                },
+                "cache_sampling_rate_hz": {
+                  "basis": "Version-matched Observable definition; individual sensor clock not recorded",
+                  "status": "CONDITIONAL",
+                  "value": 20
+                },
+                "component_order": {
+                  "basis": "exact recorded source and version-bound model validation",
+                  "status": "VERIFIED",
+                  "value": [
+                    "robot0_joint1",
+                    "robot0_joint2",
+                    "robot0_joint3",
+                    "robot0_joint4",
+                    "robot0_joint5",
+                    "robot0_joint6",
+                    "robot0_joint7"
+                  ]
+                },
+                "coordinate_frame": {
+                  "basis": "exact recorded source and version-bound model validation",
+                  "status": "VERIFIED",
+                  "value": "joint_configuration"
+                },
+                "missing_behavior": {
+                  "basis": "exact recorded source and version-bound model validation",
+                  "status": "VERIFIED",
+                  "value": "fail closed; no interpolation/filling"
+                },
+                "physical_calibration": {
+                  "basis": "Numeric consistency is not physical calibration",
+                  "status": "UNRESOLVED",
+                  "value": null
+                },
+                "physical_synchronization": {
+                  "basis": "No per-sensor timestamps or calibrated common-instant proof",
+                  "status": "UNRESOLVED",
+                  "value": null
+                },
+                "quantity": {
+                  "basis": "exact recorded source and version-bound model validation",
+                  "status": "VERIFIED",
+                  "value": "hinge_joint_configuration"
+                },
+                "raw_vs_normalized": {
+                  "basis": "exact recorded source and version-bound model validation",
+                  "status": "VERIFIED",
+                  "value": "raw_recording; identity decode; not normalized policy input"
+                },
+                "saved_sampling": {
+                  "basis": "exact recorded source and version-bound model validation",
+                  "status": "VERIFIED",
+                  "value": {
+                    "nominal_hz": 20,
+                    "physics_timestep_seconds": 0.002,
+                    "simulator_interval_seconds": 0.05
+                  }
+                },
+                "spatial_transform": {
+                  "basis": "Configuration/tangent coordinates are not Cartesian world coordinates",
+                  "status": "UNSUPPORTED",
+                  "value": null
+                },
+                "units": {
+                  "basis": "Native joint-angle/tangent units; linear length follows explicitly recorded metric convention. No physical calibration assertion.",
+                  "status": "VERIFIED",
+                  "value": "rad"
+                }
+              },
+              "origin": "direct_recording",
+              "original_evidence_ids": [
+                "channel:4d82cb3f658649cff34372461dc46d926904b4f49dc9cf434ae4d7bd29d4ebf5"
+              ],
+              "samples": [
+                {
+                  "coordinate_frame": "joint_configuration",
+                  "dtype": "float64",
+                  "origin": "direct_recording",
+                  "saved_frame_index": 20,
+                  "shape": [
+                    7
+                  ],
+                  "source_selector": "/frames/000020/raw_observation/robot0_joint_pos/value",
+                  "source_status": "verified_source",
+                  "temporal_relation": {
+                    "chunk_id": 1,
+                    "chunk_offset": 1,
+                    "inference_triggered": false,
+                    "latest_available_observation_frame": 19,
+                    "policy_inference_input_frame": 18,
+                    "preceding_policy_action": 9,
+                    "raw_configuration_relation": "Euler_preintegration_identity",
+                    "saved_frame": 20,
+                    "simulator_endpoint_seconds": 1.0000000000000007,
+                    "stage": "control",
+                    "synchronized_physical_instant": false
+                  },
+                  "value": [
+                    0.01908785276049234,
+                    -0.17381080923812312,
+                    0.08404085071392103,
+                    -2.4266631798615665,
+                    0.031138146272344996,
+                    2.148023387768015,
+                    0.8541802147450739
+                  ],
+                  "value_transformation": "identity",
+                  "value_units": "rad"
+                }
+              ],
+              "source_artifact": {
+                "path": "/disk/1/data/niktakbr/r1-v4-phase5f-evidence/goal/task_07/episode_001/trajectory.h5",
+                "selector": "raw_observation/robot0_joint_pos/value",
+                "sha256": "3df70bacbd1ae08e2ca355a3059ed0367cfb6e98ba9b34968efb7deda582479e"
+              },
+              "synchronized_physical_instant": false,
+              "task_id": "1b921c8dfd61bb78bb84",
+              "units": {
+                "basis": "Native joint-angle/tangent units; linear length follows explicitly recorded metric convention. No physical calibration assertion.",
+                "status": "VERIFIED",
+                "value": "rad"
+              },
+              "variant_id": "xmlenv:d02d90e60827185fe9b5744dde1b3a15d29c2c50172834d6e2dad240843af972"
+            }
+          ],
+          "mandatory": true,
+          "obligation_id": "measurement",
+          "reason": "Source-verified raw values with separately classified model semantics",
+          "request_digest": "5c6ef36bce541ba9dcb55b3622a8464882a094a262e05e50e86a9031769ee3ff",
+          "requested_interpretation": "recorded",
+          "status": "AVAILABLE"
+        }
+      ],
+      "independent_validation": {
+        "errors": [],
+        "mandatory_fulfilled": true,
+        "method": "Original explicit request vs emitted obligations, original DB source binding and independent selector lookup",
+        "obligations": [
+          {
+            "mandatory": true,
+            "obligation_id": "measurement",
+            "satisfied": true
+          }
+        ],
+        "passed": true
+      },
+      "limitations": [
+        "Completeness covers mandatory explicit obligations only, never safety-claim sufficiency",
+        "Saved-index/recorded-label association is not sensor synchronization",
+        "Metadata/geometry/counts do not establish support/contact/falling",
+        "Historical binary identity and physical calibration remain unattested"
+      ],
+      "missing_obligations": [],
+      "query_id": "query:541d5a2dcf16e36d4ba6a58239e807b2f9cdf18416dd80ac05935476548f1143",
+      "reason": "All mandatory explicit obligations fulfilled",
+      "requested_obligations": [
+        {
+          "execution_id": "libero_goal_openvla_oft_task07_seed1001_trial001_cfafd9ddc3db",
+          "family": "raw.robot0_joint_pos",
+          "field": "raw_observation/robot0_joint_pos/value",
+          "id": "measurement",
+          "mandatory": true,
+          "selector": {
+            "end": 20,
+            "kind": "frames",
+            "start": 20
+          }
+        }
+      ],
+      "resolved_scope": {
+        "execution_id": "libero_goal_openvla_oft_task07_seed1001_trial001_cfafd9ddc3db",
+        "task_id": "1b921c8dfd61bb78bb84",
+        "variant_id": "xmlenv:d02d90e60827185fe9b5744dde1b3a15d29c2c50172834d6e2dad240843af972"
+      },
+      "route": "production_structured",
+      "safety_claim_sufficiency": "NOT_EVALUATED",
+      "safety_claim_verified": false,
+      "schema_version": "phase5-structured-1.0.0"
+    },
+    "name": "valid_single",
+    "request": {
+      "assurance": "verified_source_values",
+      "execution_id": "libero_goal_openvla_oft_task07_seed1001_trial001_cfafd9ddc3db",
+      "obligations": [
+        {
+          "execution_id": "libero_goal_openvla_oft_task07_seed1001_trial001_cfafd9ddc3db",
+          "family": "raw.robot0_joint_pos",
+          "field": "raw_observation/robot0_joint_pos/value",
+          "id": "measurement",
+          "mandatory": true,
+          "selector": {
+            "end": 20,
+            "kind": "frames",
+            "start": 20
+          }
+        }
+      ],
+      "provenance": {
+        "level": "source_identity"
+      },
+      "schema_version": "phase5-structured-1.0.0",
+      "task_id": "1b921c8dfd61bb78bb84",
+      "variant_id": "xmlenv:d02d90e60827185fe9b5744dde1b3a15d29c2c50172834d6e2dad240843af972"
+    }
+  },
+  {
+    "bundle": {
+      "assurance_status": {
+        "historical_runtime_attested": false,
+        "provenance": {
+          "historical_runtime_attested": false,
+          "scope": "current_source_identity_only"
+        },
+        "requested": "verified_source_values",
+        "returned_values_verified": true,
+        "satisfied": true,
+        "verification_mode": "strict"
+      },
+      "completeness_status": "COMPLETE WITHIN VERIFIED CONTRACT",
+      "conditional_assumptions": [],
+      "empirical_admission_enabled": false,
+      "groups": [
+        {
+          "conditional_assumptions": [],
+          "coverage": {
+            "requested_frames": [
+              20,
+              20
+            ],
+            "returned": [
+              20
+            ]
+          },
+          "family": "raw.robot0_joint_pos",
+          "items": [
+            {
+              "citation_basis": {
+                "citation_version": "1",
+                "component": null,
+                "database_sha256": "f6dbea047ad16c5420c34ff002e068e4ade41ab52806c936816aaf7019f303c8",
+                "execution_id": "libero_goal_openvla_oft_task07_seed1001_trial001_cfafd9ddc3db",
+                "interpretation": "recorded",
+                "record_id": "channel:4d82cb3f658649cff34372461dc46d926904b4f49dc9cf434ae4d7bd29d4ebf5",
+                "required_properties": [],
+                "selectors": [
+                  "/frames/000020/raw_observation/robot0_joint_pos/value"
+                ],
+                "source_sha256": "3df70bacbd1ae08e2ca355a3059ed0367cfb6e98ba9b34968efb7deda582479e",
+                "task_id": "1b921c8dfd61bb78bb84",
+                "units": null,
+                "variant_id": "xmlenv:d02d90e60827185fe9b5744dde1b3a15d29c2c50172834d6e2dad240843af972"
+              },
+              "citation_id": "evidence-citation:49550565be8a502e06861731a159d2bed4ea92800a9dd28e94c0cf3434c16c0f",
+              "coordinate_frame": {
+                "basis": "exact recorded source and version-bound model validation",
+                "status": "VERIFIED",
+                "value": "joint_configuration"
+              },
+              "derived_interpretation": "semantics:30c8b3159c371a5492bb4ab65171e20ef62af2c44e20093aa190d06f595ed012",
+              "execution_id": "libero_goal_openvla_oft_task07_seed1001_trial001_cfafd9ddc3db",
+              "family": "raw.robot0_joint_pos",
+              "id": "channel:4d82cb3f658649cff34372461dc46d926904b4f49dc9cf434ae4d7bd29d4ebf5",
+              "integrity_status": "verified_source",
+              "interpretation_properties": {
+                "action_recording_order": {
+                  "basis": "exact recorded source and version-bound model validation",
+                  "status": "VERIFIED",
+                  "value": "frame k+11 saved after action k; inference input follows recorded chunk metadata"
+                },
+                "algebraic_preintegration_relation": {
+                  "basis": "Full source/model comparisons; fixed float64 roundoff bounds",
+                  "status": "VERIFIED",
+                  "value": "q_raw=q_endpoint-h*v_endpoint"
+                },
+                "cache_offset_seconds": {
+                  "basis": "Euler-consistent preintegration interpretation; no runtime cache timestamp or binary attestation",
+                  "status": "CONDITIONAL",
+                  "value": {
+                    "initial": 0.0,
+                    "noninitial": -0.002
+                  }
+                },
+                "cache_sampling_rate_hz": {
+                  "basis": "Version-matched Observable definition; individual sensor clock not recorded",
+                  "status": "CONDITIONAL",
+                  "value": 20
+                },
+                "component_order": {
+                  "basis": "exact recorded source and version-bound model validation",
+                  "status": "VERIFIED",
+                  "value": [
+                    "robot0_joint1",
+                    "robot0_joint2",
+                    "robot0_joint3",
+                    "robot0_joint4",
+                    "robot0_joint5",
+                    "robot0_joint6",
+                    "robot0_joint7"
+                  ]
+                },
+                "coordinate_frame": {
+                  "basis": "exact recorded source and version-bound model validation",
+                  "status": "VERIFIED",
+                  "value": "joint_configuration"
+                },
+                "missing_behavior": {
+                  "basis": "exact recorded source and version-bound model validation",
+                  "status": "VERIFIED",
+                  "value": "fail closed; no interpolation/filling"
+                },
+                "physical_calibration": {
+                  "basis": "Numeric consistency is not physical calibration",
+                  "status": "UNRESOLVED",
+                  "value": null
+                },
+                "physical_synchronization": {
+                  "basis": "No per-sensor timestamps or calibrated common-instant proof",
+                  "status": "UNRESOLVED",
+                  "value": null
+                },
+                "quantity": {
+                  "basis": "exact recorded source and version-bound model validation",
+                  "status": "VERIFIED",
+                  "value": "hinge_joint_configuration"
+                },
+                "raw_vs_normalized": {
+                  "basis": "exact recorded source and version-bound model validation",
+                  "status": "VERIFIED",
+                  "value": "raw_recording; identity decode; not normalized policy input"
+                },
+                "saved_sampling": {
+                  "basis": "exact recorded source and version-bound model validation",
+                  "status": "VERIFIED",
+                  "value": {
+                    "nominal_hz": 20,
+                    "physics_timestep_seconds": 0.002,
+                    "simulator_interval_seconds": 0.05
+                  }
+                },
+                "spatial_transform": {
+                  "basis": "Configuration/tangent coordinates are not Cartesian world coordinates",
+                  "status": "UNSUPPORTED",
+                  "value": null
+                },
+                "units": {
+                  "basis": "Native joint-angle/tangent units; linear length follows explicitly recorded metric convention. No physical calibration assertion.",
+                  "status": "VERIFIED",
+                  "value": "rad"
+                }
+              },
+              "origin": "direct_recording",
+              "original_evidence_ids": [
+                "channel:4d82cb3f658649cff34372461dc46d926904b4f49dc9cf434ae4d7bd29d4ebf5"
+              ],
+              "samples": [
+                {
+                  "coordinate_frame": "joint_configuration",
+                  "dtype": "float64",
+                  "origin": "direct_recording",
+                  "saved_frame_index": 20,
+                  "shape": [
+                    7
+                  ],
+                  "source_selector": "/frames/000020/raw_observation/robot0_joint_pos/value",
+                  "source_status": "verified_source",
+                  "temporal_relation": {
+                    "chunk_id": 1,
+                    "chunk_offset": 1,
+                    "inference_triggered": false,
+                    "latest_available_observation_frame": 19,
+                    "policy_inference_input_frame": 18,
+                    "preceding_policy_action": 9,
+                    "raw_configuration_relation": "Euler_preintegration_identity",
+                    "saved_frame": 20,
+                    "simulator_endpoint_seconds": 1.0000000000000007,
+                    "stage": "control",
+                    "synchronized_physical_instant": false
+                  },
+                  "value": [
+                    0.01908785276049234,
+                    -0.17381080923812312,
+                    0.08404085071392103,
+                    -2.4266631798615665,
+                    0.031138146272344996,
+                    2.148023387768015,
+                    0.8541802147450739
+                  ],
+                  "value_transformation": "identity",
+                  "value_units": "rad"
+                }
+              ],
+              "source_artifact": {
+                "path": "/disk/1/data/niktakbr/r1-v4-phase5f-evidence/goal/task_07/episode_001/trajectory.h5",
+                "selector": "raw_observation/robot0_joint_pos/value",
+                "sha256": "3df70bacbd1ae08e2ca355a3059ed0367cfb6e98ba9b34968efb7deda582479e"
+              },
+              "synchronized_physical_instant": false,
+              "task_id": "1b921c8dfd61bb78bb84",
+              "units": {
+                "basis": "Native joint-angle/tangent units; linear length follows explicitly recorded metric convention. No physical calibration assertion.",
+                "status": "VERIFIED",
+                "value": "rad"
+              },
+              "variant_id": "xmlenv:d02d90e60827185fe9b5744dde1b3a15d29c2c50172834d6e2dad240843af972"
+            }
+          ],
+          "mandatory": true,
+          "obligation_id": "measurement",
+          "reason": "Source-verified raw values with separately classified model semantics",
+          "request_digest": "5c6ef36bce541ba9dcb55b3622a8464882a094a262e05e50e86a9031769ee3ff",
+          "requested_interpretation": "recorded",
+          "status": "AVAILABLE"
+        },
+        {
+          "conditional_assumptions": [],
+          "coverage": {
+            "requested_frames": [
+              20,
+              20
+            ],
+            "returned": [
+              20
+            ]
+          },
+          "family": "raw.robot0_gripper_qpos",
+          "items": [
+            {
+              "citation_basis": {
+                "citation_version": "1",
+                "component": null,
+                "database_sha256": "f6dbea047ad16c5420c34ff002e068e4ade41ab52806c936816aaf7019f303c8",
+                "execution_id": "libero_goal_openvla_oft_task07_seed1001_trial001_cfafd9ddc3db",
+                "interpretation": "recorded",
+                "record_id": "channel:d2b381330a916290370a3cfce5cfdcddad30860839b9fe55d2060249019c286e",
+                "required_properties": [],
+                "selectors": [
+                  "/frames/000020/raw_observation/robot0_gripper_qpos/value"
+                ],
+                "source_sha256": "3df70bacbd1ae08e2ca355a3059ed0367cfb6e98ba9b34968efb7deda582479e",
+                "task_id": "1b921c8dfd61bb78bb84",
+                "units": null,
+                "variant_id": "xmlenv:d02d90e60827185fe9b5744dde1b3a15d29c2c50172834d6e2dad240843af972"
+              },
+              "citation_id": "evidence-citation:326e1bf3be0d4fedb96de9d2167263267f0c428c97a200c48f83f5eca1b8b4d2",
+              "coordinate_frame": {
+                "basis": "exact recorded source and version-bound model validation",
+                "status": "VERIFIED",
+                "value": "joint_configuration"
+              },
+              "derived_interpretation": "semantics:7c83c556be9a1615dc854a2b29aad89c6c641ebd520518429c64ccc53e4e8f7e",
+              "execution_id": "libero_goal_openvla_oft_task07_seed1001_trial001_cfafd9ddc3db",
+              "family": "raw.robot0_gripper_qpos",
+              "id": "channel:d2b381330a916290370a3cfce5cfdcddad30860839b9fe55d2060249019c286e",
+              "integrity_status": "verified_source",
+              "interpretation_properties": {
+                "action_recording_order": {
+                  "basis": "exact recorded source and version-bound model validation",
+                  "status": "VERIFIED",
+                  "value": "frame k+11 saved after action k; inference input follows recorded chunk metadata"
+                },
+                "algebraic_preintegration_relation": {
+                  "basis": "Full source/model comparisons; fixed float64 roundoff bounds",
+                  "status": "VERIFIED",
+                  "value": "q_raw=q_endpoint-h*v_endpoint"
+                },
+                "cache_offset_seconds": {
+                  "basis": "Euler-consistent preintegration interpretation; no runtime cache timestamp or binary attestation",
+                  "status": "CONDITIONAL",
+                  "value": {
+                    "initial": 0.0,
+                    "noninitial": -0.002
+                  }
+                },
+                "cache_sampling_rate_hz": {
+                  "basis": "Version-matched Observable definition; individual sensor clock not recorded",
+                  "status": "CONDITIONAL",
+                  "value": 20
+                },
+                "component_order": {
+                  "basis": "exact recorded source and version-bound model validation",
+                  "status": "VERIFIED",
+                  "value": [
+                    "gripper0_finger_joint1",
+                    "gripper0_finger_joint2"
+                  ]
+                },
+                "coordinate_frame": {
+                  "basis": "exact recorded source and version-bound model validation",
+                  "status": "VERIFIED",
+                  "value": "joint_configuration"
+                },
+                "missing_behavior": {
+                  "basis": "exact recorded source and version-bound model validation",
+                  "status": "VERIFIED",
+                  "value": "fail closed; no interpolation/filling"
+                },
+                "physical_calibration": {
+                  "basis": "Numeric consistency is not physical calibration",
+                  "status": "UNRESOLVED",
+                  "value": null
+                },
+                "physical_synchronization": {
+                  "basis": "No per-sensor timestamps or calibrated common-instant proof",
+                  "status": "UNRESOLVED",
+                  "value": null
+                },
+                "quantity": {
+                  "basis": "exact recorded source and version-bound model validation",
+                  "status": "VERIFIED",
+                  "value": "prismatic_joint_configuration"
+                },
+                "raw_vs_normalized": {
+                  "basis": "exact recorded source and version-bound model validation",
+                  "status": "VERIFIED",
+                  "value": "raw_recording; identity decode; not normalized policy input"
+                },
+                "saved_sampling": {
+                  "basis": "exact recorded source and version-bound model validation",
+                  "status": "VERIFIED",
+                  "value": {
+                    "nominal_hz": 20,
+                    "physics_timestep_seconds": 0.002,
+                    "simulator_interval_seconds": 0.05
+                  }
+                },
+                "spatial_transform": {
+                  "basis": "Configuration/tangent coordinates are not Cartesian world coordinates",
+                  "status": "UNSUPPORTED",
+                  "value": null
+                },
+                "units": {
+                  "basis": "Native joint-angle/tangent units; linear length follows explicitly recorded metric convention. No physical calibration assertion.",
+                  "status": "VERIFIED",
+                  "value": "m"
+                }
+              },
+              "origin": "direct_recording",
+              "original_evidence_ids": [
+                "channel:d2b381330a916290370a3cfce5cfdcddad30860839b9fe55d2060249019c286e"
+              ],
+              "samples": [
+                {
+                  "coordinate_frame": "joint_configuration",
+                  "dtype": "float64",
+                  "origin": "direct_recording",
+                  "saved_frame_index": 20,
+                  "shape": [
+                    2
+                  ],
+                  "source_selector": "/frames/000020/raw_observation/robot0_gripper_qpos/value",
+                  "source_status": "verified_source",
+                  "temporal_relation": {
+                    "chunk_id": 1,
+                    "chunk_offset": 1,
+                    "inference_triggered": false,
+                    "latest_available_observation_frame": 19,
+                    "policy_inference_input_frame": 18,
+                    "preceding_policy_action": 9,
+                    "raw_configuration_relation": "Euler_preintegration_identity",
+                    "saved_frame": 20,
+                    "simulator_endpoint_seconds": 1.0000000000000007,
+                    "stage": "control",
+                    "synchronized_physical_instant": false
+                  },
+                  "value": [
+                    0.03929551921944515,
+                    -0.039189532077645396
+                  ],
+                  "value_transformation": "identity",
+                  "value_units": "m"
+                }
+              ],
+              "source_artifact": {
+                "path": "/disk/1/data/niktakbr/r1-v4-phase5f-evidence/goal/task_07/episode_001/trajectory.h5",
+                "selector": "raw_observation/robot0_gripper_qpos/value",
+                "sha256": "3df70bacbd1ae08e2ca355a3059ed0367cfb6e98ba9b34968efb7deda582479e"
+              },
+              "synchronized_physical_instant": false,
+              "task_id": "1b921c8dfd61bb78bb84",
+              "units": {
+                "basis": "Native joint-angle/tangent units; linear length follows explicitly recorded metric convention. No physical calibration assertion.",
+                "status": "VERIFIED",
+                "value": "m"
+              },
+              "variant_id": "xmlenv:d02d90e60827185fe9b5744dde1b3a15d29c2c50172834d6e2dad240843af972"
+            }
+          ],
+          "mandatory": true,
+          "obligation_id": "finger",
+          "reason": "Source-verified raw values with separately classified model semantics",
+          "request_digest": "caabf4d7b9100fc0b41ab4bd32deb3a9433e2ce4a077125109812efb0cbce250",
+          "requested_interpretation": "recorded",
+          "status": "AVAILABLE"
+        }
+      ],
+      "independent_validation": {
+        "errors": [],
+        "mandatory_fulfilled": true,
+        "method": "Original explicit request vs emitted obligations, original DB source binding and independent selector lookup",
+        "obligations": [
+          {
+            "mandatory": true,
+            "obligation_id": "measurement",
+            "satisfied": true
+          },
+          {
+            "mandatory": true,
+            "obligation_id": "finger",
+            "satisfied": true
+          }
+        ],
+        "passed": true
+      },
+      "limitations": [
+        "Completeness covers mandatory explicit obligations only, never safety-claim sufficiency",
+        "Saved-index/recorded-label association is not sensor synchronization",
+        "Metadata/geometry/counts do not establish support/contact/falling",
+        "Historical binary identity and physical calibration remain unattested"
+      ],
+      "missing_obligations": [],
+      "query_id": "query:c917167a22739dbfc4377d8ab16e6639f69cd00d976f442a69634f6ba6f94e65",
+      "reason": "All mandatory explicit obligations fulfilled",
+      "requested_obligations": [
+        {
+          "execution_id": "libero_goal_openvla_oft_task07_seed1001_trial001_cfafd9ddc3db",
+          "family": "raw.robot0_joint_pos",
+          "field": "raw_observation/robot0_joint_pos/value",
+          "id": "measurement",
+          "mandatory": true,
+          "selector": {
+            "end": 20,
+            "kind": "frames",
+            "start": 20
+          }
+        },
+        {
+          "execution_id": "libero_goal_openvla_oft_task07_seed1001_trial001_cfafd9ddc3db",
+          "family": "raw.robot0_gripper_qpos",
+          "field": "raw_observation/robot0_gripper_qpos/value",
+          "id": "finger",
+          "mandatory": true,
+          "selector": {
+            "end": 20,
+            "kind": "frames",
+            "start": 20
+          }
+        }
+      ],
+      "resolved_scope": {
+        "execution_id": "libero_goal_openvla_oft_task07_seed1001_trial001_cfafd9ddc3db",
+        "task_id": "1b921c8dfd61bb78bb84",
+        "variant_id": "xmlenv:d02d90e60827185fe9b5744dde1b3a15d29c2c50172834d6e2dad240843af972"
+      },
+      "route": "production_structured",
+      "safety_claim_sufficiency": "NOT_EVALUATED",
+      "safety_claim_verified": false,
+      "schema_version": "phase5-structured-1.0.0"
+    },
+    "name": "complete_multisource",
+    "request": {
+      "assurance": "verified_source_values",
+      "execution_id": "libero_goal_openvla_oft_task07_seed1001_trial001_cfafd9ddc3db",
+      "obligations": [
+        {
+          "execution_id": "libero_goal_openvla_oft_task07_seed1001_trial001_cfafd9ddc3db",
+          "family": "raw.robot0_joint_pos",
+          "field": "raw_observation/robot0_joint_pos/value",
+          "id": "measurement",
+          "mandatory": true,
+          "selector": {
+            "end": 20,
+            "kind": "frames",
+            "start": 20
+          }
+        },
+        {
+          "execution_id": "libero_goal_openvla_oft_task07_seed1001_trial001_cfafd9ddc3db",
+          "family": "raw.robot0_gripper_qpos",
+          "field": "raw_observation/robot0_gripper_qpos/value",
+          "id": "finger",
+          "mandatory": true,
+          "selector": {
+            "end": 20,
+            "kind": "frames",
+            "start": 20
+          }
+        }
+      ],
+      "provenance": {
+        "level": "source_identity"
+      },
+      "schema_version": "phase5-structured-1.0.0",
+      "task_id": "1b921c8dfd61bb78bb84",
+      "variant_id": "xmlenv:d02d90e60827185fe9b5744dde1b3a15d29c2c50172834d6e2dad240843af972"
+    }
+  },
+  {
+    "bundle": {
+      "assurance_status": {
+        "historical_runtime_attested": false,
+        "provenance": {
+          "historical_runtime_attested": false,
+          "scope": "current_source_identity_only"
+        },
+        "requested": "verified_source_values",
+        "returned_values_verified": true,
+        "satisfied": false,
+        "verification_mode": "strict"
+      },
+      "completeness_status": "PARTIAL",
+      "conditional_assumptions": [],
+      "empirical_admission_enabled": false,
+      "groups": [
+        {
+          "conditional_assumptions": [],
+          "coverage": {
+            "requested_frames": [
+              20,
+              20
+            ],
+            "returned": [
+              20
+            ]
+          },
+          "family": "raw.robot0_joint_pos",
+          "items": [
+            {
+              "citation_basis": {
+                "citation_version": "1",
+                "component": null,
+                "database_sha256": "f6dbea047ad16c5420c34ff002e068e4ade41ab52806c936816aaf7019f303c8",
+                "execution_id": "libero_goal_openvla_oft_task07_seed1001_trial001_cfafd9ddc3db",
+                "interpretation": "recorded",
+                "record_id": "channel:4d82cb3f658649cff34372461dc46d926904b4f49dc9cf434ae4d7bd29d4ebf5",
+                "required_properties": [],
+                "selectors": [
+                  "/frames/000020/raw_observation/robot0_joint_pos/value"
+                ],
+                "source_sha256": "3df70bacbd1ae08e2ca355a3059ed0367cfb6e98ba9b34968efb7deda582479e",
+                "task_id": "1b921c8dfd61bb78bb84",
+                "units": null,
+                "variant_id": "xmlenv:d02d90e60827185fe9b5744dde1b3a15d29c2c50172834d6e2dad240843af972"
+              },
+              "citation_id": "evidence-citation:49550565be8a502e06861731a159d2bed4ea92800a9dd28e94c0cf3434c16c0f",
+              "coordinate_frame": {
+                "basis": "exact recorded source and version-bound model validation",
+                "status": "VERIFIED",
+                "value": "joint_configuration"
+              },
+              "derived_interpretation": "semantics:30c8b3159c371a5492bb4ab65171e20ef62af2c44e20093aa190d06f595ed012",
+              "execution_id": "libero_goal_openvla_oft_task07_seed1001_trial001_cfafd9ddc3db",
+              "family": "raw.robot0_joint_pos",
+              "id": "channel:4d82cb3f658649cff34372461dc46d926904b4f49dc9cf434ae4d7bd29d4ebf5",
+              "integrity_status": "verified_source",
+              "interpretation_properties": {
+                "action_recording_order": {
+                  "basis": "exact recorded source and version-bound model validation",
+                  "status": "VERIFIED",
+                  "value": "frame k+11 saved after action k; inference input follows recorded chunk metadata"
+                },
+                "algebraic_preintegration_relation": {
+                  "basis": "Full source/model comparisons; fixed float64 roundoff bounds",
+                  "status": "VERIFIED",
+                  "value": "q_raw=q_endpoint-h*v_endpoint"
+                },
+                "cache_offset_seconds": {
+                  "basis": "Euler-consistent preintegration interpretation; no runtime cache timestamp or binary attestation",
+                  "status": "CONDITIONAL",
+                  "value": {
+                    "initial": 0.0,
+                    "noninitial": -0.002
+                  }
+                },
+                "cache_sampling_rate_hz": {
+                  "basis": "Version-matched Observable definition; individual sensor clock not recorded",
+                  "status": "CONDITIONAL",
+                  "value": 20
+                },
+                "component_order": {
+                  "basis": "exact recorded source and version-bound model validation",
+                  "status": "VERIFIED",
+                  "value": [
+                    "robot0_joint1",
+                    "robot0_joint2",
+                    "robot0_joint3",
+                    "robot0_joint4",
+                    "robot0_joint5",
+                    "robot0_joint6",
+                    "robot0_joint7"
+                  ]
+                },
+                "coordinate_frame": {
+                  "basis": "exact recorded source and version-bound model validation",
+                  "status": "VERIFIED",
+                  "value": "joint_configuration"
+                },
+                "missing_behavior": {
+                  "basis": "exact recorded source and version-bound model validation",
+                  "status": "VERIFIED",
+                  "value": "fail closed; no interpolation/filling"
+                },
+                "physical_calibration": {
+                  "basis": "Numeric consistency is not physical calibration",
+                  "status": "UNRESOLVED",
+                  "value": null
+                },
+                "physical_synchronization": {
+                  "basis": "No per-sensor timestamps or calibrated common-instant proof",
+                  "status": "UNRESOLVED",
+                  "value": null
+                },
+                "quantity": {
+                  "basis": "exact recorded source and version-bound model validation",
+                  "status": "VERIFIED",
+                  "value": "hinge_joint_configuration"
+                },
+                "raw_vs_normalized": {
+                  "basis": "exact recorded source and version-bound model validation",
+                  "status": "VERIFIED",
+                  "value": "raw_recording; identity decode; not normalized policy input"
+                },
+                "saved_sampling": {
+                  "basis": "exact recorded source and version-bound model validation",
+                  "status": "VERIFIED",
+                  "value": {
+                    "nominal_hz": 20,
+                    "physics_timestep_seconds": 0.002,
+                    "simulator_interval_seconds": 0.05
+                  }
+                },
+                "spatial_transform": {
+                  "basis": "Configuration/tangent coordinates are not Cartesian world coordinates",
+                  "status": "UNSUPPORTED",
+                  "value": null
+                },
+                "units": {
+                  "basis": "Native joint-angle/tangent units; linear length follows explicitly recorded metric convention. No physical calibration assertion.",
+                  "status": "VERIFIED",
+                  "value": "rad"
+                }
+              },
+              "origin": "direct_recording",
+              "original_evidence_ids": [
+                "channel:4d82cb3f658649cff34372461dc46d926904b4f49dc9cf434ae4d7bd29d4ebf5"
+              ],
+              "samples": [
+                {
+                  "coordinate_frame": "joint_configuration",
+                  "dtype": "float64",
+                  "origin": "direct_recording",
+                  "saved_frame_index": 20,
+                  "shape": [
+                    7
+                  ],
+                  "source_selector": "/frames/000020/raw_observation/robot0_joint_pos/value",
+                  "source_status": "verified_source",
+                  "temporal_relation": {
+                    "chunk_id": 1,
+                    "chunk_offset": 1,
+                    "inference_triggered": false,
+                    "latest_available_observation_frame": 19,
+                    "policy_inference_input_frame": 18,
+                    "preceding_policy_action": 9,
+                    "raw_configuration_relation": "Euler_preintegration_identity",
+                    "saved_frame": 20,
+                    "simulator_endpoint_seconds": 1.0000000000000007,
+                    "stage": "control",
+                    "synchronized_physical_instant": false
+                  },
+                  "value": [
+                    0.01908785276049234,
+                    -0.17381080923812312,
+                    0.08404085071392103,
+                    -2.4266631798615665,
+                    0.031138146272344996,
+                    2.148023387768015,
+                    0.8541802147450739
+                  ],
+                  "value_transformation": "identity",
+                  "value_units": "rad"
+                }
+              ],
+              "source_artifact": {
+                "path": "/disk/1/data/niktakbr/r1-v4-phase5f-evidence/goal/task_07/episode_001/trajectory.h5",
+                "selector": "raw_observation/robot0_joint_pos/value",
+                "sha256": "3df70bacbd1ae08e2ca355a3059ed0367cfb6e98ba9b34968efb7deda582479e"
+              },
+              "synchronized_physical_instant": false,
+              "task_id": "1b921c8dfd61bb78bb84",
+              "units": {
+                "basis": "Native joint-angle/tangent units; linear length follows explicitly recorded metric convention. No physical calibration assertion.",
+                "status": "VERIFIED",
+                "value": "rad"
+              },
+              "variant_id": "xmlenv:d02d90e60827185fe9b5744dde1b3a15d29c2c50172834d6e2dad240843af972"
+            }
+          ],
+          "mandatory": true,
+          "obligation_id": "measurement",
+          "reason": "Source-verified raw values with separately classified model semantics",
+          "request_digest": "5c6ef36bce541ba9dcb55b3622a8464882a094a262e05e50e86a9031769ee3ff",
+          "requested_interpretation": "recorded",
+          "status": "AVAILABLE"
+        },
+        {
+          "coverage": {
+            "action_indices": [],
+            "clock": "recorded policy/call labels; no synchronized physical time",
+            "missing": [],
+            "missing_settling_frames": [
+              0
+            ]
+          },
+          "family": "action_metadata",
+          "items": [],
+          "mandatory": true,
+          "obligation_id": "unavailable_action",
+          "reason": "No invented metadata for settling/missing policy actions",
+          "request_digest": "4ee91a11fda98fc1a7d38006772d21073c13fecb74bdf0580e66ff4e7a1d502b",
+          "requested_interpretation": "recorded",
+          "status": "UNAVAILABLE"
+        }
+      ],
+      "independent_validation": {
+        "errors": [],
+        "mandatory_fulfilled": false,
+        "method": "Original explicit request vs emitted obligations, original DB source binding and independent selector lookup",
+        "obligations": [
+          {
+            "mandatory": true,
+            "obligation_id": "measurement",
+            "satisfied": true
+          },
+          {
+            "mandatory": true,
+            "obligation_id": "unavailable_action",
+            "satisfied": false
+          }
+        ],
+        "passed": true
+      },
+      "limitations": [
+        "Completeness covers mandatory explicit obligations only, never safety-claim sufficiency",
+        "Saved-index/recorded-label association is not sensor synchronization",
+        "Metadata/geometry/counts do not establish support/contact/falling",
+        "Historical binary identity and physical calibration remain unattested"
+      ],
+      "missing_obligations": [
+        {
+          "mandatory": true,
+          "obligation_id": "unavailable_action",
+          "reason": "No invented metadata for settling/missing policy actions",
+          "status": "UNAVAILABLE"
+        }
+      ],
+      "query_id": "query:59caee88f7cf31187b5d159e0755b0df88a5793594db8141c14c737dcf2b6cdc",
+      "reason": "Missing mandatory evidence remains explicit",
+      "requested_obligations": [
+        {
+          "execution_id": "libero_goal_openvla_oft_task07_seed1001_trial001_cfafd9ddc3db",
+          "family": "raw.robot0_joint_pos",
+          "field": "raw_observation/robot0_joint_pos/value",
+          "id": "measurement",
+          "mandatory": true,
+          "selector": {
+            "end": 20,
+            "kind": "frames",
+            "start": 20
+          }
+        },
+        {
+          "execution_id": "libero_goal_openvla_oft_task07_seed1001_trial001_cfafd9ddc3db",
+          "family": "action_metadata",
+          "field": "policy_action_metadata",
+          "id": "unavailable_action",
+          "mandatory": true,
+          "selector": {
+            "end": 0,
+            "kind": "frames",
+            "start": 0
+          }
+        }
+      ],
+      "resolved_scope": {
+        "execution_id": "libero_goal_openvla_oft_task07_seed1001_trial001_cfafd9ddc3db",
+        "task_id": "1b921c8dfd61bb78bb84",
+        "variant_id": "xmlenv:d02d90e60827185fe9b5744dde1b3a15d29c2c50172834d6e2dad240843af972"
+      },
+      "route": "production_structured",
+      "safety_claim_sufficiency": "NOT_EVALUATED",
+      "safety_claim_verified": false,
+      "schema_version": "phase5-structured-1.0.0"
+    },
+    "name": "partial",
+    "request": {
+      "assurance": "verified_source_values",
+      "execution_id": "libero_goal_openvla_oft_task07_seed1001_trial001_cfafd9ddc3db",
+      "obligations": [
+        {
+          "execution_id": "libero_goal_openvla_oft_task07_seed1001_trial001_cfafd9ddc3db",
+          "family": "raw.robot0_joint_pos",
+          "field": "raw_observation/robot0_joint_pos/value",
+          "id": "measurement",
+          "mandatory": true,
+          "selector": {
+            "end": 20,
+            "kind": "frames",
+            "start": 20
+          }
+        },
+        {
+          "execution_id": "libero_goal_openvla_oft_task07_seed1001_trial001_cfafd9ddc3db",
+          "family": "action_metadata",
+          "field": "policy_action_metadata",
+          "id": "unavailable_action",
+          "mandatory": true,
+          "selector": {
+            "end": 0,
+            "kind": "frames",
+            "start": 0
+          }
+        }
+      ],
+      "provenance": {
+        "level": "source_identity"
+      },
+      "schema_version": "phase5-structured-1.0.0",
+      "task_id": "1b921c8dfd61bb78bb84",
+      "variant_id": "xmlenv:d02d90e60827185fe9b5744dde1b3a15d29c2c50172834d6e2dad240843af972"
+    }
+  },
+  {
+    "bundle": {
+      "assurance_status": {
+        "historical_runtime_attested": false,
+        "provenance": {
+          "historical_runtime_attested": false,
+          "scope": "current_source_identity_only"
+        },
+        "requested": "verified_source_values",
+        "returned_values_verified": false,
+        "satisfied": false,
+        "verification_mode": "strict"
+      },
+      "completeness_status": "UNSUPPORTED",
+      "conditional_assumptions": [],
+      "empirical_admission_enabled": false,
+      "groups": [
+        {
+          "conditional_assumptions": [],
+          "coverage": {
+            "requested_frames": [
+              20,
+              20
+            ],
+            "returned": []
+          },
+          "family": "raw.robot0_joint_pos",
+          "items": [],
+          "mandatory": true,
+          "obligation_id": "measurement",
+          "reason": "Exact model coordinate type required; no world frame inference",
+          "request_digest": "ff5637e52a4f122ca99940bc61e6fd2b2a5333659974a410ae5b66b722497894",
+          "requested_interpretation": "recorded",
+          "status": "UNSUPPORTED"
+        }
+      ],
+      "independent_validation": {
+        "errors": [],
+        "mandatory_fulfilled": false,
+        "method": "Original explicit request vs emitted obligations, original DB source binding and independent selector lookup",
+        "obligations": [
+          {
+            "mandatory": true,
+            "obligation_id": "measurement",
+            "satisfied": false
+          }
+        ],
+        "passed": true
+      },
+      "limitations": [
+        "Completeness covers mandatory explicit obligations only, never safety-claim sufficiency",
+        "Saved-index/recorded-label association is not sensor synchronization",
+        "Metadata/geometry/counts do not establish support/contact/falling",
+        "Historical binary identity and physical calibration remain unattested"
+      ],
+      "missing_obligations": [
+        {
+          "mandatory": true,
+          "obligation_id": "measurement",
+          "reason": "Exact model coordinate type required; no world frame inference",
+          "status": "UNSUPPORTED"
+        }
+      ],
+      "query_id": "query:5fa50d8ec37413f0455028f38e8a0b44470d97104291a34f1eb2c26bca48f8ec",
+      "reason": "Missing mandatory evidence remains explicit",
+      "requested_obligations": [
+        {
+          "coordinate_frame": "world",
+          "execution_id": "libero_goal_openvla_oft_task07_seed1001_trial001_cfafd9ddc3db",
+          "family": "raw.robot0_joint_pos",
+          "field": "raw_observation/robot0_joint_pos/value",
+          "id": "measurement",
+          "mandatory": true,
+          "selector": {
+            "end": 20,
+            "kind": "frames",
+            "start": 20
+          }
+        }
+      ],
+      "resolved_scope": {
+        "execution_id": "libero_goal_openvla_oft_task07_seed1001_trial001_cfafd9ddc3db",
+        "task_id": "1b921c8dfd61bb78bb84",
+        "variant_id": "xmlenv:d02d90e60827185fe9b5744dde1b3a15d29c2c50172834d6e2dad240843af972"
+      },
+      "route": "production_structured",
+      "safety_claim_sufficiency": "NOT_EVALUATED",
+      "safety_claim_verified": false,
+      "schema_version": "phase5-structured-1.0.0"
+    },
+    "name": "unsupported_world",
+    "request": {
+      "assurance": "verified_source_values",
+      "execution_id": "libero_goal_openvla_oft_task07_seed1001_trial001_cfafd9ddc3db",
+      "obligations": [
+        {
+          "coordinate_frame": "world",
+          "execution_id": "libero_goal_openvla_oft_task07_seed1001_trial001_cfafd9ddc3db",
+          "family": "raw.robot0_joint_pos",
+          "field": "raw_observation/robot0_joint_pos/value",
+          "id": "measurement",
+          "mandatory": true,
+          "selector": {
+            "end": 20,
+            "kind": "frames",
+            "start": 20
+          }
+        }
+      ],
+      "provenance": {
+        "level": "source_identity"
+      },
+      "schema_version": "phase5-structured-1.0.0",
+      "task_id": "1b921c8dfd61bb78bb84",
+      "variant_id": "xmlenv:d02d90e60827185fe9b5744dde1b3a15d29c2c50172834d6e2dad240843af972"
+    }
+  },
+  {
+    "bundle": {
+      "assurance_status": {
+        "historical_runtime_attested": false,
+        "provenance": null,
+        "requested": "verified_source_values",
+        "returned_values_verified": false,
+        "satisfied": false,
+        "verification_mode": "strict"
+      },
+      "completeness_status": "INVALID SCOPE",
+      "conditional_assumptions": [],
+      "empirical_admission_enabled": false,
+      "groups": [
+        {
+          "coverage": {},
+          "family": "raw.robot0_joint_pos",
+          "items": [],
+          "mandatory": true,
+          "obligation_id": "measurement",
+          "reason": "Wrong task or variant",
+          "request_digest": "5c6ef36bce541ba9dcb55b3622a8464882a094a262e05e50e86a9031769ee3ff",
+          "status": "INVALID SCOPE"
+        }
+      ],
+      "independent_validation": {
+        "passed": false,
+        "reason": "Request not accepted"
+      },
+      "limitations": [
+        "Completeness covers mandatory explicit obligations only, never safety-claim sufficiency",
+        "Saved-index/recorded-label association is not sensor synchronization",
+        "Metadata/geometry/counts do not establish support/contact/falling",
+        "Historical binary identity and physical calibration remain unattested"
+      ],
+      "missing_obligations": [
+        {
+          "mandatory": true,
+          "obligation_id": "measurement",
+          "reason": "Wrong task or variant",
+          "status": "INVALID SCOPE"
+        }
+      ],
+      "query_id": "query:e7c2f65c67f6dce0094e79f426ad21bd2d7fed5b4e681d05f21d0f3e3048e4ca",
+      "reason": "Wrong task or variant",
+      "requested_obligations": [
+        {
+          "execution_id": "libero_goal_openvla_oft_task07_seed1001_trial001_cfafd9ddc3db",
+          "family": "raw.robot0_joint_pos",
+          "field": "raw_observation/robot0_joint_pos/value",
+          "id": "measurement",
+          "mandatory": true,
+          "selector": {
+            "end": 20,
+            "kind": "frames",
+            "start": 20
+          }
+        }
+      ],
+      "resolved_scope": {
+        "execution_id": "libero_goal_openvla_oft_task07_seed1001_trial001_cfafd9ddc3db",
+        "task_id": "1b921c8dfd61bb78bb84",
+        "variant_id": "wrong-variant"
+      },
+      "route": "production_structured",
+      "safety_claim_sufficiency": "NOT_EVALUATED",
+      "safety_claim_verified": false,
+      "schema_version": "phase5-structured-1.0.0"
+    },
+    "name": "wrong_variant",
+    "request": {
+      "assurance": "verified_source_values",
+      "execution_id": "libero_goal_openvla_oft_task07_seed1001_trial001_cfafd9ddc3db",
+      "obligations": [
+        {
+          "execution_id": "libero_goal_openvla_oft_task07_seed1001_trial001_cfafd9ddc3db",
+          "family": "raw.robot0_joint_pos",
+          "field": "raw_observation/robot0_joint_pos/value",
+          "id": "measurement",
+          "mandatory": true,
+          "selector": {
+            "end": 20,
+            "kind": "frames",
+            "start": 20
+          }
+        }
+      ],
+      "provenance": {
+        "level": "source_identity"
+      },
+      "schema_version": "phase5-structured-1.0.0",
+      "task_id": "1b921c8dfd61bb78bb84",
+      "variant_id": "wrong-variant"
+    }
+  },
+  {
+    "bundle": {
+      "assurance_status": {
+        "historical_runtime_attested": false,
+        "provenance": null,
+        "requested": "provenance_complete",
+        "returned_values_verified": false,
+        "satisfied": false,
+        "verification_mode": "strict"
+      },
+      "completeness_status": "UNSUPPORTED",
+      "conditional_assumptions": [],
+      "empirical_admission_enabled": false,
+      "groups": [
+        {
+          "coverage": {},
+          "family": "raw.robot0_joint_pos",
+          "items": [],
+          "mandatory": true,
+          "obligation_id": "measurement",
+          "reason": "Explicit bounded provenance scope required; no historical closure",
+          "request_digest": "5c6ef36bce541ba9dcb55b3622a8464882a094a262e05e50e86a9031769ee3ff",
+          "status": "UNSUPPORTED"
+        }
+      ],
+      "independent_validation": {
+        "passed": false,
+        "reason": "Request not accepted"
+      },
+      "limitations": [
+        "Completeness covers mandatory explicit obligations only, never safety-claim sufficiency",
+        "Saved-index/recorded-label association is not sensor synchronization",
+        "Metadata/geometry/counts do not establish support/contact/falling",
+        "Historical binary identity and physical calibration remain unattested"
+      ],
+      "missing_obligations": [
+        {
+          "mandatory": true,
+          "obligation_id": "measurement",
+          "reason": "Explicit bounded provenance scope required; no historical closure",
+          "status": "UNSUPPORTED"
+        }
+      ],
+      "query_id": "query:3a90062521d6d835e51686cbf14c53adf4b56d7eecd9d297718aa16ebe4527f5",
+      "reason": "Explicit bounded provenance scope required; no historical closure",
+      "requested_obligations": [
+        {
+          "execution_id": "libero_goal_openvla_oft_task07_seed1001_trial001_cfafd9ddc3db",
+          "family": "raw.robot0_joint_pos",
+          "field": "raw_observation/robot0_joint_pos/value",
+          "id": "measurement",
+          "mandatory": true,
+          "selector": {
+            "end": 20,
+            "kind": "frames",
+            "start": 20
+          }
+        }
+      ],
+      "resolved_scope": {
+        "execution_id": "libero_goal_openvla_oft_task07_seed1001_trial001_cfafd9ddc3db",
+        "task_id": "1b921c8dfd61bb78bb84",
+        "variant_id": "xmlenv:d02d90e60827185fe9b5744dde1b3a15d29c2c50172834d6e2dad240843af972"
+      },
+      "route": "production_structured",
+      "safety_claim_sufficiency": "NOT_EVALUATED",
+      "safety_claim_verified": false,
+      "schema_version": "phase5-structured-1.0.0"
+    },
+    "name": "strict_provenance_failure",
+    "request": {
+      "assurance": "provenance_complete",
+      "execution_id": "libero_goal_openvla_oft_task07_seed1001_trial001_cfafd9ddc3db",
+      "obligations": [
+        {
+          "execution_id": "libero_goal_openvla_oft_task07_seed1001_trial001_cfafd9ddc3db",
+          "family": "raw.robot0_joint_pos",
+          "field": "raw_observation/robot0_joint_pos/value",
+          "id": "measurement",
+          "mandatory": true,
+          "selector": {
+            "end": 20,
+            "kind": "frames",
+            "start": 20
+          }
+        }
+      ],
+      "provenance": {
+        "level": "release_graph"
+      },
+      "schema_version": "phase5-structured-1.0.0",
+      "task_id": "1b921c8dfd61bb78bb84",
+      "variant_id": "xmlenv:d02d90e60827185fe9b5744dde1b3a15d29c2c50172834d6e2dad240843af972"
+    }
+  }
+]

@@ -1,0 +1,21 @@
+{
+  "production_artifacts_modified": false,
+  "rows": [
+    {
+      "legacy": "accepted_hash_matching_symlink",
+      "probe": "XML source primitive differential",
+      "scope": "Component-level verified-binding fixture, not an end-to-end compromised-release exploit",
+      "source_bytes_identical": true,
+      "strict_phase5i": "rejected_symlink"
+    },
+    {
+      "probe": "Stale cache with preserved mtime",
+      "result": "rejected_modified"
+    },
+    {
+      "probe": "Recovered byte-identical source",
+      "result": "verified_source"
+    }
+  ],
+  "source_text_instruction_policy": "Source bytes are never eval/exec input; instruction-note mutation is tested as a hash mismatch, not as an LLM prompt-injection benchmark"
+}

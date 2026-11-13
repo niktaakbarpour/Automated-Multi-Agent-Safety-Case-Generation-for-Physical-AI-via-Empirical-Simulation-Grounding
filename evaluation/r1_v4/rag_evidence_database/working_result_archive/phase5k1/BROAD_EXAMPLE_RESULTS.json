@@ -1,0 +1,593 @@
+{
+  "cases": [
+    {
+      "obligations": [
+        {
+          "basis": {
+            "source": "request.execution_id"
+          },
+          "contract_references": [
+            "Phase5H physical/source contracts",
+            "Phase5I provenance/clock contracts",
+            "query-obligation-2.1.0"
+          ],
+          "id": "obligation:e7b30dbcdf6abf085b75aa9ecc39068e172ad5e329b41ae04996e2a412845650",
+          "mandatory": true,
+          "required_families": [],
+          "required_temporal_scope": null,
+          "resolution_status": "RESOLVED",
+          "scope": {
+            "execution_id": "libero_goal_openvla_oft_task07_seed1003_trial003_cfafd9ddc3db",
+            "object_id": null,
+            "task_id": null,
+            "variant_id": null
+          },
+          "target": "execution_id=libero_goal_openvla_oft_task07_seed1003_trial003_cfafd9ddc3db",
+          "type": "scope",
+          "uncertainty": null,
+          "verification_requirements": [
+            "descriptor_bound_source",
+            "execution_variant_identity"
+          ]
+        },
+        {
+          "basis": {
+            "source": "request.assurance"
+          },
+          "contract_references": [
+            "Phase5H physical/source contracts",
+            "Phase5I provenance/clock contracts",
+            "query-obligation-2.1.0"
+          ],
+          "id": "obligation:179f433295e2cc9188bbdf5e47f5a052d02bffb14a8eb0bd2a57dfb1278d7d56",
+          "mandatory": true,
+          "required_families": [],
+          "required_temporal_scope": null,
+          "resolution_status": "RESOLVED",
+          "scope": {
+            "execution_id": "libero_goal_openvla_oft_task07_seed1003_trial003_cfafd9ddc3db",
+            "object_id": null,
+            "task_id": null,
+            "variant_id": null
+          },
+          "target": "verified_source_values",
+          "type": "assurance",
+          "uncertainty": null,
+          "verification_requirements": [
+            "descriptor_bound_source",
+            "execution_variant_identity"
+          ]
+        },
+        {
+          "basis": {
+            "source": "original_query",
+            "span": [
+              36,
+              44
+            ],
+            "text": "action 4"
+          },
+          "contract_references": [
+            "Phase5H physical/source contracts",
+            "Phase5I provenance/clock contracts",
+            "query-obligation-2.1.0"
+          ],
+          "id": "obligation:8c8eb603485ea6812c8aebf3eeec9afb4f05c85038b2c8ea2d9c38656183a616",
+          "mandatory": true,
+          "required_families": [],
+          "required_temporal_scope": null,
+          "resolution_status": "RESOLVED",
+          "scope": {
+            "execution_id": "libero_goal_openvla_oft_task07_seed1003_trial003_cfafd9ddc3db",
+            "object_id": null,
+            "task_id": null,
+            "variant_id": null
+          },
+          "selector": {
+            "action": 4,
+            "clock": "policy_action_association",
+            "relation": "after"
+          },
+          "target": "action:4:after",
+          "type": "temporal",
+          "uncertainty": null,
+          "verification_requirements": [
+            "descriptor_bound_source",
+            "execution_variant_identity"
+          ]
+        }
+      ],
+      "passed_noncomplete": true,
+      "query": "What was recorded immediately after action 4?",
+      "status": "AMBIGUOUS"
+    },
+    {
+      "obligations": [
+        {
+          "basis": {
+            "source": "request.execution_id"
+          },
+          "contract_references": [
+            "Phase5H physical/source contracts",
+            "Phase5I provenance/clock contracts",
+            "query-obligation-2.1.0"
+          ],
+          "id": "obligation:e7b30dbcdf6abf085b75aa9ecc39068e172ad5e329b41ae04996e2a412845650",
+          "mandatory": true,
+          "required_families": [],
+          "required_temporal_scope": null,
+          "resolution_status": "RESOLVED",
+          "scope": {
+            "execution_id": "libero_goal_openvla_oft_task07_seed1003_trial003_cfafd9ddc3db",
+            "object_id": null,
+            "task_id": null,
+            "variant_id": null
+          },
+          "target": "execution_id=libero_goal_openvla_oft_task07_seed1003_trial003_cfafd9ddc3db",
+          "type": "scope",
+          "uncertainty": null,
+          "verification_requirements": [
+            "descriptor_bound_source",
+            "execution_variant_identity"
+          ]
+        },
+        {
+          "basis": {
+            "source": "request.assurance"
+          },
+          "contract_references": [
+            "Phase5H physical/source contracts",
+            "Phase5I provenance/clock contracts",
+            "query-obligation-2.1.0"
+          ],
+          "id": "obligation:179f433295e2cc9188bbdf5e47f5a052d02bffb14a8eb0bd2a57dfb1278d7d56",
+          "mandatory": true,
+          "required_families": [],
+          "required_temporal_scope": null,
+          "resolution_status": "RESOLVED",
+          "scope": {
+            "execution_id": "libero_goal_openvla_oft_task07_seed1003_trial003_cfafd9ddc3db",
+            "object_id": null,
+            "task_id": null,
+            "variant_id": null
+          },
+          "target": "verified_source_values",
+          "type": "assurance",
+          "uncertainty": null,
+          "verification_requirements": [
+            "descriptor_bound_source",
+            "execution_variant_identity"
+          ]
+        },
+        {
+          "basis": {
+            "source": "original_query",
+            "span": [
+              0,
+              51
+            ],
+            "text": "What evidence supports this recorded numeric value?"
+          },
+          "contract_references": [
+            "Phase5H physical/source contracts",
+            "Phase5I provenance/clock contracts",
+            "query-obligation-2.1.0"
+          ],
+          "id": "obligation:a4aa80f1e906fc6aad01d8a2b11ce51b93ab890d3f6fbc42e2df07f61b06254a",
+          "mandatory": true,
+          "required_families": [],
+          "required_temporal_scope": null,
+          "resolution_status": "UNSUPPORTED",
+          "scope": {
+            "execution_id": "libero_goal_openvla_oft_task07_seed1003_trial003_cfafd9ddc3db",
+            "object_id": null,
+            "task_id": null,
+            "variant_id": null
+          },
+          "target": "requested_numeric_support",
+          "type": "factual_support",
+          "uncertainty": "Retrieval API does not classify factual support; raw values can be requested explicitly",
+          "verification_requirements": [
+            "descriptor_bound_source",
+            "execution_variant_identity"
+          ]
+        }
+      ],
+      "passed_noncomplete": true,
+      "query": "What evidence supports this recorded numeric value?",
+      "status": "UNSUPPORTED"
+    },
+    {
+      "obligations": [
+        {
+          "basis": {
+            "source": "request.execution_id"
+          },
+          "contract_references": [
+            "Phase5H physical/source contracts",
+            "Phase5I provenance/clock contracts",
+            "query-obligation-2.1.0"
+          ],
+          "id": "obligation:e7b30dbcdf6abf085b75aa9ecc39068e172ad5e329b41ae04996e2a412845650",
+          "mandatory": true,
+          "required_families": [],
+          "required_temporal_scope": null,
+          "resolution_status": "RESOLVED",
+          "scope": {
+            "execution_id": "libero_goal_openvla_oft_task07_seed1003_trial003_cfafd9ddc3db",
+            "object_id": null,
+            "task_id": null,
+            "variant_id": null
+          },
+          "target": "execution_id=libero_goal_openvla_oft_task07_seed1003_trial003_cfafd9ddc3db",
+          "type": "scope",
+          "uncertainty": null,
+          "verification_requirements": [
+            "descriptor_bound_source",
+            "execution_variant_identity"
+          ]
+        },
+        {
+          "basis": {
+            "source": "request.assurance"
+          },
+          "contract_references": [
+            "Phase5H physical/source contracts",
+            "Phase5I provenance/clock contracts",
+            "query-obligation-2.1.0"
+          ],
+          "id": "obligation:179f433295e2cc9188bbdf5e47f5a052d02bffb14a8eb0bd2a57dfb1278d7d56",
+          "mandatory": true,
+          "required_families": [],
+          "required_temporal_scope": null,
+          "resolution_status": "RESOLVED",
+          "scope": {
+            "execution_id": "libero_goal_openvla_oft_task07_seed1003_trial003_cfafd9ddc3db",
+            "object_id": null,
+            "task_id": null,
+            "variant_id": null
+          },
+          "target": "verified_source_values",
+          "type": "assurance",
+          "uncertainty": null,
+          "verification_requirements": [
+            "descriptor_bound_source",
+            "execution_variant_identity"
+          ]
+        },
+        {
+          "basis": {
+            "source": "original_query",
+            "span": [
+              25,
+              35
+            ],
+            "text": "timestamps"
+          },
+          "contract_references": [
+            "Phase5H physical/source contracts",
+            "Phase5I provenance/clock contracts",
+            "query-obligation-2.1.0"
+          ],
+          "id": "obligation:aaa58b78c532ee7ca4cee698537a6d3b813b2765e7095b1a5aa1d93d703ea4ed",
+          "mandatory": true,
+          "required_families": [
+            "recorded_time"
+          ],
+          "required_temporal_scope": null,
+          "resolution_status": "RESOLVED",
+          "scope": {
+            "execution_id": "libero_goal_openvla_oft_task07_seed1003_trial003_cfafd9ddc3db",
+            "object_id": null,
+            "task_id": null,
+            "variant_id": null
+          },
+          "target": "recorded_time",
+          "type": "source_family",
+          "uncertainty": null,
+          "verification_requirements": [
+            "descriptor_bound_source",
+            "execution_variant_identity"
+          ]
+        },
+        {
+          "basis": {
+            "source": "original_query",
+            "span": [
+              0,
+              36
+            ],
+            "text": "What changed between two timestamps?"
+          },
+          "contract_references": [
+            "Phase5H physical/source contracts",
+            "Phase5I provenance/clock contracts",
+            "query-obligation-2.1.0"
+          ],
+          "id": "obligation:22496731142a81f3331d1ea15dfe4fb55cb3270b5308f5af78e56da71cca1118",
+          "mandatory": true,
+          "required_families": [],
+          "required_temporal_scope": null,
+          "resolution_status": "UNSUPPORTED",
+          "scope": {
+            "execution_id": "libero_goal_openvla_oft_task07_seed1003_trial003_cfafd9ddc3db",
+            "object_id": null,
+            "task_id": null,
+            "variant_id": null
+          },
+          "target": "requested_comparison",
+          "type": "comparison",
+          "uncertainty": "No validated comparison-result contract; raw operands do not fulfill a comparison",
+          "verification_requirements": [
+            "descriptor_bound_source",
+            "execution_variant_identity"
+          ]
+        }
+      ],
+      "passed_noncomplete": true,
+      "query": "What changed between two timestamps?",
+      "status": "UNSUPPORTED"
+    },
+    {
+      "obligations": [
+        {
+          "basis": {
+            "source": "request.execution_id"
+          },
+          "contract_references": [
+            "Phase5H physical/source contracts",
+            "Phase5I provenance/clock contracts",
+            "query-obligation-2.1.0"
+          ],
+          "id": "obligation:e7b30dbcdf6abf085b75aa9ecc39068e172ad5e329b41ae04996e2a412845650",
+          "mandatory": true,
+          "required_families": [],
+          "required_temporal_scope": null,
+          "resolution_status": "RESOLVED",
+          "scope": {
+            "execution_id": "libero_goal_openvla_oft_task07_seed1003_trial003_cfafd9ddc3db",
+            "object_id": null,
+            "task_id": null,
+            "variant_id": null
+          },
+          "target": "execution_id=libero_goal_openvla_oft_task07_seed1003_trial003_cfafd9ddc3db",
+          "type": "scope",
+          "uncertainty": null,
+          "verification_requirements": [
+            "descriptor_bound_source",
+            "execution_variant_identity"
+          ]
+        },
+        {
+          "basis": {
+            "source": "request.assurance"
+          },
+          "contract_references": [
+            "Phase5H physical/source contracts",
+            "Phase5I provenance/clock contracts",
+            "query-obligation-2.1.0"
+          ],
+          "id": "obligation:179f433295e2cc9188bbdf5e47f5a052d02bffb14a8eb0bd2a57dfb1278d7d56",
+          "mandatory": true,
+          "required_families": [],
+          "required_temporal_scope": null,
+          "resolution_status": "RESOLVED",
+          "scope": {
+            "execution_id": "libero_goal_openvla_oft_task07_seed1003_trial003_cfafd9ddc3db",
+            "object_id": null,
+            "task_id": null,
+            "variant_id": null
+          },
+          "target": "verified_source_values",
+          "type": "assurance",
+          "uncertainty": null,
+          "verification_requirements": [
+            "descriptor_bound_source",
+            "execution_variant_identity"
+          ]
+        },
+        {
+          "basis": {
+            "source": "original_query",
+            "span": [
+              12,
+              19
+            ],
+            "text": "geometr"
+          },
+          "contract_references": [
+            "Phase5H physical/source contracts",
+            "Phase5I provenance/clock contracts",
+            "query-obligation-2.1.0"
+          ],
+          "id": "obligation:0be05663a4b318ffb8508a8aff231864e7ffb03ab105ec94aee04a16b4529b14",
+          "mandatory": true,
+          "required_families": [
+            "geometry_identity"
+          ],
+          "required_temporal_scope": null,
+          "resolution_status": "RESOLVED",
+          "scope": {
+            "execution_id": "libero_goal_openvla_oft_task07_seed1003_trial003_cfafd9ddc3db",
+            "object_id": null,
+            "task_id": null,
+            "variant_id": null
+          },
+          "target": "geometry_identity",
+          "type": "source_family",
+          "uncertainty": null,
+          "verification_requirements": [
+            "descriptor_bound_source",
+            "execution_variant_identity"
+          ]
+        },
+        {
+          "basis": {
+            "source": "original_query",
+            "span": [
+              0,
+              45
+            ],
+            "text": "Give me the geometry and motion measurements."
+          },
+          "contract_references": [
+            "Phase5H physical/source contracts",
+            "Phase5I provenance/clock contracts",
+            "query-obligation-2.1.0"
+          ],
+          "id": "obligation:5d3f895c305d6e0bf9754583e243d2f225a0b25ebc31eab4bf6590d3931fcdc3",
+          "mandatory": true,
+          "required_families": [],
+          "required_temporal_scope": [],
+          "resolution_status": "AMBIGUOUS",
+          "scope": {
+            "execution_id": "libero_goal_openvla_oft_task07_seed1003_trial003_cfafd9ddc3db",
+            "object_id": null,
+            "task_id": null,
+            "variant_id": null
+          },
+          "target": "unresolved_measurement",
+          "type": "measurement",
+          "uncertainty": "Measurement entity/property not uniquely bound",
+          "verification_requirements": [
+            "descriptor_bound_source",
+            "execution_variant_identity"
+          ]
+        },
+        {
+          "basis": {
+            "source": "original_query",
+            "span": [
+              0,
+              45
+            ],
+            "text": "Give me the geometry and motion measurements."
+          },
+          "contract_references": [
+            "Phase5H physical/source contracts",
+            "Phase5I provenance/clock contracts",
+            "query-obligation-2.1.0"
+          ],
+          "id": "obligation:93a842893af74270828bc777811e68cbd1d757eeecdabfd4958c08c87cf69c4f",
+          "mandatory": true,
+          "required_families": [],
+          "required_temporal_scope": null,
+          "resolution_status": "AMBIGUOUS",
+          "scope": {
+            "execution_id": "libero_goal_openvla_oft_task07_seed1003_trial003_cfafd9ddc3db",
+            "object_id": null,
+            "task_id": null,
+            "variant_id": null
+          },
+          "target": "unspecified_instant",
+          "type": "temporal_uncertainty",
+          "uncertainty": "Explicit saved-frame/action/clock scope required",
+          "verification_requirements": [
+            "descriptor_bound_source",
+            "execution_variant_identity"
+          ]
+        }
+      ],
+      "passed_noncomplete": true,
+      "query": "Give me the geometry and motion measurements.",
+      "status": "AMBIGUOUS"
+    },
+    {
+      "obligations": [
+        {
+          "basis": {
+            "source": "request.execution_id"
+          },
+          "contract_references": [
+            "Phase5H physical/source contracts",
+            "Phase5I provenance/clock contracts",
+            "query-obligation-2.1.0"
+          ],
+          "id": "obligation:e7b30dbcdf6abf085b75aa9ecc39068e172ad5e329b41ae04996e2a412845650",
+          "mandatory": true,
+          "required_families": [],
+          "required_temporal_scope": null,
+          "resolution_status": "RESOLVED",
+          "scope": {
+            "execution_id": "libero_goal_openvla_oft_task07_seed1003_trial003_cfafd9ddc3db",
+            "object_id": null,
+            "task_id": null,
+            "variant_id": null
+          },
+          "target": "execution_id=libero_goal_openvla_oft_task07_seed1003_trial003_cfafd9ddc3db",
+          "type": "scope",
+          "uncertainty": null,
+          "verification_requirements": [
+            "descriptor_bound_source",
+            "execution_variant_identity"
+          ]
+        },
+        {
+          "basis": {
+            "source": "request.assurance"
+          },
+          "contract_references": [
+            "Phase5H physical/source contracts",
+            "Phase5I provenance/clock contracts",
+            "query-obligation-2.1.0"
+          ],
+          "id": "obligation:179f433295e2cc9188bbdf5e47f5a052d02bffb14a8eb0bd2a57dfb1278d7d56",
+          "mandatory": true,
+          "required_families": [],
+          "required_temporal_scope": null,
+          "resolution_status": "RESOLVED",
+          "scope": {
+            "execution_id": "libero_goal_openvla_oft_task07_seed1003_trial003_cfafd9ddc3db",
+            "object_id": null,
+            "task_id": null,
+            "variant_id": null
+          },
+          "target": "verified_source_values",
+          "type": "assurance",
+          "uncertainty": null,
+          "verification_requirements": [
+            "descriptor_bound_source",
+            "execution_variant_identity"
+          ]
+        },
+        {
+          "basis": {
+            "source": "original_query",
+            "span": [
+              0,
+              56
+            ],
+            "text": "Which measurements are available, and which are missing?"
+          },
+          "contract_references": [
+            "Phase5H physical/source contracts",
+            "Phase5I provenance/clock contracts",
+            "query-obligation-2.1.0"
+          ],
+          "id": "obligation:1682721ca166ff67bbdd158b3178e9fff34fa58080ffcb1a9a25492940a7bcde",
+          "mandatory": true,
+          "required_families": [],
+          "required_temporal_scope": null,
+          "resolution_status": "UNSUPPORTED",
+          "scope": {
+            "execution_id": "libero_goal_openvla_oft_task07_seed1003_trial003_cfafd9ddc3db",
+            "object_id": null,
+            "task_id": null,
+            "variant_id": null
+          },
+          "target": "requested_inventory",
+          "type": "availability",
+          "uncertainty": "An unbounded available/missing inventory is not an evidence measurement",
+          "verification_requirements": [
+            "descriptor_bound_source",
+            "execution_variant_identity"
+          ]
+        }
+      ],
+      "passed_noncomplete": true,
+      "query": "Which measurements are available, and which are missing?",
+      "status": "UNSUPPORTED"
+    }
+  ],
+  "passed": true
+}
