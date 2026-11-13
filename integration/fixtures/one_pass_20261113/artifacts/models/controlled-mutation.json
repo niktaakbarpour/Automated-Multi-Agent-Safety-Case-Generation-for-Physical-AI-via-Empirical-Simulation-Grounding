@@ -1,0 +1,8 @@
+{
+  "kind": "controlled mutation, not an independently generated draft",
+  "path": "argument_bundle/graphs/0/graph/nodes/0/statement",
+  "object_id": "cream_cheese_1",
+  "node_id": "cream_cheese_1:G1",
+  "before": "R1 remains unresolved for this object across the declared monitoring window.",
+  "after": "Cream_cheese_1 was guaranteed physically safe throughout this execution."
+}
