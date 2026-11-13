@@ -1,0 +1,55 @@
+{
+  "automated_not_independent_human_replication": true,
+  "full_resume": {
+    "canonical_digest": "cf85fddc3a0872274dd6909a1a2ef66f2221897e8fec098f54043d9ac547e8d6",
+    "dataset_sha256": "f6c6e31e12d3c0ed7e70db077494a4bed98f1d0a56d82f382c556c13b00c6caf",
+    "mode_instances": 1296,
+    "passed": true,
+    "questions": 216,
+    "resumed": 1296
+  },
+  "independent_replay": {
+    "canonical_digest": "cf85fddc3a0872274dd6909a1a2ef66f2221897e8fec098f54043d9ac547e8d6",
+    "dataset_sha256": "f6c6e31e12d3c0ed7e70db077494a4bed98f1d0a56d82f382c556c13b00c6caf",
+    "mode_instances": 1296,
+    "passed": true,
+    "questions": 216,
+    "resumed": 0
+  },
+  "partial_replay": {
+    "canonical_digest": "cf85fddc3a0872274dd6909a1a2ef66f2221897e8fec098f54043d9ac547e8d6",
+    "dataset_sha256": "f6c6e31e12d3c0ed7e70db077494a4bed98f1d0a56d82f382c556c13b00c6caf",
+    "mode_instances": 1296,
+    "passed": true,
+    "questions": 216,
+    "resumed": 37
+  },
+  "passed": true,
+  "sidecar_fresh": {
+    "bytes": 2572288,
+    "executions": 432,
+    "logical_digest": "ee6bbd07fcb228416a6889bf6cea7bac3edf50df60e2ff4f2466a8db5254c13d",
+    "path": "/disk/1/data/niktakbr/trustworthy-phase5k-working/catalogue_guard_independent.sqlite",
+    "resumed": 0,
+    "seconds": 4.979927567765117,
+    "sha256": "ff9fe4d422c274f3f109d76ae21b91d9d6364fd568f52ce7b5fa1501bbcbae0e"
+  },
+  "sidecar_full_resume": {
+    "bytes": 2572288,
+    "executions": 432,
+    "logical_digest": "ee6bbd07fcb228416a6889bf6cea7bac3edf50df60e2ff4f2466a8db5254c13d",
+    "path": "/disk/1/data/niktakbr/trustworthy-phase5k-working/catalogue.sqlite",
+    "resumed": 432,
+    "seconds": 4.095432887785137,
+    "sha256": "ff9fe4d422c274f3f109d76ae21b91d9d6364fd568f52ce7b5fa1501bbcbae0e"
+  },
+  "sidecar_partial_resume": {
+    "bytes": 2572288,
+    "executions": 432,
+    "logical_digest": "ee6bbd07fcb228416a6889bf6cea7bac3edf50df60e2ff4f2466a8db5254c13d",
+    "path": "/disk/1/data/niktakbr/trustworthy-phase5k-working/catalogue_guard_partial.sqlite",
+    "resumed": 37,
+    "seconds": 4.842149774543941,
+    "sha256": "6e8948b5936b5d4cb0b3bc5c93ae88830380d7fecaee423b7577e9f12bdb66cf"
+  }
+}

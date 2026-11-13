@@ -1,0 +1,183 @@
+{
+  "detected": 28,
+  "measurement_sets": [
+    [
+      "raw.robot0_joint_pos",
+      "raw.robot0_joint_vel"
+    ],
+    [
+      "raw.robot0_joint_pos",
+      "raw.robot0_joint_vel"
+    ],
+    [
+      "raw.robot0_joint_pos",
+      "raw.robot0_joint_vel"
+    ]
+  ],
+  "metamorphic_forms": [
+    "At frame 20, joint positions and velocities.",
+    "Joint positions and velocities at frame 20.",
+    "At frame 20, velocities and positions of the arm."
+  ],
+  "mutation_trials": 28,
+  "passed": true,
+  "records": [
+    {
+      "detected": true,
+      "mutation": "remove model obligation AND plan family",
+      "question": "Arm and gripper configurations at frame 20.",
+      "removed": "raw.robot0_joint_pos"
+    },
+    {
+      "detected": true,
+      "mutation": "remove model obligation AND plan family",
+      "question": "Arm and gripper configurations at frame 20.",
+      "removed": "raw.robot0_gripper_qpos"
+    },
+    {
+      "detected": true,
+      "mutation": "scope",
+      "question": "Arm and gripper configurations at frame 20."
+    },
+    {
+      "detected": true,
+      "mutation": "temporal",
+      "question": "Arm and gripper configurations at frame 20."
+    },
+    {
+      "detected": true,
+      "mutation": "remove model obligation AND plan family",
+      "question": "Gripper state and actuator output at frame 20.",
+      "removed": "raw.robot0_gripper_qpos"
+    },
+    {
+      "detected": true,
+      "mutation": "remove model obligation AND plan family",
+      "question": "Gripper state and actuator output at frame 20.",
+      "removed": "raw.robot0_gripper_qvel"
+    },
+    {
+      "detected": true,
+      "mutation": "remove model obligation AND plan family",
+      "question": "Gripper state and actuator output at frame 20.",
+      "removed": "raw.simulator_actuator_force"
+    },
+    {
+      "detected": true,
+      "mutation": "scope",
+      "question": "Gripper state and actuator output at frame 20."
+    },
+    {
+      "detected": true,
+      "mutation": "temporal",
+      "question": "Gripper state and actuator output at frame 20."
+    },
+    {
+      "detected": true,
+      "mutation": "remove model obligation AND plan family",
+      "question": "Joint positions and velocities at simulator time 2.5.",
+      "removed": "raw.robot0_joint_pos"
+    },
+    {
+      "detected": true,
+      "mutation": "remove model obligation AND plan family",
+      "question": "Joint positions and velocities at simulator time 2.5.",
+      "removed": "raw.robot0_joint_vel"
+    },
+    {
+      "detected": true,
+      "mutation": "remove model obligation AND plan family",
+      "question": "Joint positions and velocities at simulator time 2.5.",
+      "removed": "recorded_time"
+    },
+    {
+      "detected": true,
+      "mutation": "scope",
+      "question": "Joint positions and velocities at simulator time 2.5."
+    },
+    {
+      "detected": true,
+      "mutation": "temporal",
+      "question": "Joint positions and velocities at simulator time 2.5."
+    },
+    {
+      "detected": true,
+      "mutation": "remove model obligation AND plan family",
+      "question": "Joint configurations before action 4.",
+      "removed": "raw.robot0_joint_pos"
+    },
+    {
+      "detected": true,
+      "mutation": "scope",
+      "question": "Joint configurations before action 4."
+    },
+    {
+      "detected": true,
+      "mutation": "temporal",
+      "question": "Joint configurations before action 4."
+    },
+    {
+      "detected": true,
+      "mutation": "remove model obligation AND plan family",
+      "question": "All six measurement channels at frame 20.",
+      "removed": "raw.robot0_gripper_qpos"
+    },
+    {
+      "detected": true,
+      "mutation": "remove model obligation AND plan family",
+      "question": "All six measurement channels at frame 20.",
+      "removed": "raw.robot0_gripper_qvel"
+    },
+    {
+      "detected": true,
+      "mutation": "remove model obligation AND plan family",
+      "question": "All six measurement channels at frame 20.",
+      "removed": "raw.robot0_joint_pos"
+    },
+    {
+      "detected": true,
+      "mutation": "remove model obligation AND plan family",
+      "question": "All six measurement channels at frame 20.",
+      "removed": "raw.robot0_joint_vel"
+    },
+    {
+      "detected": true,
+      "mutation": "remove model obligation AND plan family",
+      "question": "All six measurement channels at frame 20.",
+      "removed": "raw.simulator_actuator_force"
+    },
+    {
+      "detected": true,
+      "mutation": "remove model obligation AND plan family",
+      "question": "All six measurement channels at frame 20.",
+      "removed": "simulator.ncon"
+    },
+    {
+      "detected": true,
+      "mutation": "scope",
+      "question": "All six measurement channels at frame 20."
+    },
+    {
+      "detected": true,
+      "mutation": "temporal",
+      "question": "All six measurement channels at frame 20."
+    },
+    {
+      "detected": true,
+      "mutation": "remove model obligation AND plan family",
+      "question": "Give the source hash and execution metadata.",
+      "removed": "source_provenance"
+    },
+    {
+      "detected": true,
+      "mutation": "remove model obligation AND plan family",
+      "question": "Give the source hash and execution metadata.",
+      "removed": "execution_metadata"
+    },
+    {
+      "detected": true,
+      "mutation": "scope",
+      "question": "Give the source hash and execution metadata."
+    }
+  ]
+}

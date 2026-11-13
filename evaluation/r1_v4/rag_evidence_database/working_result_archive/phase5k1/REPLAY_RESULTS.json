@@ -1,0 +1,33 @@
+{
+  "catalogue_sha256": "ff9fe4d422c274f3f109d76ae21b91d9d6364fd568f52ce7b5fa1501bbcbae0e",
+  "changed_output_detected": true,
+  "database_sha256": "f6dbea047ad16c5420c34ff002e068e4ade41ab52806c936816aaf7019f303c8",
+  "exact_case_equivalence": true,
+  "fresh": {
+    "canonical_digest": "5bc4b7b58190f1395d5e925f46d5491abcd79245761e38e524ebb9089006d99e",
+    "dataset_sha256": "1332e509a5384293e8334e680193242f31482279121443231cd28bc0c80cc14f",
+    "instances": 288,
+    "passed": true,
+    "questions": 144,
+    "resumed": 0
+  },
+  "full_resume": {
+    "canonical_digest": "5bc4b7b58190f1395d5e925f46d5491abcd79245761e38e524ebb9089006d99e",
+    "dataset_sha256": "1332e509a5384293e8334e680193242f31482279121443231cd28bc0c80cc14f",
+    "instances": 288,
+    "passed": true,
+    "questions": 144,
+    "resumed": 288
+  },
+  "human_replication": false,
+  "partial_resume": {
+    "canonical_digest": "5bc4b7b58190f1395d5e925f46d5491abcd79245761e38e524ebb9089006d99e",
+    "dataset_sha256": "1332e509a5384293e8334e680193242f31482279121443231cd28bc0c80cc14f",
+    "instances": 288,
+    "passed": true,
+    "questions": 144,
+    "resumed": 37
+  },
+  "passed": true,
+  "validated_case_files": 864
+}
