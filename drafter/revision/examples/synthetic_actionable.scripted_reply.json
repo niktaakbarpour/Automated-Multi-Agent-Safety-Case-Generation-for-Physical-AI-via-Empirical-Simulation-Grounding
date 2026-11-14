@@ -1,0 +1,13 @@
+{
+  "findings": [
+    {
+      "object_id": "cream_cheese_1",
+      "node_id": "cream_cheese_1:G1",
+      "category": "C12",
+      "severity": "high",
+      "explanation": "The goal states \"Cream_cheese_1 was guaranteed physically safe throughout this execution.\" No admitted checker assessment or other evidence in the package supports a guarantee of physical safety.",
+      "evidence_ids": [],
+      "suggested_action": "Remove the guarantee and restore an unresolved R1 goal for cream_cheese_1."
+    }
+  ]
+}

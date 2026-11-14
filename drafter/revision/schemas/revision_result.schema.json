@@ -1,0 +1,386 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:trustworthy:drafter-revision-result:0.1.0",
+  "title": "Drafter revision result",
+  "description": "The result of one revision round (drafter.revision.engine.revise). It holds either a validated revised argument bundle or an explicit no-change, unresolved, rejected or failed outcome. A result never contains a physical finding of its own.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version", "revision_id", "round", "max_rounds", "test_fixture", "synthetic_findings",
+    "revision_request_sha256", "critic_request_sha256", "critic_report_sha256", "adapter", "outcome",
+    "stop_reason", "status_detail", "request_issues", "original_argument_bundle_sha256",
+    "revised_argument_bundle", "revised_argument_bundle_sha256", "recriticism", "proposal", "edits",
+    "rejected_edits", "diff", "dispositions", "carried_forward", "validators", "manual_review_decisions",
+    "metrics", "disclaimer"
+  ],
+  "properties": {
+    "schema_version": {"const": "drafter-revision-result/0.1.0"},
+    "revision_id": {"type": "string"},
+    "round": {"type": ["integer", "null"]},
+    "max_rounds": {"type": ["integer", "null"]},
+    "test_fixture": {"type": ["boolean", "null"]},
+    "synthetic_findings": {
+      "description": "Copied from the request. present: true means the Critic findings are labelled test inputs, not model results.",
+      "oneOf": [
+        {"type": "null"},
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["present", "label"],
+          "properties": {"present": {"type": "boolean"}, "label": {"type": ["string", "null"]}}
+        }
+      ]
+    },
+    "revision_request_sha256": {"$ref": "#/$defs/sha_or_null"},
+    "critic_request_sha256": {"$ref": "#/$defs/sha_or_null"},
+    "critic_report_sha256": {"$ref": "#/$defs/sha_or_null"},
+    "adapter": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "version", "kind"],
+      "properties": {
+        "name": {"type": "string", "minLength": 1},
+        "version": {"type": "string", "minLength": 1},
+        "kind": {"enum": ["deterministic", "scripted", "model"]}
+      }
+    },
+    "outcome": {"enum": ["revised", "no_change", "unresolved", "rejected_invalid_input", "failed"]},
+    "stop_reason": {
+      "description": "null only when outcome is revised: the next step is re-criticism of the revised bundle. round_limit appears on the final review request (round max_rounds + 1).",
+      "enum": [
+        null, "no_actionable_findings", "awaiting_decision", "no_justified_improvement",
+        "insufficient_evidence", "invalid_input", "repeated_unchanged_findings", "round_limit",
+        "execution_failure"
+      ]
+    },
+    "status_detail": {"type": ["string", "null"]},
+    "request_issues": {"type": "array", "items": {"type": "string"}},
+    "original_argument_bundle_sha256": {"$ref": "#/$defs/sha_or_null"},
+    "revised_argument_bundle": {
+      "description": "The revised argument bundle, in the argument_bundle format of critic-request/0.3.0. null unless outcome is revised.",
+      "type": ["object", "null"]
+    },
+    "revised_argument_bundle_sha256": {"$ref": "#/$defs/sha_or_null"},
+    "recriticism": {
+      "description": "The Critic request for the revised bundle: the reviewed request with only argument_bundle and request_id replaced. Rebuild it with drafter.revision.engine.recriticism_request.",
+      "oneOf": [
+        {"type": "null"},
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["request_id", "request_sha256"],
+          "properties": {"request_id": {"type": "string"}, "request_sha256": {"$ref": "#/$defs/sha"}}
+        }
+      ]
+    },
+    "proposal": {
+      "description": "Exactly what the adapter answered, before any check. null when the adapter was not called. verify_result replays it.",
+      "oneOf": [
+        {"type": "null"},
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["edits", "declined"],
+          "properties": {
+            "edits": {"type": "array"},
+            "declined": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["criticism_id", "reason", "note"],
+                "properties": {
+                  "criticism_id": {"type": "string"},
+                  "reason": {"enum": ["no_justified_edit", "insufficient_evidence"]},
+                  "note": {"type": "string"}
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "edits": {
+      "description": "The edits that were applied, in order. Empty unless outcome is revised.",
+      "type": "array",
+      "items": {"$ref": "#/$defs/edit"}
+    },
+    "rejected_edits": {
+      "description": "Proposed edits the host refused. One refused edit means no edit of the round is applied.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["index", "edit", "reasons"],
+        "properties": {
+          "index": {"type": "integer", "minimum": 0},
+          "edit": {},
+          "reasons": {"type": "array", "minItems": 1, "items": {"type": "string"}}
+        }
+      }
+    },
+    "diff": {
+      "description": "Node-level diff between the original and the revised bundle, computed from the two bundles alone.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "change", "object_id", "node_id", "field", "before", "after", "before_sha256", "after_sha256",
+          "edit_indexes"
+        ],
+        "properties": {
+          "change": {
+            "enum": [
+              "node_replaced", "node_added", "node_removed", "edge_added", "edge_removed",
+              "object_outcome_changed", "execution_outcome_changed", "execution_statement_changed"
+            ]
+          },
+          "object_id": {"type": ["string", "null"]},
+          "node_id": {"type": ["string", "null"]},
+          "field": {"type": ["string", "null"]},
+          "before": {"description": "The whole node, edge or value before the change; null when it did not exist."},
+          "after": {"description": "The whole node, edge or value after the change; null when it was removed."},
+          "before_sha256": {"$ref": "#/$defs/sha_or_null"},
+          "after_sha256": {"$ref": "#/$defs/sha_or_null"},
+          "edit_indexes": {
+            "description": "Indexes into edits. Each edit names its finding IDs and its justification.",
+            "type": "array",
+            "minItems": 1,
+            "items": {"type": "integer", "minimum": 0}
+          }
+        }
+      }
+    },
+    "dispositions": {
+      "description": "One entry for every criticism in the Critic report, in report order.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "criticism_id", "check_id", "category", "finding_source", "phase", "blocking", "target",
+          "classification", "disposition", "reason", "edit_indexes", "verified_by_rules",
+          "additional_evidence_needed", "human_review_required", "decision", "note"
+        ],
+        "properties": {
+          "criticism_id": {"type": "string", "pattern": "^CRIT-[0-9]{3}$"},
+          "check_id": {"type": "string"},
+          "category": {"type": "string"},
+          "finding_source": {"enum": ["deterministic", "evidence_grounded", "llm_proposed"]},
+          "phase": {"enum": ["validation", "review"]},
+          "blocking": {"type": "boolean"},
+          "target": {
+            "oneOf": [
+              {"type": "null"},
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["kind", "object_id", "node_id"],
+                "properties": {
+                  "kind": {"enum": ["node", "object", "execution"]},
+                  "object_id": {"type": ["string", "null"]},
+                  "node_id": {"type": ["string", "null"]}
+                }
+              }
+            ]
+          },
+          "classification": {
+            "enum": [
+              "actionable", "actionable_link_repair", "needs_human_decision", "declined",
+              "not_actionable_validation_phase", "not_actionable_target_missing",
+              "not_actionable_unknown_evidence", "not_actionable_report_unusable"
+            ]
+          },
+          "disposition": {
+            "description": "edited: an applied, validated edit cites this finding. unresolved: it was actionable and nothing was changed for it. not_actionable: see classification.",
+            "enum": ["edited", "unresolved", "not_actionable"]
+          },
+          "reason": {"type": ["string", "null"]},
+          "edit_indexes": {"type": "array", "items": {"type": "integer", "minimum": 0}},
+          "verified_by_rules": {
+            "description": "true: a rule finding that no longer appears when the Critic rules run on the revised bundle. null: a model-proposed finding, or nothing was edited; only a new Critic review can say more.",
+            "type": ["boolean", "null"]
+          },
+          "additional_evidence_needed": {"type": "boolean"},
+          "human_review_required": {"type": "boolean"},
+          "decision": {"type": ["object", "null"]},
+          "note": {"type": ["string", "null"]}
+        }
+      }
+    },
+    "carried_forward": {
+      "description": "Parts of the Critic report a revision never turns into edits. They stay open.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["rejected_candidates", "evidence_requests", "unresolved_concerns"],
+      "properties": {
+        "rejected_candidates": {"type": "array", "items": {"type": "object"}},
+        "evidence_requests": {"type": "array", "items": {"type": "object"}},
+        "unresolved_concerns": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "validators": {
+      "description": "Every check that ran, in order. A failed check means nothing was applied.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["name", "status", "issues", "note"],
+        "properties": {
+          "name": {
+            "enum": [
+              "request_contract", "frozen_inputs", "diff_rules", "critic_input_checks",
+              "no_new_rule_findings", "cited_rule_findings_cleared", "shared_gsn_validator",
+              "drafter_structure_rules"
+            ]
+          },
+          "status": {"enum": ["passed", "failed"]},
+          "issues": {"type": "array", "items": {"type": "string"}},
+          "note": {"type": ["string", "null"]}
+        }
+      }
+    },
+    "manual_review_decisions": {
+      "description": "The finding_decisions of the request, unchanged.",
+      "type": "array",
+      "items": {"type": "object"}
+    },
+    "metrics": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "graphs_valid", "nodes_changed", "nodes_added", "nodes_removed", "edges_added", "edges_removed",
+        "object_outcomes_changed", "evidence_links_removed", "evidence_links_added", "findings_total",
+        "findings_addressed", "findings_remaining", "findings_awaiting_decision", "rejected_candidates",
+        "evidence_requests", "unresolved_concerns", "new_rule_findings", "edits_applied", "edits_rejected",
+        "manual_review_decisions", "iteration"
+      ],
+      "properties": {
+        "graphs_valid": {
+          "description": "Result of the shared gsn.Graph.validate on the edited bundle; null when no bundle was edited.",
+          "type": ["boolean", "null"]
+        },
+        "nodes_changed": {"type": "integer", "minimum": 0},
+        "nodes_added": {"type": "integer", "minimum": 0},
+        "nodes_removed": {"type": "integer", "minimum": 0},
+        "edges_added": {"type": "integer", "minimum": 0},
+        "edges_removed": {"type": "integer", "minimum": 0},
+        "object_outcomes_changed": {"type": "integer", "minimum": 0},
+        "evidence_links_removed": {"type": "integer", "minimum": 0},
+        "evidence_links_added": {"const": 0},
+        "findings_total": {"type": "integer", "minimum": 0},
+        "findings_addressed": {"type": "integer", "minimum": 0},
+        "findings_remaining": {"type": "integer", "minimum": 0},
+        "findings_awaiting_decision": {"type": "integer", "minimum": 0},
+        "rejected_candidates": {"type": "integer", "minimum": 0},
+        "evidence_requests": {"type": "integer", "minimum": 0},
+        "unresolved_concerns": {"type": "integer", "minimum": 0},
+        "new_rule_findings": {
+          "description": "Rule findings the edited bundle has and the original did not. Any makes the round fail.",
+          "type": "integer",
+          "minimum": 0
+        },
+        "edits_applied": {"type": "integer", "minimum": 0},
+        "edits_rejected": {"type": "integer", "minimum": 0},
+        "manual_review_decisions": {"type": "integer", "minimum": 0},
+        "iteration": {"type": ["integer", "null"]}
+      }
+    },
+    "disclaimer": {"type": "string"}
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"outcome": {"const": "revised"}}},
+      "then": {
+        "properties": {
+          "stop_reason": {"type": "null"},
+          "revised_argument_bundle": {"type": "object"},
+          "revised_argument_bundle_sha256": {"$ref": "#/$defs/sha"},
+          "recriticism": {"type": "object"},
+          "edits": {"minItems": 1},
+          "diff": {"minItems": 1}
+        }
+      },
+      "else": {
+        "properties": {
+          "stop_reason": {"type": "string"},
+          "revised_argument_bundle": {"type": "null"},
+          "revised_argument_bundle_sha256": {"type": "null"},
+          "recriticism": {"type": "null"},
+          "edits": {"maxItems": 0},
+          "diff": {"maxItems": 0}
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "sha": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "sha_or_null": {"type": ["string", "null"], "pattern": "^[0-9a-f]{64}$"},
+    "edit": {
+      "description": "One edit an adapter may propose. The host writes nodes, provenance and the execution conclusion itself; an edit cannot carry them.",
+      "type": "object",
+      "required": ["op", "finding_ids", "justification"],
+      "properties": {
+        "op": {
+          "enum": [
+            "replace_statement", "add_unresolved_claim", "remove_solution", "set_object_outcome",
+            "recompute_execution_outcome"
+          ]
+        },
+        "finding_ids": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {"type": "string", "pattern": "^CRIT-[0-9]{3}$"}
+        },
+        "justification": {"type": "string", "minLength": 8}
+      },
+      "oneOf": [
+        {
+          "additionalProperties": false,
+          "required": ["object_id", "node_id", "statement"],
+          "properties": {
+            "op": {"const": "replace_statement"}, "finding_ids": {}, "justification": {},
+            "object_id": {"type": "string"}, "node_id": {"type": "string"}, "statement": {"type": "string"}
+          }
+        },
+        {
+          "additionalProperties": false,
+          "required": ["object_id", "parent_node_id", "statement"],
+          "properties": {
+            "op": {"const": "add_unresolved_claim"}, "finding_ids": {}, "justification": {},
+            "object_id": {"type": "string"}, "parent_node_id": {"type": "string"},
+            "statement": {"type": "string"}
+          }
+        },
+        {
+          "additionalProperties": false,
+          "required": ["object_id", "node_id"],
+          "properties": {
+            "op": {"const": "remove_solution"}, "finding_ids": {}, "justification": {},
+            "object_id": {"type": "string"}, "node_id": {"type": "string"}
+          }
+        },
+        {
+          "additionalProperties": false,
+          "required": ["object_id", "outcome"],
+          "properties": {
+            "op": {"const": "set_object_outcome"}, "finding_ids": {}, "justification": {},
+            "object_id": {"type": "string"},
+            "outcome": {
+              "enum": [
+                "violation_observed", "no_violation_observed_within_validated_coverage", "not_applicable",
+                "insufficient_information", "invalid_measurement_contract"
+              ]
+            }
+          }
+        },
+        {
+          "additionalProperties": false,
+          "properties": {"op": {"const": "recompute_execution_outcome"}, "finding_ids": {}, "justification": {}}
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,172 @@
+{
+  "schema_version": "critic-report/0.4.0",
+  "critic_version": "0.4.0",
+  "request_id": "b8dbf1f3-c590-4cdd-8527-1526fdb597d9:critic",
+  "execution_id": "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db",
+  "test_fixture": true,
+  "review_status": "completed",
+  "input_valid": true,
+  "status_detail": null,
+  "llm": {
+    "backend": "scripted",
+    "model": "synthetic-scripted-rejected",
+    "prompt_version": "critic-prompt/v5",
+    "called": true,
+    "ok": true,
+    "latency_s": 0.002,
+    "error": null,
+    "prompt_sha256": "6e93b4c00e4fc042e281c319b44c798e9b43bc77b82aa366d5edd181ece7ede2",
+    "input_sha256": "40eddca2dda54eb4d2651e01cc1a779f6caa396c38c206c1e1f2e68f67d5cfa6",
+    "request_sha256": "34f6f8f003a0ab57b5e5a221bf9f6b4dc8c8a678d0d317978598f20a10f7a95e",
+    "settings": {
+      "scripted_reply_sha256": "e4c6d3cf1f2785591b57453e662992cde8ec753a0c6412b08f4631ac14daef1b"
+    },
+    "raw_response": "{\"findings\": [{\"object_id\": \"ketchup_1\", \"node_id\": \"ketchup_1:G9\", \"category\": \"C10\", \"severity\": \"low\", \"explanation\": \"Goal ketchup_1:G9 generalizes beyond the monitored window.\", \"evidence_ids\": [], \"suggested_action\": \"Narrow the goal to the monitored window.\"}, {\"object_id\": \"milk_1\", \"node_id\": \"milk_1:S1\", \"category\": \"C05\", \"severity\": \"medium\", \"explanation\": \"The strategy infers support from a contact record.\", \"evidence_ids\": [\"ev:0000000000000000000000000000000000000000000000000000000000000000\"], \"suggested_action\": \"Remove the support inference.\"}, {\"object_id\": \"butter_1\", \"node_id\": \"butter_1:U1\", \"category\": \"C09\", \"severity\": \"medium\", \"explanation\": \"The unresolved claim may understate the remaining uncertainty about initial support.\", \"evidence_ids\": [], \"suggested_action\": \"State the remaining uncertainty explicitly.\"}, {\"object_id\": \"orange_juice_1\", \"node_id\": \"orange_juice_1:C1\", \"category\": \"C02\", \"severity\": \"medium\", \"explanation\": \"The context cites no registry record.\", \"evidence_ids\": [], \"suggested_action\": \"Cite a registry record.\"}]}",
+    "raw_response_truncated": false,
+    "response_sha256": "e4c6d3cf1f2785591b57453e662992cde8ec753a0c6412b08f4631ac14daef1b",
+    "response": null,
+    "accepted": 0,
+    "rejected": 4
+  },
+  "checker_admission": [],
+  "structured_retrieval": [
+    {
+      "index": 0,
+      "accepted": true,
+      "query_id": "query:0867d300d28ad5dfa25b7edd973083be9a2b3f1ab2d7b7225de9610b52be902e",
+      "request_sha256": "0867d300d28ad5dfa25b7edd973083be9a2b3f1ab2d7b7225de9610b52be902e",
+      "bundle_sha256": "0b55cc48598c3890f0a66f3bd6c1d9c1be36509110a6df54fde67adaa4d33c0a",
+      "completeness_status": "COMPLETE WITHIN VERIFIED CONTRACT",
+      "reason": "All mandatory explicit obligations fulfilled",
+      "citations": [
+        {
+          "citation_id": "evidence-citation:5f05c562285ad77c6da233d1a2b13ab28d5946b775262746a463a0fd7ff9aec5",
+          "family": "raw.robot0_joint_pos",
+          "record_id": "channel:19803e4a3fa40781d5c512d197a435b12254e00e9e4c57e09f97b1008a5cfaae",
+          "original_evidence_ids": [
+            "channel:19803e4a3fa40781d5c512d197a435b12254e00e9e4c57e09f97b1008a5cfaae"
+          ],
+          "integrity_status": "verified_source",
+          "origin": "direct_recording"
+        },
+        {
+          "citation_id": "evidence-citation:f03ab92f9a8f1ec2c862ba4c447ff518f3a1ebe60d33b30f6ef1defd82b41a1d",
+          "family": "geometry_identity",
+          "record_id": "source-ref:43f97022cb7fb8cbb9458a463a71853d5cfd4f72fb3e02bc8d6ff86921148c4c",
+          "original_evidence_ids": [
+            "ev:7126edc433d57ab614d55a8f16215a2a0dde90b8168fab5a5a41423df7e09ceb"
+          ],
+          "integrity_status": "verified_source",
+          "origin": "recorded_metadata_or_existing_derived_identity"
+        }
+      ],
+      "missing_obligations": [],
+      "conditional_assumptions": [],
+      "assurance_status": {
+        "requested": "verified_source_values",
+        "satisfied": true,
+        "verification_mode": "verified_session",
+        "returned_values_verified": true,
+        "historical_runtime_attested": false,
+        "provenance": {
+          "scope": "current_source_identity_only",
+          "historical_runtime_attested": false
+        }
+      },
+      "limitations": [
+        "Completeness covers mandatory explicit obligations only, never safety-claim sufficiency",
+        "Saved-index/recorded-label association is not sensor synchronization",
+        "Metadata/geometry/counts do not establish support/contact/falling",
+        "Historical binary identity and physical calibration remain unattested"
+      ],
+      "linked_solutions": []
+    }
+  ],
+  "criticisms": [],
+  "evidence_requests": [],
+  "unresolved_concerns": [
+    "No admitted checker assessment (0 supplied, 0 admitted). Treated as unavailable, not as \"no violation\"; violation, no-violation and non-applicability outcomes cannot be established from this package.",
+    "Retrieval reports that the evidence package is incomplete for the requested scope.",
+    "Structured retrieval completeness covers only the explicit mandatory obligations of each request, not complete R1 observations or the sufficiency of any claim. The Critic checked the bundles for consistency and recomputed their hashes, but could not open the database or the sources to authenticate them. Retrieved items are recorded source references, not physical events.",
+    "This request contains synthetic test data; its results are not empirical findings.",
+    "C09_UNRESOLVED: the draft concludes insufficient_information, but this does not establish that its prose preserves uncertainty. The objection does not quote the complete targeted statement; retained as an unresolved concern for human review, not accepted as an established criticism. Objection: The unresolved claim may understate the remaining uncertainty about initial support."
+  ],
+  "rejected_llm_findings": [
+    {
+      "reason": "node 'ketchup_1:G9' does not exist in the cited graph",
+      "finding": {
+        "object_id": "ketchup_1",
+        "node_id": "ketchup_1:G9",
+        "category": "C10",
+        "severity": "low",
+        "explanation": "Goal ketchup_1:G9 generalizes beyond the monitored window.",
+        "evidence_ids": [],
+        "suggested_action": "Narrow the goal to the monitored window."
+      }
+    },
+    {
+      "reason": "cites evidence IDs that are not in the package (possible invention)",
+      "finding": {
+        "object_id": "milk_1",
+        "node_id": "milk_1:S1",
+        "category": "C05",
+        "severity": "medium",
+        "explanation": "The strategy infers support from a contact record.",
+        "evidence_ids": [
+          "ev:0000000000000000000000000000000000000000000000000000000000000000"
+        ],
+        "suggested_action": "Remove the support inference."
+      }
+    },
+    {
+      "reason": "C09_UNRESOLVED: the draft concludes insufficient_information, but this does not establish that its prose preserves uncertainty. The objection does not quote the complete targeted statement; retained as an unresolved concern for human review, not accepted as an established criticism.",
+      "finding": {
+        "object_id": "butter_1",
+        "node_id": "butter_1:U1",
+        "category": "C09",
+        "severity": "medium",
+        "explanation": "The unresolved claim may understate the remaining uncertainty about initial support.",
+        "evidence_ids": [],
+        "suggested_action": "State the remaining uncertainty explicitly."
+      }
+    },
+    {
+      "reason": "category C02 is decided by the rule-based checks only",
+      "finding": {
+        "object_id": "orange_juice_1",
+        "node_id": "orange_juice_1:C1",
+        "category": "C02",
+        "severity": "medium",
+        "explanation": "The context cites no registry record.",
+        "evidence_ids": [],
+        "suggested_action": "Cite a registry record."
+      }
+    }
+  ],
+  "summary": {
+    "objects_configured": [
+      "cream_cheese_1",
+      "ketchup_1",
+      "orange_juice_1",
+      "milk_1",
+      "butter_1"
+    ],
+    "objects_with_graphs": [
+      "cream_cheese_1",
+      "ketchup_1",
+      "orange_juice_1",
+      "milk_1",
+      "butter_1"
+    ],
+    "objects_missing": [],
+    "claimed_execution_outcome": "insufficient_information",
+    "recomputed_execution_outcome": "insufficient_information",
+    "accepted_execution_outcome": "insufficient_information",
+    "empty_scope": false,
+    "counts_by_source": {},
+    "counts_by_category": {},
+    "blocking_defects": false,
+    "needs_human_review": [],
+    "disclaimer": "A report with no blocking findings means only that this Critic found no issue within the supplied evidence and review scope. It does not show that R1 holds or that the robot was physically safe."
+  }
+}

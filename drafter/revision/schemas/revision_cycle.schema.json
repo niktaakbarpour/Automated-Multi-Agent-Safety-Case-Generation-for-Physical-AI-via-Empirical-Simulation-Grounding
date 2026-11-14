@@ -1,0 +1,99 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:trustworthy:drafter-revision-cycle:0.1.0",
+  "title": "Drafter revision cycle summary",
+  "description": "Summary of a bounded revision cycle (drafter.revision.engine.run_cycle): which rounds ran, why the cycle stopped and what is still open. The round requests, results and Critic reports are separate objects, bound to this summary by their digests.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version", "revision_id", "test_fixture", "synthetic_findings", "max_rounds", "revision_rounds",
+    "stop_reason", "status_detail", "final_outcome", "initial_argument_bundle_sha256",
+    "final_argument_bundle_sha256", "rounds", "final_review", "disclaimer"
+  ],
+  "properties": {
+    "schema_version": {"const": "drafter-revision-cycle/0.1.0"},
+    "revision_id": {"type": "string"},
+    "test_fixture": {"type": ["boolean", "null"]},
+    "synthetic_findings": {"type": ["object", "null"]},
+    "max_rounds": {"type": ["integer", "null"]},
+    "revision_rounds": {
+      "description": "Rounds that produced a validated revised bundle. Never more than max_rounds.",
+      "type": "integer",
+      "minimum": 0
+    },
+    "stop_reason": {
+      "enum": [
+        "no_actionable_findings", "awaiting_decision", "no_justified_improvement", "insufficient_evidence",
+        "invalid_input", "repeated_unchanged_findings", "round_limit", "execution_failure"
+      ]
+    },
+    "status_detail": {"type": ["string", "null"]},
+    "final_outcome": {
+      "description": "revised when at least one round revised the bundle; otherwise the outcome of the only result.",
+      "enum": ["revised", "no_change", "unresolved", "rejected_invalid_input", "failed"]
+    },
+    "initial_argument_bundle_sha256": {"$ref": "#/$defs/sha_or_null"},
+    "final_argument_bundle_sha256": {
+      "description": "Digest of the last revised bundle, or of the initial bundle when no round revised it.",
+      "$ref": "#/$defs/sha_or_null"
+    },
+    "rounds": {
+      "description": "One entry per revision request, in order. The last entry is the request the cycle stopped on.",
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "round", "critic_backend", "revision_request_sha256", "critic_request_sha256", "critic_report_sha256",
+          "result_sha256", "outcome", "stop_reason", "edits_applied", "edited_findings", "open_findings",
+          "revised_argument_bundle_sha256", "recriticism_request_sha256", "recriticism_report_sha256"
+        ],
+        "properties": {
+          "round": {"type": ["integer", "null"]},
+          "critic_backend": {
+            "description": "llm.backend of the Critic report this request embeds. none means rule checks only: such a report cannot raise or clear a model-proposed finding.",
+            "type": ["string", "null"]
+          },
+          "revision_request_sha256": {"$ref": "#/$defs/sha_or_null"},
+          "critic_request_sha256": {"$ref": "#/$defs/sha_or_null"},
+          "critic_report_sha256": {"$ref": "#/$defs/sha_or_null"},
+          "result_sha256": {"$ref": "#/$defs/sha"},
+          "outcome": {"enum": ["revised", "no_change", "unresolved", "rejected_invalid_input", "failed"]},
+          "stop_reason": {"type": ["string", "null"]},
+          "edits_applied": {"type": "integer", "minimum": 0},
+          "edited_findings": {"type": "array", "items": {"type": "string"}},
+          "open_findings": {"type": "array", "items": {"type": "string"}},
+          "revised_argument_bundle_sha256": {"$ref": "#/$defs/sha_or_null"},
+          "recriticism_request_sha256": {"$ref": "#/$defs/sha_or_null"},
+          "recriticism_report_sha256": {"$ref": "#/$defs/sha_or_null"}
+        }
+      }
+    },
+    "final_review": {
+      "description": "What the last Critic report in the cycle leaves open. Criticism IDs are positions in that report.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "critic_request_sha256", "critic_report_sha256", "critic_backend", "reviewed_final_bundle",
+        "open_findings", "carried_forward"
+      ],
+      "properties": {
+        "critic_backend": {"type": ["string", "null"]},
+        "critic_request_sha256": {"$ref": "#/$defs/sha_or_null"},
+        "critic_report_sha256": {"$ref": "#/$defs/sha_or_null"},
+        "reviewed_final_bundle": {
+          "description": "false only when re-criticism of the last revised bundle failed, so that bundle has no Critic report.",
+          "type": "boolean"
+        },
+        "open_findings": {"type": "array", "items": {"type": "object"}},
+        "carried_forward": {"type": "object"}
+      }
+    },
+    "disclaimer": {"type": "string"}
+  },
+  "$defs": {
+    "sha": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "sha_or_null": {"type": ["string", "null"], "pattern": "^[0-9a-f]{64}$"}
+  }
+}
