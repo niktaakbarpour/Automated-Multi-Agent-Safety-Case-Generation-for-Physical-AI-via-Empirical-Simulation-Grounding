@@ -1,0 +1,253 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:trustworthy:drafter-revision-request:0.1.0",
+  "title": "Drafter revision request",
+  "description": "Wraps one unchanged Critic request and the unchanged Critic report for it. The embedded objects are validated by the Critic's own contracts (critic.checks.run_all and critic/schemas/critic_report.schema.json), not by this schema. Cross-field bindings are checked by drafter.revision.contract.request_issues.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "revision_id",
+    "test_fixture",
+    "synthetic_findings",
+    "round",
+    "max_rounds",
+    "critic_request",
+    "critic_request_sha256",
+    "critic_report",
+    "critic_report_sha256",
+    "finding_decisions",
+    "history"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "drafter-revision-request/0.1.0"
+    },
+    "revision_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200
+    },
+    "test_fixture": {
+      "type": "boolean",
+      "description": "Must equal critic_request.test_fixture."
+    },
+    "synthetic_findings": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "present",
+        "label"
+      ],
+      "properties": {
+        "present": {
+          "type": "boolean",
+          "description": "true when the Critic report did not come from a real model or rule run on real input, for example a scripted reply written for a test."
+        },
+        "label": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "minLength": 1
+        }
+      },
+      "if": {
+        "properties": {
+          "present": {
+            "const": true
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "label": {
+            "type": "string"
+          }
+        }
+      },
+      "else": {
+        "properties": {
+          "label": {
+            "type": "null"
+          }
+        }
+      }
+    },
+    "round": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "1-based. Round max_rounds + 1 is the final review of the last revised bundle: its findings are reported and no edit is made."
+    },
+    "max_rounds": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 10
+    },
+    "critic_request": {
+      "type": "object",
+      "description": "The exact critic-request/0.3.0 object that was reviewed, unchanged."
+    },
+    "critic_request_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "critic_report": {
+      "type": "object",
+      "description": "The exact critic-report/0.4.0 object returned for critic_request, unchanged."
+    },
+    "critic_report_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "finding_decisions": {
+      "type": "array",
+      "description": "Explicit decisions on criticisms that cannot be acted on automatically. A criticism with no decision here keeps its default status.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "criticism_id",
+          "decision",
+          "decided_by",
+          "reviewer",
+          "note"
+        ],
+        "properties": {
+          "criticism_id": {
+            "type": "string",
+            "pattern": "^CRIT-[0-9]{3}$"
+          },
+          "decision": {
+            "enum": [
+              "approved",
+              "declined"
+            ]
+          },
+          "decided_by": {
+            "enum": [
+              "human_review",
+              "synthetic_test_label"
+            ],
+            "description": "synthetic_test_label is allowed only when synthetic_findings.present is true. It is a test label, never a scientific approval."
+          },
+          "reviewer": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "note": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "history": {
+      "type": "array",
+      "description": "Earlier rounds of this revision, oldest first. Empty in round 1. Each item is the history record of that round's result; recriticism_request_sha256 must equal the critic_request_sha256 of the next round.",
+      "items": {
+        "$ref": "#/$defs/history_item"
+      }
+    },
+    "repair_invalid_evidence_links": {
+      "type": "boolean",
+      "description": "Optional, default false. When true, and broken Solution citations (the check IDs in drafter.revision.contract.LINK_REPAIR_CHECKS) are the only reason the Critic rejected the input, a revision may remove those citations. It never adds or re-points one."
+    }
+  },
+  "$defs": {
+    "history_item": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "round",
+        "revision_id",
+        "revision_request_sha256",
+        "critic_request_sha256",
+        "critic_report_sha256",
+        "result_sha256",
+        "original_argument_bundle_sha256",
+        "revised_argument_bundle_sha256",
+        "recriticism_request_sha256",
+        "addressed"
+      ],
+      "properties": {
+        "round": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "revision_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "revision_request_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "critic_request_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "critic_report_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "result_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "original_argument_bundle_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "revised_argument_bundle_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "recriticism_request_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "addressed": {
+          "type": "array",
+          "description": "Findings an applied edit cited in that round. A later report that raises the same check, category, object and node again stops the revision.",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "criticism_id",
+              "check_id",
+              "category",
+              "object_id",
+              "node_id"
+            ],
+            "properties": {
+              "criticism_id": {
+                "type": "string",
+                "pattern": "^CRIT-[0-9]{3}$"
+              },
+              "check_id": {
+                "type": "string"
+              },
+              "category": {
+                "type": "string"
+              },
+              "object_id": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "node_id": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

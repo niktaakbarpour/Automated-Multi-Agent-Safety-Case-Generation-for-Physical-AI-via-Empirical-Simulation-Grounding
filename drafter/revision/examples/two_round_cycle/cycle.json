@@ -1,0 +1,88 @@
+{
+  "schema_version": "drafter-revision-cycle/0.1.0",
+  "revision_id": "example:synthetic-actionable-c12",
+  "test_fixture": true,
+  "synthetic_findings": {
+    "present": true,
+    "label": "Synthetic test input: the Critic report was produced by critic.review with a scripted reply written for this test. It is not a model result and not a scientific finding."
+  },
+  "max_rounds": 2,
+  "revision_rounds": 2,
+  "stop_reason": "no_actionable_findings",
+  "status_detail": "The Critic report has no criticism. Nothing was changed. 0 rejected candidate(s) and 4 unresolved concern(s) stay open.",
+  "final_outcome": "revised",
+  "initial_argument_bundle_sha256": "6fb5471a27fdef29707b9a8beda321f7258723ca66a8c0c871af01fce0405bc5",
+  "final_argument_bundle_sha256": "98035d14d26b644d64dd29261396b0421d303fc34112a4e655e5be3099cf0231",
+  "rounds": [
+    {
+      "round": 1,
+      "critic_backend": "scripted",
+      "revision_request_sha256": "7729f9ec4cc06be8808f380c6c1fe7dea99d5a2d5ad5a6e8d608fa061c99da53",
+      "critic_request_sha256": "4c06acd245b5039902331af35aae8f48a9c615026f7dea09eba3f79c63e68b3f",
+      "critic_report_sha256": "432b41afbc871d66d042cc765a0f3b14e4e3a64dae6f0250696f71b990e089f5",
+      "result_sha256": "6c7115f1c6c674782f0c0960746ae13bc916fa35e5c3e54dd8c504f4780923e8",
+      "outcome": "revised",
+      "stop_reason": null,
+      "edits_applied": 1,
+      "edited_findings": [
+        "CRIT-001"
+      ],
+      "open_findings": [],
+      "revised_argument_bundle_sha256": "1057523efc46b7b5e4ba9ec95db77d1e6c4c3b0c16e83fcbcbde3847cba325a4",
+      "recriticism_request_sha256": "eadbdea3b9cfe2b23f51a957edb9c62a072575498dcd006e8b053c829879a7f0",
+      "recriticism_report_sha256": "e6f1d3086f7ee85fea0a95c4a8ba9e245a0ab59846e74d6e3e7d7909ca00c80d"
+    },
+    {
+      "round": 2,
+      "critic_backend": "scripted",
+      "revision_request_sha256": "a31a8ea65c96396c7ba470054dcaa5fa671fcc0cd6570f8c0452673cd79dd318",
+      "critic_request_sha256": "eadbdea3b9cfe2b23f51a957edb9c62a072575498dcd006e8b053c829879a7f0",
+      "critic_report_sha256": "e6f1d3086f7ee85fea0a95c4a8ba9e245a0ab59846e74d6e3e7d7909ca00c80d",
+      "result_sha256": "cb62a0811a36088e41f1e578b15e1c831311f22d596b816703d115f3401c1aa2",
+      "outcome": "revised",
+      "stop_reason": null,
+      "edits_applied": 1,
+      "edited_findings": [
+        "CRIT-001"
+      ],
+      "open_findings": [],
+      "revised_argument_bundle_sha256": "98035d14d26b644d64dd29261396b0421d303fc34112a4e655e5be3099cf0231",
+      "recriticism_request_sha256": "b6ac728f151f51bc12c25912c330a3e9d1a1fc23a07775ed3c917fa0cc1b88c2",
+      "recriticism_report_sha256": "687c42283d1738aa8301dee7af2f78d57fde4c41712c10d60ab41838e6bfd602"
+    },
+    {
+      "round": 3,
+      "critic_backend": "scripted",
+      "revision_request_sha256": "a0e0ba52987af7b8d0ae722d12f0a90ca361b52fa53729e996266016e797d023",
+      "critic_request_sha256": "b6ac728f151f51bc12c25912c330a3e9d1a1fc23a07775ed3c917fa0cc1b88c2",
+      "critic_report_sha256": "687c42283d1738aa8301dee7af2f78d57fde4c41712c10d60ab41838e6bfd602",
+      "result_sha256": "a8a62eb2963cd2fd1b16852cf5c0fff73482d69a63d2dc0170ebbe27fd0dabef",
+      "outcome": "no_change",
+      "stop_reason": "no_actionable_findings",
+      "edits_applied": 0,
+      "edited_findings": [],
+      "open_findings": [],
+      "revised_argument_bundle_sha256": null,
+      "recriticism_request_sha256": null,
+      "recriticism_report_sha256": null
+    }
+  ],
+  "final_review": {
+    "critic_request_sha256": "b6ac728f151f51bc12c25912c330a3e9d1a1fc23a07775ed3c917fa0cc1b88c2",
+    "critic_report_sha256": "687c42283d1738aa8301dee7af2f78d57fde4c41712c10d60ab41838e6bfd602",
+    "critic_backend": "scripted",
+    "open_findings": [],
+    "carried_forward": {
+      "rejected_candidates": [],
+      "evidence_requests": [],
+      "unresolved_concerns": [
+        "No admitted checker assessment (0 supplied, 0 admitted). Treated as unavailable, not as \"no violation\"; violation, no-violation and non-applicability outcomes cannot be established from this package.",
+        "Retrieval reports that the evidence package is incomplete for the requested scope.",
+        "Structured retrieval completeness covers only the explicit mandatory obligations of each request, not complete R1 observations or the sufficiency of any claim. The Critic checked the bundles for consistency and recomputed their hashes, but could not open the database or the sources to authenticate them. Retrieved items are recorded source references, not physical events.",
+        "This request contains synthetic test data; its results are not empirical findings."
+      ]
+    },
+    "reviewed_final_bundle": true
+  },
+  "disclaimer": "A revision changes the wording and structure of an argument. It does not observe the execution and makes no physical finding. \"No change\" and \"no remaining finding\" mean only that no actionable Critic finding was left; they do not show that R1 holds or that the robot was physically safe."
+}

@@ -1,0 +1,75 @@
+{
+  "schema_version": "drafter-revision-result/0.1.0",
+  "revision_id": "example:saved-qwen-zero-finding",
+  "round": 1,
+  "max_rounds": 2,
+  "test_fixture": true,
+  "synthetic_findings": {
+    "present": false,
+    "label": null
+  },
+  "revision_request_sha256": "571bfcfc76f1d36d41e43c43ab68f3aaec147fb43454cf30bd0e3456eae16418",
+  "critic_request_sha256": "34f6f8f003a0ab57b5e5a221bf9f6b4dc8c8a678d0d317978598f20a10f7a95e",
+  "critic_report_sha256": "c433839250614091150e275ca2f7010638397a5281252dea50bd9d8db1d5cd2f",
+  "adapter": {
+    "name": "deterministic-templates",
+    "version": "0.1.0",
+    "kind": "deterministic"
+  },
+  "outcome": "no_change",
+  "stop_reason": "no_actionable_findings",
+  "status_detail": "The Critic report has no criticism. Nothing was changed. 0 rejected candidate(s) and 4 unresolved concern(s) stay open.",
+  "request_issues": [],
+  "original_argument_bundle_sha256": "b22e2b7fdf7ef21aaf8332af0c078434366a81eb6eadc473b1781eacad02d222",
+  "revised_argument_bundle": null,
+  "revised_argument_bundle_sha256": null,
+  "recriticism": null,
+  "proposal": null,
+  "edits": [],
+  "rejected_edits": [],
+  "diff": [],
+  "dispositions": [],
+  "carried_forward": {
+    "rejected_candidates": [],
+    "evidence_requests": [],
+    "unresolved_concerns": [
+      "No admitted checker assessment (0 supplied, 0 admitted). Treated as unavailable, not as \"no violation\"; violation, no-violation and non-applicability outcomes cannot be established from this package.",
+      "Retrieval reports that the evidence package is incomplete for the requested scope.",
+      "Structured retrieval completeness covers only the explicit mandatory obligations of each request, not complete R1 observations or the sufficiency of any claim. The Critic checked the bundles for consistency and recomputed their hashes, but could not open the database or the sources to authenticate them. Retrieved items are recorded source references, not physical events.",
+      "This request contains synthetic test data; its results are not empirical findings."
+    ]
+  },
+  "validators": [
+    {
+      "name": "request_contract",
+      "status": "passed",
+      "issues": [],
+      "note": null
+    }
+  ],
+  "manual_review_decisions": [],
+  "metrics": {
+    "graphs_valid": null,
+    "nodes_changed": 0,
+    "nodes_added": 0,
+    "nodes_removed": 0,
+    "edges_added": 0,
+    "edges_removed": 0,
+    "object_outcomes_changed": 0,
+    "evidence_links_removed": 0,
+    "evidence_links_added": 0,
+    "findings_total": 0,
+    "findings_addressed": 0,
+    "findings_remaining": 0,
+    "findings_awaiting_decision": 0,
+    "rejected_candidates": 0,
+    "evidence_requests": 0,
+    "unresolved_concerns": 4,
+    "new_rule_findings": 0,
+    "edits_applied": 0,
+    "edits_rejected": 0,
+    "manual_review_decisions": 0,
+    "iteration": 1
+  },
+  "disclaimer": "A revision changes the wording and structure of an argument. It does not observe the execution and makes no physical finding. \"No change\" and \"no remaining finding\" mean only that no actionable Critic finding was left; they do not show that R1 holds or that the robot was physically safe."
+}

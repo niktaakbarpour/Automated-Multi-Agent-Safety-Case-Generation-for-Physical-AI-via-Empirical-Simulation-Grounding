@@ -1,0 +1,37 @@
+{
+  "foreign_execution": {
+    "change": "The argument bundle names another execution. The real Critic rejects the input (BUNDLE-EXEC).",
+    "issue": null,
+    "classification": "not_actionable_validation_phase",
+    "outcome": "rejected_invalid_input",
+    "stop_reason": "invalid_input"
+  },
+  "unknown_node": {
+    "change": "The finding of the actionable example was edited by hand to name a node that does not exist.",
+    "issue": null,
+    "classification": "not_actionable_target_missing",
+    "outcome": "unresolved",
+    "stop_reason": "no_actionable_findings"
+  },
+  "nonadmitted_assessment": {
+    "change": "The finding was edited by hand to cite a checker assessment that is not admitted.",
+    "issue": null,
+    "classification": "not_actionable_unknown_evidence",
+    "outcome": "unresolved",
+    "stop_reason": "insufficient_evidence"
+  },
+  "malformed_history": {
+    "change": "Round 2 of the cycle example with a history item that does not chain to this round.",
+    "issue": "history_chain_mismatch",
+    "classification": null,
+    "outcome": "rejected_invalid_input",
+    "stop_reason": "invalid_input"
+  },
+  "report_schema_invalid": {
+    "change": "The Critic report of the actionable example without its review_status field.",
+    "issue": "critic_report_schema:",
+    "classification": null,
+    "outcome": "rejected_invalid_input",
+    "stop_reason": "invalid_input"
+  }
+}

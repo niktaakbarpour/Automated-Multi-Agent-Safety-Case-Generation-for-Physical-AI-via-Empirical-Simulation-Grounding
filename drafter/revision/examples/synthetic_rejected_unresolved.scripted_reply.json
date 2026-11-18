@@ -1,0 +1,42 @@
+{
+  "findings": [
+    {
+      "object_id": "ketchup_1",
+      "node_id": "ketchup_1:G9",
+      "category": "C10",
+      "severity": "low",
+      "explanation": "Goal ketchup_1:G9 generalizes beyond the monitored window.",
+      "evidence_ids": [],
+      "suggested_action": "Narrow the goal to the monitored window."
+    },
+    {
+      "object_id": "milk_1",
+      "node_id": "milk_1:S1",
+      "category": "C05",
+      "severity": "medium",
+      "explanation": "The strategy infers support from a contact record.",
+      "evidence_ids": [
+        "ev:0000000000000000000000000000000000000000000000000000000000000000"
+      ],
+      "suggested_action": "Remove the support inference."
+    },
+    {
+      "object_id": "butter_1",
+      "node_id": "butter_1:U1",
+      "category": "C09",
+      "severity": "medium",
+      "explanation": "The unresolved claim may understate the remaining uncertainty about initial support.",
+      "evidence_ids": [],
+      "suggested_action": "State the remaining uncertainty explicitly."
+    },
+    {
+      "object_id": "orange_juice_1",
+      "node_id": "orange_juice_1:C1",
+      "category": "C02",
+      "severity": "medium",
+      "explanation": "The context cites no registry record.",
+      "evidence_ids": [],
+      "suggested_action": "Cite a registry record."
+    }
+  ]
+}

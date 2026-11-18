@@ -1,0 +1,13 @@
+{
+  "findings": [
+    {
+      "object_id": "ketchup_1",
+      "node_id": "ketchup_1:G1",
+      "category": "C06",
+      "severity": "medium",
+      "explanation": "Synthetic second-round finding: the goal for ketchup_1 is treated as if it implied a safety conclusion the package does not support.",
+      "evidence_ids": [],
+      "suggested_action": "State plainly that R1 is unresolved for ketchup_1."
+    }
+  ]
+}
