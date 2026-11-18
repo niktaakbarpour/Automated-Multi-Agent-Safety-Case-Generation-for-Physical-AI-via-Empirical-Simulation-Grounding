@@ -1,0 +1,71 @@
+{
+  "schema_version": "drafter-revision-result/0.1.0",
+  "revision_id": "example:invalid-report-schema-invalid",
+  "round": 1,
+  "max_rounds": 2,
+  "test_fixture": true,
+  "synthetic_findings": null,
+  "revision_request_sha256": "d5a59829b5a85fa89899c7ff142a2fb67cce26a52d3697e106f8698a09d95924",
+  "critic_request_sha256": "4c06acd245b5039902331af35aae8f48a9c615026f7dea09eba3f79c63e68b3f",
+  "critic_report_sha256": "876d31adc3dbfce7fbe61e2b80e0cdd7b7016465a7664c849d7e8ff3f857a848",
+  "adapter": {
+    "name": "deterministic-templates",
+    "version": "0.1.0",
+    "kind": "deterministic"
+  },
+  "outcome": "rejected_invalid_input",
+  "stop_reason": "invalid_input",
+  "status_detail": "The revision request is not usable; nothing was read from the Critic report.",
+  "request_issues": [
+    "critic_report_schema:$: missing required property 'review_status'"
+  ],
+  "original_argument_bundle_sha256": null,
+  "revised_argument_bundle": null,
+  "revised_argument_bundle_sha256": null,
+  "recriticism": null,
+  "proposal": null,
+  "edits": [],
+  "rejected_edits": [],
+  "diff": [],
+  "dispositions": [],
+  "carried_forward": {
+    "rejected_candidates": [],
+    "evidence_requests": [],
+    "unresolved_concerns": []
+  },
+  "validators": [
+    {
+      "name": "request_contract",
+      "status": "failed",
+      "issues": [
+        "critic_report_schema:$: missing required property 'review_status'"
+      ],
+      "note": null
+    }
+  ],
+  "manual_review_decisions": [],
+  "metrics": {
+    "graphs_valid": null,
+    "nodes_changed": 0,
+    "nodes_added": 0,
+    "nodes_removed": 0,
+    "edges_added": 0,
+    "edges_removed": 0,
+    "object_outcomes_changed": 0,
+    "evidence_links_removed": 0,
+    "evidence_links_added": 0,
+    "findings_total": 0,
+    "findings_addressed": 0,
+    "findings_remaining": 0,
+    "findings_awaiting_decision": 0,
+    "rejected_candidates": 0,
+    "evidence_requests": 0,
+    "unresolved_concerns": 0,
+    "new_rule_findings": 0,
+    "edits_applied": 0,
+    "edits_rejected": 0,
+    "manual_review_decisions": 0,
+    "iteration": 1
+  },
+  "disclaimer": "A revision changes the wording and structure of an argument. It does not observe the execution and makes no physical finding. \"No change\" and \"no remaining finding\" mean only that no actionable Critic finding was left; they do not show that R1 holds or that the robot was physically safe."
+}

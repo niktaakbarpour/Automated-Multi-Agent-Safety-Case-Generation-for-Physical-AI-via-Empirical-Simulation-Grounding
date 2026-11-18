@@ -252,6 +252,35 @@ def check_cycle():
           and cycle['final_review']['reviewed_final_bundle'])
 
 
+def check_invalid(original):
+    """Each saved invalid payload is refused or left unresolved for exactly the stated reason."""
+    folder = B.OUT / B.INVALID
+    expected_all = load(folder / 'EXPECTED.json')
+    check('invalid: expectations file equals the builder', expected_all == B.INVALID_EXPECTED)
+    derived = B.invalid_requests(load(B.OUT / 'synthetic_actionable.revision_request.json'),
+                                 load(B.OUT / B.CYCLE / 'request_2.revision_request.json'), original)
+    for name, expected in expected_all.items():
+        request = load(folder / f'{name}.revision_request.json')
+        result = load(folder / f'{name}.revision_result.json')
+        label = 'invalid/' + name
+        check(label + ': is the stated change to a saved valid input', derived[name] == request)
+        check(label + ': labelled as a synthetic invalid input',
+              request['synthetic_findings'] == {'present': True, 'label': B.INVALID_LABEL})
+        issues = C.request_issues(request)
+        check(label + ': request issues', (issues == []) if expected['issue'] is None
+              else any(i.startswith(expected['issue']) for i in issues), str(issues))
+        check(label + ': result equals a fresh run and names the reason',
+              G.revise(request) == result and result['request_issues'] == issues
+              and (result['outcome'], result['stop_reason']) == (expected['outcome'], expected['stop_reason']),
+              str((result['outcome'], result['stop_reason'])))
+        check(label + ': nothing was revised', result['revised_argument_bundle'] is None
+              and result['edits'] == [] and result['proposal'] is None)
+        if expected['classification'] is not None:
+            found = {(r['classification'], r['disposition']) for r in result['dispositions']}
+            check(label + ': finding classification',
+                  found == {(expected['classification'], 'not_actionable')}, str(found))
+
+
 def main():
     FAILED.clear()
     fixture_root = B.FIXTURE.parents[1]
@@ -266,6 +295,7 @@ def main():
     check_fail_closed(original)
     check_results()
     check_cycle()
+    check_invalid(original)
     print()
     print('FAILED: ' + ', '.join(FAILED) if FAILED else 'All checks passed.')
     return 1 if FAILED else 0

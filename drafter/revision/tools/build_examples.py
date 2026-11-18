@@ -1,6 +1,8 @@
 """Rebuild the saved examples with the real Critic and the real revision. No model, no network.
 
-    python3 -m drafter.revision.tools.build_examples
+    python3 -m drafter.revision.tools.build_examples                  everything
+    python3 -m drafter.revision.tools.build_examples --invalid-only   only examples/invalid/, derived from
+                                                                      the saved valid examples
 
 The synthetic Critic reports come from critic.review with a scripted reply, so the
 Critic's own screening decides what is accepted or rejected. They are test
@@ -10,11 +12,12 @@ A scripted report records how long the scripted call took (llm.latency_s), so a
 rebuild changes that number and every digest that depends on it. The saved files
 are consistent with each other; check_examples verifies that.
 """
+from copy import deepcopy
 from pathlib import Path
 import json
 
 import critic
-from critic import llm as L
+from critic import contract as K, llm as L
 from drafter.revision import contract as C, engine as G
 
 ROOT = Path(__file__).resolve().parents[3]
@@ -55,6 +58,32 @@ CYCLE_REPLIES = [
         'evidence_ids': [], 'suggested_action': 'State plainly that R1 is unresolved for ketchup_1.'}]},
     {'findings': []},
 ]
+INVALID = 'invalid'
+INVALID_LABEL = ('Synthetic invalid test input: a valid example changed on purpose so that the revision must '
+                 'refuse it or leave the finding unresolved. Not a model result and not a scientific finding.')
+# What each saved invalid payload must lead to. `issue` is a prefix of one entry of request_issues.
+INVALID_EXPECTED = {
+    'foreign_execution': {
+        'change': 'The argument bundle names another execution. The real Critic rejects the input (BUNDLE-EXEC).',
+        'issue': None, 'classification': 'not_actionable_validation_phase',
+        'outcome': 'rejected_invalid_input', 'stop_reason': 'invalid_input'},
+    'unknown_node': {
+        'change': 'The finding of the actionable example was edited by hand to name a node that does not exist.',
+        'issue': None, 'classification': 'not_actionable_target_missing',
+        'outcome': 'unresolved', 'stop_reason': 'no_actionable_findings'},
+    'nonadmitted_assessment': {
+        'change': 'The finding was edited by hand to cite a checker assessment that is not admitted.',
+        'issue': None, 'classification': 'not_actionable_unknown_evidence',
+        'outcome': 'unresolved', 'stop_reason': 'insufficient_evidence'},
+    'malformed_history': {
+        'change': 'Round 2 of the cycle example with a history item that does not chain to this round.',
+        'issue': 'history_chain_mismatch', 'classification': None,
+        'outcome': 'rejected_invalid_input', 'stop_reason': 'invalid_input'},
+    'report_schema_invalid': {
+        'change': 'The Critic report of the actionable example without its review_status field.',
+        'issue': 'critic_report_schema:', 'classification': None,
+        'outcome': 'rejected_invalid_input', 'stop_reason': 'invalid_input'},
+}
 DECISION_NOTE = 'Approved only as a labelled synthetic test input for positive revision behaviour.'
 
 
@@ -87,6 +116,42 @@ def cycle_files(run):
     return files
 
 
+def invalid_requests(actionable_request, cycle_request_2, original):
+    """{name: revision request}: one deliberate change each to a valid, saved input."""
+    def changed(base, name, edit):
+        request = deepcopy(base)
+        request['revision_id'] = 'example:invalid-' + name.replace('_', '-')
+        request['synthetic_findings'] = {'present': True, 'label': INVALID_LABEL}
+        edit(request)
+        request['critic_report_sha256'] = K.digest(request['critic_report'])
+        return request
+
+    foreign = deepcopy(original)
+    foreign['request_id'] = 'synthetic:invalid-foreign-execution'
+    foreign['argument_bundle']['execution_id'] = 'foreign_execution_0000'
+    return {
+        'foreign_execution': C.build_request('example:invalid-foreign-execution', foreign, critic.review(foreign),
+                                             synthetic_label=INVALID_LABEL),
+        'unknown_node': changed(actionable_request, 'unknown_node', lambda r: r['critic_report']['criticisms'][0]
+                                .update(node_id='cream_cheese_1:G9')),
+        'nonadmitted_assessment': changed(
+            actionable_request, 'nonadmitted_assessment',
+            lambda r: r['critic_report']['criticisms'][0].update(evidence_ids=['ca:' + '0' * 64])),
+        'malformed_history': changed(cycle_request_2, 'malformed_history', lambda r: r['history'][0]
+                                     .update(recriticism_request_sha256='0' * 64)),
+        'report_schema_invalid': changed(actionable_request, 'report_schema_invalid',
+                                         lambda r: r['critic_report'].pop('review_status')),
+    }
+
+
+def invalid_files(actionable_request, cycle_request_2, original):
+    files = {INVALID + '/EXPECTED.json': INVALID_EXPECTED}
+    for name, request in invalid_requests(actionable_request, cycle_request_2, original).items():
+        files[f'{INVALID}/{name}.revision_request.json'] = request
+        files[f'{INVALID}/{name}.revision_result.json'] = G.revise(request)
+    return files
+
+
 def build():
     """Return {file name: JSON value} for every example."""
     original, mutated = read('critic.request.json'), read('critic.controlled-negative.request.json')
@@ -116,11 +181,24 @@ def build():
         review=lambda critic_request: scripted_report(critic_request, replies.pop(0), 'synthetic-scripted-cycle'),
         decide=lambda report, round_number: approve(report))
     files.update(cycle_files(run))
+    files.update(invalid_files(files['synthetic_actionable.revision_request.json'], run['requests'][1], original))
     return files
 
 
-def main():
-    for name, value in build().items():
+def build_invalid_only():
+    """The invalid payloads, derived from the saved valid examples without rebuilding those."""
+    def saved(name):
+        return json.loads((OUT / name).read_text(encoding='utf-8'))
+    return invalid_files(saved('synthetic_actionable.revision_request.json'),
+                         saved(CYCLE + '/request_2.revision_request.json'), read('critic.request.json'))
+
+
+def main(argv=None):
+    import sys
+    arguments = sys.argv[1:] if argv is None else argv
+    if arguments not in ([], ['--invalid-only']):
+        raise SystemExit('usage: python3 -m drafter.revision.tools.build_examples [--invalid-only]')
+    for name, value in (build_invalid_only() if arguments else build()).items():
         path = OUT / name
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(json.dumps(value, indent=2, ensure_ascii=False) + '\n', encoding='utf-8')

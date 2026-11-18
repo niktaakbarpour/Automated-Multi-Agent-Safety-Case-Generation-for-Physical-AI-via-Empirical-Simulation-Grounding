@@ -571,5 +571,36 @@ class ValidatorsStopABrokenApply(unittest.TestCase):
         self.assertEqual(V.structure_issues(synthetic, synthetic), [])
 
 
+
+class SavedInvalidPayloads(S.Checks, unittest.TestCase):
+    """The invalid payloads saved in examples/invalid/ fail closed with a machine-readable reason."""
+
+    def test_each_saved_payload_is_refused_or_left_unresolved_for_the_stated_reason(self):
+        expected_all = S.example('invalid/EXPECTED.json')
+        self.assertEqual(sorted(expected_all), ['foreign_execution', 'malformed_history', 'nonadmitted_assessment',
+                                                'report_schema_invalid', 'unknown_node'])
+        for name, expected in expected_all.items():
+            with self.subTest(name):
+                request = S.example(f'invalid/{name}.revision_request.json')
+                result = self.revise(request)
+                self.assertEqual(result, S.example(f'invalid/{name}.revision_result.json'))
+                self.assertEqual((result['outcome'], result['stop_reason']),
+                                 (expected['outcome'], expected['stop_reason']))
+                if expected['issue'] is None:
+                    self.assertEqual(result['request_issues'], [])
+                    self.assertEqual({r['classification'] for r in result['dispositions']},
+                                     {expected['classification']})
+                else:
+                    self.assertTrue(any(i.startswith(expected['issue']) for i in result['request_issues']))
+                self.assertIsNone(result['proposal'])  # no adapter was asked for an edit
+                self.assertTrue(request['synthetic_findings']['present'])
+
+    def test_the_valid_payload_next_to_them_flows_through(self):
+        request = S.example('synthetic_actionable.revision_request.json')
+        result = self.revise(request)
+        self.assertEqual(result, S.example('synthetic_actionable.revision_result.json'))
+        self.assertEqual(result['outcome'], 'revised')
+
+
 if __name__ == '__main__':
     unittest.main()

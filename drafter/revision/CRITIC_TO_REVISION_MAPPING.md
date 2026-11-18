@@ -7,7 +7,7 @@ change to the Critic.
 
 The mapping is executable: `drafter/revision/contract.py` implements every
 rule below, and `python3 -m drafter.revision.tools.check_examples` checks it on
-the saved examples (120 checks). The revision that consumes this mapping is
+the saved examples (149 checks). The revision that consumes this mapping is
 described in `README.md`.
 
 ## 1. What the revision side consumes

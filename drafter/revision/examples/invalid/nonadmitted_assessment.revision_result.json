@@ -1,0 +1,112 @@
+{
+  "schema_version": "drafter-revision-result/0.1.0",
+  "revision_id": "example:invalid-nonadmitted-assessment",
+  "round": 1,
+  "max_rounds": 2,
+  "test_fixture": true,
+  "synthetic_findings": {
+    "present": true,
+    "label": "Synthetic invalid test input: a valid example changed on purpose so that the revision must refuse it or leave the finding unresolved. Not a model result and not a scientific finding."
+  },
+  "revision_request_sha256": "b7b8b665d14ed77d4eda90d50d698a665aec4f01aaafccd949bc4374786eecef",
+  "critic_request_sha256": "4c06acd245b5039902331af35aae8f48a9c615026f7dea09eba3f79c63e68b3f",
+  "critic_report_sha256": "4622e3de7ec5a358336a9736ce765cb1fecca010f1e47ef0fee651cb117953c6",
+  "adapter": {
+    "name": "deterministic-templates",
+    "version": "0.1.0",
+    "kind": "deterministic"
+  },
+  "outcome": "unresolved",
+  "stop_reason": "insufficient_evidence",
+  "status_detail": "No criticism may be acted on. Nothing was changed.",
+  "request_issues": [],
+  "original_argument_bundle_sha256": "6fb5471a27fdef29707b9a8beda321f7258723ca66a8c0c871af01fce0405bc5",
+  "revised_argument_bundle": null,
+  "revised_argument_bundle_sha256": null,
+  "recriticism": null,
+  "proposal": null,
+  "edits": [],
+  "rejected_edits": [],
+  "diff": [],
+  "dispositions": [
+    {
+      "criticism_id": "CRIT-001",
+      "check_id": "LLM",
+      "category": "C12",
+      "finding_source": "llm_proposed",
+      "phase": "review",
+      "blocking": false,
+      "target": {
+        "kind": "node",
+        "object_id": "cream_cheese_1",
+        "node_id": "cream_cheese_1:G1"
+      },
+      "classification": "not_actionable_unknown_evidence",
+      "disposition": "not_actionable",
+      "reason": "not_actionable_unknown_evidence",
+      "edit_indexes": [],
+      "verified_by_rules": null,
+      "additional_evidence_needed": false,
+      "human_review_required": true,
+      "decision": {
+        "criticism_id": "CRIT-001",
+        "decision": "approved",
+        "decided_by": "synthetic_test_label",
+        "reviewer": null,
+        "note": "Approved only as a labelled synthetic test input for positive revision behaviour."
+      },
+      "note": null
+    }
+  ],
+  "carried_forward": {
+    "rejected_candidates": [],
+    "evidence_requests": [],
+    "unresolved_concerns": [
+      "No admitted checker assessment (0 supplied, 0 admitted). Treated as unavailable, not as \"no violation\"; violation, no-violation and non-applicability outcomes cannot be established from this package.",
+      "Retrieval reports that the evidence package is incomplete for the requested scope.",
+      "Structured retrieval completeness covers only the explicit mandatory obligations of each request, not complete R1 observations or the sufficiency of any claim. The Critic checked the bundles for consistency and recomputed their hashes, but could not open the database or the sources to authenticate them. Retrieved items are recorded source references, not physical events.",
+      "This request contains synthetic test data; its results are not empirical findings."
+    ]
+  },
+  "validators": [
+    {
+      "name": "request_contract",
+      "status": "passed",
+      "issues": [],
+      "note": null
+    }
+  ],
+  "manual_review_decisions": [
+    {
+      "criticism_id": "CRIT-001",
+      "decision": "approved",
+      "decided_by": "synthetic_test_label",
+      "reviewer": null,
+      "note": "Approved only as a labelled synthetic test input for positive revision behaviour."
+    }
+  ],
+  "metrics": {
+    "graphs_valid": null,
+    "nodes_changed": 0,
+    "nodes_added": 0,
+    "nodes_removed": 0,
+    "edges_added": 0,
+    "edges_removed": 0,
+    "object_outcomes_changed": 0,
+    "evidence_links_removed": 0,
+    "evidence_links_added": 0,
+    "findings_total": 1,
+    "findings_addressed": 0,
+    "findings_remaining": 1,
+    "findings_awaiting_decision": 0,
+    "rejected_candidates": 0,
+    "evidence_requests": 0,
+    "unresolved_concerns": 4,
+    "new_rule_findings": 0,
+    "edits_applied": 0,
+    "edits_rejected": 0,
+    "manual_review_decisions": 1,
+    "iteration": 1
+  },
+  "disclaimer": "A revision changes the wording and structure of an argument. It does not observe the execution and makes no physical finding. \"No change\" and \"no remaining finding\" mean only that no actionable Critic finding was left; they do not show that R1 holds or that the robot was physically safe."
+}

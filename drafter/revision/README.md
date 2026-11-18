@@ -62,8 +62,8 @@ not usable, 5 adapter or module failure, 6 unreadable file.
 ## Tests
 
 ```bash
-python3 -m unittest discover -s drafter/revision/tests -t . -v     # 100 tests
-python3 -m drafter.revision.tools.check_examples                   # 120 checks on the saved examples
+python3 -m unittest discover -s drafter/revision/tests -t . -v     # 102 tests
+python3 -m drafter.revision.tools.check_examples                   # 149 checks on the saved examples
 python3 -m unittest discover -s drafter/tests -t . -v              # existing Drafter suite, 209 tests
 python3 -m unittest integration.tests.test_handoff -v              # existing handoff suite, 9 tests
 ```
@@ -203,7 +203,10 @@ adapter in the tests.
 
 ## Examples
 
-`examples/` is rebuilt by `python3 -m drafter.revision.tools.build_examples`.
+`examples/` is rebuilt by `python3 -m drafter.revision.tools.build_examples`. A full
+rebuild changes the digests that depend on the scripted call time, so rebuild
+only `invalid/` (`--invalid-only`) unless the valid examples must change.
+The handoff manifest and the test transcript are in `handoff/`.
 
 | File | What it shows |
 | --- | --- |
@@ -211,6 +214,7 @@ adapter in the tests.
 | `synthetic_rejected_unresolved.*` | Four candidates the Critic rejected: no change, all carried forward |
 | `saved_zero_finding.*`, `saved_zero_finding_controlled_negative.*` | The real saved Qwen reports: no change. Not labelled synthetic |
 | `two_round_cycle/` | A two-round synthetic cycle. Request 1 and its result are the `synthetic_actionable` files |
+| `invalid/` | Five invalid payloads with the result each must give (`EXPECTED.json`): foreign execution, unknown node, non-admitted assessment, malformed history, schema-invalid report |
 
 ## Known limitations
 

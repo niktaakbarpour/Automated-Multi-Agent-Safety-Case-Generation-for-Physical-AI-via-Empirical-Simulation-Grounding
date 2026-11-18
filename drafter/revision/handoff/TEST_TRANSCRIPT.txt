@@ -1,0 +1,731 @@
+Revision track test transcript
+Recorded: 2026-11-17 03:31 UTC
+Branch: feature/drafter-revision
+HEAD: 597851114c92de51f63db84306b09ada857ad99e
+Python 3.10.12, jsonschema 4.19.1, Linux aarch64. CPU only, no model, no network.
+Working tree relative to HEAD when recorded (these files are part of what was tested):
+   M drafter/revision/tests/test_invalid.py
+   M drafter/revision/tools/build_examples.py
+   M drafter/revision/tools/check_examples.py
+  ?? drafter/revision/examples/invalid/EXPECTED.json
+  ?? drafter/revision/examples/invalid/foreign_execution.revision_request.json
+  ?? drafter/revision/examples/invalid/foreign_execution.revision_result.json
+  ?? drafter/revision/examples/invalid/malformed_history.revision_request.json
+  ?? drafter/revision/examples/invalid/malformed_history.revision_result.json
+  ?? drafter/revision/examples/invalid/nonadmitted_assessment.revision_request.json
+  ?? drafter/revision/examples/invalid/nonadmitted_assessment.revision_result.json
+  ?? drafter/revision/examples/invalid/report_schema_invalid.revision_request.json
+  ?? drafter/revision/examples/invalid/report_schema_invalid.revision_result.json
+  ?? drafter/revision/examples/invalid/unknown_node.revision_request.json
+  ?? drafter/revision/examples/invalid/unknown_node.revision_result.json
+  ?? drafter/revision/handoff/TEST_TRANSCRIPT.txt
+
+================================================================
+$ python3 -m unittest discover -s drafter/revision/tests -t . -v
+test_build_request_needs_the_label_for_a_scripted_report (drafter.revision.tests.test_cli.CommandLine) ... ok
+test_build_request_then_revise (drafter.revision.tests.test_cli.CommandLine) ... ok
+test_cycle_with_a_scripted_repeat_stops (drafter.revision.tests.test_cli.CommandLine) ... ok
+test_cycle_writes_every_piece (drafter.revision.tests.test_cli.CommandLine) ... ok
+test_exit_codes (drafter.revision.tests.test_cli.CommandLine) ... ok
+test_revise_prints_the_result_without_out (drafter.revision.tests.test_cli.CommandLine) ... ok
+test_revise_writes_the_result_bundle_diff_and_recriticism_request (drafter.revision.tests.test_cli.CommandLine) ... ok
+test_verify_rejects_a_changed_result (drafter.revision.tests.test_cli.CommandLine) ... ok
+test_every_saved_example_still_holds (drafter.revision.tests.test_cli.SavedExamples) ... ok
+test_rejected_candidates_and_concerns_are_carried_and_never_edited (drafter.revision.tests.test_core.CautiousNoChange) ... ok
+test_the_missed_guarantee_is_left_alone (drafter.revision.tests.test_core.CautiousNoChange) ... ok
+test_the_saved_qwen_report_gives_no_change (drafter.revision.tests.test_core.CautiousNoChange) ... ok
+test_a_checker_based_outcome_is_outside_the_drafter_bundle_schema (drafter.revision.tests.test_core.CheckerContradiction) ... ok
+test_a_wrong_claim_is_matched_to_the_checker_not_to_something_safer (drafter.revision.tests.test_core.CheckerContradiction) ... ok
+test_the_goal_itself_stays_unresolved (drafter.revision.tests.test_core.CheckerContradiction) ... ok
+test_the_hidden_violation_is_reported_after_an_explicit_decision (drafter.revision.tests.test_core.CheckerContradiction) ... ok
+test_without_a_decision_the_contradiction_waits (drafter.revision.tests.test_core.CheckerContradiction) ... ok
+test_an_adapter_that_lacks_evidence_leaves_the_objection_unresolved (drafter.revision.tests.test_core.InsufficientInformation) ... ok
+test_no_solution_is_fabricated_and_the_evidence_requests_stay_open (drafter.revision.tests.test_core.InsufficientInformation) ... ok
+test_unsupported_outcomes_become_insufficient_information (drafter.revision.tests.test_core.InsufficientInformation) ... ok
+test_a_strategy_left_without_support_gets_an_unresolved_claim (drafter.revision.tests.test_core.InvalidEvidenceLink) ... ok
+test_any_other_input_problem_keeps_the_request_unusable (drafter.revision.tests.test_core.InvalidEvidenceLink) ... ok
+test_with_the_option_the_solution_is_removed_and_the_request_becomes_valid (drafter.revision.tests.test_core.InvalidEvidenceLink) ... ok
+test_without_the_option_invalid_input_stops_the_revision (drafter.revision.tests.test_core.InvalidEvidenceLink) ... ok
+test_a_rule_finding_is_verified_by_the_rules (drafter.revision.tests.test_core.MissingSupport) ... ok
+test_an_unresolved_claim_is_added_under_the_strategy (drafter.revision.tests.test_core.MissingSupport) ... ok
+test_a_missing_object_outcome_becomes_insufficient_information (drafter.revision.tests.test_core.OtherRuleFindings) ... ok
+test_a_wrong_execution_outcome_is_recomputed_by_aggregation (drafter.revision.tests.test_core.OtherRuleFindings) ... ok
+test_a_model_adapter_may_reword_it_and_the_text_is_marked_as_a_proposal (drafter.revision.tests.test_core.UnresolvedWording) ... ok
+test_a_strategy_objection_is_left_unresolved (drafter.revision.tests.test_core.UnresolvedWording) ... ok
+test_a_declined_finding_is_not_acted_on (drafter.revision.tests.test_core.UnsupportedGuarantee) ... ok
+test_a_human_decision_with_a_reviewer_also_works_without_the_synthetic_decision_label (drafter.revision.tests.test_core.UnsupportedGuarantee) ... ok
+test_a_model_proposed_finding_is_edited_but_not_verified (drafter.revision.tests.test_core.UnsupportedGuarantee) ... ok
+test_only_that_node_changes_and_the_diff_says_so (drafter.revision.tests.test_core.UnsupportedGuarantee) ... ok
+test_scope_r1_and_interval_are_preserved (drafter.revision.tests.test_core.UnsupportedGuarantee) ... ok
+test_the_edited_node_carries_revision_provenance_and_points_at_the_original (drafter.revision.tests.test_core.UnsupportedGuarantee) ... ok
+test_the_guarantee_is_replaced_by_the_unresolved_wording (drafter.revision.tests.test_core.UnsupportedGuarantee) ... ok
+test_the_revised_bundle_still_matches_the_drafter_bundle_schema (drafter.revision.tests.test_core.UnsupportedGuarantee) ... ok
+test_without_a_decision_nothing_changes (drafter.revision.tests.test_core.UnsupportedGuarantee) ... ok
+test_a_report_for_another_request_ends_the_cycle (drafter.revision.tests.test_cycle.Cycles) ... ok
+test_failed_recriticism_is_an_execution_failure_and_keeps_the_revised_bundle (drafter.revision.tests.test_cycle.Cycles) ... ok
+test_invalid_input_cycle (drafter.revision.tests.test_cycle.Cycles) ... ok
+test_later_findings_wait_for_a_decision (drafter.revision.tests.test_cycle.Cycles) ... ok
+test_no_change_cycle_for_the_saved_zero_finding_report (drafter.revision.tests.test_cycle.Cycles) ... ok
+test_recriticism_request_differs_only_in_bundle_and_id (drafter.revision.tests.test_cycle.Cycles) ... ok
+test_repeat_is_detected_even_without_a_new_decision (drafter.revision.tests.test_cycle.Cycles) ... ok
+test_repeated_finding_stops_the_cycle (drafter.revision.tests.test_cycle.Cycles)
+Core case 7: the Critic raises the same objection again after the edit. ... ok
+test_round_limit (drafter.revision.tests.test_cycle.Cycles) ... ok
+test_the_input_request_is_never_modified (drafter.revision.tests.test_cycle.Cycles) ... ok
+test_two_round_synthetic_cycle_ends_with_complete_history (drafter.revision.tests.test_cycle.Cycles)
+Round 1 answers a synthetic C12, round 2 a synthetic C06 on another object, then nothing is left. ... ok
+test_two_rule_only_rounds_repair_then_downgrade (drafter.revision.tests.test_cycle.Cycles)
+No model at all: round 1 removes a broken citation, round 2 answers the rule findings. ... ok
+test_altered_r1_version (drafter.revision.tests.test_invalid.InvalidRequests) ... ok
+test_altered_rule_finding_or_checker_admission (drafter.revision.tests.test_invalid.InvalidRequests)
+A real rule finding changed by hand, with the digests recomputed, still fails. ... ok
+test_fabricated_solution_in_the_input (drafter.revision.tests.test_invalid.InvalidRequests) ... ok
+test_finding_for_a_node_that_does_not_exist (drafter.revision.tests.test_invalid.InvalidRequests) ... ok
+test_finding_that_cites_unknown_evidence (drafter.revision.tests.test_invalid.InvalidRequests) ... ok
+test_foreign_execution (drafter.revision.tests.test_invalid.InvalidRequests) ... ok
+test_forged_rule_finding (drafter.revision.tests.test_invalid.InvalidRequests) ... ok
+test_history_must_chain (drafter.revision.tests.test_invalid.InvalidRequests) ... ok
+test_lost_provenance_in_the_input (drafter.revision.tests.test_invalid.InvalidRequests) ... ok
+test_malformed_requests_never_raise (drafter.revision.tests.test_invalid.InvalidRequests) ... ok
+test_request_changed_after_the_review (drafter.revision.tests.test_invalid.InvalidRequests) ... ok
+test_wrong_object (drafter.revision.tests.test_invalid.InvalidRequests) ... ok
+test_each_saved_payload_is_refused_or_left_unresolved_for_the_stated_reason (drafter.revision.tests.test_invalid.SavedInvalidPayloads) ... ok
+test_the_valid_payload_next_to_them_flows_through (drafter.revision.tests.test_invalid.SavedInvalidPayloads) ... ok
+test_a_changed_result_does_not_replay (drafter.revision.tests.test_invalid.TamperedRevisions) ... ok
+test_a_modified_source_record_is_caught (drafter.revision.tests.test_invalid.TamperedRevisions) ... ok
+test_a_revision_that_would_add_a_rule_finding_is_discarded (drafter.revision.tests.test_invalid.TamperedRevisions) ... ok
+test_altered_r1_version_or_interval_on_the_edited_node (drafter.revision.tests.test_invalid.TamperedRevisions) ... ok
+test_change_to_a_node_no_finding_names (drafter.revision.tests.test_invalid.TamperedRevisions) ... ok
+test_fabricated_solution_or_other_added_node (drafter.revision.tests.test_invalid.TamperedRevisions) ... ok
+test_frozen_request_fields (drafter.revision.tests.test_invalid.TamperedRevisions) ... ok
+test_loss_or_forgery_of_provenance (drafter.revision.tests.test_invalid.TamperedRevisions) ... ok
+test_object_roster_order_execution_and_graph_flags (drafter.revision.tests.test_invalid.TamperedRevisions) ... ok
+test_promotion_of_the_edited_node (drafter.revision.tests.test_invalid.TamperedRevisions) ... ok
+test_removed_node_or_edge (drafter.revision.tests.test_invalid.TamperedRevisions) ... ok
+test_the_shared_gsn_validator_rejects_what_it_should (drafter.revision.tests.test_invalid.TamperedRevisions) ... ok
+test_the_untampered_bundle_passes (drafter.revision.tests.test_invalid.TamperedRevisions) ... ok
+test_unsupported_outcome_or_conclusion_text (drafter.revision.tests.test_invalid.TamperedRevisions) ... ok
+test_wrong_object_or_foreign_execution_on_the_edited_node (drafter.revision.tests.test_invalid.TamperedRevisions) ... ok
+test_adapter_failures_end_the_round_with_nothing_applied (drafter.revision.tests.test_invalid.UngroundedProposals) ... ok
+test_another_node_of_the_same_object (drafter.revision.tests.test_invalid.UngroundedProposals) ... ok
+test_attempted_loss_or_forgery_of_provenance (drafter.revision.tests.test_invalid.UngroundedProposals) ... ok
+test_edit_without_finding_or_justification (drafter.revision.tests.test_invalid.UngroundedProposals) ... ok
+test_fabricated_checker_verdict (drafter.revision.tests.test_invalid.UngroundedProposals) ... ok
+test_fabricated_solution (drafter.revision.tests.test_invalid.UngroundedProposals) ... ok
+test_finding_that_was_not_approved_cannot_back_an_edit (drafter.revision.tests.test_invalid.UngroundedProposals) ... ok
+test_malformed_proposals_are_named (drafter.revision.tests.test_invalid.UngroundedProposals) ... ok
+test_new_assurance_wording (drafter.revision.tests.test_invalid.UngroundedProposals) ... ok
+test_non_dict_edits_are_refused_not_crashed_on (drafter.revision.tests.test_invalid.UngroundedProposals) ... ok
+test_nonexistent_node (drafter.revision.tests.test_invalid.UngroundedProposals) ... ok
+test_one_refused_edit_blocks_the_valid_one_too (drafter.revision.tests.test_invalid.UngroundedProposals) ... ok
+test_the_same_finding_or_target_cannot_be_used_twice (drafter.revision.tests.test_invalid.UngroundedProposals) ... ok
+test_unusable_or_unchanged_text (drafter.revision.tests.test_invalid.UngroundedProposals) ... ok
+test_wrong_kind_of_edit_for_the_finding (drafter.revision.tests.test_invalid.UngroundedProposals) ... ok
+test_wrong_object (drafter.revision.tests.test_invalid.UngroundedProposals) ... ok
+test_disconnected_node_is_stopped_by_the_drafter_structure_rules (drafter.revision.tests.test_invalid.ValidatorsStopABrokenApply) ... ok
+test_fabricated_solution_is_stopped (drafter.revision.tests.test_invalid.ValidatorsStopABrokenApply) ... ok
+test_new_rule_finding_is_stopped (drafter.revision.tests.test_invalid.ValidatorsStopABrokenApply) ... ok
+test_promoted_goal_is_stopped_by_the_shared_gsn_validator (drafter.revision.tests.test_invalid.ValidatorsStopABrokenApply) ... ok
+test_reordered_objects_and_foreign_execution_are_stopped (drafter.revision.tests.test_invalid.ValidatorsStopABrokenApply) ... ok
+test_structure_rules_count_only_new_issues (drafter.revision.tests.test_invalid.ValidatorsStopABrokenApply) ... ok
+
+----------------------------------------------------------------------
+Ran 102 tests in 11.933s
+
+OK
+
+================================================================
+$ python3 -m drafter.revision.tools.check_examples
+PASS  fixture file unchanged: artifacts/models/drafter.argument.json
+PASS  fixture file unchanged: artifacts/models/critic.request.json
+PASS  fixture file unchanged: artifacts/models/critic.qwen.report.json
+PASS  fixture file unchanged: artifacts/models/critic.qwen.messages.json
+PASS  fixture file unchanged: artifacts/models/controlled-mutation.json
+PASS  fixture file unchanged: artifacts/models/critic.controlled-negative.request.json
+PASS  fixture file unchanged: artifacts/models/critic.controlled-negative.qwen.report.json
+PASS  fixture file unchanged: artifacts/models/critic.controlled-negative.qwen.messages.json
+PASS  synthetic_actionable.revision_request.json: wrapper matches its JSON schema
+PASS  synthetic_actionable.revision_request.json: Critic report matches critic_report.schema.json (jsonschema library)
+PASS  synthetic_actionable.revision_request.json: Critic request passes the Critic input checks
+PASS  synthetic_actionable.revision_request.json: no binding issue
+PASS  synthetic_actionable.revision_request.json: digests recomputed
+PASS  synthetic_actionable.revision_request.json: embedded Critic request equals a fixture request
+PASS  synthetic_actionable.revision_request.json: synthetic label and backend
+PASS  synthetic_actionable.revision_request.json: review status
+PASS  synthetic_actionable.revision_request.json: actionable findings
+PASS  synthetic_actionable.revision_request.json: finding statuses and targets
+PASS  synthetic_actionable.revision_request.json: rejected candidates
+PASS  synthetic_actionable.revision_request.json: unresolved concerns carried unchanged
+PASS  synthetic_actionable.revision_request.json: regenerated from the real Critic (latency ignored)
+PASS  synthetic_rejected_unresolved.revision_request.json: wrapper matches its JSON schema
+PASS  synthetic_rejected_unresolved.revision_request.json: Critic report matches critic_report.schema.json (jsonschema library)
+PASS  synthetic_rejected_unresolved.revision_request.json: Critic request passes the Critic input checks
+PASS  synthetic_rejected_unresolved.revision_request.json: no binding issue
+PASS  synthetic_rejected_unresolved.revision_request.json: digests recomputed
+PASS  synthetic_rejected_unresolved.revision_request.json: embedded Critic request equals a fixture request
+PASS  synthetic_rejected_unresolved.revision_request.json: synthetic label and backend
+PASS  synthetic_rejected_unresolved.revision_request.json: review status
+PASS  synthetic_rejected_unresolved.revision_request.json: actionable findings
+PASS  synthetic_rejected_unresolved.revision_request.json: finding statuses and targets
+PASS  synthetic_rejected_unresolved.revision_request.json: rejected candidates
+PASS  synthetic_rejected_unresolved.revision_request.json: unresolved concerns carried unchanged
+PASS  synthetic_rejected_unresolved.revision_request.json: regenerated from the real Critic (latency ignored)
+PASS  saved_zero_finding.revision_request.json: wrapper matches its JSON schema
+PASS  saved_zero_finding.revision_request.json: Critic report matches critic_report.schema.json (jsonschema library)
+PASS  saved_zero_finding.revision_request.json: Critic request passes the Critic input checks
+PASS  saved_zero_finding.revision_request.json: no binding issue
+PASS  saved_zero_finding.revision_request.json: digests recomputed
+PASS  saved_zero_finding.revision_request.json: embedded Critic request equals a fixture request
+PASS  saved_zero_finding.revision_request.json: synthetic label and backend
+PASS  saved_zero_finding.revision_request.json: review status
+PASS  saved_zero_finding.revision_request.json: actionable findings
+PASS  saved_zero_finding.revision_request.json: finding statuses and targets
+PASS  saved_zero_finding.revision_request.json: rejected candidates
+PASS  saved_zero_finding.revision_request.json: unresolved concerns carried unchanged
+PASS  saved_zero_finding.revision_request.json: embeds the saved fixture request and report unchanged
+PASS  saved_zero_finding_controlled_negative.revision_request.json: wrapper matches its JSON schema
+PASS  saved_zero_finding_controlled_negative.revision_request.json: Critic report matches critic_report.schema.json (jsonschema library)
+PASS  saved_zero_finding_controlled_negative.revision_request.json: Critic request passes the Critic input checks
+PASS  saved_zero_finding_controlled_negative.revision_request.json: no binding issue
+PASS  saved_zero_finding_controlled_negative.revision_request.json: digests recomputed
+PASS  saved_zero_finding_controlled_negative.revision_request.json: embedded Critic request equals a fixture request
+PASS  saved_zero_finding_controlled_negative.revision_request.json: synthetic label and backend
+PASS  saved_zero_finding_controlled_negative.revision_request.json: review status
+PASS  saved_zero_finding_controlled_negative.revision_request.json: actionable findings
+PASS  saved_zero_finding_controlled_negative.revision_request.json: finding statuses and targets
+PASS  saved_zero_finding_controlled_negative.revision_request.json: rejected candidates
+PASS  saved_zero_finding_controlled_negative.revision_request.json: unresolved concerns carried unchanged
+PASS  saved_zero_finding_controlled_negative.revision_request.json: embeds the saved fixture request and report unchanged
+PASS  rejected example: the four expected rejection reasons, in order
+PASS  rejected example: the deferred C09 is also an unresolved concern
+PASS  fail closed: report edited without re-hashing
+PASS  fail closed: forged deterministic finding, re-hashed
+PASS  fail closed: report paired with a different request, re-hashed
+PASS  fail closed: scripted report without the synthetic label
+PASS  fail closed: decision for a criticism that is not in the report
+PASS  fail closed: human decision without a reviewer
+PASS  fail closed: round above max_rounds + 1
+PASS  fail closed: unknown wrapper field
+PASS  model-proposed finding with no decision is not actionable
+PASS  model-proposed finding with declined is not actionable
+PASS  synthetic_actionable.revision_result.json: matches its JSON schema
+PASS  synthetic_actionable.revision_result.json: outcome and stop reason
+PASS  synthetic_actionable.revision_result.json: equals a fresh run on the saved request
+PASS  synthetic_actionable.revision_result.json: replays
+PASS  synthetic_actionable.revision_result.json: bound to its request
+PASS  synthetic_actionable.revision_result.json: synthetic label carried
+PASS  synthetic_rejected_unresolved.revision_result.json: matches its JSON schema
+PASS  synthetic_rejected_unresolved.revision_result.json: outcome and stop reason
+PASS  synthetic_rejected_unresolved.revision_result.json: equals a fresh run on the saved request
+PASS  synthetic_rejected_unresolved.revision_result.json: replays
+PASS  synthetic_rejected_unresolved.revision_result.json: bound to its request
+PASS  synthetic_rejected_unresolved.revision_result.json: synthetic label carried
+PASS  saved_zero_finding.revision_result.json: matches its JSON schema
+PASS  saved_zero_finding.revision_result.json: outcome and stop reason
+PASS  saved_zero_finding.revision_result.json: equals a fresh run on the saved request
+PASS  saved_zero_finding.revision_result.json: replays
+PASS  saved_zero_finding.revision_result.json: bound to its request
+PASS  saved_zero_finding.revision_result.json: synthetic label carried
+PASS  saved_zero_finding_controlled_negative.revision_result.json: matches its JSON schema
+PASS  saved_zero_finding_controlled_negative.revision_result.json: outcome and stop reason
+PASS  saved_zero_finding_controlled_negative.revision_result.json: equals a fresh run on the saved request
+PASS  saved_zero_finding_controlled_negative.revision_result.json: replays
+PASS  saved_zero_finding_controlled_negative.revision_result.json: bound to its request
+PASS  saved_zero_finding_controlled_negative.revision_result.json: synthetic label carried
+PASS  complete example: one node replaced, the guarantee is gone
+PASS  complete example: every validator passed
+PASS  complete example: the edit names its finding and a justification
+PASS  complete example: only the bundle and the request ID differ in the re-criticism request
+PASS  complete example: 19 of 20 nodes are byte-identical
+PASS  saved_zero_finding: the real zero-finding report gives no change and is not labelled synthetic
+PASS  saved_zero_finding_controlled_negative: the real zero-finding report gives no change and is not labelled synthetic
+PASS  cycle: summary matches its JSON schema
+PASS  cycle: two revision rounds, then nothing actionable
+PASS  cycle: every finding is labelled synthetic
+PASS  cycle: replays from the saved reports and decisions
+PASS  cycle: request 1 is usable and its result replays
+PASS  cycle: request 1 has 0 history item(s)
+PASS  cycle: request 2 is usable and its result replays
+PASS  cycle: request 2 has 1 history item(s)
+PASS  cycle: request 3 is usable and its result replays
+PASS  cycle: request 3 has 2 history item(s)
+PASS  cycle: scripted reply 1 is the one in the builder
+PASS  cycle: re-criticism report 1 regenerated from the real Critic (latency ignored)
+PASS  cycle: scripted reply 2 is the one in the builder
+PASS  cycle: re-criticism report 2 regenerated from the real Critic (latency ignored)
+PASS  cycle: final bundle is the round-2 revised bundle
+PASS  cycle: both edited goals carry the unresolved wording
+PASS  cycle: the concerns the Critic cannot settle are still open at the end
+PASS  invalid: expectations file equals the builder
+PASS  invalid/foreign_execution: is the stated change to a saved valid input
+PASS  invalid/foreign_execution: labelled as a synthetic invalid input
+PASS  invalid/foreign_execution: request issues
+PASS  invalid/foreign_execution: result equals a fresh run and names the reason
+PASS  invalid/foreign_execution: nothing was revised
+PASS  invalid/foreign_execution: finding classification
+PASS  invalid/unknown_node: is the stated change to a saved valid input
+PASS  invalid/unknown_node: labelled as a synthetic invalid input
+PASS  invalid/unknown_node: request issues
+PASS  invalid/unknown_node: result equals a fresh run and names the reason
+PASS  invalid/unknown_node: nothing was revised
+PASS  invalid/unknown_node: finding classification
+PASS  invalid/nonadmitted_assessment: is the stated change to a saved valid input
+PASS  invalid/nonadmitted_assessment: labelled as a synthetic invalid input
+PASS  invalid/nonadmitted_assessment: request issues
+PASS  invalid/nonadmitted_assessment: result equals a fresh run and names the reason
+PASS  invalid/nonadmitted_assessment: nothing was revised
+PASS  invalid/nonadmitted_assessment: finding classification
+PASS  invalid/malformed_history: is the stated change to a saved valid input
+PASS  invalid/malformed_history: labelled as a synthetic invalid input
+PASS  invalid/malformed_history: request issues
+PASS  invalid/malformed_history: result equals a fresh run and names the reason
+PASS  invalid/malformed_history: nothing was revised
+PASS  invalid/report_schema_invalid: is the stated change to a saved valid input
+PASS  invalid/report_schema_invalid: labelled as a synthetic invalid input
+PASS  invalid/report_schema_invalid: request issues
+PASS  invalid/report_schema_invalid: result equals a fresh run and names the reason
+PASS  invalid/report_schema_invalid: nothing was revised
+
+All checks passed.
+exit code: 0
+
+================================================================
+$ python3 -m unittest integration.tests.test_handoff -v
+test_changed_request_and_configuration_fail_closed (integration.tests.test_handoff.HandoffTests) ... ok
+test_empty_checker_and_registry_remain_empty (integration.tests.test_handoff.HandoffTests) ... ok
+test_exact_structured_pair_and_classification_are_preserved (integration.tests.test_handoff.HandoffTests) ... ok
+test_lossless_untyped_gaps_without_invented_measurement_type (integration.tests.test_handoff.HandoffTests) ... ok
+test_rejected_generation_cannot_be_handed_off (integration.tests.test_handoff.HandoffTests) ... ok
+test_returned_objects_are_independent_snapshots (integration.tests.test_handoff.HandoffTests) ... ok
+test_tampered_graph_fails_drafter_validation (integration.tests.test_handoff.HandoffTests) ... ok
+test_unchanged_graphs_scope_and_deterministic_input_validation (integration.tests.test_handoff.HandoffTests) ... ok
+test_wrong_object_roster_fails_without_reordering (integration.tests.test_handoff.HandoffTests) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 6.680s
+
+OK
+
+================================================================
+$ python3 -m unittest discover -s drafter/tests -t . -v
+test_alternate_roster_works_in_mock_and_scripted_generation (drafter.tests.test_adapter_generation.AdapterGenerationTests) ... ok
+test_phase5_direct_registry_reference_is_a_real_solution_node (drafter.tests.test_adapter_generation.AdapterGenerationTests) ... ok
+test_phase5_raw_context_reaches_model_trace_and_accepted_output (drafter.tests.test_adapter_generation.AdapterGenerationTests) ... ok
+test_prepare_commands_save_validated_inputs_without_model_access (drafter.tests.test_adapter_generation.AdapterGenerationTests) ... ok
+test_cli_checks_model_with_explicit_config (drafter.tests.test_connection.ConnectionDriverTests) ... ok
+test_discovery_does_not_trigger_completion (drafter.tests.test_connection.ConnectionDriverTests) ... ok
+test_missing_model_never_falls_back (drafter.tests.test_connection.ConnectionDriverTests) ... ok
+test_output_write_failure_preserves_completed_model_execution_report (drafter.tests.test_connection.ConnectionDriverTests) ... ok
+test_smoke_validates_fixed_json_and_preserves_trace (drafter.tests.test_connection.ConnectionDriverTests) ... ok
+test_transport_failure_does_not_claim_a_model_reply (drafter.tests.test_connection.ConnectionDriverTests) ... ok
+test_well_formed_wrong_json_is_not_a_successful_smoke_test (drafter.tests.test_connection.ConnectionDriverTests) ... ok
+test_actual_gsn_validator_rejects_missing_edge_target (drafter.tests.test_contracts.OutputContractTests) ... ok
+test_cross_object_node_scope_is_rejected (drafter.tests.test_contracts.OutputContractTests) ... ok
+test_empty_graphs_cannot_be_accepted (drafter.tests.test_contracts.OutputContractTests) ... ok
+test_frame_graph_nodes_cannot_use_fractional_indices (drafter.tests.test_contracts.OutputContractTests) ... ok
+test_missing_object_graph_is_rejected (drafter.tests.test_contracts.OutputContractTests) ... ok
+test_missing_object_outcome_is_rejected (drafter.tests.test_contracts.OutputContractTests) ... ok
+test_promoted_physical_goal_is_rejected (drafter.tests.test_contracts.OutputContractTests) ... ok
+test_supplied_shape_is_distinct_from_execution_or_safety_verification (drafter.tests.test_contracts.OutputContractTests) ... ok
+test_unbound_input_digest_is_rejected (drafter.tests.test_contracts.OutputContractTests) ... ok
+test_arbitrary_source_paths_are_not_opened (drafter.tests.test_contracts.RequestContractTests) ... ok
+test_archived_metadata_passes_real_record_contract_without_source_replay (drafter.tests.test_contracts.RequestContractTests) ... ok
+test_context_record_cannot_be_promoted_to_in_window_solution_inventory (drafter.tests.test_contracts.RequestContractTests) ... ok
+test_duplicate_keys_and_nonfinite_json_are_rejected (drafter.tests.test_contracts.RequestContractTests) ... ok
+test_empirical_promotion_is_rejected (drafter.tests.test_contracts.RequestContractTests) ... ok
+test_fixture_builder_is_reproducible (drafter.tests.test_contracts.RequestContractTests) ... ok
+test_future_output_schema_and_original_gsn_reference_resolve_offline (drafter.tests.test_contracts.RequestContractTests) ... ok
+test_known_saved_frame_gaps_cannot_be_removed (drafter.tests.test_contracts.RequestContractTests) ... ok
+test_missing_objects_cannot_be_hidden (drafter.tests.test_contracts.RequestContractTests) ... ok
+test_model_output_is_not_part_of_input (drafter.tests.test_contracts.RequestContractTests) ... ok
+test_real_source_verification_cannot_be_asserted (drafter.tests.test_contracts.RequestContractTests) ... ok
+test_record_changes_cannot_be_hidden_by_rehashing_the_export (drafter.tests.test_contracts.RequestContractTests) ... ok
+test_required_context_is_enforced (drafter.tests.test_contracts.RequestContractTests) ... ok
+test_roster_cannot_be_reduced_to_only_the_observed_object (drafter.tests.test_contracts.RequestContractTests) ... ok
+test_saved_frame_gaps_cannot_use_fractional_indices (drafter.tests.test_contracts.RequestContractTests) ... ok
+test_unavailable_checker_cannot_be_replaced_by_a_flag (drafter.tests.test_contracts.RequestContractTests) ... ok
+test_unexpected_fields_cannot_hide_in_a_request (drafter.tests.test_contracts.RequestContractTests) ... ok
+test_unknown_variant_identity_cannot_be_invented (drafter.tests.test_contracts.RequestContractTests) ... ok
+test_validation_cli_has_explicit_success_and_rejection_exit_codes (drafter.tests.test_contracts.RequestContractTests) ... ok
+test_wrong_clock_is_rejected (drafter.tests.test_contracts.RequestContractTests) ... ok
+test_wrong_execution_is_rejected_even_when_configuration_digest_is_updated (drafter.tests.test_contracts.RequestContractTests) ... ok
+test_all_r_response_fails_schema_and_authoritative_prose_check (drafter.tests.test_decoder_regressions.DecoderRegressionTests) ... ok
+test_decoder_text_has_no_substring_regex_or_unique_items (drafter.tests.test_decoder_regressions.DecoderRegressionTests) ... ok
+test_degenerate_long_text_is_not_accepted_merely_by_length (drafter.tests.test_decoder_regressions.DecoderRegressionTests) ... ok
+test_empty_catalogue_has_no_solution_alternative (drafter.tests.test_decoder_regressions.DecoderRegressionTests) ... ok
+test_full_sentences_and_valid_graph_reference_shape_are_allowed (drafter.tests.test_decoder_regressions.DecoderRegressionTests) ... ok
+test_limitation_uniqueness_remains_authoritative (drafter.tests.test_decoder_regressions.DecoderRegressionTests) ... ok
+test_missing_declared_node_remains_a_host_rejection (drafter.tests.test_decoder_regressions.DecoderRegressionTests) ... ok
+test_original_evidence_identity_is_not_a_graph_endpoint (drafter.tests.test_decoder_regressions.DecoderRegressionTests) ... ok
+test_physical_claim_flags_follow_node_types (drafter.tests.test_decoder_regressions.DecoderRegressionTests) ... ok
+test_reasoning_nodes_cannot_take_evidence_citations (drafter.tests.test_decoder_regressions.DecoderRegressionTests) ... ok
+test_solution_with_null_citation_is_not_silently_repaired (drafter.tests.test_decoder_regressions.DecoderRegressionTests) ... ok
+test_conflicting_or_missing_parent_output_paths_prevent_model_access (drafter.tests.test_generation.GenerationCliTests) ... ok
+test_http_generation_saves_valid_graph_trace_and_readable_review (drafter.tests.test_generation.GenerationCliTests) ... ok
+test_invalid_input_saves_rejection_without_contacting_server (drafter.tests.test_generation.GenerationCliTests) ... ok
+test_rejected_model_reply_preserves_trace_and_failure_artifacts (drafter.tests.test_generation.GenerationCliTests) ... ok
+test_repeated_scripted_runs_preserve_citations_and_scopes_without_changing_input (drafter.tests.test_generation.GenerationCliTests) ... ok
+test_available_evidence_cannot_all_be_omitted (drafter.tests.test_generation.GenerationTests) ... ok
+test_bare_unresolved_goal_is_not_a_complete_draft (drafter.tests.test_generation.GenerationTests) ... ok
+test_completion_timeout_does_not_claim_model_execution (drafter.tests.test_generation.GenerationTests) ... ok
+test_cycle_is_rejected_by_real_shared_graph_validator (drafter.tests.test_generation.GenerationTests) ... ok
+test_dangling_edge_is_rejected (drafter.tests.test_generation.GenerationTests) ... ok
+test_disconnected_node_is_rejected (drafter.tests.test_generation.GenerationTests) ... ok
+test_discovery_failure_never_attempts_completion_or_fallback (drafter.tests.test_generation.GenerationTests) ... ok
+test_duplicate_object_graph_is_rejected (drafter.tests.test_generation.GenerationTests) ... ok
+test_evidence_cannot_move_to_another_object (drafter.tests.test_generation.GenerationTests) ... ok
+test_forged_host_fields_are_rejected (drafter.tests.test_generation.GenerationTests) ... ok
+test_host_attaches_exact_original_solution_source_scope_and_status (drafter.tests.test_generation.GenerationTests) ... ok
+test_invalid_edge_type_relationship_is_rejected (drafter.tests.test_generation.GenerationTests) ... ok
+test_invalid_input_is_rejected_before_client_creation (drafter.tests.test_generation.GenerationTests) ... ok
+test_invalid_model_configuration_returns_valid_failure_envelope (drafter.tests.test_generation.GenerationTests) ... ok
+test_missing_object_graph_is_rejected (drafter.tests.test_generation.GenerationTests) ... ok
+test_node_identifiers_cannot_collide_across_object_graphs (drafter.tests.test_generation.GenerationTests) ... ok
+test_nonphysical_goal_cannot_hide_missing_safety_claim (drafter.tests.test_generation.GenerationTests) ... ok
+test_physical_claim_cannot_be_hidden_in_context (drafter.tests.test_generation.GenerationTests) ... ok
+test_redacted_completion_is_not_used_to_build_a_graph (drafter.tests.test_generation.GenerationTests) ... ok
+test_solution_text_cannot_promote_metadata_to_physical_evidence (drafter.tests.test_generation.GenerationTests) ... ok
+test_strategy_requires_a_supported_subclaim_even_when_all_nodes_are_connected (drafter.tests.test_generation.GenerationTests) ... ok
+test_trace_records_sent_prompt_schema_and_actual_model_identity (drafter.tests.test_generation.GenerationTests) ... ok
+test_truncated_model_output_is_not_accepted_or_repaired (drafter.tests.test_generation.GenerationTests) ... ok
+test_unknown_or_context_only_evidence_is_rejected (drafter.tests.test_generation.GenerationTests) ... ok
+test_valid_response_builds_shared_gsn_and_preserves_input (drafter.tests.test_generation.GenerationTests) ... ok
+test_builder_rejects_unsupported_numbers_and_cycles_before_hashing (drafter.tests.test_independent_audit.IndependentAuditTests) ... ok
+test_cli_malformed_input_reports_have_a_schema (drafter.tests.test_independent_audit.IndependentAuditTests) ... ok
+test_core_minimum_does_not_require_a_fixed_node_order (drafter.tests.test_independent_audit.IndependentAuditTests) ... ok
+test_current_output_cannot_claim_the_previous_prompt_version (drafter.tests.test_independent_audit.IndependentAuditTests) ... ok
+test_decoder_minimum_matches_four_distinct_required_roles (drafter.tests.test_independent_audit.IndependentAuditTests) ... ok
+test_deep_input_and_nonstring_keys_have_clear_diagnostics (drafter.tests.test_independent_audit.IndependentAuditTests) ... ok
+test_empty_scope_rejected_but_shared_noncyclic_values_work (drafter.tests.test_independent_audit.IndependentAuditTests) ... ok
+test_huge_numeric_request_is_rejected_before_client (drafter.tests.test_independent_audit.IndependentAuditTests) ... ok
+test_huge_standalone_intervals_are_contract_errors (drafter.tests.test_independent_audit.IndependentAuditTests) ... ok
+test_model_review_cannot_evade_text_limit_with_whitespace (drafter.tests.test_independent_audit.IndependentAuditTests) ... ok
+test_old_consumer_dependency_fails_closed (drafter.tests.test_independent_audit.IndependentAuditTests) ... ok
+test_original_public_request_status_mismatch_is_rejected (drafter.tests.test_independent_audit.IndependentAuditTests) ... ok
+test_original_semantic_provenance_forgeries_are_rejected (drafter.tests.test_independent_audit.IndependentAuditTests) ... ok
+test_other_reasoning_nodes_and_removed_fields_are_bound (drafter.tests.test_independent_audit.IndependentAuditTests) ... ok
+test_overlong_and_word_placeholders_reject_without_repair (drafter.tests.test_independent_audit.IndependentAuditTests) ... ok
+test_prompt_identity_and_oversized_standalone_graph_fail_closed (drafter.tests.test_independent_audit.IndependentAuditTests) ... ok
+test_standalone_applies_decoder_graph_shape_limits (drafter.tests.test_independent_audit.IndependentAuditTests) ... ok
+test_standalone_cannot_promote_context_status (drafter.tests.test_independent_audit.IndependentAuditTests) ... ok
+test_archive_mode_cannot_silently_use_supplied_provenance (drafter.tests.test_input_profiles.ConfigurableInputTests) ... ok
+test_clock_mapping_is_explicit_and_never_guessed (drafter.tests.test_input_profiles.ConfigurableInputTests) ... ok
+test_dropped_source_bindings_cannot_pass_digest_checks (drafter.tests.test_input_profiles.ConfigurableInputTests) ... ok
+test_fixture_label_cannot_be_removed_from_analytical_input (drafter.tests.test_input_profiles.ConfigurableInputTests) ... ok
+test_malformed_builder_inputs_return_contract_errors (drafter.tests.test_input_profiles.ConfigurableInputTests) ... ok
+test_missing_checkpoint_is_clear_validation_error (drafter.tests.test_input_profiles.ConfigurableInputTests) ... ok
+test_missing_gap_is_not_treated_as_complete_coverage (drafter.tests.test_input_profiles.ConfigurableInputTests) ... ok
+test_original_records_and_configuration_are_not_modified_by_builder (drafter.tests.test_input_profiles.ConfigurableInputTests) ... ok
+test_other_object_names_and_empty_evidence_preserve_missing_information (drafter.tests.test_input_profiles.ConfigurableInputTests) ... ok
+test_record_for_other_execution_is_rejected (drafter.tests.test_input_profiles.ConfigurableInputTests) ... ok
+test_valid_four_object_configuration_is_not_limited_to_archive (drafter.tests.test_input_profiles.ConfigurableInputTests) ... ok
+test_cli_deep_or_invalid_json_saves_rejection_without_traceback (drafter.tests.test_input_rejection.InputRejectionTests) ... ok
+test_cli_rejects_and_saves_missing_checkpoint_for_both_modes (drafter.tests.test_input_rejection.InputRejectionTests) ... ok
+test_malformed_nested_fields_rejected_without_uncaught_errors (drafter.tests.test_input_rejection.InputRejectionTests) ... ok
+test_missing_checkpoint_rejected_in_both_modes_before_client (drafter.tests.test_input_rejection.InputRejectionTests) ... ok
+test_api_key_is_read_from_environment_and_excluded_from_results (drafter.tests.test_llm.LocalModelTransportTests) ... ok
+test_content_and_choice_types_are_checked (drafter.tests.test_llm.LocalModelTransportTests) ... ok
+test_discovery_does_not_choose_an_unconfigured_model (drafter.tests.test_llm.LocalModelTransportTests) ... ok
+test_enable_thinking_is_sent_only_for_explicit_boolean_settings (drafter.tests.test_llm.LocalModelTransportTests) ... ok
+test_http_error_is_contained_and_secret_is_redacted (drafter.tests.test_llm.LocalModelTransportTests) ... ok
+test_invalid_requests_fail_before_network (drafter.tests.test_llm.LocalModelTransportTests) ... ok
+test_invalid_structured_content_is_not_a_successful_completion (drafter.tests.test_llm.LocalModelTransportTests) ... ok
+test_json_schema_request_and_successful_completion (drafter.tests.test_llm.LocalModelTransportTests) ... ok
+test_malformed_completion_envelopes_return_error (drafter.tests.test_llm.LocalModelTransportTests) ... ok
+test_malformed_discovery_response_returns_error (drafter.tests.test_llm.LocalModelTransportTests) ... ok
+test_missing_configured_api_key_fails_without_network (drafter.tests.test_llm.LocalModelTransportTests) ... ok
+test_model_discovery_uses_models_endpoint (drafter.tests.test_llm.LocalModelTransportTests) ... ok
+test_oversized_completion_and_discovery_responses_are_rejected (drafter.tests.test_llm.LocalModelTransportTests) ... ok
+test_reasoning_effort_is_sent_only_when_explicitly_requested (drafter.tests.test_llm.LocalModelTransportTests) ... ok
+test_redirect_is_rejected_without_following_it (drafter.tests.test_llm.LocalModelTransportTests) ... ok
+test_success_response_redacts_a_json_escaped_server_secret_echo (drafter.tests.test_llm.LocalModelTransportTests) ... ok
+test_supported_response_format_modes_have_correct_payloads (drafter.tests.test_llm.LocalModelTransportTests) ... ok
+test_timeout_returns_explicit_error_without_retry (drafter.tests.test_llm.LocalModelTransportTests) ... ok
+test_truncated_and_unfinished_responses_are_not_successes (drafter.tests.test_llm.LocalModelTransportTests) ... ok
+test_wrong_returned_model_is_not_silently_accepted (drafter.tests.test_llm.LocalModelTransportTests) ... ok
+test_bad_urls_are_rejected_before_network (drafter.tests.test_llm.ModelConfigurationTests) ... ok
+test_config_file_roundtrip_preserves_settings (drafter.tests.test_llm.ModelConfigurationTests) ... ok
+test_invalid_enable_thinking_is_rejected_by_schema_and_config (drafter.tests.test_llm.ModelConfigurationTests) ... ok
+test_invalid_reasoning_effort_is_rejected_by_schema_and_config (drafter.tests.test_llm.ModelConfigurationTests) ... ok
+test_numeric_bounds_and_types_are_enforced (drafter.tests.test_llm.ModelConfigurationTests) ... ok
+test_optional_enable_thinking_preserves_existing_configurations (drafter.tests.test_llm.ModelConfigurationTests) ... ok
+test_optional_reasoning_effort_preserves_existing_configurations (drafter.tests.test_llm.ModelConfigurationTests) ... ok
+test_remote_endpoint_needs_explicit_opt_in (drafter.tests.test_llm.ModelConfigurationTests) ... ok
+test_required_and_unknown_configuration_fields_are_enforced (drafter.tests.test_llm.ModelConfigurationTests) ... ok
+test_cli_saves_clearly_labelled_graph_run_and_review_without_a_model (drafter.tests.test_mock_demo.MockDemoCliTests) ... ok
+test_existing_outputs_are_preserved_before_demo_execution (drafter.tests.test_mock_demo.MockDemoCliTests) ... ok
+test_invalid_input_saves_rejection_and_no_argument (drafter.tests.test_mock_demo.MockDemoCliTests) ... ok
+test_mock_option_refuses_a_model_configuration (drafter.tests.test_mock_demo.MockDemoCliTests) ... ok
+test_all_objects_and_missing_coverage_remain_unresolved (drafter.tests.test_mock_demo.MockDemoTests) ... ok
+test_altered_plan_cannot_hide_behind_an_updated_hash (drafter.tests.test_mock_demo.MockDemoTests) ... ok
+test_citations_preserve_exact_source_and_measurement_scope (drafter.tests.test_mock_demo.MockDemoTests) ... ok
+test_graphs_pass_original_gsn_validator_with_original_registry_records (drafter.tests.test_mock_demo.MockDemoTests) ... ok
+test_input_bindings_and_plan_hash_cannot_be_forged (drafter.tests.test_mock_demo.MockDemoTests) ... ok
+test_invalid_graph_edges_and_promoted_claims_are_rejected (drafter.tests.test_mock_demo.MockDemoTests) ... ok
+test_invalid_input_never_creates_a_demo_or_contacts_a_model (drafter.tests.test_mock_demo.MockDemoTests) ... ok
+test_mock_and_live_argument_contracts_remain_separate (drafter.tests.test_mock_demo.MockDemoTests) ... ok
+test_mock_cannot_claim_model_execution_or_physical_verification (drafter.tests.test_mock_demo.MockDemoTests) ... ok
+test_mock_is_explicit_without_model_or_network_activity (drafter.tests.test_mock_demo.MockDemoTests) ... ok
+test_original_input_and_evidence_are_unchanged (drafter.tests.test_mock_demo.MockDemoTests) ... ok
+test_repeat_runs_have_identical_graphs_and_plan_without_model_identity (drafter.tests.test_mock_demo.MockDemoTests) ... ok
+test_wrong_source_or_outside_window_graph_is_rejected (drafter.tests.test_mock_demo.MockDemoTests) ... ok
+test_arbitrary_configuration_order_and_rosters (drafter.tests.test_ordered_plan.OrderedPlanTests) ... ok
+test_exact_object_prefix_with_regex_metacharacter (drafter.tests.test_ordered_plan.OrderedPlanTests) ... ok
+test_missing_duplicate_extra_or_unknown_objects_rejected (drafter.tests.test_ordered_plan.OrderedPlanTests) ... ok
+test_object_specific_evidence_and_no_solution_for_empty_object (drafter.tests.test_ordered_plan.OrderedPlanTests) ... ok
+test_position_binds_node_root_and_edge_namespaces (drafter.tests.test_ordered_plan.OrderedPlanTests) ... ok
+test_reordered_configuration_keeps_original_evidence_owner (drafter.tests.test_ordered_plan.OrderedPlanTests) ... ok
+test_reordered_plan_rejected_without_mutation_by_schema_and_host (drafter.tests.test_ordered_plan.OrderedPlanTests) ... ok
+test_schema_creation_is_independent_and_does_not_change_configuration (drafter.tests.test_ordered_plan.OrderedPlanTests) ... ok
+test_complete_retrieval_keeps_optional_gap_and_does_not_become_safety (drafter.tests.test_phase5_adapter.Phase5AdapterTests) ... ok
+test_conditional_assumptions_cannot_be_dropped (drafter.tests.test_phase5_adapter.Phase5AdapterTests) ... ok
+test_exact_query_bundle_values_provenance_and_citations_are_preserved (drafter.tests.test_phase5_adapter.Phase5AdapterTests) ... ok
+test_forged_registry_link_is_rejected_despite_valid_content_hashes (drafter.tests.test_phase5_adapter.Phase5AdapterTests) ... ok
+test_main_table_alias_remains_context_outside_protected_object_roster (drafter.tests.test_phase5_adapter.Phase5AdapterTests) ... ok
+test_malformed_nested_snapshot_is_clear_error (drafter.tests.test_phase5_adapter.Phase5AdapterTests) ... ok
+test_missing_mandatory_and_optional_obligations_remain_distinct (drafter.tests.test_phase5_adapter.Phase5AdapterTests) ... ok
+test_native_robot_filter_does_not_become_a_protected_object (drafter.tests.test_phase5_adapter.Phase5AdapterTests) ... ok
+test_noncomplete_empty_responses_are_preserved (drafter.tests.test_phase5_adapter.Phase5AdapterTests) ... ok
+test_registry_link_type_must_match_current_release_crosswalk (drafter.tests.test_phase5_adapter.Phase5AdapterTests) ... ok
+test_rejected_request_malformed_obligation_or_provenance_is_clear_error (drafter.tests.test_phase5_adapter.Phase5AdapterTests) ... ok
+test_rejected_request_with_malformed_selector_is_clear_error (drafter.tests.test_phase5_adapter.Phase5AdapterTests) ... ok
+test_structured_snapshot_digest_is_bound (drafter.tests.test_phase5_adapter.Phase5AdapterTests) ... ok
+test_tampering_is_rejected (drafter.tests.test_phase5_adapter.Phase5AdapterTests) ... ok
+test_valid_direct_registry_reference_uses_original_record_id (drafter.tests.test_phase5_adapter.Phase5AdapterTests) ... ok
+test_wrong_execution_task_and_variant_are_rejected (drafter.tests.test_phase5_adapter.Phase5AdapterTests) ... ok
+test_wrong_object_or_window_is_rejected_even_after_query_rebinding (drafter.tests.test_phase5_adapter.Phase5AdapterTests) ... ok
+test_bad_model_summary_is_rejected_without_accepting_empty_reasoning (drafter.tests.test_validation_regressions.ProseReviewValidationTests) ... ok
+test_model_claims_cannot_replace_authoritative_unresolved_summary (drafter.tests.test_validation_regressions.ProseReviewValidationTests) ... ok
+test_single_character_and_whitespace_prose_rejected (drafter.tests.test_validation_regressions.ProseReviewValidationTests) ... ok
+test_standalone_rejects_changed_authoritative_limitations (drafter.tests.test_validation_regressions.ProseReviewValidationTests) ... ok
+test_standalone_rejects_changed_authoritative_summary (drafter.tests.test_validation_regressions.ProseReviewValidationTests) ... ok
+test_standalone_rejects_removed_node_review_marker (drafter.tests.test_validation_regressions.ProseReviewValidationTests) ... ok
+test_unreviewed_model_prose_cannot_masquerade_as_deterministic_mock (drafter.tests.test_validation_regressions.ProseReviewValidationTests) ... ok
+test_available_evidence_cannot_be_omitted (drafter.tests.test_validation_regressions.UnifiedGraphValidationTests) ... ok
+test_complete_mock_bundle_still_passes_shared_validation (drafter.tests.test_validation_regressions.UnifiedGraphValidationTests) ... ok
+test_conflicting_execution_conclusion_rejected (drafter.tests.test_validation_regressions.UnifiedGraphValidationTests) ... ok
+test_disconnected_node_rejected (drafter.tests.test_validation_regressions.UnifiedGraphValidationTests) ... ok
+test_embedded_record_cannot_lose_original_limitations (drafter.tests.test_validation_regressions.UnifiedGraphValidationTests) ... ok
+test_evidence_id_is_not_a_graph_endpoint (drafter.tests.test_validation_regressions.UnifiedGraphValidationTests) ... ok
+test_false_physical_flag_cannot_hide_goal (drafter.tests.test_validation_regressions.UnifiedGraphValidationTests) ... ok
+test_graph_order_matches_supplied_configuration (drafter.tests.test_validation_regressions.UnifiedGraphValidationTests) ... ok
+test_missing_context_rejected (drafter.tests.test_validation_regressions.UnifiedGraphValidationTests) ... ok
+test_missing_strategy_rejected (drafter.tests.test_validation_regressions.UnifiedGraphValidationTests) ... ok
+test_no_physical_goal_root_rejected (drafter.tests.test_validation_regressions.UnifiedGraphValidationTests) ... ok
+test_plan_and_serialized_graph_share_structure_rules (drafter.tests.test_validation_regressions.UnifiedGraphValidationTests) ... ok
+test_single_character_node_statement_rejected (drafter.tests.test_validation_regressions.UnifiedGraphValidationTests) ... ok
+test_solution_statement_cannot_claim_physical_success (drafter.tests.test_validation_regressions.UnifiedGraphValidationTests) ... ok
+test_standalone_no_longer_accepts_one_goal_per_object (drafter.tests.test_validation_regressions.UnifiedGraphValidationTests) ... ok
+test_strategy_without_subclaim_rejected (drafter.tests.test_validation_regressions.UnifiedGraphValidationTests) ... ok
+
+----------------------------------------------------------------------
+Ran 209 tests in 52.531s
+
+OK
+
+================================================================
+$ python3 -m unittest discover -s critic/tests -t . -v
+test_mutations (critic.tests.test_critic.AgreementWithOriginalGraphValidator) ... ok
+test_real_demo_graph_is_accepted (critic.tests.test_critic.AgreementWithOriginalGraphValidator) ... ok
+test_each_rule (critic.tests.test_critic.AgreementWithOriginalRecordValidator) ... ok
+test_random_corruption_agrees (critic.tests.test_critic.AgreementWithOriginalRecordValidator) ... ok
+test_real_records_are_accepted_by_both (critic.tests.test_critic.AgreementWithOriginalRecordValidator) ... ok
+test_synthetic_source_root_only_in_fixtures (critic.tests.test_critic.AgreementWithOriginalRecordValidator) ... ok
+test_c09_against_an_already_cautious_conclusion_is_rejected (critic.tests.test_critic.AuditR2) ... ok
+test_r2_01_forged_checker_results_are_refused (critic.tests.test_critic.AuditR2) ... ok
+test_r2_01_nothing_the_original_schema_rejects_is_admitted (critic.tests.test_critic.AuditR2) ... ok
+test_r2_01_the_original_schema_rejects_the_same_forgeries (critic.tests.test_critic.AuditR2) ... ok
+test_r2_02_admitted_evidence_lies_inside_the_reviewed_interval (critic.tests.test_critic.AuditR2) ... ok
+test_r2_02_every_ledger_rule_is_in_force (critic.tests.test_critic.AuditR2) ... ok
+test_r2_02_inconsistent_admission_ledgers_are_refused (critic.tests.test_critic.AuditR2) ... ok
+test_r2_02_real_checker_output_passes_every_ledger_rule (critic.tests.test_critic.AuditR2) ... ok
+test_r2_03_nan_in_graph_provenance_is_refused_before_the_model (critic.tests.test_critic.AuditR2) ... ok
+test_r2_03_nonstandard_numbers_anywhere_are_refused (critic.tests.test_critic.AuditR2) ... ok
+test_r2_04_huge_interval_endpoint (critic.tests.test_critic.AuditR2) ... ok
+test_r2_04_integers_beyond_a_double_anywhere (critic.tests.test_critic.AuditR2) ... ok
+test_r2_04_review_never_raises (critic.tests.test_critic.AuditR2) ... ok
+test_r2_04_schema_verdicts_on_huge_integers_match_jsonschema (critic.tests.test_critic.AuditR2) ... ok
+test_r2_05_ambiguous_node_without_an_object (critic.tests.test_critic.AuditR2) ... ok
+test_r2_05_citation_outside_the_cited_node (critic.tests.test_critic.AuditR2) ... ok
+test_r2_05_citation_outside_the_monitored_interval (critic.tests.test_critic.AuditR2) ... ok
+test_r2_05_unique_node_binds_the_object (critic.tests.test_critic.AuditR2) ... ok
+test_r2_06_crosswalk_table_is_the_releases (critic.tests.test_critic.AuditR2)
+CROSSWALK follows retrieval_remediation/bundle.py: the families whose items get original IDs, and the ... ok
+test_r2_06_each_crosswalk_rule (critic.tests.test_critic.AuditR2) ... ok
+test_r2_06_forged_original_id_cannot_link_another_objects_solution (critic.tests.test_critic.AuditR2) ... ok
+test_r2_07_cli_accepts_an_explicit_alias (critic.tests.test_critic.AuditR2) ... ok
+test_r2_07_cut_off_reply_is_not_used (critic.tests.test_critic.AuditR2) ... ok
+test_r2_07_malformed_server_replies (critic.tests.test_critic.AuditR2) ... ok
+test_r2_07_normal_reply_keeps_its_metadata (critic.tests.test_critic.AuditR2) ... ok
+test_r2_07_reply_from_another_model_is_not_used (critic.tests.test_critic.AuditR2) ... ok
+test_cases_are_reproducible (critic.tests.test_critic.Cases) ... ok
+test_correct_unresolved_argument_is_not_criticised (critic.tests.test_critic.Cases) ... ok
+test_expected_findings (critic.tests.test_critic.Cases) ... ok
+test_reports_match_schema (critic.tests.test_critic.Cases) ... ok
+test_audit_probe_consistent_forgery_out_of_scope (critic.tests.test_critic.CheckerAdmission) ... ok
+test_audit_probe_self_asserted_label (critic.tests.test_critic.CheckerAdmission) ... ok
+test_audit_probe_synthetic_result_in_real_request (critic.tests.test_critic.CheckerAdmission) ... ok
+test_clock_must_match (critic.tests.test_critic.CheckerAdmission) ... ok
+test_configuration_must_match_the_review (critic.tests.test_critic.CheckerAdmission) ... ok
+test_duplicate_result (critic.tests.test_critic.CheckerAdmission) ... ok
+test_edited_result_or_configuration_fails_its_hash (critic.tests.test_critic.CheckerAdmission) ... ok
+test_empirical_admission_is_disabled (critic.tests.test_critic.CheckerAdmission) ... ok
+test_llm_cannot_cite_a_rejected_assessment (critic.tests.test_critic.CheckerAdmission) ... ok
+test_missing_surface_list_fails_closed (critic.tests.test_critic.CheckerAdmission) ... ok
+test_object_consistency_rules (critic.tests.test_critic.CheckerAdmission) ... ok
+test_object_evidence (critic.tests.test_critic.CheckerAdmission) ... ok
+test_object_scope_and_shape (critic.tests.test_critic.CheckerAdmission) ... ok
+test_real_checker_output_is_admitted_in_a_fixture (critic.tests.test_critic.CheckerAdmission) ... ok
+test_request_and_report_match_schema (critic.tests.test_critic.CheckerAdmission) ... ok
+test_run_the_checker_refused_is_not_used (critic.tests.test_critic.CheckerAdmission) ... ok
+test_stored_checker_output_is_what_the_checker_produces (critic.tests.test_critic.CheckerAdmission) ... ok
+test_checker_contradiction (critic.tests.test_critic.ConclusionsAndAggregation) ... ok
+test_insufficient_claim_cannot_hide_a_checker_violation (critic.tests.test_critic.ConclusionsAndAggregation) ... ok
+test_invalid_contract_claim_needs_a_checker (critic.tests.test_critic.ConclusionsAndAggregation) ... ok
+test_matching_checker_supports_claim (critic.tests.test_critic.ConclusionsAndAggregation) ... ok
+test_missing_object_is_reported_once (critic.tests.test_critic.ConclusionsAndAggregation) ... ok
+test_no_violation_claim_over_a_retrieval_gap (critic.tests.test_critic.ConclusionsAndAggregation) ... ok
+test_not_applicable_needs_evidence (critic.tests.test_critic.ConclusionsAndAggregation) ... ok
+test_precedence (critic.tests.test_critic.ConclusionsAndAggregation) ... ok
+test_related_case_misuse (critic.tests.test_critic.ConclusionsAndAggregation) ... ok
+test_tampered_record_is_detected (critic.tests.test_critic.ConclusionsAndAggregation) ... ok
+test_unknown_outcome_value (critic.tests.test_critic.ConclusionsAndAggregation) ... ok
+test_wrong_aggregation_is_flagged (critic.tests.test_critic.ConclusionsAndAggregation) ... ok
+test_accepted_outcome (critic.tests.test_critic.ConfigurationBinding) ... ok
+test_configuration_must_be_valid_and_hashed (critic.tests.test_critic.ConfigurationBinding) ... ok
+test_configuration_rules_match_validate_configuration (critic.tests.test_critic.ConfigurationBinding) ... ok
+test_context_must_copy_the_configuration (critic.tests.test_critic.ConfigurationBinding) ... ok
+test_empty_scope (critic.tests.test_critic.ConfigurationBinding) ... ok
+test_five_object_libero_profile (critic.tests.test_critic.ConfigurationBinding) ... ok
+test_full_vector_aggregation (critic.tests.test_critic.ConfigurationBinding) ... ok
+test_monitored_interval_and_boundary_provenance (critic.tests.test_critic.ConfigurationBinding) ... ok
+test_oracle_against_the_checker (critic.tests.test_critic.ConfigurationBinding) ... ok
+test_scope_binding_and_templates (critic.tests.test_critic.ConfigurationBinding) ... ok
+test_simulator_time_has_no_agreed_clock_yet (critic.tests.test_critic.ConfigurationBinding) ... ok
+test_aggregation_advice_ignores_non_blocking_notes (critic.tests.test_critic.ConflictsAndApplicability) ... ok
+test_applicability_mismatch (critic.tests.test_critic.ConflictsAndApplicability) ... ok
+test_audit_probe_negative_claims_against_a_conflicting_violation (critic.tests.test_critic.ConflictsAndApplicability) ... ok
+test_cautious_claim_is_not_criticised (critic.tests.test_critic.ConflictsAndApplicability) ... ok
+test_checker_uncertainty_is_kept (critic.tests.test_critic.ConflictsAndApplicability) ... ok
+test_conflict_without_a_violation (critic.tests.test_critic.ConflictsAndApplicability) ... ok
+test_every_claim_against_every_checker_result (critic.tests.test_critic.ConflictsAndApplicability)
+The README table, cell by cell: claim x one result, and claim x two different results. ... ok
+test_insufficient_next_to_a_definite_result_is_a_gap_not_a_conflict (critic.tests.test_critic.ConflictsAndApplicability) ... ok
+test_insufficient_or_invalid_result_is_a_gap_not_a_contradiction (critic.tests.test_critic.ConflictsAndApplicability) ... ok
+test_invalid_contract_next_to_a_definite_result_is_a_conflict (critic.tests.test_critic.ConflictsAndApplicability) ... ok
+test_only_relevant_gaps_are_findings (critic.tests.test_critic.ConflictsAndApplicability) ... ok
+test_outcome_contradiction (critic.tests.test_critic.ConflictsAndApplicability) ... ok
+test_partial_coverage_is_still_checked (critic.tests.test_critic.ConflictsAndApplicability) ... ok
+test_relevant_gap_under_a_conflicted_no_violation (critic.tests.test_critic.ConflictsAndApplicability) ... ok
+test_relevant_gap_under_an_admitted_no_violation (critic.tests.test_critic.ConflictsAndApplicability) ... ok
+test_relevant_gap_under_an_unsupported_no_violation (critic.tests.test_critic.ConflictsAndApplicability) ... ok
+test_unresolved_claim_over_a_conflict_still_shows_the_violation (critic.tests.test_critic.ConflictsAndApplicability) ... ok
+test_violation_claim_over_a_conflict_is_kept_but_flagged (critic.tests.test_critic.ConflictsAndApplicability) ... ok
+test_audit_probe_unauthorized_reduction (critic.tests.test_critic.GeneralizedConfiguration) ... ok
+test_extra_configured_object_is_reported_missing (critic.tests.test_critic.GeneralizedConfiguration) ... ok
+test_fewer_configured_objects_are_not_demanded (critic.tests.test_critic.GeneralizedConfiguration) ... ok
+test_graph_for_unconfigured_object (critic.tests.test_critic.GeneralizedConfiguration) ... ok
+test_audit_probe_consistent_requirement_change (critic.tests.test_critic.InputValidation) ... ok
+test_audit_probe_dangling_edge_stops_the_llm (critic.tests.test_critic.InputValidation) ... ok
+test_audit_probe_removed_fields (critic.tests.test_critic.InputValidation) ... ok
+test_cli_exit_codes (critic.tests.test_critic.InputValidation) ... ok
+test_duplicate_edge_and_unsupported_goal_block (critic.tests.test_critic.InputValidation) ... ok
+test_every_validation_finding_is_blocking (critic.tests.test_critic.InputValidation) ... ok
+test_llm_failure_is_explicit (critic.tests.test_critic.InputValidation) ... ok
+test_report_failing_its_schema_is_an_internal_error (critic.tests.test_critic.InputValidation) ... ok
+test_synthetic_records_need_test_fixture (critic.tests.test_critic.InputValidation) ... ok
+test_valid_input_is_reviewed (critic.tests.test_critic.InputValidation) ... ok
+test_audit_probe_list_as_category_does_not_crash (critic.tests.test_critic.LLMOutputHandling) ... ok
+test_audit_probe_ungrounded_contradiction (critic.tests.test_critic.LLMOutputHandling) ... ok
+test_citations_must_match_object_and_execution (critic.tests.test_critic.LLMOutputHandling) ... ok
+test_every_field_is_type_checked (critic.tests.test_critic.LLMOutputHandling) ... ok
+test_failures_anywhere_in_the_model_step_are_contained (critic.tests.test_critic.LLMOutputHandling) ... ok
+test_long_reply_is_cut_but_hashed_in_full (critic.tests.test_critic.LLMOutputHandling) ... ok
+test_no_trace_without_a_model_call (critic.tests.test_critic.LLMOutputHandling) ... ok
+test_rule_only_categories_are_rejected (critic.tests.test_critic.LLMOutputHandling) ... ok
+test_trace (critic.tests.test_critic.LLMOutputHandling) ... ok
+test_unusable_reply_is_an_explicit_failure (critic.tests.test_critic.LLMOutputHandling) ... ok
+test_bad_model_output_does_not_break_review (critic.tests.test_critic.LLMStep) ... ok
+test_credentials_in_the_server_url_are_not_recorded (critic.tests.test_critic.LLMStep) ... ok
+test_duplicate_of_rule_finding_is_dropped (critic.tests.test_critic.LLMStep) ... ok
+test_empty_model_reply (critic.tests.test_critic.LLMStep) ... ok
+test_extract_json_variants (critic.tests.test_critic.LLMStep) ... ok
+test_malformed_model_findings_are_rejected_not_crashing (critic.tests.test_critic.LLMStep) ... ok
+test_model_comparison_runner (critic.tests.test_critic.LLMStep)
+critic.compare_models end to end against a fake vLLM server. ... ok
+test_openai_compatible_client_against_local_fake_server (critic.tests.test_critic.LLMStep)
+Exercise the real HTTP client against a tiny vLLM-shaped server on localhost. ... ok
+test_scripted_reply_is_screened (critic.tests.test_critic.LLMStep) ... ok
+test_obviously_broken_requests (critic.tests.test_critic.MalformedInput) ... ok
+test_random_corruption_never_crashes (critic.tests.test_critic.MalformedInput)
+Replace random values deep inside valid requests with values of the wrong type. ... ok
+test_agrees_with_jsonschema (critic.tests.test_critic.SchemaValidator) ... ok
+test_every_schema_uses_only_supported_keywords (critic.tests.test_critic.SchemaValidator) ... ok
+test_json_semantics (critic.tests.test_critic.SchemaValidator) ... ok
+test_a_bundle_that_failed_validation_returns_nothing (critic.tests.test_critic.StructuredEvidence) ... ok
+test_a_request_the_release_refuses_cannot_return_evidence (critic.tests.test_critic.StructuredEvidence) ... ok
+test_available_but_not_independently_fulfilled_counts_as_missing (critic.tests.test_critic.StructuredEvidence) ... ok
+test_bundles_never_support_a_claim (critic.tests.test_critic.StructuredEvidence)
+A complete bundle is not a checker result: no-violation claims without one stay unsupported. ... ok
+test_case_e_bundle_is_admitted_and_kept_whole (critic.tests.test_critic.StructuredEvidence) ... ok
+test_conditional_assumptions_are_kept (critic.tests.test_critic.StructuredEvidence) ... ok
+test_every_field_of_the_citation_basis_is_checked (critic.tests.test_critic.StructuredEvidence) ... ok
+test_every_status_the_release_returns_is_accepted_and_kept (critic.tests.test_critic.StructuredEvidence) ... ok
+test_fixtures_come_from_the_release_code (critic.tests.test_critic.StructuredEvidence)
+phase5.py runs api.py's own bundle assembly; the release's two schemas accept what it builds. ... ok
+test_malformed_section_and_changed_release (critic.tests.test_critic.StructuredEvidence) ... ok
+test_missing_mandatory_obligation_under_an_admitted_checker_result (critic.tests.test_critic.StructuredEvidence) ... ok
+test_missing_mandatory_obligation_without_checker_support_blocks (critic.tests.test_critic.StructuredEvidence) ... ok
+test_recorded_metadata_outside_the_window (critic.tests.test_critic.StructuredEvidence) ... ok
+test_requests_without_structured_evidence_are_unchanged (critic.tests.test_critic.StructuredEvidence) ... ok
+test_retrieval_context_cannot_claim_completeness_over_a_partial_bundle (critic.tests.test_critic.StructuredEvidence) ... ok
+test_solution_links_and_phase5_ids_in_solutions (critic.tests.test_critic.StructuredEvidence) ... ok
+test_tampering_is_caught (critic.tests.test_critic.StructuredEvidence) ... ok
+test_the_model_cannot_cite_a_retrieval_citation (critic.tests.test_critic.StructuredEvidence) ... ok
+test_which_missing_obligations_matter (critic.tests.test_critic.StructuredEvidence) ... ok
+test_schema_fallback_rejects (critic.tests.test_critic.TestOracles) ... ok
+test_strict_mode_turns_a_missing_oracle_into_a_failure (critic.tests.test_critic.TestOracles) ... ok
+test_team_modules_do_not_read_their_annotations (critic.tests.test_critic.TestOracles)
+On Python 3.9 the team's modules are loaded with postponed annotations. That changes nothing as long ... ok
+test_checker_contract_copies_match_assessment_schema (critic.tests.test_critic.VocabularyInSync) ... ok
+test_copies_match_existing_schemas (critic.tests.test_critic.VocabularyInSync) ... ok
+test_digest_is_the_release_digest (critic.tests.test_critic.VocabularyInSync)
+Query IDs and citations are recomputed with contract.digest; the release uses provenance.digest. ... ok
+test_optional_evidence_matches_the_r1_configuration_schema (critic.tests.test_critic.VocabularyInSync) ... ok
+test_phase5_pins_match_the_release (critic.tests.test_critic.VocabularyInSync)
+contract.py's copies of the Phase 5 release constants, read from its config files without importing ... ok
+test_record_ids_reproduce_registry_hashes (critic.tests.test_critic.VocabularyInSync) ... ok
+test_ambiguous_unanchored_objection_is_retained_for_review (critic.tests.test_pr18_corrections.C09Grounding) ... ok
+test_four_original_false_negatives_and_proposed_variation (critic.tests.test_pr18_corrections.C09Grounding) ... ok
+test_original_case_c_objection_is_not_promoted (critic.tests.test_pr18_corrections.C09Grounding) ... ok
+test_original_unquoted_execution_counterexample_is_not_suppressed (critic.tests.test_pr18_corrections.C09Grounding) ... ok
+test_safe_prose_and_other_unsupported_inferences (critic.tests.test_pr18_corrections.C09Grounding) ... ok
+test_strategy_and_solution_are_not_exempted_by_cautious_conclusion (critic.tests.test_pr18_corrections.C09Grounding) ... ok
+test_genuine_checker_results_in_both_directions (critic.tests.test_pr18_corrections.CheckerReplay) ... ok
+test_genuine_conflicting_results_do_not_erase_a_violation (critic.tests.test_pr18_corrections.CheckerReplay) ... ok
+test_invalid_result_cannot_support_c07 (critic.tests.test_pr18_corrections.CheckerReplay) ... ok
+test_missing_source_input_is_not_a_verified_result (critic.tests.test_pr18_corrections.CheckerReplay) ... ok
+test_original_rehashed_semantic_counterexamples (critic.tests.test_pr18_corrections.CheckerReplay) ... ok
+test_resealed_invalid_sources_cannot_be_promoted (critic.tests.test_pr18_corrections.CheckerReplay) ... ok
+test_source_hash_mismatch_is_diagnostic (critic.tests.test_pr18_corrections.CheckerReplay) ... ok
+test_alias_validation_and_exact_matching (critic.tests.test_pr18_corrections.ModelBoundary) ... ok
+test_cli_empty_alias_is_an_argument_error (critic.tests.test_pr18_corrections.ModelBoundary) ... ok
+test_cli_nonfinite_reply_is_a_failed_model_step_with_strict_json (critic.tests.test_pr18_corrections.ModelBoundary) ... ok
+test_core_wire_fields_cannot_hide_in_extra_body (critic.tests.test_pr18_corrections.ModelBoundary) ... ok
+test_cyclic_python_input_rejects_but_shared_json_values_do_not (critic.tests.test_pr18_corrections.ModelBoundary) ... ok
+test_nonfinite_and_overflowing_json_never_enter_reports (critic.tests.test_pr18_corrections.ModelBoundary) ... ok
+test_returned_report_does_not_alias_request_provenance (critic.tests.test_pr18_corrections.ModelBoundary) ... ok
+test_trace_is_a_deep_snapshot (critic.tests.test_pr18_corrections.ModelBoundary) ... ok
+test_url_authentication_is_not_in_settings (critic.tests.test_pr18_corrections.ModelBoundary) ... ok
+test_aggregate_budget_cannot_be_claimed_as_complete (critic.tests.test_pr18_corrections.Phase5PublicGuards) ... ok
+test_all_nonchannel_metadata_filters_use_public_rules (critic.tests.test_pr18_corrections.Phase5PublicGuards) ... ok
+test_case_e_runs_the_entire_public_prepare_on_synthetic_metadata (critic.tests.test_pr18_corrections.Phase5PublicGuards) ... ok
+test_corrected_case_e_has_no_unsupported_filters (critic.tests.test_pr18_corrections.Phase5PublicGuards) ... ok
+test_explicit_record_source_and_object_bindings (critic.tests.test_pr18_corrections.Phase5PublicGuards) ... ok
+test_public_assurance_and_selector_boundaries (critic.tests.test_pr18_corrections.Phase5PublicGuards) ... ok
+test_unsupported_request_cannot_claim_complete (critic.tests.test_pr18_corrections.Phase5PublicGuards) ... ok
+
+----------------------------------------------------------------------
+Ran 189 tests in 77.864s
+
+OK

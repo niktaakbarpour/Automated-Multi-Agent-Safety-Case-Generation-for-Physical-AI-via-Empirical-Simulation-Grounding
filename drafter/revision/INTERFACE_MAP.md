@@ -149,7 +149,7 @@ validator for unrevised drafts.
 | Drafter (existing) | `python3 -m unittest discover -s drafter/tests -t .` | 209 tests, OK |
 | Handoff (existing) | `python3 -m unittest integration.tests.test_handoff` | 9 tests, OK |
 | Critic (existing) | `python3 -m unittest discover -s critic/tests -t .` | 189 tests, OK |
-| Revision (new) | `python3 -m unittest discover -s drafter/revision/tests -t .` | 100 tests, OK |
+| Revision (new) | `python3 -m unittest discover -s drafter/revision/tests -t .` | 102 tests, OK |
 
 The three existing suites gave the same counts before any revision code was
 added.
