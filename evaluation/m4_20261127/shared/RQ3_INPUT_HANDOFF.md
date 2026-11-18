@@ -1,6 +1,8 @@
-# RQ3 input handoff (draft)
+# RQ3 input handoff
 
 **Owner:** Alex (Critic). **Coordinator/evidence:** Nikta. **As of:** 2026-11-18.
+
+Protocol M4-v1.0 and the paired RQ3 design were approved by Nikta and Alex on 2026-11-18. This approval does not approve cases, labels, Critic configuration, or results.
 
 ## Ready to inspect
 
@@ -11,6 +13,6 @@
 
 ## Ready for Critic inputs
 
-No execution group is currently approved for RQ3 outcome scoring. The 60 audited new recordings are source candidates only; all require independent human submissions/adjudication, exposure disposition, and final group-level eligibility. The four old runs are known-exposure baselines, not independent RQ3 cases. The 432 manifest entries lack a verified canonical-group roster. Retrieval-only evidence must not be represented as physical-safety proof. R1 checker admission remains blocked pending a validated requirement-compatible evidence/coverage path and independent references.
+No execution group is currently approved for RQ3 outcome scoring. The 60 audited new recordings are source candidates only; all require independent human submissions/adjudication, exposure disposition, and final group-level eligibility. The four old runs are known-exposure development evidence, not pristine held-out RQ3 cases. The 432 manifest entries lack a verified canonical-group roster. Retrieval-only evidence must not be represented as physical-safety proof. R1 checker admission remains blocked pending independent validation; physical-safety claims under condition C remain blocked until admitted checked evidence exists. Actual experiments have not run.
 
-Alex should freeze the Critic build, prompt, decoding parameters, output budget and matching across text-only, retrieval-only and requirement-checked conditions. Use identical case IDs and paired outputs; disclose the above exposure. Do not multiply N by mutations or repeated runs. Proposed repeats: 3 per group/condition, pending Alex approval. Do not generate any output until eligible groups and the protocol are approved.
+Use the existing working Critic implementation and record its exact commit, model, prompt, decoding parameters, and output limit when verified; exact configuration remains pending. Compare paired outputs on identical eligible group IDs across (A) text-only, (B) retrieval-only, and (C) requirement-checked evidence, using the three approved mutations: unsupported absolute safety claims, incorrect evidence links, and unjustified scope narrowing. Plan three repetitions per group/condition if feasible and record actual repeats/settings. Mutations and repetitions do not increase independent N. Preserve exposure history and independent human reference labels. Do not present results until the pending eligibility, labels, and configuration are resolved.

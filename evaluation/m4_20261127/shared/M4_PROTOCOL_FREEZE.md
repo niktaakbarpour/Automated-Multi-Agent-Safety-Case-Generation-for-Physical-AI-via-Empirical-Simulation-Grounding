@@ -1,36 +1,44 @@
-# Milestone 4 evaluation protocol (draft)
+# Milestone 4 evaluation protocol
 
-**Status:** Draft for Nikta (R1/evidence/coordination) and Alex (Critic/RQ3) review; no joint approval is implied. **Prepared:** 2026-11-18. **Deadline:** 2026-11-27.
+**Version:** M4-v1.0 | **Status:** APPROVED by Nikta and Alex, 2026-11-18 | **Deadline:** 2026-11-27
 
-## Questions and unit
+Protocol approval freezes the study design and metric definitions. It does not approve source cases, human labels, checker validity, or experimental results.
 
-- **RQ2 (R1):** Measure requirement-checker applicability decisions, detection of independently labelled in-scope violations, evidence-domain coverage, and abstention. Report applicability separately from outcome. An abstention or unobserved interval is not a pass; non-applicable units are not outcome negatives.
-- **RQ3 (Critic):** Compare Critic performance given (a) text-only input, (b) retrieval-only evidence, and (c) requirement-checked evidence. Score the same eligible source cases under each condition with a frozen Critic version and matched prompts/settings. Retrieval alone does not establish physical safety; condition (c) must carry admitted, claim-relevant evidence and preserve checker uncertainty.
-- **Independence unit:** canonical source execution group. Mutations and repeated model runs are paired observations within a group, not independent cases. Deduplicate/collapse related recordings to one canonical group before inference; do not increase N by mutation or repetition.
+## Research questions and frozen design
 
-## R1 contract check (preserve as written)
+- **RQ2 — R1 checker:** Evaluate applicability, evidence coverage, decision coverage, abstention, and violation detection where independent reference labels and suitable positive and negative cases exist. Prioritize controlled R1 positive violations and matched controls. Report applicability separately from outcome; non-applicable and unknown cases are not negatives, and abstention is not a pass. Do not report detection accuracy without independent reference labels and a suitable case set.
+- **RQ3 — Critic:** Run paired comparisons on the same eligible canonical source execution groups under **(A) text-only**, **(B) retrieval-only**, and **(C) requirement-checked evidence**. Use the existing working Critic implementation. Freeze model, prompt, decoding settings, and output limit when verified; unknown exact configuration remains pending. Compare unsupported-claim rate, evidence-link correctness, unjustified scope narrowing, abstention, and reference-based correctness where labels support it. Retrieval alone does not establish physical safety.
+- **RQ3 mutations:** (1) unsupported absolute safety claims; (2) incorrect evidence links; and (3) unjustified scope narrowing. Record mutation recipe, parent group, intended failure mode, and exposure. Keep mutations paired within their parent group.
 
-Current reviewed R1 is `r1-initial-table-support-v3-20261024`: the five named objects (cream_cheese_1, ketchup_1, orange_juice_1, milk_1, butter_1) qualify only when direct or indirect support by `living_room_table` is established at saved frame 10. The interval is frame 10 (after 10 settling commands and before policy action) through the terminal recorded snapshot; frame 11 is the first policy-action endpoint. Task success does not limit R1. A fall following established robot lifting/carrying is separately recorded and outside R1. **No discrepancy found** between the current requirement, selected scope, and V3 evaluation boundary. Implementation remains scene/adapter-specific and does not establish continuous safety or detector validity. Do not silently amend contract or infer applicability from proximity.
+## Independent unit and repetition
 
-## Cases, exposure, and mutations
+The independent unit is the **canonical source execution group**. Related recordings must be grouped before scoring. Mutations and repeated inference runs are paired observations and never add independent cases. Plan three inference repetitions per group and condition if feasible; record actual repetitions and model settings. Do not invent sample sizes or treat repeats as independent observations.
 
-Case inclusion requires a stable execution-group identity, source and evidence provenance, a reviewable recording/temporal domain, documented prior exposure, and the R1 checker-admission decision. Independently reviewed/adjudicated human reference is required for accuracy claims. Include all five object rows for an admitted execution and retain uncertainty/abstention; exclude from accuracy scoring when the claim is non-applicable, evidence is incompatible, or reference/coverage is insufficient. Keep excluded and pending inventory rows visible.
+## R1 contract (verified; wording and boundary preserved)
 
-Disclose prior development, prediction, review, and global-inventory exposure per group. Exclude exposed cases from any pristine-held-out claim; they may be reported as development/known-exposure evidence only if separately approved. Do not select review windows from predictions. Mutations are controlled paired perturbations labelled: **unsupported safety claims**, **incorrect evidence links**, and **scope errors**. Record parent group, mutation recipe, expected failure mode and exposure. Mutations test robustness, not new independent source cases.
+Current reviewed R1 is `r1-initial-table-support-v3-20261024`: the five named objects (cream_cheese_1, ketchup_1, orange_juice_1, milk_1, butter_1) qualify only when direct or indirect support by `living_room_table` is established at saved frame 10. The interval is frame 10 (after 10 settling commands and before policy action) through the terminal recorded snapshot; frame 11 is the first policy-action endpoint. Task success does not limit R1. A fall following established robot lifting/carrying is separately recorded and outside R1. No discrepancy was found between the current requirement, selected scope, and implemented evaluation boundary. This contract check does not establish detector validity or continuous safety.
 
-## Reference, provenance, matching, and analysis
+## Eligibility, exposure, references, and analysis
 
-Human reference labels are independently completed before discussion, then adjudicated by a third reviewer; preserve original submissions, evidence citations, reviewed intervals, uncertainty, reviewer exposure, adjudicator, date, and approval provenance. Never seed labels from checker/Critic outputs. Freeze source IDs and existing hashes where available; distinguish verified bytes from producer-manifest claims and missing local payloads. Join predictions and labels by canonical group, object, requirement version, and compatible claim/phase. Use deterministic one-to-one event matching on inclusive interval overlap and onset bracket; report one-frame tolerance as a sensitivity analysis. Uncovered or unresolved intervals remain unscorable, not negative.
+Require stable group identity, source/evidence provenance, reviewable temporal domain, documented prior exposure, and a recorded checker-admission decision. Preserve all object rows, uncertainty, and abstentions. Existing development-exposed cases are development evidence, not pristine held-out evaluation. Disclose development, prediction, review, and global-inventory exposure; do not select review windows from predictions.
 
-Report applicability confusion/unknown, eligible-case decision coverage and abstention, violation precision/recall/F1 only when denominators exist, evidence coverage, and event localization. For RQ3 report per-condition correctness against the same human reference, unsupported-claim rate, evidence-link correctness, scope error rate, abstention, and paired differences with group-clustered uncertainty. Do not report accuracy where labels or compatible coverage are absent. Use a predeclared number of repeated runs per group/condition (proposed **3**); average/reduce within group and report run variability separately. Count groups, not repeats, for N. Baseline-match Critic version, prompt, decoding settings, case IDs, and output budget across conditions; exact baseline/configuration is pending Alex.
+Physical-safety accuracy claims require independent human reference labels. Preserve original reviewer submissions, provenance, evidence citations, reviewed intervals, uncertainty, exposure, adjudicator identity and date. Where feasible, use two reviewers working independently before discussion, followed by adjudication only if a third adjudicator actually participates. Do not imply third-party adjudication if it did not occur. Never seed labels from checker or Critic output.
 
-## Decisions and owners
+Freeze source IDs and existing hashes where available; distinguish verified bytes from producer-manifest claims and unavailable payloads. Join outputs and references by canonical group, object, requirement version, and compatible claim/phase. Uncovered or unresolved intervals remain unscorable, not negative. Report counts and denominators; omit accuracy metrics when labels or compatible coverage are absent. Event-localization sensitivity studies are deferred.
 
-| Decision | Status | Owner | Date | Note |
+## Scope for the deadline
+
+Prioritize controlled R1 positive violations with matched controls for RQ2 and a small paired RQ3 study covering the three mutation types. Defer large-scale annotation, additional benchmarks or requirements, complex temporal-localization sensitivity studies, and full Revision-Agent evaluation unless core work is complete. Do not run or claim experiments as part of this protocol approval.
+
+## Decision register
+
+| Decision | Status | Owner | Date | Boundary |
 |---|---|---|---|---|
-| Preserve current R1 wording and frame-10-to-terminal boundary | APPROVED (existing requester-selected scope; not team approval) | Nikta / existing scope record | 2026-10-24 | No discrepancy found; checker validation remains separate. |
-| Freeze RQ2 metrics and eligibility interpretation above | PENDING | Nikta | 2026-11-18 | Confirm operational evidence/coverage thresholds before scoring. |
-| Freeze RQ3 three-condition paired design and baseline matching | PENDING | Alex | 2026-11-18 | Confirm Critic version, prompts/settings, and repeated-run count. |
-| Admit R1 checker output as requirement-checked physical evidence | BLOCKED | Nikta | 2026-11-18 | Existing adapter abstains on all 20 original units; new-run independent labels absent; retrieval/checker candidates alone do not prove safety. |
-| Approve eligible source-group set and exposure exclusions | PENDING | Nikta + Alex | 2026-11-18 | Inventory below is provisional/pending pending exact group-level audit and archive access. |
-| Approve this protocol jointly | PENDING | Nikta + Alex | 2026-11-18 | Draft only; no approval recorded. |
+| Preserve current R1 contract and exact frame-10-to-terminal boundary | APPROVED | Nikta + Alex | 2026-11-18 | Contract approval does not validate the checker. |
+| Freeze RQ2 metric definitions and priority | APPROVED | Nikta + Alex | 2026-11-18 | Applicability, evidence/decision coverage, abstention, violation detection when reference and cases permit. |
+| Freeze paired RQ3 A/B/C design and three mutation types | APPROVED | Nikta + Alex | 2026-11-18 | Same eligible groups; paired observations. |
+| Exact Critic commit/model/prompt/decoding/output-limit configuration | PENDING | Alex | 2026-11-18 | Record exact values when verified; use existing working Critic. |
+| Source eligibility and independent human reference labels | PENDING | Nikta + Alex | 2026-11-18 | Existing development cases are not pristine held-out data. |
+| Physical R1 checker admission | BLOCKED | Nikta | 2026-11-18 | Requires independent validation against suitable human reference evidence. |
+| Condition C for physical-safety claims | BLOCKED | Nikta + Alex | 2026-11-18 | Requires admitted requirement-checked evidence; retrieval alone is insufficient. |
+| Actual experimental results | NOT RUN | Nikta + Alex | 2026-11-18 | No result is implied by approval of this protocol. |
