@@ -92,14 +92,15 @@ class InvalidRequests(S.Checks, unittest.TestCase):
                                  ('rejected_invalid_input', 'invalid_input'))
 
     def test_finding_for_a_node_that_does_not_exist(self):
-        request = S.guarantee_request()
-        request['critic_report']['criticisms'][0]['node_id'] = 'cream_cheese_1:G9'
+        request = S.model_request()
+        self.assertEqual(request['critic_report']['criticisms'][0]['finding_source'], 'llm_proposed')
+        request['critic_report']['criticisms'][0]['node_id'] = 'milk_1:G9'
         result = self.revise(S.rehash(request))
         self.assertEqual(result['dispositions'][0]['classification'], C.TARGET_MISSING)
         self.assertEqual((result['outcome'], result['stop_reason']), ('unresolved', 'no_actionable_findings'))
 
     def test_finding_that_cites_unknown_evidence(self):
-        request = S.guarantee_request()
+        request = S.model_request()
         request['critic_report']['criticisms'][0]['evidence_ids'] = ['ev:' + 'b' * 64]
         result = self.revise(S.rehash(request))
         self.assertEqual(result['dispositions'][0]['classification'], C.UNKNOWN_EVIDENCE)
@@ -456,7 +457,7 @@ class TamperedRevisions(S.Checks, unittest.TestCase):
                 ('provenance', lambda r: self.edited(r['revised_argument_bundle'])['provenance'].update(round=5)),
                 ('digest', lambda r: r.update(revised_argument_bundle_sha256='0' * 64)),
                 ('diff', lambda r: r['diff'][0].update(before_sha256='0' * 64)),
-                ('disposition', lambda r: r['dispositions'][0].update(verified_by_rules=True)),
+                ('disposition', lambda r: r['dispositions'][0].update(verified_by_rules=False)),
                 ('validators', lambda r: r['validators'].pop()),
                 ('metrics', lambda r: r['metrics'].update(nodes_changed=0)),
                 ('other node', lambda r: S.node(r['revised_argument_bundle'], 'milk_1', 'milk_1:G1').update(

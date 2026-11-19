@@ -1350,7 +1350,9 @@ class LLMOutputHandling(unittest.TestCase):
         self.assertEqual((t['raw_response'], t['response_sha256'], t['raw_response_truncated']),
                          (reply, sha(reply), False))
         self.assertEqual(t['settings'], {'scripted_reply_sha256': sha(reply)})
-        self.assertEqual((t['accepted'], t['rejected']), (2, 2))
+        # Critic 0.5.0: the scripted C12 on the execution conclusion now duplicates the deterministic
+        # CLAIM-ABSOLUTE-SAFETY finding, so it is rejected (was 2 accepted, 2 rejected in 0.4.0).
+        self.assertEqual((t['accepted'], t['rejected']), (1, 3))
 
     def test_long_reply_is_cut_but_hashed_in_full(self):
         reply = json.dumps({'findings': []}) + ' ' * (L.RAW_RESPONSE_LIMIT + 10)
@@ -1371,12 +1373,15 @@ class LLMStep(unittest.TestCase):
         reply = (CASES / 'scripted_replies' / 'case_a.txt').read_text()
         report = review(req, L.ScriptedLLM(reply))
         llm = [c for c in report['criticisms'] if c['finding_source'] == 'llm_proposed']
-        self.assertEqual({c['category'] for c in llm}, {'C05', 'C12'})
+        self.assertEqual({c['category'] for c in llm}, {'C05'})
         self.assertTrue(all(c['human_review_required'] and not c['blocking'] for c in llm))
         reasons = ' '.join(r['reason'] for r in report['rejected_llm_findings'])
         self.assertIn('not in the package', reasons)   # invented evidence ID rejected
         self.assertIn('does not exist', reasons)        # invented node rejected
-        self.assertEqual(len(report['rejected_llm_findings']), 2)
+        # Critic 0.5.0: the model's C12 on "certified safe" is already a deterministic finding
+        self.assertIn('duplicate of a deterministic finding', reasons)
+        self.assertTrue(flagged(report, check_id='CLAIM-ABSOLUTE-SAFETY', category='C12', object_id=None))
+        self.assertEqual(len(report['rejected_llm_findings']), 3)
 
     def test_bad_model_output_does_not_break_review(self):
         req = load('case_b_missing_or_wrong_evidence.json')
@@ -1428,7 +1433,8 @@ class LLMStep(unittest.TestCase):
         self.assertTrue(report['llm']['ok'])
         self.assertEqual(report['llm']['model'], 'fake-gpt-oss')
         self.assertTrue(received['messages'][0]['content'].endswith('Reasoning: medium'))
-        self.assertEqual(len([c for c in report['criticisms'] if c['finding_source'] == 'llm_proposed']), 2)
+        # 1 since Critic 0.5.0: the reply's C12 duplicates the deterministic CLAIM-ABSOLUTE-SAFETY finding
+        self.assertEqual(len([c for c in report['criticisms'] if c['finding_source'] == 'llm_proposed']), 1)
         # the trace matches what the server actually received, and the key is sent but never recorded
         self.assertEqual(report['llm']['input_sha256'], K.digest(received['messages']))
         self.assertEqual(received['auth'], 'Bearer SECRET-TEST-KEY')

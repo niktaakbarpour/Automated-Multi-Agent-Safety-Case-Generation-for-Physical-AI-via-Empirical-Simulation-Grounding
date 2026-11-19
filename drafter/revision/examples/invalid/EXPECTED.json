@@ -7,14 +7,14 @@
     "stop_reason": "invalid_input"
   },
   "unknown_node": {
-    "change": "The finding of the actionable example was edited by hand to name a node that does not exist.",
+    "change": "A model-proposed finding was added by hand to the saved report of the rejected-candidates example. It names a node that does not exist.",
     "issue": null,
     "classification": "not_actionable_target_missing",
     "outcome": "unresolved",
     "stop_reason": "no_actionable_findings"
   },
   "nonadmitted_assessment": {
-    "change": "The finding was edited by hand to cite a checker assessment that is not admitted.",
+    "change": "A model-proposed finding was added by hand to the same saved report. It cites a checker assessment that is not admitted.",
     "issue": null,
     "classification": "not_actionable_unknown_evidence",
     "outcome": "unresolved",

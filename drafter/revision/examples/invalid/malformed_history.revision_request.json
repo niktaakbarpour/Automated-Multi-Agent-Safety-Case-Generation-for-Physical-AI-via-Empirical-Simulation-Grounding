@@ -311,7 +311,7 @@
                   "revision_schema": "drafter-revision-result/0.1.0",
                   "revision_id": "example:synthetic-actionable-c12",
                   "round": 1,
-                  "critic_report_sha256": "432b41afbc871d66d042cc765a0f3b14e4e3a64dae6f0250696f71b990e089f5",
+                  "critic_report_sha256": "ad4fb196c9dd2152d63d3c9dd689e47ea3bbeffc0f18bde5f5b5f5181e484117",
                   "finding_ids": [
                     "CRIT-001"
                   ],
@@ -1438,10 +1438,10 @@
       ]
     }
   },
-  "critic_request_sha256": "eadbdea3b9cfe2b23f51a957edb9c62a072575498dcd006e8b053c829879a7f0",
+  "critic_request_sha256": "01658267850f6bba0aa034b35134f572cae1553c784a7dbe4f1c20a75cfe942b",
   "critic_report": {
     "schema_version": "critic-report/0.4.0",
-    "critic_version": "0.4.0",
+    "critic_version": "0.5.0",
     "request_id": "b8dbf1f3-c590-4cdd-8527-1526fdb597d9:critic:controlled-unsupported-safety-claim:rev1",
     "execution_id": "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db",
     "test_fixture": true,
@@ -1458,7 +1458,7 @@
       "error": null,
       "prompt_sha256": "6e93b4c00e4fc042e281c319b44c798e9b43bc77b82aa366d5edd181ece7ede2",
       "input_sha256": "3b2d69087a13fc9659f245f5219d79bdbbf373e95856c61428cad8d83a67d66f",
-      "request_sha256": "eadbdea3b9cfe2b23f51a957edb9c62a072575498dcd006e8b053c829879a7f0",
+      "request_sha256": "01658267850f6bba0aa034b35134f572cae1553c784a7dbe4f1c20a75cfe942b",
       "settings": {
         "scripted_reply_sha256": "8215bb53a35ad31d3228ef2d1d2e0f267ae12873f6b0de80290682504a3d4e71"
       },
@@ -1526,7 +1526,7 @@
     "criticisms": [
       {
         "criticism_id": "CRIT-001",
-        "critic_version": "0.4.0",
+        "critic_version": "0.5.0",
         "check_id": "LLM",
         "phase": "review",
         "category": "C06",
@@ -1587,7 +1587,7 @@
       "disclaimer": "A report with no blocking findings means only that this Critic found no issue within the supplied evidence and review scope. It does not show that R1 holds or that the robot was physically safe."
     }
   },
-  "critic_report_sha256": "e6f1d3086f7ee85fea0a95c4a8ba9e245a0ab59846e74d6e3e7d7909ca00c80d",
+  "critic_report_sha256": "4afe5460703b1cc7b66f9f4fa76ab9a3c50b7e8671ffe72e6c89726becab4f43",
   "finding_decisions": [
     {
       "criticism_id": "CRIT-001",
@@ -1601,17 +1601,17 @@
     {
       "round": 1,
       "revision_id": "example:synthetic-actionable-c12",
-      "revision_request_sha256": "7729f9ec4cc06be8808f380c6c1fe7dea99d5a2d5ad5a6e8d608fa061c99da53",
+      "revision_request_sha256": "2e0e943cf425b7c87c23f057783d1ea230c55fbd629082d19f3c054019ec3971",
       "critic_request_sha256": "4c06acd245b5039902331af35aae8f48a9c615026f7dea09eba3f79c63e68b3f",
-      "critic_report_sha256": "432b41afbc871d66d042cc765a0f3b14e4e3a64dae6f0250696f71b990e089f5",
-      "result_sha256": "6c7115f1c6c674782f0c0960746ae13bc916fa35e5c3e54dd8c504f4780923e8",
+      "critic_report_sha256": "ad4fb196c9dd2152d63d3c9dd689e47ea3bbeffc0f18bde5f5b5f5181e484117",
+      "result_sha256": "89e8f748bfad5b9d0b08fc7c323bc4c7fd284e651960eb21c55a6d1338f913a6",
       "original_argument_bundle_sha256": "6fb5471a27fdef29707b9a8beda321f7258723ca66a8c0c871af01fce0405bc5",
-      "revised_argument_bundle_sha256": "1057523efc46b7b5e4ba9ec95db77d1e6c4c3b0c16e83fcbcbde3847cba325a4",
+      "revised_argument_bundle_sha256": "7556a5b9da4c05ca7e4cdde0c87458f06589eabbc2e2cd837f020d24b97f3b7c",
       "recriticism_request_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
       "addressed": [
         {
           "criticism_id": "CRIT-001",
-          "check_id": "LLM",
+          "check_id": "CLAIM-ABSOLUTE-SAFETY",
           "category": "C12",
           "object_id": "cream_cheese_1",
           "node_id": "cream_cheese_1:G1"

@@ -8,9 +8,9 @@
     "present": true,
     "label": "Synthetic test input: the Critic report was produced by critic.review with a scripted reply written for this test. It is not a model result and not a scientific finding."
   },
-  "revision_request_sha256": "7729f9ec4cc06be8808f380c6c1fe7dea99d5a2d5ad5a6e8d608fa061c99da53",
+  "revision_request_sha256": "2e0e943cf425b7c87c23f057783d1ea230c55fbd629082d19f3c054019ec3971",
   "critic_request_sha256": "4c06acd245b5039902331af35aae8f48a9c615026f7dea09eba3f79c63e68b3f",
-  "critic_report_sha256": "432b41afbc871d66d042cc765a0f3b14e4e3a64dae6f0250696f71b990e089f5",
+  "critic_report_sha256": "ad4fb196c9dd2152d63d3c9dd689e47ea3bbeffc0f18bde5f5b5f5181e484117",
   "adapter": {
     "name": "deterministic-templates",
     "version": "0.1.0",
@@ -67,7 +67,7 @@
                 "revision_schema": "drafter-revision-result/0.1.0",
                 "revision_id": "example:synthetic-actionable-c12",
                 "round": 1,
-                "critic_report_sha256": "432b41afbc871d66d042cc765a0f3b14e4e3a64dae6f0250696f71b990e089f5",
+                "critic_report_sha256": "ad4fb196c9dd2152d63d3c9dd689e47ea3bbeffc0f18bde5f5b5f5181e484117",
                 "finding_ids": [
                   "CRIT-001"
                 ],
@@ -760,10 +760,10 @@
       "butter_1"
     ]
   },
-  "revised_argument_bundle_sha256": "1057523efc46b7b5e4ba9ec95db77d1e6c4c3b0c16e83fcbcbde3847cba325a4",
+  "revised_argument_bundle_sha256": "7556a5b9da4c05ca7e4cdde0c87458f06589eabbc2e2cd837f020d24b97f3b7c",
   "recriticism": {
     "request_id": "b8dbf1f3-c590-4cdd-8527-1526fdb597d9:critic:controlled-unsupported-safety-claim:rev1",
-    "request_sha256": "eadbdea3b9cfe2b23f51a957edb9c62a072575498dcd006e8b053c829879a7f0"
+    "request_sha256": "01658267850f6bba0aa034b35134f572cae1553c784a7dbe4f1c20a75cfe942b"
   },
   "proposal": {
     "edits": [
@@ -775,7 +775,7 @@
         "finding_ids": [
           "CRIT-001"
         ],
-        "justification": "CRIT-001 (LLM, C12 Unsupported guarantee or certification): The goal states \"Cream_cheese_1 was guaranteed physically safe throughout this execution.\" No admitted checker assessment or other evidence in the package supports a guarantee of physical safety. Edit: the statement is replaced by the unresolved wording; the R1 requirement and the node scope are unchanged."
+        "justification": "CRIT-001 (CLAIM-ABSOLUTE-SAFETY, C12 Unsupported guarantee or certification): Node cream_cheese_1:G1 (goal) states \"Cream_cheese_1 was guaranteed physically safe throughout this execution.\". The clause \"Cream_cheese_1 was guaranteed physically safe throughout this execution\" is an unqualified claim of safety. R1 v2 has no outcome that guarantees safety, and the evidence package cannot establish one. No admitted checker assessment is supplied for it. Edit: the statement is replaced by the unresolved wording; the R1 requirement and the node scope are unchanged."
       }
     ],
     "declined": []
@@ -789,7 +789,7 @@
       "finding_ids": [
         "CRIT-001"
       ],
-      "justification": "CRIT-001 (LLM, C12 Unsupported guarantee or certification): The goal states \"Cream_cheese_1 was guaranteed physically safe throughout this execution.\" No admitted checker assessment or other evidence in the package supports a guarantee of physical safety. Edit: the statement is replaced by the unresolved wording; the R1 requirement and the node scope are unchanged."
+      "justification": "CRIT-001 (CLAIM-ABSOLUTE-SAFETY, C12 Unsupported guarantee or certification): Node cream_cheese_1:G1 (goal) states \"Cream_cheese_1 was guaranteed physically safe throughout this execution.\". The clause \"Cream_cheese_1 was guaranteed physically safe throughout this execution\" is an unqualified claim of safety. R1 v2 has no outcome that guarantees safety, and the evidence package cannot establish one. No admitted checker assessment is supplied for it. Edit: the statement is replaced by the unresolved wording; the R1 requirement and the node scope are unchanged."
     }
   ],
   "rejected_edits": [],
@@ -839,7 +839,7 @@
           "revision_schema": "drafter-revision-result/0.1.0",
           "revision_id": "example:synthetic-actionable-c12",
           "round": 1,
-          "critic_report_sha256": "432b41afbc871d66d042cc765a0f3b14e4e3a64dae6f0250696f71b990e089f5",
+          "critic_report_sha256": "ad4fb196c9dd2152d63d3c9dd689e47ea3bbeffc0f18bde5f5b5f5181e484117",
           "finding_ids": [
             "CRIT-001"
           ],
@@ -864,7 +864,7 @@
         "validation_status": "unresolved"
       },
       "before_sha256": "75b0581239913227a33805b5ff8842dd749c0a04aea32fbe47308be78a40645b",
-      "after_sha256": "7b301f8920b59ec2e1e90f4848a05293dffd7aac8b2d413bf31495861b16f298",
+      "after_sha256": "1212fd25199a484678c468a2f732146d9bec8ecdf33d3183cd54e2c3db110b82",
       "edit_indexes": [
         0
       ]
@@ -873,11 +873,11 @@
   "dispositions": [
     {
       "criticism_id": "CRIT-001",
-      "check_id": "LLM",
+      "check_id": "CLAIM-ABSOLUTE-SAFETY",
       "category": "C12",
-      "finding_source": "llm_proposed",
+      "finding_source": "deterministic",
       "phase": "review",
-      "blocking": false,
+      "blocking": true,
       "target": {
         "kind": "node",
         "object_id": "cream_cheese_1",
@@ -889,8 +889,8 @@
       "edit_indexes": [
         0
       ],
-      "verified_by_rules": null,
-      "additional_evidence_needed": false,
+      "verified_by_rules": true,
+      "additional_evidence_needed": true,
       "human_review_required": true,
       "decision": {
         "criticism_id": "CRIT-001",
@@ -903,8 +903,32 @@
     }
   ],
   "carried_forward": {
-    "rejected_candidates": [],
-    "evidence_requests": [],
+    "rejected_candidates": [
+      {
+        "reason": "duplicate of a deterministic finding",
+        "finding": {
+          "object_id": "cream_cheese_1",
+          "node_id": "cream_cheese_1:G1",
+          "category": "C12",
+          "severity": "high",
+          "explanation": "The goal states \"Cream_cheese_1 was guaranteed physically safe throughout this execution.\" No admitted checker assessment or other evidence in the package supports a guarantee of physical safety.",
+          "evidence_ids": [],
+          "suggested_action": "Remove the guarantee and restore an unresolved R1 goal for cream_cheese_1."
+        }
+      }
+    ],
+    "evidence_requests": [
+      {
+        "object_id": "cream_cheese_1",
+        "measurement_type": "checker_assessment",
+        "interval": [
+          10,
+          257
+        ],
+        "reason": "An admitted R1 checker assessment is needed before any definite claim about object cream_cheese_1; a guarantee of safety cannot be supported by any.",
+        "criticism_id": "CRIT-001"
+      }
+    ],
     "unresolved_concerns": [
       "No admitted checker assessment (0 supplied, 0 admitted). Treated as unavailable, not as \"no violation\"; violation, no-violation and non-applicability outcomes cannot be established from this package.",
       "Retrieval reports that the evidence package is incomplete for the requested scope.",
@@ -985,8 +1009,8 @@
     "findings_addressed": 1,
     "findings_remaining": 0,
     "findings_awaiting_decision": 0,
-    "rejected_candidates": 0,
-    "evidence_requests": 0,
+    "rejected_candidates": 1,
+    "evidence_requests": 1,
     "unresolved_concerns": 4,
     "new_rule_findings": 0,
     "edits_applied": 1,

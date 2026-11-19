@@ -1,0 +1,209 @@
+$ CRITIC_STRICT_TESTS=1 python3 -m unittest discover -s critic/tests -t . -v
+branch feature/rq3-critic-m4 at 3ad2ba1ba516b0066ddb027b7b2fc58ebec372f3 (= origin/main), recorded 2026-11-18 22:31 UTC
+Python 3.10.12, jsonschema 4.19.1, Linux aarch64, CPU only
+
+test_mutations (critic.tests.test_critic.AgreementWithOriginalGraphValidator) ... ok
+test_real_demo_graph_is_accepted (critic.tests.test_critic.AgreementWithOriginalGraphValidator) ... ok
+test_each_rule (critic.tests.test_critic.AgreementWithOriginalRecordValidator) ... ok
+test_random_corruption_agrees (critic.tests.test_critic.AgreementWithOriginalRecordValidator) ... ok
+test_real_records_are_accepted_by_both (critic.tests.test_critic.AgreementWithOriginalRecordValidator) ... ok
+test_synthetic_source_root_only_in_fixtures (critic.tests.test_critic.AgreementWithOriginalRecordValidator) ... ok
+test_c09_against_an_already_cautious_conclusion_is_rejected (critic.tests.test_critic.AuditR2) ... ok
+test_r2_01_forged_checker_results_are_refused (critic.tests.test_critic.AuditR2) ... ok
+test_r2_01_nothing_the_original_schema_rejects_is_admitted (critic.tests.test_critic.AuditR2) ... ok
+test_r2_01_the_original_schema_rejects_the_same_forgeries (critic.tests.test_critic.AuditR2) ... ok
+test_r2_02_admitted_evidence_lies_inside_the_reviewed_interval (critic.tests.test_critic.AuditR2) ... ok
+test_r2_02_every_ledger_rule_is_in_force (critic.tests.test_critic.AuditR2) ... ok
+test_r2_02_inconsistent_admission_ledgers_are_refused (critic.tests.test_critic.AuditR2) ... ok
+test_r2_02_real_checker_output_passes_every_ledger_rule (critic.tests.test_critic.AuditR2) ... ok
+test_r2_03_nan_in_graph_provenance_is_refused_before_the_model (critic.tests.test_critic.AuditR2) ... ok
+test_r2_03_nonstandard_numbers_anywhere_are_refused (critic.tests.test_critic.AuditR2) ... ok
+test_r2_04_huge_interval_endpoint (critic.tests.test_critic.AuditR2) ... ok
+test_r2_04_integers_beyond_a_double_anywhere (critic.tests.test_critic.AuditR2) ... ok
+test_r2_04_review_never_raises (critic.tests.test_critic.AuditR2) ... ok
+test_r2_04_schema_verdicts_on_huge_integers_match_jsonschema (critic.tests.test_critic.AuditR2) ... ok
+test_r2_05_ambiguous_node_without_an_object (critic.tests.test_critic.AuditR2) ... ok
+test_r2_05_citation_outside_the_cited_node (critic.tests.test_critic.AuditR2) ... ok
+test_r2_05_citation_outside_the_monitored_interval (critic.tests.test_critic.AuditR2) ... ok
+test_r2_05_unique_node_binds_the_object (critic.tests.test_critic.AuditR2) ... ok
+test_r2_06_crosswalk_table_is_the_releases (critic.tests.test_critic.AuditR2)
+CROSSWALK follows retrieval_remediation/bundle.py: the families whose items get original IDs, and the ... ok
+test_r2_06_each_crosswalk_rule (critic.tests.test_critic.AuditR2) ... ok
+test_r2_06_forged_original_id_cannot_link_another_objects_solution (critic.tests.test_critic.AuditR2) ... ok
+test_r2_07_cli_accepts_an_explicit_alias (critic.tests.test_critic.AuditR2) ... ok
+test_r2_07_cut_off_reply_is_not_used (critic.tests.test_critic.AuditR2) ... ok
+test_r2_07_malformed_server_replies (critic.tests.test_critic.AuditR2) ... ok
+test_r2_07_normal_reply_keeps_its_metadata (critic.tests.test_critic.AuditR2) ... ok
+test_r2_07_reply_from_another_model_is_not_used (critic.tests.test_critic.AuditR2) ... ok
+test_cases_are_reproducible (critic.tests.test_critic.Cases) ... ok
+test_correct_unresolved_argument_is_not_criticised (critic.tests.test_critic.Cases) ... ok
+test_expected_findings (critic.tests.test_critic.Cases) ... ok
+test_reports_match_schema (critic.tests.test_critic.Cases) ... ok
+test_audit_probe_consistent_forgery_out_of_scope (critic.tests.test_critic.CheckerAdmission) ... ok
+test_audit_probe_self_asserted_label (critic.tests.test_critic.CheckerAdmission) ... ok
+test_audit_probe_synthetic_result_in_real_request (critic.tests.test_critic.CheckerAdmission) ... ok
+test_clock_must_match (critic.tests.test_critic.CheckerAdmission) ... ok
+test_configuration_must_match_the_review (critic.tests.test_critic.CheckerAdmission) ... ok
+test_duplicate_result (critic.tests.test_critic.CheckerAdmission) ... ok
+test_edited_result_or_configuration_fails_its_hash (critic.tests.test_critic.CheckerAdmission) ... ok
+test_empirical_admission_is_disabled (critic.tests.test_critic.CheckerAdmission) ... ok
+test_llm_cannot_cite_a_rejected_assessment (critic.tests.test_critic.CheckerAdmission) ... ok
+test_missing_surface_list_fails_closed (critic.tests.test_critic.CheckerAdmission) ... ok
+test_object_consistency_rules (critic.tests.test_critic.CheckerAdmission) ... ok
+test_object_evidence (critic.tests.test_critic.CheckerAdmission) ... ok
+test_object_scope_and_shape (critic.tests.test_critic.CheckerAdmission) ... ok
+test_real_checker_output_is_admitted_in_a_fixture (critic.tests.test_critic.CheckerAdmission) ... ok
+test_request_and_report_match_schema (critic.tests.test_critic.CheckerAdmission) ... ok
+test_run_the_checker_refused_is_not_used (critic.tests.test_critic.CheckerAdmission) ... ok
+test_stored_checker_output_is_what_the_checker_produces (critic.tests.test_critic.CheckerAdmission) ... ok
+test_checker_contradiction (critic.tests.test_critic.ConclusionsAndAggregation) ... ok
+test_insufficient_claim_cannot_hide_a_checker_violation (critic.tests.test_critic.ConclusionsAndAggregation) ... ok
+test_invalid_contract_claim_needs_a_checker (critic.tests.test_critic.ConclusionsAndAggregation) ... ok
+test_matching_checker_supports_claim (critic.tests.test_critic.ConclusionsAndAggregation) ... ok
+test_missing_object_is_reported_once (critic.tests.test_critic.ConclusionsAndAggregation) ... ok
+test_no_violation_claim_over_a_retrieval_gap (critic.tests.test_critic.ConclusionsAndAggregation) ... ok
+test_not_applicable_needs_evidence (critic.tests.test_critic.ConclusionsAndAggregation) ... ok
+test_precedence (critic.tests.test_critic.ConclusionsAndAggregation) ... ok
+test_related_case_misuse (critic.tests.test_critic.ConclusionsAndAggregation) ... ok
+test_tampered_record_is_detected (critic.tests.test_critic.ConclusionsAndAggregation) ... ok
+test_unknown_outcome_value (critic.tests.test_critic.ConclusionsAndAggregation) ... ok
+test_wrong_aggregation_is_flagged (critic.tests.test_critic.ConclusionsAndAggregation) ... ok
+test_accepted_outcome (critic.tests.test_critic.ConfigurationBinding) ... ok
+test_configuration_must_be_valid_and_hashed (critic.tests.test_critic.ConfigurationBinding) ... ok
+test_configuration_rules_match_validate_configuration (critic.tests.test_critic.ConfigurationBinding) ... ok
+test_context_must_copy_the_configuration (critic.tests.test_critic.ConfigurationBinding) ... ok
+test_empty_scope (critic.tests.test_critic.ConfigurationBinding) ... ok
+test_five_object_libero_profile (critic.tests.test_critic.ConfigurationBinding) ... ok
+test_full_vector_aggregation (critic.tests.test_critic.ConfigurationBinding) ... ok
+test_monitored_interval_and_boundary_provenance (critic.tests.test_critic.ConfigurationBinding) ... ok
+test_oracle_against_the_checker (critic.tests.test_critic.ConfigurationBinding) ... ok
+test_scope_binding_and_templates (critic.tests.test_critic.ConfigurationBinding) ... ok
+test_simulator_time_has_no_agreed_clock_yet (critic.tests.test_critic.ConfigurationBinding) ... ok
+test_aggregation_advice_ignores_non_blocking_notes (critic.tests.test_critic.ConflictsAndApplicability) ... ok
+test_applicability_mismatch (critic.tests.test_critic.ConflictsAndApplicability) ... ok
+test_audit_probe_negative_claims_against_a_conflicting_violation (critic.tests.test_critic.ConflictsAndApplicability) ... ok
+test_cautious_claim_is_not_criticised (critic.tests.test_critic.ConflictsAndApplicability) ... ok
+test_checker_uncertainty_is_kept (critic.tests.test_critic.ConflictsAndApplicability) ... ok
+test_conflict_without_a_violation (critic.tests.test_critic.ConflictsAndApplicability) ... ok
+test_every_claim_against_every_checker_result (critic.tests.test_critic.ConflictsAndApplicability)
+The README table, cell by cell: claim x one result, and claim x two different results. ... ok
+test_insufficient_next_to_a_definite_result_is_a_gap_not_a_conflict (critic.tests.test_critic.ConflictsAndApplicability) ... ok
+test_insufficient_or_invalid_result_is_a_gap_not_a_contradiction (critic.tests.test_critic.ConflictsAndApplicability) ... ok
+test_invalid_contract_next_to_a_definite_result_is_a_conflict (critic.tests.test_critic.ConflictsAndApplicability) ... ok
+test_only_relevant_gaps_are_findings (critic.tests.test_critic.ConflictsAndApplicability) ... ok
+test_outcome_contradiction (critic.tests.test_critic.ConflictsAndApplicability) ... ok
+test_partial_coverage_is_still_checked (critic.tests.test_critic.ConflictsAndApplicability) ... ok
+test_relevant_gap_under_a_conflicted_no_violation (critic.tests.test_critic.ConflictsAndApplicability) ... ok
+test_relevant_gap_under_an_admitted_no_violation (critic.tests.test_critic.ConflictsAndApplicability) ... ok
+test_relevant_gap_under_an_unsupported_no_violation (critic.tests.test_critic.ConflictsAndApplicability) ... ok
+test_unresolved_claim_over_a_conflict_still_shows_the_violation (critic.tests.test_critic.ConflictsAndApplicability) ... ok
+test_violation_claim_over_a_conflict_is_kept_but_flagged (critic.tests.test_critic.ConflictsAndApplicability) ... ok
+test_audit_probe_unauthorized_reduction (critic.tests.test_critic.GeneralizedConfiguration) ... ok
+test_extra_configured_object_is_reported_missing (critic.tests.test_critic.GeneralizedConfiguration) ... ok
+test_fewer_configured_objects_are_not_demanded (critic.tests.test_critic.GeneralizedConfiguration) ... ok
+test_graph_for_unconfigured_object (critic.tests.test_critic.GeneralizedConfiguration) ... ok
+test_audit_probe_consistent_requirement_change (critic.tests.test_critic.InputValidation) ... ok
+test_audit_probe_dangling_edge_stops_the_llm (critic.tests.test_critic.InputValidation) ... ok
+test_audit_probe_removed_fields (critic.tests.test_critic.InputValidation) ... ok
+test_cli_exit_codes (critic.tests.test_critic.InputValidation) ... ok
+test_duplicate_edge_and_unsupported_goal_block (critic.tests.test_critic.InputValidation) ... ok
+test_every_validation_finding_is_blocking (critic.tests.test_critic.InputValidation) ... ok
+test_llm_failure_is_explicit (critic.tests.test_critic.InputValidation) ... ok
+test_report_failing_its_schema_is_an_internal_error (critic.tests.test_critic.InputValidation) ... ok
+test_synthetic_records_need_test_fixture (critic.tests.test_critic.InputValidation) ... ok
+test_valid_input_is_reviewed (critic.tests.test_critic.InputValidation) ... ok
+test_audit_probe_list_as_category_does_not_crash (critic.tests.test_critic.LLMOutputHandling) ... ok
+test_audit_probe_ungrounded_contradiction (critic.tests.test_critic.LLMOutputHandling) ... ok
+test_citations_must_match_object_and_execution (critic.tests.test_critic.LLMOutputHandling) ... ok
+test_every_field_is_type_checked (critic.tests.test_critic.LLMOutputHandling) ... ok
+test_failures_anywhere_in_the_model_step_are_contained (critic.tests.test_critic.LLMOutputHandling) ... ok
+test_long_reply_is_cut_but_hashed_in_full (critic.tests.test_critic.LLMOutputHandling) ... ok
+test_no_trace_without_a_model_call (critic.tests.test_critic.LLMOutputHandling) ... ok
+test_rule_only_categories_are_rejected (critic.tests.test_critic.LLMOutputHandling) ... ok
+test_trace (critic.tests.test_critic.LLMOutputHandling) ... ok
+test_unusable_reply_is_an_explicit_failure (critic.tests.test_critic.LLMOutputHandling) ... ok
+test_bad_model_output_does_not_break_review (critic.tests.test_critic.LLMStep) ... ok
+test_credentials_in_the_server_url_are_not_recorded (critic.tests.test_critic.LLMStep) ... ok
+test_duplicate_of_rule_finding_is_dropped (critic.tests.test_critic.LLMStep) ... ok
+test_empty_model_reply (critic.tests.test_critic.LLMStep) ... ok
+test_extract_json_variants (critic.tests.test_critic.LLMStep) ... ok
+test_malformed_model_findings_are_rejected_not_crashing (critic.tests.test_critic.LLMStep) ... ok
+test_model_comparison_runner (critic.tests.test_critic.LLMStep)
+critic.compare_models end to end against a fake vLLM server. ... ok
+test_openai_compatible_client_against_local_fake_server (critic.tests.test_critic.LLMStep)
+Exercise the real HTTP client against a tiny vLLM-shaped server on localhost. ... ok
+test_scripted_reply_is_screened (critic.tests.test_critic.LLMStep) ... ok
+test_obviously_broken_requests (critic.tests.test_critic.MalformedInput) ... ok
+test_random_corruption_never_crashes (critic.tests.test_critic.MalformedInput)
+Replace random values deep inside valid requests with values of the wrong type. ... ok
+test_agrees_with_jsonschema (critic.tests.test_critic.SchemaValidator) ... ok
+test_every_schema_uses_only_supported_keywords (critic.tests.test_critic.SchemaValidator) ... ok
+test_json_semantics (critic.tests.test_critic.SchemaValidator) ... ok
+test_a_bundle_that_failed_validation_returns_nothing (critic.tests.test_critic.StructuredEvidence) ... ok
+test_a_request_the_release_refuses_cannot_return_evidence (critic.tests.test_critic.StructuredEvidence) ... ok
+test_available_but_not_independently_fulfilled_counts_as_missing (critic.tests.test_critic.StructuredEvidence) ... ok
+test_bundles_never_support_a_claim (critic.tests.test_critic.StructuredEvidence)
+A complete bundle is not a checker result: no-violation claims without one stay unsupported. ... ok
+test_case_e_bundle_is_admitted_and_kept_whole (critic.tests.test_critic.StructuredEvidence) ... ok
+test_conditional_assumptions_are_kept (critic.tests.test_critic.StructuredEvidence) ... ok
+test_every_field_of_the_citation_basis_is_checked (critic.tests.test_critic.StructuredEvidence) ... ok
+test_every_status_the_release_returns_is_accepted_and_kept (critic.tests.test_critic.StructuredEvidence) ... ok
+test_fixtures_come_from_the_release_code (critic.tests.test_critic.StructuredEvidence)
+phase5.py runs api.py's own bundle assembly; the release's two schemas accept what it builds. ... ok
+test_malformed_section_and_changed_release (critic.tests.test_critic.StructuredEvidence) ... ok
+test_missing_mandatory_obligation_under_an_admitted_checker_result (critic.tests.test_critic.StructuredEvidence) ... ok
+test_missing_mandatory_obligation_without_checker_support_blocks (critic.tests.test_critic.StructuredEvidence) ... ok
+test_recorded_metadata_outside_the_window (critic.tests.test_critic.StructuredEvidence) ... ok
+test_requests_without_structured_evidence_are_unchanged (critic.tests.test_critic.StructuredEvidence) ... ok
+test_retrieval_context_cannot_claim_completeness_over_a_partial_bundle (critic.tests.test_critic.StructuredEvidence) ... ok
+test_solution_links_and_phase5_ids_in_solutions (critic.tests.test_critic.StructuredEvidence) ... ok
+test_tampering_is_caught (critic.tests.test_critic.StructuredEvidence) ... ok
+test_the_model_cannot_cite_a_retrieval_citation (critic.tests.test_critic.StructuredEvidence) ... ok
+test_which_missing_obligations_matter (critic.tests.test_critic.StructuredEvidence) ... ok
+test_schema_fallback_rejects (critic.tests.test_critic.TestOracles) ... ok
+test_strict_mode_turns_a_missing_oracle_into_a_failure (critic.tests.test_critic.TestOracles) ... ok
+test_team_modules_do_not_read_their_annotations (critic.tests.test_critic.TestOracles)
+On Python 3.9 the team's modules are loaded with postponed annotations. That changes nothing as long ... ok
+test_checker_contract_copies_match_assessment_schema (critic.tests.test_critic.VocabularyInSync) ... ok
+test_copies_match_existing_schemas (critic.tests.test_critic.VocabularyInSync) ... ok
+test_digest_is_the_release_digest (critic.tests.test_critic.VocabularyInSync)
+Query IDs and citations are recomputed with contract.digest; the release uses provenance.digest. ... ok
+test_optional_evidence_matches_the_r1_configuration_schema (critic.tests.test_critic.VocabularyInSync) ... ok
+test_phase5_pins_match_the_release (critic.tests.test_critic.VocabularyInSync)
+contract.py's copies of the Phase 5 release constants, read from its config files without importing ... ok
+test_record_ids_reproduce_registry_hashes (critic.tests.test_critic.VocabularyInSync) ... ok
+test_ambiguous_unanchored_objection_is_retained_for_review (critic.tests.test_pr18_corrections.C09Grounding) ... ok
+test_four_original_false_negatives_and_proposed_variation (critic.tests.test_pr18_corrections.C09Grounding) ... ok
+test_original_case_c_objection_is_not_promoted (critic.tests.test_pr18_corrections.C09Grounding) ... ok
+test_original_unquoted_execution_counterexample_is_not_suppressed (critic.tests.test_pr18_corrections.C09Grounding) ... ok
+test_safe_prose_and_other_unsupported_inferences (critic.tests.test_pr18_corrections.C09Grounding) ... ok
+test_strategy_and_solution_are_not_exempted_by_cautious_conclusion (critic.tests.test_pr18_corrections.C09Grounding) ... ok
+test_genuine_checker_results_in_both_directions (critic.tests.test_pr18_corrections.CheckerReplay) ... ok
+test_genuine_conflicting_results_do_not_erase_a_violation (critic.tests.test_pr18_corrections.CheckerReplay) ... ok
+test_invalid_result_cannot_support_c07 (critic.tests.test_pr18_corrections.CheckerReplay) ... ok
+test_missing_source_input_is_not_a_verified_result (critic.tests.test_pr18_corrections.CheckerReplay) ... ok
+test_original_rehashed_semantic_counterexamples (critic.tests.test_pr18_corrections.CheckerReplay) ... ok
+test_resealed_invalid_sources_cannot_be_promoted (critic.tests.test_pr18_corrections.CheckerReplay) ... ok
+test_source_hash_mismatch_is_diagnostic (critic.tests.test_pr18_corrections.CheckerReplay) ... ok
+test_alias_validation_and_exact_matching (critic.tests.test_pr18_corrections.ModelBoundary) ... ok
+test_cli_empty_alias_is_an_argument_error (critic.tests.test_pr18_corrections.ModelBoundary) ... ok
+test_cli_nonfinite_reply_is_a_failed_model_step_with_strict_json (critic.tests.test_pr18_corrections.ModelBoundary) ... ok
+test_core_wire_fields_cannot_hide_in_extra_body (critic.tests.test_pr18_corrections.ModelBoundary) ... ok
+test_cyclic_python_input_rejects_but_shared_json_values_do_not (critic.tests.test_pr18_corrections.ModelBoundary) ... ok
+test_nonfinite_and_overflowing_json_never_enter_reports (critic.tests.test_pr18_corrections.ModelBoundary) ... ok
+test_returned_report_does_not_alias_request_provenance (critic.tests.test_pr18_corrections.ModelBoundary) ... ok
+test_trace_is_a_deep_snapshot (critic.tests.test_pr18_corrections.ModelBoundary) ... ok
+test_url_authentication_is_not_in_settings (critic.tests.test_pr18_corrections.ModelBoundary) ... ok
+test_aggregate_budget_cannot_be_claimed_as_complete (critic.tests.test_pr18_corrections.Phase5PublicGuards) ... ok
+test_all_nonchannel_metadata_filters_use_public_rules (critic.tests.test_pr18_corrections.Phase5PublicGuards) ... ok
+test_case_e_runs_the_entire_public_prepare_on_synthetic_metadata (critic.tests.test_pr18_corrections.Phase5PublicGuards) ... ok
+test_corrected_case_e_has_no_unsupported_filters (critic.tests.test_pr18_corrections.Phase5PublicGuards) ... ok
+test_explicit_record_source_and_object_bindings (critic.tests.test_pr18_corrections.Phase5PublicGuards) ... ok
+test_public_assurance_and_selector_boundaries (critic.tests.test_pr18_corrections.Phase5PublicGuards) ... ok
+test_unsupported_request_cannot_claim_complete (critic.tests.test_pr18_corrections.Phase5PublicGuards) ... ok
+
+----------------------------------------------------------------------
+Ran 189 tests in 76.386s
+
+OK
+exit code: 0

@@ -397,7 +397,9 @@ def case_e():
 EXPECTED = {
     'case_a_unsupported_claim.json': {
         'description': 'Draft claims R1 satisfied from poses and contacts only, with no checker assessment.',
-        'must_flag': [{'category': 'C06', 'object_id': o, 'check_id': 'CONCL-UNSUPPORTED'} for o in OBJECTS],
+        'must_flag': [{'category': 'C06', 'object_id': o, 'check_id': 'CONCL-UNSUPPORTED'} for o in OBJECTS]
+        # Critic 0.5.0: "The robot is certified safe for this task." in the execution conclusion
+        + [{'category': 'C12', 'object_id': None, 'node_id': None, 'check_id': 'CLAIM-ABSOLUTE-SAFETY'}],
         'blocking_expected': True,
         'review_status_expected': 'completed',
         'llm_should_add_any_of': ['C05', 'C06', 'C12'],

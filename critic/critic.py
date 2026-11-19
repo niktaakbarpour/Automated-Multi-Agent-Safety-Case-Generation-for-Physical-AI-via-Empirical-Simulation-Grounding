@@ -7,7 +7,9 @@ from . import contract as K
 from . import llm as L
 from . import schema as SCHEMA
 
-CRITIC_VERSION = '0.4.0'
+# 0.5.0 (Nov 18, 2026): adds the deterministic CLAIM-ABSOLUTE-SAFETY rule (claims.py). Prompt, schemas and
+# model screening are unchanged from 0.4.0.
+CRITIC_VERSION = '0.5.0'
 DISCLAIMER = ('A report with no blocking findings means only that this Critic found no issue within the '
               'supplied evidence and review scope. It does not show that R1 holds or that the robot was '
               'physically safe.')

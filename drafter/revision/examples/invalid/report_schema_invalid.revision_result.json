@@ -5,9 +5,9 @@
   "max_rounds": 2,
   "test_fixture": true,
   "synthetic_findings": null,
-  "revision_request_sha256": "d5a59829b5a85fa89899c7ff142a2fb67cce26a52d3697e106f8698a09d95924",
+  "revision_request_sha256": "b4d10758e6f47175a8322905242015ba7840c48e249dc05f3ce2e8640270f495",
   "critic_request_sha256": "4c06acd245b5039902331af35aae8f48a9c615026f7dea09eba3f79c63e68b3f",
-  "critic_report_sha256": "876d31adc3dbfce7fbe61e2b80e0cdd7b7016465a7664c849d7e8ff3f857a848",
+  "critic_report_sha256": "2847198cad7b65c05ed45289cfbf91642b4c9de5a92e6d9cc7e7c55a093e7f20",
   "adapter": {
     "name": "deterministic-templates",
     "version": "0.1.0",

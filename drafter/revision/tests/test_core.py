@@ -80,10 +80,14 @@ class UnsupportedGuarantee(S.Checks, unittest.TestCase):
         self.assertEqual(schema_issues(self.result['revised_argument_bundle'], 'draft_argument.schema.json',
                                        '#/$defs/argument_bundle'), [])
 
-    def test_a_model_proposed_finding_is_edited_but_not_verified(self):
+    def test_the_rule_finding_is_edited_and_cleared_by_the_rules(self):
+        # Since Critic 0.5.0 the guarantee is a rule finding; the scripted model C12 duplicates it and is
+        # rejected by the Critic's own screen.
         row = self.result['dispositions'][0]
-        self.assertEqual((row['disposition'], row['verified_by_rules'], row['finding_source']),
-                         ('edited', None, 'llm_proposed'))
+        self.assertEqual((row['check_id'], row['disposition'], row['verified_by_rules'], row['finding_source']),
+                         ('CLAIM-ABSOLUTE-SAFETY', 'edited', True, 'deterministic'))
+        self.assertEqual(self.request['critic_report']['rejected_llm_findings'][0]['reason'],
+                         'duplicate of a deterministic finding')
         self.assertEqual(row['decision']['decided_by'], 'synthetic_test_label')
         self.assertTrue(self.result['synthetic_findings']['present'])
 
@@ -252,13 +256,17 @@ class CautiousNoChange(S.Checks, unittest.TestCase):
                          request['critic_report']['unresolved_concerns'])
         self.assertIn('do not show that R1 holds', result['disclaimer'])
 
-    def test_the_missed_guarantee_is_left_alone(self):
+    def test_a_saved_report_that_misses_a_current_rule_finding_is_refused(self):
+        # The saved Qwen report (Critic 0.4.0) has zero findings. Critic 0.5.0's rules find the guarantee, so
+        # the old report no longer matches the current rule-based findings and nothing is revised from it.
         request = S.example('saved_zero_finding_controlled_negative.revision_request.json')
         self.assertEqual(request['critic_report'], S.fixture('critic.controlled-negative.qwen.report.json'))
+        self.assertEqual(request['critic_report']['critic_version'], '0.4.0')
         result = self.revise(request)
-        self.assertEqual((result['outcome'], result['stop_reason']), ('no_change', 'no_actionable_findings'))
+        self.assertEqual((result['outcome'], result['stop_reason']), ('rejected_invalid_input', 'invalid_input'))
+        self.assertEqual(result['request_issues'], ['report_deterministic_findings_mismatch'])
         goal = S.node(request['critic_request']['argument_bundle'], 'cream_cheese_1', 'cream_cheese_1:G1')
-        self.assertEqual(goal['statement'], S.GUARANTEE)  # a revision does not look for problems itself
+        self.assertEqual(goal['statement'], S.GUARANTEE)  # nothing was changed
 
     def test_rejected_candidates_and_concerns_are_carried_and_never_edited(self):
         request = S.example('synthetic_rejected_unresolved.revision_request.json')
@@ -279,7 +287,7 @@ class InsufficientInformation(S.Checks, unittest.TestCase):
 
     def test_unsupported_outcomes_become_insufficient_information(self):
         self.assertEqual([c['check_id'] for c in self.request['critic_report']['criticisms']],
-                         ['CONCL-UNSUPPORTED'] * 3)
+                         ['CONCL-UNSUPPORTED'] * 3 + ['CLAIM-ABSOLUTE-SAFETY'])
         conclusion = self.result['revised_argument_bundle']['execution_conclusion']
         self.assertEqual(set(conclusion['object_outcomes'].values()), {K.INSUFFICIENT})
         self.assertEqual(conclusion['claimed_outcome'], K.INSUFFICIENT)
@@ -291,14 +299,14 @@ class InsufficientInformation(S.Checks, unittest.TestCase):
     def test_no_solution_is_fabricated_and_the_evidence_requests_stay_open(self):
         self.assertEqual(self.result['metrics']['evidence_links_added'], 0)
         self.assertEqual(self.result['metrics']['nodes_added'], 0)
-        self.assertEqual(len(self.result['carried_forward']['evidence_requests']), 3)
+        self.assertEqual(len(self.result['carried_forward']['evidence_requests']), 4)
         self.assertEqual(self.result['carried_forward']['evidence_requests'],
                          self.request['critic_report']['evidence_requests'])
 
     def test_an_adapter_that_lacks_evidence_leaves_the_objection_unresolved(self):
         declined = {'edits': [], 'declined': [{'criticism_id': c, 'reason': 'insufficient_evidence',
                                                'note': 'No admitted evidence supports an edit.'}
-                                              for c in ('CRIT-001', 'CRIT-002', 'CRIT-003')]}
+                                              for c in ('CRIT-001', 'CRIT-002', 'CRIT-003', 'CRIT-004')]}
         result = self.revise(self.request, ScriptedAdapter(declined))
         self.assertEqual((result['outcome'], result['stop_reason']), ('unresolved', 'insufficient_evidence'))
         self.assertEqual({r['reason'] for r in result['dispositions']}, {'adapter_insufficient_evidence'})

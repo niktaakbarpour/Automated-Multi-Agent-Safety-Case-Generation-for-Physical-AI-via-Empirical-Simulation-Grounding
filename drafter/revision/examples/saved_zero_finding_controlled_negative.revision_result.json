@@ -4,10 +4,7 @@
   "round": 1,
   "max_rounds": 2,
   "test_fixture": true,
-  "synthetic_findings": {
-    "present": false,
-    "label": null
-  },
+  "synthetic_findings": null,
   "revision_request_sha256": "b6ce1c5b455e34d0d5cd04019b4ea4240e6d1beef6f7c4e5d5f77a559c6b3f85",
   "critic_request_sha256": "4c06acd245b5039902331af35aae8f48a9c615026f7dea09eba3f79c63e68b3f",
   "critic_report_sha256": "a9584c213ed7ff2c541c72f4dda821f07acd34add40d98e64a5fe320193ed347",
@@ -16,11 +13,13 @@
     "version": "0.1.0",
     "kind": "deterministic"
   },
-  "outcome": "no_change",
-  "stop_reason": "no_actionable_findings",
-  "status_detail": "The Critic report has no criticism. Nothing was changed. 0 rejected candidate(s) and 4 unresolved concern(s) stay open.",
-  "request_issues": [],
-  "original_argument_bundle_sha256": "6fb5471a27fdef29707b9a8beda321f7258723ca66a8c0c871af01fce0405bc5",
+  "outcome": "rejected_invalid_input",
+  "stop_reason": "invalid_input",
+  "status_detail": "The revision request is not usable; nothing was read from the Critic report.",
+  "request_issues": [
+    "report_deterministic_findings_mismatch"
+  ],
+  "original_argument_bundle_sha256": null,
   "revised_argument_bundle": null,
   "revised_argument_bundle_sha256": null,
   "recriticism": null,
@@ -32,18 +31,15 @@
   "carried_forward": {
     "rejected_candidates": [],
     "evidence_requests": [],
-    "unresolved_concerns": [
-      "No admitted checker assessment (0 supplied, 0 admitted). Treated as unavailable, not as \"no violation\"; violation, no-violation and non-applicability outcomes cannot be established from this package.",
-      "Retrieval reports that the evidence package is incomplete for the requested scope.",
-      "Structured retrieval completeness covers only the explicit mandatory obligations of each request, not complete R1 observations or the sufficiency of any claim. The Critic checked the bundles for consistency and recomputed their hashes, but could not open the database or the sources to authenticate them. Retrieved items are recorded source references, not physical events.",
-      "This request contains synthetic test data; its results are not empirical findings."
-    ]
+    "unresolved_concerns": []
   },
   "validators": [
     {
       "name": "request_contract",
-      "status": "passed",
-      "issues": [],
+      "status": "failed",
+      "issues": [
+        "report_deterministic_findings_mismatch"
+      ],
       "note": null
     }
   ],
@@ -64,7 +60,7 @@
     "findings_awaiting_decision": 0,
     "rejected_candidates": 0,
     "evidence_requests": 0,
-    "unresolved_concerns": 4,
+    "unresolved_concerns": 0,
     "new_rule_findings": 0,
     "edits_applied": 0,
     "edits_rejected": 0,

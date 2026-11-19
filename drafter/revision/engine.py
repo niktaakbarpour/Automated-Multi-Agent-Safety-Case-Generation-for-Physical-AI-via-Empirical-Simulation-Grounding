@@ -206,9 +206,8 @@ def _revise(request, adapter, adapter_info):
         return _finish(result, 'rejected_invalid_input', 'invalid_input',
                        f"The Critic report is {report['review_status']}, so no finding in it is revised.")
     if request['history']:
-        addressed = {(a['check_id'], a['category'], a['object_id'], a['node_id'])
-                     for a in request['history'][-1]['addressed']}
-        repeated = {c['criticism_id'] for c in report['criticisms'] if C.fingerprint(c) in addressed}
+        addressed = {C.objection_key(a) for a in request['history'][-1]['addressed']}
+        repeated = {c['criticism_id'] for c in report['criticisms'] if C.objection_key(c) in addressed}
         if repeated:
             _mark(rows, repeated, 'repeated_after_previous_edit')
             return _finish(result, 'unresolved', 'repeated_unchanged_findings',

@@ -21,8 +21,9 @@ shared GSN code was changed.
 CPU only. No model, no network. Python 3.10 with `jsonschema` (already in
 `drafter/requirements.txt`). All commands run from the repository root.
 
-One round on the labelled synthetic finding, with the revised graph and the
-diff written out:
+One round on the injected guarantee (the Critic's rule finding, approved with a
+labelled synthetic test decision), with the revised graph and the diff written
+out:
 
 ```bash
 python3 -m drafter.revision revise \
@@ -95,7 +96,10 @@ proposal, and as a revised bundle or saved result changed by hand.
 | Result of one round | `drafter-revision-result/0.1.0` | `schemas/revision_result.schema.json` |
 | Cycle summary | `drafter-revision-cycle/0.1.0` | `schemas/revision_cycle.schema.json` |
 
-Consumed unchanged: `critic-request/0.3.0`, `critic-report/0.4.0`, GSN `1.0.0`.
+Consumed unchanged: `critic-request/0.3.0`, `critic-report/0.4.0`, GSN `1.0.0`. Reports from Critic `0.5.0`
+and `0.4.0` are accepted (`contract.COMPATIBLE_CRITIC_VERSIONS`). Because the rule-based findings are always
+recomputed with the current Critic, a `0.4.0` report is accepted only when its rule-based findings equal what
+`0.5.0` finds; the saved Qwen report on the controlled negative does not, and is refused.
 
 Python entry points (`drafter.revision.engine`):
 
@@ -131,11 +135,11 @@ their provenance itself. There are five kinds of edit and nothing else:
 
 | Edit | Allowed for | Effect |
 | --- | --- | --- |
-| `replace_statement` | An approved model-proposed finding (C05 to C10, C12, C13) on a node that is not a Solution | New statement. Type, scope, interval, status and evidence ID stay |
+| `replace_statement` | An approved model-proposed finding (C05 to C10, C12, C13), or the approved rule finding `CLAIM-ABSOLUTE-SAFETY`, on a node that is not a Solution | New statement. Type, scope, interval, status and evidence ID stay |
 | `add_unresolved_claim` | Rule finding `GSN-UNSUPPORTED-GOAL` | An unresolved claim under that goal or strategy, with the parent's scope |
 | `remove_solution` | Broken citations, only with `repair_invalid_evidence_links: true` | The Solution and its edges are removed. Nothing is cited instead. A parent left without support gets an unresolved claim |
 | `set_object_outcome` | Rule findings about one object's claimed outcome (`CONCL-...`) | `insufficient_information`, or the outcome of a freshly admitted checker assessment. An admitted violation cannot be replaced |
-| `recompute_execution_outcome` | Rule finding `CONCL-AGGREGATION` | R1 aggregation of the object outcomes |
+| `recompute_execution_outcome` | Rule finding `CONCL-AGGREGATION`, or an approved `CLAIM-ABSOLUTE-SAFETY` on the execution conclusion | R1 aggregation of the object outcomes, and host text for the conclusion statement |
 
 When an outcome changes, the host recomputes the execution outcome and writes
 the conclusion statement itself.
@@ -210,7 +214,7 @@ The handoff manifest and the test transcript are in `handoff/`.
 
 | File | What it shows |
 | --- | --- |
-| `synthetic_actionable.*` | The complete example: original argument, labelled synthetic C12 finding, revised graph, validator results and edit log (`.revision_result.json`) |
+| `synthetic_actionable.*` | The complete example: original argument, the Critic's `CLAIM-ABSOLUTE-SAFETY` finding on the injected guarantee (approved by a labelled synthetic test decision; the scripted model C12 on the same node is rejected as a duplicate), revised graph, validator results and edit log (`.revision_result.json`) |
 | `synthetic_rejected_unresolved.*` | Four candidates the Critic rejected: no change, all carried forward |
 | `saved_zero_finding.*`, `saved_zero_finding_controlled_negative.*` | The real saved Qwen reports: no change. Not labelled synthetic |
 | `two_round_cycle/` | A two-round synthetic cycle. Request 1 and its result are the `synthetic_actionable` files |

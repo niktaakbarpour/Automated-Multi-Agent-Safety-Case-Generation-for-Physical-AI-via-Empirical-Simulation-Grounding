@@ -43,7 +43,7 @@ the request is not used.
 | Wrapper matches its schema | `schema:...` |
 | Report matches `critic_report.schema.json` | `critic_report_schema:...` |
 | Both digests recompute | `critic_request_digest_mismatch`, `critic_report_digest_mismatch` |
-| Report was made by the Critic version in this checkout | `critic_version_mismatch` |
+| Report was made by a compatible Critic version (`0.4.0` or `0.5.0`) | `critic_version_mismatch` |
 | Report `request_id`, `execution_id`, `test_fixture` match the request | `report_request_id_mismatch`, `report_execution_mismatch`, `test_fixture_mismatch` |
 | `llm.request_sha256`, when not null, equals the request digest | `report_request_hash_mismatch` |
 | `input_valid` and `review_status` agree with a fresh run of the Critic input checks | `report_input_validity_mismatch`, `report_review_status_mismatch` |
@@ -123,10 +123,10 @@ revision returns for it.
 
 | File | What it shows | Expected classification |
 | --- | --- | --- |
-| `synthetic_actionable.revision_request.json` | Controlled-negative request. A scripted reply raises C12 on `cream_cheese_1:G1`, the Critic accepts it, and a `synthetic_test_label` decision approves it | `CRIT-001` is `actionable`, target node `cream_cheese_1:G1` |
+| `synthetic_actionable.revision_request.json` | Controlled-negative request. Since Critic 0.5.0 the rule `CLAIM-ABSOLUTE-SAFETY` raises the guarantee objection; the scripted model C12 on the same node is rejected as a duplicate. A `synthetic_test_label` decision approves the rule finding | `CRIT-001` is `actionable`, target node `cream_cheese_1:G1` |
 | `synthetic_rejected_unresolved.revision_request.json` | Original request. A scripted reply with four findings, all rejected by the Critic: a node that does not exist, an invented evidence ID, a C09 that does not quote its target (kept as an unresolved concern), and a rule-only category | No criticism, 4 rejected candidates, 5 unresolved concerns, nothing actionable |
 | `saved_zero_finding.revision_request.json` | The real saved Qwen report for the original request, unchanged | Nothing actionable. No change |
-| `saved_zero_finding_controlled_negative.revision_request.json` | The real saved Qwen report for the controlled-negative request, unchanged | Nothing actionable. No change, although the unsafe statement is there |
+| `saved_zero_finding_controlled_negative.revision_request.json` | The real saved Qwen report (Critic 0.4.0) for the controlled-negative request, unchanged | Refused: `report_deterministic_findings_mismatch`, because Critic 0.5.0's rules find the guarantee the saved report missed |
 
 The two synthetic reports are made by the real `critic.review` with
 `ScriptedLLM`, so the Critic's own screening decided what was accepted. They
@@ -134,11 +134,16 @@ record `llm.backend: scripted`. They are test inputs, not model results.
 The matching `*.critic_report.json` and `*.scripted_reply.json` files are the
 same report and the reply text on their own, for the Critic side to load.
 
-The last example matters most: the real Critic missed the guarantee, so the
-revision must leave it alone. A revision acts on findings. It does not look for
-problems itself, and an empty report is not evidence that R1 holds.
+The last example matters most. The real Critic 0.4.0 run missed the guarantee,
+and the revision still does not look for problems itself: it now refuses that
+report because the current rules disagree with it. An empty report is not
+evidence that R1 holds.
 
 ## 6. Questions for Ryiad
+
+Update, Nov 18: Ryiad's completed work stays attributed to him, but he has no
+new tasks, and Alex now maintains the Critic. These questions are therefore
+for Alex to decide. They are kept here as they were asked.
 
 1. **Decisions outside the report.** Approval of a model-proposed finding is
    recorded in `finding_decisions` in the revision request, so the Critic
@@ -191,10 +196,13 @@ and the next revision request carries one history item per earlier round
 | `recriticism_request_sha256` | Must equal `critic_request_sha256` of the next round |
 | `addressed` | Check, category, object and node of every finding that round edited for |
 
-If a later report raises a finding with the same check, category, object and
-node as one in `addressed` of the previous round, the revision stops with
+If a later report raises a finding with the same category, object and node as
+one in `addressed` of the previous round, the revision stops with
 `repeated_unchanged_findings`. `criticism_id` is not used for this, because it
-is only a position in one report.
+is only a position in one report. The check ID is not compared either, so a
+model objection that repeats a rule objection at the same place counts as a
+repeat (changed on Nov 18 for Critic 0.5.0, whose rule now raises the guarantee
+objection that a model raised before).
 
 The revision result and the cycle summary have their own schemas
 (`revision_result.schema.json`, `revision_cycle.schema.json`). They are the

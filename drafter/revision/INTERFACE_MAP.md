@@ -36,6 +36,8 @@ Versions in force: R1 `2.0.0`, configuration schema `2.0.1`, shared GSN `1.0.0`,
 registry record `1.0.0`, `drafter-request/0.1.0`, `draft-argument/0.1.0`,
 Drafter prompt `0.2.2`, serializer `graph-plan-to-gsn/0.2.0`,
 `critic-request/0.3.0`, `critic-report/0.4.0`, Critic `0.4.0`, Critic prompt `v5`.
+(As written on Nov 14. Since Nov 18 the Critic is `0.5.0`, which adds one rule;
+see `critic/README.md`.)
 
 `Graph.validate` (shared, reusable without a Drafter request):
 
@@ -162,8 +164,12 @@ added.
    no longer matches what the Critic returns for
    `critic/cases/case_e_partial_structured_retrieval.json`. The saved report
    names obligation `contacts_object_01`; a fresh run names `settling_actions`.
-   The other four saved example reports still match. This is the Critic
-   owner's to regenerate.
+   The other four saved example reports match a fresh run in every field
+   except `llm.prompt_version`: they record `critic-prompt/v4`, the current
+   Critic records `critic-prompt/v5`. (Corrected on Nov 18: the earlier text
+   said they matched fully.) Since Critic 0.5.0 they also differ in
+   `critic_version`, and Case A has one more finding (the new
+   `CLAIM-ABSOLUTE-SAFETY`). This is the Critic owner's to regenerate.
 3. `finding_source` allows `evidence_grounded`, but no Critic code produces it.
 4. A report from a rule-only run has `llm.request_sha256: null`, so such a
    report does not record which request it reviewed. The revision request

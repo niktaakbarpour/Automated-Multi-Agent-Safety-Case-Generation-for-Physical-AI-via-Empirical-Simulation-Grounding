@@ -210,7 +210,7 @@
         },
         "addressed": {
           "type": "array",
-          "description": "Findings an applied edit cited in that round. A later report that raises the same check, category, object and node again stops the revision.",
+          "description": "Findings an applied edit cited in that round. A later report that raises the same category, object and node again (any check ID) stops the revision.",
           "items": {
             "type": "object",
             "additionalProperties": false,

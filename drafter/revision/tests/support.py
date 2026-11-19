@@ -80,6 +80,12 @@ def guarantee_request(**options):
     return request_for(fixture('critic.controlled-negative.request.json'), [guarantee_finding()], **options)
 
 
+def model_request(**options):
+    """The fixture's original request with one labelled synthetic model finding (C06 on milk_1:G1)."""
+    return request_for(fixture('critic.request.json'),
+                       [finding('milk_1', 'milk_1:G1', 'C06', 'The goal implies a safety conclusion.')], **options)
+
+
 def node(bundle, object_id, node_id):
     return E.node_of(bundle, object_id, node_id)
 

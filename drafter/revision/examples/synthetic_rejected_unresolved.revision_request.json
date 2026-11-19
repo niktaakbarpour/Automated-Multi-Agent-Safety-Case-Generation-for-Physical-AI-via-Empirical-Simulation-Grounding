@@ -1435,7 +1435,7 @@
   "critic_request_sha256": "34f6f8f003a0ab57b5e5a221bf9f6b4dc8c8a678d0d317978598f20a10f7a95e",
   "critic_report": {
     "schema_version": "critic-report/0.4.0",
-    "critic_version": "0.4.0",
+    "critic_version": "0.5.0",
     "request_id": "b8dbf1f3-c590-4cdd-8527-1526fdb597d9:critic",
     "execution_id": "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db",
     "test_fixture": true,
@@ -1605,7 +1605,7 @@
       "disclaimer": "A report with no blocking findings means only that this Critic found no issue within the supplied evidence and review scope. It does not show that R1 holds or that the robot was physically safe."
     }
   },
-  "critic_report_sha256": "b95fee8f78e0e4f7aff20d0968c75df71326e26d8eec3c605e4fdb2ff5fc134a",
+  "critic_report_sha256": "037fdb2fcc03f8393b3504d4d499190b1bb57d62761bc8288fb2dcb734605e42",
   "finding_decisions": [],
   "history": []
 }

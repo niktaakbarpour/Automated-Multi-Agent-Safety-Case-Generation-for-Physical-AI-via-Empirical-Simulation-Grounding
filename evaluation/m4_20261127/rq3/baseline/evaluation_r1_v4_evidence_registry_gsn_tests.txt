@@ -1,0 +1,922 @@
+$ python3 -m unittest discover -s evaluation/r1_v4/evidence_registry_gsn/tests -p 'test_*.py' -v   (from repository root; the folder has no __init__.py)
+recorded 2026-11-18 22:34 UTC at 3ad2ba1ba516b0066ddb027b7b2fc58ebec372f3
+
+test_cycle (test_graph.GraphTests) ... ERROR
+test_duplicate_node (test_graph.GraphTests) ... ERROR
+test_incorrect_source (test_graph.GraphTests) ... ERROR
+test_invalid_edge (test_graph.GraphTests) ... ERROR
+test_invalid_evidence_id (test_graph.GraphTests) ... ERROR
+test_judgment_origin (test_graph.GraphTests) ... ERROR
+test_missing_endpoint (test_graph.GraphTests) ... ERROR
+test_missing_time_point (test_graph.GraphTests) ... ERROR
+test_nested_solution_scope (test_graph.GraphTests) ... ERROR
+test_promotion (test_graph.GraphTests) ... ERROR
+test_promotion_bypass_flag (test_graph.GraphTests) ... ERROR
+test_scope_mismatch (test_graph.GraphTests) ... ERROR
+test_solution_interval_overclaim (test_graph.GraphTests) ... ERROR
+test_stable_export (test_graph.GraphTests) ... ERROR
+test_time_gap (test_graph.GraphTests) ... ERROR
+test_valid_trace (test_graph.GraphTests) ... ERROR
+test_version (test_graph.GraphTests) ... ERROR
+test_integration (unittest.loader._FailedTest) ... ERROR
+test_ai_not_verified_measurement (test_registry.RegistryTests) ... ERROR
+test_changed_scope_changes_id (test_registry.RegistryTests) ... ERROR
+test_clock_mismatch (test_registry.RegistryTests) ... ERROR
+test_corrupt_id (test_registry.RegistryTests) ... ERROR
+test_database_version (test_registry.RegistryTests) ... ERROR
+test_declared_gap (test_registry.RegistryTests) ... ERROR
+test_dependency_clock (test_registry.RegistryTests) ... ERROR
+test_dependency_conflict_scoped (test_registry.RegistryTests) ... ERROR
+test_dependency_provenance_returned (test_registry.RegistryTests) ... ERROR
+test_dependency_scope (test_registry.RegistryTests) ... ERROR
+test_empty_query_types (test_registry.RegistryTests) ... ERROR
+test_exact_query (test_registry.RegistryTests) ... ERROR
+test_explicit_conflict (test_registry.RegistryTests) ... ERROR
+test_forged_verified_gates_still_disabled (test_registry.RegistryTests) ... ERROR
+test_hash_format (test_registry.RegistryTests) ... ERROR
+test_hash_mismatch (test_registry.RegistryTests) ... ERROR
+test_idempotent_insert (test_registry.RegistryTests) ... ERROR
+test_immutable_update (test_registry.RegistryTests) ... ERROR
+test_integrity (test_registry.RegistryTests) ... ERROR
+test_invalid_dependency (test_registry.RegistryTests) ... ERROR
+test_missing_dependency (test_registry.RegistryTests) ... ERROR
+test_missing_file (test_registry.RegistryTests) ... ERROR
+test_no_implicit_capability_upgrade (test_registry.RegistryTests) ... ERROR
+test_no_physical_promotion (test_registry.RegistryTests) ... ERROR
+test_no_record_gap (test_registry.RegistryTests) ... ERROR
+test_nonfinite_interval (test_registry.RegistryTests) ... ERROR
+test_overlaps_no_double_count (test_registry.RegistryTests) ... ERROR
+test_partial_interval (test_registry.RegistryTests) ... ERROR
+test_persistent_readonly (test_registry.RegistryTests) ... ERROR
+test_physical_event_not_measurement (test_registry.RegistryTests) ... ERROR
+test_readonly_cannot_create (test_registry.RegistryTests) ... ERROR
+test_record_version (test_registry.RegistryTests) ... ERROR
+test_registration_hash_mismatch (test_registry.RegistryTests) ... ERROR
+test_reproducible (test_registry.RegistryTests) ... ERROR
+test_requirement_version (test_registry.RegistryTests) ... ERROR
+test_reversed_insert_stable (test_registry.RegistryTests) ... ERROR
+test_source_provenance_retained (test_registry.RegistryTests) ... ERROR
+test_stable_id_roundtrip (test_registry.RegistryTests) ... ERROR
+test_symlink_source (test_registry.RegistryTests) ... ERROR
+test_transitive_missing_source (test_registry.RegistryTests) ... ERROR
+test_truth_not_promoted (test_registry.RegistryTests) ... ERROR
+test_type_specific_gap (test_registry.RegistryTests) ... ERROR
+test_unapproved_source (test_registry.RegistryTests) ... ERROR
+test_uncertainty_propagation (test_registry.RegistryTests) ... ERROR
+test_unsupported_alignment (test_registry.RegistryTests) ... ERROR
+test_unsupported_geometry (test_registry.RegistryTests) ... ERROR
+test_wrong_execution (test_registry.RegistryTests) ... ERROR
+test_wrong_object (test_registry.RegistryTests) ... ERROR
+test_wrong_version (test_registry.RegistryTests) ... ERROR
+
+======================================================================
+ERROR: test_cycle (test_graph.GraphTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<repository>/evaluation/r1_v4/evidence_registry_gsn/tests/test_graph.py", line 10, in setUp
+    self.fixture=fixtures.RegistryTests();self.fixture.setUp();self.registry=self.fixture.registry;self.r=self.fixture.record;self.fixture.add()
+  File "<repository>/evaluation/r1_v4/evidence_registry_gsn/tests/test_registry.py", line 12, in setUp
+    self.tmp=tempfile.TemporaryDirectory(dir='/disk/1/data/niktakbr');self.root=Path(self.tmp.name)
+  File "/usr/lib/python3.10/tempfile.py", line 974, in __init__
+    self.name = mkdtemp(suffix, prefix, dir)
+  File "/usr/lib/python3.10/tempfile.py", line 523, in mkdtemp
+    _os.mkdir(file, 0o700)
+FileNotFoundError: [Errno 2] No such file or directory: '/disk/1/data/niktakbr/tmpkcgki3c8'
+
+======================================================================
+ERROR: test_duplicate_node (test_graph.GraphTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<repository>/evaluation/r1_v4/evidence_registry_gsn/tests/test_graph.py", line 10, in setUp
+    self.fixture=fixtures.RegistryTests();self.fixture.setUp();self.registry=self.fixture.registry;self.r=self.fixture.record;self.fixture.add()
+  File "<repository>/evaluation/r1_v4/evidence_registry_gsn/tests/test_registry.py", line 12, in setUp
+    self.tmp=tempfile.TemporaryDirectory(dir='/disk/1/data/niktakbr');self.root=Path(self.tmp.name)
+  File "/usr/lib/python3.10/tempfile.py", line 974, in __init__
+    self.name = mkdtemp(suffix, prefix, dir)
+  File "/usr/lib/python3.10/tempfile.py", line 523, in mkdtemp
+    _os.mkdir(file, 0o700)
+FileNotFoundError: [Errno 2] No such file or directory: '/disk/1/data/niktakbr/tmphual5u_w'
+
+======================================================================
+ERROR: test_incorrect_source (test_graph.GraphTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<repository>/evaluation/r1_v4/evidence_registry_gsn/tests/test_graph.py", line 10, in setUp
+    self.fixture=fixtures.RegistryTests();self.fixture.setUp();self.registry=self.fixture.registry;self.r=self.fixture.record;self.fixture.add()
+  File "<repository>/evaluation/r1_v4/evidence_registry_gsn/tests/test_registry.py", line 12, in setUp
+    self.tmp=tempfile.TemporaryDirectory(dir='/disk/1/data/niktakbr');self.root=Path(self.tmp.name)
+  File "/usr/lib/python3.10/tempfile.py", line 974, in __init__
+    self.name = mkdtemp(suffix, prefix, dir)
+  File "/usr/lib/python3.10/tempfile.py", line 523, in mkdtemp
+    _os.mkdir(file, 0o700)
+FileNotFoundError: [Errno 2] No such file or directory: '/disk/1/data/niktakbr/tmpq5b4qmbp'
+
+======================================================================
+ERROR: test_invalid_edge (test_graph.GraphTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<repository>/evaluation/r1_v4/evidence_registry_gsn/tests/test_graph.py", line 10, in setUp
+    self.fixture=fixtures.RegistryTests();self.fixture.setUp();self.registry=self.fixture.registry;self.r=self.fixture.record;self.fixture.add()
+  File "<repository>/evaluation/r1_v4/evidence_registry_gsn/tests/test_registry.py", line 12, in setUp
+    self.tmp=tempfile.TemporaryDirectory(dir='/disk/1/data/niktakbr');self.root=Path(self.tmp.name)
+  File "/usr/lib/python3.10/tempfile.py", line 974, in __init__
+    self.name = mkdtemp(suffix, prefix, dir)
+  File "/usr/lib/python3.10/tempfile.py", line 523, in mkdtemp
+    _os.mkdir(file, 0o700)
+FileNotFoundError: [Errno 2] No such file or directory: '/disk/1/data/niktakbr/tmpo34k0dzz'
+
+======================================================================
+ERROR: test_invalid_evidence_id (test_graph.GraphTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<repository>/evaluation/r1_v4/evidence_registry_gsn/tests/test_graph.py", line 10, in setUp
+    self.fixture=fixtures.RegistryTests();self.fixture.setUp();self.registry=self.fixture.registry;self.r=self.fixture.record;self.fixture.add()
+  File "<repository>/evaluation/r1_v4/evidence_registry_gsn/tests/test_registry.py", line 12, in setUp
+    self.tmp=tempfile.TemporaryDirectory(dir='/disk/1/data/niktakbr');self.root=Path(self.tmp.name)
+  File "/usr/lib/python3.10/tempfile.py", line 974, in __init__
+    self.name = mkdtemp(suffix, prefix, dir)
+  File "/usr/lib/python3.10/tempfile.py", line 523, in mkdtemp
+    _os.mkdir(file, 0o700)
+FileNotFoundError: [Errno 2] No such file or directory: '/disk/1/data/niktakbr/tmp41ogr02a'
+
+======================================================================
+ERROR: test_judgment_origin (test_graph.GraphTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<repository>/evaluation/r1_v4/evidence_registry_gsn/tests/test_graph.py", line 10, in setUp
+    self.fixture=fixtures.RegistryTests();self.fixture.setUp();self.registry=self.fixture.registry;self.r=self.fixture.record;self.fixture.add()
+  File "<repository>/evaluation/r1_v4/evidence_registry_gsn/tests/test_registry.py", line 12, in setUp
+    self.tmp=tempfile.TemporaryDirectory(dir='/disk/1/data/niktakbr');self.root=Path(self.tmp.name)
+  File "/usr/lib/python3.10/tempfile.py", line 974, in __init__
+    self.name = mkdtemp(suffix, prefix, dir)
+  File "/usr/lib/python3.10/tempfile.py", line 523, in mkdtemp
+    _os.mkdir(file, 0o700)
+FileNotFoundError: [Errno 2] No such file or directory: '/disk/1/data/niktakbr/tmp1j7m5ft2'
+
+======================================================================
+ERROR: test_missing_endpoint (test_graph.GraphTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<repository>/evaluation/r1_v4/evidence_registry_gsn/tests/test_graph.py", line 10, in setUp
+    self.fixture=fixtures.RegistryTests();self.fixture.setUp();self.registry=self.fixture.registry;self.r=self.fixture.record;self.fixture.add()
+  File "<repository>/evaluation/r1_v4/evidence_registry_gsn/tests/test_registry.py", line 12, in setUp
+    self.tmp=tempfile.TemporaryDirectory(dir='/disk/1/data/niktakbr');self.root=Path(self.tmp.name)
+  File "/usr/lib/python3.10/tempfile.py", line 974, in __init__
+    self.name = mkdtemp(suffix, prefix, dir)
+  File "/usr/lib/python3.10/tempfile.py", line 523, in mkdtemp
+    _os.mkdir(file, 0o700)
+FileNotFoundError: [Errno 2] No such file or directory: '/disk/1/data/niktakbr/tmpgt2p420m'
+
+======================================================================
+ERROR: test_missing_time_point (test_graph.GraphTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<repository>/evaluation/r1_v4/evidence_registry_gsn/tests/test_graph.py", line 10, in setUp
+    self.fixture=fixtures.RegistryTests();self.fixture.setUp();self.registry=self.fixture.registry;self.r=self.fixture.record;self.fixture.add()
+  File "<repository>/evaluation/r1_v4/evidence_registry_gsn/tests/test_registry.py", line 12, in setUp
+    self.tmp=tempfile.TemporaryDirectory(dir='/disk/1/data/niktakbr');self.root=Path(self.tmp.name)
+  File "/usr/lib/python3.10/tempfile.py", line 974, in __init__
+    self.name = mkdtemp(suffix, prefix, dir)
+  File "/usr/lib/python3.10/tempfile.py", line 523, in mkdtemp
+    _os.mkdir(file, 0o700)
+FileNotFoundError: [Errno 2] No such file or directory: '/disk/1/data/niktakbr/tmp1d_6vbv_'
+
+======================================================================
+ERROR: test_nested_solution_scope (test_graph.GraphTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<repository>/evaluation/r1_v4/evidence_registry_gsn/tests/test_graph.py", line 10, in setUp
+    self.fixture=fixtures.RegistryTests();self.fixture.setUp();self.registry=self.fixture.registry;self.r=self.fixture.record;self.fixture.add()
+  File "<repository>/evaluation/r1_v4/evidence_registry_gsn/tests/test_registry.py", line 12, in setUp
+    self.tmp=tempfile.TemporaryDirectory(dir='/disk/1/data/niktakbr');self.root=Path(self.tmp.name)
+  File "/usr/lib/python3.10/tempfile.py", line 974, in __init__
+    self.name = mkdtemp(suffix, prefix, dir)
+  File "/usr/lib/python3.10/tempfile.py", line 523, in mkdtemp
+    _os.mkdir(file, 0o700)
+FileNotFoundError: [Errno 2] No such file or directory: '/disk/1/data/niktakbr/tmp2q8nbzbc'
+
+======================================================================
+ERROR: test_promotion (test_graph.GraphTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<repository>/evaluation/r1_v4/evidence_registry_gsn/tests/test_graph.py", line 10, in setUp
+    self.fixture=fixtures.RegistryTests();self.fixture.setUp();self.registry=self.fixture.registry;self.r=self.fixture.record;self.fixture.add()
+  File "<repository>/evaluation/r1_v4/evidence_registry_gsn/tests/test_registry.py", line 12, in setUp
+    self.tmp=tempfile.TemporaryDirectory(dir='/disk/1/data/niktakbr');self.root=Path(self.tmp.name)
+  File "/usr/lib/python3.10/tempfile.py", line 974, in __init__
+    self.name = mkdtemp(suffix, prefix, dir)
+  File "/usr/lib/python3.10/tempfile.py", line 523, in mkdtemp
+    _os.mkdir(file, 0o700)
+FileNotFoundError: [Errno 2] No such file or directory: '/disk/1/data/niktakbr/tmpczsob3qi'
+
+======================================================================
+ERROR: test_promotion_bypass_flag (test_graph.GraphTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<repository>/evaluation/r1_v4/evidence_registry_gsn/tests/test_graph.py", line 10, in setUp
+    self.fixture=fixtures.RegistryTests();self.fixture.setUp();self.registry=self.fixture.registry;self.r=self.fixture.record;self.fixture.add()
+  File "<repository>/evaluation/r1_v4/evidence_registry_gsn/tests/test_registry.py", line 12, in setUp
+    self.tmp=tempfile.TemporaryDirectory(dir='/disk/1/data/niktakbr');self.root=Path(self.tmp.name)
+  File "/usr/lib/python3.10/tempfile.py", line 974, in __init__
+    self.name = mkdtemp(suffix, prefix, dir)
+  File "/usr/lib/python3.10/tempfile.py", line 523, in mkdtemp
+    _os.mkdir(file, 0o700)
+FileNotFoundError: [Errno 2] No such file or directory: '/disk/1/data/niktakbr/tmpifrw6_rm'
+
+======================================================================
+ERROR: test_scope_mismatch (test_graph.GraphTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<repository>/evaluation/r1_v4/evidence_registry_gsn/tests/test_graph.py", line 10, in setUp
+    self.fixture=fixtures.RegistryTests();self.fixture.setUp();self.registry=self.fixture.registry;self.r=self.fixture.record;self.fixture.add()
+  File "<repository>/evaluation/r1_v4/evidence_registry_gsn/tests/test_registry.py", line 12, in setUp
+    self.tmp=tempfile.TemporaryDirectory(dir='/disk/1/data/niktakbr');self.root=Path(self.tmp.name)
+  File "/usr/lib/python3.10/tempfile.py", line 974, in __init__
+    self.name = mkdtemp(suffix, prefix, dir)
+  File "/usr/lib/python3.10/tempfile.py", line 523, in mkdtemp
+    _os.mkdir(file, 0o700)
+FileNotFoundError: [Errno 2] No such file or directory: '/disk/1/data/niktakbr/tmptd9nqn46'
+
+======================================================================
+ERROR: test_solution_interval_overclaim (test_graph.GraphTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<repository>/evaluation/r1_v4/evidence_registry_gsn/tests/test_graph.py", line 10, in setUp
+    self.fixture=fixtures.RegistryTests();self.fixture.setUp();self.registry=self.fixture.registry;self.r=self.fixture.record;self.fixture.add()
+  File "<repository>/evaluation/r1_v4/evidence_registry_gsn/tests/test_registry.py", line 12, in setUp
+    self.tmp=tempfile.TemporaryDirectory(dir='/disk/1/data/niktakbr');self.root=Path(self.tmp.name)
+  File "/usr/lib/python3.10/tempfile.py", line 974, in __init__
+    self.name = mkdtemp(suffix, prefix, dir)
+  File "/usr/lib/python3.10/tempfile.py", line 523, in mkdtemp
+    _os.mkdir(file, 0o700)
+FileNotFoundError: [Errno 2] No such file or directory: '/disk/1/data/niktakbr/tmpw3w454vx'
+
+======================================================================
+ERROR: test_stable_export (test_graph.GraphTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<repository>/evaluation/r1_v4/evidence_registry_gsn/tests/test_graph.py", line 10, in setUp
+    self.fixture=fixtures.RegistryTests();self.fixture.setUp();self.registry=self.fixture.registry;self.r=self.fixture.record;self.fixture.add()
+  File "<repository>/evaluation/r1_v4/evidence_registry_gsn/tests/test_registry.py", line 12, in setUp
+    self.tmp=tempfile.TemporaryDirectory(dir='/disk/1/data/niktakbr');self.root=Path(self.tmp.name)
+  File "/usr/lib/python3.10/tempfile.py", line 974, in __init__
+    self.name = mkdtemp(suffix, prefix, dir)
+  File "/usr/lib/python3.10/tempfile.py", line 523, in mkdtemp
+    _os.mkdir(file, 0o700)
+FileNotFoundError: [Errno 2] No such file or directory: '/disk/1/data/niktakbr/tmptjbmwrhq'
+
+======================================================================
+ERROR: test_time_gap (test_graph.GraphTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<repository>/evaluation/r1_v4/evidence_registry_gsn/tests/test_graph.py", line 10, in setUp
+    self.fixture=fixtures.RegistryTests();self.fixture.setUp();self.registry=self.fixture.registry;self.r=self.fixture.record;self.fixture.add()
+  File "<repository>/evaluation/r1_v4/evidence_registry_gsn/tests/test_registry.py", line 12, in setUp
+    self.tmp=tempfile.TemporaryDirectory(dir='/disk/1/data/niktakbr');self.root=Path(self.tmp.name)
+  File "/usr/lib/python3.10/tempfile.py", line 974, in __init__
+    self.name = mkdtemp(suffix, prefix, dir)
+  File "/usr/lib/python3.10/tempfile.py", line 523, in mkdtemp
+    _os.mkdir(file, 0o700)
+FileNotFoundError: [Errno 2] No such file or directory: '/disk/1/data/niktakbr/tmp4ma_u0hw'
+
+======================================================================
+ERROR: test_valid_trace (test_graph.GraphTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<repository>/evaluation/r1_v4/evidence_registry_gsn/tests/test_graph.py", line 10, in setUp
+    self.fixture=fixtures.RegistryTests();self.fixture.setUp();self.registry=self.fixture.registry;self.r=self.fixture.record;self.fixture.add()
+  File "<repository>/evaluation/r1_v4/evidence_registry_gsn/tests/test_registry.py", line 12, in setUp
+    self.tmp=tempfile.TemporaryDirectory(dir='/disk/1/data/niktakbr');self.root=Path(self.tmp.name)
+  File "/usr/lib/python3.10/tempfile.py", line 974, in __init__
+    self.name = mkdtemp(suffix, prefix, dir)
+  File "/usr/lib/python3.10/tempfile.py", line 523, in mkdtemp
+    _os.mkdir(file, 0o700)
+FileNotFoundError: [Errno 2] No such file or directory: '/disk/1/data/niktakbr/tmpf871wywl'
+
+======================================================================
+ERROR: test_version (test_graph.GraphTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<repository>/evaluation/r1_v4/evidence_registry_gsn/tests/test_graph.py", line 10, in setUp
+    self.fixture=fixtures.RegistryTests();self.fixture.setUp();self.registry=self.fixture.registry;self.r=self.fixture.record;self.fixture.add()
+  File "<repository>/evaluation/r1_v4/evidence_registry_gsn/tests/test_registry.py", line 12, in setUp
+    self.tmp=tempfile.TemporaryDirectory(dir='/disk/1/data/niktakbr');self.root=Path(self.tmp.name)
+  File "/usr/lib/python3.10/tempfile.py", line 974, in __init__
+    self.name = mkdtemp(suffix, prefix, dir)
+  File "/usr/lib/python3.10/tempfile.py", line 523, in mkdtemp
+    _os.mkdir(file, 0o700)
+FileNotFoundError: [Errno 2] No such file or directory: '/disk/1/data/niktakbr/tmpxh1szu02'
+
+======================================================================
+ERROR: test_integration (unittest.loader._FailedTest)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_integration
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/unittest/loader.py", line 436, in _find_test_path
+    module = self._get_module_from_name(name)
+  File "/usr/lib/python3.10/unittest/loader.py", line 377, in _get_module_from_name
+    __import__(name)
+  File "<repository>/evaluation/r1_v4/evidence_registry_gsn/tests/test_integration.py", line 4, in <module>
+    from evaluation.r1_v4.evidence_registry_gsn.demo import demonstrate
+  File "<repository>/evaluation/r1_v4/evidence_registry_gsn/demo.py", line 3, in <module>
+    from .builder import build,HERE
+  File "<repository>/evaluation/r1_v4/evidence_registry_gsn/builder.py", line 6, in <module>
+    from evaluation.r1_v4.libero_measurement_reader.reader import read,MAP
+  File "<repository>/evaluation/r1_v4/libero_measurement_reader/reader.py", line 4, in <module>
+    import h5py,numpy as np
+ModuleNotFoundError: No module named 'h5py'
+
+
+======================================================================
+ERROR: test_ai_not_verified_measurement (test_registry.RegistryTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<repository>/evaluation/r1_v4/evidence_registry_gsn/tests/test_registry.py", line 12, in setUp
+    self.tmp=tempfile.TemporaryDirectory(dir='/disk/1/data/niktakbr');self.root=Path(self.tmp.name)
+  File "/usr/lib/python3.10/tempfile.py", line 974, in __init__
+    self.name = mkdtemp(suffix, prefix, dir)
+  File "/usr/lib/python3.10/tempfile.py", line 523, in mkdtemp
+    _os.mkdir(file, 0o700)
+FileNotFoundError: [Errno 2] No such file or directory: '/disk/1/data/niktakbr/tmpnj4w4s18'
+
+======================================================================
+ERROR: test_changed_scope_changes_id (test_registry.RegistryTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<repository>/evaluation/r1_v4/evidence_registry_gsn/tests/test_registry.py", line 12, in setUp
+    self.tmp=tempfile.TemporaryDirectory(dir='/disk/1/data/niktakbr');self.root=Path(self.tmp.name)
+  File "/usr/lib/python3.10/tempfile.py", line 974, in __init__
+    self.name = mkdtemp(suffix, prefix, dir)
+  File "/usr/lib/python3.10/tempfile.py", line 523, in mkdtemp
+    _os.mkdir(file, 0o700)
+FileNotFoundError: [Errno 2] No such file or directory: '/disk/1/data/niktakbr/tmpwgzjet9n'
+
+======================================================================
+ERROR: test_clock_mismatch (test_registry.RegistryTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<repository>/evaluation/r1_v4/evidence_registry_gsn/tests/test_registry.py", line 12, in setUp
+    self.tmp=tempfile.TemporaryDirectory(dir='/disk/1/data/niktakbr');self.root=Path(self.tmp.name)
+  File "/usr/lib/python3.10/tempfile.py", line 974, in __init__
+    self.name = mkdtemp(suffix, prefix, dir)
+  File "/usr/lib/python3.10/tempfile.py", line 523, in mkdtemp
+    _os.mkdir(file, 0o700)
+FileNotFoundError: [Errno 2] No such file or directory: '/disk/1/data/niktakbr/tmp8xwukzra'
+
+======================================================================
+ERROR: test_corrupt_id (test_registry.RegistryTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<repository>/evaluation/r1_v4/evidence_registry_gsn/tests/test_registry.py", line 12, in setUp
+    self.tmp=tempfile.TemporaryDirectory(dir='/disk/1/data/niktakbr');self.root=Path(self.tmp.name)
+  File "/usr/lib/python3.10/tempfile.py", line 974, in __init__
+    self.name = mkdtemp(suffix, prefix, dir)
+  File "/usr/lib/python3.10/tempfile.py", line 523, in mkdtemp
+    _os.mkdir(file, 0o700)
+FileNotFoundError: [Errno 2] No such file or directory: '/disk/1/data/niktakbr/tmp90dhetzk'
+
+======================================================================
+ERROR: test_database_version (test_registry.RegistryTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<repository>/evaluation/r1_v4/evidence_registry_gsn/tests/test_registry.py", line 12, in setUp
+    self.tmp=tempfile.TemporaryDirectory(dir='/disk/1/data/niktakbr');self.root=Path(self.tmp.name)
+  File "/usr/lib/python3.10/tempfile.py", line 974, in __init__
+    self.name = mkdtemp(suffix, prefix, dir)
+  File "/usr/lib/python3.10/tempfile.py", line 523, in mkdtemp
+    _os.mkdir(file, 0o700)
+FileNotFoundError: [Errno 2] No such file or directory: '/disk/1/data/niktakbr/tmps6mxy45t'
+
+======================================================================
+ERROR: test_declared_gap (test_registry.RegistryTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<repository>/evaluation/r1_v4/evidence_registry_gsn/tests/test_registry.py", line 12, in setUp
+    self.tmp=tempfile.TemporaryDirectory(dir='/disk/1/data/niktakbr');self.root=Path(self.tmp.name)
+  File "/usr/lib/python3.10/tempfile.py", line 974, in __init__
+    self.name = mkdtemp(suffix, prefix, dir)
+  File "/usr/lib/python3.10/tempfile.py", line 523, in mkdtemp
+    _os.mkdir(file, 0o700)
+FileNotFoundError: [Errno 2] No such file or directory: '/disk/1/data/niktakbr/tmp7akqy8oq'
+
+======================================================================
+ERROR: test_dependency_clock (test_registry.RegistryTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<repository>/evaluation/r1_v4/evidence_registry_gsn/tests/test_registry.py", line 12, in setUp
+    self.tmp=tempfile.TemporaryDirectory(dir='/disk/1/data/niktakbr');self.root=Path(self.tmp.name)
+  File "/usr/lib/python3.10/tempfile.py", line 974, in __init__
+    self.name = mkdtemp(suffix, prefix, dir)
+  File "/usr/lib/python3.10/tempfile.py", line 523, in mkdtemp
+    _os.mkdir(file, 0o700)
+FileNotFoundError: [Errno 2] No such file or directory: '/disk/1/data/niktakbr/tmp_iuxibgd'
+
+======================================================================
+ERROR: test_dependency_conflict_scoped (test_registry.RegistryTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<repository>/evaluation/r1_v4/evidence_registry_gsn/tests/test_registry.py", line 12, in setUp
+    self.tmp=tempfile.TemporaryDirectory(dir='/disk/1/data/niktakbr');self.root=Path(self.tmp.name)
+  File "/usr/lib/python3.10/tempfile.py", line 974, in __init__
+    self.name = mkdtemp(suffix, prefix, dir)
+  File "/usr/lib/python3.10/tempfile.py", line 523, in mkdtemp
+    _os.mkdir(file, 0o700)
+FileNotFoundError: [Errno 2] No such file or directory: '/disk/1/data/niktakbr/tmpm_uocckr'
+
+======================================================================
+ERROR: test_dependency_provenance_returned (test_registry.RegistryTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<repository>/evaluation/r1_v4/evidence_registry_gsn/tests/test_registry.py", line 12, in setUp
+    self.tmp=tempfile.TemporaryDirectory(dir='/disk/1/data/niktakbr');self.root=Path(self.tmp.name)
+  File "/usr/lib/python3.10/tempfile.py", line 974, in __init__
+    self.name = mkdtemp(suffix, prefix, dir)
+  File "/usr/lib/python3.10/tempfile.py", line 523, in mkdtemp
+    _os.mkdir(file, 0o700)
+FileNotFoundError: [Errno 2] No such file or directory: '/disk/1/data/niktakbr/tmprycq0f5r'
+
+======================================================================
+ERROR: test_dependency_scope (test_registry.RegistryTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<repository>/evaluation/r1_v4/evidence_registry_gsn/tests/test_registry.py", line 12, in setUp
+    self.tmp=tempfile.TemporaryDirectory(dir='/disk/1/data/niktakbr');self.root=Path(self.tmp.name)
+  File "/usr/lib/python3.10/tempfile.py", line 974, in __init__
+    self.name = mkdtemp(suffix, prefix, dir)
+  File "/usr/lib/python3.10/tempfile.py", line 523, in mkdtemp
+    _os.mkdir(file, 0o700)
+FileNotFoundError: [Errno 2] No such file or directory: '/disk/1/data/niktakbr/tmpcj9bd_tb'
+
+======================================================================
+ERROR: test_empty_query_types (test_registry.RegistryTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<repository>/evaluation/r1_v4/evidence_registry_gsn/tests/test_registry.py", line 12, in setUp
+    self.tmp=tempfile.TemporaryDirectory(dir='/disk/1/data/niktakbr');self.root=Path(self.tmp.name)
+  File "/usr/lib/python3.10/tempfile.py", line 974, in __init__
+    self.name = mkdtemp(suffix, prefix, dir)
+  File "/usr/lib/python3.10/tempfile.py", line 523, in mkdtemp
+    _os.mkdir(file, 0o700)
+FileNotFoundError: [Errno 2] No such file or directory: '/disk/1/data/niktakbr/tmpq6s9pg4y'
+
+======================================================================
+ERROR: test_exact_query (test_registry.RegistryTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<repository>/evaluation/r1_v4/evidence_registry_gsn/tests/test_registry.py", line 12, in setUp
+    self.tmp=tempfile.TemporaryDirectory(dir='/disk/1/data/niktakbr');self.root=Path(self.tmp.name)
+  File "/usr/lib/python3.10/tempfile.py", line 974, in __init__
+    self.name = mkdtemp(suffix, prefix, dir)
+  File "/usr/lib/python3.10/tempfile.py", line 523, in mkdtemp
+    _os.mkdir(file, 0o700)
+FileNotFoundError: [Errno 2] No such file or directory: '/disk/1/data/niktakbr/tmprtyg5jqb'
+
+======================================================================
+ERROR: test_explicit_conflict (test_registry.RegistryTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<repository>/evaluation/r1_v4/evidence_registry_gsn/tests/test_registry.py", line 12, in setUp
+    self.tmp=tempfile.TemporaryDirectory(dir='/disk/1/data/niktakbr');self.root=Path(self.tmp.name)
+  File "/usr/lib/python3.10/tempfile.py", line 974, in __init__
+    self.name = mkdtemp(suffix, prefix, dir)
+  File "/usr/lib/python3.10/tempfile.py", line 523, in mkdtemp
+    _os.mkdir(file, 0o700)
+FileNotFoundError: [Errno 2] No such file or directory: '/disk/1/data/niktakbr/tmpjpak12gl'
+
+======================================================================
+ERROR: test_forged_verified_gates_still_disabled (test_registry.RegistryTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<repository>/evaluation/r1_v4/evidence_registry_gsn/tests/test_registry.py", line 12, in setUp
+    self.tmp=tempfile.TemporaryDirectory(dir='/disk/1/data/niktakbr');self.root=Path(self.tmp.name)
+  File "/usr/lib/python3.10/tempfile.py", line 974, in __init__
+    self.name = mkdtemp(suffix, prefix, dir)
+  File "/usr/lib/python3.10/tempfile.py", line 523, in mkdtemp
+    _os.mkdir(file, 0o700)
+FileNotFoundError: [Errno 2] No such file or directory: '/disk/1/data/niktakbr/tmp8jvcqc1a'
+
+======================================================================
+ERROR: test_hash_format (test_registry.RegistryTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<repository>/evaluation/r1_v4/evidence_registry_gsn/tests/test_registry.py", line 12, in setUp
+    self.tmp=tempfile.TemporaryDirectory(dir='/disk/1/data/niktakbr');self.root=Path(self.tmp.name)
+  File "/usr/lib/python3.10/tempfile.py", line 974, in __init__
+    self.name = mkdtemp(suffix, prefix, dir)
+  File "/usr/lib/python3.10/tempfile.py", line 523, in mkdtemp
+    _os.mkdir(file, 0o700)
+FileNotFoundError: [Errno 2] No such file or directory: '/disk/1/data/niktakbr/tmpxww175ik'
+
+======================================================================
+ERROR: test_hash_mismatch (test_registry.RegistryTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<repository>/evaluation/r1_v4/evidence_registry_gsn/tests/test_registry.py", line 12, in setUp
+    self.tmp=tempfile.TemporaryDirectory(dir='/disk/1/data/niktakbr');self.root=Path(self.tmp.name)
+  File "/usr/lib/python3.10/tempfile.py", line 974, in __init__
+    self.name = mkdtemp(suffix, prefix, dir)
+  File "/usr/lib/python3.10/tempfile.py", line 523, in mkdtemp
+    _os.mkdir(file, 0o700)
+FileNotFoundError: [Errno 2] No such file or directory: '/disk/1/data/niktakbr/tmpzlfu64uo'
+
+======================================================================
+ERROR: test_idempotent_insert (test_registry.RegistryTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<repository>/evaluation/r1_v4/evidence_registry_gsn/tests/test_registry.py", line 12, in setUp
+    self.tmp=tempfile.TemporaryDirectory(dir='/disk/1/data/niktakbr');self.root=Path(self.tmp.name)
+  File "/usr/lib/python3.10/tempfile.py", line 974, in __init__
+    self.name = mkdtemp(suffix, prefix, dir)
+  File "/usr/lib/python3.10/tempfile.py", line 523, in mkdtemp
+    _os.mkdir(file, 0o700)
+FileNotFoundError: [Errno 2] No such file or directory: '/disk/1/data/niktakbr/tmp2fxefygn'
+
+======================================================================
+ERROR: test_immutable_update (test_registry.RegistryTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<repository>/evaluation/r1_v4/evidence_registry_gsn/tests/test_registry.py", line 12, in setUp
+    self.tmp=tempfile.TemporaryDirectory(dir='/disk/1/data/niktakbr');self.root=Path(self.tmp.name)
+  File "/usr/lib/python3.10/tempfile.py", line 974, in __init__
+    self.name = mkdtemp(suffix, prefix, dir)
+  File "/usr/lib/python3.10/tempfile.py", line 523, in mkdtemp
+    _os.mkdir(file, 0o700)
+FileNotFoundError: [Errno 2] No such file or directory: '/disk/1/data/niktakbr/tmpmm6mckew'
+
+======================================================================
+ERROR: test_integrity (test_registry.RegistryTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<repository>/evaluation/r1_v4/evidence_registry_gsn/tests/test_registry.py", line 12, in setUp
+    self.tmp=tempfile.TemporaryDirectory(dir='/disk/1/data/niktakbr');self.root=Path(self.tmp.name)
+  File "/usr/lib/python3.10/tempfile.py", line 974, in __init__
+    self.name = mkdtemp(suffix, prefix, dir)
+  File "/usr/lib/python3.10/tempfile.py", line 523, in mkdtemp
+    _os.mkdir(file, 0o700)
+FileNotFoundError: [Errno 2] No such file or directory: '/disk/1/data/niktakbr/tmp9eggshgp'
+
+======================================================================
+ERROR: test_invalid_dependency (test_registry.RegistryTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<repository>/evaluation/r1_v4/evidence_registry_gsn/tests/test_registry.py", line 12, in setUp
+    self.tmp=tempfile.TemporaryDirectory(dir='/disk/1/data/niktakbr');self.root=Path(self.tmp.name)
+  File "/usr/lib/python3.10/tempfile.py", line 974, in __init__
+    self.name = mkdtemp(suffix, prefix, dir)
+  File "/usr/lib/python3.10/tempfile.py", line 523, in mkdtemp
+    _os.mkdir(file, 0o700)
+FileNotFoundError: [Errno 2] No such file or directory: '/disk/1/data/niktakbr/tmpb9l4kutg'
+
+======================================================================
+ERROR: test_missing_dependency (test_registry.RegistryTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<repository>/evaluation/r1_v4/evidence_registry_gsn/tests/test_registry.py", line 12, in setUp
+    self.tmp=tempfile.TemporaryDirectory(dir='/disk/1/data/niktakbr');self.root=Path(self.tmp.name)
+  File "/usr/lib/python3.10/tempfile.py", line 974, in __init__
+    self.name = mkdtemp(suffix, prefix, dir)
+  File "/usr/lib/python3.10/tempfile.py", line 523, in mkdtemp
+    _os.mkdir(file, 0o700)
+FileNotFoundError: [Errno 2] No such file or directory: '/disk/1/data/niktakbr/tmpml3fle24'
+
+======================================================================
+ERROR: test_missing_file (test_registry.RegistryTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<repository>/evaluation/r1_v4/evidence_registry_gsn/tests/test_registry.py", line 12, in setUp
+    self.tmp=tempfile.TemporaryDirectory(dir='/disk/1/data/niktakbr');self.root=Path(self.tmp.name)
+  File "/usr/lib/python3.10/tempfile.py", line 974, in __init__
+    self.name = mkdtemp(suffix, prefix, dir)
+  File "/usr/lib/python3.10/tempfile.py", line 523, in mkdtemp
+    _os.mkdir(file, 0o700)
+FileNotFoundError: [Errno 2] No such file or directory: '/disk/1/data/niktakbr/tmpdthz_thc'
+
+======================================================================
+ERROR: test_no_implicit_capability_upgrade (test_registry.RegistryTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<repository>/evaluation/r1_v4/evidence_registry_gsn/tests/test_registry.py", line 12, in setUp
+    self.tmp=tempfile.TemporaryDirectory(dir='/disk/1/data/niktakbr');self.root=Path(self.tmp.name)
+  File "/usr/lib/python3.10/tempfile.py", line 974, in __init__
+    self.name = mkdtemp(suffix, prefix, dir)
+  File "/usr/lib/python3.10/tempfile.py", line 523, in mkdtemp
+    _os.mkdir(file, 0o700)
+FileNotFoundError: [Errno 2] No such file or directory: '/disk/1/data/niktakbr/tmphjnxk6ap'
+
+======================================================================
+ERROR: test_no_physical_promotion (test_registry.RegistryTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<repository>/evaluation/r1_v4/evidence_registry_gsn/tests/test_registry.py", line 12, in setUp
+    self.tmp=tempfile.TemporaryDirectory(dir='/disk/1/data/niktakbr');self.root=Path(self.tmp.name)
+  File "/usr/lib/python3.10/tempfile.py", line 974, in __init__
+    self.name = mkdtemp(suffix, prefix, dir)
+  File "/usr/lib/python3.10/tempfile.py", line 523, in mkdtemp
+    _os.mkdir(file, 0o700)
+FileNotFoundError: [Errno 2] No such file or directory: '/disk/1/data/niktakbr/tmpb7oru0d6'
+
+======================================================================
+ERROR: test_no_record_gap (test_registry.RegistryTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<repository>/evaluation/r1_v4/evidence_registry_gsn/tests/test_registry.py", line 12, in setUp
+    self.tmp=tempfile.TemporaryDirectory(dir='/disk/1/data/niktakbr');self.root=Path(self.tmp.name)
+  File "/usr/lib/python3.10/tempfile.py", line 974, in __init__
+    self.name = mkdtemp(suffix, prefix, dir)
+  File "/usr/lib/python3.10/tempfile.py", line 523, in mkdtemp
+    _os.mkdir(file, 0o700)
+FileNotFoundError: [Errno 2] No such file or directory: '/disk/1/data/niktakbr/tmp1sl_mbuu'
+
+======================================================================
+ERROR: test_nonfinite_interval (test_registry.RegistryTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<repository>/evaluation/r1_v4/evidence_registry_gsn/tests/test_registry.py", line 12, in setUp
+    self.tmp=tempfile.TemporaryDirectory(dir='/disk/1/data/niktakbr');self.root=Path(self.tmp.name)
+  File "/usr/lib/python3.10/tempfile.py", line 974, in __init__
+    self.name = mkdtemp(suffix, prefix, dir)
+  File "/usr/lib/python3.10/tempfile.py", line 523, in mkdtemp
+    _os.mkdir(file, 0o700)
+FileNotFoundError: [Errno 2] No such file or directory: '/disk/1/data/niktakbr/tmpdx0_c265'
+
+======================================================================
+ERROR: test_overlaps_no_double_count (test_registry.RegistryTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<repository>/evaluation/r1_v4/evidence_registry_gsn/tests/test_registry.py", line 12, in setUp
+    self.tmp=tempfile.TemporaryDirectory(dir='/disk/1/data/niktakbr');self.root=Path(self.tmp.name)
+  File "/usr/lib/python3.10/tempfile.py", line 974, in __init__
+    self.name = mkdtemp(suffix, prefix, dir)
+  File "/usr/lib/python3.10/tempfile.py", line 523, in mkdtemp
+    _os.mkdir(file, 0o700)
+FileNotFoundError: [Errno 2] No such file or directory: '/disk/1/data/niktakbr/tmpugofd4o8'
+
+======================================================================
+ERROR: test_partial_interval (test_registry.RegistryTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<repository>/evaluation/r1_v4/evidence_registry_gsn/tests/test_registry.py", line 12, in setUp
+    self.tmp=tempfile.TemporaryDirectory(dir='/disk/1/data/niktakbr');self.root=Path(self.tmp.name)
+  File "/usr/lib/python3.10/tempfile.py", line 974, in __init__
+    self.name = mkdtemp(suffix, prefix, dir)
+  File "/usr/lib/python3.10/tempfile.py", line 523, in mkdtemp
+    _os.mkdir(file, 0o700)
+FileNotFoundError: [Errno 2] No such file or directory: '/disk/1/data/niktakbr/tmp9zi_nstb'
+
+======================================================================
+ERROR: test_persistent_readonly (test_registry.RegistryTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<repository>/evaluation/r1_v4/evidence_registry_gsn/tests/test_registry.py", line 12, in setUp
+    self.tmp=tempfile.TemporaryDirectory(dir='/disk/1/data/niktakbr');self.root=Path(self.tmp.name)
+  File "/usr/lib/python3.10/tempfile.py", line 974, in __init__
+    self.name = mkdtemp(suffix, prefix, dir)
+  File "/usr/lib/python3.10/tempfile.py", line 523, in mkdtemp
+    _os.mkdir(file, 0o700)
+FileNotFoundError: [Errno 2] No such file or directory: '/disk/1/data/niktakbr/tmpf0o0e2kg'
+
+======================================================================
+ERROR: test_physical_event_not_measurement (test_registry.RegistryTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<repository>/evaluation/r1_v4/evidence_registry_gsn/tests/test_registry.py", line 12, in setUp
+    self.tmp=tempfile.TemporaryDirectory(dir='/disk/1/data/niktakbr');self.root=Path(self.tmp.name)
+  File "/usr/lib/python3.10/tempfile.py", line 974, in __init__
+    self.name = mkdtemp(suffix, prefix, dir)
+  File "/usr/lib/python3.10/tempfile.py", line 523, in mkdtemp
+    _os.mkdir(file, 0o700)
+FileNotFoundError: [Errno 2] No such file or directory: '/disk/1/data/niktakbr/tmpzkqwmwrg'
+
+======================================================================
+ERROR: test_readonly_cannot_create (test_registry.RegistryTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<repository>/evaluation/r1_v4/evidence_registry_gsn/tests/test_registry.py", line 12, in setUp
+    self.tmp=tempfile.TemporaryDirectory(dir='/disk/1/data/niktakbr');self.root=Path(self.tmp.name)
+  File "/usr/lib/python3.10/tempfile.py", line 974, in __init__
+    self.name = mkdtemp(suffix, prefix, dir)
+  File "/usr/lib/python3.10/tempfile.py", line 523, in mkdtemp
+    _os.mkdir(file, 0o700)
+FileNotFoundError: [Errno 2] No such file or directory: '/disk/1/data/niktakbr/tmpmv7inx9w'
+
+======================================================================
+ERROR: test_record_version (test_registry.RegistryTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<repository>/evaluation/r1_v4/evidence_registry_gsn/tests/test_registry.py", line 12, in setUp
+    self.tmp=tempfile.TemporaryDirectory(dir='/disk/1/data/niktakbr');self.root=Path(self.tmp.name)
+  File "/usr/lib/python3.10/tempfile.py", line 974, in __init__
+    self.name = mkdtemp(suffix, prefix, dir)
+  File "/usr/lib/python3.10/tempfile.py", line 523, in mkdtemp
+    _os.mkdir(file, 0o700)
+FileNotFoundError: [Errno 2] No such file or directory: '/disk/1/data/niktakbr/tmp25772zsg'
+
+======================================================================
+ERROR: test_registration_hash_mismatch (test_registry.RegistryTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<repository>/evaluation/r1_v4/evidence_registry_gsn/tests/test_registry.py", line 12, in setUp
+    self.tmp=tempfile.TemporaryDirectory(dir='/disk/1/data/niktakbr');self.root=Path(self.tmp.name)
+  File "/usr/lib/python3.10/tempfile.py", line 974, in __init__
+    self.name = mkdtemp(suffix, prefix, dir)
+  File "/usr/lib/python3.10/tempfile.py", line 523, in mkdtemp
+    _os.mkdir(file, 0o700)
+FileNotFoundError: [Errno 2] No such file or directory: '/disk/1/data/niktakbr/tmp4zd95wuf'
+
+======================================================================
+ERROR: test_reproducible (test_registry.RegistryTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<repository>/evaluation/r1_v4/evidence_registry_gsn/tests/test_registry.py", line 12, in setUp
+    self.tmp=tempfile.TemporaryDirectory(dir='/disk/1/data/niktakbr');self.root=Path(self.tmp.name)
+  File "/usr/lib/python3.10/tempfile.py", line 974, in __init__
+    self.name = mkdtemp(suffix, prefix, dir)
+  File "/usr/lib/python3.10/tempfile.py", line 523, in mkdtemp
+    _os.mkdir(file, 0o700)
+FileNotFoundError: [Errno 2] No such file or directory: '/disk/1/data/niktakbr/tmp199c_cth'
+
+======================================================================
+ERROR: test_requirement_version (test_registry.RegistryTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<repository>/evaluation/r1_v4/evidence_registry_gsn/tests/test_registry.py", line 12, in setUp
+    self.tmp=tempfile.TemporaryDirectory(dir='/disk/1/data/niktakbr');self.root=Path(self.tmp.name)
+  File "/usr/lib/python3.10/tempfile.py", line 974, in __init__
+    self.name = mkdtemp(suffix, prefix, dir)
+  File "/usr/lib/python3.10/tempfile.py", line 523, in mkdtemp
+    _os.mkdir(file, 0o700)
+FileNotFoundError: [Errno 2] No such file or directory: '/disk/1/data/niktakbr/tmpat4f4y60'
+
+======================================================================
+ERROR: test_reversed_insert_stable (test_registry.RegistryTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<repository>/evaluation/r1_v4/evidence_registry_gsn/tests/test_registry.py", line 12, in setUp
+    self.tmp=tempfile.TemporaryDirectory(dir='/disk/1/data/niktakbr');self.root=Path(self.tmp.name)
+  File "/usr/lib/python3.10/tempfile.py", line 974, in __init__
+    self.name = mkdtemp(suffix, prefix, dir)
+  File "/usr/lib/python3.10/tempfile.py", line 523, in mkdtemp
+    _os.mkdir(file, 0o700)
+FileNotFoundError: [Errno 2] No such file or directory: '/disk/1/data/niktakbr/tmpeq7dbs6z'
+
+======================================================================
+ERROR: test_source_provenance_retained (test_registry.RegistryTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<repository>/evaluation/r1_v4/evidence_registry_gsn/tests/test_registry.py", line 12, in setUp
+    self.tmp=tempfile.TemporaryDirectory(dir='/disk/1/data/niktakbr');self.root=Path(self.tmp.name)
+  File "/usr/lib/python3.10/tempfile.py", line 974, in __init__
+    self.name = mkdtemp(suffix, prefix, dir)
+  File "/usr/lib/python3.10/tempfile.py", line 523, in mkdtemp
+    _os.mkdir(file, 0o700)
+FileNotFoundError: [Errno 2] No such file or directory: '/disk/1/data/niktakbr/tmppvyay00v'
+
+======================================================================
+ERROR: test_stable_id_roundtrip (test_registry.RegistryTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<repository>/evaluation/r1_v4/evidence_registry_gsn/tests/test_registry.py", line 12, in setUp
+    self.tmp=tempfile.TemporaryDirectory(dir='/disk/1/data/niktakbr');self.root=Path(self.tmp.name)
+  File "/usr/lib/python3.10/tempfile.py", line 974, in __init__
+    self.name = mkdtemp(suffix, prefix, dir)
+  File "/usr/lib/python3.10/tempfile.py", line 523, in mkdtemp
+    _os.mkdir(file, 0o700)
+FileNotFoundError: [Errno 2] No such file or directory: '/disk/1/data/niktakbr/tmp1v2c2rgs'
+
+======================================================================
+ERROR: test_symlink_source (test_registry.RegistryTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<repository>/evaluation/r1_v4/evidence_registry_gsn/tests/test_registry.py", line 12, in setUp
+    self.tmp=tempfile.TemporaryDirectory(dir='/disk/1/data/niktakbr');self.root=Path(self.tmp.name)
+  File "/usr/lib/python3.10/tempfile.py", line 974, in __init__
+    self.name = mkdtemp(suffix, prefix, dir)
+  File "/usr/lib/python3.10/tempfile.py", line 523, in mkdtemp
+    _os.mkdir(file, 0o700)
+FileNotFoundError: [Errno 2] No such file or directory: '/disk/1/data/niktakbr/tmpdm5obloz'
+
+======================================================================
+ERROR: test_transitive_missing_source (test_registry.RegistryTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<repository>/evaluation/r1_v4/evidence_registry_gsn/tests/test_registry.py", line 12, in setUp
+    self.tmp=tempfile.TemporaryDirectory(dir='/disk/1/data/niktakbr');self.root=Path(self.tmp.name)
+  File "/usr/lib/python3.10/tempfile.py", line 974, in __init__
+    self.name = mkdtemp(suffix, prefix, dir)
+  File "/usr/lib/python3.10/tempfile.py", line 523, in mkdtemp
+    _os.mkdir(file, 0o700)
+FileNotFoundError: [Errno 2] No such file or directory: '/disk/1/data/niktakbr/tmphyowqvza'
+
+======================================================================
+ERROR: test_truth_not_promoted (test_registry.RegistryTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<repository>/evaluation/r1_v4/evidence_registry_gsn/tests/test_registry.py", line 12, in setUp
+    self.tmp=tempfile.TemporaryDirectory(dir='/disk/1/data/niktakbr');self.root=Path(self.tmp.name)
+  File "/usr/lib/python3.10/tempfile.py", line 974, in __init__
+    self.name = mkdtemp(suffix, prefix, dir)
+  File "/usr/lib/python3.10/tempfile.py", line 523, in mkdtemp
+    _os.mkdir(file, 0o700)
+FileNotFoundError: [Errno 2] No such file or directory: '/disk/1/data/niktakbr/tmpfj4oz583'
+
+======================================================================
+ERROR: test_type_specific_gap (test_registry.RegistryTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<repository>/evaluation/r1_v4/evidence_registry_gsn/tests/test_registry.py", line 12, in setUp
+    self.tmp=tempfile.TemporaryDirectory(dir='/disk/1/data/niktakbr');self.root=Path(self.tmp.name)
+  File "/usr/lib/python3.10/tempfile.py", line 974, in __init__
+    self.name = mkdtemp(suffix, prefix, dir)
+  File "/usr/lib/python3.10/tempfile.py", line 523, in mkdtemp
+    _os.mkdir(file, 0o700)
+FileNotFoundError: [Errno 2] No such file or directory: '/disk/1/data/niktakbr/tmpaco1f54s'
+
+======================================================================
+ERROR: test_unapproved_source (test_registry.RegistryTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<repository>/evaluation/r1_v4/evidence_registry_gsn/tests/test_registry.py", line 12, in setUp
+    self.tmp=tempfile.TemporaryDirectory(dir='/disk/1/data/niktakbr');self.root=Path(self.tmp.name)
+  File "/usr/lib/python3.10/tempfile.py", line 974, in __init__
+    self.name = mkdtemp(suffix, prefix, dir)
+  File "/usr/lib/python3.10/tempfile.py", line 523, in mkdtemp
+    _os.mkdir(file, 0o700)
+FileNotFoundError: [Errno 2] No such file or directory: '/disk/1/data/niktakbr/tmp9iu7pcgc'
+
+======================================================================
+ERROR: test_uncertainty_propagation (test_registry.RegistryTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<repository>/evaluation/r1_v4/evidence_registry_gsn/tests/test_registry.py", line 12, in setUp
+    self.tmp=tempfile.TemporaryDirectory(dir='/disk/1/data/niktakbr');self.root=Path(self.tmp.name)
+  File "/usr/lib/python3.10/tempfile.py", line 974, in __init__
+    self.name = mkdtemp(suffix, prefix, dir)
+  File "/usr/lib/python3.10/tempfile.py", line 523, in mkdtemp
+    _os.mkdir(file, 0o700)
+FileNotFoundError: [Errno 2] No such file or directory: '/disk/1/data/niktakbr/tmpb7gqfx4z'
+
+======================================================================
+ERROR: test_unsupported_alignment (test_registry.RegistryTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<repository>/evaluation/r1_v4/evidence_registry_gsn/tests/test_registry.py", line 12, in setUp
+    self.tmp=tempfile.TemporaryDirectory(dir='/disk/1/data/niktakbr');self.root=Path(self.tmp.name)
+  File "/usr/lib/python3.10/tempfile.py", line 974, in __init__
+    self.name = mkdtemp(suffix, prefix, dir)
+  File "/usr/lib/python3.10/tempfile.py", line 523, in mkdtemp
+    _os.mkdir(file, 0o700)
+FileNotFoundError: [Errno 2] No such file or directory: '/disk/1/data/niktakbr/tmpycfwmftu'
+
+======================================================================
+ERROR: test_unsupported_geometry (test_registry.RegistryTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<repository>/evaluation/r1_v4/evidence_registry_gsn/tests/test_registry.py", line 12, in setUp
+    self.tmp=tempfile.TemporaryDirectory(dir='/disk/1/data/niktakbr');self.root=Path(self.tmp.name)
+  File "/usr/lib/python3.10/tempfile.py", line 974, in __init__
+    self.name = mkdtemp(suffix, prefix, dir)
+  File "/usr/lib/python3.10/tempfile.py", line 523, in mkdtemp
+    _os.mkdir(file, 0o700)
+FileNotFoundError: [Errno 2] No such file or directory: '/disk/1/data/niktakbr/tmpwy5v3nfw'
+
+======================================================================
+ERROR: test_wrong_execution (test_registry.RegistryTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<repository>/evaluation/r1_v4/evidence_registry_gsn/tests/test_registry.py", line 12, in setUp
+    self.tmp=tempfile.TemporaryDirectory(dir='/disk/1/data/niktakbr');self.root=Path(self.tmp.name)
+  File "/usr/lib/python3.10/tempfile.py", line 974, in __init__
+    self.name = mkdtemp(suffix, prefix, dir)
+  File "/usr/lib/python3.10/tempfile.py", line 523, in mkdtemp
+    _os.mkdir(file, 0o700)
+FileNotFoundError: [Errno 2] No such file or directory: '/disk/1/data/niktakbr/tmp8f1nhi_d'
+
+======================================================================
+ERROR: test_wrong_object (test_registry.RegistryTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<repository>/evaluation/r1_v4/evidence_registry_gsn/tests/test_registry.py", line 12, in setUp
+    self.tmp=tempfile.TemporaryDirectory(dir='/disk/1/data/niktakbr');self.root=Path(self.tmp.name)
+  File "/usr/lib/python3.10/tempfile.py", line 974, in __init__
+    self.name = mkdtemp(suffix, prefix, dir)
+  File "/usr/lib/python3.10/tempfile.py", line 523, in mkdtemp
+    _os.mkdir(file, 0o700)
+FileNotFoundError: [Errno 2] No such file or directory: '/disk/1/data/niktakbr/tmpf57mxvtg'
+
+======================================================================
+ERROR: test_wrong_version (test_registry.RegistryTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<repository>/evaluation/r1_v4/evidence_registry_gsn/tests/test_registry.py", line 12, in setUp
+    self.tmp=tempfile.TemporaryDirectory(dir='/disk/1/data/niktakbr');self.root=Path(self.tmp.name)
+  File "/usr/lib/python3.10/tempfile.py", line 974, in __init__
+    self.name = mkdtemp(suffix, prefix, dir)
+  File "/usr/lib/python3.10/tempfile.py", line 523, in mkdtemp
+    _os.mkdir(file, 0o700)
+FileNotFoundError: [Errno 2] No such file or directory: '/disk/1/data/niktakbr/tmp_4xfomkd'
+
+----------------------------------------------------------------------
+Ran 67 tests in 0.026s
+
+FAILED (errors=67)
+exit code: 1

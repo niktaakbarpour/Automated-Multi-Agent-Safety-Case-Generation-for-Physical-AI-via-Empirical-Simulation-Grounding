@@ -8,9 +8,9 @@
     "present": true,
     "label": "Synthetic test input: the Critic report was produced by critic.review with a scripted reply written for this test. It is not a model result and not a scientific finding."
   },
-  "revision_request_sha256": "a31a8ea65c96396c7ba470054dcaa5fa671fcc0cd6570f8c0452673cd79dd318",
-  "critic_request_sha256": "eadbdea3b9cfe2b23f51a957edb9c62a072575498dcd006e8b053c829879a7f0",
-  "critic_report_sha256": "e6f1d3086f7ee85fea0a95c4a8ba9e245a0ab59846e74d6e3e7d7909ca00c80d",
+  "revision_request_sha256": "51fba8c2ec04e25804ac0dfe14f955908f9b29c9d33f52b008665d9ffdece5f5",
+  "critic_request_sha256": "01658267850f6bba0aa034b35134f572cae1553c784a7dbe4f1c20a75cfe942b",
+  "critic_report_sha256": "4afe5460703b1cc7b66f9f4fa76ab9a3c50b7e8671ffe72e6c89726becab4f43",
   "adapter": {
     "name": "deterministic-templates",
     "version": "0.1.0",
@@ -20,7 +20,7 @@
   "stop_reason": null,
   "status_detail": "The bundle was revised and validated. Rule findings were re-checked here. A model-proposed finding counts as addressed only after the Critic has reviewed the revised bundle again.",
   "request_issues": [],
-  "original_argument_bundle_sha256": "1057523efc46b7b5e4ba9ec95db77d1e6c4c3b0c16e83fcbcbde3847cba325a4",
+  "original_argument_bundle_sha256": "7556a5b9da4c05ca7e4cdde0c87458f06589eabbc2e2cd837f020d24b97f3b7c",
   "revised_argument_bundle": {
     "execution_conclusion": {
       "claimed_outcome": "insufficient_information",
@@ -67,7 +67,7 @@
                 "revision_schema": "drafter-revision-result/0.1.0",
                 "revision_id": "example:synthetic-actionable-c12",
                 "round": 1,
-                "critic_report_sha256": "432b41afbc871d66d042cc765a0f3b14e4e3a64dae6f0250696f71b990e089f5",
+                "critic_report_sha256": "ad4fb196c9dd2152d63d3c9dd689e47ea3bbeffc0f18bde5f5b5f5181e484117",
                 "finding_ids": [
                   "CRIT-001"
                 ],
@@ -215,7 +215,7 @@
                 "revision_schema": "drafter-revision-result/0.1.0",
                 "revision_id": "example:synthetic-actionable-c12",
                 "round": 2,
-                "critic_report_sha256": "e6f1d3086f7ee85fea0a95c4a8ba9e245a0ab59846e74d6e3e7d7909ca00c80d",
+                "critic_report_sha256": "4afe5460703b1cc7b66f9f4fa76ab9a3c50b7e8671ffe72e6c89726becab4f43",
                 "finding_ids": [
                   "CRIT-001"
                 ],
@@ -766,10 +766,10 @@
       "butter_1"
     ]
   },
-  "revised_argument_bundle_sha256": "98035d14d26b644d64dd29261396b0421d303fc34112a4e655e5be3099cf0231",
+  "revised_argument_bundle_sha256": "fd6d74547b4a4af77acf230c971386f6388f5a916f6ca9675380c3bc07cc239e",
   "recriticism": {
     "request_id": "b8dbf1f3-c590-4cdd-8527-1526fdb597d9:critic:controlled-unsupported-safety-claim:rev2",
-    "request_sha256": "b6ac728f151f51bc12c25912c330a3e9d1a1fc23a07775ed3c917fa0cc1b88c2"
+    "request_sha256": "09e3dc755259f24e04d61379ecbd49eaebe4b81548e4d835d1dcbb4eb746e97b"
   },
   "proposal": {
     "edits": [
@@ -845,7 +845,7 @@
           "revision_schema": "drafter-revision-result/0.1.0",
           "revision_id": "example:synthetic-actionable-c12",
           "round": 2,
-          "critic_report_sha256": "e6f1d3086f7ee85fea0a95c4a8ba9e245a0ab59846e74d6e3e7d7909ca00c80d",
+          "critic_report_sha256": "4afe5460703b1cc7b66f9f4fa76ab9a3c50b7e8671ffe72e6c89726becab4f43",
           "finding_ids": [
             "CRIT-001"
           ],
@@ -870,7 +870,7 @@
         "validation_status": "unresolved"
       },
       "before_sha256": "e5d99b257863ae0c81273143847aa9d04de2a9f2236a9ceaac24c72fd57cb480",
-      "after_sha256": "9c0dca93b36ccf0c5529035c2e1f9d28274f52431cc668f15f330fad9194cadd",
+      "after_sha256": "fa93843267a6a75e066f9232adc52d6d340b30daa1020408febfc9b8b45b65a0",
       "edit_indexes": [
         0
       ]
