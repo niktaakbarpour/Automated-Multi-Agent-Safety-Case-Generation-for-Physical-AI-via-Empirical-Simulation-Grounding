@@ -58,3 +58,24 @@ This is an internal task allocation, **not** manuscript text or a statement that
 6. NeurIPS 2026 `\\usepackage[preprint]{neurips_2026}`, ≤9 main content pages, 150–200 word abstract with an **actual** quantitative result, 10–15 central related papers, natbib, full checklist, contribution statements for **all three** teammates, repository URL, complete AI-use disclosure. Order: paper, references, appendices, checklist, contributions, AI-use disclosure.
 
 No live RQ3 model findings or independent N3 reviewer judgments are implied by this plan.
+
+## Additional work balance and direct-paper ownership (Nov 20 revision)
+
+The individually issued handoffs supersede the brief owners table above for detailed workload allocation. All three teammates must **personally write and edit their own sections directly in the same shared manuscript**, not merely send bullets to Nikta or rely on AI-generated report prose.
+
+**Nikta:** all GPU/Hestia execution, R1-v3 calibration review coordination and RQ2 scientific decisions, RQ2 evaluation, frozen run provenance, main-paper abstract/introduction/R1 algorithm and results, full manuscript integration and submission.
+
+**Alex:** merged Critic 0.5.0/rule owner, independent model-only T/R/C evaluation adapter (PR #30 must first pass CPU tests), benchmark authoring, full scoring/repeated-trial evaluation, Critic/mutation/results sections written by Alex.
+
+**Ryiad (expanded, substantive ownership):**
+1. Own the **Drafter/GSN and source-to-evidence fixture interface**: build and CPU-validate clean inputs and reproducible contract tests for Alex's three mutation operators; do not require Hestia.
+2. Perform an **independent R1-v3 blinded physical-event review**, only if not exposed to condition mapping; otherwise coordinate an unexposed reviewer and work on audit instead.
+3. Independently audit **mutation labels and T/R/C scoring**, including control false positives, model/rule double counting, source grouping and invalid-input-vs-semantic-error strata.
+4. Lead a **source-indexed 0/100 task-role transfer-failure root-cause investigation**, with a bounded CPU diagnostic when a valid source permits it.
+5. Lead a **bounded 10/18 multi-source retrieval incompleteness study**, analyzing the eight incomplete cases and distinguishing source gaps from query/contract bugs; keep RQ1 as supporting work.
+6. Run CPU-only Drafter -> Critic -> scripted Revision integration/regression checks without claiming independently validated RQ4 revision effectiveness.
+7. Personally write the GSN/evidence pipeline methodology, related work synthesis, transfer/retrieval results, validity/reproducibility discussion and supporting appendix material.
+
+**Deadlines:** Nov 22 labels/input freeze; Nov 24 scientific result freeze and Ryiad's transfer/retrieval/scorer QA; Nov 25 each author inserts own sections; Nov 26 full-PDF cross-review; Nov 27 submit.
+
+**If time remains AFTER P0:** broaden independently reviewed R1 positives, larger independent RQ3 source groups, one more task/requirement with valid reference, genuine model-based Revision/Critic-2 experiments, second-model ablations and Milestone 6 code packaging. None may jeopardize the nine-page paper, checklist, full AI-use disclosure or deadline.
