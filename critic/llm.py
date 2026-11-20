@@ -474,8 +474,14 @@ def empty_status(llm, error=None):
             'accepted': 0, 'rejected': 0}
 
 
-def run(llm, req, deterministic, records, admission=()):
+def run(llm, req, deterministic, records, admission=(), *, rq3_rule_blind=False):
     """Ask the model once and screen its reply. Returns (accepted, rejected, status).
+
+    rq3_rule_blind is exclusively for the RQ3 model-only experiment: do not reveal
+    deterministic findings in the model prompt or suppress model findings solely
+    because a deterministic rule independently found the same defect. The caller
+    must score rule-only and model-only outputs separately and deduplicate for a
+    combined score. Normal critic.review() never sets this flag.
 
     Nothing in here may break the review: building the prompt, the call, parsing and screening all run
     inside one error boundary, and any failure is reported in status with ok false.
@@ -486,7 +492,8 @@ def run(llm, req, deterministic, records, admission=()):
         return [], [], status
     started = time.monotonic()
     try:
-        system, user = build_messages(req, deterministic, records, admission)
+        model_visible_findings = [] if rq3_rule_blind else deterministic
+        system, user = build_messages(req, model_visible_findings, records, admission)
         status['prompt_sha256'] = _sha256_text(PROMPT_PATH.read_text(encoding='utf-8'))
         status['input_sha256'] = K.digest(llm.messages(system, user))
         status['request_sha256'] = _safe_digest(req)
@@ -508,7 +515,7 @@ def run(llm, req, deterministic, records, admission=()):
         problems = SCHEMA.errors(parsed, REPLY_SCHEMA, limit=3)
         if problems:
             raise ValueError('the reply is not {"findings": [...]}: ' + '; '.join(problems))
-        accepted, rejected = screen(parsed['findings'], req, records, deterministic, admission)
+        accepted, rejected = screen(parsed['findings'], req, records, model_visible_findings, admission)
     except Exception as exc:  # a failed model step is reported, never allowed to break the review
         status['error'] = f'{type(exc).__name__}: {exc}'
         return [], [], status

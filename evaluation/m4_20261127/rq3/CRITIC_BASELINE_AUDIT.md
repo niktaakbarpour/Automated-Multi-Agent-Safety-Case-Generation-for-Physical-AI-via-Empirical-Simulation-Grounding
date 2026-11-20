@@ -184,3 +184,11 @@ injected guarantee before it answers, so its own detection of that mutation
 cannot be measured from a normal review. The matched T/R/C experiment needs a
 decision on this, by Alex as Critic owner, before any run.
 
+
+## 9. November 20 RQ3 experiment-only rule-blind clarification (after PR #29)
+
+PR #29 is merged on `main` (Critic 0.5.0). Normal `critic.review()` remains unchanged: deterministic findings are shown to its model, and model duplicates are rejected. That is appropriate for production-style review, **not** as an unbiased measurement of the model's independent ability to identify the same mutation.
+
+The RQ3 branch introduces an **opt-in** `critic.llm.run(..., rq3_rule_blind=True)` path: the model receives an empty `already_found` list (no deterministic findings), and screening does not reject a finding solely because it duplicates a deterministic result. The caller must retain the original independent rule list and preserve grounding, citation and input-validation gates. This flag is for the experimental model-only comparison, not a change to production Critic or to normal output schemas.
+
+Report **rule-only**, **model-only T/R/C**, and **rules+model** (deduplicated by target and category) separately. Treat mutations and repetitions as paired observations nested within canonical parent source groups; never count each mutation as a new independent execution. Keep identical model settings across conditions, and do not present synthetic or development-exposed cases as held-out empirical ground truth. Requirement-checked C remains unavailable for physical-safety claims until checker admission. Tests added in `critic/tests/test_m4_rule_blind.py`; live GPU experiment, full suite and independent scientific evaluation **not run by this branch**.
