@@ -8,9 +8,9 @@
     "present": true,
     "label": "Synthetic invalid test input: a valid example changed on purpose so that the revision must refuse it or leave the finding unresolved. Not a model result and not a scientific finding."
   },
-  "revision_request_sha256": "51c73e587a45ab8c6ccc933edd2cd97adbe8d6d0948877ecd64209b8f5b7a22c",
-  "critic_request_sha256": "4c06acd245b5039902331af35aae8f48a9c615026f7dea09eba3f79c63e68b3f",
-  "critic_report_sha256": "5e131a53b7579c6f0f691d1f7d897f10769a334306ef04280e82f4756b9f3a07",
+  "revision_request_sha256": "12111bfbffc0e8a255fe5848a168d2344b3171ae82ebd9859112e661c2a5bf00",
+  "critic_request_sha256": "34f6f8f003a0ab57b5e5a221bf9f6b4dc8c8a678d0d317978598f20a10f7a95e",
+  "critic_report_sha256": "2c985113a7ccbf1a52b118297824bac7d22864291eca4882c343956c1ddf4a92",
   "adapter": {
     "name": "deterministic-templates",
     "version": "0.1.0",
@@ -20,7 +20,7 @@
   "stop_reason": "no_actionable_findings",
   "status_detail": "No criticism may be acted on. Nothing was changed.",
   "request_issues": [],
-  "original_argument_bundle_sha256": "6fb5471a27fdef29707b9a8beda321f7258723ca66a8c0c871af01fce0405bc5",
+  "original_argument_bundle_sha256": "b22e2b7fdf7ef21aaf8332af0c078434366a81eb6eadc473b1781eacad02d222",
   "revised_argument_bundle": null,
   "revised_argument_bundle_sha256": null,
   "recriticism": null,
@@ -32,7 +32,7 @@
     {
       "criticism_id": "CRIT-001",
       "check_id": "LLM",
-      "category": "C12",
+      "category": "C06",
       "finding_source": "llm_proposed",
       "phase": "review",
       "blocking": false,
@@ -49,19 +49,71 @@
         "decision": "approved",
         "decided_by": "synthetic_test_label",
         "reviewer": null,
-        "note": "Approved only as a labelled synthetic test input for positive revision behaviour."
+        "note": "Approved only so that the stated defect is the reason."
       },
       "note": null
     }
   ],
   "carried_forward": {
-    "rejected_candidates": [],
+    "rejected_candidates": [
+      {
+        "reason": "node 'ketchup_1:G9' does not exist in the cited graph",
+        "finding": {
+          "object_id": "ketchup_1",
+          "node_id": "ketchup_1:G9",
+          "category": "C10",
+          "severity": "low",
+          "explanation": "Goal ketchup_1:G9 generalizes beyond the monitored window.",
+          "evidence_ids": [],
+          "suggested_action": "Narrow the goal to the monitored window."
+        }
+      },
+      {
+        "reason": "cites evidence IDs that are not in the package (possible invention)",
+        "finding": {
+          "object_id": "milk_1",
+          "node_id": "milk_1:S1",
+          "category": "C05",
+          "severity": "medium",
+          "explanation": "The strategy infers support from a contact record.",
+          "evidence_ids": [
+            "ev:0000000000000000000000000000000000000000000000000000000000000000"
+          ],
+          "suggested_action": "Remove the support inference."
+        }
+      },
+      {
+        "reason": "C09_UNRESOLVED: the draft concludes insufficient_information, but this does not establish that its prose preserves uncertainty. The objection does not quote the complete targeted statement; retained as an unresolved concern for human review, not accepted as an established criticism.",
+        "finding": {
+          "object_id": "butter_1",
+          "node_id": "butter_1:U1",
+          "category": "C09",
+          "severity": "medium",
+          "explanation": "The unresolved claim may understate the remaining uncertainty about initial support.",
+          "evidence_ids": [],
+          "suggested_action": "State the remaining uncertainty explicitly."
+        }
+      },
+      {
+        "reason": "category C02 is decided by the rule-based checks only",
+        "finding": {
+          "object_id": "orange_juice_1",
+          "node_id": "orange_juice_1:C1",
+          "category": "C02",
+          "severity": "medium",
+          "explanation": "The context cites no registry record.",
+          "evidence_ids": [],
+          "suggested_action": "Cite a registry record."
+        }
+      }
+    ],
     "evidence_requests": [],
     "unresolved_concerns": [
       "No admitted checker assessment (0 supplied, 0 admitted). Treated as unavailable, not as \"no violation\"; violation, no-violation and non-applicability outcomes cannot be established from this package.",
       "Retrieval reports that the evidence package is incomplete for the requested scope.",
       "Structured retrieval completeness covers only the explicit mandatory obligations of each request, not complete R1 observations or the sufficiency of any claim. The Critic checked the bundles for consistency and recomputed their hashes, but could not open the database or the sources to authenticate them. Retrieved items are recorded source references, not physical events.",
-      "This request contains synthetic test data; its results are not empirical findings."
+      "This request contains synthetic test data; its results are not empirical findings.",
+      "C09_UNRESOLVED: the draft concludes insufficient_information, but this does not establish that its prose preserves uncertainty. The objection does not quote the complete targeted statement; retained as an unresolved concern for human review, not accepted as an established criticism. Objection: The unresolved claim may understate the remaining uncertainty about initial support."
     ]
   },
   "validators": [
@@ -78,7 +130,7 @@
       "decision": "approved",
       "decided_by": "synthetic_test_label",
       "reviewer": null,
-      "note": "Approved only as a labelled synthetic test input for positive revision behaviour."
+      "note": "Approved only so that the stated defect is the reason."
     }
   ],
   "metrics": {
@@ -95,9 +147,9 @@
     "findings_addressed": 0,
     "findings_remaining": 1,
     "findings_awaiting_decision": 0,
-    "rejected_candidates": 0,
+    "rejected_candidates": 4,
     "evidence_requests": 0,
-    "unresolved_concerns": 4,
+    "unresolved_concerns": 5,
     "new_rule_findings": 0,
     "edits_applied": 0,
     "edits_rejected": 0,

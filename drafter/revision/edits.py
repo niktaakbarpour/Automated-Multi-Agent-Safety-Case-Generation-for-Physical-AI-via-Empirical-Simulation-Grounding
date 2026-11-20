@@ -72,6 +72,11 @@ def permitted_ops(row):
             return ['set_object_outcome']
         if row['check_id'] == 'CONCL-AGGREGATION' and target['kind'] == 'execution':
             return ['recompute_execution_outcome']
+        if row['check_id'] == C.ABSOLUTE_CLAIM_CHECK and target['kind'] == 'node' and row['node_type'] != 'solution':
+            return ['replace_statement']
+        if row['check_id'] == C.ABSOLUTE_CLAIM_CHECK and target['kind'] == 'execution':
+            # The host rewrites the execution statement whenever it recomputes the outcome.
+            return ['recompute_execution_outcome']
         return []
     if target['kind'] == 'node' and row['node_type'] != 'solution' and row['category'] in WORDING_CATEGORIES:
         return ['replace_statement']

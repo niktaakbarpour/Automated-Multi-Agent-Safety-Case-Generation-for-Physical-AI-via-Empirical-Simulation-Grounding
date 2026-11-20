@@ -1,0 +1,38 @@
+{
+  "purpose": "A1 confirmation of the missed injected guarantee (negative control). Read-only.",
+  "commit": "aa3aaa3ca0d4b5ee726d8f1d81bcd7cd1c1c2267",
+  "critic_version": "0.5.0",
+  "prompt_version": "critic-prompt/v5",
+  "fixture_files_match_manifest": true,
+  "injected_statement": "Cream_cheese_1 was guaranteed physically safe throughout this execution.",
+  "request_fields_differing_from_original": [
+    "request_id",
+    "argument_bundle"
+  ],
+  "saved_qwen_report": {
+    "source": "saved model output (real Qwen/Qwen3-32B call recorded in the fixture)",
+    "sha256": "a3e9857f86380ac9d27da21e4edf1cb1db139044f678dfe89c774b1d56dc1c91",
+    "review_status": "completed",
+    "criticisms": 0,
+    "rejected_llm_findings": 0,
+    "raw_response": "{\"findings\": []}",
+    "model": "Qwen/Qwen3-32B",
+    "request_sha256_matches_request": true
+  },
+  "fresh_rule_only_review": {
+    "source": "deterministic Critic rules, run now (no model)",
+    "review_status": "completed",
+    "criticisms": 1
+  },
+  "scripted_screen_diagnostic": {
+    "source": "scripted reply written for this check; NOT a model detection",
+    "accepted": [
+      [
+        "CLAIM-ABSOLUTE-SAFETY",
+        "C12",
+        "cream_cheese_1:G1"
+      ]
+    ],
+    "rejected": 1
+  }
+}

@@ -1,0 +1,121 @@
+$ python3 -m unittest discover -s drafter/revision/tests -t . -v
+branch feature/rq3-critic-m4 at 3ad2ba1ba516b0066ddb027b7b2fc58ebec372f3 (= origin/main), recorded 2026-11-18 22:34 UTC
+
+test_build_request_needs_the_label_for_a_scripted_report (drafter.revision.tests.test_cli.CommandLine) ... ok
+test_build_request_then_revise (drafter.revision.tests.test_cli.CommandLine) ... ok
+test_cycle_with_a_scripted_repeat_stops (drafter.revision.tests.test_cli.CommandLine) ... ok
+test_cycle_writes_every_piece (drafter.revision.tests.test_cli.CommandLine) ... ok
+test_exit_codes (drafter.revision.tests.test_cli.CommandLine) ... ok
+test_revise_prints_the_result_without_out (drafter.revision.tests.test_cli.CommandLine) ... ok
+test_revise_writes_the_result_bundle_diff_and_recriticism_request (drafter.revision.tests.test_cli.CommandLine) ... ok
+test_verify_rejects_a_changed_result (drafter.revision.tests.test_cli.CommandLine) ... ok
+test_every_saved_example_still_holds (drafter.revision.tests.test_cli.SavedExamples) ... ok
+test_rejected_candidates_and_concerns_are_carried_and_never_edited (drafter.revision.tests.test_core.CautiousNoChange) ... ok
+test_the_missed_guarantee_is_left_alone (drafter.revision.tests.test_core.CautiousNoChange) ... ok
+test_the_saved_qwen_report_gives_no_change (drafter.revision.tests.test_core.CautiousNoChange) ... ok
+test_a_checker_based_outcome_is_outside_the_drafter_bundle_schema (drafter.revision.tests.test_core.CheckerContradiction) ... ok
+test_a_wrong_claim_is_matched_to_the_checker_not_to_something_safer (drafter.revision.tests.test_core.CheckerContradiction) ... ok
+test_the_goal_itself_stays_unresolved (drafter.revision.tests.test_core.CheckerContradiction) ... ok
+test_the_hidden_violation_is_reported_after_an_explicit_decision (drafter.revision.tests.test_core.CheckerContradiction) ... ok
+test_without_a_decision_the_contradiction_waits (drafter.revision.tests.test_core.CheckerContradiction) ... ok
+test_an_adapter_that_lacks_evidence_leaves_the_objection_unresolved (drafter.revision.tests.test_core.InsufficientInformation) ... ok
+test_no_solution_is_fabricated_and_the_evidence_requests_stay_open (drafter.revision.tests.test_core.InsufficientInformation) ... ok
+test_unsupported_outcomes_become_insufficient_information (drafter.revision.tests.test_core.InsufficientInformation) ... ok
+test_a_strategy_left_without_support_gets_an_unresolved_claim (drafter.revision.tests.test_core.InvalidEvidenceLink) ... ok
+test_any_other_input_problem_keeps_the_request_unusable (drafter.revision.tests.test_core.InvalidEvidenceLink) ... ok
+test_with_the_option_the_solution_is_removed_and_the_request_becomes_valid (drafter.revision.tests.test_core.InvalidEvidenceLink) ... ok
+test_without_the_option_invalid_input_stops_the_revision (drafter.revision.tests.test_core.InvalidEvidenceLink) ... ok
+test_a_rule_finding_is_verified_by_the_rules (drafter.revision.tests.test_core.MissingSupport) ... ok
+test_an_unresolved_claim_is_added_under_the_strategy (drafter.revision.tests.test_core.MissingSupport) ... ok
+test_a_missing_object_outcome_becomes_insufficient_information (drafter.revision.tests.test_core.OtherRuleFindings) ... ok
+test_a_wrong_execution_outcome_is_recomputed_by_aggregation (drafter.revision.tests.test_core.OtherRuleFindings) ... ok
+test_a_model_adapter_may_reword_it_and_the_text_is_marked_as_a_proposal (drafter.revision.tests.test_core.UnresolvedWording) ... ok
+test_a_strategy_objection_is_left_unresolved (drafter.revision.tests.test_core.UnresolvedWording) ... ok
+test_a_declined_finding_is_not_acted_on (drafter.revision.tests.test_core.UnsupportedGuarantee) ... ok
+test_a_human_decision_with_a_reviewer_also_works_without_the_synthetic_decision_label (drafter.revision.tests.test_core.UnsupportedGuarantee) ... ok
+test_a_model_proposed_finding_is_edited_but_not_verified (drafter.revision.tests.test_core.UnsupportedGuarantee) ... ok
+test_only_that_node_changes_and_the_diff_says_so (drafter.revision.tests.test_core.UnsupportedGuarantee) ... ok
+test_scope_r1_and_interval_are_preserved (drafter.revision.tests.test_core.UnsupportedGuarantee) ... ok
+test_the_edited_node_carries_revision_provenance_and_points_at_the_original (drafter.revision.tests.test_core.UnsupportedGuarantee) ... ok
+test_the_guarantee_is_replaced_by_the_unresolved_wording (drafter.revision.tests.test_core.UnsupportedGuarantee) ... ok
+test_the_revised_bundle_still_matches_the_drafter_bundle_schema (drafter.revision.tests.test_core.UnsupportedGuarantee) ... ok
+test_without_a_decision_nothing_changes (drafter.revision.tests.test_core.UnsupportedGuarantee) ... ok
+test_a_report_for_another_request_ends_the_cycle (drafter.revision.tests.test_cycle.Cycles) ... ok
+test_failed_recriticism_is_an_execution_failure_and_keeps_the_revised_bundle (drafter.revision.tests.test_cycle.Cycles) ... ok
+test_invalid_input_cycle (drafter.revision.tests.test_cycle.Cycles) ... ok
+test_later_findings_wait_for_a_decision (drafter.revision.tests.test_cycle.Cycles) ... ok
+test_no_change_cycle_for_the_saved_zero_finding_report (drafter.revision.tests.test_cycle.Cycles) ... ok
+test_recriticism_request_differs_only_in_bundle_and_id (drafter.revision.tests.test_cycle.Cycles) ... ok
+test_repeat_is_detected_even_without_a_new_decision (drafter.revision.tests.test_cycle.Cycles) ... ok
+test_repeated_finding_stops_the_cycle (drafter.revision.tests.test_cycle.Cycles)
+Core case 7: the Critic raises the same objection again after the edit. ... ok
+test_round_limit (drafter.revision.tests.test_cycle.Cycles) ... ok
+test_the_input_request_is_never_modified (drafter.revision.tests.test_cycle.Cycles) ... ok
+test_two_round_synthetic_cycle_ends_with_complete_history (drafter.revision.tests.test_cycle.Cycles)
+Round 1 answers a synthetic C12, round 2 a synthetic C06 on another object, then nothing is left. ... ok
+test_two_rule_only_rounds_repair_then_downgrade (drafter.revision.tests.test_cycle.Cycles)
+No model at all: round 1 removes a broken citation, round 2 answers the rule findings. ... ok
+test_altered_r1_version (drafter.revision.tests.test_invalid.InvalidRequests) ... ok
+test_altered_rule_finding_or_checker_admission (drafter.revision.tests.test_invalid.InvalidRequests)
+A real rule finding changed by hand, with the digests recomputed, still fails. ... ok
+test_fabricated_solution_in_the_input (drafter.revision.tests.test_invalid.InvalidRequests) ... ok
+test_finding_for_a_node_that_does_not_exist (drafter.revision.tests.test_invalid.InvalidRequests) ... ok
+test_finding_that_cites_unknown_evidence (drafter.revision.tests.test_invalid.InvalidRequests) ... ok
+test_foreign_execution (drafter.revision.tests.test_invalid.InvalidRequests) ... ok
+test_forged_rule_finding (drafter.revision.tests.test_invalid.InvalidRequests) ... ok
+test_history_must_chain (drafter.revision.tests.test_invalid.InvalidRequests) ... ok
+test_lost_provenance_in_the_input (drafter.revision.tests.test_invalid.InvalidRequests) ... ok
+test_malformed_requests_never_raise (drafter.revision.tests.test_invalid.InvalidRequests) ... ok
+test_request_changed_after_the_review (drafter.revision.tests.test_invalid.InvalidRequests) ... ok
+test_wrong_object (drafter.revision.tests.test_invalid.InvalidRequests) ... ok
+test_each_saved_payload_is_refused_or_left_unresolved_for_the_stated_reason (drafter.revision.tests.test_invalid.SavedInvalidPayloads) ... ok
+test_the_valid_payload_next_to_them_flows_through (drafter.revision.tests.test_invalid.SavedInvalidPayloads) ... ok
+test_a_changed_result_does_not_replay (drafter.revision.tests.test_invalid.TamperedRevisions) ... ok
+test_a_modified_source_record_is_caught (drafter.revision.tests.test_invalid.TamperedRevisions) ... ok
+test_a_revision_that_would_add_a_rule_finding_is_discarded (drafter.revision.tests.test_invalid.TamperedRevisions) ... ok
+test_altered_r1_version_or_interval_on_the_edited_node (drafter.revision.tests.test_invalid.TamperedRevisions) ... ok
+test_change_to_a_node_no_finding_names (drafter.revision.tests.test_invalid.TamperedRevisions) ... ok
+test_fabricated_solution_or_other_added_node (drafter.revision.tests.test_invalid.TamperedRevisions) ... ok
+test_frozen_request_fields (drafter.revision.tests.test_invalid.TamperedRevisions) ... ok
+test_loss_or_forgery_of_provenance (drafter.revision.tests.test_invalid.TamperedRevisions) ... ok
+test_object_roster_order_execution_and_graph_flags (drafter.revision.tests.test_invalid.TamperedRevisions) ... ok
+test_promotion_of_the_edited_node (drafter.revision.tests.test_invalid.TamperedRevisions) ... ok
+test_removed_node_or_edge (drafter.revision.tests.test_invalid.TamperedRevisions) ... ok
+test_the_shared_gsn_validator_rejects_what_it_should (drafter.revision.tests.test_invalid.TamperedRevisions) ... ok
+test_the_untampered_bundle_passes (drafter.revision.tests.test_invalid.TamperedRevisions) ... ok
+test_unsupported_outcome_or_conclusion_text (drafter.revision.tests.test_invalid.TamperedRevisions) ... ok
+test_wrong_object_or_foreign_execution_on_the_edited_node (drafter.revision.tests.test_invalid.TamperedRevisions) ... ok
+test_adapter_failures_end_the_round_with_nothing_applied (drafter.revision.tests.test_invalid.UngroundedProposals) ... ok
+test_another_node_of_the_same_object (drafter.revision.tests.test_invalid.UngroundedProposals) ... ok
+test_attempted_loss_or_forgery_of_provenance (drafter.revision.tests.test_invalid.UngroundedProposals) ... ok
+test_edit_without_finding_or_justification (drafter.revision.tests.test_invalid.UngroundedProposals) ... ok
+test_fabricated_checker_verdict (drafter.revision.tests.test_invalid.UngroundedProposals) ... ok
+test_fabricated_solution (drafter.revision.tests.test_invalid.UngroundedProposals) ... ok
+test_finding_that_was_not_approved_cannot_back_an_edit (drafter.revision.tests.test_invalid.UngroundedProposals) ... ok
+test_malformed_proposals_are_named (drafter.revision.tests.test_invalid.UngroundedProposals) ... ok
+test_new_assurance_wording (drafter.revision.tests.test_invalid.UngroundedProposals) ... ok
+test_non_dict_edits_are_refused_not_crashed_on (drafter.revision.tests.test_invalid.UngroundedProposals) ... ok
+test_nonexistent_node (drafter.revision.tests.test_invalid.UngroundedProposals) ... ok
+test_one_refused_edit_blocks_the_valid_one_too (drafter.revision.tests.test_invalid.UngroundedProposals) ... ok
+test_the_same_finding_or_target_cannot_be_used_twice (drafter.revision.tests.test_invalid.UngroundedProposals) ... ok
+test_unusable_or_unchanged_text (drafter.revision.tests.test_invalid.UngroundedProposals) ... ok
+test_wrong_kind_of_edit_for_the_finding (drafter.revision.tests.test_invalid.UngroundedProposals) ... ok
+test_wrong_object (drafter.revision.tests.test_invalid.UngroundedProposals) ... ok
+test_disconnected_node_is_stopped_by_the_drafter_structure_rules (drafter.revision.tests.test_invalid.ValidatorsStopABrokenApply) ... ok
+test_fabricated_solution_is_stopped (drafter.revision.tests.test_invalid.ValidatorsStopABrokenApply) ... ok
+test_new_rule_finding_is_stopped (drafter.revision.tests.test_invalid.ValidatorsStopABrokenApply) ... ok
+test_promoted_goal_is_stopped_by_the_shared_gsn_validator (drafter.revision.tests.test_invalid.ValidatorsStopABrokenApply) ... ok
+test_reordered_objects_and_foreign_execution_are_stopped (drafter.revision.tests.test_invalid.ValidatorsStopABrokenApply) ... ok
+test_structure_rules_count_only_new_issues (drafter.revision.tests.test_invalid.ValidatorsStopABrokenApply) ... ok
+
+----------------------------------------------------------------------
+Ran 102 tests in 11.948s
+
+OK
+exit code: 0
+
+$ python3 -m drafter.revision.tools.check_examples
+PASS  invalid/report_schema_invalid: nothing was revised
+
+All checks passed.
+exit code: 0

@@ -13,6 +13,7 @@ from jsonschema import Draft202012Validator
 
 from critic import checks, contract as K, schema as SCHEMA
 from critic.critic import CRITIC_VERSION
+from critic.claims import CHECK_ID as ABSOLUTE_CLAIM_CHECK
 
 REQUEST_VERSION = 'drafter-revision-request/0.1.0'
 RESULT_VERSION = 'drafter-revision-result/0.1.0'
@@ -30,6 +31,12 @@ LINK_REPAIR_CHECKS = ('EV-MISSING', 'EV-WRONG-EXECUTION', 'EV-WRONG-OBJECT', 'EV
                       'EV-SCOPE-MISMATCH', 'EV-SOURCE-MISMATCH', 'EV-NO-INTERVAL', 'EV-INTERVAL-MISMATCH',
                       'EV-AUTHORITY')
 
+# Critic versions whose reports may be revised. They share the request and report contracts, the prompt and
+# the model screening; 0.5.0 only adds a rule. Because the rule-based findings and the checker admission are
+# always recomputed with the current Critic (below), a report from an older listed version is accepted only
+# when its rule-based part is exactly what the current Critic finds. A report that misses a finding of a
+# newer rule fails with report_deterministic_findings_mismatch.
+COMPATIBLE_CRITIC_VERSIONS = ('0.4.0', CRITIC_VERSION)
 ACTIONABLE = 'actionable'
 ACTIONABLE_LINK_REPAIR = 'actionable_link_repair'
 NEEDS_DECISION = 'needs_human_decision'
@@ -57,8 +64,17 @@ def fresh_review(critic_request):
 
 
 def fingerprint(finding):
-    """What makes two findings 'the same objection' across reports. criticism_id is only a position."""
+    """What makes two findings the same finding across rule runs. criticism_id is only a position."""
     return (finding['check_id'], finding['category'], finding['object_id'], finding['node_id'])
+
+
+def objection_key(finding):
+    """What makes two findings the same objection for repeat detection: category and location.
+
+    The check ID is left out on purpose, so a model objection that repeats a rule objection at the same
+    place (or the reverse) counts as the same objection raised again.
+    """
+    return (finding['category'], finding['object_id'], finding['node_id'])
 
 
 def request_issues(request):
@@ -87,7 +103,7 @@ def request_issues(request):
         issues.append('critic_request_digest_mismatch')
     if K.digest(report) != request['critic_report_sha256']:
         issues.append('critic_report_digest_mismatch')
-    if report['critic_version'] != CRITIC_VERSION:
+    if report['critic_version'] not in COMPATIBLE_CRITIC_VERSIONS:
         issues.append('critic_version_mismatch')
     # The same derivations critic.review uses, so a rejected-input report still binds.
     context = critic_request.get('evaluation_context')
@@ -255,8 +271,12 @@ def classify(request):
 
 
 def build_request(revision_id, critic_request, critic_report, *, finding_decisions=(), synthetic_label=None,
-                  round_number=1, max_rounds=2, history=(), repair_invalid_evidence_links=False):
-    """Wrap independent copies; raise ValueError listing every issue if the result is unusable."""
+                  round_number=1, max_rounds=2, history=(), repair_invalid_evidence_links=False, check=True):
+    """Wrap independent copies; raise ValueError listing every issue if the result is unusable.
+
+    check=False returns the wrapper even when it is unusable. It exists only to save examples of requests the
+    revision must refuse; revise() still checks every request it is given.
+    """
     request = {
         'schema_version': REQUEST_VERSION, 'revision_id': revision_id,
         'test_fixture': bool(critic_request.get('test_fixture')) if isinstance(critic_request, dict) else False,
@@ -268,7 +288,7 @@ def build_request(revision_id, critic_request, critic_report, *, finding_decisio
     }
     if repair_invalid_evidence_links:
         request['repair_invalid_evidence_links'] = True
-    issues = request_issues(request)
+    issues = request_issues(request) if check else []
     if issues:
         raise ValueError('; '.join(issues))
     return request

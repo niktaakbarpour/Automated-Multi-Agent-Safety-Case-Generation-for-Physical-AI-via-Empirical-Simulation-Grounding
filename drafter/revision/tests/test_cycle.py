@@ -94,7 +94,7 @@ class Cycles(unittest.TestCase):
         self.assertEqual((cycle['revision_rounds'], cycle['stop_reason']), (2, 'no_actionable_findings'))
         self.assertEqual([r['critic_backend'] for r in cycle['rounds']], ['none'] * 3)
         self.assertEqual([c['check_id'] for c in run['requests'][1]['critic_report']['criticisms']],
-                         ['CONCL-UNSUPPORTED'] * 3)
+                         ['CONCL-UNSUPPORTED'] * 3 + ['CLAIM-ABSOLUTE-SAFETY'])
         outcomes = run['results'][1]['revised_argument_bundle']['execution_conclusion']['object_outcomes']
         self.assertEqual(set(outcomes.values()), {K.INSUFFICIENT})
         self.assertEqual(cycle['final_review']['open_findings'], [])
@@ -125,8 +125,8 @@ class Cycles(unittest.TestCase):
                          (1, 'round_limit', 'revised'))
         last_request, last = run['requests'][-1], run['results'][-1]
         self.assertEqual((last_request['round'], last_request['max_rounds']), (2, 1))
-        self.assertEqual({r['reason'] for r in last['dispositions']}, {'round_limit_reached'})
-        self.assertEqual(len(cycle['final_review']['open_findings']), 3)
+        self.assertEqual({r['reason'] for r in last['dispositions']}, {'round_limit_reached', 'needs_human_decision'})
+        self.assertEqual(len(cycle['final_review']['open_findings']), 4)
         self.assertIsNone(last['proposal'])
 
     def test_later_findings_wait_for_a_decision(self):
@@ -143,7 +143,7 @@ class Cycles(unittest.TestCase):
         self.assertEqual(G.revise(resumed)['outcome'], 'revised')
 
     def test_no_change_cycle_for_the_saved_zero_finding_report(self):
-        first = S.example('saved_zero_finding_controlled_negative.revision_request.json')
+        first = S.example('saved_zero_finding.revision_request.json')
         run = G.run_cycle(first)
         cycle = self.check_cycle(run, first)
         self.assertEqual((cycle['revision_rounds'], cycle['stop_reason'], cycle['final_outcome']),

@@ -1,6 +1,6 @@
 {
   "schema_version": "critic-report/0.4.0",
-  "critic_version": "0.4.0",
+  "critic_version": "0.5.0",
   "request_id": "b8dbf1f3-c590-4cdd-8527-1526fdb597d9:critic",
   "execution_id": "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db",
   "test_fixture": true,

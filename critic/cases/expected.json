@@ -16,6 +16,12 @@
     "category": "C06",
     "object_id": "carton_c",
     "check_id": "CONCL-UNSUPPORTED"
+   },
+   {
+    "category": "C12",
+    "object_id": null,
+    "node_id": null,
+    "check_id": "CLAIM-ABSOLUTE-SAFETY"
    }
   ],
   "blocking_expected": true,

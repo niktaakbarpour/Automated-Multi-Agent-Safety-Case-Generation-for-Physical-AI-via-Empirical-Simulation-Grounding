@@ -8,9 +8,9 @@
     "present": true,
     "label": "Synthetic test input: the Critic report was produced by critic.review with a scripted reply written for this test. It is not a model result and not a scientific finding."
   },
-  "revision_request_sha256": "a0e0ba52987af7b8d0ae722d12f0a90ca361b52fa53729e996266016e797d023",
-  "critic_request_sha256": "b6ac728f151f51bc12c25912c330a3e9d1a1fc23a07775ed3c917fa0cc1b88c2",
-  "critic_report_sha256": "687c42283d1738aa8301dee7af2f78d57fde4c41712c10d60ab41838e6bfd602",
+  "revision_request_sha256": "e3a38d5510d3ed440cc55799c526de2d3d5fa9fd3c0ad21bbf9518843c7c3db1",
+  "critic_request_sha256": "09e3dc755259f24e04d61379ecbd49eaebe4b81548e4d835d1dcbb4eb746e97b",
+  "critic_report_sha256": "40d77786329fcf8f7a01377120446510b094ea98af8fcb4f21eba8db3be8f249",
   "adapter": {
     "name": "deterministic-templates",
     "version": "0.1.0",
@@ -20,7 +20,7 @@
   "stop_reason": "no_actionable_findings",
   "status_detail": "The Critic report has no criticism. Nothing was changed. 0 rejected candidate(s) and 4 unresolved concern(s) stay open.",
   "request_issues": [],
-  "original_argument_bundle_sha256": "98035d14d26b644d64dd29261396b0421d303fc34112a4e655e5be3099cf0231",
+  "original_argument_bundle_sha256": "fd6d74547b4a4af77acf230c971386f6388f5a916f6ca9675380c3bc07cc239e",
   "revised_argument_bundle": null,
   "revised_argument_bundle_sha256": null,
   "recriticism": null,

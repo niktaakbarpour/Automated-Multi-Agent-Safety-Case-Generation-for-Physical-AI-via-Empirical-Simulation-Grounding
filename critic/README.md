@@ -107,6 +107,26 @@ The execution outcome is aggregated over every configured object: a missing or i
 
 Retrieval gaps only matter for a no-violation claim, and only if they are for that object, overlap the monitored interval and are not optional evidence (`velocity` and `task_instruction` are optional in the R1 configuration schema). A gap with a malformed interval counts. If an admitted checker assessment supports the no-violation claim, a relevant gap is a medium, non-blocking finding for human review, because a gap in the Drafter's package does not by itself invalidate the checker's result. Without that support it is blocking. Every gap, relevant or not, is listed in `unresolved_concerns`.
 
+## Unqualified safety claims (Critic 0.5.0)
+
+R1 has no outcome that says an object or the robot is safe. The strongest negative outcome,
+`no_violation_observed_within_validated_coverage`, is limited to the validated coverage of an admitted checker
+assessment, and `insufficient_information` is never safety. `claims.py` (rule
+`absolute-safety-claim/1.0.0`) flags any node or execution statement that claims safety outright:
+an assurance word with a safety word ("guaranteed physically safe", "certified safe"), an absolute phrase
+("completely safe", "zero risk") or a plain assertion ("was safe", "remained safe"). A clause with a negation before
+the match ("does not establish safety", "no guarantee that it was safe") is not flagged, and a consequence after a
+comma ("..., so it was safe") is checked as its own clause.
+
+The finding is `CLAIM-ABSOLUTE-SAFETY`, category C12, review phase, blocking, with an evidence request for an
+admitted checker assessment. It never declares a violation and never changes an outcome. It is a word-level rule, not
+a semantic classifier, so it asks for human review. It was added because the integrated Qwen review missed the
+injected "guaranteed physically safe" goal in the one-pass negative control
+(`integration/END_TO_END_QWEN_INTEGRATION_REPORT.md`, section 10). Since the rule raises that objection, a model C12
+on the same node is now rejected as a duplicate. Tests: `tests/test_m4_claims.py`.
+
+Version 0.5.0 differs from 0.4.0 only by this rule: the prompt (v5), schemas and model screening are unchanged.
+
 ## Phase 5 structured retrieval
 
 The final RAG release (`evaluation/r1_v4/rag_evidence_database/final_phase5_release`, `phase5-structured-1.0.0`) returns a bundle per structured request: groups per obligation, items with their original IDs, source hashes and selectors, `evidence-citation:` IDs, a completeness status, missing obligations, conditional assumptions, assurance and limitations. Bundle items are not registry records, and a missing obligation is not a Critic gap, so the Critic does not map one onto the other. It takes the bundle whole, in `structured_evidence`, next to the request that produced it, as the release's `DOWNSTREAM_HANDOFF.md` asks.
@@ -195,7 +215,10 @@ All synthetic and marked `test_fixture: true`. Cases A to C use the three-object
 
 Reports are in `examples/`. `case_a…scripted_llm_demo.json` shows the LLM step with a **hand-written** reply (not a real model). It contains two valid findings plus one with an invented evidence ID and one with a made-up node, and the Critic rejects those two. Real model outputs will be added after the Hestia run.
 
-## Tests (160)
+## Tests
+
+206 tests in strict mode as of Critic 0.5.0 (189 in 0.4.0, plus 17 in `tests/test_m4_claims.py`). The
+heading of this section said 160 before Nov 18; that number was out of date.
 
 - the five cases produce exactly the expected findings, and Case C gets none
 - requests, graphs, records and reports validate against their JSON schemas
@@ -239,6 +262,8 @@ Reports are in `examples/`. `case_a…scripted_llm_demo.json` shows the LLM step
 - Boundary provenance is checked for consistency, but the Critic cannot open the recorded source it names. `simulator_time` configurations are refused until the GSN graphs agree on a clock for them.
 - `Record.validate`'s symlink check needs the filesystem and is not repeated.
 - Rule-based checks cover C01–C04, C06–C08 and C11 (plus part of C05/C12). C09, C10 and C13 rely on the LLM for now.
+- The unqualified-safety rule is lexical. It misses a safety claim worded without its trigger words (for example
+  "it never fell"), and it can flag an unusual sentence that uses them harmlessly. Each finding asks for human review.
 - Checker results: the ledger rules catch results that contradict themselves, not a forgery that is consistent everywhere; empirical admission stays disabled and synthetic results are used only in test fixtures.
 - Not implemented on purpose: Drafter, Revision Agent, RAG changes.
 
@@ -248,6 +273,7 @@ Reports are in `examples/`. `case_a…scripted_llm_demo.json` shows the LLM step
 critic/
   critic.py          review(): runs checks, then the LLM, builds and checks the report
   checks.py          validation and rule-based review checks
+  claims.py          the unqualified safety claim rule (0.5.0)
   schema.py          built-in JSON Schema validator for the schemas above
   llm.py             prompt, backends (none / scripted / OpenAI-compatible), output screening
   contract.py        shared vocabulary copied from the GSN, registry and R1 contracts

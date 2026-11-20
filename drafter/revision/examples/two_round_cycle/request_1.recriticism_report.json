@@ -1,6 +1,6 @@
 {
   "schema_version": "critic-report/0.4.0",
-  "critic_version": "0.4.0",
+  "critic_version": "0.5.0",
   "request_id": "b8dbf1f3-c590-4cdd-8527-1526fdb597d9:critic:controlled-unsupported-safety-claim:rev1",
   "execution_id": "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db",
   "test_fixture": true,
@@ -17,7 +17,7 @@
     "error": null,
     "prompt_sha256": "6e93b4c00e4fc042e281c319b44c798e9b43bc77b82aa366d5edd181ece7ede2",
     "input_sha256": "3b2d69087a13fc9659f245f5219d79bdbbf373e95856c61428cad8d83a67d66f",
-    "request_sha256": "eadbdea3b9cfe2b23f51a957edb9c62a072575498dcd006e8b053c829879a7f0",
+    "request_sha256": "01658267850f6bba0aa034b35134f572cae1553c784a7dbe4f1c20a75cfe942b",
     "settings": {
       "scripted_reply_sha256": "8215bb53a35ad31d3228ef2d1d2e0f267ae12873f6b0de80290682504a3d4e71"
     },
@@ -85,7 +85,7 @@
   "criticisms": [
     {
       "criticism_id": "CRIT-001",
-      "critic_version": "0.4.0",
+      "critic_version": "0.5.0",
       "check_id": "LLM",
       "phase": "review",
       "category": "C06",

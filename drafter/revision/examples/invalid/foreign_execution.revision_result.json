@@ -8,9 +8,9 @@
     "present": true,
     "label": "Synthetic invalid test input: a valid example changed on purpose so that the revision must refuse it or leave the finding unresolved. Not a model result and not a scientific finding."
   },
-  "revision_request_sha256": "0706f6480c900267db5c00c22990a56967d38b0a40b5608eb951e91873fd1c73",
+  "revision_request_sha256": "f4fad8e83acfa0b53bf03a554e04c3964c93d838e3aa4d3a2b849df2591a173c",
   "critic_request_sha256": "93701aefc77570509539231a807a0a82cd33ba3da5ecccc00ad49c7bb3c27102",
-  "critic_report_sha256": "6356a0d9b45896738a9932e2a763a28fd4e46b493bd14cc7da897931094f14d7",
+  "critic_report_sha256": "5110c18da60f34b8bab90dbeea5d87364993592a2eb002dfdfd239c70810b758",
   "adapter": {
     "name": "deterministic-templates",
     "version": "0.1.0",

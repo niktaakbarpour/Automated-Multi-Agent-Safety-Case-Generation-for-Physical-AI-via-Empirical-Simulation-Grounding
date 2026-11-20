@@ -13,6 +13,7 @@ import re
 from pathlib import PurePosixPath
 
 from . import assessments as A
+from . import claims as C
 from . import contract as K
 from . import retrieval as R
 from . import schema as SCHEMA
@@ -1126,6 +1127,7 @@ def run_all(req):
     R.link(req, structured, retrieval_rows)
     conclusion_findings, expected = check_conclusions(req, admitted, structured)
     findings += conclusion_findings
+    findings += C.check_absolute_claims(req, admitted, finding)
     return findings, {'fatal': False, 'records': records, 'expected_outcome': expected,
                       'admitted': admitted, 'checker_admission': admission,
                       'structured': structured, 'structured_retrieval': retrieval_rows,

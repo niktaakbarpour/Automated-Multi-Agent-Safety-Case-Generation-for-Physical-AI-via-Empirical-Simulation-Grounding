@@ -68,11 +68,13 @@ INVALID_EXPECTED = {
         'issue': None, 'classification': 'not_actionable_validation_phase',
         'outcome': 'rejected_invalid_input', 'stop_reason': 'invalid_input'},
     'unknown_node': {
-        'change': 'The finding of the actionable example was edited by hand to name a node that does not exist.',
+        'change': ('A model-proposed finding was added by hand to the saved report of the rejected-candidates '
+                   'example. It names a node that does not exist.'),
         'issue': None, 'classification': 'not_actionable_target_missing',
         'outcome': 'unresolved', 'stop_reason': 'no_actionable_findings'},
     'nonadmitted_assessment': {
-        'change': 'The finding was edited by hand to cite a checker assessment that is not admitted.',
+        'change': ('A model-proposed finding was added by hand to the same saved report. It cites a checker '
+                   'assessment that is not admitted.'),
         'issue': None, 'classification': 'not_actionable_unknown_evidence',
         'outcome': 'unresolved', 'stop_reason': 'insufficient_evidence'},
     'malformed_history': {
@@ -116,8 +118,27 @@ def cycle_files(run):
     return files
 
 
-def invalid_requests(actionable_request, cycle_request_2, original):
+def forged_model_finding(object_id, node_id, evidence_ids):
+    """A model-proposed criticism written by hand, as if it had been edited into a report."""
+    return {'criticism_id': 'CRIT-001', 'critic_version': critic.CRITIC_VERSION, 'check_id': 'LLM',
+            'phase': 'review', 'category': 'C06', 'category_name': K.CATEGORIES['C06'], 'severity': 'high',
+            'blocking': False, 'object_id': object_id, 'node_id': node_id,
+            'explanation': 'Hand-written test finding, added to a saved report for an invalid-input example.',
+            'evidence_ids': list(evidence_ids), 'requirement_refs': [L.PROMPT_VERSION],
+            'finding_source': 'llm_proposed', 'suggested_action': 'None; this finding is a test input.',
+            'additional_evidence_needed': False, 'human_review_required': True}
+
+
+def invalid_requests(actionable_request, rejected_request, cycle_request_2, original):
     """{name: revision request}: one deliberate change each to a valid, saved input."""
+    def with_finding(name, object_id, node_id, evidence_ids):
+        def edit(request):
+            request['critic_report']['criticisms'].append(forged_model_finding(object_id, node_id, evidence_ids))
+            request['finding_decisions'] = [{'criticism_id': 'CRIT-001', 'decision': 'approved',
+                                             'decided_by': 'synthetic_test_label', 'reviewer': None,
+                                             'note': 'Approved only so that the stated defect is the reason.'}]
+        return changed(rejected_request, name, edit)
+
     def changed(base, name, edit):
         request = deepcopy(base)
         request['revision_id'] = 'example:invalid-' + name.replace('_', '-')
@@ -132,11 +153,8 @@ def invalid_requests(actionable_request, cycle_request_2, original):
     return {
         'foreign_execution': C.build_request('example:invalid-foreign-execution', foreign, critic.review(foreign),
                                              synthetic_label=INVALID_LABEL),
-        'unknown_node': changed(actionable_request, 'unknown_node', lambda r: r['critic_report']['criticisms'][0]
-                                .update(node_id='cream_cheese_1:G9')),
-        'nonadmitted_assessment': changed(
-            actionable_request, 'nonadmitted_assessment',
-            lambda r: r['critic_report']['criticisms'][0].update(evidence_ids=['ca:' + '0' * 64])),
+        'unknown_node': with_finding('unknown_node', 'milk_1', 'milk_1:G9', []),
+        'nonadmitted_assessment': with_finding('nonadmitted_assessment', 'milk_1', 'milk_1:G1', ['ca:' + '0' * 64]),
         'malformed_history': changed(cycle_request_2, 'malformed_history', lambda r: r['history'][0]
                                      .update(recriticism_request_sha256='0' * 64)),
         'report_schema_invalid': changed(actionable_request, 'report_schema_invalid',
@@ -144,9 +162,10 @@ def invalid_requests(actionable_request, cycle_request_2, original):
     }
 
 
-def invalid_files(actionable_request, cycle_request_2, original):
+def invalid_files(actionable_request, rejected_request, cycle_request_2, original):
     files = {INVALID + '/EXPECTED.json': INVALID_EXPECTED}
-    for name, request in invalid_requests(actionable_request, cycle_request_2, original).items():
+    for name, request in invalid_requests(actionable_request, rejected_request, cycle_request_2,
+                                          original).items():
         files[f'{INVALID}/{name}.revision_request.json'] = request
         files[f'{INVALID}/{name}.revision_result.json'] = G.revise(request)
     return files
@@ -171,7 +190,7 @@ def build():
             'example:saved-qwen-zero-finding', original, read('critic.qwen.report.json')),
         'saved_zero_finding_controlled_negative.revision_request.json': C.build_request(
             'example:saved-qwen-zero-finding-controlled-negative', mutated,
-            read('critic.controlled-negative.qwen.report.json')),
+            read('critic.controlled-negative.qwen.report.json'), check=False),
     }
     for name in [n for n in files if n.endswith('.revision_request.json')]:
         files[name.replace('revision_request', 'revision_result')] = G.revise(files[name])
@@ -181,7 +200,9 @@ def build():
         review=lambda critic_request: scripted_report(critic_request, replies.pop(0), 'synthetic-scripted-cycle'),
         decide=lambda report, round_number: approve(report))
     files.update(cycle_files(run))
-    files.update(invalid_files(files['synthetic_actionable.revision_request.json'], run['requests'][1], original))
+    files.update(invalid_files(files['synthetic_actionable.revision_request.json'],
+                               files['synthetic_rejected_unresolved.revision_request.json'], run['requests'][1],
+                               original))
     return files
 
 
@@ -190,6 +211,7 @@ def build_invalid_only():
     def saved(name):
         return json.loads((OUT / name).read_text(encoding='utf-8'))
     return invalid_files(saved('synthetic_actionable.revision_request.json'),
+                         saved('synthetic_rejected_unresolved.revision_request.json'),
                          saved(CYCLE + '/request_2.revision_request.json'), read('critic.request.json'))
 
 

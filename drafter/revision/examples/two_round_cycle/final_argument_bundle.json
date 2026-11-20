@@ -44,7 +44,7 @@
               "revision_schema": "drafter-revision-result/0.1.0",
               "revision_id": "example:synthetic-actionable-c12",
               "round": 1,
-              "critic_report_sha256": "432b41afbc871d66d042cc765a0f3b14e4e3a64dae6f0250696f71b990e089f5",
+              "critic_report_sha256": "ad4fb196c9dd2152d63d3c9dd689e47ea3bbeffc0f18bde5f5b5f5181e484117",
               "finding_ids": [
                 "CRIT-001"
               ],
@@ -192,7 +192,7 @@
               "revision_schema": "drafter-revision-result/0.1.0",
               "revision_id": "example:synthetic-actionable-c12",
               "round": 2,
-              "critic_report_sha256": "e6f1d3086f7ee85fea0a95c4a8ba9e245a0ab59846e74d6e3e7d7909ca00c80d",
+              "critic_report_sha256": "4afe5460703b1cc7b66f9f4fa76ab9a3c50b7e8671ffe72e6c89726becab4f43",
               "finding_ids": [
                 "CRIT-001"
               ],

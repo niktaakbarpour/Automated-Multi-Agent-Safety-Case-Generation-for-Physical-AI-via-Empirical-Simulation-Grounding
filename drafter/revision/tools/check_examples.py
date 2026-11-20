@@ -19,7 +19,8 @@ EXPECTED = {
     'synthetic_actionable.revision_request.json': {
         'review_status': 'completed', 'actionable': ['CRIT-001'], 'statuses': {'CRIT-001': C.ACTIONABLE},
         'targets': {'CRIT-001': {'kind': 'node', 'object_id': 'cream_cheese_1', 'node_id': 'cream_cheese_1:G1'}},
-        'rejected': 0, 'synthetic': True, 'backend': 'scripted', 'outcome': ('revised', None)},
+        'check_ids': {'CRIT-001': 'CLAIM-ABSOLUTE-SAFETY'},
+        'rejected': 1, 'synthetic': True, 'backend': 'scripted', 'outcome': ('revised', None)},
     'synthetic_rejected_unresolved.revision_request.json': {
         'review_status': 'completed', 'actionable': [], 'statuses': {}, 'targets': {},
         'rejected': 4, 'synthetic': True, 'backend': 'scripted',
@@ -28,10 +29,11 @@ EXPECTED = {
         'review_status': 'completed', 'actionable': [], 'statuses': {}, 'targets': {},
         'rejected': 0, 'synthetic': False, 'backend': 'openai_compatible',
         'outcome': ('no_change', 'no_actionable_findings')},
+    # Since Critic 0.5.0 the rules find the guarantee, so this saved 0.4.0 report (zero findings) no longer
+    # matches the current rule-based findings and is refused.
     'saved_zero_finding_controlled_negative.revision_request.json': {
-        'review_status': 'completed', 'actionable': [], 'statuses': {}, 'targets': {},
-        'rejected': 0, 'synthetic': False, 'backend': 'openai_compatible',
-        'outcome': ('no_change', 'no_actionable_findings')},
+        'issues': ['report_deterministic_findings_mismatch'], 'synthetic': False, 'backend': 'openai_compatible',
+        'outcome': ('rejected_invalid_input', 'invalid_input')},
 }
 REJECTION_STARTS = ("node 'ketchup_1:G9' does not exist", 'cites evidence IDs that are not in the package',
                     'C09_UNRESOLVED:', 'category C02 is decided by the rule-based checks only')
@@ -71,14 +73,22 @@ def check_requests(original, mutated, rebuilt):
         check(name + ': Critic request passes the Critic input checks',
               checks.run_all(critic_request)[1]['input_valid'])
         issues = C.request_issues(request)
-        check(name + ': no binding issue', issues == [], '; '.join(issues))
+        check(name + ': binding issues as expected', issues == expected.get('issues', []), '; '.join(issues))
         check(name + ': digests recomputed', K.digest(critic_request) == request['critic_request_sha256']
               and K.digest(report) == request['critic_report_sha256'])
         check(name + ': embedded Critic request equals a fixture request', critic_request in (original, mutated))
         check(name + ': synthetic label and backend',
               request['synthetic_findings']['present'] is expected['synthetic']
               and report['llm']['backend'] == expected['backend'])
+        if name in saved:
+            check(name + ': embeds the saved fixture request and report unchanged',
+                  (critic_request, report) == saved[name] and report['criticisms'] == [])
+        if expected.get('issues'):
+            continue
         result = C.classify(request)
+        if 'check_ids' in expected:
+            check(name + ': check IDs', {c['criticism_id']: c['check_id'] for c in report['criticisms']}
+                  == expected['check_ids'])
         check(name + ': review status', result['review_status'] == expected['review_status'])
         check(name + ': actionable findings', result['actionable'] == expected['actionable'], str(result['actionable']))
         check(name + ': finding statuses and targets',
@@ -87,10 +97,7 @@ def check_requests(original, mutated, rebuilt):
         check(name + ': rejected candidates', len(result['rejected_candidates']) == expected['rejected'])
         check(name + ': unresolved concerns carried unchanged',
               result['unresolved_concerns'] == report['unresolved_concerns'])
-        if name in saved:
-            check(name + ': embeds the saved fixture request and report unchanged',
-                  (critic_request, report) == saved[name] and report['criticisms'] == [])
-        else:
+        if name not in saved:
             check(name + ': regenerated from the real Critic (latency ignored)',
                   without_latency(rebuilt[name]['critic_report']) == without_latency(report)
                   and without_latency(load(B.OUT / name.replace('revision_request', 'critic_report')))
@@ -156,7 +163,7 @@ def check_fail_closed(original):
             ('declined', [{**base['finding_decisions'][0], 'decision': 'declined'}], C.DECLINED)):
         value = tampered(lambda v: v.update(finding_decisions=decisions))
         result = C.classify(value)
-        check('model-proposed finding with ' + name + ' is not actionable',
+        check('finding that needs a decision, with ' + name + ', is not actionable',
               C.request_issues(value) == [] and result['actionable'] == []
               and result['findings'][0]['status'] == wanted)
 
@@ -178,7 +185,8 @@ def check_results():
         check(label + ': replays', issues == [], '; '.join(issues))
         check(label + ': bound to its request', result['revision_request_sha256'] == K.digest(request)
               and result['critic_report_sha256'] == request['critic_report_sha256'])
-        check(label + ': synthetic label carried', result['synthetic_findings'] == request['synthetic_findings'])
+        check(label + ': synthetic label carried, or no label on a refused request',
+              result['synthetic_findings'] == (None if expected.get('issues') else request['synthetic_findings']))
 
     request = load(B.OUT / 'synthetic_actionable.revision_request.json')
     result = load(B.OUT / 'synthetic_actionable.revision_result.json')
@@ -198,11 +206,15 @@ def check_results():
                                                          after['argument_bundle']['graphs'])
                for n, m in zip(o['graph']['nodes'], p['graph']['nodes']) if n != m]
     check('complete example: 19 of 20 nodes are byte-identical', changed == [('cream_cheese_1', 'cream_cheese_1:G1')])
-    for name in ('saved_zero_finding', 'saved_zero_finding_controlled_negative'):
-        result = load(B.OUT / (name + '.revision_result.json'))
-        check(name + ': the real zero-finding report gives no change and is not labelled synthetic',
-              result['outcome'] == 'no_change' and result['revised_argument_bundle'] is None
-              and result['proposal'] is None and result['synthetic_findings']['present'] is False)
+    result = load(B.OUT / 'saved_zero_finding.revision_result.json')
+    check('saved_zero_finding: the real zero-finding report gives no change and is not labelled synthetic',
+          result['outcome'] == 'no_change' and result['revised_argument_bundle'] is None
+          and result['proposal'] is None and result['synthetic_findings']['present'] is False)
+    result = load(B.OUT / 'saved_zero_finding_controlled_negative.revision_result.json')
+    check('saved_zero_finding_controlled_negative: the stale real report is refused, nothing is revised',
+          result['request_issues'] == ['report_deterministic_findings_mismatch']
+          and result['revised_argument_bundle'] is None and result['proposal'] is None
+          and result['synthetic_findings'] is None)
 
 
 def check_cycle():
@@ -258,6 +270,7 @@ def check_invalid(original):
     expected_all = load(folder / 'EXPECTED.json')
     check('invalid: expectations file equals the builder', expected_all == B.INVALID_EXPECTED)
     derived = B.invalid_requests(load(B.OUT / 'synthetic_actionable.revision_request.json'),
+                                 load(B.OUT / 'synthetic_rejected_unresolved.revision_request.json'),
                                  load(B.OUT / B.CYCLE / 'request_2.revision_request.json'), original)
     for name, expected in expected_all.items():
         request = load(folder / f'{name}.revision_request.json')

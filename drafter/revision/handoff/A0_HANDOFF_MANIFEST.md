@@ -4,6 +4,12 @@ Closes the Nov 13 to 16 individual assignment with evidence. Recorded on
 Nov 16, 2026 (Nov 17 UTC). Everything below was read from the repository or
 produced by running it on that date.
 
+> **Update, Nov 18.** This is a dated record of commit `7cfff70`. Since then
+> the Critic is `0.5.0`, whose new rule raises the guarantee objection itself.
+> The example in section 3 now uses that rule finding, the saved Qwen report on
+> the controlled negative is refused, and the test counts differ. See
+> `evaluation/m4_20261127/rq3/CRITIC_BASELINE_AUDIT.md`, section 8.
+
 ## 1. Where the work is
 
 | Item | Value |

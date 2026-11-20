@@ -1,0 +1,19 @@
+$ python3 -m unittest integration.tests.test_handoff -v
+branch feature/rq3-critic-m4 at 3ad2ba1ba516b0066ddb027b7b2fc58ebec372f3 (= origin/main), recorded 2026-11-18 22:33 UTC
+Python 3.10.12, jsonschema 4.19.1, Linux aarch64, CPU only
+
+test_changed_request_and_configuration_fail_closed (integration.tests.test_handoff.HandoffTests) ... ok
+test_empty_checker_and_registry_remain_empty (integration.tests.test_handoff.HandoffTests) ... ok
+test_exact_structured_pair_and_classification_are_preserved (integration.tests.test_handoff.HandoffTests) ... ok
+test_lossless_untyped_gaps_without_invented_measurement_type (integration.tests.test_handoff.HandoffTests) ... ok
+test_rejected_generation_cannot_be_handed_off (integration.tests.test_handoff.HandoffTests) ... ok
+test_returned_objects_are_independent_snapshots (integration.tests.test_handoff.HandoffTests) ... ok
+test_tampered_graph_fails_drafter_validation (integration.tests.test_handoff.HandoffTests) ... ok
+test_unchanged_graphs_scope_and_deterministic_input_validation (integration.tests.test_handoff.HandoffTests) ... ok
+test_wrong_object_roster_fails_without_reordering (integration.tests.test_handoff.HandoffTests) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 6.517s
+
+OK
+exit code: 0

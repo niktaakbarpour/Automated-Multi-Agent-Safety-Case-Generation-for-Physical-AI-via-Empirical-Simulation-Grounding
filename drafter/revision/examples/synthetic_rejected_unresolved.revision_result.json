@@ -8,9 +8,9 @@
     "present": true,
     "label": "Synthetic test input: the Critic report was produced by critic.review with a scripted reply written for this test. It is not a model result and not a scientific finding."
   },
-  "revision_request_sha256": "74196ce1be2574bab2ff4b5522095f1eb43a26cf71404460c5bf222e42f472ab",
+  "revision_request_sha256": "6efe8dd3d97083c5cc0b345878d010d251173bb131dcba890edc68c86c3978b0",
   "critic_request_sha256": "34f6f8f003a0ab57b5e5a221bf9f6b4dc8c8a678d0d317978598f20a10f7a95e",
-  "critic_report_sha256": "b95fee8f78e0e4f7aff20d0968c75df71326e26d8eec3c605e4fdb2ff5fc134a",
+  "critic_report_sha256": "037fdb2fcc03f8393b3504d4d499190b1bb57d62761bc8288fb2dcb734605e42",
   "adapter": {
     "name": "deterministic-templates",
     "version": "0.1.0",

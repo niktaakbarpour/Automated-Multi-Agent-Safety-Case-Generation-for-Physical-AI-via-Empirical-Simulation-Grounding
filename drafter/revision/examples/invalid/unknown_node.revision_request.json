@@ -10,7 +10,7 @@
   "max_rounds": 2,
   "critic_request": {
     "schema_version": "critic-request/0.3.0",
-    "request_id": "b8dbf1f3-c590-4cdd-8527-1526fdb597d9:critic:controlled-unsupported-safety-claim",
+    "request_id": "b8dbf1f3-c590-4cdd-8527-1526fdb597d9:critic",
     "test_fixture": true,
     "evaluation_context": {
       "requirement_id": "R1",
@@ -325,7 +325,7 @@
                   "requirement_id": "R1",
                   "requirement_version": "2.0.0"
                 },
-                "statement": "Cream_cheese_1 was guaranteed physically safe throughout this execution.",
+                "statement": "R1 remains unresolved for this object across the declared monitoring window.",
                 "type": "goal",
                 "validation_status": "unresolved"
               },
@@ -1432,11 +1432,11 @@
       ]
     }
   },
-  "critic_request_sha256": "4c06acd245b5039902331af35aae8f48a9c615026f7dea09eba3f79c63e68b3f",
+  "critic_request_sha256": "34f6f8f003a0ab57b5e5a221bf9f6b4dc8c8a678d0d317978598f20a10f7a95e",
   "critic_report": {
     "schema_version": "critic-report/0.4.0",
-    "critic_version": "0.4.0",
-    "request_id": "b8dbf1f3-c590-4cdd-8527-1526fdb597d9:critic:controlled-unsupported-safety-claim",
+    "critic_version": "0.5.0",
+    "request_id": "b8dbf1f3-c590-4cdd-8527-1526fdb597d9:critic",
     "execution_id": "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db",
     "test_fixture": true,
     "review_status": "completed",
@@ -1444,24 +1444,24 @@
     "status_detail": null,
     "llm": {
       "backend": "scripted",
-      "model": "synthetic-scripted-actionable",
+      "model": "synthetic-scripted-rejected",
       "prompt_version": "critic-prompt/v5",
       "called": true,
       "ok": true,
-      "latency_s": 0.001,
+      "latency_s": 0.002,
       "error": null,
       "prompt_sha256": "6e93b4c00e4fc042e281c319b44c798e9b43bc77b82aa366d5edd181ece7ede2",
-      "input_sha256": "69f3c3980cce8b691a82b9c0e56fc5322c9d3b758020a8184bd05c2d89b1ffae",
-      "request_sha256": "4c06acd245b5039902331af35aae8f48a9c615026f7dea09eba3f79c63e68b3f",
+      "input_sha256": "40eddca2dda54eb4d2651e01cc1a779f6caa396c38c206c1e1f2e68f67d5cfa6",
+      "request_sha256": "34f6f8f003a0ab57b5e5a221bf9f6b4dc8c8a678d0d317978598f20a10f7a95e",
       "settings": {
-        "scripted_reply_sha256": "3e0edd15e81036b31880212f38b1cd200ee621a09e3d5d5abb6935d2f5edd6b5"
+        "scripted_reply_sha256": "e4c6d3cf1f2785591b57453e662992cde8ec753a0c6412b08f4631ac14daef1b"
       },
-      "raw_response": "{\"findings\": [{\"object_id\": \"cream_cheese_1\", \"node_id\": \"cream_cheese_1:G1\", \"category\": \"C12\", \"severity\": \"high\", \"explanation\": \"The goal states \\\"Cream_cheese_1 was guaranteed physically safe throughout this execution.\\\" No admitted checker assessment or other evidence in the package supports a guarantee of physical safety.\", \"evidence_ids\": [], \"suggested_action\": \"Remove the guarantee and restore an unresolved R1 goal for cream_cheese_1.\"}]}",
+      "raw_response": "{\"findings\": [{\"object_id\": \"ketchup_1\", \"node_id\": \"ketchup_1:G9\", \"category\": \"C10\", \"severity\": \"low\", \"explanation\": \"Goal ketchup_1:G9 generalizes beyond the monitored window.\", \"evidence_ids\": [], \"suggested_action\": \"Narrow the goal to the monitored window.\"}, {\"object_id\": \"milk_1\", \"node_id\": \"milk_1:S1\", \"category\": \"C05\", \"severity\": \"medium\", \"explanation\": \"The strategy infers support from a contact record.\", \"evidence_ids\": [\"ev:0000000000000000000000000000000000000000000000000000000000000000\"], \"suggested_action\": \"Remove the support inference.\"}, {\"object_id\": \"butter_1\", \"node_id\": \"butter_1:U1\", \"category\": \"C09\", \"severity\": \"medium\", \"explanation\": \"The unresolved claim may understate the remaining uncertainty about initial support.\", \"evidence_ids\": [], \"suggested_action\": \"State the remaining uncertainty explicitly.\"}, {\"object_id\": \"orange_juice_1\", \"node_id\": \"orange_juice_1:C1\", \"category\": \"C02\", \"severity\": \"medium\", \"explanation\": \"The context cites no registry record.\", \"evidence_ids\": [], \"suggested_action\": \"Cite a registry record.\"}]}",
       "raw_response_truncated": false,
-      "response_sha256": "3e0edd15e81036b31880212f38b1cd200ee621a09e3d5d5abb6935d2f5edd6b5",
+      "response_sha256": "e4c6d3cf1f2785591b57453e662992cde8ec753a0c6412b08f4631ac14daef1b",
       "response": null,
-      "accepted": 1,
-      "rejected": 0
+      "accepted": 0,
+      "rejected": 4
     },
     "checker_admission": [],
     "structured_retrieval": [
@@ -1520,22 +1520,22 @@
     "criticisms": [
       {
         "criticism_id": "CRIT-001",
-        "critic_version": "0.4.0",
+        "critic_version": "0.5.0",
         "check_id": "LLM",
         "phase": "review",
-        "category": "C12",
-        "category_name": "Unsupported guarantee or certification",
+        "category": "C06",
+        "category_name": "Unsupported safety conclusion",
         "severity": "high",
         "blocking": false,
-        "object_id": "cream_cheese_1",
-        "node_id": "cream_cheese_1:G9",
-        "explanation": "The goal states \"Cream_cheese_1 was guaranteed physically safe throughout this execution.\" No admitted checker assessment or other evidence in the package supports a guarantee of physical safety.",
+        "object_id": "milk_1",
+        "node_id": "milk_1:G9",
+        "explanation": "Hand-written test finding, added to a saved report for an invalid-input example.",
         "evidence_ids": [],
         "requirement_refs": [
           "critic-prompt/v5"
         ],
         "finding_source": "llm_proposed",
-        "suggested_action": "Remove the guarantee and restore an unresolved R1 goal for cream_cheese_1.",
+        "suggested_action": "None; this finding is a test input.",
         "additional_evidence_needed": false,
         "human_review_required": true
       }
@@ -1545,9 +1545,61 @@
       "No admitted checker assessment (0 supplied, 0 admitted). Treated as unavailable, not as \"no violation\"; violation, no-violation and non-applicability outcomes cannot be established from this package.",
       "Retrieval reports that the evidence package is incomplete for the requested scope.",
       "Structured retrieval completeness covers only the explicit mandatory obligations of each request, not complete R1 observations or the sufficiency of any claim. The Critic checked the bundles for consistency and recomputed their hashes, but could not open the database or the sources to authenticate them. Retrieved items are recorded source references, not physical events.",
-      "This request contains synthetic test data; its results are not empirical findings."
+      "This request contains synthetic test data; its results are not empirical findings.",
+      "C09_UNRESOLVED: the draft concludes insufficient_information, but this does not establish that its prose preserves uncertainty. The objection does not quote the complete targeted statement; retained as an unresolved concern for human review, not accepted as an established criticism. Objection: The unresolved claim may understate the remaining uncertainty about initial support."
     ],
-    "rejected_llm_findings": [],
+    "rejected_llm_findings": [
+      {
+        "reason": "node 'ketchup_1:G9' does not exist in the cited graph",
+        "finding": {
+          "object_id": "ketchup_1",
+          "node_id": "ketchup_1:G9",
+          "category": "C10",
+          "severity": "low",
+          "explanation": "Goal ketchup_1:G9 generalizes beyond the monitored window.",
+          "evidence_ids": [],
+          "suggested_action": "Narrow the goal to the monitored window."
+        }
+      },
+      {
+        "reason": "cites evidence IDs that are not in the package (possible invention)",
+        "finding": {
+          "object_id": "milk_1",
+          "node_id": "milk_1:S1",
+          "category": "C05",
+          "severity": "medium",
+          "explanation": "The strategy infers support from a contact record.",
+          "evidence_ids": [
+            "ev:0000000000000000000000000000000000000000000000000000000000000000"
+          ],
+          "suggested_action": "Remove the support inference."
+        }
+      },
+      {
+        "reason": "C09_UNRESOLVED: the draft concludes insufficient_information, but this does not establish that its prose preserves uncertainty. The objection does not quote the complete targeted statement; retained as an unresolved concern for human review, not accepted as an established criticism.",
+        "finding": {
+          "object_id": "butter_1",
+          "node_id": "butter_1:U1",
+          "category": "C09",
+          "severity": "medium",
+          "explanation": "The unresolved claim may understate the remaining uncertainty about initial support.",
+          "evidence_ids": [],
+          "suggested_action": "State the remaining uncertainty explicitly."
+        }
+      },
+      {
+        "reason": "category C02 is decided by the rule-based checks only",
+        "finding": {
+          "object_id": "orange_juice_1",
+          "node_id": "orange_juice_1:C1",
+          "category": "C02",
+          "severity": "medium",
+          "explanation": "The context cites no registry record.",
+          "evidence_ids": [],
+          "suggested_action": "Cite a registry record."
+        }
+      }
+    ],
     "summary": {
       "objects_configured": [
         "cream_cheese_1",
@@ -1568,27 +1620,21 @@
       "recomputed_execution_outcome": "insufficient_information",
       "accepted_execution_outcome": "insufficient_information",
       "empty_scope": false,
-      "counts_by_source": {
-        "llm_proposed": 1
-      },
-      "counts_by_category": {
-        "C12": 1
-      },
+      "counts_by_source": {},
+      "counts_by_category": {},
       "blocking_defects": false,
-      "needs_human_review": [
-        "CRIT-001"
-      ],
+      "needs_human_review": [],
       "disclaimer": "A report with no blocking findings means only that this Critic found no issue within the supplied evidence and review scope. It does not show that R1 holds or that the robot was physically safe."
     }
   },
-  "critic_report_sha256": "5e131a53b7579c6f0f691d1f7d897f10769a334306ef04280e82f4756b9f3a07",
+  "critic_report_sha256": "2c985113a7ccbf1a52b118297824bac7d22864291eca4882c343956c1ddf4a92",
   "finding_decisions": [
     {
       "criticism_id": "CRIT-001",
       "decision": "approved",
       "decided_by": "synthetic_test_label",
       "reviewer": null,
-      "note": "Approved only as a labelled synthetic test input for positive revision behaviour."
+      "note": "Approved only so that the stated defect is the reason."
     }
   ],
   "history": []
