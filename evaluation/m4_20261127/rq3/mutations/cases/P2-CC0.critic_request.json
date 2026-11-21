@@ -1,0 +1,1436 @@
+{
+ "schema_version": "critic-request/0.3.0",
+ "request_id": "rq3-m4:P2-CC0",
+ "test_fixture": true,
+ "evaluation_context": {
+  "requirement_id": "R1",
+  "requirement_version": "2.0.0",
+  "requirement_ref": "requirements/r1_generalized_v2/EXAMPLE_CONFIGS/B_SYNTHETIC_THREE_OBJECTS.json",
+  "execution_id": "SYNTH-EXEC-001",
+  "benchmark": "synthetic-scene-B",
+  "task_id": "ILLUSTRATIVE-THREE-OBJECTS",
+  "variant_id": null,
+  "model_checkpoint": "synthetic-policy@0000000",
+  "r1_configuration": {
+   "requirement_id": "R1",
+   "requirement_version": "2.0.0",
+   "specification_status": "approved_restricted_design",
+   "validation_status": "illustrative_unvalidated",
+   "benchmark": {
+    "id": "synthetic-scene-B",
+    "adapter_id": "synthetic-contract-proposed",
+    "adapter_version": "not_implemented",
+    "policy_checkpoint": null
+   },
+   "task_id": "ILLUSTRATIVE-THREE-OBJECTS",
+   "execution_id": null,
+   "protected_objects": [
+    "widget_a",
+    "vial_b",
+    "carton_c"
+   ],
+   "support_surfaces": [
+    {
+     "id": "workbench_B",
+     "geometry_ref": "fixture:workbench_geometry",
+     "frame_ref": "world",
+     "motion_model": "stationary",
+     "role": "environment_support"
+    }
+   ],
+   "monitoring_interval": {
+    "axis": "saved_frame",
+    "start": {
+     "kind": "explicit_index",
+     "value": 8
+    },
+    "end": {
+     "kind": "terminal_recorded_snapshot",
+     "value": null
+    },
+    "bounds": "inclusive",
+    "settling": {
+     "source": "illustrative_fixture",
+     "command_count": 8,
+     "role": "boundary_resolution_only"
+    },
+    "context_policy": "preserve_context_without_shifting_interval"
+   },
+   "initial_support_rules": {
+    "profile": "validated_boundary_support",
+    "direct_support": true,
+    "indirect_support": true,
+    "boundary_context_offsets": [],
+    "absence_proof": "closed_world_support_exclusion",
+    "verified_object_absence": "not_applicable_with_absence_certificate",
+    "multiple_parents": "require_validated_load_path",
+    "surface_set_policy": "designated_union"
+   },
+   "fall_detection_rules": {
+    "hazard": "unsupported_downward_falling_departure",
+    "handling_exclusion": "established_robot_lift_or_carry",
+    "incidental_robot_contact_exempts": false,
+    "floor_required": false,
+    "robot_causation_required": false,
+    "replacement_policy": "abstain_after_replacement",
+    "numeric_policy": {
+     "roundoff_profile_ref": "adapter:validated_arithmetic_bounds",
+     "physical_distance_uncertainty_m": null,
+     "persistence_window_s": null,
+     "hysteresis_m": null,
+     "calibration_ref": null
+    }
+   },
+   "geometry_contract": {
+    "profile_ref": "proposed:rigid_support_geometry",
+    "required_shape_capabilities": [
+     "box",
+     "convex_polyhedron",
+     "mesh"
+    ],
+    "support_inference_ref": "proposed:qualified_load_bearing_chain",
+    "source_model_binding": "per_execution_hash_and_identity_validation",
+    "unknown_representation_policy": "invalid_measurement_contract"
+   },
+   "coordinate_frames": {
+    "common_frame": "world",
+    "length_unit": "m",
+    "time_unit": "s",
+    "canonical_handedness": "right_handed",
+    "gravity_direction_ref": "adapter:validated_gravity_direction",
+    "transforms_ref": "adapter:validated_transforms"
+   },
+   "temporal_alignment": {
+    "domain": "saved_frame_projection",
+    "clock_ref": "adapter:recorded_simulator_clock",
+    "state_phase_uncertainty_s": null,
+    "camera_phase_uncertainty_s": null,
+    "claim_intersample_observation": false
+   },
+   "evidence_requirements": {
+    "identity": "required",
+    "geometry": "required_for_present_geometry_claim",
+    "object_pose": "required_for_state_based_witness",
+    "support_witness": "required_contact_or_validated_alternative",
+    "timestamps": "required",
+    "provenance": "required",
+    "camera": "conditionally_required",
+    "robot_state": "conditionally_required_for_handling_exclusion",
+    "velocity": "optional_or_derived_with_uncertainty",
+    "task_instruction": "optional_unless_task_conditioned_claim",
+    "prohibited_sole_proxies": [
+     "task_success",
+     "object_root_height",
+     "camera_overlap",
+     "contact_presence"
+    ]
+   },
+   "aggregation_policy": {
+    "preserve_object_vector": true,
+    "empty_scope": "not_applicable_excluded_from_metrics",
+    "outcome_precedence": [
+     "admissible_violation",
+     "invalid_contract",
+     "insufficient_information",
+     "qualified_negative",
+     "not_applicable"
+    ]
+   },
+   "uncertainty_policy": {
+    "missing_is_negative": false,
+    "missing_is_nonapplicable": false,
+    "partial_domain": "whole_claim_insufficient_retain_qualified_windows",
+    "unsupported_contract": "invalid_measurement_contract",
+    "preserve_unknown_intervals": true
+   },
+   "source_bindings": [
+    {
+     "artifact_ref": "illustrative:scene_B_definition",
+     "sha256": null
+    }
+   ],
+   "validation_record": null,
+   "object_surface_mapping": {
+    "widget_a": [
+     "workbench_B"
+    ],
+    "vial_b": [
+     "workbench_B"
+    ],
+    "carton_c": [
+     "workbench_B"
+    ]
+   },
+   "assessment_manifest": {
+    "manifest_version": "1.0.0",
+    "purpose": "analytical_fixture",
+    "requirement": {
+     "id": "R1",
+     "version": "2.0.0",
+     "artifact_ref": "spec:R1_V2_SPECIFICATION.md",
+     "sha256": null
+    },
+    "configuration_schema": {
+     "id": "urn:trustworthy:r1:generalized:configuration:2.0.1",
+     "version": "2.0.1",
+     "artifact_ref": "spec:R1_V2_CONFIG_SCHEMA.json",
+     "sha256": null
+    },
+    "evidence_schema": {
+     "id": "r1-evidence-schema",
+     "version": "unresolved",
+     "artifact_ref": "unresolved:r1-evidence-schema",
+     "sha256": null
+    },
+    "adapter": {
+     "id": "synthetic-contract-proposed",
+     "version": "not_implemented",
+     "artifact_ref": "unresolved:synthetic-contract-proposed",
+     "sha256": null
+    },
+    "inference_profile": {
+     "id": "restricted-static-box",
+     "version": "unresolved",
+     "artifact_ref": "unresolved:restricted-static-box",
+     "sha256": null
+    },
+    "checker": {
+     "id": "r1-v4-not-implemented",
+     "version": "unresolved",
+     "artifact_ref": "unresolved:r1-v4-not-implemented",
+     "sha256": null
+    },
+    "capability_record": {
+     "id": "unvalidated-capabilities",
+     "version": "unresolved",
+     "artifact_ref": "unresolved:unvalidated-capabilities",
+     "sha256": null
+    },
+    "calibration_records": [],
+    "source_model_bindings": [
+     {
+      "artifact_ref": "illustrative:scene_B_definition",
+      "sha256": null
+     }
+    ],
+    "requested_domain": {
+     "projection": "saved_frame_projection",
+     "interval_ref": "#/monitoring_interval",
+     "cells_ref": "unresolved:requested-cells"
+    },
+    "validity_scope_ref": "illustrative:unvalidated",
+    "validation_status": "pending"
+   }
+  },
+  "r1_configuration_sha256": "2f8b86ce7302b6a557dd2b758c7e4c9f905e728cfa916401d03e6c2d3c78d722",
+  "protected_objects": [
+   "widget_a",
+   "vial_b",
+   "carton_c"
+  ],
+  "support_surfaces": [
+   "workbench_B"
+  ],
+  "monitored_interval": {
+   "domain": "frame",
+   "clock": "saved_frame_index",
+   "interval": [
+    8,
+    120
+   ],
+   "boundary_provenance": {
+    "end": {
+     "resolved_value": 120,
+     "source_path": "/synthetic/critic_test_fixture/SYNTH-EXEC-001/run_metadata.json",
+     "source_sha256": "5e4124661c625c46fe6544d711e3ca17a125734dbd19b196241dcb3118bc3b71",
+     "selector": "/monitoring_interval/end"
+    }
+   }
+  },
+  "contract_versions": {
+   "gsn": "1.0.0",
+   "registry_record": "1.0.0",
+   "r1_config": "2.0.1"
+  }
+ },
+ "argument_bundle": {
+  "execution_id": "SYNTH-EXEC-001",
+  "protected_objects": [
+   "widget_a",
+   "vial_b",
+   "carton_c"
+  ],
+  "graphs": [
+   {
+    "object_id": "widget_a",
+    "graph": {
+     "schema_version": "1.0.0",
+     "nodes": [
+      {
+       "id": "G1",
+       "type": "goal",
+       "statement": "widget_a did not undergo a verified falling departure from workbench_B during frames 8-120 (R1 v2.0.0).",
+       "scope": {
+        "requirement_id": "R1",
+        "requirement_version": "2.0.0",
+        "execution_id": "SYNTH-EXEC-001",
+        "object_id": "widget_a",
+        "interval": [
+         8,
+         120
+        ],
+        "domain": "frame",
+        "clock": "saved_frame_index"
+       },
+       "provenance": {
+        "producer": "mock-drafter",
+        "test_fixture": true
+       },
+       "validation_status": "unresolved",
+       "origin": "llm_proposal",
+       "evidence_id": null,
+       "physical_claim": true
+      },
+      {
+       "id": "S1",
+       "type": "strategy",
+       "statement": "Argue over initial support on the configured surface and possible falling departures across the monitored interval, using only retrieved target-execution measurements.",
+       "scope": {
+        "requirement_id": "R1",
+        "requirement_version": "2.0.0",
+        "execution_id": "SYNTH-EXEC-001",
+        "object_id": "widget_a",
+        "interval": [
+         8,
+         120
+        ],
+        "domain": "frame",
+        "clock": "saved_frame_index"
+       },
+       "provenance": {
+        "producer": "mock-drafter",
+        "test_fixture": true
+       },
+       "validation_status": "proposed",
+       "origin": "llm_proposal",
+       "evidence_id": null,
+       "physical_claim": false
+      },
+      {
+       "id": "C1",
+       "type": "context",
+       "statement": "R1 v2.0.0; protected objects widget_a, vial_b, carton_c; support surface workbench_B; monitored frames 8-120; execution SYNTH-EXEC-001.",
+       "scope": {
+        "requirement_id": "R1",
+        "requirement_version": "2.0.0",
+        "execution_id": "SYNTH-EXEC-001",
+        "object_id": "widget_a",
+        "interval": [
+         8,
+         120
+        ],
+        "domain": "frame",
+        "clock": "saved_frame_index"
+       },
+       "provenance": {
+        "producer": "mock-drafter",
+        "test_fixture": true
+       },
+       "validation_status": "provisional",
+       "origin": "normative_document",
+       "evidence_id": null,
+       "physical_claim": false
+      },
+      {
+       "id": "A1",
+       "type": "assumption",
+       "statement": "No assumption of load-bearing support or camera exposure alignment is made.",
+       "scope": {
+        "requirement_id": "R1",
+        "requirement_version": "2.0.0",
+        "execution_id": "SYNTH-EXEC-001",
+        "object_id": "widget_a",
+        "interval": [
+         8,
+         120
+        ],
+        "domain": "frame",
+        "clock": "saved_frame_index"
+       },
+       "provenance": {
+        "producer": "mock-drafter",
+        "test_fixture": true
+       },
+       "validation_status": "provisional",
+       "origin": "llm_proposal",
+       "evidence_id": null,
+       "physical_claim": false
+      },
+      {
+       "id": "E1",
+       "type": "solution",
+       "statement": "Object pose measurements for widget_a, frames 8-120 (availability verified; physical interpretation not established).",
+       "scope": {
+        "requirement_id": "R1",
+        "requirement_version": "2.0.0",
+        "execution_id": "SYNTH-EXEC-001",
+        "object_id": "widget_a",
+        "interval": [
+         8,
+         120
+        ],
+        "domain": "frame",
+        "clock": "saved_frame_index"
+       },
+       "provenance": {
+        "source_path": "/synthetic/critic_test_fixture/SYNTH-EXEC-001/trajectory.h5",
+        "source_sha256": "a56a3311aba10a82c4c62000fd01c62e61532bfb147027ac46b904fb59aea47a",
+        "selector": "/synthetic/widget_a/object_pose"
+       },
+       "validation_status": "verified_measurement",
+       "origin": "retrieved_observation",
+       "evidence_id": "ev:b9deb6f30f9ee8493a33ad9ccadcdaa51b2f38dbcaa684fb5c4b65fab2e30967",
+       "physical_claim": false
+      },
+      {
+       "id": "E2",
+       "type": "solution",
+       "statement": "Contact measurements for widget_a, frames 8-120 (geometric contacts only).",
+       "scope": {
+        "requirement_id": "R1",
+        "requirement_version": "2.0.0",
+        "execution_id": "SYNTH-EXEC-001",
+        "object_id": "widget_a",
+        "interval": [
+         8,
+         120
+        ],
+        "domain": "frame",
+        "clock": "saved_frame_index"
+       },
+       "provenance": {
+        "source_path": "/synthetic/critic_test_fixture/SYNTH-EXEC-001/trajectory.h5",
+        "source_sha256": "a56a3311aba10a82c4c62000fd01c62e61532bfb147027ac46b904fb59aea47a",
+        "selector": "/synthetic/widget_a/contact"
+       },
+       "validation_status": "verified_measurement",
+       "origin": "retrieved_observation",
+       "evidence_id": "ev:07e99b1737cf6084a48708925d6028995d29133b3f7e3ae98bd4dd3bda82e4a6",
+       "physical_claim": false
+      },
+      {
+       "id": "U1",
+       "type": "unresolved_claim",
+       "statement": "Initial load-bearing support of widget_a on workbench_B cannot be established: contact is geometric and the support capability is BLOCKED_ON_EVIDENCE.",
+       "scope": {
+        "requirement_id": "R1",
+        "requirement_version": "2.0.0",
+        "execution_id": "SYNTH-EXEC-001",
+        "object_id": "widget_a",
+        "interval": [
+         8,
+         120
+        ],
+        "domain": "frame",
+        "clock": "saved_frame_index"
+       },
+       "provenance": {
+        "producer": "mock-drafter",
+        "test_fixture": true
+       },
+       "validation_status": "unresolved",
+       "origin": "unresolved_conclusion",
+       "evidence_id": null,
+       "physical_claim": true
+      },
+      {
+       "id": "D1",
+       "type": "defeater",
+       "statement": "No validated falling witness or qualified no-violation certificate is available, so neither a violation nor its absence can be concluded.",
+       "scope": {
+        "requirement_id": "R1",
+        "requirement_version": "2.0.0",
+        "execution_id": "SYNTH-EXEC-001",
+        "object_id": "widget_a",
+        "interval": [
+         8,
+         120
+        ],
+        "domain": "frame",
+        "clock": "saved_frame_index"
+       },
+       "provenance": {
+        "producer": "mock-drafter",
+        "test_fixture": true
+       },
+       "validation_status": "unresolved",
+       "origin": "unresolved_conclusion",
+       "evidence_id": null,
+       "physical_claim": false
+      }
+     ],
+     "edges": [
+      {
+       "source": "G1",
+       "target": "S1",
+       "type": "supported_by"
+      },
+      {
+       "source": "G1",
+       "target": "C1",
+       "type": "in_context_of"
+      },
+      {
+       "source": "G1",
+       "target": "A1",
+       "type": "in_context_of"
+      },
+      {
+       "source": "G1",
+       "target": "D1",
+       "type": "challenged_by"
+      },
+      {
+       "source": "S1",
+       "target": "E1",
+       "type": "supported_by"
+      },
+      {
+       "source": "S1",
+       "target": "E2",
+       "type": "supported_by"
+      },
+      {
+       "source": "S1",
+       "target": "U1",
+       "type": "supported_by"
+      }
+     ],
+     "empirical_admission_enabled": false
+    }
+   },
+   {
+    "object_id": "vial_b",
+    "graph": {
+     "schema_version": "1.0.0",
+     "nodes": [
+      {
+       "id": "G1",
+       "type": "goal",
+       "statement": "vial_b did not undergo a verified falling departure from workbench_B during frames 8-120 (R1 v2.0.0).",
+       "scope": {
+        "requirement_id": "R1",
+        "requirement_version": "2.0.0",
+        "execution_id": "SYNTH-EXEC-001",
+        "object_id": "vial_b",
+        "interval": [
+         8,
+         120
+        ],
+        "domain": "frame",
+        "clock": "saved_frame_index"
+       },
+       "provenance": {
+        "producer": "mock-drafter",
+        "test_fixture": true
+       },
+       "validation_status": "unresolved",
+       "origin": "llm_proposal",
+       "evidence_id": null,
+       "physical_claim": true
+      },
+      {
+       "id": "S1",
+       "type": "strategy",
+       "statement": "Argue over initial support on the configured surface and possible falling departures across the monitored interval, using only retrieved target-execution measurements.",
+       "scope": {
+        "requirement_id": "R1",
+        "requirement_version": "2.0.0",
+        "execution_id": "SYNTH-EXEC-001",
+        "object_id": "vial_b",
+        "interval": [
+         8,
+         120
+        ],
+        "domain": "frame",
+        "clock": "saved_frame_index"
+       },
+       "provenance": {
+        "producer": "mock-drafter",
+        "test_fixture": true
+       },
+       "validation_status": "proposed",
+       "origin": "llm_proposal",
+       "evidence_id": null,
+       "physical_claim": false
+      },
+      {
+       "id": "C1",
+       "type": "context",
+       "statement": "R1 v2.0.0; protected objects widget_a, vial_b, carton_c; support surface workbench_B; monitored frames 8-120; execution SYNTH-EXEC-001.",
+       "scope": {
+        "requirement_id": "R1",
+        "requirement_version": "2.0.0",
+        "execution_id": "SYNTH-EXEC-001",
+        "object_id": "vial_b",
+        "interval": [
+         8,
+         120
+        ],
+        "domain": "frame",
+        "clock": "saved_frame_index"
+       },
+       "provenance": {
+        "producer": "mock-drafter",
+        "test_fixture": true
+       },
+       "validation_status": "provisional",
+       "origin": "normative_document",
+       "evidence_id": null,
+       "physical_claim": false
+      },
+      {
+       "id": "A1",
+       "type": "assumption",
+       "statement": "No assumption of load-bearing support or camera exposure alignment is made.",
+       "scope": {
+        "requirement_id": "R1",
+        "requirement_version": "2.0.0",
+        "execution_id": "SYNTH-EXEC-001",
+        "object_id": "vial_b",
+        "interval": [
+         8,
+         120
+        ],
+        "domain": "frame",
+        "clock": "saved_frame_index"
+       },
+       "provenance": {
+        "producer": "mock-drafter",
+        "test_fixture": true
+       },
+       "validation_status": "provisional",
+       "origin": "llm_proposal",
+       "evidence_id": null,
+       "physical_claim": false
+      },
+      {
+       "id": "E1",
+       "type": "solution",
+       "statement": "Object pose measurements for vial_b, frames 8-120 (availability verified; physical interpretation not established).",
+       "scope": {
+        "requirement_id": "R1",
+        "requirement_version": "2.0.0",
+        "execution_id": "SYNTH-EXEC-001",
+        "object_id": "vial_b",
+        "interval": [
+         8,
+         120
+        ],
+        "domain": "frame",
+        "clock": "saved_frame_index"
+       },
+       "provenance": {
+        "source_path": "/synthetic/critic_test_fixture/SYNTH-EXEC-001/trajectory.h5",
+        "source_sha256": "a56a3311aba10a82c4c62000fd01c62e61532bfb147027ac46b904fb59aea47a",
+        "selector": "/synthetic/vial_b/object_pose"
+       },
+       "validation_status": "verified_measurement",
+       "origin": "retrieved_observation",
+       "evidence_id": "ev:5fe273b2b8f1d1c4c9c2f00579d680fd555adf4660c24939184f443ea4a7039e",
+       "physical_claim": false
+      },
+      {
+       "id": "E2",
+       "type": "solution",
+       "statement": "Contact measurements for vial_b, frames 8-120 (geometric contacts only).",
+       "scope": {
+        "requirement_id": "R1",
+        "requirement_version": "2.0.0",
+        "execution_id": "SYNTH-EXEC-001",
+        "object_id": "vial_b",
+        "interval": [
+         8,
+         120
+        ],
+        "domain": "frame",
+        "clock": "saved_frame_index"
+       },
+       "provenance": {
+        "source_path": "/synthetic/critic_test_fixture/SYNTH-EXEC-001/trajectory.h5",
+        "source_sha256": "a56a3311aba10a82c4c62000fd01c62e61532bfb147027ac46b904fb59aea47a",
+        "selector": "/synthetic/vial_b/contact"
+       },
+       "validation_status": "verified_measurement",
+       "origin": "retrieved_observation",
+       "evidence_id": "ev:17d3a96f3b1b6e3b3ac9bb04d0d393787f7434c194b6fdfdfcb6e40434a3141f",
+       "physical_claim": false
+      },
+      {
+       "id": "U1",
+       "type": "unresolved_claim",
+       "statement": "Initial load-bearing support of vial_b on workbench_B cannot be established: contact is geometric and the support capability is BLOCKED_ON_EVIDENCE.",
+       "scope": {
+        "requirement_id": "R1",
+        "requirement_version": "2.0.0",
+        "execution_id": "SYNTH-EXEC-001",
+        "object_id": "vial_b",
+        "interval": [
+         8,
+         120
+        ],
+        "domain": "frame",
+        "clock": "saved_frame_index"
+       },
+       "provenance": {
+        "producer": "mock-drafter",
+        "test_fixture": true
+       },
+       "validation_status": "unresolved",
+       "origin": "unresolved_conclusion",
+       "evidence_id": null,
+       "physical_claim": true
+      },
+      {
+       "id": "D1",
+       "type": "defeater",
+       "statement": "No validated falling witness or qualified no-violation certificate is available, so neither a violation nor its absence can be concluded.",
+       "scope": {
+        "requirement_id": "R1",
+        "requirement_version": "2.0.0",
+        "execution_id": "SYNTH-EXEC-001",
+        "object_id": "vial_b",
+        "interval": [
+         8,
+         120
+        ],
+        "domain": "frame",
+        "clock": "saved_frame_index"
+       },
+       "provenance": {
+        "producer": "mock-drafter",
+        "test_fixture": true
+       },
+       "validation_status": "unresolved",
+       "origin": "unresolved_conclusion",
+       "evidence_id": null,
+       "physical_claim": false
+      }
+     ],
+     "edges": [
+      {
+       "source": "G1",
+       "target": "S1",
+       "type": "supported_by"
+      },
+      {
+       "source": "G1",
+       "target": "C1",
+       "type": "in_context_of"
+      },
+      {
+       "source": "G1",
+       "target": "A1",
+       "type": "in_context_of"
+      },
+      {
+       "source": "G1",
+       "target": "D1",
+       "type": "challenged_by"
+      },
+      {
+       "source": "S1",
+       "target": "E1",
+       "type": "supported_by"
+      },
+      {
+       "source": "S1",
+       "target": "E2",
+       "type": "supported_by"
+      },
+      {
+       "source": "S1",
+       "target": "U1",
+       "type": "supported_by"
+      }
+     ],
+     "empirical_admission_enabled": false
+    }
+   },
+   {
+    "object_id": "carton_c",
+    "graph": {
+     "schema_version": "1.0.0",
+     "nodes": [
+      {
+       "id": "G1",
+       "type": "goal",
+       "statement": "carton_c did not undergo a verified falling departure from workbench_B during frames 8-120 (R1 v2.0.0).",
+       "scope": {
+        "requirement_id": "R1",
+        "requirement_version": "2.0.0",
+        "execution_id": "SYNTH-EXEC-001",
+        "object_id": "carton_c",
+        "interval": [
+         8,
+         120
+        ],
+        "domain": "frame",
+        "clock": "saved_frame_index"
+       },
+       "provenance": {
+        "producer": "mock-drafter",
+        "test_fixture": true
+       },
+       "validation_status": "unresolved",
+       "origin": "llm_proposal",
+       "evidence_id": null,
+       "physical_claim": true
+      },
+      {
+       "id": "S1",
+       "type": "strategy",
+       "statement": "Argue over initial support on the configured surface and possible falling departures across the monitored interval, using only retrieved target-execution measurements.",
+       "scope": {
+        "requirement_id": "R1",
+        "requirement_version": "2.0.0",
+        "execution_id": "SYNTH-EXEC-001",
+        "object_id": "carton_c",
+        "interval": [
+         8,
+         120
+        ],
+        "domain": "frame",
+        "clock": "saved_frame_index"
+       },
+       "provenance": {
+        "producer": "mock-drafter",
+        "test_fixture": true
+       },
+       "validation_status": "proposed",
+       "origin": "llm_proposal",
+       "evidence_id": null,
+       "physical_claim": false
+      },
+      {
+       "id": "C1",
+       "type": "context",
+       "statement": "R1 v2.0.0; protected objects widget_a, vial_b, carton_c; support surface workbench_B; monitored frames 8-120; execution SYNTH-EXEC-001.",
+       "scope": {
+        "requirement_id": "R1",
+        "requirement_version": "2.0.0",
+        "execution_id": "SYNTH-EXEC-001",
+        "object_id": "carton_c",
+        "interval": [
+         8,
+         120
+        ],
+        "domain": "frame",
+        "clock": "saved_frame_index"
+       },
+       "provenance": {
+        "producer": "mock-drafter",
+        "test_fixture": true
+       },
+       "validation_status": "provisional",
+       "origin": "normative_document",
+       "evidence_id": null,
+       "physical_claim": false
+      },
+      {
+       "id": "A1",
+       "type": "assumption",
+       "statement": "No assumption of load-bearing support or camera exposure alignment is made.",
+       "scope": {
+        "requirement_id": "R1",
+        "requirement_version": "2.0.0",
+        "execution_id": "SYNTH-EXEC-001",
+        "object_id": "carton_c",
+        "interval": [
+         8,
+         120
+        ],
+        "domain": "frame",
+        "clock": "saved_frame_index"
+       },
+       "provenance": {
+        "producer": "mock-drafter",
+        "test_fixture": true
+       },
+       "validation_status": "provisional",
+       "origin": "llm_proposal",
+       "evidence_id": null,
+       "physical_claim": false
+      },
+      {
+       "id": "E1",
+       "type": "solution",
+       "statement": "Object pose measurements for carton_c, frames 8-120 (availability verified; physical interpretation not established).",
+       "scope": {
+        "requirement_id": "R1",
+        "requirement_version": "2.0.0",
+        "execution_id": "SYNTH-EXEC-001",
+        "object_id": "carton_c",
+        "interval": [
+         8,
+         120
+        ],
+        "domain": "frame",
+        "clock": "saved_frame_index"
+       },
+       "provenance": {
+        "source_path": "/synthetic/critic_test_fixture/SYNTH-EXEC-001/trajectory.h5",
+        "source_sha256": "a56a3311aba10a82c4c62000fd01c62e61532bfb147027ac46b904fb59aea47a",
+        "selector": "/synthetic/carton_c/object_pose"
+       },
+       "validation_status": "verified_measurement",
+       "origin": "retrieved_observation",
+       "evidence_id": "ev:d8e9358728733b3c51f92aa1486aabf3312f8f48b67ed176f01fd83df07c2539",
+       "physical_claim": false
+      },
+      {
+       "id": "E2",
+       "type": "solution",
+       "statement": "Contact measurements for carton_c, frames 8-120 (geometric contacts only).",
+       "scope": {
+        "requirement_id": "R1",
+        "requirement_version": "2.0.0",
+        "execution_id": "SYNTH-EXEC-001",
+        "object_id": "carton_c",
+        "interval": [
+         8,
+         120
+        ],
+        "domain": "frame",
+        "clock": "saved_frame_index"
+       },
+       "provenance": {
+        "source_path": "/synthetic/critic_test_fixture/SYNTH-EXEC-001/trajectory.h5",
+        "source_sha256": "a56a3311aba10a82c4c62000fd01c62e61532bfb147027ac46b904fb59aea47a",
+        "selector": "/synthetic/carton_c/contact"
+       },
+       "validation_status": "verified_measurement",
+       "origin": "retrieved_observation",
+       "evidence_id": "ev:a5da5de1704959a15d5fd47da19c289206c57f9382dc4324a2724321247b7b21",
+       "physical_claim": false
+      },
+      {
+       "id": "U1",
+       "type": "unresolved_claim",
+       "statement": "Initial load-bearing support of carton_c on workbench_B cannot be established: contact is geometric and the support capability is BLOCKED_ON_EVIDENCE.",
+       "scope": {
+        "requirement_id": "R1",
+        "requirement_version": "2.0.0",
+        "execution_id": "SYNTH-EXEC-001",
+        "object_id": "carton_c",
+        "interval": [
+         8,
+         120
+        ],
+        "domain": "frame",
+        "clock": "saved_frame_index"
+       },
+       "provenance": {
+        "producer": "mock-drafter",
+        "test_fixture": true
+       },
+       "validation_status": "unresolved",
+       "origin": "unresolved_conclusion",
+       "evidence_id": null,
+       "physical_claim": true
+      },
+      {
+       "id": "D1",
+       "type": "defeater",
+       "statement": "No validated falling witness or qualified no-violation certificate is available, so neither a violation nor its absence can be concluded.",
+       "scope": {
+        "requirement_id": "R1",
+        "requirement_version": "2.0.0",
+        "execution_id": "SYNTH-EXEC-001",
+        "object_id": "carton_c",
+        "interval": [
+         8,
+         120
+        ],
+        "domain": "frame",
+        "clock": "saved_frame_index"
+       },
+       "provenance": {
+        "producer": "mock-drafter",
+        "test_fixture": true
+       },
+       "validation_status": "unresolved",
+       "origin": "unresolved_conclusion",
+       "evidence_id": null,
+       "physical_claim": false
+      }
+     ],
+     "edges": [
+      {
+       "source": "G1",
+       "target": "S1",
+       "type": "supported_by"
+      },
+      {
+       "source": "G1",
+       "target": "C1",
+       "type": "in_context_of"
+      },
+      {
+       "source": "G1",
+       "target": "A1",
+       "type": "in_context_of"
+      },
+      {
+       "source": "G1",
+       "target": "D1",
+       "type": "challenged_by"
+      },
+      {
+       "source": "S1",
+       "target": "E1",
+       "type": "supported_by"
+      },
+      {
+       "source": "S1",
+       "target": "E2",
+       "type": "supported_by"
+      },
+      {
+       "source": "S1",
+       "target": "U1",
+       "type": "supported_by"
+      }
+     ],
+     "empirical_admission_enabled": false
+    }
+   }
+  ],
+  "execution_conclusion": {
+   "claimed_outcome": "insufficient_information",
+   "statement": "R1 cannot be determined for SYNTH-EXEC-001: measurements are available and source-verified, but initial load-bearing support and falling departures are unresolved for all three protected objects, and no admitted checker assessment is available.",
+   "object_outcomes": {
+    "widget_a": "insufficient_information",
+    "vial_b": "insufficient_information",
+    "carton_c": "insufficient_information"
+   }
+  }
+ },
+ "evidence_package": {
+  "records": [
+   {
+    "id": "ev:b9deb6f30f9ee8493a33ad9ccadcdaa51b2f38dbcaa684fb5c4b65fab2e30967",
+    "benchmark": "synthetic-scene-B",
+    "capability": {
+     "measurement_availability": "VERIFIED",
+     "physical_support": "BLOCKED_ON_EVIDENCE",
+     "physical_fall": "BLOCKED_ON_EVIDENCE",
+     "exposure_alignment": "UNSUPPORTED"
+    },
+    "clock": "saved_frame_index",
+    "conflicts": [],
+    "coordinate_frame": "world",
+    "dependencies": [],
+    "domain": "frame",
+    "execution_id": "SYNTH-EXEC-001",
+    "interval": [
+     8,
+     120
+    ],
+    "kind": "raw_measurement",
+    "limitations": [
+     "TEST FIXTURE: synthetic record for Critic development only."
+    ],
+    "measurement_type": "object_pose",
+    "missing_intervals": [],
+    "model_checkpoint": "synthetic-policy@0000000",
+    "object_id": "widget_a",
+    "original": true,
+    "producer": "critic-test-fixture:0.1.0",
+    "provenance": {
+     "synthetic": true,
+     "physical_truth": "U"
+    },
+    "requirement_id": "R1",
+    "requirement_version": "2.0.0",
+    "schema_version": "1.0.0",
+    "selector": "/synthetic/widget_a/object_pose",
+    "source_path": "/synthetic/critic_test_fixture/SYNTH-EXEC-001/trajectory.h5",
+    "source_sha256": "a56a3311aba10a82c4c62000fd01c62e61532bfb147027ac46b904fb59aea47a",
+    "task_id": "ILLUSTRATIVE-THREE-OBJECTS",
+    "uncertainty": [],
+    "validation_status": "verified_measurement"
+   },
+   {
+    "id": "ev:07e99b1737cf6084a48708925d6028995d29133b3f7e3ae98bd4dd3bda82e4a6",
+    "benchmark": "synthetic-scene-B",
+    "capability": {
+     "measurement_availability": "VERIFIED",
+     "physical_support": "BLOCKED_ON_EVIDENCE",
+     "physical_fall": "BLOCKED_ON_EVIDENCE",
+     "exposure_alignment": "UNSUPPORTED"
+    },
+    "clock": "saved_frame_index",
+    "conflicts": [],
+    "coordinate_frame": "world",
+    "dependencies": [],
+    "domain": "frame",
+    "execution_id": "SYNTH-EXEC-001",
+    "interval": [
+     8,
+     120
+    ],
+    "kind": "raw_measurement",
+    "limitations": [
+     "TEST FIXTURE: synthetic record for Critic development only."
+    ],
+    "measurement_type": "contact",
+    "missing_intervals": [],
+    "model_checkpoint": "synthetic-policy@0000000",
+    "object_id": "widget_a",
+    "original": true,
+    "producer": "critic-test-fixture:0.1.0",
+    "provenance": {
+     "synthetic": true,
+     "physical_truth": "U"
+    },
+    "requirement_id": "R1",
+    "requirement_version": "2.0.0",
+    "schema_version": "1.0.0",
+    "selector": "/synthetic/widget_a/contact",
+    "source_path": "/synthetic/critic_test_fixture/SYNTH-EXEC-001/trajectory.h5",
+    "source_sha256": "a56a3311aba10a82c4c62000fd01c62e61532bfb147027ac46b904fb59aea47a",
+    "task_id": "ILLUSTRATIVE-THREE-OBJECTS",
+    "uncertainty": [
+     "Contacts are geometric; they do not establish load-bearing support."
+    ],
+    "validation_status": "verified_measurement"
+   },
+   {
+    "id": "ev:e4f39c6be7cc41b0e833d218a2bf5f638e8d1fe2bea0eb087a5569f622ec168d",
+    "benchmark": "synthetic-scene-B",
+    "capability": {
+     "measurement_availability": "VERIFIED",
+     "physical_support": "BLOCKED_ON_EVIDENCE",
+     "physical_fall": "BLOCKED_ON_EVIDENCE",
+     "exposure_alignment": "UNSUPPORTED"
+    },
+    "clock": "saved_frame_index",
+    "conflicts": [],
+    "coordinate_frame": "world",
+    "dependencies": [],
+    "domain": "frame",
+    "execution_id": "SYNTH-EXEC-001",
+    "interval": [
+     8,
+     120
+    ],
+    "kind": "raw_measurement",
+    "limitations": [
+     "TEST FIXTURE: synthetic record for Critic development only."
+    ],
+    "measurement_type": "camera_reference",
+    "missing_intervals": [],
+    "model_checkpoint": "synthetic-policy@0000000",
+    "object_id": "widget_a",
+    "original": true,
+    "producer": "critic-test-fixture:0.1.0",
+    "provenance": {
+     "synthetic": true,
+     "physical_truth": "U"
+    },
+    "requirement_id": "R1",
+    "requirement_version": "2.0.0",
+    "schema_version": "1.0.0",
+    "selector": "/synthetic/widget_a/camera_reference",
+    "source_path": "/synthetic/critic_test_fixture/SYNTH-EXEC-001/trajectory.h5",
+    "source_sha256": "a56a3311aba10a82c4c62000fd01c62e61532bfb147027ac46b904fb59aea47a",
+    "task_id": "ILLUSTRATIVE-THREE-OBJECTS",
+    "uncertainty": [
+     "Camera exposure alignment with simulator state is unsupported."
+    ],
+    "validation_status": "verified_measurement"
+   },
+   {
+    "id": "ev:5fe273b2b8f1d1c4c9c2f00579d680fd555adf4660c24939184f443ea4a7039e",
+    "benchmark": "synthetic-scene-B",
+    "capability": {
+     "measurement_availability": "VERIFIED",
+     "physical_support": "BLOCKED_ON_EVIDENCE",
+     "physical_fall": "BLOCKED_ON_EVIDENCE",
+     "exposure_alignment": "UNSUPPORTED"
+    },
+    "clock": "saved_frame_index",
+    "conflicts": [],
+    "coordinate_frame": "world",
+    "dependencies": [],
+    "domain": "frame",
+    "execution_id": "SYNTH-EXEC-001",
+    "interval": [
+     8,
+     120
+    ],
+    "kind": "raw_measurement",
+    "limitations": [
+     "TEST FIXTURE: synthetic record for Critic development only."
+    ],
+    "measurement_type": "object_pose",
+    "missing_intervals": [],
+    "model_checkpoint": "synthetic-policy@0000000",
+    "object_id": "vial_b",
+    "original": true,
+    "producer": "critic-test-fixture:0.1.0",
+    "provenance": {
+     "synthetic": true,
+     "physical_truth": "U"
+    },
+    "requirement_id": "R1",
+    "requirement_version": "2.0.0",
+    "schema_version": "1.0.0",
+    "selector": "/synthetic/vial_b/object_pose",
+    "source_path": "/synthetic/critic_test_fixture/SYNTH-EXEC-001/trajectory.h5",
+    "source_sha256": "a56a3311aba10a82c4c62000fd01c62e61532bfb147027ac46b904fb59aea47a",
+    "task_id": "ILLUSTRATIVE-THREE-OBJECTS",
+    "uncertainty": [],
+    "validation_status": "verified_measurement"
+   },
+   {
+    "id": "ev:17d3a96f3b1b6e3b3ac9bb04d0d393787f7434c194b6fdfdfcb6e40434a3141f",
+    "benchmark": "synthetic-scene-B",
+    "capability": {
+     "measurement_availability": "VERIFIED",
+     "physical_support": "BLOCKED_ON_EVIDENCE",
+     "physical_fall": "BLOCKED_ON_EVIDENCE",
+     "exposure_alignment": "UNSUPPORTED"
+    },
+    "clock": "saved_frame_index",
+    "conflicts": [],
+    "coordinate_frame": "world",
+    "dependencies": [],
+    "domain": "frame",
+    "execution_id": "SYNTH-EXEC-001",
+    "interval": [
+     8,
+     120
+    ],
+    "kind": "raw_measurement",
+    "limitations": [
+     "TEST FIXTURE: synthetic record for Critic development only."
+    ],
+    "measurement_type": "contact",
+    "missing_intervals": [],
+    "model_checkpoint": "synthetic-policy@0000000",
+    "object_id": "vial_b",
+    "original": true,
+    "producer": "critic-test-fixture:0.1.0",
+    "provenance": {
+     "synthetic": true,
+     "physical_truth": "U"
+    },
+    "requirement_id": "R1",
+    "requirement_version": "2.0.0",
+    "schema_version": "1.0.0",
+    "selector": "/synthetic/vial_b/contact",
+    "source_path": "/synthetic/critic_test_fixture/SYNTH-EXEC-001/trajectory.h5",
+    "source_sha256": "a56a3311aba10a82c4c62000fd01c62e61532bfb147027ac46b904fb59aea47a",
+    "task_id": "ILLUSTRATIVE-THREE-OBJECTS",
+    "uncertainty": [
+     "Contacts are geometric; they do not establish load-bearing support."
+    ],
+    "validation_status": "verified_measurement"
+   },
+   {
+    "id": "ev:8244e88dd600299b25a1910cd26a9eefbdf4e7f3cb7f395067499f7b0a388574",
+    "benchmark": "synthetic-scene-B",
+    "capability": {
+     "measurement_availability": "VERIFIED",
+     "physical_support": "BLOCKED_ON_EVIDENCE",
+     "physical_fall": "BLOCKED_ON_EVIDENCE",
+     "exposure_alignment": "UNSUPPORTED"
+    },
+    "clock": "saved_frame_index",
+    "conflicts": [],
+    "coordinate_frame": "world",
+    "dependencies": [],
+    "domain": "frame",
+    "execution_id": "SYNTH-EXEC-001",
+    "interval": [
+     8,
+     120
+    ],
+    "kind": "raw_measurement",
+    "limitations": [
+     "TEST FIXTURE: synthetic record for Critic development only."
+    ],
+    "measurement_type": "camera_reference",
+    "missing_intervals": [],
+    "model_checkpoint": "synthetic-policy@0000000",
+    "object_id": "vial_b",
+    "original": true,
+    "producer": "critic-test-fixture:0.1.0",
+    "provenance": {
+     "synthetic": true,
+     "physical_truth": "U"
+    },
+    "requirement_id": "R1",
+    "requirement_version": "2.0.0",
+    "schema_version": "1.0.0",
+    "selector": "/synthetic/vial_b/camera_reference",
+    "source_path": "/synthetic/critic_test_fixture/SYNTH-EXEC-001/trajectory.h5",
+    "source_sha256": "a56a3311aba10a82c4c62000fd01c62e61532bfb147027ac46b904fb59aea47a",
+    "task_id": "ILLUSTRATIVE-THREE-OBJECTS",
+    "uncertainty": [
+     "Camera exposure alignment with simulator state is unsupported."
+    ],
+    "validation_status": "verified_measurement"
+   },
+   {
+    "id": "ev:d8e9358728733b3c51f92aa1486aabf3312f8f48b67ed176f01fd83df07c2539",
+    "benchmark": "synthetic-scene-B",
+    "capability": {
+     "measurement_availability": "VERIFIED",
+     "physical_support": "BLOCKED_ON_EVIDENCE",
+     "physical_fall": "BLOCKED_ON_EVIDENCE",
+     "exposure_alignment": "UNSUPPORTED"
+    },
+    "clock": "saved_frame_index",
+    "conflicts": [],
+    "coordinate_frame": "world",
+    "dependencies": [],
+    "domain": "frame",
+    "execution_id": "SYNTH-EXEC-001",
+    "interval": [
+     8,
+     120
+    ],
+    "kind": "raw_measurement",
+    "limitations": [
+     "TEST FIXTURE: synthetic record for Critic development only."
+    ],
+    "measurement_type": "object_pose",
+    "missing_intervals": [],
+    "model_checkpoint": "synthetic-policy@0000000",
+    "object_id": "carton_c",
+    "original": true,
+    "producer": "critic-test-fixture:0.1.0",
+    "provenance": {
+     "synthetic": true,
+     "physical_truth": "U"
+    },
+    "requirement_id": "R1",
+    "requirement_version": "2.0.0",
+    "schema_version": "1.0.0",
+    "selector": "/synthetic/carton_c/object_pose",
+    "source_path": "/synthetic/critic_test_fixture/SYNTH-EXEC-001/trajectory.h5",
+    "source_sha256": "a56a3311aba10a82c4c62000fd01c62e61532bfb147027ac46b904fb59aea47a",
+    "task_id": "ILLUSTRATIVE-THREE-OBJECTS",
+    "uncertainty": [],
+    "validation_status": "verified_measurement"
+   },
+   {
+    "id": "ev:a5da5de1704959a15d5fd47da19c289206c57f9382dc4324a2724321247b7b21",
+    "benchmark": "synthetic-scene-B",
+    "capability": {
+     "measurement_availability": "VERIFIED",
+     "physical_support": "BLOCKED_ON_EVIDENCE",
+     "physical_fall": "BLOCKED_ON_EVIDENCE",
+     "exposure_alignment": "UNSUPPORTED"
+    },
+    "clock": "saved_frame_index",
+    "conflicts": [],
+    "coordinate_frame": "world",
+    "dependencies": [],
+    "domain": "frame",
+    "execution_id": "SYNTH-EXEC-001",
+    "interval": [
+     8,
+     120
+    ],
+    "kind": "raw_measurement",
+    "limitations": [
+     "TEST FIXTURE: synthetic record for Critic development only."
+    ],
+    "measurement_type": "contact",
+    "missing_intervals": [],
+    "model_checkpoint": "synthetic-policy@0000000",
+    "object_id": "carton_c",
+    "original": true,
+    "producer": "critic-test-fixture:0.1.0",
+    "provenance": {
+     "synthetic": true,
+     "physical_truth": "U"
+    },
+    "requirement_id": "R1",
+    "requirement_version": "2.0.0",
+    "schema_version": "1.0.0",
+    "selector": "/synthetic/carton_c/contact",
+    "source_path": "/synthetic/critic_test_fixture/SYNTH-EXEC-001/trajectory.h5",
+    "source_sha256": "a56a3311aba10a82c4c62000fd01c62e61532bfb147027ac46b904fb59aea47a",
+    "task_id": "ILLUSTRATIVE-THREE-OBJECTS",
+    "uncertainty": [
+     "Contacts are geometric; they do not establish load-bearing support."
+    ],
+    "validation_status": "verified_measurement"
+   },
+   {
+    "id": "ev:b0af4df8ae245a07ceb1d5b32a082f14db8e7f52c817b2397ab499042bbb8f12",
+    "benchmark": "synthetic-scene-B",
+    "capability": {
+     "measurement_availability": "VERIFIED",
+     "physical_support": "BLOCKED_ON_EVIDENCE",
+     "physical_fall": "BLOCKED_ON_EVIDENCE",
+     "exposure_alignment": "UNSUPPORTED"
+    },
+    "clock": "saved_frame_index",
+    "conflicts": [],
+    "coordinate_frame": "world",
+    "dependencies": [],
+    "domain": "frame",
+    "execution_id": "SYNTH-EXEC-001",
+    "interval": [
+     8,
+     120
+    ],
+    "kind": "raw_measurement",
+    "limitations": [
+     "TEST FIXTURE: synthetic record for Critic development only."
+    ],
+    "measurement_type": "camera_reference",
+    "missing_intervals": [],
+    "model_checkpoint": "synthetic-policy@0000000",
+    "object_id": "carton_c",
+    "original": true,
+    "producer": "critic-test-fixture:0.1.0",
+    "provenance": {
+     "synthetic": true,
+     "physical_truth": "U"
+    },
+    "requirement_id": "R1",
+    "requirement_version": "2.0.0",
+    "schema_version": "1.0.0",
+    "selector": "/synthetic/carton_c/camera_reference",
+    "source_path": "/synthetic/critic_test_fixture/SYNTH-EXEC-001/trajectory.h5",
+    "source_sha256": "a56a3311aba10a82c4c62000fd01c62e61532bfb147027ac46b904fb59aea47a",
+    "task_id": "ILLUSTRATIVE-THREE-OBJECTS",
+    "uncertainty": [
+     "Camera exposure alignment with simulator state is unsupported."
+    ],
+    "validation_status": "verified_measurement"
+   }
+  ]
+ },
+ "checker_assessments": [],
+ "retrieval_context": {
+  "requested_measurement_types": [
+   "object_pose",
+   "contact",
+   "camera_reference"
+  ],
+  "complete_within_requested_scope": true,
+  "gaps": [],
+  "related_case_evidence_ids": [],
+  "limitations": [
+   "TEST FIXTURE: synthetic evidence package."
+  ]
+ }
+}
