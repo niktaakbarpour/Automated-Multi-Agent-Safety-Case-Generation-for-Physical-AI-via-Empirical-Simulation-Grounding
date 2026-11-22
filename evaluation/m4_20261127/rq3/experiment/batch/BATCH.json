@@ -1,0 +1,42 @@
+{
+ "batch_version": "rq3-batch/0.1.0",
+ "benchmark": "rq3-mutations/0.1.0",
+ "critic_version": "0.5.0",
+ "prompt_version": "critic-prompt/v5",
+ "prompt_sha256": "6e93b4c00e4fc042e281c319b44c798e9b43bc77b82aa366d5edd181ece7ede2",
+ "system_sha256": "6e93b4c00e4fc042e281c319b44c798e9b43bc77b82aa366d5edd181ece7ede2",
+ "conditions": [
+  "T",
+  "R",
+  "C"
+ ],
+ "repeats": 3,
+ "cases": 12,
+ "requests": 108,
+ "canonical_source_groups": 2,
+ "independent_cases": 0,
+ "data_role": "development_only",
+ "model_sees_rule_findings": false,
+ "c_availability": [
+  "status_only"
+ ],
+ "requests_sha256": "ce93244c01a0a4eb2741b59807014aed9411668b3880cc1a096071f8ad1d9746",
+ "settings": {
+  "model": "Qwen/Qwen3-32B",
+  "temperature": 0.6,
+  "max_tokens": 8192,
+  "timeout_s": 600,
+  "extra_body": {
+   "top_p": 0.95,
+   "top_k": 20,
+   "response_format": {
+    "type": "json_object"
+   },
+   "chat_template_kwargs": {
+    "enable_thinking": false
+   }
+  },
+  "seed": null,
+  "source": "integration/fixtures/one_pass_20261113/artifacts/models/critic.qwen.report.json (llm.settings)"
+ }
+}
