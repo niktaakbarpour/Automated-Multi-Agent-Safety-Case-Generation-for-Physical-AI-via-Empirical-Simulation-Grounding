@@ -1,0 +1,342 @@
+{
+  "cases": [
+    {
+      "admitted_checker_count": 0,
+      "case_id": "P1-CC0",
+      "changed_paths": [
+        "/request_id"
+      ],
+      "critic_input_valid": true,
+      "deterministic_objection_count": 0,
+      "operator": "clean",
+      "parent_id": "P1",
+      "parent_request_sha256": "34f6f8f003a0ab57b5e5a221bf9f6b4dc8c8a678d0d317978598f20a10f7a95e",
+      "pre_model_validation_codes": [],
+      "request_sha256": "7bebde8ee378ac4ac3e3487abaa5d8b1c60ffcd0fb15dfa980fd7ab07a24082e",
+      "shared_gsn_valid": true,
+      "source": "9b674b8eb1d894596ac7e0687fef7308b9c681a6:evaluation/m4_20261127/rq3/mutations/cases/P1-CC0.critic_request.json",
+      "source_file_sha256": "1d2296414368d1aec4c42ac8182ad01cba45f56192d478ddc5a1ffc9a3968edf",
+      "stratum": "clean_control",
+      "target_node_id": null,
+      "target_object_id": null
+    },
+    {
+      "admitted_checker_count": 0,
+      "case_id": "P1-CC1",
+      "changed_paths": [
+        "/argument_bundle/graphs/4/graph/nodes/0/statement",
+        "/request_id"
+      ],
+      "critic_input_valid": true,
+      "deterministic_objection_count": 0,
+      "operator": "clean",
+      "parent_id": "P1",
+      "parent_request_sha256": "34f6f8f003a0ab57b5e5a221bf9f6b4dc8c8a678d0d317978598f20a10f7a95e",
+      "pre_model_validation_codes": [],
+      "request_sha256": "b86b5c2ada1745c3c80ef5c5a958e4d0ce4a475d70497f78b05881928c95c49a",
+      "shared_gsn_valid": true,
+      "source": "9b674b8eb1d894596ac7e0687fef7308b9c681a6:evaluation/m4_20261127/rq3/mutations/cases/P1-CC1.critic_request.json",
+      "source_file_sha256": "72b10d3c7987aa7dca2a36ffcee9c30142cef6e265d0c006049c99936b0fb100",
+      "stratum": "clean_control",
+      "target_node_id": "butter_1:G1",
+      "target_object_id": "butter_1"
+    },
+    {
+      "admitted_checker_count": 0,
+      "case_id": "P1-M1a",
+      "changed_paths": [
+        "/argument_bundle/graphs/0/graph/nodes/0/statement",
+        "/request_id"
+      ],
+      "critic_input_valid": true,
+      "deterministic_objection_count": 1,
+      "operator": "M1",
+      "parent_id": "P1",
+      "parent_request_sha256": "34f6f8f003a0ab57b5e5a221bf9f6b4dc8c8a678d0d317978598f20a10f7a95e",
+      "pre_model_validation_codes": [],
+      "request_sha256": "4b3f79d66377991f89026feb5f781ce1e192937ee08a15ec2ab3dafaed390142",
+      "shared_gsn_valid": true,
+      "source": "9b674b8eb1d894596ac7e0687fef7308b9c681a6:evaluation/m4_20261127/rq3/mutations/cases/P1-M1a.critic_request.json",
+      "source_file_sha256": "e60bc6f6c1b6df33900fd4d16e4099e17054c917ebc11693f6ab0cd31e4be7ac",
+      "stratum": "semantic_mutation",
+      "target_node_id": "cream_cheese_1:G1",
+      "target_object_id": "cream_cheese_1"
+    },
+    {
+      "admitted_checker_count": 0,
+      "case_id": "P1-M1b",
+      "changed_paths": [
+        "/argument_bundle/graphs/1/graph/nodes/0/statement",
+        "/request_id"
+      ],
+      "critic_input_valid": true,
+      "deterministic_objection_count": 0,
+      "operator": "M1",
+      "parent_id": "P1",
+      "parent_request_sha256": "34f6f8f003a0ab57b5e5a221bf9f6b4dc8c8a678d0d317978598f20a10f7a95e",
+      "pre_model_validation_codes": [],
+      "request_sha256": "072877a78a4dd511d1a4e415710e1c90d2d16f43b7e563e83592df8bdeb057be",
+      "shared_gsn_valid": true,
+      "source": "9b674b8eb1d894596ac7e0687fef7308b9c681a6:evaluation/m4_20261127/rq3/mutations/cases/P1-M1b.critic_request.json",
+      "source_file_sha256": "701b9defcbdf4f8db0c29c52d68eb73dfd2453baa78379098419d8e6c39d6346",
+      "stratum": "semantic_mutation",
+      "target_node_id": "ketchup_1:G1",
+      "target_object_id": "ketchup_1"
+    },
+    {
+      "admitted_checker_count": 0,
+      "case_id": "P1-M3a",
+      "changed_paths": [
+        "/argument_bundle/graphs/2/graph/nodes/0/statement",
+        "/request_id"
+      ],
+      "critic_input_valid": true,
+      "deterministic_objection_count": 0,
+      "operator": "M3",
+      "parent_id": "P1",
+      "parent_request_sha256": "34f6f8f003a0ab57b5e5a221bf9f6b4dc8c8a678d0d317978598f20a10f7a95e",
+      "pre_model_validation_codes": [],
+      "request_sha256": "35c50f351491496043f6a357b85823bbcb22df4cef9b354bd5818941e031efca",
+      "shared_gsn_valid": true,
+      "source": "9b674b8eb1d894596ac7e0687fef7308b9c681a6:evaluation/m4_20261127/rq3/mutations/cases/P1-M3a.critic_request.json",
+      "source_file_sha256": "962895ddf8a8f787f7b0e1d2eec97142cebd7f4153b45068e630990c6d91cc21",
+      "stratum": "semantic_mutation",
+      "target_node_id": "orange_juice_1:G1",
+      "target_object_id": "orange_juice_1"
+    },
+    {
+      "admitted_checker_count": 0,
+      "case_id": "P1-M3b",
+      "changed_paths": [
+        "/argument_bundle/graphs/3/graph/nodes/2/statement",
+        "/request_id"
+      ],
+      "critic_input_valid": true,
+      "deterministic_objection_count": 0,
+      "operator": "M3",
+      "parent_id": "P1",
+      "parent_request_sha256": "34f6f8f003a0ab57b5e5a221bf9f6b4dc8c8a678d0d317978598f20a10f7a95e",
+      "pre_model_validation_codes": [],
+      "request_sha256": "4d3d8ca7aae0adc272138840f8d79025f9fd01d69436768d81c6af9beec0437a",
+      "shared_gsn_valid": true,
+      "source": "9b674b8eb1d894596ac7e0687fef7308b9c681a6:evaluation/m4_20261127/rq3/mutations/cases/P1-M3b.critic_request.json",
+      "source_file_sha256": "b723bd96888ae3e8d4411de8ccc44280e971d4fc0e4c90e31ec5736e9c384389",
+      "stratum": "semantic_mutation",
+      "target_node_id": "milk_1:C1",
+      "target_object_id": "milk_1"
+    },
+    {
+      "admitted_checker_count": 0,
+      "case_id": "P2-CC0",
+      "changed_paths": [
+        "/request_id"
+      ],
+      "critic_input_valid": true,
+      "deterministic_objection_count": 0,
+      "operator": "clean",
+      "parent_id": "P2",
+      "parent_request_sha256": "b79da4e1e857bdf8eb8e96656f271df68d0c6aa8888942668ac0b7101e8e85e4",
+      "pre_model_validation_codes": [],
+      "request_sha256": "341303841bb1680cbbe9f33ef97d1525170b47927913d238906d9d77dabfa6fe",
+      "shared_gsn_valid": true,
+      "source": "9b674b8eb1d894596ac7e0687fef7308b9c681a6:evaluation/m4_20261127/rq3/mutations/cases/P2-CC0.critic_request.json",
+      "source_file_sha256": "9376f7c3438a9ca8381a95104b8f33a4784db10303bd131d282a142f000f4f74",
+      "stratum": "clean_control",
+      "target_node_id": null,
+      "target_object_id": null
+    },
+    {
+      "admitted_checker_count": 0,
+      "case_id": "P2-CC1",
+      "changed_paths": [
+        "/argument_bundle/graphs/1/graph/nodes/0/statement",
+        "/request_id"
+      ],
+      "critic_input_valid": true,
+      "deterministic_objection_count": 0,
+      "operator": "clean",
+      "parent_id": "P2",
+      "parent_request_sha256": "b79da4e1e857bdf8eb8e96656f271df68d0c6aa8888942668ac0b7101e8e85e4",
+      "pre_model_validation_codes": [],
+      "request_sha256": "3ce0853639af1bf902044ec84a14bff7764a4f1fdb1f7ca1c44e20247caff6e0",
+      "shared_gsn_valid": true,
+      "source": "9b674b8eb1d894596ac7e0687fef7308b9c681a6:evaluation/m4_20261127/rq3/mutations/cases/P2-CC1.critic_request.json",
+      "source_file_sha256": "c1a5e45e4d76efa0f62db0eb6b387059556699dae7624f62a71112542b162440",
+      "stratum": "clean_control",
+      "target_node_id": "G1",
+      "target_object_id": "vial_b"
+    },
+    {
+      "admitted_checker_count": 0,
+      "case_id": "P2-M1c",
+      "changed_paths": [
+        "/argument_bundle/graphs/1/graph/nodes/6/statement",
+        "/request_id"
+      ],
+      "critic_input_valid": true,
+      "deterministic_objection_count": 1,
+      "operator": "M1",
+      "parent_id": "P2",
+      "parent_request_sha256": "b79da4e1e857bdf8eb8e96656f271df68d0c6aa8888942668ac0b7101e8e85e4",
+      "pre_model_validation_codes": [],
+      "request_sha256": "dc7825907fa1c1a7f279846c2ffe47806160553476a3fa3e5a99054031d1b3e2",
+      "shared_gsn_valid": true,
+      "source": "9b674b8eb1d894596ac7e0687fef7308b9c681a6:evaluation/m4_20261127/rq3/mutations/cases/P2-M1c.critic_request.json",
+      "source_file_sha256": "21babe3f7b1586788ad07450cc76345b62361c04eaea98ebbf1432f277d1c005",
+      "stratum": "semantic_mutation",
+      "target_node_id": "U1",
+      "target_object_id": "vial_b"
+    },
+    {
+      "admitted_checker_count": 0,
+      "case_id": "P2-M2a",
+      "changed_paths": [
+        "/argument_bundle/graphs/1/graph/nodes/5/evidence_id",
+        "/argument_bundle/graphs/1/graph/nodes/5/provenance/selector",
+        "/request_id"
+      ],
+      "critic_input_valid": true,
+      "deterministic_objection_count": 0,
+      "operator": "M2",
+      "parent_id": "P2",
+      "parent_request_sha256": "b79da4e1e857bdf8eb8e96656f271df68d0c6aa8888942668ac0b7101e8e85e4",
+      "pre_model_validation_codes": [],
+      "request_sha256": "8a526588ee53d77e8fa664eb27608e3ab2525a4f06e6c69d33c37533ee924803",
+      "shared_gsn_valid": true,
+      "source": "9b674b8eb1d894596ac7e0687fef7308b9c681a6:evaluation/m4_20261127/rq3/mutations/cases/P2-M2a.critic_request.json",
+      "source_file_sha256": "d02b1192c1a2449fcf22129acb967832d4b3ea8bfcf9a6a2f5b3c2ccbb541f53",
+      "stratum": "semantic_mutation",
+      "target_node_id": "E2",
+      "target_object_id": "vial_b"
+    },
+    {
+      "admitted_checker_count": 0,
+      "case_id": "P2-M2b",
+      "changed_paths": [
+        "/argument_bundle/graphs/0/graph/nodes/4/statement",
+        "/request_id"
+      ],
+      "critic_input_valid": true,
+      "deterministic_objection_count": 0,
+      "operator": "M2",
+      "parent_id": "P2",
+      "parent_request_sha256": "b79da4e1e857bdf8eb8e96656f271df68d0c6aa8888942668ac0b7101e8e85e4",
+      "pre_model_validation_codes": [],
+      "request_sha256": "fc106f58ff519997d32dc58ef1e91a9502deb976d9e5ceba2de3b0c7bbf513f1",
+      "shared_gsn_valid": true,
+      "source": "9b674b8eb1d894596ac7e0687fef7308b9c681a6:evaluation/m4_20261127/rq3/mutations/cases/P2-M2b.critic_request.json",
+      "source_file_sha256": "a379f7c58b5c13da53dbd7ad079d79c41234faec5b2059ff9ad85aecea8f5be6",
+      "stratum": "semantic_mutation",
+      "target_node_id": "E1",
+      "target_object_id": "widget_a"
+    },
+    {
+      "admitted_checker_count": 0,
+      "case_id": "P2-M3c",
+      "changed_paths": [
+        "/argument_bundle/graphs/2/graph/nodes/0/statement",
+        "/request_id"
+      ],
+      "critic_input_valid": true,
+      "deterministic_objection_count": 0,
+      "operator": "M3",
+      "parent_id": "P2",
+      "parent_request_sha256": "b79da4e1e857bdf8eb8e96656f271df68d0c6aa8888942668ac0b7101e8e85e4",
+      "pre_model_validation_codes": [],
+      "request_sha256": "a9dd28703a66344d65932243e0151a8c436c55a512601115ff788a54f9b6c28e",
+      "shared_gsn_valid": true,
+      "source": "9b674b8eb1d894596ac7e0687fef7308b9c681a6:evaluation/m4_20261127/rq3/mutations/cases/P2-M3c.critic_request.json",
+      "source_file_sha256": "fb5d2d2c700925acfc4444a9fc79412d2875df4483e0ec24750a8781776b4ca0",
+      "stratum": "semantic_mutation",
+      "target_node_id": "G1",
+      "target_object_id": "carton_c"
+    },
+    {
+      "admitted_checker_count": 0,
+      "case_id": "P2-V1",
+      "changed_paths": [
+        "/argument_bundle/graphs/1/graph/nodes/5/evidence_id",
+        "/request_id"
+      ],
+      "critic_input_valid": false,
+      "deterministic_objection_count": 0,
+      "operator": "M2",
+      "parent_id": "P2",
+      "parent_request_sha256": "b79da4e1e857bdf8eb8e96656f271df68d0c6aa8888942668ac0b7101e8e85e4",
+      "pre_model_validation_codes": [
+        "EV-MISSING"
+      ],
+      "request_sha256": "9d8079530741349089f5c6317042e6c88a899caaf63400889c086da61a5f8e38",
+      "shared_gsn_valid": false,
+      "source": "9b674b8eb1d894596ac7e0687fef7308b9c681a6:evaluation/m4_20261127/rq3/mutations/cases/P2-V1.critic_request.json",
+      "source_file_sha256": "25f6d5caeb4a8eca2c426937e6ca37c224444097aa3bfcb9a8817514c236e10b",
+      "stratum": "pre_model_validation_control",
+      "target_node_id": "E2",
+      "target_object_id": "vial_b"
+    },
+    {
+      "admitted_checker_count": 0,
+      "case_id": "P2-V2",
+      "changed_paths": [
+        "/argument_bundle/graphs/1/graph/nodes/5/evidence_id",
+        "/argument_bundle/graphs/1/graph/nodes/5/provenance/selector",
+        "/request_id"
+      ],
+      "critic_input_valid": false,
+      "deterministic_objection_count": 0,
+      "operator": "M2",
+      "parent_id": "P2",
+      "parent_request_sha256": "b79da4e1e857bdf8eb8e96656f271df68d0c6aa8888942668ac0b7101e8e85e4",
+      "pre_model_validation_codes": [
+        "EV-WRONG-OBJECT"
+      ],
+      "request_sha256": "9bc90049682eca020e90fa2f29ed9c9bfad8b9bf6d943a83b3f8a3ce69c22a9f",
+      "shared_gsn_valid": false,
+      "source": "9b674b8eb1d894596ac7e0687fef7308b9c681a6:evaluation/m4_20261127/rq3/mutations/cases/P2-V2.critic_request.json",
+      "source_file_sha256": "4c9573311e0f3adda81abdd56e3ff8d902571553b8b1418bd079d3fe0e914efd",
+      "stratum": "pre_model_validation_control",
+      "target_node_id": "E2",
+      "target_object_id": "vial_b"
+    },
+    {
+      "admitted_checker_count": 0,
+      "case_id": "P2-V3",
+      "changed_paths": [
+        "/argument_bundle/graphs/1/graph/nodes/5/evidence_id",
+        "/argument_bundle/graphs/1/graph/nodes/5/provenance/source_path",
+        "/argument_bundle/graphs/1/graph/nodes/5/provenance/source_sha256",
+        "/evidence_package/records",
+        "/request_id"
+      ],
+      "critic_input_valid": false,
+      "deterministic_objection_count": 0,
+      "operator": "M2",
+      "parent_id": "P2",
+      "parent_request_sha256": "b79da4e1e857bdf8eb8e96656f271df68d0c6aa8888942668ac0b7101e8e85e4",
+      "pre_model_validation_codes": [
+        "EV-WRONG-EXECUTION"
+      ],
+      "request_sha256": "c0aef5a7da18874edc2d77353ef899420e76a4471dde5fce426c74587a2cd405",
+      "shared_gsn_valid": false,
+      "source": "9b674b8eb1d894596ac7e0687fef7308b9c681a6:evaluation/m4_20261127/rq3/mutations/cases/P2-V3.critic_request.json",
+      "source_file_sha256": "3fd1dca0079f4f6de7a2dc2bbf65b6411451943be0e2d8e7e4a8082b1595040c",
+      "stratum": "pre_model_validation_control",
+      "target_node_id": "E2",
+      "target_object_id": "vial_b"
+    }
+  ],
+  "checked_condition_available": false,
+  "counts": {
+    "clean_control": 4,
+    "pre_model_validation_control": 3,
+    "semantic_mutation": 8
+  },
+  "critic_version": "0.5.0",
+  "data_role": "development_only",
+  "independent_scoring_eligible": false,
+  "label_audit_performed": false,
+  "model_calls": 0,
+  "schema_version": "m4-rq3-controlled-input-validation/1.0",
+  "source_revision": "9b674b8eb1d894596ac7e0687fef7308b9c681a6",
+  "source_set": "alex_pr31_public_engineering_cases"
+}

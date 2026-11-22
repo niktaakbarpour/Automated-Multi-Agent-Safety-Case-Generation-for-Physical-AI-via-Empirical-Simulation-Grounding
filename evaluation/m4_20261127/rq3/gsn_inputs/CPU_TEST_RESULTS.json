@@ -1,0 +1,73 @@
+{
+  "schema_version": "m4-rq3-cpu-test-results/0.1.0",
+  "baseline_commit": "20cec80bd44d19c6f58168132f366cbe38bd74e9",
+  "date": "2026-11-21",
+  "runtime": {
+    "python": "3.12.14",
+    "jsonschema": "4.19.1"
+  },
+  "environment": "CPU-only, no model inference; set PYTHONPATH=. with the pinned test dependencies installed",
+  "existing_suite_runs": [
+    {
+      "suite": "drafter",
+      "command": "python3 -m unittest discover -s drafter/tests -t . -q",
+      "status": "passed",
+      "tests_run": 209,
+      "tests_passed": 209,
+      "skipped": 0
+    },
+    {
+      "suite": "critic_strict",
+      "command": "CRITIC_STRICT_TESTS=1 python3 -m unittest discover -s critic/tests -t . -q",
+      "status": "passed",
+      "tests_run": 210,
+      "tests_passed": 210,
+      "skipped": 0
+    },
+    {
+      "suite": "revision",
+      "command": "python3 -m unittest discover -s drafter/revision/tests -t . -q",
+      "status": "passed",
+      "tests_run": 102,
+      "tests_passed": 102,
+      "skipped": 0
+    },
+    {
+      "suite": "integration",
+      "command": "python3 -m unittest integration.tests.test_handoff -q",
+      "status": "passed",
+      "tests_run": 9,
+      "tests_passed": 9,
+      "skipped": 0
+    },
+    {
+      "suite": "r1_v3_checker",
+      "command": "python3 -m unittest discover -s evaluation/r1_v3/tests -p test_checker.py -q",
+      "status": "passed",
+      "tests_run": 23,
+      "tests_passed": 23,
+      "skipped": 0
+    },
+    {
+      "suite": "r1_v4_infrastructure",
+      "command": "python3 -m unittest discover -s evaluation/r1_v4/tests -q",
+      "status": "passed",
+      "tests_run": 105,
+      "tests_passed": 104,
+      "skipped": 1,
+      "skip_reason": "Read-only live frozen checks require Hestia"
+    }
+  ],
+  "fixture_pack_tests": {
+    "command": "python3 -m unittest discover -s evaluation/m4_20261127/rq3/gsn_inputs -q",
+    "status": "passed",
+    "tests_run": 8,
+    "tests_passed": 8,
+    "skipped": 0
+  },
+  "revision_examples": {
+    "command": "python3 -m drafter.revision.tools.check_examples",
+    "status": "passed"
+  },
+  "registry_scope": "The legacy integration suite uses a Hestia-only filesystem path. The portable handoff validates the two fixture packs with the actual shared Graph.validate implementation."
+}
