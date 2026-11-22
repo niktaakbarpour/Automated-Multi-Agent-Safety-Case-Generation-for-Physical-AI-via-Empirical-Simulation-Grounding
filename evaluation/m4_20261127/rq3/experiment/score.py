@@ -19,6 +19,12 @@ Definitions (also in EXPERIMENT_CONFIG.md):
 - Abstention: a valid output with an empty findings list.
 - Rule-only detection: a rule-based finding (critic.checks.run_all) on the target with an acceptable category.
   Rules + model: rule-only detection or model detection, so each defect counts once.
+- Reference-based correctness: a valid output whose result agrees with the reference label: the mutation is
+  detected, or the clean control gets no accepted finding.
+- Reference-supported findings: of the accepted model findings on mutation cases, those that are a detection
+  (labelled node, acceptable category). The others have no reference label; they are not called wrong.
+- Evidence-link correctness: of the model findings that cite evidence and whose citations were actually checked
+  (not rejected earlier for format, category, object or node), those not rejected for a citation ("cites ...").
 """
 from collections import defaultdict
 from copy import deepcopy
@@ -40,13 +46,18 @@ import run_batch as RB  # noqa: E402
 
 HALLUCINATED = 'cites evidence IDs that are not in the package'
 RULE_ONLY_REJECTED = 'is decided by the rule-based checks only'
+CITATION_REJECTED = 'cites '
+# critic.llm._rejection_reason checks these before any citation, so a finding rejected for them had its
+# citations never checked.
+BEFORE_CITATIONS = ('does not match the finding format', 'missing explanation', 'category ', 'object ', 'node ')
 SUBSETS = ('M1', 'M2', 'M3', 'all_mutations', 'clean_controls')
 CASE_COLUMNS = (
     'run_id', 'case_id', 'condition', 'repeat', 'parent_group_id', 'case_type', 'mutation_operator',
     'c_availability', 'backend', 'model', 'model_revision', 'status', 'status_detail', 'attempts',
     'n_raw_findings', 'n_accepted', 'n_rejected', 'raw_target_hit', 'target_hit', 'detected',
     'target_categories', 'off_target_accepted', 'rule_only_category_at_target', 'hallucinated_citations',
-    'abstained', 'clean_control_false_positive', 'rule_only_findings', 'rule_only_detected',
+    'abstained', 'clean_control_false_positive', 'reference_correct', 'reference_supported_accepted',
+    'cited_findings_checked', 'citation_rejections', 'rule_only_findings', 'rule_only_detected',
     'rules_plus_model_detected', 'rules_plus_model_false_positive',
     'prompt_tokens', 'completion_tokens', 'latency_s', 'reply_sha256')
 SUMMARY_COLUMNS = ('channel', 'condition', 'c_availability', 'subset', 'metric', 'numerator', 'denominator',
@@ -67,6 +78,19 @@ def choose_attempt(attempts):
     """The first attempt that got a server reply; else the last attempt (a transport error)."""
     with_reply = [a for a in attempts if a['reply'] is not None]
     return (with_reply[0] if with_reply else attempts[-1]), len(attempts)
+
+
+def citation_counts(accepted_raw, rejected):
+    """(cited findings whose citations were checked, of which rejected for a citation)."""
+    def cites(f):
+        return isinstance(f, dict) and isinstance(f.get('evidence_ids'), list) and bool(f['evidence_ids'])
+    checked = [f for f in accepted_raw if cites(f)]
+    failed = 0
+    for x in rejected:
+        if cites(x['finding']) and not x['reason'].startswith(BEFORE_CITATIONS):
+            checked.append(x['finding'])
+            failed += x['reason'].startswith(CITATION_REJECTED)
+    return len(checked), failed
 
 
 def output_problem(attempt):
@@ -139,6 +163,8 @@ def score_rows(batch_dir, responses):
         accepted, rejected = L.screen(raw, cases[case_id], records, [], admission)
         hits = [f for f in accepted if at(f, location)]
         detected = mutation and any(f['category'] in acceptable for f in hits)
+        rejected_ids = {id(x['finding']) for x in rejected}
+        checked, citation_failed = citation_counts([f for f in raw if id(f) not in rejected_ids], rejected)
         row.update(
             status='valid', n_raw_findings=len(raw), n_accepted=len(accepted), n_rejected=len(rejected),
             raw_target_hit=int(any(isinstance(f, dict) and at(f, location) for f in raw)),
@@ -151,6 +177,9 @@ def score_rows(batch_dir, responses):
             hallucinated_citations=sum(x['reason'].startswith(HALLUCINATED) for x in rejected),
             abstained=int(not raw),
             clean_control_false_positive=int(bool(accepted)) if not mutation else '',
+            reference_correct=int(detected) if mutation else int(not accepted),
+            reference_supported_accepted=sum(f['category'] in acceptable for f in hits) if mutation else '',
+            cited_findings_checked=checked, citation_rejections=citation_failed,
             rules_plus_model_detected=int(rule_detected or detected) if mutation else '',
             rules_plus_model_false_positive=int(bool(accepted) or bool(rules[case_id])) if not mutation else '')
         rows.append(row)
@@ -165,16 +194,22 @@ def in_subset(row, subset):
     return row['mutation_operator'] == subset
 
 
-def rate_row(channel, condition, availability, subset, metric, rows, value, note=''):
-    """A summary row: pooled rate over the given rows, and mean and SD of the per-repeat rates."""
-    numerator = sum(value(r) for r in rows)
-    by_repeat = defaultdict(list)
+def rate_row(channel, condition, availability, subset, metric, rows, value, note='', weight=None):
+    """A summary row: pooled rate over the given rows, and mean and SD of the per-repeat rates.
+
+    Without weight the denominator is the number of rows (outputs). With weight it is the sum of weight(row),
+    for finding-level rates; a repeat with a zero denominator has no rate and is left out of the mean and SD.
+    """
+    weight = weight or (lambda r: 1)
+    numerator, denominator = sum(value(r) for r in rows), sum(weight(r) for r in rows)
+    by_repeat = defaultdict(lambda: [0, 0])
     for r in rows:
-        by_repeat[r['repeat']].append(value(r))
-    rates = [sum(v) / len(v) for _, v in sorted(by_repeat.items()) if v]
+        by_repeat[r['repeat']][0] += value(r)
+        by_repeat[r['repeat']][1] += weight(r)
+    rates = [n / d for _, (n, d) in sorted(by_repeat.items()) if d]
     return {'channel': channel, 'condition': condition, 'c_availability': availability, 'subset': subset,
-            'metric': metric, 'numerator': numerator, 'denominator': len(rows),
-            'rate': round(numerator / len(rows), 4) if rows else '',
+            'metric': metric, 'numerator': numerator, 'denominator': denominator,
+            'rate': round(numerator / denominator, 4) if denominator else '',
             'repeats': len(rates), 'mean_over_repeats': round(statistics.mean(rates), 4) if rates else '',
             'sd_over_repeats': round(statistics.stdev(rates), 4) if len(rates) >= 2 else '',
             'n_cases': len({r['case_id'] for r in rows}), 'n_groups': len({r['parent_group_id'] for r in rows}),
@@ -203,6 +238,23 @@ def summarize(rows):
                             lambda r: r['status'] == 'valid',
                             'missing, no-reply and invalid outputs count against validity only'))
         valid = [r for r in here if r['status'] == 'valid']
+        if valid:
+            out.append(rate_row('model_only', condition, availability, 'all_cases', 'reference_correct', valid,
+                                lambda r: r['reference_correct'], note_c))
+            out.append(rate_row('rules_plus_model', condition, availability, 'all_cases', 'reference_correct',
+                                valid, lambda r: r['rules_plus_model_detected'] if r['case_type'] == 'mutation'
+                                else int(not r['rules_plus_model_false_positive']), note_c))
+            out.append(rate_row('model_only', condition, availability, 'all_cases', 'evidence_link_correct', valid,
+                                lambda r: r['cited_findings_checked'] - r['citation_rejections'],
+                                'finding level: cited findings whose citations were checked' +
+                                ('; ' + note_c if note_c else ''), weight=lambda r: r['cited_findings_checked']))
+            mutations = [r for r in valid if r['case_type'] == 'mutation']
+            out.append(rate_row('model_only', condition, availability, 'all_mutations',
+                                'accepted_findings_reference_supported', mutations,
+                                lambda r: r['reference_supported_accepted'],
+                                'finding level: accepted findings on mutation cases; the rest have no reference, '
+                                'not a wrong label' + ('; ' + note_c if note_c else ''),
+                                weight=lambda r: r['n_accepted']))
         for subset in SUBSETS:
             group = [r for r in valid if in_subset(r, subset)]
             if not group:

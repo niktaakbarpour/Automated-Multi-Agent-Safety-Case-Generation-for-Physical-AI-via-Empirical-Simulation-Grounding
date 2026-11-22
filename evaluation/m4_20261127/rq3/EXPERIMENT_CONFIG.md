@@ -118,6 +118,13 @@ PYTHONPATH=. python3 evaluation/m4_20261127/rq3/experiment/score.py \
 
 This writes `RQ3_PER_CASE_RESULTS.csv` (one row per request, 108 rows) and `RQ3_SUMMARY.csv`.
 
+Then the tables, copied from those two files:
+
+```sh
+PYTHONPATH=. python3 evaluation/m4_20261127/rq3/experiment/make_tables.py \
+    --results-dir evaluation/m4_20261127/rq3 --out evaluation/m4_20261127/rq3/RQ3_TABLES.md
+```
+
 Output status, per request:
 
 - `missing`: no line for this request in the responses.
@@ -137,6 +144,12 @@ Definitions:
 - **Hallucinated citation**: a finding rejected for citing an evidence ID that is not in the package. Reported as the share of valid outputs with at least one.
 - **Rule-only category at target**: the model put a rule-only category (C01, C02, C03, C04, C11) on the target. Screening rejects it, and the per-case file records it.
 
+- **Reference-based correctness**: a valid output whose result agrees with the reference label: the mutation is detected, or the clean control gets no accepted finding. Reported over all 12 cases per condition, for the model alone and for rules + model.
+- **Reference-supported findings**: of the accepted model findings on mutation cases, the share that are a detection. The rest sit on nodes or categories the labels say nothing about. They are reported as unreferenced, not as wrong, and they keep the Critic's human-review requirement.
+- **Evidence-link correctness** (model citations): of the model findings that cite evidence and whose citations were actually checked, the share not rejected for a citation (an invented ID, a record about another object or execution, or a record outside the node's time window). A finding rejected earlier for its format, category, object or node never reaches the citation check and is left out. T sees no evidence records, so few T findings are expected to cite any.
+
+These map onto the measures named in the protocol freeze (`shared/M4_PROTOCOL_FREEZE.md`): unsupported-claim rate is M1 detection, evidence-link correctness is M2 detection plus the model-citation rate above, unjustified scope narrowing is M3 detection, then abstention and reference-based correctness. Finding-level rates (reference-supported findings, evidence links) leave a repeat with no findings out of the mean and SD.
+
 Three channels:
 
 1. **Rule-only**: `critic.checks.run_all` on each case, with no model. Deterministic, so one result per case and no repeats. It flags P1-M1a and P2-M1c (CLAIM-ABSOLUTE-SAFETY, C12) and nothing on the clean controls.
@@ -150,7 +163,7 @@ Each summary row gives the pooled rate over all valid outputs, the mean and SD o
 - 2 parent groups and 0 independent cases. No significance test is run, and none should be reported.
 - C is status only for both parents, as described above.
 - P1 has no registry evidence records, so for P1 cases R differs from T only by the retrieval context. Only the P2 cases give R evidence records (9 per case).
-- None of the 12 cases has a Phase 5 `structured_evidence` entry, so no structured retrieval bundle is part of this comparison (and `build_messages` would not show one to the model). The P1 retrieval context only mentions in its text that Phase 5 context is kept separately.
+- The six P1 cases carry one Phase 5 structured retrieval (`structured_evidence`), which the Critic admits as complete within its verified contract: robot joint positions for frames 11 to 12 and the identity of cream_cheese_1. `build_messages` does not include `structured_evidence`, so the model sees it in no condition, as in the production Critic. For P1, R and C therefore show the retrieval context (its gaps and limitations text) but not the retrieved values. The P2 cases have no structured evidence.
 - The labels come from one author's construction with a blind review still pending (see GOLD_LABELS_AND_REVIEW.md). The R1 checker itself has not been independently validated, which is why nothing in C relies on its verdicts.
 - One model (Qwen3-32B) with one prompt and one set of decoding settings.
 
