@@ -1,0 +1,145 @@
+{
+  "cases": [
+    {
+      "admitted_checker_count": 0,
+      "case_id": "P1-control",
+      "changed_paths": [
+        "/request_id"
+      ],
+      "critic_input_valid": true,
+      "deterministic_objection_count": 0,
+      "operator": "clean",
+      "parent_id": "P1",
+      "parent_request_sha256": "34f6f8f003a0ab57b5e5a221bf9f6b4dc8c8a678d0d317978598f20a10f7a95e",
+      "pre_model_validation_codes": [],
+      "request_sha256": "267e5122916519eb28500c22447e1320d5184a2a57653ffc6d8f1f232db23350",
+      "shared_gsn_valid": true,
+      "source": "local_control_recipe",
+      "source_file_sha256": null,
+      "stratum": "clean_control",
+      "target_node_id": null,
+      "target_object_id": null
+    },
+    {
+      "admitted_checker_count": 0,
+      "case_id": "P2-control",
+      "changed_paths": [
+        "/request_id"
+      ],
+      "critic_input_valid": true,
+      "deterministic_objection_count": 0,
+      "operator": "clean",
+      "parent_id": "P2",
+      "parent_request_sha256": "b79da4e1e857bdf8eb8e96656f271df68d0c6aa8888942668ac0b7101e8e85e4",
+      "pre_model_validation_codes": [],
+      "request_sha256": "ac4e45e020f1a36dc7d359f511dd47aeed4c7fc034b01ade1352496af8a0ad95",
+      "shared_gsn_valid": true,
+      "source": "local_control_recipe",
+      "source_file_sha256": null,
+      "stratum": "clean_control",
+      "target_node_id": null,
+      "target_object_id": null
+    },
+    {
+      "admitted_checker_count": 0,
+      "case_id": "P1-guarantee",
+      "changed_paths": [
+        "/argument_bundle/graphs/0/graph/nodes/0/statement",
+        "/request_id"
+      ],
+      "critic_input_valid": true,
+      "deterministic_objection_count": 1,
+      "operator": "M1",
+      "parent_id": "P1",
+      "parent_request_sha256": "34f6f8f003a0ab57b5e5a221bf9f6b4dc8c8a678d0d317978598f20a10f7a95e",
+      "pre_model_validation_codes": [],
+      "request_sha256": "279c44d159cc27a220cb5b81138c01f49a8c69a8ef6e3c9805f1ff9a6ee7824a",
+      "shared_gsn_valid": true,
+      "source": "local_control_recipe",
+      "source_file_sha256": null,
+      "stratum": "semantic_mutation",
+      "target_node_id": "cream_cheese_1:G1",
+      "target_object_id": "cream_cheese_1"
+    },
+    {
+      "admitted_checker_count": 0,
+      "case_id": "P2-citation",
+      "changed_paths": [
+        "/argument_bundle/graphs/1/graph/nodes/5/evidence_id",
+        "/argument_bundle/graphs/1/graph/nodes/5/provenance/selector",
+        "/request_id"
+      ],
+      "critic_input_valid": true,
+      "deterministic_objection_count": 0,
+      "operator": "M2",
+      "parent_id": "P2",
+      "parent_request_sha256": "b79da4e1e857bdf8eb8e96656f271df68d0c6aa8888942668ac0b7101e8e85e4",
+      "pre_model_validation_codes": [],
+      "request_sha256": "ab2a30b90b83273447c14a3f5d9e7be945ef56d577a29d878863b3d4d7beaead",
+      "shared_gsn_valid": true,
+      "source": "local_control_recipe",
+      "source_file_sha256": null,
+      "stratum": "semantic_mutation",
+      "target_node_id": "E2",
+      "target_object_id": "vial_b"
+    },
+    {
+      "admitted_checker_count": 0,
+      "case_id": "P2-narrower",
+      "changed_paths": [
+        "/argument_bundle/graphs/2/graph/nodes/0/statement",
+        "/request_id"
+      ],
+      "critic_input_valid": true,
+      "deterministic_objection_count": 0,
+      "operator": "M3",
+      "parent_id": "P2",
+      "parent_request_sha256": "b79da4e1e857bdf8eb8e96656f271df68d0c6aa8888942668ac0b7101e8e85e4",
+      "pre_model_validation_codes": [],
+      "request_sha256": "5980cbaf6bb354fc9e2258264f15a35e88b1fb3960b0a237dec90b3d42c5f07d",
+      "shared_gsn_valid": true,
+      "source": "local_control_recipe",
+      "source_file_sha256": null,
+      "stratum": "semantic_mutation",
+      "target_node_id": "G1",
+      "target_object_id": "carton_c"
+    },
+    {
+      "admitted_checker_count": 0,
+      "case_id": "P2-dangling",
+      "changed_paths": [
+        "/argument_bundle/graphs/1/graph/nodes/5/evidence_id",
+        "/request_id"
+      ],
+      "critic_input_valid": false,
+      "deterministic_objection_count": 0,
+      "operator": "M2",
+      "parent_id": "P2",
+      "parent_request_sha256": "b79da4e1e857bdf8eb8e96656f271df68d0c6aa8888942668ac0b7101e8e85e4",
+      "pre_model_validation_codes": [
+        "EV-MISSING"
+      ],
+      "request_sha256": "46fb4c801dc74778927c8094b818e7edde64cacee9530675d1b50382e50c351c",
+      "shared_gsn_valid": false,
+      "source": "local_control_recipe",
+      "source_file_sha256": null,
+      "stratum": "pre_model_validation_control",
+      "target_node_id": "E2",
+      "target_object_id": "vial_b"
+    }
+  ],
+  "checked_condition_available": false,
+  "counts": {
+    "clean_control": 2,
+    "pre_model_validation_control": 1,
+    "semantic_mutation": 3
+  },
+  "critic_version": "0.5.0",
+  "data_role": "development_only",
+  "independent_scoring_eligible": false,
+  "label_audit_performed": false,
+  "model_calls": 0,
+  "schema_version": "m4-rq3-controlled-input-validation/1.0",
+  "source_revision": null,
+  "source_set": "local_control_demonstrations"
+}
