@@ -22,12 +22,16 @@ Part A was written on November 22, before any GPU output existed, so it cannot b
 
 **Exposure.** The P1 parent and an earlier controlled guarantee mutation were reviewed during development, and the November 13 Qwen run already returned zero findings on both. The mutation design was made with that run known.
 
-## B. From the run (fill in after the GPU run)
+## B. From the run
 
-- Server, revision and hardware: (from RQ3_RESPONSES.jsonl.meta.jsonl and the server launch command)
-- Settings that differed from the frozen values: (`settings_deviate_from_frozen` in the meta file; "none" if empty)
-- Output validity per condition, and the reasons for invalid outputs: (RQ3_TABLES.md table 1; `status_detail` in RQ3_PER_CASE_RESULTS.csv)
-- Replies cut at the token limit (`finish_reason` "length"): (RQ3_PER_CASE_RESULTS.csv)
-- Requests retried after transport errors: (`attempts` column)
-- Any difference in validity between T, R and C that could bias the rates: (table 1)
-- Anything else that went differently from EXPERIMENT_CONFIG.md:
+- Server, revision and hardware: Qwen/Qwen3-32B revision 9216db5781bf21249d130ec9da846c4624c16137; two NVIDIA L40S GPUs (devices 1 and 2), BF16, driver 595.99.02; see RQ3_RESPONSES.jsonl.meta.jsonl and server_launch_retry3_command.txt.
+- Settings differing from frozen values: the five run metadata records have an empty settings_deviate_from_frozen object. The runtime used vLLM's native top-k/top-p sampler through VLLM_USE_FLASHINFER_SAMPLER=0; see the runtime note below. Model, prompts, batch inputs and frozen decoding parameters were retained.
+- Output validity: 108/108 scored responses valid, 36/36 in each of T, R and C. All successful responses finished with stop; none was cut off at the token limit. See scored/RQ3_PER_CASE_RESULTS.csv and scored/RQ3_SUMMARY.csv.
+- Retry history: the raw JSONL retains 117 attempts: 108 successful responses and 9 failed attempts. Those failures belong to three logical requests, each of which subsequently succeeded on attempt 4; the other 105 requests succeeded on attempt 1. The failed attempts were three HTTP 400 structured-output backend rejections and six HTTP 500 engine errors. They are not nine failed logical requests.
+- C interpretation: C is checker-admission status only. No independently verified physical checker evidence was admitted; do not claim a checked-evidence effectiveness result.
+- Mutation detection across 8 cases and 3 repeats per condition: rule-only 2/8; model-only T 8/24, R 9/24, C 10/24; rules-plus-model T 10/24, R 10/24, C 11/24. Clean-control false positives: T 0/12, R 1/12, C 3/12. C remains status-only. Exact stratified results are in scored/RQ3_SUMMARY.csv.
+- Labels and scope: mutation labels remain developer-authored; Ryiad's independent mutation-label audit is pending. Two parent groups were used, both development-exposed; there are zero independent groups. These results do not estimate performance on new executions.
+
+## C. Runtime implementation limitation
+
+The successful run used the installed vLLM native top-k/top-p sampler (VLLM_USE_FLASHINFER_SAMPLER=0). FlashInfer JIT could not compile with the installed CUDA 13.4 compiler and bundled headers. The frozen JSON response format was rejected by Outlines; XGrammar accepted it, but the FlashInfer sampler path failed. The native sampler fallback completed the real run. The model, prompt, inputs and frozen decoding values were unchanged. The exact successful server command is preserved in server_launch_retry3_command.txt; full diagnostic logs remain in the original Hestia worktree and are not included in this publication set.

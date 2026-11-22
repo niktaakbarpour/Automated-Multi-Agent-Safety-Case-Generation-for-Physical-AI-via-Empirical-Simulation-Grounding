@@ -1,0 +1,81 @@
+channel,condition,c_availability,subset,metric,numerator,denominator,rate,repeats,mean_over_repeats,sd_over_repeats,n_cases,n_groups,note
+rule_only,,,M1,detection,2,3,0.6667,1,0.6667,,3,2,"deterministic; no model, no repeats"
+rule_only,,,M2,detection,0,2,0.0,1,0.0,,2,1,"deterministic; no model, no repeats"
+rule_only,,,M3,detection,0,3,0.0,1,0.0,,3,2,"deterministic; no model, no repeats"
+rule_only,,,all_mutations,detection,2,8,0.25,1,0.25,,8,2,"deterministic; no model, no repeats"
+rule_only,,,clean_controls,false_positive,0,4,0.0,1,0.0,,4,2,"deterministic; no model, no repeats"
+model_only,T,,all_requests,valid_output,36,36,1.0,3,1.0,0.0,12,2,"missing, no-reply and invalid outputs count against validity only"
+model_only,T,,M1,detection,6,9,0.6667,3,0.6667,0.3333,3,2,
+model_only,T,,M1,target_hit_any_category,6,9,0.6667,3,0.6667,0.3333,3,2,
+rules_plus_model,T,,M1,detection,8,9,0.8889,3,0.8889,0.1925,3,2,
+model_only,T,,M1,abstention,3,9,0.3333,3,0.3333,0.3333,3,2,
+model_only,T,,M1,outputs_with_hallucinated_citation,0,9,0.0,3,0.0,0.0,3,2,
+model_only,T,,M2,detection,2,6,0.3333,3,0.3333,0.2887,2,1,
+model_only,T,,M2,target_hit_any_category,2,6,0.3333,3,0.3333,0.2887,2,1,
+rules_plus_model,T,,M2,detection,2,6,0.3333,3,0.3333,0.2887,2,1,
+model_only,T,,M2,abstention,4,6,0.6667,3,0.6667,0.2887,2,1,
+model_only,T,,M2,outputs_with_hallucinated_citation,0,6,0.0,3,0.0,0.0,2,1,
+model_only,T,,M3,detection,0,9,0.0,3,0.0,0.0,3,2,
+model_only,T,,M3,target_hit_any_category,0,9,0.0,3,0.0,0.0,3,2,
+rules_plus_model,T,,M3,detection,0,9,0.0,3,0.0,0.0,3,2,
+model_only,T,,M3,abstention,9,9,1.0,3,1.0,0.0,3,2,
+model_only,T,,M3,outputs_with_hallucinated_citation,0,9,0.0,3,0.0,0.0,3,2,
+model_only,T,,all_mutations,detection,8,24,0.3333,3,0.3333,0.1443,8,2,
+model_only,T,,all_mutations,target_hit_any_category,8,24,0.3333,3,0.3333,0.1443,8,2,
+rules_plus_model,T,,all_mutations,detection,10,24,0.4167,3,0.4167,0.0722,8,2,
+model_only,T,,all_mutations,abstention,16,24,0.6667,3,0.6667,0.1443,8,2,
+model_only,T,,all_mutations,outputs_with_hallucinated_citation,0,24,0.0,3,0.0,0.0,8,2,
+model_only,T,,clean_controls,false_positive,0,12,0.0,3,0.0,0.0,4,2,
+rules_plus_model,T,,clean_controls,false_positive,0,12,0.0,3,0.0,0.0,4,2,
+model_only,T,,clean_controls,abstention,12,12,1.0,3,1.0,0.0,4,2,
+model_only,T,,clean_controls,outputs_with_hallucinated_citation,0,12,0.0,3,0.0,0.0,4,2,
+model_only,R,,all_requests,valid_output,36,36,1.0,3,1.0,0.0,12,2,"missing, no-reply and invalid outputs count against validity only"
+model_only,R,,M1,detection,6,9,0.6667,3,0.6667,0.3333,3,2,
+model_only,R,,M1,target_hit_any_category,6,9,0.6667,3,0.6667,0.3333,3,2,
+rules_plus_model,R,,M1,detection,7,9,0.7778,3,0.7778,0.1925,3,2,
+model_only,R,,M1,abstention,3,9,0.3333,3,0.3333,0.3333,3,2,
+model_only,R,,M1,outputs_with_hallucinated_citation,0,9,0.0,3,0.0,0.0,3,2,
+model_only,R,,M2,detection,3,6,0.5,3,0.5,0.0,2,1,
+model_only,R,,M2,target_hit_any_category,3,6,0.5,3,0.5,0.0,2,1,
+rules_plus_model,R,,M2,detection,3,6,0.5,3,0.5,0.0,2,1,
+model_only,R,,M2,abstention,3,6,0.5,3,0.5,0.0,2,1,
+model_only,R,,M2,outputs_with_hallucinated_citation,0,6,0.0,3,0.0,0.0,2,1,
+model_only,R,,M3,detection,0,9,0.0,3,0.0,0.0,3,2,
+model_only,R,,M3,target_hit_any_category,0,9,0.0,3,0.0,0.0,3,2,
+rules_plus_model,R,,M3,detection,0,9,0.0,3,0.0,0.0,3,2,
+model_only,R,,M3,abstention,9,9,1.0,3,1.0,0.0,3,2,
+model_only,R,,M3,outputs_with_hallucinated_citation,0,9,0.0,3,0.0,0.0,3,2,
+model_only,R,,all_mutations,detection,9,24,0.375,3,0.375,0.125,8,2,
+model_only,R,,all_mutations,target_hit_any_category,9,24,0.375,3,0.375,0.125,8,2,
+rules_plus_model,R,,all_mutations,detection,10,24,0.4167,3,0.4167,0.0722,8,2,
+model_only,R,,all_mutations,abstention,15,24,0.625,3,0.625,0.125,8,2,
+model_only,R,,all_mutations,outputs_with_hallucinated_citation,0,24,0.0,3,0.0,0.0,8,2,
+model_only,R,,clean_controls,false_positive,1,12,0.0833,3,0.0833,0.1443,4,2,
+rules_plus_model,R,,clean_controls,false_positive,1,12,0.0833,3,0.0833,0.1443,4,2,
+model_only,R,,clean_controls,abstention,11,12,0.9167,3,0.9167,0.1443,4,2,
+model_only,R,,clean_controls,outputs_with_hallucinated_citation,0,12,0.0,3,0.0,0.0,4,2,
+model_only,C,status_only,all_requests,valid_output,36,36,1.0,3,1.0,0.0,12,2,"missing, no-reply and invalid outputs count against validity only"
+model_only,C,status_only,M1,detection,7,9,0.7778,3,0.7778,0.1925,3,2,C carries checker status only; no requirement-checked verdict
+model_only,C,status_only,M1,target_hit_any_category,7,9,0.7778,3,0.7778,0.1925,3,2,C carries checker status only; no requirement-checked verdict
+rules_plus_model,C,status_only,M1,detection,8,9,0.8889,3,0.8889,0.1925,3,2,C carries checker status only; no requirement-checked verdict
+model_only,C,status_only,M1,abstention,2,9,0.2222,3,0.2222,0.1925,3,2,C carries checker status only; no requirement-checked verdict
+model_only,C,status_only,M1,outputs_with_hallucinated_citation,1,9,0.1111,3,0.1111,0.1925,3,2,C carries checker status only; no requirement-checked verdict
+model_only,C,status_only,M2,detection,3,6,0.5,3,0.5,0.0,2,1,C carries checker status only; no requirement-checked verdict
+model_only,C,status_only,M2,target_hit_any_category,3,6,0.5,3,0.5,0.0,2,1,C carries checker status only; no requirement-checked verdict
+rules_plus_model,C,status_only,M2,detection,3,6,0.5,3,0.5,0.0,2,1,C carries checker status only; no requirement-checked verdict
+model_only,C,status_only,M2,abstention,3,6,0.5,3,0.5,0.0,2,1,C carries checker status only; no requirement-checked verdict
+model_only,C,status_only,M2,outputs_with_hallucinated_citation,0,6,0.0,3,0.0,0.0,2,1,C carries checker status only; no requirement-checked verdict
+model_only,C,status_only,M3,detection,0,9,0.0,3,0.0,0.0,3,2,C carries checker status only; no requirement-checked verdict
+model_only,C,status_only,M3,target_hit_any_category,1,9,0.1111,3,0.1111,0.1925,3,2,C carries checker status only; no requirement-checked verdict
+rules_plus_model,C,status_only,M3,detection,0,9,0.0,3,0.0,0.0,3,2,C carries checker status only; no requirement-checked verdict
+model_only,C,status_only,M3,abstention,7,9,0.7778,3,0.7778,0.1925,3,2,C carries checker status only; no requirement-checked verdict
+model_only,C,status_only,M3,outputs_with_hallucinated_citation,0,9,0.0,3,0.0,0.0,3,2,C carries checker status only; no requirement-checked verdict
+model_only,C,status_only,all_mutations,detection,10,24,0.4167,3,0.4167,0.0722,8,2,C carries checker status only; no requirement-checked verdict
+model_only,C,status_only,all_mutations,target_hit_any_category,11,24,0.4583,3,0.4583,0.1443,8,2,C carries checker status only; no requirement-checked verdict
+rules_plus_model,C,status_only,all_mutations,detection,11,24,0.4583,3,0.4583,0.0722,8,2,C carries checker status only; no requirement-checked verdict
+model_only,C,status_only,all_mutations,abstention,12,24,0.5,3,0.5,0.125,8,2,C carries checker status only; no requirement-checked verdict
+model_only,C,status_only,all_mutations,outputs_with_hallucinated_citation,1,24,0.0417,3,0.0417,0.0722,8,2,C carries checker status only; no requirement-checked verdict
+model_only,C,status_only,clean_controls,false_positive,3,12,0.25,3,0.25,0.25,4,2,C carries checker status only; no requirement-checked verdict
+rules_plus_model,C,status_only,clean_controls,false_positive,3,12,0.25,3,0.25,0.25,4,2,C carries checker status only; no requirement-checked verdict
+model_only,C,status_only,clean_controls,abstention,9,12,0.75,3,0.75,0.25,4,2,C carries checker status only; no requirement-checked verdict
+model_only,C,status_only,clean_controls,outputs_with_hallucinated_citation,0,12,0.0,3,0.0,0.0,4,2,C carries checker status only; no requirement-checked verdict

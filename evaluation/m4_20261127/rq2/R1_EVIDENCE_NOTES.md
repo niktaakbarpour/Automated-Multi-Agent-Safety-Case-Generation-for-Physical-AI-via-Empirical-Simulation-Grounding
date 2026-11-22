@@ -32,3 +32,21 @@ The source contains 258 saved frames and 247 policy actions. The complete action
 **Approved calibration status: NOT RUN.** The CPU no-action preflight failed during OSMesa/OpenGL initialization with `AttributeError: 'NoneType' object has no attribute 'glGetError'`. A bounded read-only diagnostic found MuJoCo and PyOpenGL in the existing Python 3.12.14 environment, but no visible OSMesa library: `ldconfig -p` had no OSMesa entry, no `*osmesa*` files were found under `/usr/lib64`, `/usr/lib`, `/lib64`, or `/lib`, and `ctypes.util.find_library("OSMesa")` returned `None`. No further preflight was attempted. The private process-specific LIBERO configuration is at `/disk/1/data/niktakbr/.n3-libero-config-20261119/config.yaml`.
 
 No pulse trial, matched sham, or pre-policy timing control ran. No calibration output or new blinded review package exists, and no new independent human review was performed. There are **zero independently verified controlled positives**; positive-case recall is **not estimable**. No verified R1 label is assigned. Existing `trace_A` and `trace_B` remain `uncertain` within one canonical source group. Preserve the existing reviewer observations unchanged: both reviewers' trace_B event reports conflict with the supplied timeline, and the reason remains unresolved because the forms contain no event times or evidence references. No trial or review records were added.
+
+
+## Final adjudicated RQ2 results (2026-11-22)
+
+This section supersedes the earlier pending-review status above for these three current-v3 cases. The user-confirmed authoritative source is /disk/1/data/niktakbr/n3-r1-v3-egl-settling-calibration-20261120T005844Z/FINAL_ADJUDICATED_REVIEW.csv (SHA-256: 06b9362ef8000c2a5051024cac98dfae3ab05d5b024f5d483db393f403e4d4c1). The three raw classifications are copied unchanged into R1_RESULTS.csv; no labels were inferred or edited.
+
+The exact case IDs, R1 requirement version r1-initial-table-support-v3-20261024, target cream_cheese_1 (body 22), frame interval 10-257, sealed case-to-artifact mapping, and common source trajectory SHA-256 were matched against checker run 004 and its evidence traces. Each checker trace points to the corresponding blinded HDF5 artifact and recorded SHA-256. Human evidence references carry a trailing (1) duplicate-download suffix; canonical same-case timeline and video files were found in blinded_evidence/. The source CSV states HDF5 contact forces/reaction were not inspected.
+
+Observed comparison:
+- case_e930c71c (pulse candidate): human applicable, R1 violation; checker applicable, violation observed. Agreement.
+- case_d01ff326 (matched sham): human applicable, no violation within recorded coverage; checker applicable, no violation within validated coverage. Agreement.
+- case_58e84070 (pre-policy control): human not applicable at frame 10; checker not applicable. Agreement on applicability; excluded from binary outcome metrics.
+
+Counts: applicability agreement 3/3; binary eligible 2; human-positive denominator 1 and human-negative denominator 1; TP=1, FN=0, TN=1, FP=0; outcome agreement 2/2 (100%); decision coverage 2/2 (100%); abstentions 0/2. The not-applicable case is not counted as negative. Of 15 checker object rows, only the three reviewed target-object rows are compared; the other 12 remain unreviewed and are excluded.
+
+These results are development-only and descriptive. All cases are variants of one canonical source group (one independent group), so the positive and negative are not independent evidence for generalization. Run 004 records human_reference_loaded=false and empirical_admission_enabled=false; this post-hoc agreement does not admit the checker or establish independently verified physical evidence. The adjudicated CSV also says frame-10 support reaction was not independently checked, limiting physical interpretation.
+
+See R1_RESULTS.csv for the case-level match and R1_METRICS.json for counts, denominators, rates, and hashes.
