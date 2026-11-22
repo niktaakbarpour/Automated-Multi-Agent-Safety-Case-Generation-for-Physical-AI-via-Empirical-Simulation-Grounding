@@ -23,9 +23,12 @@ sys.path.insert(0, str(EXP))
 import build_batch as BB  # noqa: E402
 import conditions as CND  # noqa: E402
 import run_batch as RB  # noqa: E402
+import make_tables as MT  # noqa: E402
 import score as SC  # noqa: E402
 import settings as S  # noqa: E402
 
+CARTON_RECORD = 'ev:d8e9358728733b3c51f92aa1486aabf3312f8f48b67ed176f01fd83df07c2539'  # P2, carton_c
+WIDGET_RECORD = 'ev:b9deb6f30f9ee8493a33ad9ccadcdaa51b2f38dbcaa684fb5c4b65fab2e30967'  # P2, widget_a
 SAVED_REPORT = ROOT / 'integration/fixtures/one_pass_20261113/artifacts/models/critic.qwen.report.json'
 
 
@@ -152,6 +155,7 @@ class DryRun(unittest.TestCase):
     def setUpClass(cls):
         labels = {x['case_id']: x for x in load(RQ3 / 'mutations' / 'gold_labels.json')}
         m1a = labels['P1-M1a']['expected_location']
+        m3c = labels['P2-M3c']['expected_location']
         other = {'object_id': 'butter_1', 'node_id': 'butter_1:G1'}
         cls.replies = {
             'P1-M1a:T:r1': reply(finding('C12', m1a)),                       # detection
@@ -162,6 +166,8 @@ class DryRun(unittest.TestCase):
             'P1-M1a:R:r3': 'not JSON at all',                                # invalid output
             'P1-M1a:C:r1': reply(finding('C11', m1a)),                       # rule-only category
             'P1-CC0:T:r1': reply(finding('C05', m1a)),                       # clean-control false positive
+            'P2-M3c:R:r1': reply(finding('C08', m3c, [CARTON_RECORD])),      # detection with a sound citation
+            'P2-M3c:R:r2': reply(finding('C08', m3c, [WIDGET_RECORD])),      # citation about another object
             '*': reply(),
         }
         cls.tmp = tempfile.TemporaryDirectory()
@@ -182,6 +188,7 @@ class DryRun(unittest.TestCase):
         SC.main(['--responses', str(cls.out), '--out-dir', str(tmp)])
         cls.rows = {r['run_id']: r for r in csv_rows(tmp / 'RQ3_PER_CASE_RESULTS.csv')}
         cls.summary = csv_rows(tmp / 'RQ3_SUMMARY.csv')
+        cls.tables, _ = MT.build(tmp)
 
     @classmethod
     def tearDownClass(cls):
@@ -210,6 +217,14 @@ class DryRun(unittest.TestCase):
         self.assertEqual(r['P1-M1a:C:r3']['status'], 'no_reply')
         self.assertEqual(r['P1-CC0:T:r1']['clean_control_false_positive'], '1')
         self.assertEqual(r['P1-CC0:T:r2']['clean_control_false_positive'], '0')
+        self.assertEqual((r['P1-CC0:T:r1']['reference_correct'], r['P1-CC0:T:r2']['reference_correct']), ('0', '1'))
+        self.assertEqual((r['P2-M3c:R:r1']['detected'], r['P2-M3c:R:r1']['cited_findings_checked'],
+                          r['P2-M3c:R:r1']['citation_rejections']), ('1', '1', '0'))
+        self.assertEqual((r['P2-M3c:R:r2']['detected'], r['P2-M3c:R:r2']['cited_findings_checked'],
+                          r['P2-M3c:R:r2']['citation_rejections']), ('0', '1', '1'))
+        self.assertEqual((r['P1-M1a:R:r1']['cited_findings_checked'], r['P1-M1a:R:r1']['citation_rejections']),
+                         ('1', '1'))
+        self.assertEqual(r['P1-M1a:C:r1']['cited_findings_checked'], '0')  # rejected before citations
         self.assertTrue(all(x['backend'] == 'scripted' for x in r.values() if x['status'] != 'missing'))
 
     def test_rule_only_channel_and_union(self):
@@ -239,6 +254,41 @@ class DryRun(unittest.TestCase):
         self.assertEqual((rule['numerator'], rule['denominator']), ('2', '8'))
         fp = get('model_only', 'T', 'clean_controls', 'false_positive')
         self.assertEqual((fp['numerator'], fp['denominator']), ('1', '12'))
+        expected = {  # worked out by hand from the scripted replies above
+            ('model_only', 'T', 'all_cases', 'reference_correct'): ('12', '36'),
+            ('model_only', 'R', 'all_cases', 'reference_correct'): ('13', '35'),
+            ('model_only', 'C', 'all_cases', 'reference_correct'): ('12', '34'),
+            ('rules_plus_model', 'T', 'all_cases', 'reference_correct'): ('17', '36'),
+            ('rules_plus_model', 'R', 'all_cases', 'reference_correct'): ('18', '35'),
+            ('rules_plus_model', 'C', 'all_cases', 'reference_correct'): ('16', '34'),
+            ('model_only', 'T', 'all_mutations', 'accepted_findings_reference_supported'): ('1', '3'),
+            ('model_only', 'R', 'all_mutations', 'accepted_findings_reference_supported'): ('1', '1'),
+            ('model_only', 'C', 'all_mutations', 'accepted_findings_reference_supported'): ('0', '0'),
+            ('model_only', 'T', 'all_cases', 'evidence_link_correct'): ('0', '0'),
+            ('model_only', 'R', 'all_cases', 'evidence_link_correct'): ('1', '3'),
+            ('model_only', 'R', 'M3', 'detection'): ('1', '9'),
+        }
+        for key, value in expected.items():
+            self.assertEqual((get(*key)['numerator'], get(*key)['denominator']), value, key)
+        link = get('model_only', 'R', 'all_cases', 'evidence_link_correct')
+        self.assertEqual((link['repeats'], link['mean_over_repeats'], link['sd_over_repeats']), ('2', '0.25', '0.3536'))
+        self.assertEqual(get('model_only', 'T', 'all_cases', 'evidence_link_correct')['rate'], '')
+
+
+    def test_tables_copy_the_scored_numbers(self):
+        t = self.tables
+        self.assertIn('**These tables come from scripted test replies, not model results.**', t)
+        self.assertIn('| T | 36 | 0 | 0 | 0 | 36 |', t)
+        self.assertIn('| R | 35 | 1 | 0 | 0 | 36 |', t)
+        self.assertIn('| C | 34 | 0 | 1 | 1 | 36 |', t)
+        self.assertIn('| all mutations | detection | 2/8 | 1/24 (mean 0.04, SD 0.07) |', t)
+        self.assertIn('| P1-M1a | M1 | original_reviewed | yes | 1/3 | 0/2 (1 not valid) | 0/1 (2 not valid) |', t)
+        self.assertIn('| P1-CC0 | clean control | original_reviewed | none | 1/3 | 0/3 | 0/3 |', t)
+        self.assertIn('| T | 36 | 4 | 4 | 0 | 0 | 0 | 1 |', t)
+        self.assertIn('| M1 | detection | 2/3 | 1/9 (mean 0.11, SD 0.19) |', t)
+        self.assertIn('6/9 (mean 0.67, SD 0.00) | 5/8 (mean 0.61, SD 0.10) | 4/7 (mean 0.56, SD 0.10) |', t)
+        self.assertIn('| R | 35 | 3 | 1 | 2 | 1 | 0 | 0 |', t)
+        self.assertIn('| C | 34 | 1 | 0 | 1 | 0 | 1 | 0 |', t)
 
 
 if __name__ == '__main__':
