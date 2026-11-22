@@ -1,0 +1,123 @@
+{
+  "applicability": {
+    "agreement": {
+      "denominator": 3,
+      "numerator": 3,
+      "rate": 1.0
+    },
+    "checker": {
+      "applicable": 2,
+      "not_applicable": 1,
+      "unknown": 0
+    },
+    "human": {
+      "applicable": 2,
+      "not_applicable": 1,
+      "unknown": 0
+    }
+  },
+  "binary_violation_metrics": {
+    "abstention_rate": {
+      "denominator": 2,
+      "numerator": 0,
+      "rate": 0.0
+    },
+    "abstentions": 0,
+    "confusion": {
+      "false_negative": 0,
+      "false_positive": 0,
+      "true_negative": 1,
+      "true_positive": 1
+    },
+    "decision_coverage": {
+      "denominator": 2,
+      "numerator": 2,
+      "rate": 1.0
+    },
+    "eligible_applicable_cases": 2,
+    "human_negative_denominator": 1,
+    "human_positive_denominator": 1,
+    "negative_predictive_value": {
+      "denominator": 1,
+      "numerator": 1,
+      "rate": 1.0
+    },
+    "not_applicable_excluded": 1,
+    "positive_predictive_value": {
+      "denominator": 1,
+      "numerator": 1,
+      "rate": 1.0
+    },
+    "scored_outcome_agreement": {
+      "denominator": 2,
+      "numerator": 2,
+      "rate": 1.0
+    },
+    "sensitivity": {
+      "denominator": 1,
+      "numerator": 1,
+      "rate": 1.0
+    },
+    "specificity": {
+      "denominator": 1,
+      "numerator": 1,
+      "rate": 1.0
+    },
+    "unknown_excluded": 0
+  },
+  "checker_run": {
+    "checker_version": "1.1.0-dev",
+    "empirical_admission_enabled": false,
+    "evidence_traces_sha256": "269e594295de11477866c103a4b1dc0e389c665643baad1c1c247607f4d95642",
+    "human_reference_loaded": false,
+    "output_seal_sha256": "0b8f06e5cbdfff70b7f28fd13222181ba61602a2f49e214ddb31f17e9b1bbc5c",
+    "path": "/disk/1/data/niktakbr/n3-r1-v3-egl-settling-calibration-20261120T005844Z/rq2-checker-v1-20261121T0401Z-run-004",
+    "prediction_sha256": "b5d5194b4fa8980bc7ba11bc3715f46097ddd786b7c4a01dc5b20aa38ddae663"
+  },
+  "limitations": [
+    "Three adjudicated cases come from one canonical source execution group; positive and negative outcomes are condition variants from that group, not independent samples.",
+    "One positive and one negative case make all percentages descriptive and unsuitable for broad generalization.",
+    "The not-applicable case is excluded from binary violation metrics, not treated as negative.",
+    "Only the reviewed cream_cheese_1/body-22 row per case is human-verified; 12 other object-level predictions are excluded.",
+    "Run 004 says human_reference_loaded=false and empirical_admission_enabled=false; post-hoc agreement does not establish checker admission or physical evidence admission.",
+    "The final human CSV classifications are retained verbatim and say frame-10 load-bearing contact reaction/HDF5 forces were not independently checked; this is agreement with the final human reference, not independent physical force verification."
+  ],
+  "matching": {
+    "all_checker_object_rows": 15,
+    "matched_reviewed_cases": 3,
+    "matching_keys": [
+      "exact case_id",
+      "requirement_version",
+      "scope object and frame interval",
+      "sealed case-to-artifact mapping",
+      "source trajectory SHA-256",
+      "target body id"
+    ],
+    "requirement_id": "R1",
+    "requirement_version": "r1-initial-table-support-v3-20261024",
+    "scope_frames": [
+      10,
+      257
+    ],
+    "target_body_id": 22,
+    "target_object": "cream_cheese_1",
+    "unreviewed_object_rows_excluded": 12
+  },
+  "reference_source": {
+    "authority": "user-confirmed final adjudicated human reference; raw classifications preserved verbatim",
+    "path": "/disk/1/data/niktakbr/n3-r1-v3-egl-settling-calibration-20261120T005844Z/FINAL_ADJUDICATED_REVIEW.csv",
+    "sha256": "06b9362ef8000c2a5051024cac98dfae3ab05d5b024f5d483db393f403e4d4c1"
+  },
+  "sample": {
+    "canonical_source_groups": 1,
+    "canonical_source_id": "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db",
+    "condition_variants": {
+      "case_58e84070": "pre_policy_control",
+      "case_d01ff326": "matched_sham",
+      "case_e930c71c": "pulse_candidate"
+    },
+    "independent_source_groups_for_generalization": 1,
+    "reviewed_cases": 3
+  },
+  "status": "development_only_descriptive_evaluation"
+}

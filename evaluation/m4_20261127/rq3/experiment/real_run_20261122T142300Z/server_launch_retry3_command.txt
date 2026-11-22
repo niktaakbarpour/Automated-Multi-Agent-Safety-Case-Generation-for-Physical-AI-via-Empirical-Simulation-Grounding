@@ -1,0 +1,11 @@
+cd /disk/1/data/niktakbr/drafter-qwen3-32b-20261105T150100Z
+source scripts/env.sh
+export CUDA_VISIBLE_DEVICES=1,2
+export CUDA_HOME=/disk/1/data/niktakbr/trustworthy-runtime/venv-py312/lib/python3.12/site-packages/nvidia/cu13
+export PATH=$CUDA_HOME/bin:$PATH
+export VLLM_USE_FLASHINFER_SAMPLER=0
+export VLLM_REGEX_COMPILATION_TIMEOUT_S=60
+export HF_HUB_OFFLINE=1
+export TRANSFORMERS_OFFLINE=1
+nvidia-smi
+\"$SERVER_PY\" -m vllm.entrypoints.cli.main serve \"$BASE/models/Qwen3-32B\" --served-model-name Qwen/Qwen3-32B --host 127.0.0.1 --port 8000 --tensor-parallel-size 2 --dtype bfloat16 --max-model-len 24576 --max-num-seqs 1 --gpu-memory-utilization 0.90 --enforce-eager --default-chat-template-kwargs '{\"enable_thinking\":false}' --structured-outputs-config '{\"backend\":\"xgrammar\"}'
