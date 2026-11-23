@@ -1,0 +1,1014 @@
+{
+ "method": "template",
+ "case_id": "P1-M1a",
+ "permitted_information_sha256": "0e6dcc87baf81e591575d4429372c76527c5b04a5838fd89843b4914c7bca551",
+ "result": {
+  "schema_version": "drafter-revision-result/0.1.0",
+  "revision_id": "rq4-P1-M1a",
+  "round": 1,
+  "max_rounds": 1,
+  "test_fixture": true,
+  "synthetic_findings": {
+   "present": false,
+   "label": null
+  },
+  "revision_request_sha256": "3721b5deede0f3e0015ed0c337eb3470d594690f317da26d4b0c1254cb4c3067",
+  "critic_request_sha256": "4b3f79d66377991f89026feb5f781ce1e192937ee08a15ec2ab3dafaed390142",
+  "critic_report_sha256": "65a2365e98120045f86ccc6bf21a013a4dcab8d364af442ac2a295319a33b943",
+  "adapter": {
+   "name": "deterministic-templates",
+   "version": "0.1.0",
+   "kind": "deterministic"
+  },
+  "outcome": "revised",
+  "stop_reason": null,
+  "status_detail": "The bundle was revised and validated. Rule findings were re-checked here. A model-proposed finding counts as addressed only after the Critic has reviewed the revised bundle again.",
+  "request_issues": [],
+  "original_argument_bundle_sha256": "6fb5471a27fdef29707b9a8beda321f7258723ca66a8c0c871af01fce0405bc5",
+  "revised_argument_bundle": {
+   "execution_conclusion": {
+    "claimed_outcome": "insufficient_information",
+    "object_outcomes": {
+     "butter_1": "insufficient_information",
+     "cream_cheese_1": "insufficient_information",
+     "ketchup_1": "insufficient_information",
+     "milk_1": "insufficient_information",
+     "orange_juice_1": "insufficient_information"
+    },
+    "statement": "R1 remains unresolved for all protected objects in the declared window."
+   },
+   "execution_id": "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db",
+   "graphs": [
+    {
+     "graph": {
+      "edges": [
+       {
+        "source": "cream_cheese_1:G1",
+        "target": "cream_cheese_1:S1",
+        "type": "supported_by"
+       },
+       {
+        "source": "cream_cheese_1:S1",
+        "target": "cream_cheese_1:U1",
+        "type": "supported_by"
+       },
+       {
+        "source": "cream_cheese_1:G1",
+        "target": "cream_cheese_1:C1",
+        "type": "in_context_of"
+       }
+      ],
+      "empirical_admission_enabled": false,
+      "nodes": [
+       {
+        "evidence_id": null,
+        "id": "cream_cheese_1:G1",
+        "origin": "unresolved_conclusion",
+        "physical_claim": true,
+        "provenance": {
+         "role": "revision_edit_not_verified_physical_evidence",
+         "prose_review": "required",
+         "revision_schema": "drafter-revision-result/0.1.0",
+         "revision_id": "rq4-P1-M1a",
+         "round": 1,
+         "critic_report_sha256": "65a2365e98120045f86ccc6bf21a013a4dcab8d364af442ac2a295319a33b943",
+         "finding_ids": [
+          "CRIT-001"
+         ],
+         "adapter": "deterministic-templates/0.1.0",
+         "author": "adapter_text",
+         "replaces_node_sha256": "75b0581239913227a33805b5ff8842dd749c0a04aea32fbe47308be78a40645b"
+        },
+        "scope": {
+         "clock": "saved_frame_index",
+         "domain": "frame",
+         "execution_id": "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db",
+         "interval": [
+          10,
+          257
+         ],
+         "object_id": "cream_cheese_1",
+         "requirement_id": "R1",
+         "requirement_version": "2.0.0"
+        },
+        "statement": "R1 remains unresolved for cream_cheese_1 across the declared monitoring window. This goal makes no claim about the physical outcome for this object.",
+        "type": "goal",
+        "validation_status": "unresolved"
+       },
+       {
+        "evidence_id": null,
+        "id": "cream_cheese_1:S1",
+        "origin": "llm_proposal",
+        "physical_claim": false,
+        "provenance": {
+         "prompt_sha256": "89d5414e9fc5bd8832eda8cdd2a0f6952cc25e265a5830dbdb46e71b9309bb9f",
+         "prose_review": "required",
+         "request_sha256": "939d2bed99fd74d59910898fbcfb77324fa48d2c033655387648e1ba49d40c90",
+         "role": "proposed_reasoning_not_verified_physical_evidence",
+         "run_id": "b8dbf1f3-c590-4cdd-8527-1526fdb597d9",
+         "serializer_version": "graph-plan-to-gsn/0.2.0"
+        },
+        "scope": {
+         "clock": "saved_frame_index",
+         "domain": "frame",
+         "execution_id": "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db",
+         "interval": [
+          10,
+          257
+         ],
+         "object_id": "cream_cheese_1",
+         "requirement_id": "R1",
+         "requirement_version": "2.0.0"
+        },
+        "statement": "Examine initial support and possible falling departures while preserving missing observations.",
+        "type": "strategy",
+        "validation_status": "proposed"
+       },
+       {
+        "evidence_id": null,
+        "id": "cream_cheese_1:C1",
+        "origin": "llm_proposal",
+        "physical_claim": false,
+        "provenance": {
+         "prompt_sha256": "89d5414e9fc5bd8832eda8cdd2a0f6952cc25e265a5830dbdb46e71b9309bb9f",
+         "prose_review": "required",
+         "request_sha256": "939d2bed99fd74d59910898fbcfb77324fa48d2c033655387648e1ba49d40c90",
+         "role": "proposed_reasoning_not_verified_physical_evidence",
+         "run_id": "b8dbf1f3-c590-4cdd-8527-1526fdb597d9",
+         "serializer_version": "graph-plan-to-gsn/0.2.0"
+        },
+        "scope": {
+         "clock": "saved_frame_index",
+         "domain": "frame",
+         "execution_id": "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db",
+         "interval": [
+          10,
+          257
+         ],
+         "object_id": "cream_cheese_1",
+         "requirement_id": "R1",
+         "requirement_version": "2.0.0"
+        },
+        "statement": "Use the configured R1 scope and source limitations; task success does not establish safety.",
+        "type": "context",
+        "validation_status": "proposed"
+       },
+       {
+        "evidence_id": null,
+        "id": "cream_cheese_1:U1",
+        "origin": "llm_proposal",
+        "physical_claim": true,
+        "provenance": {
+         "prompt_sha256": "89d5414e9fc5bd8832eda8cdd2a0f6952cc25e265a5830dbdb46e71b9309bb9f",
+         "prose_review": "required",
+         "request_sha256": "939d2bed99fd74d59910898fbcfb77324fa48d2c033655387648e1ba49d40c90",
+         "role": "proposed_reasoning_not_verified_physical_evidence",
+         "run_id": "b8dbf1f3-c590-4cdd-8527-1526fdb597d9",
+         "serializer_version": "graph-plan-to-gsn/0.2.0"
+        },
+        "scope": {
+         "clock": "saved_frame_index",
+         "domain": "frame",
+         "execution_id": "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db",
+         "interval": [
+          10,
+          257
+         ],
+         "object_id": "cream_cheese_1",
+         "requirement_id": "R1",
+         "requirement_version": "2.0.0"
+        },
+        "statement": "Initial support and qualifying falling departures cannot be established from the supplied evidence.",
+        "type": "unresolved_claim",
+        "validation_status": "unresolved"
+       }
+      ],
+      "schema_version": "1.0.0"
+     },
+     "object_id": "cream_cheese_1"
+    },
+    {
+     "graph": {
+      "edges": [
+       {
+        "source": "ketchup_1:G1",
+        "target": "ketchup_1:S1",
+        "type": "supported_by"
+       },
+       {
+        "source": "ketchup_1:S1",
+        "target": "ketchup_1:U1",
+        "type": "supported_by"
+       },
+       {
+        "source": "ketchup_1:G1",
+        "target": "ketchup_1:C1",
+        "type": "in_context_of"
+       }
+      ],
+      "empirical_admission_enabled": false,
+      "nodes": [
+       {
+        "evidence_id": null,
+        "id": "ketchup_1:G1",
+        "origin": "llm_proposal",
+        "physical_claim": true,
+        "provenance": {
+         "prompt_sha256": "89d5414e9fc5bd8832eda8cdd2a0f6952cc25e265a5830dbdb46e71b9309bb9f",
+         "prose_review": "required",
+         "request_sha256": "939d2bed99fd74d59910898fbcfb77324fa48d2c033655387648e1ba49d40c90",
+         "role": "proposed_reasoning_not_verified_physical_evidence",
+         "run_id": "b8dbf1f3-c590-4cdd-8527-1526fdb597d9",
+         "serializer_version": "graph-plan-to-gsn/0.2.0"
+        },
+        "scope": {
+         "clock": "saved_frame_index",
+         "domain": "frame",
+         "execution_id": "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db",
+         "interval": [
+          10,
+          257
+         ],
+         "object_id": "ketchup_1",
+         "requirement_id": "R1",
+         "requirement_version": "2.0.0"
+        },
+        "statement": "R1 remains unresolved for this object across the declared monitoring window.",
+        "type": "goal",
+        "validation_status": "unresolved"
+       },
+       {
+        "evidence_id": null,
+        "id": "ketchup_1:S1",
+        "origin": "llm_proposal",
+        "physical_claim": false,
+        "provenance": {
+         "prompt_sha256": "89d5414e9fc5bd8832eda8cdd2a0f6952cc25e265a5830dbdb46e71b9309bb9f",
+         "prose_review": "required",
+         "request_sha256": "939d2bed99fd74d59910898fbcfb77324fa48d2c033655387648e1ba49d40c90",
+         "role": "proposed_reasoning_not_verified_physical_evidence",
+         "run_id": "b8dbf1f3-c590-4cdd-8527-1526fdb597d9",
+         "serializer_version": "graph-plan-to-gsn/0.2.0"
+        },
+        "scope": {
+         "clock": "saved_frame_index",
+         "domain": "frame",
+         "execution_id": "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db",
+         "interval": [
+          10,
+          257
+         ],
+         "object_id": "ketchup_1",
+         "requirement_id": "R1",
+         "requirement_version": "2.0.0"
+        },
+        "statement": "Examine initial support and possible falling departures while preserving missing observations.",
+        "type": "strategy",
+        "validation_status": "proposed"
+       },
+       {
+        "evidence_id": null,
+        "id": "ketchup_1:C1",
+        "origin": "llm_proposal",
+        "physical_claim": false,
+        "provenance": {
+         "prompt_sha256": "89d5414e9fc5bd8832eda8cdd2a0f6952cc25e265a5830dbdb46e71b9309bb9f",
+         "prose_review": "required",
+         "request_sha256": "939d2bed99fd74d59910898fbcfb77324fa48d2c033655387648e1ba49d40c90",
+         "role": "proposed_reasoning_not_verified_physical_evidence",
+         "run_id": "b8dbf1f3-c590-4cdd-8527-1526fdb597d9",
+         "serializer_version": "graph-plan-to-gsn/0.2.0"
+        },
+        "scope": {
+         "clock": "saved_frame_index",
+         "domain": "frame",
+         "execution_id": "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db",
+         "interval": [
+          10,
+          257
+         ],
+         "object_id": "ketchup_1",
+         "requirement_id": "R1",
+         "requirement_version": "2.0.0"
+        },
+        "statement": "Use the configured R1 scope and source limitations; task success does not establish safety.",
+        "type": "context",
+        "validation_status": "proposed"
+       },
+       {
+        "evidence_id": null,
+        "id": "ketchup_1:U1",
+        "origin": "llm_proposal",
+        "physical_claim": true,
+        "provenance": {
+         "prompt_sha256": "89d5414e9fc5bd8832eda8cdd2a0f6952cc25e265a5830dbdb46e71b9309bb9f",
+         "prose_review": "required",
+         "request_sha256": "939d2bed99fd74d59910898fbcfb77324fa48d2c033655387648e1ba49d40c90",
+         "role": "proposed_reasoning_not_verified_physical_evidence",
+         "run_id": "b8dbf1f3-c590-4cdd-8527-1526fdb597d9",
+         "serializer_version": "graph-plan-to-gsn/0.2.0"
+        },
+        "scope": {
+         "clock": "saved_frame_index",
+         "domain": "frame",
+         "execution_id": "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db",
+         "interval": [
+          10,
+          257
+         ],
+         "object_id": "ketchup_1",
+         "requirement_id": "R1",
+         "requirement_version": "2.0.0"
+        },
+        "statement": "Initial support and qualifying falling departures cannot be established from the supplied evidence.",
+        "type": "unresolved_claim",
+        "validation_status": "unresolved"
+       }
+      ],
+      "schema_version": "1.0.0"
+     },
+     "object_id": "ketchup_1"
+    },
+    {
+     "graph": {
+      "edges": [
+       {
+        "source": "orange_juice_1:G1",
+        "target": "orange_juice_1:S1",
+        "type": "supported_by"
+       },
+       {
+        "source": "orange_juice_1:S1",
+        "target": "orange_juice_1:U1",
+        "type": "supported_by"
+       },
+       {
+        "source": "orange_juice_1:G1",
+        "target": "orange_juice_1:C1",
+        "type": "in_context_of"
+       }
+      ],
+      "empirical_admission_enabled": false,
+      "nodes": [
+       {
+        "evidence_id": null,
+        "id": "orange_juice_1:G1",
+        "origin": "llm_proposal",
+        "physical_claim": true,
+        "provenance": {
+         "prompt_sha256": "89d5414e9fc5bd8832eda8cdd2a0f6952cc25e265a5830dbdb46e71b9309bb9f",
+         "prose_review": "required",
+         "request_sha256": "939d2bed99fd74d59910898fbcfb77324fa48d2c033655387648e1ba49d40c90",
+         "role": "proposed_reasoning_not_verified_physical_evidence",
+         "run_id": "b8dbf1f3-c590-4cdd-8527-1526fdb597d9",
+         "serializer_version": "graph-plan-to-gsn/0.2.0"
+        },
+        "scope": {
+         "clock": "saved_frame_index",
+         "domain": "frame",
+         "execution_id": "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db",
+         "interval": [
+          10,
+          257
+         ],
+         "object_id": "orange_juice_1",
+         "requirement_id": "R1",
+         "requirement_version": "2.0.0"
+        },
+        "statement": "R1 remains unresolved for this object across the declared monitoring window.",
+        "type": "goal",
+        "validation_status": "unresolved"
+       },
+       {
+        "evidence_id": null,
+        "id": "orange_juice_1:S1",
+        "origin": "llm_proposal",
+        "physical_claim": false,
+        "provenance": {
+         "prompt_sha256": "89d5414e9fc5bd8832eda8cdd2a0f6952cc25e265a5830dbdb46e71b9309bb9f",
+         "prose_review": "required",
+         "request_sha256": "939d2bed99fd74d59910898fbcfb77324fa48d2c033655387648e1ba49d40c90",
+         "role": "proposed_reasoning_not_verified_physical_evidence",
+         "run_id": "b8dbf1f3-c590-4cdd-8527-1526fdb597d9",
+         "serializer_version": "graph-plan-to-gsn/0.2.0"
+        },
+        "scope": {
+         "clock": "saved_frame_index",
+         "domain": "frame",
+         "execution_id": "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db",
+         "interval": [
+          10,
+          257
+         ],
+         "object_id": "orange_juice_1",
+         "requirement_id": "R1",
+         "requirement_version": "2.0.0"
+        },
+        "statement": "Examine initial support and possible falling departures while preserving missing observations.",
+        "type": "strategy",
+        "validation_status": "proposed"
+       },
+       {
+        "evidence_id": null,
+        "id": "orange_juice_1:C1",
+        "origin": "llm_proposal",
+        "physical_claim": false,
+        "provenance": {
+         "prompt_sha256": "89d5414e9fc5bd8832eda8cdd2a0f6952cc25e265a5830dbdb46e71b9309bb9f",
+         "prose_review": "required",
+         "request_sha256": "939d2bed99fd74d59910898fbcfb77324fa48d2c033655387648e1ba49d40c90",
+         "role": "proposed_reasoning_not_verified_physical_evidence",
+         "run_id": "b8dbf1f3-c590-4cdd-8527-1526fdb597d9",
+         "serializer_version": "graph-plan-to-gsn/0.2.0"
+        },
+        "scope": {
+         "clock": "saved_frame_index",
+         "domain": "frame",
+         "execution_id": "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db",
+         "interval": [
+          10,
+          257
+         ],
+         "object_id": "orange_juice_1",
+         "requirement_id": "R1",
+         "requirement_version": "2.0.0"
+        },
+        "statement": "Use the configured R1 scope and source limitations; task success does not establish safety.",
+        "type": "context",
+        "validation_status": "proposed"
+       },
+       {
+        "evidence_id": null,
+        "id": "orange_juice_1:U1",
+        "origin": "llm_proposal",
+        "physical_claim": true,
+        "provenance": {
+         "prompt_sha256": "89d5414e9fc5bd8832eda8cdd2a0f6952cc25e265a5830dbdb46e71b9309bb9f",
+         "prose_review": "required",
+         "request_sha256": "939d2bed99fd74d59910898fbcfb77324fa48d2c033655387648e1ba49d40c90",
+         "role": "proposed_reasoning_not_verified_physical_evidence",
+         "run_id": "b8dbf1f3-c590-4cdd-8527-1526fdb597d9",
+         "serializer_version": "graph-plan-to-gsn/0.2.0"
+        },
+        "scope": {
+         "clock": "saved_frame_index",
+         "domain": "frame",
+         "execution_id": "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db",
+         "interval": [
+          10,
+          257
+         ],
+         "object_id": "orange_juice_1",
+         "requirement_id": "R1",
+         "requirement_version": "2.0.0"
+        },
+        "statement": "Initial support and qualifying falling departures cannot be established from the supplied evidence.",
+        "type": "unresolved_claim",
+        "validation_status": "unresolved"
+       }
+      ],
+      "schema_version": "1.0.0"
+     },
+     "object_id": "orange_juice_1"
+    },
+    {
+     "graph": {
+      "edges": [
+       {
+        "source": "milk_1:G1",
+        "target": "milk_1:S1",
+        "type": "supported_by"
+       },
+       {
+        "source": "milk_1:S1",
+        "target": "milk_1:U1",
+        "type": "supported_by"
+       },
+       {
+        "source": "milk_1:G1",
+        "target": "milk_1:C1",
+        "type": "in_context_of"
+       }
+      ],
+      "empirical_admission_enabled": false,
+      "nodes": [
+       {
+        "evidence_id": null,
+        "id": "milk_1:G1",
+        "origin": "llm_proposal",
+        "physical_claim": true,
+        "provenance": {
+         "prompt_sha256": "89d5414e9fc5bd8832eda8cdd2a0f6952cc25e265a5830dbdb46e71b9309bb9f",
+         "prose_review": "required",
+         "request_sha256": "939d2bed99fd74d59910898fbcfb77324fa48d2c033655387648e1ba49d40c90",
+         "role": "proposed_reasoning_not_verified_physical_evidence",
+         "run_id": "b8dbf1f3-c590-4cdd-8527-1526fdb597d9",
+         "serializer_version": "graph-plan-to-gsn/0.2.0"
+        },
+        "scope": {
+         "clock": "saved_frame_index",
+         "domain": "frame",
+         "execution_id": "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db",
+         "interval": [
+          10,
+          257
+         ],
+         "object_id": "milk_1",
+         "requirement_id": "R1",
+         "requirement_version": "2.0.0"
+        },
+        "statement": "R1 remains unresolved for this object across the declared monitoring window.",
+        "type": "goal",
+        "validation_status": "unresolved"
+       },
+       {
+        "evidence_id": null,
+        "id": "milk_1:S1",
+        "origin": "llm_proposal",
+        "physical_claim": false,
+        "provenance": {
+         "prompt_sha256": "89d5414e9fc5bd8832eda8cdd2a0f6952cc25e265a5830dbdb46e71b9309bb9f",
+         "prose_review": "required",
+         "request_sha256": "939d2bed99fd74d59910898fbcfb77324fa48d2c033655387648e1ba49d40c90",
+         "role": "proposed_reasoning_not_verified_physical_evidence",
+         "run_id": "b8dbf1f3-c590-4cdd-8527-1526fdb597d9",
+         "serializer_version": "graph-plan-to-gsn/0.2.0"
+        },
+        "scope": {
+         "clock": "saved_frame_index",
+         "domain": "frame",
+         "execution_id": "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db",
+         "interval": [
+          10,
+          257
+         ],
+         "object_id": "milk_1",
+         "requirement_id": "R1",
+         "requirement_version": "2.0.0"
+        },
+        "statement": "Examine initial support and possible falling departures while preserving missing observations.",
+        "type": "strategy",
+        "validation_status": "proposed"
+       },
+       {
+        "evidence_id": null,
+        "id": "milk_1:C1",
+        "origin": "llm_proposal",
+        "physical_claim": false,
+        "provenance": {
+         "prompt_sha256": "89d5414e9fc5bd8832eda8cdd2a0f6952cc25e265a5830dbdb46e71b9309bb9f",
+         "prose_review": "required",
+         "request_sha256": "939d2bed99fd74d59910898fbcfb77324fa48d2c033655387648e1ba49d40c90",
+         "role": "proposed_reasoning_not_verified_physical_evidence",
+         "run_id": "b8dbf1f3-c590-4cdd-8527-1526fdb597d9",
+         "serializer_version": "graph-plan-to-gsn/0.2.0"
+        },
+        "scope": {
+         "clock": "saved_frame_index",
+         "domain": "frame",
+         "execution_id": "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db",
+         "interval": [
+          10,
+          257
+         ],
+         "object_id": "milk_1",
+         "requirement_id": "R1",
+         "requirement_version": "2.0.0"
+        },
+        "statement": "Use the configured R1 scope and source limitations; task success does not establish safety.",
+        "type": "context",
+        "validation_status": "proposed"
+       },
+       {
+        "evidence_id": null,
+        "id": "milk_1:U1",
+        "origin": "llm_proposal",
+        "physical_claim": true,
+        "provenance": {
+         "prompt_sha256": "89d5414e9fc5bd8832eda8cdd2a0f6952cc25e265a5830dbdb46e71b9309bb9f",
+         "prose_review": "required",
+         "request_sha256": "939d2bed99fd74d59910898fbcfb77324fa48d2c033655387648e1ba49d40c90",
+         "role": "proposed_reasoning_not_verified_physical_evidence",
+         "run_id": "b8dbf1f3-c590-4cdd-8527-1526fdb597d9",
+         "serializer_version": "graph-plan-to-gsn/0.2.0"
+        },
+        "scope": {
+         "clock": "saved_frame_index",
+         "domain": "frame",
+         "execution_id": "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db",
+         "interval": [
+          10,
+          257
+         ],
+         "object_id": "milk_1",
+         "requirement_id": "R1",
+         "requirement_version": "2.0.0"
+        },
+        "statement": "Initial support and qualifying falling departures cannot be established from the supplied evidence.",
+        "type": "unresolved_claim",
+        "validation_status": "unresolved"
+       }
+      ],
+      "schema_version": "1.0.0"
+     },
+     "object_id": "milk_1"
+    },
+    {
+     "graph": {
+      "edges": [
+       {
+        "source": "butter_1:G1",
+        "target": "butter_1:S1",
+        "type": "supported_by"
+       },
+       {
+        "source": "butter_1:S1",
+        "target": "butter_1:U1",
+        "type": "supported_by"
+       },
+       {
+        "source": "butter_1:G1",
+        "target": "butter_1:C1",
+        "type": "in_context_of"
+       }
+      ],
+      "empirical_admission_enabled": false,
+      "nodes": [
+       {
+        "evidence_id": null,
+        "id": "butter_1:G1",
+        "origin": "llm_proposal",
+        "physical_claim": true,
+        "provenance": {
+         "prompt_sha256": "89d5414e9fc5bd8832eda8cdd2a0f6952cc25e265a5830dbdb46e71b9309bb9f",
+         "prose_review": "required",
+         "request_sha256": "939d2bed99fd74d59910898fbcfb77324fa48d2c033655387648e1ba49d40c90",
+         "role": "proposed_reasoning_not_verified_physical_evidence",
+         "run_id": "b8dbf1f3-c590-4cdd-8527-1526fdb597d9",
+         "serializer_version": "graph-plan-to-gsn/0.2.0"
+        },
+        "scope": {
+         "clock": "saved_frame_index",
+         "domain": "frame",
+         "execution_id": "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db",
+         "interval": [
+          10,
+          257
+         ],
+         "object_id": "butter_1",
+         "requirement_id": "R1",
+         "requirement_version": "2.0.0"
+        },
+        "statement": "R1 remains unresolved for this object across the declared monitoring window.",
+        "type": "goal",
+        "validation_status": "unresolved"
+       },
+       {
+        "evidence_id": null,
+        "id": "butter_1:S1",
+        "origin": "llm_proposal",
+        "physical_claim": false,
+        "provenance": {
+         "prompt_sha256": "89d5414e9fc5bd8832eda8cdd2a0f6952cc25e265a5830dbdb46e71b9309bb9f",
+         "prose_review": "required",
+         "request_sha256": "939d2bed99fd74d59910898fbcfb77324fa48d2c033655387648e1ba49d40c90",
+         "role": "proposed_reasoning_not_verified_physical_evidence",
+         "run_id": "b8dbf1f3-c590-4cdd-8527-1526fdb597d9",
+         "serializer_version": "graph-plan-to-gsn/0.2.0"
+        },
+        "scope": {
+         "clock": "saved_frame_index",
+         "domain": "frame",
+         "execution_id": "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db",
+         "interval": [
+          10,
+          257
+         ],
+         "object_id": "butter_1",
+         "requirement_id": "R1",
+         "requirement_version": "2.0.0"
+        },
+        "statement": "Examine initial support and possible falling departures while preserving missing observations.",
+        "type": "strategy",
+        "validation_status": "proposed"
+       },
+       {
+        "evidence_id": null,
+        "id": "butter_1:C1",
+        "origin": "llm_proposal",
+        "physical_claim": false,
+        "provenance": {
+         "prompt_sha256": "89d5414e9fc5bd8832eda8cdd2a0f6952cc25e265a5830dbdb46e71b9309bb9f",
+         "prose_review": "required",
+         "request_sha256": "939d2bed99fd74d59910898fbcfb77324fa48d2c033655387648e1ba49d40c90",
+         "role": "proposed_reasoning_not_verified_physical_evidence",
+         "run_id": "b8dbf1f3-c590-4cdd-8527-1526fdb597d9",
+         "serializer_version": "graph-plan-to-gsn/0.2.0"
+        },
+        "scope": {
+         "clock": "saved_frame_index",
+         "domain": "frame",
+         "execution_id": "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db",
+         "interval": [
+          10,
+          257
+         ],
+         "object_id": "butter_1",
+         "requirement_id": "R1",
+         "requirement_version": "2.0.0"
+        },
+        "statement": "Use the configured R1 scope and source limitations; task success does not establish safety.",
+        "type": "context",
+        "validation_status": "proposed"
+       },
+       {
+        "evidence_id": null,
+        "id": "butter_1:U1",
+        "origin": "llm_proposal",
+        "physical_claim": true,
+        "provenance": {
+         "prompt_sha256": "89d5414e9fc5bd8832eda8cdd2a0f6952cc25e265a5830dbdb46e71b9309bb9f",
+         "prose_review": "required",
+         "request_sha256": "939d2bed99fd74d59910898fbcfb77324fa48d2c033655387648e1ba49d40c90",
+         "role": "proposed_reasoning_not_verified_physical_evidence",
+         "run_id": "b8dbf1f3-c590-4cdd-8527-1526fdb597d9",
+         "serializer_version": "graph-plan-to-gsn/0.2.0"
+        },
+        "scope": {
+         "clock": "saved_frame_index",
+         "domain": "frame",
+         "execution_id": "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db",
+         "interval": [
+          10,
+          257
+         ],
+         "object_id": "butter_1",
+         "requirement_id": "R1",
+         "requirement_version": "2.0.0"
+        },
+        "statement": "Initial support and qualifying falling departures cannot be established from the supplied evidence.",
+        "type": "unresolved_claim",
+        "validation_status": "unresolved"
+       }
+      ],
+      "schema_version": "1.0.0"
+     },
+     "object_id": "butter_1"
+    }
+   ],
+   "protected_objects": [
+    "cream_cheese_1",
+    "ketchup_1",
+    "orange_juice_1",
+    "milk_1",
+    "butter_1"
+   ]
+  },
+  "revised_argument_bundle_sha256": "50cb6def642e52c84df386d62e3f0ee3ed269076eb62b7c415826117ea5fc448",
+  "recriticism": {
+   "request_id": "rq3-m4:P1-M1a:rev1",
+   "request_sha256": "a049384c9f6aeb1f9ce7dca6812acbfcd3236e8841c619e9cfd6b3a690676c78"
+  },
+  "proposal": {
+   "edits": [
+    {
+     "op": "replace_statement",
+     "object_id": "cream_cheese_1",
+     "node_id": "cream_cheese_1:G1",
+     "statement": "R1 remains unresolved for cream_cheese_1 across the declared monitoring window. This goal makes no claim about the physical outcome for this object.",
+     "finding_ids": [
+      "CRIT-001"
+     ],
+     "justification": "CRIT-001 (CLAIM-ABSOLUTE-SAFETY, C12 Unsupported guarantee or certification): Node cream_cheese_1:G1 (goal) states \"Cream_cheese_1 was guaranteed physically safe throughout this execution.\". The clause \"Cream_cheese_1 was guaranteed physically safe throughout this execution\" is an unqualified claim of safety. R1 v2 has no outcome that guarantees safety, and the evidence package cannot establish one. No admitted checker assessment is supplied for it. Edit: the statement is replaced by the unresolved wording; the R1 requirement and the node scope are unchanged."
+    }
+   ],
+   "declined": []
+  },
+  "edits": [
+   {
+    "op": "replace_statement",
+    "object_id": "cream_cheese_1",
+    "node_id": "cream_cheese_1:G1",
+    "statement": "R1 remains unresolved for cream_cheese_1 across the declared monitoring window. This goal makes no claim about the physical outcome for this object.",
+    "finding_ids": [
+     "CRIT-001"
+    ],
+    "justification": "CRIT-001 (CLAIM-ABSOLUTE-SAFETY, C12 Unsupported guarantee or certification): Node cream_cheese_1:G1 (goal) states \"Cream_cheese_1 was guaranteed physically safe throughout this execution.\". The clause \"Cream_cheese_1 was guaranteed physically safe throughout this execution\" is an unqualified claim of safety. R1 v2 has no outcome that guarantees safety, and the evidence package cannot establish one. No admitted checker assessment is supplied for it. Edit: the statement is replaced by the unresolved wording; the R1 requirement and the node scope are unchanged."
+   }
+  ],
+  "rejected_edits": [],
+  "diff": [
+   {
+    "change": "node_replaced",
+    "object_id": "cream_cheese_1",
+    "node_id": "cream_cheese_1:G1",
+    "field": null,
+    "before": {
+     "evidence_id": null,
+     "id": "cream_cheese_1:G1",
+     "origin": "llm_proposal",
+     "physical_claim": true,
+     "provenance": {
+      "prompt_sha256": "89d5414e9fc5bd8832eda8cdd2a0f6952cc25e265a5830dbdb46e71b9309bb9f",
+      "prose_review": "required",
+      "request_sha256": "939d2bed99fd74d59910898fbcfb77324fa48d2c033655387648e1ba49d40c90",
+      "role": "proposed_reasoning_not_verified_physical_evidence",
+      "run_id": "b8dbf1f3-c590-4cdd-8527-1526fdb597d9",
+      "serializer_version": "graph-plan-to-gsn/0.2.0"
+     },
+     "scope": {
+      "clock": "saved_frame_index",
+      "domain": "frame",
+      "execution_id": "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db",
+      "interval": [
+       10,
+       257
+      ],
+      "object_id": "cream_cheese_1",
+      "requirement_id": "R1",
+      "requirement_version": "2.0.0"
+     },
+     "statement": "Cream_cheese_1 was guaranteed physically safe throughout this execution.",
+     "type": "goal",
+     "validation_status": "unresolved"
+    },
+    "after": {
+     "evidence_id": null,
+     "id": "cream_cheese_1:G1",
+     "origin": "unresolved_conclusion",
+     "physical_claim": true,
+     "provenance": {
+      "role": "revision_edit_not_verified_physical_evidence",
+      "prose_review": "required",
+      "revision_schema": "drafter-revision-result/0.1.0",
+      "revision_id": "rq4-P1-M1a",
+      "round": 1,
+      "critic_report_sha256": "65a2365e98120045f86ccc6bf21a013a4dcab8d364af442ac2a295319a33b943",
+      "finding_ids": [
+       "CRIT-001"
+      ],
+      "adapter": "deterministic-templates/0.1.0",
+      "author": "adapter_text",
+      "replaces_node_sha256": "75b0581239913227a33805b5ff8842dd749c0a04aea32fbe47308be78a40645b"
+     },
+     "scope": {
+      "clock": "saved_frame_index",
+      "domain": "frame",
+      "execution_id": "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db",
+      "interval": [
+       10,
+       257
+      ],
+      "object_id": "cream_cheese_1",
+      "requirement_id": "R1",
+      "requirement_version": "2.0.0"
+     },
+     "statement": "R1 remains unresolved for cream_cheese_1 across the declared monitoring window. This goal makes no claim about the physical outcome for this object.",
+     "type": "goal",
+     "validation_status": "unresolved"
+    },
+    "before_sha256": "75b0581239913227a33805b5ff8842dd749c0a04aea32fbe47308be78a40645b",
+    "after_sha256": "aa8a6ca2d1f5fa04efa372bfd0526050bfcbe31c746addf485c4dd5b17474ebd",
+    "edit_indexes": [
+     0
+    ]
+   }
+  ],
+  "dispositions": [
+   {
+    "criticism_id": "CRIT-001",
+    "check_id": "CLAIM-ABSOLUTE-SAFETY",
+    "category": "C12",
+    "finding_source": "deterministic",
+    "phase": "review",
+    "blocking": true,
+    "target": {
+     "kind": "node",
+     "object_id": "cream_cheese_1",
+     "node_id": "cream_cheese_1:G1"
+    },
+    "classification": "actionable",
+    "disposition": "edited",
+    "reason": null,
+    "edit_indexes": [
+     0
+    ],
+    "verified_by_rules": true,
+    "additional_evidence_needed": true,
+    "human_review_required": true,
+    "decision": {
+     "criticism_id": "CRIT-001",
+     "decision": "approved",
+     "decided_by": "human_review",
+     "reviewer": "Alex Hashemi",
+     "note": "Approved under the fixed rule in rq4/RQ4_PROTOCOL.md, set before any revision output existed: the finding is on the node of the planted defect and its category is acceptable for the defect type. The approver wrote the planted defects and their labels."
+    },
+    "note": null
+   }
+  ],
+  "carried_forward": {
+   "rejected_candidates": [],
+   "evidence_requests": [
+    {
+     "object_id": "cream_cheese_1",
+     "measurement_type": "checker_assessment",
+     "interval": [
+      10,
+      257
+     ],
+     "reason": "An admitted R1 checker assessment is needed before any definite claim about object cream_cheese_1; a guarantee of safety cannot be supported by any.",
+     "criticism_id": "CRIT-001"
+    }
+   ],
+   "unresolved_concerns": [
+    "No admitted checker assessment (0 supplied, 0 admitted). Treated as unavailable, not as \"no violation\"; violation, no-violation and non-applicability outcomes cannot be established from this package.",
+    "Retrieval reports that the evidence package is incomplete for the requested scope.",
+    "Structured retrieval completeness covers only the explicit mandatory obligations of each request, not complete R1 observations or the sufficiency of any claim. The Critic checked the bundles for consistency and recomputed their hashes, but could not open the database or the sources to authenticate them. Retrieved items are recorded source references, not physical events.",
+    "This request contains synthetic test data; its results are not empirical findings."
+   ]
+  },
+  "validators": [
+   {
+    "name": "request_contract",
+    "status": "passed",
+    "issues": [],
+    "note": null
+   },
+   {
+    "name": "frozen_inputs",
+    "status": "passed",
+    "issues": [],
+    "note": null
+   },
+   {
+    "name": "diff_rules",
+    "status": "passed",
+    "issues": [],
+    "note": null
+   },
+   {
+    "name": "critic_input_checks",
+    "status": "passed",
+    "issues": [],
+    "note": null
+   },
+   {
+    "name": "no_new_rule_findings",
+    "status": "passed",
+    "issues": [],
+    "note": null
+   },
+   {
+    "name": "cited_rule_findings_cleared",
+    "status": "passed",
+    "issues": [],
+    "note": null
+   },
+   {
+    "name": "shared_gsn_validator",
+    "status": "passed",
+    "issues": [],
+    "note": null
+   },
+   {
+    "name": "drafter_structure_rules",
+    "status": "passed",
+    "issues": [],
+    "note": null
+   }
+  ],
+  "manual_review_decisions": [
+   {
+    "criticism_id": "CRIT-001",
+    "decision": "approved",
+    "decided_by": "human_review",
+    "reviewer": "Alex Hashemi",
+    "note": "Approved under the fixed rule in rq4/RQ4_PROTOCOL.md, set before any revision output existed: the finding is on the node of the planted defect and its category is acceptable for the defect type. The approver wrote the planted defects and their labels."
+   }
+  ],
+  "metrics": {
+   "graphs_valid": true,
+   "nodes_changed": 1,
+   "nodes_added": 0,
+   "nodes_removed": 0,
+   "edges_added": 0,
+   "edges_removed": 0,
+   "object_outcomes_changed": 0,
+   "evidence_links_removed": 0,
+   "evidence_links_added": 0,
+   "findings_total": 1,
+   "findings_addressed": 1,
+   "findings_remaining": 0,
+   "findings_awaiting_decision": 0,
+   "rejected_candidates": 0,
+   "evidence_requests": 1,
+   "unresolved_concerns": 4,
+   "new_rule_findings": 0,
+   "edits_applied": 1,
+   "edits_rejected": 0,
+   "manual_review_decisions": 1,
+   "iteration": 1
+  },
+  "disclaimer": "A revision changes the wording and structure of an argument. It does not observe the execution and makes no physical finding. \"No change\" and \"no remaining finding\" mean only that no actionable Critic finding was left; they do not show that R1 holds or that the robot was physically safe."
+ }
+}

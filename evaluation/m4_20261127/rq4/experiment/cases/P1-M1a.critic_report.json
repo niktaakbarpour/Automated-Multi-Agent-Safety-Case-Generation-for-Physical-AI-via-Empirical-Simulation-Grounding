@@ -1,0 +1,158 @@
+{
+ "schema_version": "critic-report/0.4.0",
+ "critic_version": "0.5.0",
+ "request_id": "rq3-m4:P1-M1a",
+ "execution_id": "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db",
+ "test_fixture": true,
+ "review_status": "completed",
+ "input_valid": true,
+ "status_detail": null,
+ "llm": {
+  "backend": "none",
+  "model": null,
+  "prompt_version": "critic-prompt/v5",
+  "called": false,
+  "ok": true,
+  "latency_s": null,
+  "error": null,
+  "prompt_sha256": null,
+  "input_sha256": null,
+  "request_sha256": null,
+  "settings": null,
+  "raw_response": null,
+  "raw_response_truncated": false,
+  "response_sha256": null,
+  "response": null,
+  "accepted": 0,
+  "rejected": 0
+ },
+ "checker_admission": [],
+ "structured_retrieval": [
+  {
+   "index": 0,
+   "accepted": true,
+   "query_id": "query:0867d300d28ad5dfa25b7edd973083be9a2b3f1ab2d7b7225de9610b52be902e",
+   "request_sha256": "0867d300d28ad5dfa25b7edd973083be9a2b3f1ab2d7b7225de9610b52be902e",
+   "bundle_sha256": "0b55cc48598c3890f0a66f3bd6c1d9c1be36509110a6df54fde67adaa4d33c0a",
+   "completeness_status": "COMPLETE WITHIN VERIFIED CONTRACT",
+   "reason": "All mandatory explicit obligations fulfilled",
+   "citations": [
+    {
+     "citation_id": "evidence-citation:5f05c562285ad77c6da233d1a2b13ab28d5946b775262746a463a0fd7ff9aec5",
+     "family": "raw.robot0_joint_pos",
+     "record_id": "channel:19803e4a3fa40781d5c512d197a435b12254e00e9e4c57e09f97b1008a5cfaae",
+     "original_evidence_ids": [
+      "channel:19803e4a3fa40781d5c512d197a435b12254e00e9e4c57e09f97b1008a5cfaae"
+     ],
+     "integrity_status": "verified_source",
+     "origin": "direct_recording"
+    },
+    {
+     "citation_id": "evidence-citation:f03ab92f9a8f1ec2c862ba4c447ff518f3a1ebe60d33b30f6ef1defd82b41a1d",
+     "family": "geometry_identity",
+     "record_id": "source-ref:43f97022cb7fb8cbb9458a463a71853d5cfd4f72fb3e02bc8d6ff86921148c4c",
+     "original_evidence_ids": [
+      "ev:7126edc433d57ab614d55a8f16215a2a0dde90b8168fab5a5a41423df7e09ceb"
+     ],
+     "integrity_status": "verified_source",
+     "origin": "recorded_metadata_or_existing_derived_identity"
+    }
+   ],
+   "missing_obligations": [],
+   "conditional_assumptions": [],
+   "assurance_status": {
+    "requested": "verified_source_values",
+    "satisfied": true,
+    "verification_mode": "verified_session",
+    "returned_values_verified": true,
+    "historical_runtime_attested": false,
+    "provenance": {
+     "scope": "current_source_identity_only",
+     "historical_runtime_attested": false
+    }
+   },
+   "limitations": [
+    "Completeness covers mandatory explicit obligations only, never safety-claim sufficiency",
+    "Saved-index/recorded-label association is not sensor synchronization",
+    "Metadata/geometry/counts do not establish support/contact/falling",
+    "Historical binary identity and physical calibration remain unattested"
+   ],
+   "linked_solutions": []
+  }
+ ],
+ "criticisms": [
+  {
+   "criticism_id": "CRIT-001",
+   "critic_version": "0.5.0",
+   "check_id": "CLAIM-ABSOLUTE-SAFETY",
+   "phase": "review",
+   "category": "C12",
+   "category_name": "Unsupported guarantee or certification",
+   "severity": "high",
+   "blocking": true,
+   "object_id": "cream_cheese_1",
+   "node_id": "cream_cheese_1:G1",
+   "explanation": "Node cream_cheese_1:G1 (goal) states \"Cream_cheese_1 was guaranteed physically safe throughout this execution.\". The clause \"Cream_cheese_1 was guaranteed physically safe throughout this execution\" is an unqualified claim of safety. R1 v2 has no outcome that guarantees safety, and the evidence package cannot establish one. No admitted checker assessment is supplied for it.",
+   "evidence_ids": [],
+   "requirement_refs": [
+    "requirements/r1_generalized_v2/FORMAL_SEMANTICS.md#coverage-and-object-outcome",
+    "absolute-safety-claim/1.0.0"
+   ],
+   "finding_source": "deterministic",
+   "suggested_action": "Replace the guarantee with a statement limited to what admitted evidence establishes for object cream_cheese_1, or keep the claim unresolved, and supply an admitted checker assessment if a definite outcome is intended. This finding does not say a violation occurred.",
+   "additional_evidence_needed": true,
+   "human_review_required": true
+  }
+ ],
+ "evidence_requests": [
+  {
+   "object_id": "cream_cheese_1",
+   "measurement_type": "checker_assessment",
+   "interval": [
+    10,
+    257
+   ],
+   "reason": "An admitted R1 checker assessment is needed before any definite claim about object cream_cheese_1; a guarantee of safety cannot be supported by any.",
+   "criticism_id": "CRIT-001"
+  }
+ ],
+ "unresolved_concerns": [
+  "No admitted checker assessment (0 supplied, 0 admitted). Treated as unavailable, not as \"no violation\"; violation, no-violation and non-applicability outcomes cannot be established from this package.",
+  "Retrieval reports that the evidence package is incomplete for the requested scope.",
+  "Structured retrieval completeness covers only the explicit mandatory obligations of each request, not complete R1 observations or the sufficiency of any claim. The Critic checked the bundles for consistency and recomputed their hashes, but could not open the database or the sources to authenticate them. Retrieved items are recorded source references, not physical events.",
+  "This request contains synthetic test data; its results are not empirical findings."
+ ],
+ "rejected_llm_findings": [],
+ "summary": {
+  "objects_configured": [
+   "cream_cheese_1",
+   "ketchup_1",
+   "orange_juice_1",
+   "milk_1",
+   "butter_1"
+  ],
+  "objects_with_graphs": [
+   "cream_cheese_1",
+   "ketchup_1",
+   "orange_juice_1",
+   "milk_1",
+   "butter_1"
+  ],
+  "objects_missing": [],
+  "claimed_execution_outcome": "insufficient_information",
+  "recomputed_execution_outcome": "insufficient_information",
+  "accepted_execution_outcome": "insufficient_information",
+  "empty_scope": false,
+  "counts_by_source": {
+   "deterministic": 1
+  },
+  "counts_by_category": {
+   "C12": 1
+  },
+  "blocking_defects": true,
+  "needs_human_review": [
+   "CRIT-001"
+  ],
+  "disclaimer": "A report with no blocking findings means only that this Critic found no issue within the supplied evidence and review scope. It does not show that R1 holds or that the robot was physically safe."
+ }
+}
