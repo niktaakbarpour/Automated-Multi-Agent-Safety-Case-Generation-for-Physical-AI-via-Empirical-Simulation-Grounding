@@ -1,0 +1,120 @@
+{
+  "accuracy_qualification": "Generalization outputs are unlabeled and coverage-only. Earlier reference is development-exposed; calibration is 3 variants from one source group. Do not pool confusion matrices.",
+  "current_adjudicated_calibration_separate": {
+    "applicability_agreement": "3/3",
+    "applicable": 2,
+    "binary_counts": {
+      "FN": 0,
+      "FP": 0,
+      "TN": 1,
+      "TP": 1
+    },
+    "canonical_source_groups": 1,
+    "cases": 3,
+    "not_applicable": 1,
+    "source": "evaluation/m4_20261127/rq2/R1_RESULTS.csv",
+    "unchanged": true
+  },
+  "earlier_development_reference_separate": {
+    "applicability_agreement": "20/20",
+    "applicable": 7,
+    "applicable_abstentions": 1,
+    "binary_counts": {
+      "FN": 0,
+      "FP": 0,
+      "TN": 6,
+      "TP": 0
+    },
+    "binary_scored": 6,
+    "independent_holdout": false,
+    "not_applicable": 13,
+    "object_units": 20,
+    "positive_recall": "not estimable",
+    "positive_reference_cases": 0,
+    "source": "evaluation/r1_v3/results.json"
+  },
+  "generalization_coverage_only": {
+    "executions": 60,
+    "frozen_summary_comparison": {
+      "abstentions_100": 100,
+      "applicable_120": 120,
+      "determinate_20": 20,
+      "matches_frozen_counts": true,
+      "not_applicable_180": 180,
+      "prediction_sha256": "0ef93ece9c3d0cb02a49a450979315a4e3be3d5f127aa48105970321f5b34984",
+      "source": "evaluation/r1_v3_generalization/summary.json"
+    },
+    "overall": {
+      "abstention_rate": {
+        "denominator": 120,
+        "numerator": 100,
+        "rate": 0.8333333333333334
+      },
+      "abstentions": 100,
+      "applicability_counts": {
+        "applies": 120,
+        "does_not_apply": 180,
+        "insufficient_information": 0
+      },
+      "applicable_units": 120,
+      "decision_coverage": {
+        "denominator": 120,
+        "numerator": 20,
+        "rate": 0.16666666666666666
+      },
+      "determinate_decisions": 20,
+      "object_units": 300
+    },
+    "partitions": {
+      "cross_task_same_scene": {
+        "abstention_rate": {
+          "denominator": 100,
+          "numerator": 100,
+          "rate": 1.0
+        },
+        "abstentions": 100,
+        "applicability_counts": {
+          "applies": 100,
+          "does_not_apply": 150,
+          "insufficient_information": 0
+        },
+        "applicable_units": 100,
+        "decision_coverage": {
+          "denominator": 100,
+          "numerator": 0,
+          "rate": 0.0
+        },
+        "determinate_decisions": 0,
+        "object_units": 250
+      },
+      "same_task_reserved": {
+        "abstention_rate": {
+          "denominator": 20,
+          "numerator": 0,
+          "rate": 0.0
+        },
+        "abstentions": 0,
+        "applicability_counts": {
+          "applies": 20,
+          "does_not_apply": 30,
+          "insufficient_information": 0
+        },
+        "applicable_units": 20,
+        "decision_coverage": {
+          "denominator": 20,
+          "numerator": 20,
+          "rate": 1.0
+        },
+        "determinate_decisions": 20,
+        "object_units": 50
+      }
+    }
+  },
+  "source_population": {
+    "cross_scene_mapping_gate_rejected_executions": 38,
+    "earlier_development_executions": 4,
+    "historical_432_pool_counted": false,
+    "individually_identified_executions": 102,
+    "same_scene_generalization_executions": 60
+  }
+}
