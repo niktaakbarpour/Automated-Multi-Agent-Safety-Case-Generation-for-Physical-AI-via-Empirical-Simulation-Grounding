@@ -7,7 +7,8 @@ Technical verification aid only. Every item requires author review before submis
 - [ ] Historical retrieval metrics attributed only to the 96 eligible queries; identify the 18 execution contexts and avoid treating 486 case-mode instances as independent.
   - `evaluation/r1_v4/rag_evidence_database/readiness_evaluation/RETRIEVAL_METRICS.md`
 - [ ] Phase 5K V2 counts (24/24, 84/84, 80/80) remain separate from historical retrieval ranking metrics.
-  - `evaluation/r1_v4/rag_evidence_database/retrieval_remediation/RETRIEVAL_METRICS.md`
+  - `evaluation/r1_v4/rag_evidence_database/retrieval_remediation/MULTISOURCE_COMPLETENESS.md`
+  - `evaluation/r1_v4/rag_evidence_database/retrieval_remediation/ABSTENTION_AND_INTEGRITY.md`
 - [ ] Discuss false-complete cases KH2-C2-02, KH2-C2-10, KH2-C2-18 and missing `raw.robot0_joint_pos`; do not imply the development guard is a validated fix.
   - `evaluation/m4_20261127/rq1/heldout_expansion/RYIAD_AUTHORING_PACKAGE/FALSE_COMPLETE_ANALYSIS.md`
 - [ ] State retrieval/argument completeness does not demonstrate physical safety.
