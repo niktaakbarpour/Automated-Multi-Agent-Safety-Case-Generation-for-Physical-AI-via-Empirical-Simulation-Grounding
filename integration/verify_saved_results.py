@@ -28,6 +28,9 @@ def main():
             counts["FP" if positive else "TN"] += 1
         else:
             raise AssertionError(f"unexpected binary reference: {human}")
+    abstentions = sum(truth(r["binary_decision_abstention"]) for r in applicable)
+    groups = len({r["canonical_source_id"] for r in results})
+    assert groups == metrics["sample"]["canonical_source_groups"]
     declared = metrics["binary_violation_metrics"]["confusion"]
     declared = {"TP": declared["true_positive"], "TN": declared["true_negative"],
                 "FP": declared["false_positive"], "FN": declared["false_negative"]}
@@ -51,7 +54,9 @@ def main():
     print(json.dumps({
         "result": "PASS", "private_review_records_opened": 0,
         "calibration": {"cases": 3, "applicability_agreement": "3/3",
-                        "applicable": 2, "not_applicable": 1, "confusion": counts},
+                        "applicable": 2, "not_applicable": 1, "confusion": counts,
+                        "groups": groups, "coverage": f"{len(applicable)-abstentions}/{len(applicable)}",
+                        "abstention_rate": f"{abstentions}/{len(applicable)}"},
         "generalization_coverage_only": {"executions": 60, "object_units": len(general),
                                         "applicable": len(app), "not_applicable": len(na_rows),
                                         "determinate": len(determinate), "abstentions": len(abstained),
