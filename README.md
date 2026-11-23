@@ -25,6 +25,11 @@ Success prints four `PASS tab:…` lines with the checked rows and exits zero. T
 
 This command replays saved results. Level C below describes the external requirements for fresh model inference and raw-data reproduction.
 
+## Repository and contributor guides
+
+- [Repository map](docs/REPOSITORY_MAP.md) describes active components and historical result areas.
+- [Artifact policy](docs/ARTIFACT_POLICY.md) explains frozen evidence, generated outputs, external dependencies, and restricted records.
+
 ## Research questions and architecture
 
 - **RQ1 — Evidence retrieval:** retrieves requested evidence families and source-scoped measurements, checks obligation coverage and abstains when a request cannot be supported. Retrieval completeness is limited to the explicit request; it is not proof of R1 safety evidence sufficiency.
