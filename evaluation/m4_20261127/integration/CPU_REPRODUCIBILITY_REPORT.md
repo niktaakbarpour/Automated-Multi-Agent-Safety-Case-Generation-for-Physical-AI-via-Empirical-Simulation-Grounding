@@ -8,7 +8,7 @@ After commit `74578f186d6e1a3e506cf052bd2435aa19d25763`, a clean detached worktr
 python -m pip install -r requirements.txt -r drafter/requirements.txt -r critic/requirements.txt -r evaluation/r1_v4/requirements.txt
 ```
 
-All checks below were repeated from that detached checkout, including the saved RQ3 score comparison. All checks were CPU-only. No inference, simulation, source-recovery or private RQ2 review access occurred. System Python 3.14 lacked h5py; use the documented environment rather than assuming system packages.
+The full suite and RQ3 byte comparisons below ran at commit `74578f186d6e1a3e506cf052bd2435aa19d25763`. Final commit `713b2221d340282f07e57decf42a4ee79badf968` changes only this report; at that SHA, both saved-result verifiers and `git diff --check` were rerun from the detached checkout. All checks were CPU-only. No inference, simulation, source-recovery or private RQ2 review access occurred. System Python 3.14 lacked h5py; use the documented environment rather than assuming system packages.
 
 ## Verified commands
 
