@@ -25,6 +25,12 @@ Success prints four `PASS tab:…` lines with the checked rows and exits zero. T
 
 This command replays saved results. Level C below describes the external requirements for fresh model inference and raw-data reproduction.
 
+## Repository and contributor guides
+
+- [Repository map](docs/REPOSITORY_MAP.md) describes active components and historical result areas.
+- [Cleanup audit](docs/REPOSITORY_CLEANUP_AUDIT.md) records code findings, archive candidates, and publication risks.
+- [Artifact policy](docs/ARTIFACT_POLICY.md) explains frozen evidence, generated outputs, external dependencies, and restricted records.
+
 ## Research questions and architecture
 
 - **RQ1 — Evidence retrieval:** retrieves requested evidence families and source-scoped measurements, checks obligation coverage and abstains when a request cannot be supported. Retrieval completeness is limited to the explicit request; it is not proof of R1 safety evidence sufficiency.
@@ -54,7 +60,7 @@ Each arrow has its own contract. The complete chain has not been demonstrated on
 | `evaluation/m4_20261127/rq3/` | Mutation protocol, frozen benchmark, raw model responses and scores |
 | `evaluation/m4_20261127/integration/` | Feasibility and reproduction reports |
 
-Raw simulation evidence, retrieval databases, model weights, private reviewer submissions and some original runtime traces are not stored in this repository.
+Full raw simulation recordings, retrieval databases, model weights and some original runtime traces are external. The repository tracks historical review and adjudication artifacts alongside the public replay inputs. See the [artifact policy](docs/ARTIFACT_POLICY.md) before redistribution.
 
 ## Level A — CPU tests and demonstrations
 
@@ -153,4 +159,4 @@ The isolated RQ3 unseen-parent expansion remains blocked: PR #39 and stacked PR 
 
 ## Existing execution-inventory workflow
 
-The root `pipeline.sh` provides task/run inventory and transition-inspection commands. It currently embeds a site-specific Python path and source-data location; verify both against the target Hestia checkout before use. `collect` inventories existing recordings and does not run a policy. `validate` checks the saved inventory and selected trajectory bindings. These commands are separate from RQ1–RQ3 evaluation reproduction.
+The root `pipeline.sh` provides task/run inventory and transition-inspection commands. It uses the active Python environment or the interpreter selected by `PYTHON`. Commands that read recordings require the external source location in `config/project.json`. `collect` inventories existing recordings and does not run a policy. `validate` checks the saved inventory and selected trajectory bindings. These commands are separate from RQ1–RQ3 evaluation reproduction.
