@@ -1,0 +1,378 @@
+{
+  "distinct_execution_count": 30,
+  "evidence_record_count": 6870,
+  "execution_count": 30,
+  "files": {
+    "EVIDENCE_RECORDS.jsonl.gz": {
+      "bytes": 1013030,
+      "sha256": "33c14cde56ba63a1e0a4cf8e91c62526dff61c677c4e3ed962aa0b73e1518238"
+    },
+    "EVIDENCE_SAMPLES.jsonl.gz": {
+      "bytes": 33649602,
+      "sha256": "7eda08d3b051a02fe1011b9f1eb32050cba94e8eed723eb5245d5fb4c60e5b37"
+    },
+    "TASK_CONTEXT.csv": {
+      "bytes": 17730,
+      "sha256": "3a4ac4ca618abcefa51f913d08611cd0ff0e5048fc6a0c01d4dce789a73b4ed1"
+    },
+    "UNEXTRACTED_EVIDENCE.csv": {
+      "bytes": 345751,
+      "sha256": "ec02f48b9af6fc57099c536aef290993ca69504d720274953d10772c05c48380"
+    }
+  },
+  "generator": "build_offline_evidence_extract.py",
+  "h5py_version": "3.16.0",
+  "numeric_policy": "raw values only; no interpolation, normalization, unit conversion, labeling, or physical interpretation",
+  "sample_rows_by_measurement_type": {
+    "contact": 29645,
+    "native_geometry": 29645,
+    "object_pose": 29645,
+    "robot_state": 29645,
+    "timestamp": 29645
+  },
+  "sample_value_row_count": 148225,
+  "schema_version": "offline-evidence-extract/1.0",
+  "source_files": [
+    {
+      "execution_id": "libero_object_openvla_oft_task01_seed1005_trial005_cfafd9ddc3db",
+      "recovery_status": "PASS",
+      "saved_frame_end": 138,
+      "saved_frame_start": 0,
+      "source_bytes": 78236188,
+      "source_trajectory_path_provenance_only": "/disk/1/data/niktakbr/r1-v4-phase5e-evidence/object/task_01/episode_005/trajectory.h5",
+      "source_trajectory_sha256": "d22ddcd6d027790f9c66a95c5f498c0fdb04447a12967ee681f27fe044ed7e54",
+      "task_id": "7894e3922dc1e048d44c",
+      "variant_id": "xmlenv:9de5384760dd3e80f9c9885d48fbc1509613191f61669b676c18fa3564a84651"
+    },
+    {
+      "execution_id": "libero_object_openvla_oft_task01_seed1008_trial008_cfafd9ddc3db",
+      "recovery_status": "PASS",
+      "saved_frame_end": 172,
+      "saved_frame_start": 0,
+      "source_bytes": 98158769,
+      "source_trajectory_path_provenance_only": "/disk/1/data/niktakbr/r1-v4-phase5e-evidence/object/task_01/episode_008/trajectory.h5",
+      "source_trajectory_sha256": "28672133346aaf5172a0f39d212cf54c2043cf4150ada97b7f6560bb48c645d9",
+      "task_id": "7894e3922dc1e048d44c",
+      "variant_id": "xmlenv:9de5384760dd3e80f9c9885d48fbc1509613191f61669b676c18fa3564a84651"
+    },
+    {
+      "execution_id": "libero_object_openvla_oft_task01_seed1015_trial015_cfafd9ddc3db",
+      "recovery_status": "PASS",
+      "saved_frame_end": 132,
+      "saved_frame_start": 0,
+      "source_bytes": 75689920,
+      "source_trajectory_path_provenance_only": "/disk/1/data/niktakbr/r1-v4-phase5e-evidence/object/task_01/episode_015/trajectory.h5",
+      "source_trajectory_sha256": "5a82e216ce1d3ac73eb7a130951e1c7c01c812fda85811d8357deeb9fa44c3a0",
+      "task_id": "7894e3922dc1e048d44c",
+      "variant_id": "xmlenv:9de5384760dd3e80f9c9885d48fbc1509613191f61669b676c18fa3564a84651"
+    },
+    {
+      "execution_id": "libero_object_openvla_oft_task01_seed1023_trial023_cfafd9ddc3db",
+      "recovery_status": "PASS",
+      "saved_frame_end": 138,
+      "saved_frame_start": 0,
+      "source_bytes": 78230048,
+      "source_trajectory_path_provenance_only": "/disk/1/data/niktakbr/r1-v4-phase5e-evidence/object/task_01/episode_023/trajectory.h5",
+      "source_trajectory_sha256": "ca515cbc875b76c540e2a97a8247fb97d6a0b8b00bd1827f40817d2f165c9825",
+      "task_id": "7894e3922dc1e048d44c",
+      "variant_id": "xmlenv:9de5384760dd3e80f9c9885d48fbc1509613191f61669b676c18fa3564a84651"
+    },
+    {
+      "execution_id": "libero_object_openvla_oft_task01_seed1039_trial039_cfafd9ddc3db",
+      "recovery_status": "PASS",
+      "saved_frame_end": 140,
+      "saved_frame_start": 0,
+      "source_bytes": 80338900,
+      "source_trajectory_path_provenance_only": "/disk/1/data/niktakbr/r1-v4-phase5e-evidence/object/task_01/episode_039/trajectory.h5",
+      "source_trajectory_sha256": "b0f2af9afb34d18ebb0e3e61f7a590201fc33030f7d9dbed35f69c5b3a65ac83",
+      "task_id": "7894e3922dc1e048d44c",
+      "variant_id": "xmlenv:9de5384760dd3e80f9c9885d48fbc1509613191f61669b676c18fa3564a84651"
+    },
+    {
+      "execution_id": "libero_object_openvla_oft_task03_seed1004_trial004_cfafd9ddc3db",
+      "recovery_status": "PASS",
+      "saved_frame_end": 155,
+      "saved_frame_start": 0,
+      "source_bytes": 88312943,
+      "source_trajectory_path_provenance_only": "/disk/1/data/niktakbr/r1-v4-phase5e-evidence/object/task_03/episode_004/trajectory.h5",
+      "source_trajectory_sha256": "3b32007266c40c678f0e732c5402078b745f3c3522d656454805fe9bbf0270c1",
+      "task_id": "30c0f61d2d5786fae8b6",
+      "variant_id": "xmlenv:5393fb2c178d9246204c2a82e0375aae7a03e0a75f7f8649dc02a1d5ae8e8ebc"
+    },
+    {
+      "execution_id": "libero_object_openvla_oft_task03_seed1005_trial005_cfafd9ddc3db",
+      "recovery_status": "PASS",
+      "saved_frame_end": 136,
+      "saved_frame_start": 0,
+      "source_bytes": 76908232,
+      "source_trajectory_path_provenance_only": "/disk/1/data/niktakbr/r1-v4-phase5e-evidence/object/task_03/episode_005/trajectory.h5",
+      "source_trajectory_sha256": "cbbb32c3ea1ec5a16a0c71b919635f0c466e2e6ab5b0d5800ff219826f7f0d3f",
+      "task_id": "30c0f61d2d5786fae8b6",
+      "variant_id": "xmlenv:5393fb2c178d9246204c2a82e0375aae7a03e0a75f7f8649dc02a1d5ae8e8ebc"
+    },
+    {
+      "execution_id": "libero_object_openvla_oft_task03_seed1010_trial010_cfafd9ddc3db",
+      "recovery_status": "PASS",
+      "saved_frame_end": 129,
+      "saved_frame_start": 0,
+      "source_bytes": 72976725,
+      "source_trajectory_path_provenance_only": "/disk/1/data/niktakbr/r1-v4-phase5e-evidence/object/task_03/episode_010/trajectory.h5",
+      "source_trajectory_sha256": "64a43b0c24979f365b14662931380889fca616e52a2776e41dfe8a80a7d2b0a4",
+      "task_id": "30c0f61d2d5786fae8b6",
+      "variant_id": "xmlenv:5393fb2c178d9246204c2a82e0375aae7a03e0a75f7f8649dc02a1d5ae8e8ebc"
+    },
+    {
+      "execution_id": "libero_object_openvla_oft_task03_seed1011_trial011_cfafd9ddc3db",
+      "recovery_status": "PASS",
+      "saved_frame_end": 137,
+      "saved_frame_start": 0,
+      "source_bytes": 77421528,
+      "source_trajectory_path_provenance_only": "/disk/1/data/niktakbr/r1-v4-phase5e-evidence/object/task_03/episode_011/trajectory.h5",
+      "source_trajectory_sha256": "b6b56442ba96b3bad69485c26a7295ee2e6dea298ad367189c2c682c569dac2b",
+      "task_id": "30c0f61d2d5786fae8b6",
+      "variant_id": "xmlenv:5393fb2c178d9246204c2a82e0375aae7a03e0a75f7f8649dc02a1d5ae8e8ebc"
+    },
+    {
+      "execution_id": "libero_object_openvla_oft_task03_seed1014_trial014_cfafd9ddc3db",
+      "recovery_status": "PASS",
+      "saved_frame_end": 187,
+      "saved_frame_start": 0,
+      "source_bytes": 106138876,
+      "source_trajectory_path_provenance_only": "/disk/1/data/niktakbr/r1-v4-phase5e-evidence/object/task_03/episode_014/trajectory.h5",
+      "source_trajectory_sha256": "9d4abcad1eef61cff23ec34ba06beaf87b08f9492f77e8bc0227eacfee8460ef",
+      "task_id": "30c0f61d2d5786fae8b6",
+      "variant_id": "xmlenv:5393fb2c178d9246204c2a82e0375aae7a03e0a75f7f8649dc02a1d5ae8e8ebc"
+    },
+    {
+      "execution_id": "libero_object_openvla_oft_task03_seed1020_trial020_cfafd9ddc3db",
+      "recovery_status": "PASS",
+      "saved_frame_end": 133,
+      "saved_frame_start": 0,
+      "source_bytes": 75633088,
+      "source_trajectory_path_provenance_only": "/disk/1/data/niktakbr/r1-v4-phase5e-evidence/object/task_03/episode_020/trajectory.h5",
+      "source_trajectory_sha256": "31c4bdd7a56c1399fa48d11c94d81680ecfd57ad322d3609f865c1db2c6378ec",
+      "task_id": "30c0f61d2d5786fae8b6",
+      "variant_id": "xmlenv:5393fb2c178d9246204c2a82e0375aae7a03e0a75f7f8649dc02a1d5ae8e8ebc"
+    },
+    {
+      "execution_id": "libero_object_openvla_oft_task03_seed1022_trial022_cfafd9ddc3db",
+      "recovery_status": "PASS",
+      "saved_frame_end": 138,
+      "saved_frame_start": 0,
+      "source_bytes": 77844623,
+      "source_trajectory_path_provenance_only": "/disk/1/data/niktakbr/r1-v4-phase5e-evidence/object/task_03/episode_022/trajectory.h5",
+      "source_trajectory_sha256": "c2e4fe3c72195692b885a1d16dc8950a5de354ed6c7a82d92bbee5f0b8f93590",
+      "task_id": "30c0f61d2d5786fae8b6",
+      "variant_id": "xmlenv:5393fb2c178d9246204c2a82e0375aae7a03e0a75f7f8649dc02a1d5ae8e8ebc"
+    },
+    {
+      "execution_id": "libero_object_openvla_oft_task03_seed1023_trial023_cfafd9ddc3db",
+      "recovery_status": "PASS",
+      "saved_frame_end": 137,
+      "saved_frame_start": 0,
+      "source_bytes": 77458678,
+      "source_trajectory_path_provenance_only": "/disk/1/data/niktakbr/r1-v4-phase5e-evidence/object/task_03/episode_023/trajectory.h5",
+      "source_trajectory_sha256": "3ddedd523f4f1a18f947a9b78fc64cbd8a9584bf37ae11296192cc2fe34889cc",
+      "task_id": "30c0f61d2d5786fae8b6",
+      "variant_id": "xmlenv:5393fb2c178d9246204c2a82e0375aae7a03e0a75f7f8649dc02a1d5ae8e8ebc"
+    },
+    {
+      "execution_id": "libero_object_openvla_oft_task03_seed1031_trial031_cfafd9ddc3db",
+      "recovery_status": "PASS",
+      "saved_frame_end": 125,
+      "saved_frame_start": 0,
+      "source_bytes": 70994150,
+      "source_trajectory_path_provenance_only": "/disk/1/data/niktakbr/r1-v4-phase5e-evidence/object/task_03/episode_031/trajectory.h5",
+      "source_trajectory_sha256": "feac96bfa86d05989fec5ad844273cc4272a72d03b1a4935d83b8e15d9b36d80",
+      "task_id": "30c0f61d2d5786fae8b6",
+      "variant_id": "xmlenv:5393fb2c178d9246204c2a82e0375aae7a03e0a75f7f8649dc02a1d5ae8e8ebc"
+    },
+    {
+      "execution_id": "libero_object_openvla_oft_task03_seed1037_trial037_cfafd9ddc3db",
+      "recovery_status": "PASS",
+      "saved_frame_end": 138,
+      "saved_frame_start": 0,
+      "source_bytes": 77584452,
+      "source_trajectory_path_provenance_only": "/disk/1/data/niktakbr/r1-v4-phase5e-evidence/object/task_03/episode_037/trajectory.h5",
+      "source_trajectory_sha256": "841961ecf1b380cdaade260a53c66b29e61dab7480f1711dddfba220f8094735",
+      "task_id": "30c0f61d2d5786fae8b6",
+      "variant_id": "xmlenv:5393fb2c178d9246204c2a82e0375aae7a03e0a75f7f8649dc02a1d5ae8e8ebc"
+    },
+    {
+      "execution_id": "libero_object_openvla_oft_task03_seed1038_trial038_cfafd9ddc3db",
+      "recovery_status": "PASS",
+      "saved_frame_end": 137,
+      "saved_frame_start": 0,
+      "source_bytes": 77337230,
+      "source_trajectory_path_provenance_only": "/disk/1/data/niktakbr/r1-v4-phase5e-evidence/object/task_03/episode_038/trajectory.h5",
+      "source_trajectory_sha256": "7166b2534efd19a77c6f34de2ffcfbd88bafff64d30969fc0a18f13130c32c2b",
+      "task_id": "30c0f61d2d5786fae8b6",
+      "variant_id": "xmlenv:5393fb2c178d9246204c2a82e0375aae7a03e0a75f7f8649dc02a1d5ae8e8ebc"
+    },
+    {
+      "execution_id": "libero_object_openvla_oft_task03_seed1040_trial040_cfafd9ddc3db",
+      "recovery_status": "PASS",
+      "saved_frame_end": 140,
+      "saved_frame_start": 0,
+      "source_bytes": 79773898,
+      "source_trajectory_path_provenance_only": "/disk/1/data/niktakbr/r1-v4-phase5e-evidence/object/task_03/episode_040/trajectory.h5",
+      "source_trajectory_sha256": "953bffab9f571cb2580b1a891af72200529fb973b10fa11fe023d729251e657e",
+      "task_id": "30c0f61d2d5786fae8b6",
+      "variant_id": "xmlenv:5393fb2c178d9246204c2a82e0375aae7a03e0a75f7f8649dc02a1d5ae8e8ebc"
+    },
+    {
+      "execution_id": "libero_object_openvla_oft_task03_seed1047_trial047_cfafd9ddc3db",
+      "recovery_status": "PASS",
+      "saved_frame_end": 144,
+      "saved_frame_start": 0,
+      "source_bytes": 81462174,
+      "source_trajectory_path_provenance_only": "/disk/1/data/niktakbr/r1-v4-phase5e-evidence/object/task_03/episode_047/trajectory.h5",
+      "source_trajectory_sha256": "f3c13971308badbc5f733e767fba60db5741a8db0daab5556d2081e821cc0393",
+      "task_id": "30c0f61d2d5786fae8b6",
+      "variant_id": "xmlenv:5393fb2c178d9246204c2a82e0375aae7a03e0a75f7f8649dc02a1d5ae8e8ebc"
+    },
+    {
+      "execution_id": "libero_object_openvla_oft_task05_seed1002_trial002_cfafd9ddc3db",
+      "recovery_status": "PASS",
+      "saved_frame_end": 128,
+      "saved_frame_start": 0,
+      "source_bytes": 72793246,
+      "source_trajectory_path_provenance_only": "/disk/1/data/niktakbr/r1-v4-phase5e-evidence/object/task_05/episode_002/trajectory.h5",
+      "source_trajectory_sha256": "dfa3775500d02790d19ebaca8bbecd3747780f49cc3e77f8796321a1f01f6d78",
+      "task_id": "4013b7c5a98750b7e80d",
+      "variant_id": "xmlenv:344d2d6cad5a53fe6363544d6f8bc6f1293f11312e3541b48496b3ac90c9307e"
+    },
+    {
+      "execution_id": "libero_object_openvla_oft_task05_seed1005_trial005_cfafd9ddc3db",
+      "recovery_status": "PASS",
+      "saved_frame_end": 140,
+      "saved_frame_start": 0,
+      "source_bytes": 80150241,
+      "source_trajectory_path_provenance_only": "/disk/1/data/niktakbr/r1-v4-phase5e-evidence/object/task_05/episode_005/trajectory.h5",
+      "source_trajectory_sha256": "2396d613f36cef5acca77d69b77243375fb8953a0161947683059bd2ee5d1c7e",
+      "task_id": "4013b7c5a98750b7e80d",
+      "variant_id": "xmlenv:344d2d6cad5a53fe6363544d6f8bc6f1293f11312e3541b48496b3ac90c9307e"
+    },
+    {
+      "execution_id": "libero_object_openvla_oft_task05_seed1011_trial011_cfafd9ddc3db",
+      "recovery_status": "PASS",
+      "saved_frame_end": 135,
+      "saved_frame_start": 0,
+      "source_bytes": 76961583,
+      "source_trajectory_path_provenance_only": "/disk/1/data/niktakbr/r1-v4-phase5e-evidence/object/task_05/episode_011/trajectory.h5",
+      "source_trajectory_sha256": "8e9b707adea37e6e31345527c7aa8f4ab690676f49d87b5818abdb26438f043c",
+      "task_id": "4013b7c5a98750b7e80d",
+      "variant_id": "xmlenv:344d2d6cad5a53fe6363544d6f8bc6f1293f11312e3541b48496b3ac90c9307e"
+    },
+    {
+      "execution_id": "libero_object_openvla_oft_task05_seed1014_trial014_cfafd9ddc3db",
+      "recovery_status": "PASS",
+      "saved_frame_end": 182,
+      "saved_frame_start": 0,
+      "source_bytes": 103894486,
+      "source_trajectory_path_provenance_only": "/disk/1/data/niktakbr/r1-v4-phase5e-evidence/object/task_05/episode_014/trajectory.h5",
+      "source_trajectory_sha256": "7c302edb1bf2bf2cc5abdbfdf9d9e2cc15480109bd4c4322032b5bb3401b7861",
+      "task_id": "4013b7c5a98750b7e80d",
+      "variant_id": "xmlenv:344d2d6cad5a53fe6363544d6f8bc6f1293f11312e3541b48496b3ac90c9307e"
+    },
+    {
+      "execution_id": "libero_object_openvla_oft_task05_seed1032_trial032_cfafd9ddc3db",
+      "recovery_status": "PASS",
+      "saved_frame_end": 140,
+      "saved_frame_start": 0,
+      "source_bytes": 80120765,
+      "source_trajectory_path_provenance_only": "/disk/1/data/niktakbr/r1-v4-phase5e-evidence/object/task_05/episode_032/trajectory.h5",
+      "source_trajectory_sha256": "435c1d5de13dfdb1fc0619fc259aeca90feec44fea7cf0c06f07cdb7882fee5c",
+      "task_id": "4013b7c5a98750b7e80d",
+      "variant_id": "xmlenv:344d2d6cad5a53fe6363544d6f8bc6f1293f11312e3541b48496b3ac90c9307e"
+    },
+    {
+      "execution_id": "libero_object_openvla_oft_task05_seed1035_trial035_cfafd9ddc3db",
+      "recovery_status": "PASS",
+      "saved_frame_end": 127,
+      "saved_frame_start": 0,
+      "source_bytes": 72335517,
+      "source_trajectory_path_provenance_only": "/disk/1/data/niktakbr/r1-v4-phase5e-evidence/object/task_05/episode_035/trajectory.h5",
+      "source_trajectory_sha256": "2febbc83b532a896b200e60ebdf6a75e4a5f035b74afd377277dece7a592fde3",
+      "task_id": "4013b7c5a98750b7e80d",
+      "variant_id": "xmlenv:344d2d6cad5a53fe6363544d6f8bc6f1293f11312e3541b48496b3ac90c9307e"
+    },
+    {
+      "execution_id": "libero_object_openvla_oft_task05_seed1037_trial037_cfafd9ddc3db",
+      "recovery_status": "PASS",
+      "saved_frame_end": 138,
+      "saved_frame_start": 0,
+      "source_bytes": 78441471,
+      "source_trajectory_path_provenance_only": "/disk/1/data/niktakbr/r1-v4-phase5e-evidence/object/task_05/episode_037/trajectory.h5",
+      "source_trajectory_sha256": "22e82287a027bd526716f09f2a926e25370425a00d82966a4bb03a2a512d1291",
+      "task_id": "4013b7c5a98750b7e80d",
+      "variant_id": "xmlenv:344d2d6cad5a53fe6363544d6f8bc6f1293f11312e3541b48496b3ac90c9307e"
+    },
+    {
+      "execution_id": "libero_object_openvla_oft_task05_seed1040_trial040_cfafd9ddc3db",
+      "recovery_status": "PASS",
+      "saved_frame_end": 130,
+      "saved_frame_start": 0,
+      "source_bytes": 73520888,
+      "source_trajectory_path_provenance_only": "/disk/1/data/niktakbr/r1-v4-phase5e-evidence/object/task_05/episode_040/trajectory.h5",
+      "source_trajectory_sha256": "ba31dabb59f0dfeb74bdc0b93fbe7257f4f5ed7d5bb5dfb2649b6a43815c453f",
+      "task_id": "4013b7c5a98750b7e80d",
+      "variant_id": "xmlenv:344d2d6cad5a53fe6363544d6f8bc6f1293f11312e3541b48496b3ac90c9307e"
+    },
+    {
+      "execution_id": "libero_object_openvla_oft_task05_seed1043_trial043_cfafd9ddc3db",
+      "recovery_status": "PASS",
+      "saved_frame_end": 130,
+      "saved_frame_start": 0,
+      "source_bytes": 73530659,
+      "source_trajectory_path_provenance_only": "/disk/1/data/niktakbr/r1-v4-phase5e-evidence/object/task_05/episode_043/trajectory.h5",
+      "source_trajectory_sha256": "316b24c2dbcaf7731c5b4b846de6d6ee55b6615ebc378e46bb94e2ab1d5f5889",
+      "task_id": "4013b7c5a98750b7e80d",
+      "variant_id": "xmlenv:344d2d6cad5a53fe6363544d6f8bc6f1293f11312e3541b48496b3ac90c9307e"
+    },
+    {
+      "execution_id": "libero_object_openvla_oft_task09_seed1007_trial007_cfafd9ddc3db",
+      "recovery_status": "PASS",
+      "saved_frame_end": 140,
+      "saved_frame_start": 0,
+      "source_bytes": 79568566,
+      "source_trajectory_path_provenance_only": "/disk/1/data/niktakbr/r1-v4-phase5e-evidence/object/task_09/episode_007/trajectory.h5",
+      "source_trajectory_sha256": "a88650e8304f7a5dc4e68c79ab3009ae795d6d56bbac392c7f488e2a82282b03",
+      "task_id": "18573886c3dbce39b02e",
+      "variant_id": "xmlenv:7f1f3ed2b3a92435366df297c638d12a41bcef38376f625038911a1c6ad0b0b4"
+    },
+    {
+      "execution_id": "libero_object_openvla_oft_task09_seed1010_trial010_cfafd9ddc3db",
+      "recovery_status": "PASS",
+      "saved_frame_end": 132,
+      "saved_frame_start": 0,
+      "source_bytes": 74955113,
+      "source_trajectory_path_provenance_only": "/disk/1/data/niktakbr/r1-v4-phase5e-evidence/object/task_09/episode_010/trajectory.h5",
+      "source_trajectory_sha256": "475334d16b857218061e666686b7ea81a87492e694102b5ea7e7b03a0a57088e",
+      "task_id": "18573886c3dbce39b02e",
+      "variant_id": "xmlenv:7f1f3ed2b3a92435366df297c638d12a41bcef38376f625038911a1c6ad0b0b4"
+    },
+    {
+      "execution_id": "libero_object_openvla_oft_task09_seed1045_trial045_cfafd9ddc3db",
+      "recovery_status": "PASS",
+      "saved_frame_end": 127,
+      "saved_frame_start": 0,
+      "source_bytes": 71648016,
+      "source_trajectory_path_provenance_only": "/disk/1/data/niktakbr/r1-v4-phase5e-evidence/object/task_09/episode_045/trajectory.h5",
+      "source_trajectory_sha256": "41394d1b78416273adcd65ea43bfc7d75ac49c819bcd2be8fb56084135fc1be5",
+      "task_id": "18573886c3dbce39b02e",
+      "variant_id": "xmlenv:7f1f3ed2b3a92435366df297c638d12a41bcef38376f625038911a1c6ad0b0b4"
+    }
+  ],
+  "task_count": 4,
+  "unextracted_evidence_count": 1050,
+  "value_level_source_selector_comparison": {
+    "canonical_executions": 30,
+    "method": "Every extracted value was re-read from its resolved selector in the original HDF5 trajectory and compared with the exported JSON value.",
+    "note": "Source-side validation only; offline verifier uses the recorded receipts and bundled extract checksums.",
+    "samples_compared": 148225,
+    "status": "PASS"
+  },
+  "variant_count": 4,
+  "verified_source_hash_count": 30
+}

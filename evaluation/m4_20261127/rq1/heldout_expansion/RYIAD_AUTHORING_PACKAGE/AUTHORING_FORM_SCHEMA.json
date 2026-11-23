@@ -1,0 +1,100 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/m4/rq1/authoring-form-row.schema.json",
+  "title": "Blank RQ1 query/reference authoring row",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "case_id",
+    "execution_id",
+    "task_id",
+    "variant_id",
+    "question_text_by_Ryiad",
+    "unique_formulation_confirmed",
+    "requested_object_ids",
+    "requested_temporal_scope_saved_frames",
+    "requested_evidence_obligations",
+    "required_families",
+    "required_record_ids",
+    "expected_source_and_scope_checks",
+    "unsupported_or_missing_obligation",
+    "expected_abstention_if_any",
+    "reference_author_verification"
+  ],
+  "properties": {
+    "case_id": {
+      "type": "string",
+      "description": "Blank for Ryiad to author; identity columns are frozen."
+    },
+    "execution_id": {
+      "type": "string",
+      "description": "Blank for Ryiad to author; identity columns are frozen."
+    },
+    "task_id": {
+      "type": "string",
+      "description": "Blank for Ryiad to author; identity columns are frozen."
+    },
+    "variant_id": {
+      "type": "string",
+      "description": "Blank for Ryiad to author; identity columns are frozen."
+    },
+    "question_text_by_Ryiad": {
+      "type": "string",
+      "description": "Blank for Ryiad to author; identity columns are frozen."
+    },
+    "unique_formulation_confirmed": {
+      "type": "string",
+      "description": "Blank for Ryiad to author; identity columns are frozen."
+    },
+    "requested_object_ids": {
+      "type": "string",
+      "description": "Blank for Ryiad to author; identity columns are frozen."
+    },
+    "requested_temporal_scope_saved_frames": {
+      "type": "string",
+      "description": "Blank for Ryiad to author; identity columns are frozen."
+    },
+    "requested_evidence_obligations": {
+      "type": "string",
+      "description": "Blank for Ryiad to author; identity columns are frozen."
+    },
+    "required_families": {
+      "type": "string",
+      "description": "Blank for Ryiad to author; identity columns are frozen."
+    },
+    "required_record_ids": {
+      "type": "string",
+      "description": "Blank for Ryiad to author; identity columns are frozen."
+    },
+    "expected_source_and_scope_checks": {
+      "type": "string",
+      "description": "Blank for Ryiad to author; identity columns are frozen."
+    },
+    "unsupported_or_missing_obligation": {
+      "type": "string",
+      "description": "Blank for Ryiad to author; identity columns are frozen."
+    },
+    "expected_abstention_if_any": {
+      "type": "string",
+      "description": "Blank for Ryiad to author; identity columns are frozen."
+    },
+    "reference_author_verification": {
+      "type": "string",
+      "description": "Blank for Ryiad to author; identity columns are frozen."
+    }
+  },
+  "x-csv-path": "BLANK_QUERY_REFERENCE_FORM.csv",
+  "x-human-authored-fields": [
+    "question_text_by_Ryiad",
+    "unique_formulation_confirmed",
+    "requested_object_ids",
+    "requested_temporal_scope_saved_frames",
+    "requested_evidence_obligations",
+    "required_families",
+    "required_record_ids",
+    "expected_source_and_scope_checks",
+    "unsupported_or_missing_obligation",
+    "expected_abstention_if_any",
+    "reference_author_verification"
+  ]
+}
