@@ -1,0 +1,9 @@
+[
+  {
+    "case_id": "json_case",
+    "object": "cream_cheese_1",
+    "requirement_version": "R1-test",
+    "applicability": "applies",
+    "prediction": "violation_observed"
+  }
+]

@@ -1,0 +1,7 @@
+case_id,object,source_group_id,requirement_version,split,applicability_prediction,violation_prediction
+dev_v,cream_cheese_1,dev_group,R1-test,development_calibration,applicable,violation
+dev_n,cream_cheese_1,dev_group,R1-test,development_calibration,applicable,no_violation
+dev_na,cream_cheese_1,dev_group,R1-test,development_calibration,not_applicable,not_applicable
+dev_abstain,cream_cheese_1,dev_group,R1-test,development_calibration,abstain,abstain
+eval_invalid,cream_cheese_1,eval_group,R1-test,independent_evaluation,invalid_contract,invalid_contract
+eval_excluded,cream_cheese_1,eval_group,R1-test,independent_evaluation,applicable,violation
