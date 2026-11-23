@@ -21,7 +21,7 @@ Success prints four `PASS tab:…` lines with the checked rows and exits zero. T
 | `tab:rq1` | `rq1()` | Extracts historical ranking metrics and Phase 5K V2 coverage, abstention and failure IDs from the four reports cited in the LaTeX table. |
 | `tab:rq2` | `rq2()`, [verify_saved_results.py](integration/verify_saved_results.py) | Recounts public calibration and expanded coverage rows and reads historical aggregates from [results.json](evaluation/r1_v3/results.json). Independent evaluation remains pending. |
 | `tab:rq3-conditions` | `rq3()`, [score.py](evaluation/m4_20261127/rq3/experiment/score.py), [make_tables.py](evaluation/m4_20261127/rq3/experiment/make_tables.py) | Rescores archived Qwen replies, compares all three generated files byte-for-byte, and checks the T/R/C paper columns. |
-| `tab:rq4` | `rq4()`, [verify_saved_fixture.py](integration/verify_saved_fixture.py), [check_examples.py](drafter/revision/tools/check_examples.py), revision unit tests | Verifies the one-pass fixture and runs current checks. The paper reports the suite sizes recorded in the revision README. |
+| `tab:rq4` | `rq4()`, [verify_saved_fixture.py](integration/verify_saved_fixture.py), [check_examples.py](drafter/revision/tools/check_examples.py), revision unit tests | Verifies the one-pass fixture and runs current checks. The revision README records 102 tests and 149 example checks for the paper. The current replay runs 102 tests and reports 145 passing example checks. |
 
 This command replays saved results. Level C below describes the external requirements for fresh model inference and raw-data reproduction.
 
