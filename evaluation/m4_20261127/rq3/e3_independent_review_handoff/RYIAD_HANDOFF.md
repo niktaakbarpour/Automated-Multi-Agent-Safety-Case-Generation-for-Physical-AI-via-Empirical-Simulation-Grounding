@@ -1,0 +1,11 @@
+# RQ3 E3 handoff for Ryiad
+
+The 12-case neutral package is structurally intact (12/12 request hashes match; 12 unique blind IDs; blank 12-row form). The semantic set is 8 mutations plus 4 clean controls from two parent groups, with zero independent source groups. No reviewer decision was added.
+
+The existing form lacks explicit target-interval verification and confidence. An additive blank intake template and schema are at `E3_REVIEW_INTAKE_TEMPLATE.csv` and `E3_REVIEW_INTAKE.schema.json`; please decide whether to use them without editing the existing neutral package. For strict blinding, distribute only the neutral requests/instructions and approved blank form via an access-controlled review-only copy. The whole repository contains labels and outputs, so a full clone is not blinded. Obtain and retain an exposure declaration.
+
+Do not share the scorer, mutation manifest, gold labels, response JSONL, saved per-case outputs, or coordinator readiness notes before the review form is frozen. After freeze, hash and validate the submission, then compare it with developer references in a separate, provenance-rich disagreement ledger. Keep both original judgments immutable; unresolved disagreements stay unresolved. Model results must not determine labels.
+
+A reviewer-only bundle is staged locally outside Git at `/Users/nikta/.private-review-staging/rq3-e3-20261123/reviewer_package` with owner-only permissions. It has exactly 12 neutral case JSONs plus instructions, blank forms/schemas, and a hash manifest; all 12 case copies match the source neutral manifest. The bundle has not been sent or uploaded. First obtain and review the separate signed exposure attestation at the sibling staging path. Do not distribute before that gate. Then use an individually restricted, approved delivery channel; do not grant repository access. The local bundle is not itself a reviewer-accessible secure delivery service.
+
+Saved table generation reproduces byte-for-byte from the saved scorer CSVs. Full scorer/unit-test rerun is environment-blocked in this checkout (Python 3.9.6, missing `jsonschema`, and Python 3.10+ union syntax in an imported module). No model calls or changes to experimental outputs were made.
