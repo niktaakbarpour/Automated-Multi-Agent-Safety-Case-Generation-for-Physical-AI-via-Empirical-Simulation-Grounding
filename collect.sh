@@ -1,4 +1,5 @@
 #!/bin/bash
 set -euo pipefail
-R=/local/home/niktakbr/trustworthy_project
-exec /bin/bash "$R/run.sh" > "$R/reports/collection.log" 2>&1
+project_dir=$(cd -- "$(dirname -- "$0")" && pwd)
+mkdir -p "$project_dir/reports"
+exec /bin/bash "$project_dir/run.sh" > "$project_dir/reports/collection.log" 2>&1
