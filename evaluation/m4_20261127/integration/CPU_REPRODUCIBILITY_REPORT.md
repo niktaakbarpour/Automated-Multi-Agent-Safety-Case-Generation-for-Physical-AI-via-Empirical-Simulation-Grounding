@@ -8,7 +8,7 @@ After commit `74578f186d6e1a3e506cf052bd2435aa19d25763`, a clean detached worktr
 python -m pip install -r requirements.txt -r drafter/requirements.txt -r critic/requirements.txt -r evaluation/r1_v4/requirements.txt
 ```
 
-The full suite and RQ3 byte comparisons below ran at commit `74578f186d6e1a3e506cf052bd2435aa19d25763`. Final commit `713b2221d340282f07e57decf42a4ee79badf968` changes only this report; at that SHA, both saved-result verifiers and `git diff --check` were rerun from the detached checkout. All checks were CPU-only. No inference, simulation, source-recovery or private RQ2 review access occurred. System Python 3.14 lacked h5py; use the documented environment rather than assuming system packages.
+The full CPU suite and RQ3 byte comparisons below ran from the clean detached checkout at commit `74578f186d6e1a3e506cf052bd2435aa19d25763` (parent `efece5dd8bc409d201f585e0da377dcb37ebcf5f`). Commit `713b2221d340282f07e57decf42a4ee79badf968` added test-provenance documentation; both saved-result verifiers and `git diff --check` were rerun there. PR #42 head `fe1337436e26a5ca9b2575409a89b57a34bc246b` changed only provenance wording; both saved-result verifiers and `git diff --check` were rerun at that head, but the full suite was not rerun. PR #42 merged as `a5b415ad36721e4c9497c3a2d3b11281eb9d28ed` (first parent `8e72fbdf14666cc043e1dcabe89cb0102d836f87`, second parent `744fd37a3eb9048d004334b3c02e5e7cb8634646`). No claim is made that the full suite ran on the PR head or merge commit. All checks were CPU-only. No inference, simulation, source-recovery or private RQ2 review access occurred. System Python 3.14 lacked h5py; use the documented environment rather than assuming system packages.
 
 ## Verified commands
 
