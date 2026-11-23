@@ -4,11 +4,11 @@ This repository studies how evidence-grounded safety-case tools behave on record
 
 ## Research questions and architecture
 
-- **RQ1   Evidence retrieval:** retrieves requested evidence families and source-scoped measurements, checks obligation coverage and abstains when a request cannot be supported. Retrieval completeness is limited to the explicit request; it is not proof of R1 safety evidence sufficiency.
-- **RQ2   Requirement-aware R1 checking:** evaluates the fall-prevention requirement for specified protected non-target objects on the living-room table, under a versioned configuration and recorded monitoring interval. An unsupported decision remains an abstention. The current adjudicated sample is tiny and development-only.
+- **RQ1 — Evidence retrieval:** retrieves requested evidence families and source-scoped measurements, checks obligation coverage and abstains when a request cannot be supported. Retrieval completeness is limited to the explicit request; it is not proof of R1 safety evidence sufficiency.
+- **RQ2 — Requirement-aware R1 checking:** evaluates the fall-prevention requirement for specified protected non-target objects on the living-room table, under a versioned configuration and recorded monitoring interval. An unsupported decision remains an abstention. The current adjudicated sample is tiny and development-only.
 - **GSN Drafter:** proposes a per-object GSN safety argument from validated configuration and supplied evidence. Its accepted structure and citations do not establish that the claims are physically true.
-- **RQ3   Critic:** checks the argument and its links, runs deterministic rules and can optionally screen model proposals. A zero-finding report is not a safety conclusion.
-- **RQ4   Revision Agent:** applies only contract-approved edits to an argument, preserving source evidence, requirement configuration and provenance. It cannot revise physical outcomes or invent evidence.
+- **RQ3 — Critic:** checks the argument and its links, runs deterministic rules and can optionally screen model proposals. A zero-finding report is not a safety conclusion.
+- **RQ4 — Revision Agent:** applies only contract-approved edits to an argument, preserving source evidence, requirement configuration and provenance. It cannot revise physical outcomes or invent evidence.
 
 The intended flow is:
 
@@ -33,7 +33,7 @@ Each arrow has its own contract. The complete chain has not been demonstrated on
 
 Raw simulation evidence, retrieval databases, model weights, private reviewer submissions and some original runtime traces are not stored in this repository.
 
-## Level A   CPU-only setup, tests and demonstrations
+## Level A — CPU-only setup, tests and demonstrations
 
 Python **3.12** is the verified environment for the commands below. From a fresh clone, at the repository root:
 
@@ -79,7 +79,7 @@ python -m drafter.revision --help
 
 A synthetic integration or revision example demonstrates interface behavior only. It is not a physical execution or an effectiveness result.
 
-## Level B   Reproduce saved analyses without inference
+## Level B — Reproduce saved analyses without inference
 
 ### RQ3 saved Qwen responses and scores
 
@@ -116,7 +116,7 @@ Committed RQ1 metric and assessment files can be read directly under `evaluation
 
 See the [reproduction index](evaluation/m4_20261127/integration/EXPERIMENT_REPRODUCTION_INDEX.md) for result paths, commands and boundaries.
 
-## Level C   New inference and external evidence
+## Level C — New inference and external evidence
 
 New model inference requires a compatible OpenAI-style serving endpoint or local server, the specified checkpoint and tokenizer, hardware admission, environment/runtime versions, frozen input manifests and output destinations. Model weights are not included. New RQ3 inference used Qwen/Qwen3-32B revision `9216db5781bf21249d130ec9da846c4624c16137`, two L40S GPUs, BF16 and vLLM's native sampling fallback (`VLLM_USE_FLASHINFER_SAMPLER=0`); the precise recorded run notes and server launch command are in the real-run directory. Do not copy the old launch command without checking current resource admission and approvals.
 
@@ -213,7 +213,7 @@ This recreates scored tables from the saved replies; it does not rerun inference
 
 ### RQ4
 
-There is no `evaluation/m4_20261127/rq4/` package or supported RQ4 reproduction command in the current repository tree. RQ4 remains unimplemented here; do not infer results from RQ1–RQ3 or report a reproduction as complete.
+There is no RQ4 package under `evaluation/m4_20261127/` or supported RQ4 reproduction command in the current repository tree. RQ4 remains unimplemented here; do not infer results from RQ1–RQ3 or report a reproduction as complete.
 
 ## Data, access, and expected outputs
 
