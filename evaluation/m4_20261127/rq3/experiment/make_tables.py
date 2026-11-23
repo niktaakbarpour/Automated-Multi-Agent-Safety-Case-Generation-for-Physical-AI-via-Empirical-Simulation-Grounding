@@ -149,7 +149,8 @@ def build(results_dir):
               'Reference-correct: the mutation is detected, or the clean control gets no accepted finding (all '
               'valid outputs). Matching the label: accepted findings on mutation cases that are a detection; the '
               'others have no reference label and are not called wrong. Citations: model findings that cite '
-              'evidence and reached the citation check, not rejected for a citation.', '', correctness(summary), '']
+              'evidence and reached the citation check, not rejected for a citation.', '', correctness(summary), '', '',
+              "**Evidence-link limitation:** citations are screened against the full case in every condition; a passing citation check does not establish that the cited evidence was present in the model's condition-specific input. Independent mutation-label review by Ryiad remains pending. Results remain development-only (two parent groups, zero independent groups); condition C contains checker-admission status only, not independently verified physical checker evidence.", '']
     return '\n'.join(parts), backends
 
 

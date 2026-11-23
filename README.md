@@ -1,58 +1,140 @@
-# OpenVLA–LIBERO execution inventory
+# Trustworthy AI M4: empirical simulation grounding
 
-Current stage: execution inventory only. No LLM is implemented or called. Requirements (including proposals), cases, claims, checked safety events and objections are empty. Benchmark failures remain benchmark outcomes, with safety status `not_assessed` and no violation verdict.
+This repository studies how evidence-grounded safety-case tools behave on recorded physical-AI simulation evidence. It does not certify a robot or policy as safe. The framework keeps measured source evidence, requirement checks, argument generation, criticism, revision and evaluation as separately validated steps.
 
-## Sources and coverage
+## Research questions and architecture
 
-Source recordings: `/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero`.
-Model: `moojink/openvla-7b-oft-finetuned-libero-spatial-object-goal-10`, revision `638918f3d1c2e43a39a8a20772bdb8b91835e4b7`.
-40 tasks, 50 runs each, 2,000 runs total. Recorded success: Goal 96.4%, Spatial 91.4%, Object 98.8%, Long 95.2%. These numbers describe task completion only.
+- **RQ1   Evidence retrieval:** retrieves requested evidence families and source-scoped measurements, checks obligation coverage and abstains when a request cannot be supported. Retrieval completeness is limited to the explicit request; it is not proof of R1 safety evidence sufficiency.
+- **RQ2   Requirement-aware R1 checking:** evaluates the fall-prevention requirement for specified protected non-target objects on the living-room table, under a versioned configuration and recorded monitoring interval. An unsupported decision remains an abstention. The current adjudicated sample is tiny and development-only.
+- **GSN Drafter:** proposes a per-object GSN safety argument from validated configuration and supplied evidence. Its accepted structure and citations do not establish that the claims are physically true.
+- **RQ3   Critic:** checks the argument and its links, runs deterministic rules and can optionally screen model proposals. A zero-finding report is not a safety conclusion.
+- **RQ4   Revision Agent:** applies only contract-approved edits to an argument, preserving source evidence, requirement configuration and provenance. It cannot revise physical outcomes or invent evidence.
 
-`data/tasks.json` contains environment facts and the separate environment success definition. `data/runs.json` contains each execution's identity, outcome, native objects, conditions, measurement inventory and file references. `reports/existing_annotations_audit.json` inventories source JSON files and records the search for existing structured safety annotations. `reports/source_manifest.json` contains small-file hashes. Each run's `execution_files` lists its existing artifacts, byte sizes and producer integrity entries where available.
+The intended flow is:
 
-Large trajectories and videos remain in their original locations and formats. Small task BDDL definitions and the verified checkpoint tokenizer are retained under `evidence/`. Token decoding checks logged prompts; it does not invoke a model.
+`recorded evidence -> retrieval -> optional R1 assessment -> Drafter -> Critic -> reviewed revision -> second Critic -> scoring`
 
-## Identifier contract
+Each arrow has its own contract. The complete chain has not been demonstrated on a new, independently eligible physical execution. See [the feasibility report](evaluation/m4_20261127/integration/END_TO_END_FEASIBILITY_REPORT.md).
 
-| Field | Meaning and convention |
+## Repository map
+
+| Path | Contents |
 |---|---|
-| task_id | Existing unique `task_configuration_id`, preserved verbatim |
-| run_id | Existing unique `global_episode_id`, preserved verbatim |
-| step_id | Original zero-based integer control index within a run; `(run_id, step_id)` identifies a transition |
-| requirement_id | Future reviewed requirement; no instances allocated |
-| case_id | Future safety case; no instances allocated |
-| claim_id | Future claim within a case; no instances allocated |
-| event_id | Future selected event from approved rules; no instances allocated |
-| objection_id | Future criticism; no instances allocated |
+| `requirements/` | Versioned R1 definitions and configuration contracts |
+| `evaluation/r1_v4/` | Evidence registry, checker infrastructure, measurement readers and RAG releases |
+| `drafter/` | Drafter request, graph-plan, serialization and validation code |
+| `critic/` | Critic schemas, input checks, deterministic rules and optional model screening |
+| `drafter/revision/` | Contract-bound, auditable argument revision |
+| `integration/` | Drafter-to-Critic adapter and saved one-pass fixture |
+| `evaluation/m4_20261127/rq1/` | RQ1 frozen retrieval evaluations and remediation analyses |
+| `evaluation/m4_20261127/rq2/` | Final calibration and expanded coverage-only analysis |
+| `evaluation/m4_20261127/rq3/` | Mutation protocol, frozen benchmark, raw model responses and scores |
+| `evaluation/m4_20261127/integration/` | Feasibility and reproduction reports |
 
-The suite-local numeric task ID is retained separately as `benchmark_task_id`; it repeats across suites. Native body, geometry and joint IDs are valid only within the run's simulator index. Do not match them across runs without their run ID.
+Raw simulation evidence, retrieval databases, model weights, private reviewer submissions and some original runtime traces are not stored in this repository.
 
-## Instructions and environment facts
+## Level A   CPU-only setup, tests and demonstrations
 
-The exact recorded policy instruction is primary. BDDL language is retained separately, and exact text differences are reported in `reports/instruction_mismatches.json` (30 tasks). All recorded inference token sequences are decoded using the hash-verified source tokenizer and checked against the logged instruction. A missing recorded instruction would use an explicitly marked BDDL fallback; none were needed in this collection.
+Python **3.12** is the verified environment for the commands below. From a fresh clone, at the repository root:
 
-Objects and fixtures come from semantic initial conditions, BDDL and simulator XML/index. Region declarations are marked when their target is absent from the declared scene. Native table/floor geometry is recorded separately from BDDL fixture names; an unverified name alias is not imposed. Intended interaction records the instruction, objects of interest and goal predicates; no contact permissions are inferred.
-
-## Measurements and limitations
-
-Recorded evidence includes actions, policy chunks and inference linkage; control transitions and timestamps; robot joint, gripper and end-effector observations; object poses; simulator positions, velocities and body/geometry/site transforms; contact geometry IDs, distance and position; RGB camera observations and two camera videos; initial conditions, simulator XML/index, evaluator code/version and resource logs.
-
-XML declares end-effector force and torque sensors and six sensor values are recorded. Channel mapping, units and calibration are not tabulated in the recording index, so physical thresholds or calibrated interpretations are not inferred. Contact records do not contain per-contact forces. Continuous physics-substep contacts, material damage, fragility, human presence, prohibited regions and a safety contact policy are not supplied. Task failure alone cannot establish a safety violation.
-
-Measurement-key inventory samples first/middle/final frames of every run. All recorded control transitions remain accessible. The raw accessor verifies the original step and frame control-step alignment. Its `frame_id`/`video_frame_id` use recorded frame indices, including initial/settling frames; videos have not been independently decoded to verify every frame. Full HDF5 checksums are referenced from producer manifests, with current byte sizes checked; large arrays were not independently rehashed.
-
-## Commands
-
-Run on Hestia:
-
-```bash
-cd /local/home/niktakbr/trustworthy_project
-bash pipeline.sh inventory
-bash pipeline.sh validate
-bash pipeline.sh transition --run-id '<existing global_episode_id>' --step-id 0
-bash pipeline.sh collect
+```sh
+python3.12 -m venv .venv
+. .venv/bin/activate
+python -m pip install --upgrade pip
+python -m pip install -r requirements.txt -r drafter/requirements.txt -r critic/requirements.txt -r evaluation/r1_v4/requirements.txt
 ```
 
-`collect` regenerates task/run inventory without executing a policy or simulator. `validate` checks every task/run link, suite outcome, native body binding and trajectory byte size, plus first/last transitions in each suite and invalid-step rejection. Python uses the existing Hestia virtual environment identified in `pipeline.sh`.
+The install is CPU-capable and does not install model weights or call a model. The package manifests pin or bound NumPy, h5py, tokenizers and jsonschema dependencies. Python 3.12.14 with these manifests was tested for this guide; other Python versions are not claimed as verified here.
 
-Future requirement proposal, initial safety-case generation, event checking and criticism are outside this implementation. Any later event must reference its run, start/end steps, reviewed requirement, checker version and supporting measurements. Ordinary transitions do not receive event IDs. The future study concerns whether an argument reflects recorded executions; revising an argument does not certify that a policy is safer.
+Run the main CPU regression suites:
+
+```sh
+python -m unittest discover -s drafter/tests -t . -v
+python -m unittest discover -s critic/tests -t . -v
+python -m unittest integration.tests.test_handoff -v
+python -m unittest discover -s drafter/revision/tests -t . -v
+python -m drafter.revision.tools.check_examples
+python -m unittest evaluation.m4_20261127.rq3.tests.test_experiment evaluation.m4_20261127.rq3.tests.test_mutations -v
+python -m unittest evaluation.r1_v4.rag_evidence_database.retrieval_remediation.tests.test_bundle evaluation.r1_v4.rag_evidence_database.retrieval_remediation.tests.test_integrity -v
+```
+
+The RQ3 and RQ1 remediation tests are invoked by module because those test directories are not Python packages for `unittest discover -s`. These commands use scripted, synthetic or saved test inputs. The RQ3 unit tests print scripted request activity; those replies are test inputs, not new model results.
+
+Verify the committed one-pass fixture and public RQ2 tables:
+
+```sh
+python integration/verify_saved_fixture.py
+python integration/verify_saved_results.py
+```
+
+These validators make no model calls and do not read private RQ2 reviewer files. The first checks eight fixture hashes and current Critic contracts. The second recalculates the public RQ2 confusion and coverage counts from committed case rows and metrics.
+
+Other useful CPU commands:
+
+```sh
+python -m drafter --validate-request drafter/cases/scenario_a.request.json
+python -m critic --help
+python -m drafter.revision --help
+```
+
+A synthetic integration or revision example demonstrates interface behavior only. It is not a physical execution or an effectiveness result.
+
+## Level B   Reproduce saved analyses without inference
+
+### RQ3 saved Qwen responses and scores
+
+The real response archive is at `evaluation/m4_20261127/rq3/experiment/real_run_20261122T142300Z/RQ3_RESPONSES.jsonl`; the frozen request batch is under `evaluation/m4_20261127/rq3/experiment/batch/`. Use a new temporary output directory:
+
+```sh
+OUT="$(mktemp -d)"
+env PYTHONPATH=. python evaluation/m4_20261127/rq3/experiment/score.py \
+  --batch evaluation/m4_20261127/rq3/experiment/batch \
+  --responses evaluation/m4_20261127/rq3/experiment/real_run_20261122T142300Z/RQ3_RESPONSES.jsonl \
+  --out-dir "$OUT"
+python evaluation/m4_20261127/rq3/experiment/make_tables.py \
+  --results-dir "$OUT" --out "$OUT/RQ3_TABLES.md"
+diff -u evaluation/m4_20261127/rq3/experiment/real_run_20261122T142300Z/scored_pr34_20261123/RQ3_PER_CASE_RESULTS.csv "$OUT/RQ3_PER_CASE_RESULTS.csv"
+diff -u evaluation/m4_20261127/rq3/experiment/real_run_20261122T142300Z/scored_pr34_20261123/RQ3_SUMMARY.csv "$OUT/RQ3_SUMMARY.csv"
+diff -u evaluation/m4_20261127/rq3/experiment/real_run_20261122T142300Z/scored_pr34_20261123/RQ3_TABLES.md "$OUT/RQ3_TABLES.md"
+```
+
+The scorer and table generator are CPU-only. This re-analysis does not rerun Qwen. The expected archive has 108 valid replies (36 each for T/R/C) and nine retained failed attempts; these are attempts, not nine failed logical requests. The score files are development-only, use two exposed parent groups, and await Ryiad's independent mutation-label review. Condition C contains checker-admission status only, not independently verified physical checker evidence. Citation screening against a full case does not show that the condition-specific model input contained the cited evidence.
+
+### RQ2 saved results
+
+Run `python integration/verify_saved_results.py`. The current adjudicated calibration reports applicability agreement 3/3 and TP=1, TN=1, FP=0, FN=0 on two applicable cases; one not-applicable case is excluded from binary metrics. These three variants share one canonical source group. The expanded 60-execution analysis is unlabeled coverage evidence: 300 object units, 120 applicable, 20 determinate decisions and 100 abstentions. Its overall coverage is 20/120. The verifier checks those counts against committed row-level artifacts; it does not authenticate external Hestia source recordings or create new labels.
+
+### RQ1 saved results
+
+Committed RQ1 metric and assessment files can be read directly under `evaluation/m4_20261127/rq1/` and `evaluation/r1_v4/rag_evidence_database/`. Historical, V1, V2 and Phase 5K findings are separate populations. Phase 5K V2 reported 24/24 multi-source completeness and 84/84 required-family obligations, while three temporal-plan cases remain false-complete: `KH2-C2-02`, `KH2-C2-10` and `KH2-C2-18`. These results do not mean that full retrieval can be rerun from a fresh clone: the retrieval database, source corpus/HDF5 recordings and pinned local encoder are external. Do not run the Hestia-only replay instructions as if their dependencies were bundled.
+
+### Saved integration and revision examples
+
+- `python integration/verify_saved_fixture.py` checks the saved one-pass Qwen Drafter/Critic fixture and its manifests. Both historical Qwen reports have zero findings, including the controlled guarantee; current deterministic Critic rules flag that controlled guarantee. The original Drafter request/run envelope and source recordings are not present in the fixture, so this is not a complete regeneration of the original Drafter call.
+- `python -m drafter.revision.tools.check_examples` checks saved revision requests/results. The saved real zero-finding report produces a no-change outcome. The separate scripted two-round revision cycle is an integration demonstration, not a real model revision.
+- `python -m unittest integration.tests.test_handoff -v` tests the Drafter-to-Critic adapter on scripted inputs.
+
+See the [reproduction index](evaluation/m4_20261127/integration/EXPERIMENT_REPRODUCTION_INDEX.md) for result paths, commands and boundaries.
+
+## Level C   New inference and external evidence
+
+New model inference requires a compatible OpenAI-style serving endpoint or local server, the specified checkpoint and tokenizer, hardware admission, environment/runtime versions, frozen input manifests and output destinations. Model weights are not included. New RQ3 inference used Qwen/Qwen3-32B revision `9216db5781bf21249d130ec9da846c4624c16137`, two L40S GPUs, BF16 and vLLM's native sampling fallback (`VLLM_USE_FLASHINFER_SAMPLER=0`); the precise recorded run notes and server launch command are in the real-run directory. Do not copy the old launch command without checking current resource admission and approvals.
+
+A full RQ1 replay additionally requires the external retrieval database/catalogue, source recordings and pinned encoder described in its reproducibility documentation. RQ2 source-level replay requires the source HDF5 and associated recordings; external paths in result provenance are not available from GitHub. Any new human-reviewed RQ2 evaluation requires genuine independent human submissions and an authorized adjudication workflow. No model or scripted output may stand in for those labels.
+
+The isolated RQ3 unseen-parent expansion remains blocked: PR #39 and stacked PR #41 document the unavailable HDF5 sources and zero admitted independent parent executions. These changes do not merge or replace those PRs.
+
+## Scientific boundaries
+
+- RQ1 completeness is scoped to the requested obligations. The known temporal false-complete failures remain.
+- RQ2's finalized binary comparison has one positive, one negative, one not-applicable case and one canonical source group. Expanded outputs are coverage/abstention counts, not accuracy.
+- RQ3's 108 responses are development-only; 12 semantic cases come from two exposed parent groups. The independent mutation-label audit is pending. C is admission-status-only.
+- The saved one-pass Qwen interaction shows real model calls on a development fixture and one controlled semantic miss; it does not establish physical safety or general Critic effectiveness.
+- RQ4 revision safeguards are exercised by saved and scripted CPU examples. No genuine real-model changed-argument / second-Critic end-to-end cycle is demonstrated.
+- A passing schema, CPU test, source hash or component handoff proves only its checked contract, not the truth of physical claims or complete system-level performance.
+
+## Reports
+
+- [End-to-end feasibility](evaluation/m4_20261127/integration/END_TO_END_FEASIBILITY_REPORT.md)
+- [CPU reproducibility record](evaluation/m4_20261127/integration/CPU_REPRODUCIBILITY_REPORT.md)
+- [RQ1-RQ4 reproduction index](evaluation/m4_20261127/integration/EXPERIMENT_REPRODUCTION_INDEX.md)
