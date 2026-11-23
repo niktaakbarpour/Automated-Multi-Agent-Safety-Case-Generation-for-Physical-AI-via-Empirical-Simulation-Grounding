@@ -124,15 +124,24 @@ def rq3(out):
     return [[label, *values] for label, values in columns.items()]
 
 
+def verify_revision_example_count(output, expected, source):
+    count = sum(line.startswith("PASS  ") for line in output.splitlines())
+    if count != expected or "All checks passed." not in output.splitlines():
+        raise ValueError(f"{source}: expected {expected} passing checks with a success summary, found {count}")
+    return count
+
+
 def rq4():
     fixture = json.loads(run("integration/verify_saved_fixture.py"))
     run("-m", "unittest", "discover", "-s", "drafter/revision/tests", "-t", ".", "-q")
     examples_output = run("-m", "drafter.revision.tools.check_examples")
-    current_checks = sum(line.startswith("PASS  ") for line in examples_output.splitlines())
+    current_checks = verify_revision_example_count(examples_output, 145, "Current revision checker")
+    revision = ROOT / "drafter/revision"
+    transcript = (revision / "handoff/TEST_TRANSCRIPT.txt").read_text()
+    examples = verify_revision_example_count(transcript, 149, "A0 revision transcript")
     print(f"Current revision examples: {current_checks} checks passed")
-    recorded = (ROOT / "drafter/revision/README.md").read_text()
-    tests = capture(r"# (\d+) tests", recorded)
-    examples = capture(r"# (\d+) checks on the saved examples", recorded)
+    print(f"Historical A0 transcript: {examples} passing checks for the manuscript row")
+    tests = capture(r"# (\d+) tests", (revision / "README.md").read_text())
     controlled = next(case for case in fixture["cases"] if case["case"] == "controlled-negative")
     if controlled["saved_qwen_report"] != "completed, zero criticisms":
         raise ValueError("Controlled fixture outcome changed")
