@@ -1,0 +1,75 @@
+% Technical manuscript skeleton only. Author-owned prose must be written by the
+% assigned authors. Requires the official NeurIPS 2026 style file.
+\documentclass{article}
+\usepackage[preprint]{neurips_2026}
+\usepackage[T1]{fontenc}
+\usepackage{microtype}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{amsmath}
+
+% Submission constraint from evaluation/m4_20261127/shared/
+% M4_THREE_PERSON_WORK_SPLIT_20261120.md: at most nine main-content pages.
+% References, appendices, checklist, contributions and AI-use disclosure follow.
+\title{Automated Multi-Agent Safety Case Generation for Physical AI via Empirical Simulation Grounding}
+\author{AUTHOR PLACEHOLDER: insert all author names, affiliations, and approved contact details.}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+\textbf{AUTHOR PLACEHOLDER (Nikta):} Write a 150--200 word abstract with a verified quantitative result. Do not claim physical safety certification. Keep all results development-qualified and mark independent human-evaluation findings pending.
+\end{abstract}
+
+\section{Introduction}
+\textbf{AUTHOR PLACEHOLDER (Nikta):} State motivation, research questions, contribution scope, and measured claims.
+
+\section{Related Work}
+\textbf{AUTHOR PLACEHOLDER (Ryiad):} Add a sourced related-work synthesis. Insert only references verified by the authors; target 10--15 central works per M4 handoff.
+
+\section{Methodology}
+\textbf{AUTHOR PLACEHOLDER (Nikta / Ryiad):} Describe the empirical-evidence pipeline, requirement and applicability model, provenance, retrieval, structured argument representation, Critic, and bounded revision interface. Include limits separating argument validity from physical-world validity.
+
+\begin{figure}[t]
+\centering
+\fbox{\parbox{0.85\linewidth}{\centering AUTHOR PLACEHOLDER: insert the author-reviewed workflow diagram (Retrieval $\rightarrow$ Requirement Checker $\rightarrow$ Drafter $\rightarrow$ Critic $\rightarrow$ Revision $\rightarrow$ Re-evaluation).}}
+\caption{AUTHOR PLACEHOLDER: write an author-approved figure caption.}
+\label{fig:workflow}
+\end{figure}
+
+\section{Experimental Setup}
+\textbf{AUTHOR PLACEHOLDER (Nikta / Alex / Ryiad):} Describe the distinct RQ1--RQ4 cohorts, configurations, source-group units, and scoring rules. Preserve differences among historical retrieval, Phase 5K, checker calibration, coverage-only expansion, RQ3 T/R/C, one-pass integration, and scripted revision tests.
+
+\section{Results}
+\textbf{AUTHOR PLACEHOLDER (Nikta):} Write RQ1 and RQ2 interpretation. Use \texttt{tables.tex} for verified counts and denominators. RQ2 independent human-evaluation findings are pending.
+
+\textbf{AUTHOR PLACEHOLDER (Alex):} Write RQ3 interpretation from the full 108-response run. State development-only status, two parent groups, zero independent groups, and pending independent mutation-label audit. Condition C contains checker-admission status only.
+
+\textbf{AUTHOR PLACEHOLDER (Ryiad):} Write RQ4 software-validation and integration results. Distinguish scripted revision demonstrations from real-model revision.
+
+\input{tables.tex}
+
+\section{Discussion}
+\textbf{AUTHOR PLACEHOLDER (Nikta / Alex / Ryiad):} Interpret measured results without equating retrieval completeness or argument validity with physical safety. Discuss sparse denominators, abstention, source-group dependence, and pending reviews.
+
+\section{Threats to Validity}
+\textbf{AUTHOR PLACEHOLDER (Ryiad):} Address source dependence, limited cases and scenes, simulation-to-physical limits, label uncertainty, model and prompt scope, repeated sampling, retrieval construct validity, and non-independent cohorts.
+
+\section{Conclusion}
+\textbf{AUTHOR PLACEHOLDER (Nikta):} Summarize only verified contributions and unresolved empirical claims. Do not state that the framework certifies physical safety.
+
+\section*{References}
+\textit{AUTHOR PLACEHOLDER: insert verified citations and a bibliography. Do not infer references from repository mentions.}
+
+\appendix
+\section{Reproducibility and Evaluation Checklist}
+\textbf{AUTHOR PLACEHOLDER:} Complete the venue checklist using repository evidence and submission requirements.
+
+\section{Author Contributions}
+\textbf{AUTHOR PLACEHOLDER:} Each of the three authors supplies and approves their own contribution statement, consistent with the M4 handoff.
+
+\section{AI-Use Disclosure}
+\textbf{AUTHOR PLACEHOLDER:} Complete and approve the full disclosure. Do not imply that AI generated author-owned manuscript prose.
+
+\end{document}
