@@ -3,7 +3,7 @@
 ## Active components
 
 - `src/`, `config/`, `schemas/`, and `requirements/` hold the execution inventory, configuration, data contracts, and requirement definitions.
-- `drafter/` and `critic/` implement argument drafting, criticism, and revision.
+- `drafter/` and `critic/` implement argument drafting and criticism. The Revision Agent lives under `drafter/revision/`.
 - `integration/` contains component handoffs and saved-fixture validators.
 - `tests/` and component-local test directories cover the inventory and research tools.
 - `evaluation/m4_20261127/` contains the current M4 protocols, frozen cohorts, saved scores, and reproduction utilities. The CPU replay is documented in the root README.
@@ -15,6 +15,6 @@
 - `reports/` and `evidence/` retain source manifests, run records, and validation outputs.
 - `data/` contains versioned inventory records. Large records and traces can reference external source data.
 - `human_review_package/` contains review workflow artifacts. Consult its access and handling instructions before use.
-- `pipeline.sh` is a repository-relative inventory CLI. `run.sh` and `collect.sh` perform the historical collection operation and require the configured external recordings and collection dependencies. `audit.sh` preserves a Hestia-specific annotation audit invocation.
+- `pipeline.sh` is a repository-relative inventory CLI. `run.sh` and `collect.sh` perform the historical collection operation with the active Python environment or `PYTHON`. Collection requires the recordings configured in `config/project.json` and the collection dependencies. `audit.sh` requires the original Hestia checkout, virtual environment and recordings configured in that script. The pilot queue requires a configured runtime cache, storage budget and GPU runtime.
 
 See [artifact policy](ARTIFACT_POLICY.md) for retention and access boundaries.

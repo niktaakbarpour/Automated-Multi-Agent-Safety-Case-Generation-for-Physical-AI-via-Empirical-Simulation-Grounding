@@ -1,7 +1,7 @@
 """Persistent, GPU-1-only queue. Installation and downloads require sufficient persistent storage."""
 import argparse, datetime, fcntl, hashlib, importlib.metadata, json, os, shutil, signal, subprocess, sys, time, traceback, urllib.request
 from pathlib import Path
-from pilot_storage import storage_plan, verify_existing_runtime, verify_cached_model
+from pilot_storage import path_from, storage_plan, verify_existing_runtime, verify_cached_model
 R=Path(__file__).resolve().parents[1]
 Q=R/'reports/requirement_pilot_queue'
 def read(p): return json.loads(Path(p).read_text())
@@ -22,7 +22,8 @@ def run(cmd,log,env):
         f.write('\nCOMMAND '+json.dumps(cmd)+'\n');f.flush()
         subprocess.run(cmd,cwd=R,env=env,stdout=f,stderr=subprocess.STDOUT,check=True)
 def cache_env(config):
-    env=os.environ.copy();base=Path(config.get('runtime_cache','/local/home/niktakbr/.cache'))
+    env = os.environ.copy()
+    base = path_from(R, config['runtime_cache'])
     vals={'HF_HOME':config['model_cache'],'PIP_CACHE_DIR':str(base/'pip'),
       'XDG_CACHE_HOME':str(base),'UV_CACHE_DIR':str(base/'uv'),'UV_PYTHON_INSTALL_DIR':str(base/'uv/python'),
       'TMPDIR':str(base/'tmp'),'TORCH_HOME':str(base/'torch'),'CUDA_CACHE_PATH':str(base/'cuda'),
