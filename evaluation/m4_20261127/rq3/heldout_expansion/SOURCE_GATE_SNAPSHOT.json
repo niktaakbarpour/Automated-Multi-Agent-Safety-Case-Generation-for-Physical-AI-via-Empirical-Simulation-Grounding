@@ -1,0 +1,25 @@
+{
+  "artifact": "candidate_intake_manifest.v0.2.json",
+  "artifact_location_description": "Project-owned trustworthy-batch-runner intake; source artifact path is evaluation/rq3_rq4_v0_1/candidate_intake_manifest.v0.2.json",
+  "artifact_sha256": "072f3ece5a3d9920fe12f4da6fc047e79d1d434eab6f84c8c426960809546434",
+  "repository_commit": "d7571264c46fce4610d237dd2d68034e49c24b56",
+  "schema_version": "rq3-rq4-intake-manifest/0.2.0",
+  "status": "blocked_no_eligible_cases",
+  "case_count": 0,
+  "eligible_case_count": 0,
+  "cases": [],
+  "conditional_source_candidates": {
+    "evaluation/r1_v3_human_validation_20": 20
+  },
+  "frozen": false,
+  "labels_assigned": false,
+  "approval_gates": [
+    "Approve operational RQ3/RQ4 wording, strata, gold-label rubric and scoring rules.",
+    "R1 owner approval of empirical scope, source reuse and admissible-evidence policy.",
+    "Complete independent R1 review, adjudication, explicit approval and reference freeze before any empirical gold labels are used.",
+    "Critic owner closes or explicitly accepts adversarial/contract audit blockers before confirmatory claims.",
+    "Approve source-case eligibility, partitioning, leakage review, reviewer effort and blinding-key custody.",
+    "Approve paired evidence-arm adapters, model/run settings, repetitions, interval method and cost accounting."
+  ],
+  "interpretation": "This is an aggregate approval/eligibility snapshot only. It contains no reviewer identities, submissions, judgments, or coordinator mappings."
+}

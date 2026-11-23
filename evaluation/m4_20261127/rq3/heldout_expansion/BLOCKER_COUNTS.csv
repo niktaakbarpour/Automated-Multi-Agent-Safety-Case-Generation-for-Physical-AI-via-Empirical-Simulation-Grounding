@@ -1,0 +1,16 @@
+blocker_code,affected_recordings,description
+SOURCE_GROUP_INDEPENDENCE_NOT_VERIFIED,20,The build receipt records distinct executions but no authoritative independent source-group identity or grouping rationale.
+PROJECT_SCOPE_APPROVAL_PENDING,20,"Aggregate RQ3/RQ4 wording, strata, rubric, and scoring approval is absent."
+R1_OWNER_SCOPE_AND_SOURCE_REUSE_APPROVAL_PENDING,20,"R1 owner approval of scope, source reuse, and admissible-evidence policy is absent."
+INDEPENDENT_R1_REFERENCE_AND_FREEZE_PENDING,20,"The authoritative intake has no completed independent R1 reference, adjudication, approval, or freeze."
+CRITIC_OWNER_AUDIT_ACCEPTANCE_PENDING,20,Critic owner has not closed or explicitly accepted the adversarial/contract audit gate.
+CASE_PARTITION_LEAKAGE_AND_BLINDING_APPROVAL_PENDING,20,"Case eligibility, partition, leakage, reviewer effort, and blinding custody are not approved."
+EVIDENCE_ARMS_AND_RUN_PROTOCOL_APPROVAL_PENDING,20,"Evidence adapters, model/run settings, repetitions, interval method, and cost accounting are not approved."
+PER_RECORD_APPROVAL_NOT_VERIFIED,20,No per-record approval receipt is present in the authoritative intake.
+REQUIREMENT_CONFIGURATION_BINDING_MISSING,20,The complete execution-bound Drafter requirement configuration and its digest are absent.
+OBJECT_SURFACE_ROLE_MAPPING_UNVERIFIED,20,"The focal object ID is recorded, but the approved target/protected roster, support-surface role, and execution-specific mapping are not bound."
+MONITORING_SCOPE_BINDING_MISSING,20,A prior R1 package describes frames 10 through terminal; no approved source-bound Drafter interval and boundary provenance are supplied.
+SOURCE_PATH_AND_CURRENT_BYTES_NOT_REVERIFIED,20,"Prior build receipts record matching hashes, but the resolved recording root/path was not retained and current source bytes were not re-opened in this audit."
+DRAFTER_EVIDENCE_CONTRACT_BINDING_MISSING,20,Prior R1 evidence exports are not supplied as a validated Phase 5 structured request or registry bundle with exact evidence bindings.
+CRITIC_EXPOSURE_REVIEW_PENDING,20,Prior R1 review exposure is known; Critic prompt/rule exposure and source leakage have not been cleared.
+DRAFTER_REQUEST_NOT_CONSTRUCTED,20,"No source-admitted, schema-validated request exists for this candidate."
