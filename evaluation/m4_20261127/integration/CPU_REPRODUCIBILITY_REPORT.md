@@ -2,13 +2,13 @@
 
 ## Environment
 
-A separate worktree was based on fetched `origin/main`. A fresh Python 3.12.14 virtual environment installed the declared dependencies:
+After commit `74578f186d6e1a3e506cf052bd2435aa19d25763`, a clean detached worktree and a new Python 3.12.14 virtual environment were created. The detached worktree shares Git objects with the main checkout but has a fresh checkout of the committed tree. The README setup command installed the declared dependencies there:
 
 ```sh
 python -m pip install -r requirements.txt -r drafter/requirements.txt -r critic/requirements.txt -r evaluation/r1_v4/requirements.txt
 ```
 
-All checks were CPU-only. No inference, simulation, source-recovery or private RQ2 review access occurred. System Python 3.14 lacked h5py; use the documented environment rather than assuming system packages.
+All checks below were repeated from that detached checkout, including the saved RQ3 score comparison. All checks were CPU-only. No inference, simulation, source-recovery or private RQ2 review access occurred. System Python 3.14 lacked h5py; use the documented environment rather than assuming system packages.
 
 ## Verified commands
 
