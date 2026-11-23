@@ -213,7 +213,7 @@ This recreates scored tables from the saved replies; it does not rerun inference
 
 ### RQ4
 
-There is no RQ4 package under `evaluation/m4_20261127/` or supported RQ4 reproduction command in the current repository tree. RQ4 remains unimplemented here; do not infer results from RQ1–RQ3 or report a reproduction as complete.
+The RQ4 Revision Agent is implemented and CPU-tested under `drafter/revision/`, including scripted revision and saved no-change examples. However, no frozen M4 RQ4 empirical evaluation package or real Qwen-generated revision followed by a second Critic evaluation is currently available for reproduction. The existing tests establish contract and integration behavior, not empirical revision effectiveness.
 
 ## Data, access, and expected outputs
 
