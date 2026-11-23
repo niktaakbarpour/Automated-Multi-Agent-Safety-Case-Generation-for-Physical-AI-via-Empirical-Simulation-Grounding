@@ -1,0 +1,40 @@
+{
+  "candidate_execution_records": 20,
+  "unique_canonical_execution_ids": 20,
+  "exact_hdf5_paths_named_by_prior_receipts": 20,
+  "currently_accessible_hdf5_paths": 0,
+  "fresh_hdf5_sha256_verified": 0,
+  "historical_receipt_sha256_agreement_between_r1_build_and_generalization_inventory": 20,
+  "hdf5_global_episode_id_rechecked": 0,
+  "benchmark_task_ids": [
+    "2448c758145ae5ad500f",
+    "a5ff1f4c6656b4d8be8f"
+  ],
+  "benchmark_task_count": 2,
+  "scene_xml_sha256_values": [
+    "a6177b7383b3b273ed1f41ad1ca342c921aea86584348a6d05a4bdff703e4542"
+  ],
+  "scene_xml_identity_count_in_prior_inventory": 1,
+  "checkpoint_revisions": [
+    "638918f3d1c2e43a39a8a20772bdb8b91835e4b7"
+  ],
+  "experiment_ids": [
+    "openvla-oft-6e4ac614cfafd9ddc3db"
+  ],
+  "source_group_ids_recorded": 0,
+  "independently_verified_source_groups": 0,
+  "owner_review_candidate_execution_ids": [
+    "libero_long_openvla_oft_task00_seed1009_trial009_cfafd9ddc3db",
+    "libero_long_openvla_oft_task00_seed1032_trial032_cfafd9ddc3db",
+    "libero_long_openvla_oft_task01_seed1005_trial005_cfafd9ddc3db",
+    "libero_long_openvla_oft_task01_seed1021_trial021_cfafd9ddc3db"
+  ],
+  "owner_review_candidate_count": 4,
+  "owner_review_candidate_task_count": 2,
+  "source_root_checked_only": "/disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero (explicitly documented by evaluation/r1_v3_generalization/INPUTS.json and README.md)",
+  "source_root_search_broadened": false,
+  "admitted_candidates": 0,
+  "diagnostic_drafter_requests_prepared": 0,
+  "approved_generation_manifest_rows": 0,
+  "classification_note": "Prior inventory receipts bind expected paths and hashes; current bytes were unavailable at those exact paths, so no fresh hash or HDF5 attribute validation is claimed."
+}
