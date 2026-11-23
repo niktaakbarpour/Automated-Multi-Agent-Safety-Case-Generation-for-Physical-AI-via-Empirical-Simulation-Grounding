@@ -1,0 +1,7 @@
+# False-complete failure analysis
+
+The three frozen Phase 5K V2 failures are KH2-C2-02, KH2-C2-10 and KH2-C2-18. They are three source-scope instances of one wording, “Show joint configuration at simulator label …”. Saved bundle outputs rank the relevant recorded_time family first and report COMPLETE WITHIN VERIFIED CONTRACT; the plan omits raw.robot0_joint_pos. This is why P@1=1.0 and nominal bundle completeness 24/24 do not establish completeness of the original request. Exact baseline rows, execution IDs and metrics are in PER_CASE_FAILURE_ANALYSIS.csv.
+
+The mechanism is an obligation-loss defect in natural-language planning, before the bundle completeness check. The frozen baseline remains unchanged. A separate development-only guard prototype explicitly maps joint-configuration clauses to the joint-position family, retains time as a separate family, and marks unknown joint-measurement wording ambiguous. Four CPU tests pass, including the three known phrases and an unknown joint-state case. This is a narrow, development-only correction check, not a general guarantee or new held-out result. It has not been integrated into production retrieval or scored against a new reference-verified dataset.
+
+The next general contract must enumerate or reject every measurement-bearing clause before COMPLETE is possible. Unknown clauses must fail closed. The three known cases cannot be reused as independent validation of that correction.

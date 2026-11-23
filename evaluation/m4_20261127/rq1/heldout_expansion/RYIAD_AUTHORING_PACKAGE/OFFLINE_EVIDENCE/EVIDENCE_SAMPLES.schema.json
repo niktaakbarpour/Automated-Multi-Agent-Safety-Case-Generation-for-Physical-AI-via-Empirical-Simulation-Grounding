@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "One offline source-value sample",
+  "type": "object",
+  "required": ["execution_id", "task_id", "variant_id", "evidence_id", "requirement_id", "requirement_version", "object_id", "measurement_type", "frame_index", "source_trajectory_sha256", "original_selector", "resolved_selectors", "simulator_time_h5", "value", "extract_status"],
+  "properties": {
+    "execution_id": {"type": "string"},
+    "task_id": {"type": "string"},
+    "variant_id": {"type": "string"},
+    "evidence_id": {"type": "string"},
+    "requirement_id": {"type": "string"},
+    "requirement_version": {"type": "string"},
+    "object_id": {"type": "string"},
+    "measurement_type": {"enum": ["timestamp", "contact", "object_pose", "robot_state", "native_geometry"]},
+    "frame_index": {"type": "integer", "minimum": 0},
+    "source_trajectory_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "original_selector": {"type": "string"},
+    "resolved_selectors": {"type": "array", "items": {"type": "string"}},
+    "simulator_time_h5": {"type": ["number", "null"]},
+    "value": {"type": "object"},
+    "extract_status": {"type": "string"}
+  },
+  "x-file": "EVIDENCE_SAMPLES.jsonl.gz",
+  "x-values": "Source values; no interpolation, normalization, unit conversion, or physical interpretation."
+}

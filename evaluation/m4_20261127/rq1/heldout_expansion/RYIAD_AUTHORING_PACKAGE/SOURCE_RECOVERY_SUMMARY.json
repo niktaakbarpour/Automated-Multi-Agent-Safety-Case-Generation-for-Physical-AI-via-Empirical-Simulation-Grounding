@@ -1,0 +1,41 @@
+{
+  "selected_distinct_canonical_executions": 30,
+  "source_recordings_verified": 30,
+  "source_files_in_restoration_manifest": 270,
+  "all_source_file_paths_sizes_and_receipt_hashes_match": true,
+  "trajectory_hashes_recomputed_and_verified": 30,
+  "evidence_records_indexed": 6870,
+  "independently_authored_query_references": 0,
+  "blank_authoring_slots": 60,
+  "saved_frame_interval_distribution": {
+    "0-138": 5,
+    "0-172": 1,
+    "0-132": 2,
+    "0-140": 5,
+    "0-155": 1,
+    "0-136": 1,
+    "0-129": 1,
+    "0-137": 3,
+    "0-187": 1,
+    "0-133": 1,
+    "0-125": 1,
+    "0-144": 1,
+    "0-128": 1,
+    "0-135": 1,
+    "0-182": 1,
+    "0-127": 2,
+    "0-130": 2
+  },
+  "source_tasks": {
+    "7894e3922dc1e048d44c": 5,
+    "30c0f61d2d5786fae8b6": 13,
+    "4013b7c5a98750b7e80d": 9,
+    "18573886c3dbce39b02e": 3
+  },
+  "mp4_recordings_available": 0,
+  "source_evidence_database_read_only": "/disk/1/data/niktakbr/trustworthy-phase5i-working/expanded.sqlite",
+  "restoration_manifest": "/disk/1/data/niktakbr/trustworthy-phase5-results-git/evaluation/r1_v4/rag_evidence_database/multitask_expansion/RESTORATION_MANIFEST.csv",
+  "interpretation": "Sources are ready for independently authored retrieval questions about recorded evidence and its limits; this does not establish physical safety outcomes.",
+  "distinct_evidence_source_path_hashes_recomputed_and_verified": 67,
+  "evidence_source_path_hash_verification": "PASS for every distinct referenced file path and SHA-256"
+}

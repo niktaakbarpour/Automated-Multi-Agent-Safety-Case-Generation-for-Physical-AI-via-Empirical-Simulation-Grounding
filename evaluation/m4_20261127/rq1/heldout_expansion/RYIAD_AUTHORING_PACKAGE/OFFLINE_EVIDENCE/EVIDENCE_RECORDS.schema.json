@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/m4/rq1/evidence-record.schema.json",
+  "title": "Original indexed evidence record envelope",
+  "type": "object",
+  "required": [
+    "id",
+    "requirement_id",
+    "requirement_version",
+    "execution_id",
+    "object_id",
+    "kind",
+    "body"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "requirement_id": {
+      "type": "string"
+    },
+    "requirement_version": {
+      "type": "string"
+    },
+    "execution_id": {
+      "type": "string"
+    },
+    "object_id": {
+      "type": "string"
+    },
+    "kind": {
+      "type": "string"
+    },
+    "body": {
+      "type": "string"
+    }
+  },
+  "x-file": "EVIDENCE_RECORDS.jsonl.gz",
+  "x-note": "body stores original evidence metadata/provenance; raw numeric source samples are in EVIDENCE_SAMPLES.jsonl.gz"
+}
