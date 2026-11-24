@@ -25,12 +25,15 @@ def load_package():
     return json.loads(PACKAGE.read_text(encoding='utf-8'))
 
 
-def graph(request, obj):
+RUN = {'run_id': 'test-run', 'prompt_sha256': '1' * 64}
+
+
+def graph(request, obj, cited=()):
     scope = {'requirement_id': 'R1', 'requirement_version': P.REQUIREMENT_VERSION,
              'execution_id': request['target_execution']['execution_id'], 'object_id': obj,
              'domain': 'frame', 'clock': 'saved_frame_index', 'interval': list(request['monitoring_scope']['interval'])}
-    provenance = {'request_sha256': digest(request), 'prose_review': 'required',
-                  'role': 'proposed_reasoning_not_verified_physical_evidence', 'run_id': 'test-run'}
+    provenance = {'request_sha256': digest(request), 'prose_review': 'required', 'role': P.REASONING_ROLE,
+                  'serializer_version': P.SERIALIZER_VERSION, **RUN}
 
     def node(suffix, kind, statement, physical):
         return {'id': f'{obj}:{suffix}', 'type': kind, 'statement': statement, 'physical_claim': physical,
@@ -43,20 +46,34 @@ def graph(request, obj):
     edges = [{'source': f'{obj}:G1', 'target': f'{obj}:S1', 'type': 'supported_by'},
              {'source': f'{obj}:S1', 'target': f'{obj}:U1', 'type': 'supported_by'},
              {'source': f'{obj}:G1', 'target': f'{obj}:C1', 'type': 'in_context_of'}]
-    return {'schema_version': '1.0.0', 'empirical_admission_enabled': False, 'nodes': nodes, 'edges': edges}
+    records = {r['id']: r for r in request['source_package']['rag_source']['records']}
+    for index, key in enumerate(cited, 1):
+        record = records[key]
+        nodes.append({'id': f'{obj}:E{index}', 'type': 'solution', 'statement': AC.solution_statement(record),
+                      'physical_claim': False, 'validation_status': record['validation_status'],
+                      'origin': 'retrieved_observation', 'evidence_id': key,
+                      'scope': {**scope, 'interval': list(record['interval']), 'domain': record['domain'],
+                                'clock': record['clock']},
+                      'provenance': {**{k: record[k] for k in ('source_path', 'source_sha256', 'selector')},
+                                     'registry_record': deepcopy(record)}})
+        edges.append({'source': f'{obj}:S1', 'target': f'{obj}:E{index}', 'type': 'supported_by'})
+    return {'schema_version': '1.0.0', 'nodes': nodes, 'edges': edges, 'empirical_admission_enabled': False}
 
 
-def argument(request, outcomes=None, backing=None):
+def argument(request, outcomes=None, backing=None, solutions=None):
+    """solutions: {object: [record IDs as Solution nodes]}; defaults to each object's backing citations."""
     roster = request['requirement_configuration']['protected_objects']
     backing = backing or P.unresolved_backing(request)
     outcomes = outcomes or {obj: backing[obj]['outcome'] for obj in roster}
+    solutions = solutions if solutions is not None else {obj: backing[obj]['citations'] for obj in roster}
     return {
         'schema_version': P.ARGUMENT_VERSION, 'request_id': request['request_id'],
         'test_fixture': request['test_fixture'], 'request_sha256': digest(request),
         'requirement_configuration_sha256': request['requirement_configuration_sha256'],
         'source_package_sha256': request['source_package_sha256'], 'generation_status': 'accepted',
         'argument_bundle': {'execution_id': request['target_execution']['execution_id'], 'protected_objects': roster,
-                            'graphs': [{'object_id': obj, 'graph': graph(request, obj)} for obj in roster],
+                            'graphs': [{'object_id': obj, 'graph': graph(request, obj, solutions.get(obj, ()))}
+                                       for obj in roster],
                             'execution_conclusion': {'claimed_outcome': P.aggregate(outcomes),
                                                      'statement': P.authoritative_conclusion(outcomes),
                                                      'object_outcomes': outcomes, 'outcome_backing': backing}},
@@ -69,8 +86,9 @@ def argument(request, outcomes=None, backing=None):
         'validation': {'input_schema': 'passed', 'input_semantics': 'passed', 'output_schema': 'passed',
                        'graph_semantics': 'passed', 'evidence_references': 'passed', 'outcome_backing': 'passed',
                        'physical_sufficiency': 'not_assessed'},
-        'generation_provenance': {'backend': 'not_run', 'model_id': None, 'model_revision': None, 'prompt_version': None,
-                                  'prompt_sha256': None, 'run_id': None, 'raw_output_sha256': None},
+        'generation_provenance': {'backend': 'deterministic_mock', 'model_id': None, 'model_revision': None,
+                                  'prompt_version': None, 'prompt_sha256': RUN['prompt_sha256'],
+                                  'run_id': RUN['run_id'], 'raw_output_sha256': None},
         'empirical_admission_enabled': False, 'safety_claim_verified': False}
 
 
@@ -260,7 +278,8 @@ class AdmittedFixture(unittest.TestCase):
         self.assertEqual(P.aggregate(outcomes), 'no_violation_observed_within_reviewed_coverage')
 
     def test_mixed_backed_and_unresolved_aggregates_to_unresolved(self):
-        backing = self.all_backed(ketchup_1={'outcome': P.INSUFFICIENT, 'checker_assessment': None, 'citations': []})
+        backing = self.all_backed(ketchup_1={'outcome': P.INSUFFICIENT, 'checker_assessment': None,
+                                             'citations': [self.cited['ketchup_1']]})
         self.assertEqual(self.check(backing)['contract_status'], 'valid_output_contract')
         outcomes = {obj: b['outcome'] for obj, b in backing.items()}
         self.assertEqual(P.aggregate(outcomes), P.INSUFFICIENT)
@@ -281,6 +300,35 @@ class AdmittedFixture(unittest.TestCase):
         outcomes = {obj: b['outcome'] for obj, b in backing.items()}
         outcomes['milk_1'] = P.INSUFFICIENT
         self.refused(backing, 'outcome_backing_mismatch:milk_1', outcomes)
+
+    def test_citations_must_be_the_solution_nodes(self):
+        backing = self.all_backed()
+        solutions = {obj: b['citations'] for obj, b in backing.items()}
+        solutions['milk_1'] = []
+        with self.assertRaises(V.ContractError) as caught:
+            V.validate_argument(argument(self.request, backing=backing, solutions=solutions), self.request)
+        text = str(caught.exception)
+        self.assertIn('citations_not_the_graph_solutions:milk_1', text)
+        self.assertIn('argument_missing_available_evidence:milk_1', text)
+
+    def test_solution_must_carry_its_record(self):
+        value = argument(self.request, backing=self.all_backed())
+        solution = next(n for n in value['argument_bundle']['graphs'][0]['graph']['nodes'] if n['type'] == 'solution')
+        solution['statement'] = 'The record shows the object stayed on the table.'
+        with self.assertRaises(V.ContractError) as caught:
+            V.validate_argument(value, self.request)
+        self.assertIn('argument_solution_statement_mismatch:' + solution['id'], str(caught.exception))
+
+    def test_accepted_argument_is_bound_to_its_generation_run(self):
+        value = argument(self.request, backing=self.all_backed())
+        value['generation_provenance']['run_id'] = 'another-run'
+        with self.assertRaises(V.ContractError) as caught:
+            V.validate_argument(value, self.request)
+        self.assertIn('argument_reasoning_provenance_binding', str(caught.exception))
+        value['generation_provenance'].update(backend='not_run', run_id=None)
+        with self.assertRaises(V.ContractError) as caught:
+            V.validate_argument(value, self.request)
+        self.assertIn('accepted_argument_without_generation_provenance', str(caught.exception))
 
     def test_execution_outcome_must_be_the_r1_aggregation(self):
         value = argument(self.request, backing=self.all_backed())

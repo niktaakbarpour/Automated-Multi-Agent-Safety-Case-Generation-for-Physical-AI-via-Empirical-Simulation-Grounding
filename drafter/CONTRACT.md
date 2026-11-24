@@ -299,11 +299,29 @@ under v3, and a frozen development-only checker assessment that is not admitted.
 `insufficient_information`, as the rules require, with 15 explicit evidence gaps. A definite outcome becomes possible
 when an admission contract and v3-citable records exist, without a change to this profile.
 
-**Not yet covered.** Live generation (`generation.py`) and the mock driver still produce the v2 envelope only; the
-v3 generation path and the hand-off to the Critic and Revision Agent are separate steps.
+**Generation.** `generation.generate_argument` sends a `drafter-request/0.2.0` to `r1v3_generation.py`, so
+`python -m drafter --generate` is unchanged. The model gets the v3 requirement, target, window, the graph-eligible
+catalogue, counts of context-only records, coverage, the checker context with its admission state, the evidence
+gaps and `host_outcomes`, and returns a plan in the existing plan schema (prompt
+`prompts/draft_argument_r1v3_v1.md`). The host decides every outcome: an object gets its checker classification
+only when the assessment is admitted and the plan cites graph-eligible evidence for that object; otherwise it stays
+`insufficient_information`. The model never sets an outcome. The outcome backing lists exactly the Solution nodes of
+that object's graph, and every reasoning node is bound to the request, the run, the prompt and the serializer
+version. An accepted argument needs a real generation run (`backend` other than `not_run`).
 
-Tests: `drafter/tests/test_r1v3_profile.py` (the real package, the frozen-file binding, and rejection of a wrong
+The request for the original execution is `evaluation/m4_20261127/integration/DRAFTER_R1V3_REQUEST.json`, rebuilt
+and checked by `python -m evaluation.m4_20261127.integration.build_r1v3_request --check`. With the current package
+no record is v3-citable and no assessment is admitted, so a run on it leaves every object `insufficient_information`.
+
+**Not yet covered.** The mock driver still produces the v2 envelope only, and the hand-off to the Critic and
+Revision Agent depends on their R1 v3 support.
+
+Tests: `drafter/tests/test_r1v3_generation.py` (scripted model replies: the real package leaves every object
+unresolved, a cited v2 record fails the plan schema, an invalid request calls no model, the admitted fixture gets
+host-backed outcomes, a plan that drops available evidence is rejected) and `drafter/tests/test_r1v3_profile.py`
+(the real package, the frozen-file binding, and rejection of a wrong
 source hash, a requirement or roster mismatch, a changed window, a wrong checker hash, loaded reference answers,
 human labels, a claimed admission without a contract, a missing or ineligible citation, a non-admitted assessment,
-an unbacked or mismatched outcome and a non-aggregated execution outcome). A synthetic fixture with a test-only
+an unbacked or mismatched outcome, citations that are not the graph's Solution nodes, a Solution that does not
+carry its record, reasoning not bound to its run, and a non-aggregated execution outcome). A synthetic fixture with a test-only
 admission contract exercises the accepted definite path; it is not evidence or an admission.

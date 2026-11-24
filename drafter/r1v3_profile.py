@@ -16,6 +16,7 @@ files listed in FROZEN_SOURCES.
 """
 from copy import deepcopy
 from pathlib import Path
+from types import SimpleNamespace
 import hashlib
 import json
 
@@ -64,6 +65,8 @@ FORBIDDEN_KEYS = frozenset({'human_reference', 'human_references', 'human_label'
                             'reference_labels', 'gold_label', 'gold_labels', 'adjudicated_label', 'adjudicated_labels',
                             'adjudication', 'expected_outcome', 'reference_answers', 'reference_answer'})
 ALLOWED_EXCLUSION_NOTE = ('source_package', 'evidence_semantics', 'human_reference')
+SERIALIZER_VERSION = 'graph-plan-to-gsn-r1v3/0.1.0'
+REASONING_ROLE = 'proposed_reasoning_not_verified_physical_evidence'
 CONCLUSION_UNRESOLVED = 'R1 remains unresolved for all protected objects in the declared window.'
 # Admission contracts, by name, once the evidence-registry owner provides one: name -> callable(request) -> issues.
 ADMISSION_VERIFIERS = {}
@@ -352,7 +355,7 @@ def authoritative_conclusion(object_outcomes):
         return CONCLUSION_UNRESOLVED
     return (f'Execution outcome {outcome} by R1 aggregation of the object outcomes; each definite object outcome is '
             'backed by an admitted checker assessment and cited evidence: '
-            + '; '.join(f'{obj} {value}' for obj, value in object_outcomes.items()) + '.')
+            + '; '.join(f'{obj} {value}' for obj, value in sorted(object_outcomes.items())) + '.')
 
 
 def authoritative_summary(request, object_outcomes):
@@ -371,19 +374,24 @@ def backing_issues(bundle, request):
     conclusion = bundle['execution_conclusion']
     outcomes, backing = conclusion['object_outcomes'], conclusion['outcome_backing']
     roster = request['requirement_configuration']['protected_objects']
-    if list(outcomes) != roster or list(backing) != roster:
+    if set(outcomes) != set(roster) or set(backing) != set(roster):  # JSON object key order is not meaningful
         issues.append('argument_outcome_roster_mismatch')
     eligible = set(request['evidence']['graph_eligible_evidence_ids'])
     records = {r['id']: r for r in request['source_package']['rag_source']['records']}
     context = request['checker_context']
     admitted = context['admission']['state'] == 'admitted'
     assessments = {a['object_id']: a for a in context['assessments']}
+    solutions = {item['object_id']: sorted({n.get('evidence_id') for n in item['graph']['nodes']
+                                            if n.get('type') == 'solution'}, key=str)
+                 for item in bundle['graphs']}
     for obj in roster:
         outcome, back = outcomes.get(obj), backing.get(obj)
         if back is None or outcome is None:
             continue
         if back['outcome'] != outcome:
             issues.append('outcome_backing_mismatch:' + obj)
+        if sorted(back['citations']) != solutions.get(obj, []):
+            issues.append('citations_not_the_graph_solutions:' + obj)
         for cited in back['citations']:
             if cited not in eligible or records.get(cited, {}).get('object_id') != obj:
                 issues.append('ineligible_citation:' + obj + ':' + cited)
@@ -414,8 +422,8 @@ def backing_issues(bundle, request):
 
 # ------------------------------------------------------------------ argument
 
-def validate_argument_bundle(bundle, request):
-    from .argument_checks import graph_structure_issues
+def validate_argument_bundle(bundle, request, argument_provenance=None):
+    from .argument_checks import graph_structure_issues, solution_statement
     from .validation import schema_issues
     from evaluation.r1_v4.evidence_registry_gsn.gsn import Graph, Node, Edge
     validate_request(request)
@@ -431,9 +439,14 @@ def validate_argument_bundle(bundle, request):
     issues += backing_issues(bundle, request)
     eligible = set(request['evidence']['graph_eligible_evidence_ids'])
 
-    class NoRecords:  # no record is citable under R1 v3 yet; a Solution therefore cannot validate
+    records = {r['id']: r for r in request['source_package']['rag_source']['records']}
+    provenance = argument_provenance or {}
+
+    class EligibleRecords:
+        """The shared GSN check reads record attributes only. The shared Record model accepts R1 2.0.0 records
+        alone, so the R1 v3 graph-eligible records (already checked by validate_request) are given as views."""
         def records(self):
-            return ()
+            return tuple(SimpleNamespace(**records[k]) for k in sorted(eligible))
 
     global_ids = set()
     for item in bundle['graphs']:
@@ -456,17 +469,32 @@ def validate_argument_bundle(bundle, request):
                 issues.append('argument_node_temporal_scope:' + node['id'])
             elif node['type'] != 'solution' and nscope['interval'] != scope['interval']:
                 issues.append('argument_reasoning_window_mismatch:' + node['id'])
-            if node['type'] == 'solution' and node.get('evidence_id') not in eligible:
-                issues.append('argument_ineligible_solution:' + node['id'])
-            if node['type'] != 'solution':
-                provenance = node.get('provenance', {})
-                if (provenance.get('request_sha256') != digest(request) or provenance.get('prose_review') != 'required'
-                        or provenance.get('role') != 'proposed_reasoning_not_verified_physical_evidence'):
+            if node['type'] == 'solution':
+                record = records.get(node.get('evidence_id'))
+                if node.get('evidence_id') not in eligible or record is None or record['object_id'] != object_id:
+                    issues.append('argument_ineligible_solution:' + node['id'])
+                else:
+                    if node['statement'] != solution_statement(record):
+                        issues.append('argument_solution_statement_mismatch:' + node['id'])
+                    if node.get('provenance', {}).get('registry_record') != record:
+                        issues.append('argument_solution_record_binding:' + node['id'])
+            else:
+                bound = node.get('provenance', {})
+                if (bound.get('request_sha256') != digest(request) or bound.get('prose_review') != 'required'
+                        or bound.get('role') != REASONING_ROLE or bound.get('serializer_version') != SERIALIZER_VERSION
+                        or (argument_provenance is not None
+                            and (bound.get('run_id') != provenance.get('run_id')
+                                 or bound.get('prompt_sha256') != provenance.get('prompt_sha256')))):
                     issues.append('argument_reasoning_provenance_binding:' + node['id'])
+                if node.get('validation_status') != ('unresolved' if node.get('physical_claim') else 'proposed'):
+                    issues.append('argument_reasoning_status:' + node['id'])
+        available = {k for k in eligible if records[k]['object_id'] == object_id}
+        if available and not available & {n.get('evidence_id') for n in value['nodes'] if n.get('type') == 'solution'}:
+            issues.append('argument_missing_available_evidence:' + object_id)
         try:
             graph = Graph(tuple(Node(**n) for n in value['nodes']), tuple(Edge(**e) for e in value['edges']),
                           value['schema_version'])
-            graph.validate(NoRecords())
+            graph.validate(EligibleRecords())
             if not any(n.physical_claim and n.type in ('goal', 'unresolved_claim') and n.validation_status == 'unresolved'
                        for n in graph.nodes):
                 issues.append('missing_unresolved_physical_claim:' + object_id)
@@ -498,6 +526,9 @@ def validate_argument(argument, request):
             raise _error(issues)
         return {'contract_status': 'valid_failure_contract', 'physical_sufficiency': 'not_evaluated',
                 'safety_claim_verified': False, 'model_called': False}
+    provenance = argument['generation_provenance']
+    if provenance['backend'] == 'not_run' or not provenance['run_id'] or not provenance['prompt_sha256']:
+        issues.append('accepted_argument_without_generation_provenance')
     outcomes = argument['argument_bundle']['execution_conclusion']['object_outcomes']
     if argument['summary'] != authoritative_summary(request, outcomes):
         issues.append('argument_authoritative_summary_mismatch')
@@ -506,6 +537,6 @@ def validate_argument(argument, request):
     issues.extend(model_review_issues(argument))
     if issues:
         raise _error(issues)
-    validate_argument_bundle(argument['argument_bundle'], request)
+    validate_argument_bundle(argument['argument_bundle'], request, provenance)
     return {'contract_status': 'valid_output_contract', 'physical_sufficiency': 'not_evaluated',
             'safety_claim_verified': False, 'model_called': False, 'reasoning_review': 'required'}
