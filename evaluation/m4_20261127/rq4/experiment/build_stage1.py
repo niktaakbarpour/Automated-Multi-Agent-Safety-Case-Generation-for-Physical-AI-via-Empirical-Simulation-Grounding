@@ -9,6 +9,10 @@ Writes, under rq4/experiment/:
   results/template/<case>.revision_result.json   the template adapter's revision (no GPU needed)
   batch_stage1/                         the Qwen revision batch for run_batch.py (rq3/experiment)
   ../CASE_MANIFEST.csv                  one row per case
+
+It needs the hand-recorded finding decisions in rq4/FINDING_APPROVALS.csv. An existing file is never changed
+silently: if a fresh build differs from what is saved, nothing is written. --rebuild allows the change only while
+no stage 1 response and no Qwen result exists, so the inputs of a run can never be rewritten after it.
 """
 from pathlib import Path
 import csv
@@ -34,8 +38,7 @@ def build():
     system = CM.PROMPT_PATH.read_text(encoding='utf-8')
     for state in CM.states():
         cid = state.case_id
-        approved = state.decisions[0]['criticism_id']
-        finding = next(c for c in state.report['criticisms'] if c['criticism_id'] == approved)
+        finding = CM.approved_finding(state)
         template, info_t = state.revise(A.DeterministicAdapter())
         user, info_q = state.qwen_prompt()
         if info_t != info_q:
@@ -85,21 +88,36 @@ def build():
     return files
 
 
+def run_outputs_exist(base=HERE):
+    """True once any stage 1 response or Qwen result exists: from then on stage 1 is frozen."""
+    return any(base.glob('real_run_*/*.jsonl')) or any((base / 'results' / 'qwen').glob('*.json'))
+
+
 def main(argv):
-    files = build()
+    try:
+        files = build()
+    except ValueError as exc:
+        print(f'stage 1 cannot be built: {exc}', file=sys.stderr)
+        return 1
+    targets = {(HERE / n).resolve(): t for n, t in files.items()}
     if argv == ['--check']:
-        stale = [n for n, t in files.items() if not (HERE / n).exists() or (HERE / n).read_text(encoding='utf-8') != t]
+        stale = CM.stale_files(targets)
         print('differs from a fresh build: ' + ', '.join(stale) if stale else
               f'stage 1 matches a fresh build ({json.loads(files["batch_stage1/BATCH.json"])["requests"]} requests)')
         return 1 if stale else 0
-    if argv:
+    if argv not in ([], ['--rebuild']):
         print(__doc__)
         return 2
-    for name, text in files.items():
-        path = (HERE / name).resolve()
-        path.parent.mkdir(parents=True, exist_ok=True)
-        path.write_text(text, encoding='utf-8')
-        print('wrote', path.relative_to(CM.ROOT))
+    replace = argv == ['--rebuild']
+    if replace and run_outputs_exist():
+        print('stage 1 responses or Qwen results exist, so stage 1 is frozen and is not rebuilt', file=sys.stderr)
+        return 1
+    try:
+        CM.write_files(targets, replace=replace)
+    except CM.ProtectedFileError as exc:
+        print(f'{exc} (use --rebuild only before any run)', file=sys.stderr)
+        return 1
+    print(f'stage 1 written ({len(targets)} files)', file=sys.stderr)
     return 0
 
 

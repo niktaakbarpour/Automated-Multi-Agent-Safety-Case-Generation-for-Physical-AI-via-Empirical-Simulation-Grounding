@@ -12,7 +12,7 @@
    "present": false,
    "label": null
   },
-  "revision_request_sha256": "3721b5deede0f3e0015ed0c337eb3470d594690f317da26d4b0c1254cb4c3067",
+  "revision_request_sha256": "653a9e1e447e09f20d1dcc42fa489cec9b146997163edce8f4eccaeed068d0b3",
   "critic_request_sha256": "4b3f79d66377991f89026feb5f781ce1e192937ee08a15ec2ab3dafaed390142",
   "critic_report_sha256": "65a2365e98120045f86ccc6bf21a013a4dcab8d364af442ac2a295319a33b943",
   "adapter": {
@@ -901,7 +901,7 @@
      "decision": "approved",
      "decided_by": "human_review",
      "reviewer": "Alex Hashemi",
-     "note": "Approved under the fixed rule in rq4/RQ4_PROTOCOL.md, set before any revision output existed: the finding is on the node of the planted defect and its category is acceptable for the defect type. The approver wrote the planted defects and their labels."
+     "note": "The fixed rule in rq4/RQ4_PROTOCOL.md, set before any revision output existed: approve the finding on the node of the planted defect whose category is acceptable for the defect type. Recorded by hand on 2026-11-23 in rq4/FINDING_APPROVALS.csv."
     },
     "note": null
    }
@@ -983,7 +983,7 @@
     "decision": "approved",
     "decided_by": "human_review",
     "reviewer": "Alex Hashemi",
-    "note": "Approved under the fixed rule in rq4/RQ4_PROTOCOL.md, set before any revision output existed: the finding is on the node of the planted defect and its category is acceptable for the defect type. The approver wrote the planted defects and their labels."
+    "note": "The fixed rule in rq4/RQ4_PROTOCOL.md, set before any revision output existed: approve the finding on the node of the planted defect whose category is acceptable for the defect type. Recorded by hand on 2026-11-23 in rq4/FINDING_APPROVALS.csv."
    }
   ],
   "metrics": {

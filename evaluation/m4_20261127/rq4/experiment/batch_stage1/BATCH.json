@@ -14,7 +14,7 @@
  "canonical_source_groups": 2,
  "independent_cases": 0,
  "data_role": "development_only",
- "requests_sha256": "9a24fc0187a63d50553800593e5dd478dd73571b781bdb2ceb21f90e4bfbeabc",
+ "requests_sha256": "23959b724b9d7e999869cf8fbf9bafa9edec5be99776eeef10c572b7b4890ae0",
  "settings": {
   "model": "Qwen/Qwen3-32B",
   "temperature": 0.6,

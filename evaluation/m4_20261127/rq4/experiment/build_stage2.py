@@ -3,9 +3,12 @@
     PYTHONPATH=. python3 evaluation/m4_20261127/rq4/experiment/build_stage2.py --responses STAGE1_RESPONSES.jsonl
     (add --check to compare with the saved files)
 
-For every Qwen request it takes the first attempt with a server reply (as in RQ3), refuses a reply that did not
-finish normally or names another model, and otherwise replays it through the revision engine with the same
-permitted information the template got. Results go to results/qwen/.
+Every one of the 9 requests gets a result record, missing ones included. The responses are refused as a whole
+(nothing written) for an unknown run ID, a request answered twice, an attempt made for another input, a reply
+that does not match its digest, a scripted reply, client settings that differ from the frozen ones, or more than
+one model revision. A reply that did not finish normally or names another model is kept as invalid_server_reply.
+Every other reply is replayed through the revision engine with the same permitted information the template got.
+Results go to results/qwen/. Saved results and batches are never overwritten.
 
 The second Critic batch (batch_stage2/) is the production Critic (critic.review, not rule-blind, rule findings
 shown to the model as in production) on: each original argument (STAGE2_REPEATS times), each template
@@ -23,11 +26,6 @@ sys.path.insert(0, str(HERE))
 import common as CM  # noqa: E402
 from critic import contract as K, critic as CR, llm as L  # noqa: E402
 from drafter.revision import engine as E  # noqa: E402
-
-
-def first_reply(attempts):
-    with_reply = [a for a in attempts if a['reply'] is not None]
-    return (with_reply[0] if with_reply else attempts[-1]), len(attempts)
 
 
 def server_problem(attempt):
@@ -61,24 +59,29 @@ def production_prompt(critic_request):
     return capture.sent
 
 
-def qwen_results(responses):
-    _, _, requests = CM.RB.load_batch(HERE / 'batch_stage1')
+def qwen_results(responses, allow_scripted=False):
+    summary, system, requests = CM.RB.load_batch(HERE / 'batch_stage1')
+    if summary['system_sha256'] != CM.sha256_text(CM.PROMPT_PATH.read_text(encoding='utf-8')):
+        raise ValueError('batch_stage1 does not use the frozen revision prompt')
+    if len(requests) != CM.REPEATS * len(CM.CASES):
+        raise ValueError(f'batch_stage1 must have {CM.REPEATS * len(CM.CASES)} requests, has {len(requests)}')
     by_state = {s.case_id: s for s in CM.states()}
-    attempts = {}
-    for line in responses:
-        attempts.setdefault(line['run_id'], []).append(line)
+    chosen = CM.checked_attempts(responses, requests, system, allow_scripted)
     out = {}
     for request in requests:
         record = {'method': 'qwen', 'run_id': request['run_id'], 'case_id': request['case_id'],
                   'repeat': request['repeat'], 'attempts': 0, 'status': None, 'status_detail': None,
-                  'reply_sha256': None, 'permitted_information_sha256': None, 'result': None}
-        if request['run_id'] not in attempts:
+                  'user_sha256': request['user_sha256'], 'system_sha256': request['system_sha256'],
+                  'revision_request_sha256': request['revision_request_sha256'], 'input_sha256': None,
+                  'reply_sha256': None, 'backend': None, 'model_revision': None, 'response': None,
+                  'permitted_information_sha256': None, 'result': None}
+        attempt, count = chosen[request['run_id']]
+        if attempt is None:
             record['status'] = 'missing'
         else:
-            attempt, count = first_reply(attempts[request['run_id']])
-            if attempt['user_sha256'] != request['user_sha256'] or attempt['system_sha256'] != request['system_sha256']:
-                raise ValueError(request['run_id'] + ': the response was made for a different request')
-            record.update(attempts=count, reply_sha256=attempt['reply_sha256'])
+            record.update(attempts=count, reply_sha256=attempt['reply_sha256'], input_sha256=attempt['input_sha256'],
+                          backend=attempt['backend'], model_revision=attempt.get('model_revision'),
+                          response=attempt['response'])
             problem = server_problem(attempt) if attempt['reply'] is not None else None
             if attempt['reply'] is None:
                 record.update(status='no_reply', status_detail=attempt['error'])
@@ -94,9 +97,12 @@ def qwen_results(responses):
     return out
 
 
-def build(responses):
+def build(responses, allow_scripted=False):
+    """{relative path: text} for the Qwen results and the second Critic batch. allow_scripted is for tests."""
     files, lines = {}, []
-    qwen = qwen_results(responses)
+    qwen = qwen_results(responses, allow_scripted)
+    if sorted(qwen) != sorted(f"{c['case_id']}:Q:r{n}" for c in CM.CASES for n in range(1, CM.REPEATS + 1)):
+        raise ValueError('the Qwen outputs do not cover exactly the expected requests')
     for run_id, record in qwen.items():
         files[f"results/qwen/{run_id.replace(':', '_')}.revision_result.json"] = CM.dumps(record)
     targets = []
@@ -124,6 +130,8 @@ def build(responses):
     if len(systems) != 1:
         raise ValueError('the second Critic must use one system prompt')
     system = systems.pop()
+    if CM.sha256_text(system) != CM.sha256_text(L.PROMPT_PATH.read_text(encoding='utf-8')):
+        raise ValueError('the second Critic does not use the frozen Critic prompt')
     text = '\n'.join(lines) + '\n'
     files['batch_stage2/requests.jsonl'] = text
     files['batch_stage2/system_prompt.txt'] = system
@@ -142,15 +150,21 @@ def main(argv=None):
     p.add_argument('--check', action='store_true')
     args = p.parse_args(argv)
     responses = [line for path in args.responses for line in CM.RB.read_jsonl(path)]
-    files = build(responses)
+    try:
+        files = build(responses)
+    except ValueError as exc:
+        print(f'stage 2 cannot be built: {exc}', file=sys.stderr)
+        return 1
+    targets = {HERE / n: t for n, t in files.items()}
     if args.check:
-        stale = [n for n, t in files.items() if not (HERE / n).exists() or (HERE / n).read_text(encoding='utf-8') != t]
+        stale = CM.stale_files(targets)
         print('differs from a fresh build: ' + ', '.join(stale) if stale else 'stage 2 matches a fresh build')
         return 1 if stale else 0
-    for name, text in files.items():
-        path = HERE / name
-        path.parent.mkdir(parents=True, exist_ok=True)
-        path.write_text(text, encoding='utf-8')
+    try:
+        CM.write_files(targets)  # saved Qwen results and the second Critic batch are never changed
+    except CM.ProtectedFileError as exc:
+        print(exc, file=sys.stderr)
+        return 1
     summary = json.loads(files['batch_stage2/BATCH.json'])
     statuses = {}
     for name, text in files.items():

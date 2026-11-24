@@ -65,8 +65,8 @@ def graph_of(bundle, object_id):
 def item_text(state, result):
     request = state.critic_request
     context = request['evaluation_context']
-    approved = {d['criticism_id'] for d in state.decisions}
-    finding = next(c for c in state.report['criticisms'] if c['criticism_id'] in approved)
+    finding = CM.approved_finding(state)
+    approved = {finding['criticism_id']}
     obj = finding['object_id']
     original, revised = graph_of(request['argument_bundle'], obj), graph_of(result['revised_argument_bundle'], obj)
     monitored = context['monitored_interval']
@@ -120,18 +120,26 @@ def item_text(state, result):
     return '\n'.join(lines) + '\n'
 
 
+def expected_qwen_files():
+    return sorted(f"{c['case_id']}_Q_r{n}.revision_result.json" for c in CM.CASES for n in range(1, CM.REPEATS + 1))
+
+
 def outputs(base=HERE):
-    """[(method, output_id, case_id, result)] for every revised argument under base/results."""
+    """[(method, output_id, case_id, result)] for every revised argument under base/results. Refuses when the
+    Qwen results are not exactly the expected 9 files."""
+    states = {s.case_id: s for s in CM.states()}
     found = []
-    for state in CM.states():
-        t = CM.load_json(base / 'results' / 'template' / f'{state.case_id}.revision_result.json')
+    for cid, state in states.items():
+        t = CM.load_json(base / 'results' / 'template' / f'{cid}.revision_result.json')
         if t['result']['outcome'] == 'revised':
-            found.append(('template', f'{state.case_id}:template', state, t['result']))
-    for path in sorted((base / 'results' / 'qwen').glob('*.revision_result.json')):
-        q = CM.load_json(path)
+            found.append(('template', f'{cid}:template', state, t['result']))
+    names = sorted(p.name for p in (base / 'results' / 'qwen').glob('*.json'))
+    if names != expected_qwen_files():
+        raise ValueError('results/qwen must hold exactly the 9 expected Qwen result files')
+    for name in names:
+        q = CM.load_json(base / 'results' / 'qwen' / name)
         if q['status'] == 'revised':
-            state = next(s for s in CM.states() if s.case_id == q['case_id'])
-            found.append(('qwen', q['run_id'], state, q['result']))
+            found.append(('qwen', q['run_id'], states[q['case_id']], q['result']))
     return found
 
 
@@ -140,7 +148,7 @@ def build(base=HERE):
     for method, output_id, state, result in outputs(base):
         body = item_text(state, result)
         entries.append((hashlib.sha256(body.encode('utf-8') + output_id.encode('utf-8')).hexdigest(),
-                        method, output_id, state.case_id, body))
+                        method, output_id, state.case_id, body, CM.K.digest(result)))
     entries.sort()
     files, key, manifest = {}, [], io.StringIO()
     mw = csv.writer(manifest, lineterminator='\n')
@@ -148,13 +156,14 @@ def build(base=HERE):
     form = io.StringIO()
     fw = csv.DictWriter(form, fieldnames=FORM_COLUMNS, lineterminator='\n')
     fw.writeheader()
-    for index, (_, method, output_id, case_id, body) in enumerate(entries, 1):
+    for index, (_, method, output_id, case_id, body, result_sha) in enumerate(entries, 1):
         bid = f'B{index:02d}'
         text = f'# Review item {bid}\n\n' + body
         files[f'items/{bid}.md'] = text
         mw.writerow([bid, f'items/{bid}.md', CM.sha256_text(text)])
         fw.writerow({c: (bid if c == 'blind_item_id' else '') for c in FORM_COLUMNS})
-        key.append({'blind_item_id': bid, 'method': method, 'output_id': output_id, 'case_id': case_id})
+        key.append({'blind_item_id': bid, 'method': method, 'output_id': output_id, 'case_id': case_id,
+                    'item_sha256': CM.sha256_text(text), 'result_sha256': result_sha})
     files['REVIEW_FORM.csv'] = form.getvalue()
     files['REVIEW_MANIFEST.csv'] = manifest.getvalue()
     files['REVIEW_INSTRUCTIONS.md'] = INSTRUCTIONS
@@ -162,24 +171,29 @@ def build(base=HERE):
 
 
 def main(argv):
-    files, key = build()
+    try:
+        files, key = build()
+    except ValueError as exc:
+        print(f'the review packet cannot be built: {exc}', file=sys.stderr)
+        return 1
+    form = files.pop('REVIEW_FORM.csv')
     targets = {REVIEW / n: t for n, t in files.items()}
     targets[HERE / 'sealed' / 'REVIEW_KEY.json'] = json.dumps(key, indent=1) + '\n'
     if argv == ['--check']:
-        stale = [str(p) for p, t in targets.items()
-                 if p.name != 'REVIEW_FORM.csv' and (not p.exists() or p.read_text(encoding='utf-8') != t)]
+        stale = CM.stale_files(targets)
         print('differs from a fresh build: ' + ', '.join(stale) if stale else
               f"review packet matches a fresh build ({len(key['items'])} items)")
         return 1 if stale else 0
-    def answered(path):
-        with open(path, encoding='utf-8') as fh:
-            return any(any(v for k, v in row.items() if k != 'blind_item_id') for row in csv.DictReader(fh))
-    if (REVIEW / 'REVIEW_FORM.csv').exists() and answered(REVIEW / 'REVIEW_FORM.csv'):
-        print('REVIEW_FORM.csv already has answers; refusing to overwrite it', file=sys.stderr)
+    if argv:
+        print(__doc__)
+        return 2
+    try:
+        CM.write_files(targets)  # items, manifest, instructions and key are never changed once written
+    except CM.ProtectedFileError as exc:
+        print(exc, file=sys.stderr)
         return 1
-    for path, text in targets.items():
-        path.parent.mkdir(parents=True, exist_ok=True)
-        path.write_text(text, encoding='utf-8')
+    if not (REVIEW / 'REVIEW_FORM.csv').exists():  # the form is written once, blank, and then left to the reviewer
+        (REVIEW / 'REVIEW_FORM.csv').write_text(form, encoding='utf-8')
     print(f"wrote {len(key['items'])} review items to {REVIEW.relative_to(CM.ROOT)}", file=sys.stderr)
     return 0
 

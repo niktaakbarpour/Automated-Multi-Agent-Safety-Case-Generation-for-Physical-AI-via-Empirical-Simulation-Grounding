@@ -16,7 +16,9 @@ Agreed scope (Nikta, November 23): the 3 cases below, real Qwen revisions agains
 
 ## Finding approval
 
-The revision engine acts only on findings with a recorded human decision. The rule, fixed before any revision output: approve exactly the findings on the planted defect's node whose category is acceptable for the defect type (`rq3/mutations/gold_labels.json`), and give every other finding no decision. Undecided findings are carried forward unchanged, never acted on and never removed. Each case has exactly one approved finding. The decisions are recorded as `human_review` by Alex Hashemi, who wrote the planted defects and their labels. He is not an independent approver.
+The revision engine acts only on findings with a recorded human decision. The rule, fixed before any revision output: approve exactly the finding on the planted defect's node whose category is acceptable for the defect type (`rq3/mutations/gold_labels.json`). Every other finding gets no decision (or is declined), and is carried forward unchanged, never acted on and never removed.
+
+The decisions are recorded by hand, not generated. `experiment/build_approval_form.py` writes `FINDING_APPROVALS.csv` with one row per finding of each case's Critic report, bound to that report by its digest, and with the human columns empty. The approver fills `decision`, `approver`, `approved_on` and the attestation sentence ("I read this finding and its target node myself and made this decision.") in each row they decide. The `on_planted_defect_node` column only helps locate the finding; it is not a decision. The code reads the file and refuses to build stage 1 if a row is missing, repeated, bound to another report or changed from the report, if a decision lacks the approver, an ISO date or the exact attestation, if a case does not have exactly one approved finding, or if the approved finding is not the one the fixed rule names. The form is never overwritten once a decision is recorded. The approvals were recorded by Alex Hashemi, who wrote the planted defects and their labels, so he is not an independent approver.
 
 ## The two methods
 
@@ -36,7 +38,7 @@ The engine checks and applies every proposed edit in the same way for both metho
 - new problem introduced: yes, no, indeterminate (new unsupported claim, wrong or invented evidence reference, contradiction, or a statement that no longer works)
 - scope preserved: yes, no, indeterminate
 
-A **correct repair** is defect fixed "yes", supported "yes", new problem "no" and scope preserved "yes". The review is completed and frozen before the methods are compared: `score.py` refuses to write the comparison until every item has a complete, frozen judgment.
+A **correct repair** is defect fixed "yes", supported "yes", new problem "no" and scope preserved "yes". The review is completed and frozen before the methods are compared. `score.py` writes no comparison unless the form has exactly the expected columns and exactly one row per review item (no duplicate, missing or unexpected blind ID), every answer is an allowed value, every row names the reviewer, an ISO review date and the prior-exposure declaration, a "yes" for a new problem has a description, and all rows carry the same ISO freeze timestamp. It also checks that the sealed key lists exactly the revised outputs, is bound to their saved results by digest, and that no review item was changed after the packet was built.
 
 **Per output status:** revised; abstained (the method declined the finding); invalid (an unparseable or malformed answer, an edit the engine refused, a revision that failed a validator, or a server reply that did not finish normally); missing or no reply. Only revised outputs are reviewed. The others count as not repaired.
 
@@ -49,6 +51,23 @@ Critic acceptance never counts as a successful repair on its own.
 
 Rates are given per method over all outputs (Qwen 9, template 3) and over revised outputs, with mean and SD over the 3 Qwen samples. The template is deterministic, so it has one output per case.
 
+## Accounting and provenance checks
+
+All 9 Qwen requests always get a result record. A request with no attempt is `missing`, one with no server reply is `no_reply`, and both stay in the denominators with abstentions and invalid outputs. Both GPU stages are checked the same way before anything is used, and any problem stops the step with nothing written:
+
+- every run ID must belong to the batch, and a request may be answered at most once (resends are only for attempts with no reply), with attempts numbered in order;
+- each attempt must have been made for the batch's input: user and system digests, and the digest of the exact messages sent;
+- each reply must match its recorded digest;
+- the client settings recorded with each attempt must be the frozen ones (model, temperature, max_tokens, timeout, extra parameters, system message), all attempts of a stage must name one model revision, and scripted test replies are never accepted from the command line;
+- a reply that did not finish normally or names a model other than the accepted ones is kept as `invalid_server_reply`;
+- the stage 1 batch must use the frozen revision prompt and the stage 2 batch the frozen Critic prompt.
+
+`score.py` then re-derives everything it depends on: stage 1 must equal a fresh build, the saved Qwen results and the second Critic batch must be exactly what the stage 1 responses give, each second-review request must be the original argument or the re-criticism request of its saved revision result, and each second review is rebuilt with `critic.review` and must match the input the reply was made for. `RQ4_PROVENANCE.json` records the prompts, model, settings, model revisions per stage, batch digests and the digests of the response, approval, review-form and key files.
+
+## Protection of saved files
+
+No builder changes a saved file silently. If a fresh build differs from what is saved, nothing is written and the differing files are listed. `build_stage1.py --rebuild` may change stage 1 only while no stage 1 response and no Qwen result exists. Saved Qwen results, the second Critic batch, the review items, the review manifest and the sealed key are never changed. The review form is written once, blank, and then left to the reviewer. `score.py` never changes an existing output file unless `--replace-outputs` is given.
+
 ## Commands
 
 CPU steps can run anywhere. GPU steps are for Nikta only. The runner is the RQ3 runner, unchanged. Serve Qwen3-32B as for RQ3 (`--served-model-name Qwen/Qwen3-32B`, context 24,576). The largest stage 1 prompt is about 35,000 characters including the system prompt. At the 3.4 to 3.9 characters per token measured in the RQ3 run, that is at most about 10,300 tokens, so with the 8,192-token output limit a request needs at most about 18,500 of the 24,576 tokens.
@@ -59,7 +78,7 @@ E=evaluation/m4_20261127/rq4/experiment
 RUN=$E/real_run_<UTC timestamp>          # new folder for this run
 mkdir -p $RUN
 
-# 0. CPU: stage 1 inputs are unchanged
+# 0. CPU: stage 1 inputs are unchanged (and the hand-recorded approvals are valid)
 python3 $E/build_stage1.py --check
 
 # 1. GPU: Qwen revisions (9 requests)
@@ -76,8 +95,9 @@ python3 evaluation/m4_20261127/rq3/experiment/run_batch.py --batch $E/batch_stag
 
 # 4. Human: complete and freeze rq4/REVIEW/REVIEW_FORM.csv (Nikta or Ryiad), without opening experiment/sealed/
 
-# 5. CPU: score
-python3 $E/score.py --stage2-responses $RUN/RQ4_STAGE2_RESPONSES.jsonl --out-dir evaluation/m4_20261127/rq4
+# 5. CPU: score (add --pre-review before step 4 for per-output facts only)
+python3 $E/score.py --stage1-responses $RUN/RQ4_STAGE1_RESPONSES.jsonl \
+    --stage2-responses $RUN/RQ4_STAGE2_RESPONSES.jsonl --out-dir evaluation/m4_20261127/rq4
 ```
 
 Use `--retry-transport-errors` on a GPU step only for requests that got no server reply. Keep the `.meta.jsonl` files and the server launch command with the responses. Step 2 needs no GPU, so it can run right after step 1, and step 3 can follow on the same day. The review (step 4) needs only steps 1 and 2.
@@ -88,7 +108,11 @@ Use `--retry-transport-errors` on a GPU step only for requests that got no serve
 PYTHONPATH=. python3 -m unittest discover -s evaluation/m4_20261127/rq4/tests -p 'test_*.py' -v
 ```
 
-`tests/test_rq4.py` checks that the saved stage 1 equals a fresh build, the cases, sources and settings, the fixed approval rule, the replayed report's input hash, that both methods get identical permitted information, and that no case ID, label or method name reaches the model. It also checks that findings other than the approved one are carried forward unchanged and shown to the reviewer. A dry run with scripted replies, which are test inputs and never results, covers every output path: a repair, assurance wording, a decline, a non-JSON reply, a malformed answer, an edit on the wrong node and a missing output. It also covers the second Critic batch, the blinding of review items, the refusal to compare before the review is complete, and the scores, which were worked out by hand.
+`tests/test_rq4.py` checks that the saved stage 1 equals a fresh build, the cases, sources, prompt and settings, the recorded human approvals, the replayed report's input hash, that both methods get identical permitted information, and that no case ID, label, approval record or method name reaches the model. It also checks that findings other than the approved one are carried forward unchanged and shown to the reviewer.
+
+Regression tests refuse, among other things: approval rows that are missing, repeated, bound to another report, changed, unsigned, undated, without the exact attestation, off the fixed rule, or with no approval at all; stage 1 responses with an unknown run ID, a request answered twice, another input, other sent messages, an altered reply, misnumbered attempts, scripted replies from the command line, other settings, another model or two model revisions; review forms that are blank, incomplete, with a bad value, a duplicate, missing or unexpected blind ID, no reviewer, no exposure declaration, a bad date, no or mixed freeze timestamps, an undescribed new problem, or wrong columns; a review item changed after the packet was built, a key bound to another result, stage 2 responses made for another input, and stage 1 responses that do not give the saved results. They also check that saved files and outputs are never overwritten without the explicit flag.
+
+A dry run with scripted replies, which are test inputs and never results, covers every output path: a repair, assurance wording, a decline, a non-JSON reply, a malformed answer, an edit on the wrong node, a missing output and a reply from another model. It also covers the second Critic batch, the blinding of review items, the pre-review facts and the scores, which were worked out by hand.
 
 ## Limitations known before the run
 

@@ -1616,7 +1616,7 @@
    "decision": "approved",
    "decided_by": "human_review",
    "reviewer": "Alex Hashemi",
-   "note": "Approved under the fixed rule in rq4/RQ4_PROTOCOL.md, set before any revision output existed: the finding is on the node of the planted defect and its category is acceptable for the defect type. The approver wrote the planted defects and their labels."
+   "note": "The fixed rule in rq4/RQ4_PROTOCOL.md, set before any revision output existed: approve the finding on the node of the planted defect whose category is acceptable for the defect type. Recorded by hand on 2026-11-23 in rq4/FINDING_APPROVALS.csv."
   }
  ],
  "history": []
