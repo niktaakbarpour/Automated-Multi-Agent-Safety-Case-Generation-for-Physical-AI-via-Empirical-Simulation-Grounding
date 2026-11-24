@@ -15,4 +15,5 @@ jobs:
       - run: python integration/replay_m4_tables.py
       - run: python -m unittest integration.tests.test_handoff integration.tests.test_replay_m4_tables -v
       - run: python -m unittest discover -s evaluation/m4_20261127/rq4/tests -p 'test_*.py' -v
+      - run: python -m unittest drafter.tests.test_r1v3_profile -v
       - run: git diff --exit-code
