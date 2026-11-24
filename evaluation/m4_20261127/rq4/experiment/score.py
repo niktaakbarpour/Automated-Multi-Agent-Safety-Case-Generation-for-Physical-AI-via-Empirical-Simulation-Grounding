@@ -149,6 +149,12 @@ def keys(report):
     return {(c['object_id'], c['node_id'], c['category']) for c in report['criticisms']}
 
 
+def finding_order(key):
+    """Sort key for a finding key. object_id and node_id may be None (a finding not tied to one object or node), and
+    None cannot be compared with a string, so None sorts first. Only the order changes, never which keys there are."""
+    return tuple((value is not None, '' if value is None else value) for value in key)
+
+
 def is_iso_date(text):
     try:
         date.fromisoformat(text)
@@ -250,7 +256,7 @@ def per_output(outputs, stage2, review):
             flagged = [any(c['object_id'] == label['object_id'] and c['node_id'] == label['node_id']
                            and c['category'] in acceptable for c in r['criticisms']) for r in reviews]
             reflag = {(label['object_id'], label['node_id'], c) for c in acceptable}
-            new = [sorted(keys(r) - original - reflag) for r in reviews]
+            new = [sorted(keys(r) - original - reflag, key=finding_order) for r in reviews]
             row.update(second_reviews=len(reviews), second_reviews_missing=len(all_reviews) - len(reviews),
                        second_reviews_target_flagged=sum(flagged),
                        second_reviews_with_new_objection=sum(bool(n) for n in new),
