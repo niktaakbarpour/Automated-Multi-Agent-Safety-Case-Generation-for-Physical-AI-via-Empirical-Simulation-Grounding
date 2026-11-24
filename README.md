@@ -2,6 +2,35 @@
 
 This repository studies how evidence-grounded safety-case tools behave on recorded physical-AI simulation evidence. It does not certify a robot or policy as safe. The framework keeps measured source evidence, requirement checks, argument generation, criticism, revision and evaluation as separately validated steps.
 
+## Reproduce the four M4 manuscript tables on CPU
+
+From the root of a fresh clone, use Python 3.12. The install needs package-index access. The replay uses only repository files and temporary output.
+
+```sh
+python3.12 -m venv .venv
+. .venv/bin/activate
+python -m pip install -r requirements-m4-cpu.lock
+python -m pip check
+python integration/replay_m4_tables.py
+```
+
+Success prints four `PASS tab:…` lines with the checked rows and exits zero. The replay compares them with [the manuscript tables](report/m4_neurips_materials/tables.tex). A missing input, failed validator or table mismatch exits nonzero.
+
+| Manuscript label | Replay implementation (functions in [the CPU command](integration/replay_m4_tables.py)) | Evidence and interpretation |
+|---|---|---|
+| `tab:rq1` | `rq1()` | Extracts historical ranking metrics and Phase 5K V2 coverage, abstention and failure IDs from the four reports cited in the LaTeX table. |
+| `tab:rq2` | `rq2()`, [verify_saved_results.py](integration/verify_saved_results.py) | Recounts public calibration and expanded coverage rows and reads historical aggregates from [results.json](evaluation/r1_v3/results.json). Independent evaluation remains pending. |
+| `tab:rq3-conditions` | `rq3()`, [score.py](evaluation/m4_20261127/rq3/experiment/score.py), [make_tables.py](evaluation/m4_20261127/rq3/experiment/make_tables.py) | Rescores archived Qwen replies, compares all three generated files byte-for-byte, and checks the T/R/C paper columns. |
+| `tab:rq4` | `rq4()`, [verify_saved_fixture.py](integration/verify_saved_fixture.py), [check_examples.py](drafter/revision/tools/check_examples.py), revision unit tests | Verifies the one-pass fixture and runs current checks. Runs 102 revision tests and requires 145 passing checks from the current checker. The manuscript’s historical 149 is verified separately by counting passing checks in the [A0 transcript](drafter/revision/handoff/TEST_TRANSCRIPT.txt). |
+
+This command replays saved results. Level C below describes the external requirements for fresh model inference and raw-data reproduction.
+
+## Repository and contributor guides
+
+- [Repository map](docs/REPOSITORY_MAP.md) describes active components and historical result areas.
+- [Cleanup audit](docs/REPOSITORY_CLEANUP_AUDIT.md) records code findings, archive candidates, and publication risks.
+- [Artifact policy](docs/ARTIFACT_POLICY.md) explains frozen evidence, generated outputs, external dependencies, and restricted records.
+
 ## Research questions and architecture
 
 - **RQ1 — Evidence retrieval:** retrieves requested evidence families and source-scoped measurements, checks obligation coverage and abstains when a request cannot be supported. Retrieval completeness is limited to the explicit request; it is not proof of R1 safety evidence sufficiency.
@@ -31,20 +60,9 @@ Each arrow has its own contract. The complete chain has not been demonstrated on
 | `evaluation/m4_20261127/rq3/` | Mutation protocol, frozen benchmark, raw model responses and scores |
 | `evaluation/m4_20261127/integration/` | Feasibility and reproduction reports |
 
-Raw simulation evidence, retrieval databases, model weights, private reviewer submissions and some original runtime traces are not stored in this repository.
+Full raw simulation recordings, retrieval databases, model weights and some original runtime traces are external. The repository tracks historical review and adjudication artifacts alongside the public replay inputs. See the [artifact policy](docs/ARTIFACT_POLICY.md) before redistribution.
 
-## Level A — CPU-only setup, tests and demonstrations
-
-Python **3.12** is the verified environment for the commands below. From a fresh clone, at the repository root:
-
-```sh
-python3.12 -m venv .venv
-. .venv/bin/activate
-python -m pip install --upgrade pip
-python -m pip install -r requirements.txt -r drafter/requirements.txt -r critic/requirements.txt -r evaluation/r1_v4/requirements.txt
-```
-
-The install is CPU-capable and does not install model weights or call a model. The package manifests pin or bound NumPy, h5py, tokenizers and jsonschema dependencies. Python 3.12.14 with these manifests was tested for this guide; other Python versions are not claimed as verified here.
+## Level A — CPU tests and demonstrations
 
 Run the main CPU regression suites:
 
@@ -138,97 +156,7 @@ The isolated RQ3 unseen-parent expansion remains blocked: PR #39 and stacked PR 
 - [End-to-end feasibility](evaluation/m4_20261127/integration/END_TO_END_FEASIBILITY_REPORT.md)
 - [CPU reproducibility record](evaluation/m4_20261127/integration/CPU_REPRODUCIBILITY_REPORT.md)
 - [RQ1-RQ4 reproduction index](evaluation/m4_20261127/integration/EXPERIMENT_REPRODUCTION_INDEX.md)
-# Trustworthy AI safety-case framework
-
-This repository contains a prototype framework for grounding safety-case arguments in recorded Physical AI executions. It includes execution-inventory code, requirement and evidence schemas, Drafter and Critic components, integration fixtures, tests, and research evaluation packages.
-
-The repository does **not** establish that a policy is safe. Recorded task success is not a safety label, geometric contact is not proof of physical support, and an unresolved checker result is not a pass. Read each study's limitations before interpreting its saved outputs.
-
-## Project map
-
-- `src/`: execution inventory, source-backed measurements, identifiers, geometry, and collection commands.
-- `schemas/`, `config/`, `requirements/`: data contracts, approved checker configuration, and R1 definitions.
-- `drafter/`: argument planning, generation, validation, and revision components.
-- `critic/`: structural and evidence-link checks, review logic, and model-assisted criticism.
-- `integration/`: orchestration and end-to-end fixtures.
-- `tests/`: CPU tests for the core framework.
-- `evaluation/`: versioned research protocols, frozen inputs, saved outputs, and evaluation-specific tools.
-- `data/`, `evidence/`, `reports/`: compact execution metadata and provenance. Large trajectories and videos are not required for the CPU checks below.
-
-## Environment setup
-
-Use Python 3.12 for the current M4 offline packages. A basic local environment is:
-
-```bash
-python3.12 -m venv .venv
-source .venv/bin/activate
-python -m pip install --upgrade pip
-python -m pip install -r requirements.txt
-```
-
-The checked-in root requirements file is not a full lockfile for every optional model server, simulator, or Hestia workflow. The root `pipeline.sh` currently points at a site-specific Hestia virtual environment; it is not a portable clean-clone launcher. The commands below use explicit repository-relative paths and do not call a model or simulator.
-
-## CPU validation
-
-From the repository root, run the core tests and the evaluation integrity checks:
-
-```bash
-PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=. python -m unittest discover -s tests -p 'test_*.py' -v
-PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=. python -m unittest discover -s evaluation/m4_20261127/rq3/tests -p 'test_*.py' -v
-PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=. python evaluation/m4_20261127/rq3/mutations/build_mutations.py --check
-PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=. python evaluation/m4_20261127/rq3/experiment/build_batch.py --check
-python evaluation/m4_20261127/rq1/heldout_expansion/RYIAD_AUTHORING_PACKAGE/verify_offline_handoff.py
-```
-
-The RQ1 verifier uses only the Python standard library. The RQ3 mutation and batch checks are CPU-only and do not perform inference. A successful check verifies the saved artifacts against the checked-in builders; it does not independently validate scientific labels or claims.
-
-## Research-question status and reproduction
-
-### RQ1 — evidence retrieval and references
-
-The offline authoring package contains 30 canonical source executions and 60 blank query/reference slots. Its evidence extracts support offline source inspection, but they are not a completed gold reference set and do not contain image pixels or all source measurements. Read the [package guide](evaluation/m4_20261127/rq1/heldout_expansion/RYIAD_AUTHORING_PACKAGE/README.md) and [extract limitations](evaluation/m4_20261127/rq1/heldout_expansion/RYIAD_AUTHORING_PACKAGE/OFFLINE_EVIDENCE/EXTRACT_LIMITATIONS.md), then run the verifier above.
-
-**Supported now:** verify the package and author/query against the bundled evidence. **Not supported now:** reproduce a held-out retrieval score; the reference slots remain blank and no frozen independent scoring set is provided.
-
-### RQ2 — R1 checker coverage
-
-The committed [expanded-evaluation summary](evaluation/m4_20261127/rq2/expanded_evaluation/SUMMARY_METRICS.json), [methods and limitations](evaluation/m4_20261127/rq2/expanded_evaluation/METHODS_AND_LIMITATIONS.md), case results, eligibility inventory, and exclusions preserve the current coverage analysis. The 60-execution generalization cohort has no independent human labels; the saved findings are coverage and abstention measures, not accuracy. Cross-scene mapping-gate exclusions are not checker abstentions. The historical 432-execution count is not an identified per-execution sample.
-
-**Supported now:** inspect the frozen results and their provenance. There is no checked-in command that reruns the checker and regenerates the M4 summary from raw source data. A new checker run requires the source dataset and approved environment; it must not be presented as a replay of the saved results.
-
-### RQ3 — Critic mutation and model comparison
-
-The [frozen mutation protocol](evaluation/m4_20261127/rq3/MUTATION_PROTOCOL.md), [experiment configuration](evaluation/m4_20261127/rq3/EXPERIMENT_CONFIG.md), manifests, batch, raw responses, and scored outputs describe the current development experiment. Rebuild/check the mutation set and batch with the CPU commands above. Replay the saved response scoring into a new directory with:
-
-```bash
-PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=. python evaluation/m4_20261127/rq3/experiment/score.py \
-  --batch evaluation/m4_20261127/rq3/experiment/batch \
-  --responses evaluation/m4_20261127/rq3/experiment/real_run_20261122T142300Z/RQ3_RESPONSES.jsonl \
-  --out-dir /tmp/trustworthy-rq3-replay
-```
-
-This recreates scored tables from the saved replies; it does not rerun inference. The existing run used `Qwen/Qwen3-32B` revision `9216db5781bf21249d130ec9da846c4624c16137`. New inference requires that model (or an explicitly recorded replacement), a compatible OpenAI-style model server, and suitable GPU memory. The frozen request batch, prompts, decoding settings, response log, and run notes must be retained together. For a new run, use `experiment/run_batch.py` with an explicit `--batch`, `--out`, `--base-url`, and `--model-revision`, then score that new response file separately.
-
-**Scientific limit:** the current mutation benchmark has two parent groups, zero independent groups, and developer-authored labels pending independent review. Condition C represents checker-admission status; it does not test a verified physical checker verdict. Results are development diagnostics, not general performance estimates.
-
-### RQ4
-
-The RQ4 Revision Agent is implemented and CPU-tested under `drafter/revision/`, including scripted revision and saved no-change examples. However, no frozen M4 RQ4 empirical evaluation package or real Qwen-generated revision followed by a second Critic evaluation is currently available for reproduction. The existing tests establish contract and integration behavior, not empirical revision effectiveness.
-
-## Data, access, and expected outputs
-
-Compact schemas, manifests, metadata, and explicitly packaged evidence extracts are versioned with their study documentation. Raw HDF5 trajectories, videos, model weights, and source datasets may require separate Hestia access and are not necessary for the CPU checks. Source paths in manifests are provenance records; they are not portable download links. Do not commit credentials, model weights, raw recordings, private human-review submissions, coordinator-only material, or new unapproved labels. Preserve any human judgments only in their approved access-controlled location. The current private GitHub `main` already contains `human_review_package/` (including reviewer and adjudication subdirectories) and `evaluation/m4_20261127/rq3/RYIAD_NEUTRAL_REVIEW/`; this guide does not add or change them. Audit their approved access scope before creating any public copy.
-
-CPU checks produce test output and compare generated artifacts in place; they should not change tracked files. The RQ3 scoring command writes `RQ3_PER_CASE_RESULTS.csv` and `RQ3_SUMMARY.csv` only under the requested output directory. New inference produces JSONL response and metadata files and requires an explicit model-server run.
 
 ## Existing execution-inventory workflow
 
-The root `pipeline.sh` provides task/run inventory and transition-inspection commands. It currently embeds a site-specific Python path and source-data location; verify both against the target Hestia checkout before use. `collect` inventories existing recordings and does not run a policy. `validate` checks the saved inventory and selected trajectory bindings. These commands are separate from RQ1–RQ3 evaluation reproduction.
-
-## Reproducibility gaps to close
-
-1. Add a portable, fully pinned test/runtime dependency set and remove the site-specific interpreter/data paths from any future general-purpose launcher.
-2. Add a deterministic RQ2 result-replay script that regenerates the saved coverage summary from the frozen prediction, eligibility, and exclusion inputs.
-3. Complete and independently freeze RQ1 references before publishing retrieval scores.
-4. Implement and document an RQ4 package before claiming RQ4 reproduction support.
-5. Resolve the independent-label, source-integrity, and reviewer-access limitations recorded by each evaluation before making accuracy or safety claims.
+The root `pipeline.sh` provides task/run inventory and transition-inspection commands. It uses the active Python environment or the interpreter selected by `PYTHON`. Commands that read recordings require the external source location in `config/project.json`. `collect` inventories existing recordings and does not run a policy. `validate` checks the saved inventory and selected trajectory bindings. These commands are separate from RQ1–RQ3 evaluation reproduction.

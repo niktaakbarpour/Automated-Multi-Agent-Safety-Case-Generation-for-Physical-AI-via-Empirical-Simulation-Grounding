@@ -1,0 +1,95 @@
+% Publication tables copied from frozen, repository-tracked aggregate artifacts.
+% Keep these cohorts separate; do not pool counts across tables.
+
+\begin{table}[t]
+\centering
+\small
+\caption{AUTHOR PLACEHOLDER: write an author-approved caption.}
+\label{tab:rq1}
+\begin{tabular}{llrrrr}
+\toprule
+Evaluation & Mode / measure & $n$ & P@1 & R@20 & MRR \\
+\midrule
+Historical retrieval & Exact & 96 & 0.958 & 1.000 & 0.975 \\
+Historical retrieval & Semantic & 96 & 0.792 & 0.896 & 0.855 \\
+Historical retrieval & Lexical & 96 & 0.385 & 0.613 & 0.473 \\
+\midrule
+Phase 5K V2 & Multi-source bundle completeness & 24 & \multicolumn{3}{c}{24/24} \\
+Phase 5K V2 & Required family obligations & 84 & \multicolumn{3}{c}{84/84} \\
+Phase 5K V2 & Critical abstentions & 80 & \multicolumn{3}{c}{80/80} \\
+Phase 5K V2 & Known false-complete cases & 3 & \multicolumn{3}{c}{KH2-C2-02/10/18} \\
+Historical retrieval & Execution contexts & 18 & \multicolumn{3}{c}{Clustered units} \\
+\bottomrule
+\end{tabular}
+% Evidence: evaluation/r1_v4/rag_evidence_database/readiness_evaluation/RETRIEVAL_METRICS.md
+% evaluation/r1_v4/rag_evidence_database/retrieval_remediation/MULTISOURCE_COMPLETENESS.md
+% evaluation/r1_v4/rag_evidence_database/retrieval_remediation/ABSTENTION_AND_INTEGRITY.md
+% evaluation/m4_20261127/rq1/heldout_expansion/RYIAD_AUTHORING_PACKAGE/FALSE_COMPLETE_ANALYSIS.md
+\end{table}
+
+\begin{table}[t]
+\centering
+\small
+\caption{AUTHOR PLACEHOLDER: write an author-approved caption.}
+\label{tab:rq2}
+\begin{tabular}{lrrrrrl}
+\toprule
+Cohort & App. agree. & App./N/A & TP/FP/TN/FN & Coverage & Abstain & Scope \\
+\midrule
+Current reviewed calibration & 3/3 & 2/1 & 1/0/1/0 & 2/2 & 0/2 & 3 cases, 1 group \\
+Historical development reference & 20/20 & 7/13 & 0/0/6/0 & 6/7 & 1/7 & 20 object units \\
+60-execution expansion & N/A & 120/180 & -- & 20/120 & 100/120 & Coverage only, unlabeled \\
+Independent human evaluation & PENDING & PENDING & PENDING & PENDING & PENDING & PENDING \\
+\bottomrule
+\end{tabular}
+% Evidence: evaluation/m4_20261127/rq2/R1_METRICS.json
+% evaluation/r1_v3/results.json
+% evaluation/m4_20261127/rq2/expanded_evaluation/SUMMARY_METRICS.json
+\end{table}
+
+\begin{table}[t]
+\centering
+\small
+\caption{AUTHOR PLACEHOLDER: write an author-approved caption.}
+\label{tab:rq3-conditions}
+\begin{tabular}{lrrr}
+\toprule
+Measure & T: text-only & R: retrieval & C: admission-status only \\
+\midrule
+Valid responses & 36/36 & 36/36 & 36/36 \\
+Semantic cases / parent groups & 12 / 2 development & 12 / 2 development & 12 / 2 development \\
+Independent source groups & 0 & 0 & 0 \\
+Mutation detections, model-only & 8/24 & 9/24 & 10/24 \\
+Mutation detections, rules + model & 10/24 & 10/24 & 11/24 \\
+Clean-control false positives & 0/12 & 1/12 & 3/12 \\
+Reference-correct outputs, model-only & 20/36 & 20/36 & 19/36 \\
+Reference-correct outputs, rules + model & 22/36 & 21/36 & 20/36 \\
+M1 mutation detections & 6/9 & 6/9 & 7/9 \\
+M2 mutation detections & 2/6 & 3/6 & 3/6 \\
+M3 mutation detections & 0/9 & 0/9 & 0/9 \\
+Independent label audit & PENDING & PENDING & PENDING \\
+\bottomrule
+\end{tabular}
+% Evidence: evaluation/m4_20261127/rq3/experiment/real_run_20261122T142300Z/scored_pr34_20261123/RQ3_TABLES.md
+% evaluation/m4_20261127/rq3/MUTATION_PROTOCOL.md
+% evaluation/m4_20261127/rq3/EXPERIMENT_CONFIG.md
+\end{table}
+
+\begin{table}[t]
+\centering
+\small
+\caption{AUTHOR PLACEHOLDER: write an author-approved caption.}
+\label{tab:rq4}
+\begin{tabular}{lll}
+\toprule
+Artifact & Verified scope & Not established \\
+\midrule
+Revision Agent CPU suite & 102 tests; scripted validators and edits & Real-model revision performance \\
+Saved revision examples & 149 example checks & Real-model second Critic cycle \\
+One-pass Qwen fixture & Real Drafter/Critic calls; 0 criticisms on controlled guarantee & Reliable semantic criticism \\
+\bottomrule
+\end{tabular}
+% Evidence: drafter/revision/README.md
+% drafter/revision/examples/two_round_cycle/cycle.json
+% integration/END_TO_END_QWEN_INTEGRATION_REPORT.md
+\end{table}

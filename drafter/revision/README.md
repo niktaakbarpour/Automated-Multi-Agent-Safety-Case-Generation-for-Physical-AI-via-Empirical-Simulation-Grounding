@@ -64,10 +64,17 @@ not usable, 5 adapter or module failure, 6 unreadable file.
 
 ```bash
 python3 -m unittest discover -s drafter/revision/tests -t . -v     # 102 tests
-python3 -m drafter.revision.tools.check_examples                   # 149 checks on the saved examples
+python3 -m drafter.revision.tools.check_examples                   # 145 checks on the saved examples
 python3 -m unittest discover -s drafter/tests -t . -v              # existing Drafter suite, 209 tests
 python3 -m unittest integration.tests.test_handoff -v              # existing handoff suite, 9 tests
 ```
+
+The A0 handoff recorded 149 passing checks at `7cfff70`. Critic 0.5.0
+changed how the revision checker handles the archived controlled-negative
+report. The current suite verifies that the stale report is refused and
+executes 145 checks. See the [original transcript](handoff/TEST_TRANSCRIPT.txt)
+and the [post-update audit](../../evaluation/m4_20261127/rq3/CRITIC_BASELINE_AUDIT.md#8-changes-made-after-the-baseline-task-a3).
+
 
 Core scenarios in `tests/test_core.py` and `tests/test_cycle.py`:
 

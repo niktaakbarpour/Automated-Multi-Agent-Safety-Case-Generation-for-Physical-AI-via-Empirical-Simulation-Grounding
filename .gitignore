@@ -24,3 +24,4 @@ __pycache__/
 /reports/fall_checker_dev_v2_20261017/*.b64
 /reports/fall_review_20261016/*.b64
 /reports/fall_review_v2_20261016/*.b64
+!requirements-m4-cpu.lock

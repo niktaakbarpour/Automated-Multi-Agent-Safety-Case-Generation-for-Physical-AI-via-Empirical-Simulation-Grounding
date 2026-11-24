@@ -1,0 +1,7 @@
+case_id,object,source_group_id,requirement_version,split,applicability_reference,violation_reference,adjudication_status,eligibility,exclusion_reason
+dev_v,cream_cheese_1,dev_group,R1-test,development_calibration,applicable,violation,finalized,included,
+dev_n,cream_cheese_1,dev_group,R1-test,development_calibration,applicable,no_violation,finalized,included,
+dev_na,cream_cheese_1,dev_group,R1-test,development_calibration,not_applicable,not_applicable,finalized,included,
+dev_abstain,cream_cheese_1,dev_group,R1-test,development_calibration,applicable,violation,finalized,included,
+eval_invalid,cream_cheese_1,eval_group,R1-test,independent_evaluation,applicable,no_violation,finalized,included,
+eval_excluded,cream_cheese_1,eval_group,R1-test,independent_evaluation,unknown,unscorable,finalized,excluded,protocol_exclusion
