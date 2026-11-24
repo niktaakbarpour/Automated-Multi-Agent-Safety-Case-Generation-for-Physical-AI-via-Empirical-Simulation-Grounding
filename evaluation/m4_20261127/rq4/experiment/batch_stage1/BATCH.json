@@ -1,0 +1,36 @@
+{
+ "batch_version": "rq4-planted-repair/0.1.0:stage1",
+ "experiment": "rq4-planted-repair/0.1.0",
+ "what": "Qwen revision proposals for the approved planted-defect findings",
+ "critic_version": "0.5.0",
+ "prompt_version": "rq4-revision-prompt/v1",
+ "system_sha256": "a8f76949d45ca1e87d8e9cfbdc422a3fde457b65914ca1bae1bdf47ad266e961",
+ "conditions": [
+  "Q"
+ ],
+ "repeats": 3,
+ "cases": 3,
+ "requests": 9,
+ "canonical_source_groups": 2,
+ "independent_cases": 0,
+ "data_role": "development_only",
+ "requests_sha256": "23959b724b9d7e999869cf8fbf9bafa9edec5be99776eeef10c572b7b4890ae0",
+ "settings": {
+  "model": "Qwen/Qwen3-32B",
+  "temperature": 0.6,
+  "max_tokens": 8192,
+  "timeout_s": 600,
+  "extra_body": {
+   "top_p": 0.95,
+   "top_k": 20,
+   "response_format": {
+    "type": "json_object"
+   },
+   "chat_template_kwargs": {
+    "enable_thinking": false
+   }
+  },
+  "seed": null,
+  "source": "integration/fixtures/one_pass_20261113/artifacts/models/critic.qwen.report.json (llm.settings)"
+ }
+}
