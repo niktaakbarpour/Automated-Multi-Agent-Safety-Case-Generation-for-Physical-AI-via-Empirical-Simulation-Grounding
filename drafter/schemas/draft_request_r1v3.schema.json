@@ -1,0 +1,128 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:trustworthy:drafter-request:0.2.0",
+  "title": "DraftRequest, R1 v3 source-package profile",
+  "description": "A Drafter request for one execution under R1 v3, built from a source evidence package. It carries the package unchanged and bound by digest, and states its status: retrieved records keep their own requirement version, a checker assessment keeps its admission state, and evidence gaps are explicit. It carries no human reference label. drafter/r1v3_profile.py recomputes every derived field from the package and the frozen configuration.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "input_profile", "request_id", "test_fixture", "usage", "requirement_configuration",
+               "requirement_configuration_sha256", "source_package", "source_package_sha256", "target_execution",
+               "monitoring_scope", "evidence", "coverage", "checker_context", "evidence_gaps", "limitations",
+               "human_reference_included", "empirical_admission_enabled", "safety_claim_verified"],
+  "properties": {
+    "schema_version": {"const": "drafter-request/0.2.0"},
+    "input_profile": {"const": "r1v3_source_package"},
+    "request_id": {"$ref": "#/$defs/text"},
+    "test_fixture": {"type": "boolean"},
+    "usage": {"const": "proposed_argument"},
+    "requirement_configuration": {"$ref": "../../requirements/r1_initial_table_support_v3/R1_V3_DRAFTER_CONFIG_SCHEMA.json"},
+    "requirement_configuration_sha256": {"$ref": "#/$defs/sha256"},
+    "source_package": {
+      "type": "object",
+      "required": ["schema", "execution", "rag_source", "checker_assessment", "coverage_and_limitations"],
+      "properties": {"schema": {"const": "source-evidence-package/original-r1-v3-pre-integration-1"}}
+    },
+    "source_package_sha256": {"$ref": "#/$defs/sha256"},
+    "target_execution": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["execution_id", "trajectory_sha256", "trajectory_path", "source_identity_status"],
+      "properties": {
+        "execution_id": {"$ref": "#/$defs/text"},
+        "trajectory_sha256": {"$ref": "#/$defs/sha256"},
+        "trajectory_path": {"$ref": "#/$defs/text"},
+        "source_identity_status": {"$ref": "#/$defs/text"}
+      }
+    },
+    "monitoring_scope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["domain", "clock", "interval", "inclusive", "end_basis"],
+      "properties": {
+        "domain": {"const": "frame"},
+        "clock": {"const": "saved_frame_index"},
+        "interval": {"type": "array", "prefixItems": [{"type": "integer", "minimum": 0}, {"type": "integer", "minimum": 0}], "items": false, "minItems": 2},
+        "inclusive": {"const": true},
+        "end_basis": {"const": "terminal_recorded_snapshot"}
+      }
+    },
+    "evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["record_ids", "records_sha256", "record_sha256", "retrieval", "record_requirement_versions", "graph_eligible_evidence_ids",
+                   "context_only_evidence_ids", "eligibility_rule", "citation_status", "empirical_admission_enabled",
+                   "physical_sufficiency"],
+      "properties": {
+        "record_ids": {"$ref": "#/$defs/ids"},
+        "records_sha256": {"$ref": "#/$defs/sha256"},
+        "record_sha256": {"type": "object", "additionalProperties": {"$ref": "#/$defs/sha256"}},
+        "retrieval": {
+          "type": "object", "additionalProperties": false,
+          "required": ["database_path", "database_sha256", "source_commit", "retrieval_api", "queried_interval",
+                       "indexed_requirement_version", "record_types_included", "record_count_included"],
+          "properties": {
+            "database_path": {"$ref": "#/$defs/text"},
+            "database_sha256": {"$ref": "#/$defs/sha256"},
+            "source_commit": {"type": "string", "pattern": "^[a-f0-9]{40}$"},
+            "retrieval_api": {"$ref": "#/$defs/text"},
+            "queried_interval": {"type": "array", "items": {"type": "integer"}, "minItems": 2, "maxItems": 2},
+            "indexed_requirement_version": {"$ref": "#/$defs/text"},
+            "record_types_included": {"$ref": "#/$defs/ids"},
+            "record_count_included": {"type": "integer", "minimum": 0}
+          }
+        },
+        "record_requirement_versions": {"$ref": "#/$defs/ids"},
+        "graph_eligible_evidence_ids": {"$ref": "#/$defs/ids"},
+        "context_only_evidence_ids": {"$ref": "#/$defs/ids"},
+        "eligibility_rule": {"$ref": "#/$defs/text"},
+        "citation_status": {"type": "object"},
+        "empirical_admission_enabled": {"const": false},
+        "physical_sufficiency": {"const": false}
+      }
+    },
+    "coverage": {"type": "array", "items": {"type": "object"}},
+    "checker_context": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "checker_version", "config_sha256", "predictions_sha256", "seal_sha256",
+                   "reference_answers_loaded", "admission", "assessments"],
+      "properties": {
+        "status": {"$ref": "#/$defs/text"},
+        "checker_version": {"$ref": "#/$defs/text"},
+        "config_sha256": {"$ref": "#/$defs/sha256"},
+        "predictions_sha256": {"$ref": "#/$defs/sha256"},
+        "seal_sha256": {"$ref": "#/$defs/sha256"},
+        "reference_answers_loaded": {"const": false},
+        "admission": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["state", "contract", "reason"],
+          "properties": {
+            "state": {"enum": ["not_admitted", "admitted"]},
+            "contract": {"type": ["string", "null"], "minLength": 1},
+            "reason": {"$ref": "#/$defs/text"}
+          }
+        },
+        "assessments": {"type": "array", "items": {"type": "object", "required": ["object_id", "classification", "applicability", "requirement_version", "checker_version"]}}
+      }
+    },
+    "evidence_gaps": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["object_id", "gap", "detail"],
+        "properties": {"object_id": {"$ref": "#/$defs/text"}, "gap": {"$ref": "#/$defs/text"}, "detail": {"$ref": "#/$defs/text"}}
+      }
+    },
+    "limitations": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"$ref": "#/$defs/text"}},
+    "human_reference_included": {"const": false},
+    "empirical_admission_enabled": {"const": false},
+    "safety_claim_verified": {"const": false}
+  },
+  "$defs": {
+    "text": {"type": "string", "minLength": 1},
+    "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "ids": {"type": "array", "uniqueItems": true, "items": {"$ref": "#/$defs/text"}}
+  }
+}

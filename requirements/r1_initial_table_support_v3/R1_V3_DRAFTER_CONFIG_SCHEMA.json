@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:trustworthy:r1-v3-drafter-config:1.0.0",
+  "title": "R1 v3 Drafter configuration",
+  "description": "The R1 v3 requirement as the Drafter consumes it. It is derived from, and bound by SHA-256 to, the frozen v3 files: the checker configuration (evaluation/r1_v3/config.json), the selected requirement scope (evaluation/r1_v3_generalization/blinded_review/requirement_scope.v3.json) and its scope decision. It does not change or reinterpret them. A definite outcome needs an admitted checker assessment and eligible citations; otherwise the outcome stays insufficient_information.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "requirement_id", "requirement_version", "requirement_statement", "protected_objects",
+               "monitoring_interval", "frozen_sources", "checker", "outcome_vocabulary", "outcome_precedence",
+               "definite_outcome_rule"],
+  "properties": {
+    "schema_version": {"const": "r1-v3-drafter-config/1.0.0"},
+    "requirement_id": {"const": "R1"},
+    "requirement_version": {"const": "r1-initial-table-support-v3-20261024"},
+    "requirement_statement": {"$ref": "#/$defs/text"},
+    "protected_objects": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"$ref": "#/$defs/text"}},
+    "monitoring_interval": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["axis", "domain", "clock", "start", "end_basis", "inclusive"],
+      "properties": {
+        "axis": {"const": "saved_frame"},
+        "domain": {"const": "frame"},
+        "clock": {"const": "saved_frame_index"},
+        "start": {"type": "integer", "minimum": 0},
+        "end_basis": {"const": "terminal_recorded_snapshot"},
+        "inclusive": {"const": true}
+      }
+    },
+    "frozen_sources": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["checker_config", "requirement_scope", "scope_decision"],
+      "properties": {
+        "checker_config": {"$ref": "#/$defs/source"},
+        "requirement_scope": {"$ref": "#/$defs/source"},
+        "scope_decision": {"$ref": "#/$defs/source"}
+      }
+    },
+    "checker": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["checker_version", "config_sha256"],
+      "properties": {
+        "checker_version": {"$ref": "#/$defs/text"},
+        "config_sha256": {"$ref": "#/$defs/sha256"}
+      }
+    },
+    "outcome_vocabulary": {
+      "const": ["violation", "no_violation_observed_within_reviewed_coverage", "not_applicable", "insufficient_information"]
+    },
+    "outcome_precedence": {
+      "const": ["violation", "insufficient_information", "no_violation_observed_within_reviewed_coverage", "not_applicable"]
+    },
+    "definite_outcome_rule": {"$ref": "#/$defs/text"}
+  },
+  "$defs": {
+    "text": {"type": "string", "minLength": 1},
+    "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "sha256"],
+      "properties": {"path": {"$ref": "#/$defs/text"}, "sha256": {"$ref": "#/$defs/sha256"}}
+    }
+  }
+}

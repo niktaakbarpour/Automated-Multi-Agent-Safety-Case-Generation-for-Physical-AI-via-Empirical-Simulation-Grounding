@@ -1,0 +1,142 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:trustworthy:draft-argument:0.2.0",
+  "title": "DraftArgument output contract, R1 v3 source-package profile",
+  "description": "Accepted means a structurally accepted draft, never an accepted physical safety claim. An object outcome other than insufficient_information is valid only with an outcome_backing that names an admitted checker assessment of the same classification and at least one graph-eligible citation for that object (checked by drafter/r1v3_profile.py). The execution outcome is the R1 aggregation of the object outcomes.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "request_id", "test_fixture", "request_sha256", "requirement_configuration_sha256",
+               "source_package_sha256", "generation_status", "argument_bundle", "summary", "limitations", "diagnostics",
+               "validation", "generation_provenance", "empirical_admission_enabled", "safety_claim_verified"],
+  "properties": {
+    "schema_version": {"const": "draft-argument/0.2.0"},
+    "request_id": {"$ref": "#/$defs/text"},
+    "test_fixture": {"type": "boolean"},
+    "request_sha256": {"$ref": "#/$defs/sha256"},
+    "requirement_configuration_sha256": {"$ref": "#/$defs/sha256"},
+    "source_package_sha256": {"$ref": "#/$defs/sha256"},
+    "generation_status": {"enum": ["accepted", "rejected", "failed"]},
+    "argument_bundle": {"oneOf": [{"type": "null"}, {"$ref": "#/$defs/argument_bundle"}]},
+    "summary": {"$ref": "#/$defs/text"},
+    "reasoning_review": {
+      "type": "object", "additionalProperties": false,
+      "required": ["status", "warning", "summary", "limitations"],
+      "properties": {
+        "status": {"const": "required"},
+        "warning": {"$ref": "#/$defs/text"},
+        "summary": {"$ref": "#/$defs/text"},
+        "limitations": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"$ref": "#/$defs/text"}}
+      }
+    },
+    "limitations": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"$ref": "#/$defs/text"}},
+    "diagnostics": {
+      "type": "array", "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["code", "path", "message"],
+        "properties": {"code": {"$ref": "#/$defs/text"}, "path": {"type": "string"}, "message": {"$ref": "#/$defs/text"}}
+      }
+    },
+    "validation": {
+      "type": "object", "additionalProperties": false,
+      "required": ["input_schema", "input_semantics", "output_schema", "graph_semantics", "evidence_references", "outcome_backing", "physical_sufficiency"],
+      "properties": {
+        "input_schema": {"$ref": "#/$defs/check_status"},
+        "input_semantics": {"$ref": "#/$defs/check_status"},
+        "output_schema": {"$ref": "#/$defs/check_status"},
+        "graph_semantics": {"$ref": "#/$defs/check_status"},
+        "evidence_references": {"$ref": "#/$defs/check_status"},
+        "outcome_backing": {"$ref": "#/$defs/check_status"},
+        "physical_sufficiency": {"const": "not_assessed"}
+      }
+    },
+    "generation_provenance": {
+      "type": "object", "additionalProperties": false,
+      "required": ["backend", "model_id", "model_revision", "prompt_version", "prompt_sha256", "run_id", "raw_output_sha256"],
+      "properties": {
+        "backend": {"enum": ["not_run", "local_llm", "deterministic_mock"]},
+        "model_id": {"type": ["string", "null"], "minLength": 1},
+        "model_revision": {"type": ["string", "null"], "minLength": 1},
+        "prompt_version": {"type": ["string", "null"], "minLength": 1},
+        "prompt_sha256": {"oneOf": [{"type": "null"}, {"$ref": "#/$defs/sha256"}]},
+        "run_id": {"type": ["string", "null"], "minLength": 1},
+        "raw_output_sha256": {"oneOf": [{"type": "null"}, {"$ref": "#/$defs/sha256"}]}
+      }
+    },
+    "empirical_admission_enabled": {"const": false},
+    "safety_claim_verified": {"const": false}
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"generation_status": {"const": "accepted"}}, "required": ["generation_status"]},
+      "then": {
+        "required": ["reasoning_review"],
+        "properties": {
+          "argument_bundle": {"$ref": "#/$defs/argument_bundle"},
+          "validation": {"properties": {"input_schema": {"const": "passed"}, "input_semantics": {"const": "passed"}, "output_schema": {"const": "passed"}, "graph_semantics": {"const": "passed"}, "evidence_references": {"const": "passed"}, "outcome_backing": {"const": "passed"}}}
+        }
+      },
+      "else": {"properties": {"argument_bundle": {"type": "null"}, "diagnostics": {"minItems": 1}}}
+    }
+  ],
+  "$defs": {
+    "text": {"type": "string", "minLength": 1},
+    "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "check_status": {"enum": ["passed", "failed", "not_run"]},
+    "outcome": {"enum": ["violation", "no_violation_observed_within_reviewed_coverage", "not_applicable", "insufficient_information"]},
+    "graph": {
+      "allOf": [
+        {"$ref": "../../evaluation/r1_v4/evidence_registry_gsn/gsn_graph.schema.json"},
+        {"properties": {"nodes": {"minItems": 1, "items": {"allOf": [{"if": {"properties": {"physical_claim": {"const": true}}, "required": ["physical_claim"]}, "then": {"properties": {"type": {"enum": ["goal", "unresolved_claim"]}, "validation_status": {"const": "unresolved"}}}}]}}}}
+      ]
+    },
+    "backing": {
+      "type": "object", "additionalProperties": false,
+      "required": ["outcome", "checker_assessment", "citations"],
+      "properties": {
+        "outcome": {"$ref": "#/$defs/outcome"},
+        "checker_assessment": {
+          "oneOf": [
+            {"type": "null"},
+            {
+              "type": "object", "additionalProperties": false,
+              "required": ["object_id", "classification", "checker_version", "config_sha256", "admission_contract"],
+              "properties": {
+                "object_id": {"$ref": "#/$defs/text"},
+                "classification": {"$ref": "#/$defs/outcome"},
+                "checker_version": {"$ref": "#/$defs/text"},
+                "config_sha256": {"$ref": "#/$defs/sha256"},
+                "admission_contract": {"$ref": "#/$defs/text"}
+              }
+            }
+          ]
+        },
+        "citations": {"type": "array", "uniqueItems": true, "items": {"$ref": "#/$defs/text"}}
+      }
+    },
+    "argument_bundle": {
+      "type": "object", "additionalProperties": false,
+      "required": ["execution_id", "protected_objects", "graphs", "execution_conclusion"],
+      "properties": {
+        "execution_id": {"$ref": "#/$defs/text"},
+        "protected_objects": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"$ref": "#/$defs/text"}},
+        "graphs": {
+          "type": "array", "minItems": 1, "items": {
+            "type": "object", "additionalProperties": false,
+            "required": ["object_id", "graph"],
+            "properties": {"object_id": {"$ref": "#/$defs/text"}, "graph": {"$ref": "#/$defs/graph"}}
+          }
+        },
+        "execution_conclusion": {
+          "type": "object", "additionalProperties": false,
+          "required": ["claimed_outcome", "statement", "object_outcomes", "outcome_backing"],
+          "properties": {
+            "claimed_outcome": {"$ref": "#/$defs/outcome"},
+            "statement": {"$ref": "#/$defs/text"},
+            "object_outcomes": {"type": "object", "minProperties": 1, "additionalProperties": {"$ref": "#/$defs/outcome"}},
+            "outcome_backing": {"type": "object", "minProperties": 1, "additionalProperties": {"$ref": "#/$defs/backing"}}
+          }
+        }
+      }
+    }
+  }
+}

@@ -172,7 +172,11 @@ def generate_argument(request, config):
     Returns a trace report containing a DraftArgument for valid input, including
     valid failure envelopes. Invalid input has no argument and triggers no network.
     Model prose remains proposed reasoning requiring review even when accepted.
+    A drafter-request/0.2.0 (R1 v3 source package) goes to the versioned v3 generator.
     """
+    if isinstance(request, dict) and request.get('schema_version') == 'drafter-request/0.2.0':
+        from .r1v3_generation import generate_argument as generate_r1v3
+        return generate_r1v3(request, config)
     started = time.monotonic()
     run_id = str(uuid.uuid4())
     report = {
@@ -299,6 +303,9 @@ def render_review(report):
                   for d in report['diagnostics']]
         return '\n'.join(lines) + '\n'
     lines += [argument['summary'], '']
+    if 'outcome_backing' in argument['argument_bundle']['execution_conclusion']:
+        lines += ['Execution outcome (host-decided, R1 aggregation): '
+                  + argument['argument_bundle']['execution_conclusion']['claimed_outcome'], '']
     if argument.get('reasoning_review'):
         review = argument['reasoning_review']
         lines += ['## Model-written reasoning — review required', '', review['warning'],
@@ -306,7 +313,17 @@ def render_review(report):
         lines += ['- ' + text for text in review['limitations']]
         lines += ['', 'All model-written graph statements below require the same review.', '']
     for item in argument['argument_bundle']['graphs']:
-        lines += ['## ' + item['object_id'], '', 'Outcome: unresolved.', '']
+        conclusion = argument['argument_bundle']['execution_conclusion']
+        outcome = conclusion['object_outcomes'].get(item['object_id'])
+        backing = conclusion.get('outcome_backing', {}).get(item['object_id'])
+        if backing is None:
+            text = 'Outcome: unresolved.'
+        elif backing['checker_assessment'] is None:
+            text = f'Outcome: {outcome} (no admitted checker assessment backs a definite outcome).'
+        else:
+            text = (f"Outcome: {outcome}, from the admitted checker assessment "
+                    f"({backing['checker_assessment']['admission_contract']}) and {', '.join(backing['citations'])}.")
+        lines += ['## ' + item['object_id'], '', text, '']
         for node in item['graph']['nodes']:
             lines += [f"- {node['id']} ({node['type']}): {node['statement']}"]
             if node['evidence_id']:

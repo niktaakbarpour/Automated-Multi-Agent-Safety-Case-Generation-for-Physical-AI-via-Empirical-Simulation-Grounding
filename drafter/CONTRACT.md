@@ -240,3 +240,88 @@ to bind graph positions to the exact configuration roster. Each position also
 binds node/edge namespaces and object-specific eligible registry citations.
 The host independently rejects roster/order/identity/evidence violations. No
 post-generation reordering, ID rewriting or evidence reassignment is performed.
+
+## R1 v3 source-package profile (versioned)
+
+`drafter-request/0.2.0` with `input_profile=r1v3_source_package`, and `draft-argument/0.2.0`, implemented in
+`drafter/r1v3_profile.py`. They sit next to the profiles above, which are unchanged. `validate_request` and
+`validate_argument` dispatch on `schema_version`; a 0.2.0 request must be paired with a 0.2.0 argument.
+
+**Configuration.** `requirements/r1_initial_table_support_v3/R1_V3_DRAFTER_CONFIG_SCHEMA.json`
+(`r1-v3-drafter-config/1.0.0`). It is derived from the frozen v3 files and bound to each by SHA-256: the checker
+configuration `evaluation/r1_v3/config.json`, the selected requirement scope
+`evaluation/r1_v3_generalization/blinded_review/requirement_scope.v3.json` and its scope decision
+`REQUIREMENT_SCOPE_DECISION.md`. Those files are read, never changed or reinterpreted. A configuration that differs
+from the one derived from them is refused. It fixes requirement `R1` version `r1-initial-table-support-v3-20261024`,
+the five protected objects, the inclusive saved-frame window starting at frame 10 and ending at the terminal recorded
+snapshot, the checker version and configuration hash, the outcome vocabulary of the v3 checker and the R1
+aggregation precedence.
+
+**Request.** `drafter.r1v3_profile.build_request(package, request_id=...)` takes a source evidence package
+(`source-evidence-package/original-r1-v3-pre-integration-1`, such as
+`evaluation/m4_20261127/integration/ORIGINAL_EXECUTION_EVIDENCE_PACKAGE.json`) and keeps it unchanged in the request,
+bound by digest. Every other field is derived from the package, the configuration and the admission state, and the
+validator recomputes each one, so none can drift from its source:
+
+- target execution: execution ID, trajectory SHA-256 and path, source-identity status;
+- monitoring scope: inclusive saved frames (10 to 257 for the original execution), terminal-snapshot end basis;
+- evidence: all record IDs, the digest of each record and of the whole list, the retrieval selectors (database
+  path and SHA-256, source commit, retrieval API, queried window, indexed requirement version, record types and
+  count), the records' requirement versions, the graph-eligible and context-only partition and its rule, and the
+  package's citation status. A record is graph-eligible only as an original
+  record of this execution and a protected object under R1 v3, inside the window. Records of another requirement
+  version stay context and are never cited, re-versioned or mapped;
+- coverage and uncertainty per object and measurement type, as retrieved;
+- checker context: status, checker version, configuration, prediction and seal hashes, assessments, and an
+  admission record (`state`, `contract`, `reason`);
+- explicit evidence gaps per object (no v3-citable evidence, no or non-admitted checker assessment, physical
+  coverage not qualified, missing saved frames) and the package's limitations.
+
+The package must name this requirement, object roster, window start and checker configuration, its record count and
+queried window must match its records and the monitoring window, every assessment and
+record must belong to the execution and roster, the checker must not have loaded reference answers, and no human
+reference label may appear anywhere (the package's own note that the human reference is excluded is allowed).
+
+**Admission.** An assessment is admitted only through a contract registered in
+`r1v3_profile.ADMISSION_VERIFIERS` whose verifier accepts the request. None is registered: admission belongs to the
+evidence-registry contract, which does not exist yet. Until then every request is `not_admitted`, and a request that
+claims admission is refused.
+
+**Outcomes.** An object outcome other than `insufficient_information` is accepted only with an `outcome_backing` that
+names an admitted checker assessment of the same object, classification, checker version and configuration hash under
+the request's admission contract, and at least one graph-eligible citation for that object. Otherwise the outcome is
+`insufficient_information`. The execution outcome is the R1 aggregation (violation > insufficient_information >
+no_violation_observed_within_reviewed_coverage > not_applicable). Summary and conclusion are host texts derived from
+the outcomes. GSN physical-claim nodes stay unresolved and model prose still requires review.
+
+**Status of the original execution.** Its package gives 135 retrieved records, all R1 2.0.0, so 0 are graph-eligible
+under v3, and a frozen development-only checker assessment that is not admitted. Every object outcome is therefore
+`insufficient_information`, as the rules require, with 15 explicit evidence gaps. A definite outcome becomes possible
+when an admission contract and v3-citable records exist, without a change to this profile.
+
+**Generation.** `generation.generate_argument` sends a `drafter-request/0.2.0` to `r1v3_generation.py`, so
+`python -m drafter --generate` is unchanged. The model gets the v3 requirement, target, window, the graph-eligible
+catalogue, counts of context-only records, coverage, the checker context with its admission state, the evidence
+gaps and `host_outcomes`, and returns a plan in the existing plan schema (prompt
+`prompts/draft_argument_r1v3_v1.md`). The host decides every outcome: an object gets its checker classification
+only when the assessment is admitted and the plan cites graph-eligible evidence for that object; otherwise it stays
+`insufficient_information`. The model never sets an outcome. The outcome backing lists exactly the Solution nodes of
+that object's graph, and every reasoning node is bound to the request, the run, the prompt and the serializer
+version. An accepted argument needs a real generation run (`backend` other than `not_run`).
+
+The request for the original execution is `evaluation/m4_20261127/integration/DRAFTER_R1V3_REQUEST.json`, rebuilt
+and checked by `python -m evaluation.m4_20261127.integration.build_r1v3_request --check`. With the current package
+no record is v3-citable and no assessment is admitted, so a run on it leaves every object `insufficient_information`.
+
+**Not yet covered.** The mock driver still produces the v2 envelope only, and the hand-off to the Critic and
+Revision Agent depends on their R1 v3 support.
+
+Tests: `drafter/tests/test_r1v3_generation.py` (scripted model replies: the real package leaves every object
+unresolved, a cited v2 record fails the plan schema, an invalid request calls no model, the admitted fixture gets
+host-backed outcomes, a plan that drops available evidence is rejected) and `drafter/tests/test_r1v3_profile.py`
+(the real package, the frozen-file binding, and rejection of a wrong
+source hash, a requirement or roster mismatch, a changed window, a wrong checker hash, loaded reference answers,
+human labels, a claimed admission without a contract, a missing or ineligible citation, a non-admitted assessment,
+an unbacked or mismatched outcome, citations that are not the graph's Solution nodes, a Solution that does not
+carry its record, reasoning not bound to its run, and a non-aggregated execution outcome). A synthetic fixture with a test-only
+admission contract exercises the accepted definite path; it is not evidence or an admission.

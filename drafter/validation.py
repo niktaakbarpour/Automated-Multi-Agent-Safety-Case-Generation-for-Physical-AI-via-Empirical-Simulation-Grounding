@@ -29,7 +29,11 @@ AUTHORITATIVE_SCHEMAS = {
     '../../evaluation/r1_v4/evidence_registry_gsn/registry_record.schema.json': 'evaluation/r1_v4/evidence_registry_gsn/registry_record.schema.json',
     '../../evaluation/r1_v4/evidence_registry_gsn/gsn_graph.schema.json': 'evaluation/r1_v4/evidence_registry_gsn/gsn_graph.schema.json',
     'draft_argument.schema.json': 'drafter/schemas/draft_argument.schema.json',
+    '../../requirements/r1_initial_table_support_v3/R1_V3_DRAFTER_CONFIG_SCHEMA.json': 'requirements/r1_initial_table_support_v3/R1_V3_DRAFTER_CONFIG_SCHEMA.json',
 }
+# Versioned R1 v3 profile (drafter/r1v3_profile.py). Earlier versions keep their own validators unchanged.
+R1V3_REQUEST_VERSION = 'drafter-request/0.2.0'
+R1V3_ARGUMENT_VERSION = 'draft-argument/0.2.0'
 
 
 class ContractError(ValueError):
@@ -158,6 +162,9 @@ def known_saved_frame_gaps(objects, records, eligible, window):
 
 
 def validate_request(request):
+    if isinstance(request, dict) and request.get('schema_version') == R1V3_REQUEST_VERSION:
+        from .r1v3_profile import validate_request as validate_r1v3_request
+        return validate_r1v3_request(request)
     issues = schema_issues(request, 'draft_request.schema.json')
     if issues:
         raise ContractError(issues)
@@ -290,6 +297,13 @@ def validate_argument(argument, request):
     """Check a draft, keeping the host outcome separate from review-only prose."""
     from .argument_checks import (authoritative_summary, authoritative_limitations,
                                   model_review_issues)
+    versions = (request.get('schema_version') if isinstance(request, dict) else None,
+                argument.get('schema_version') if isinstance(argument, dict) else None)
+    if R1V3_REQUEST_VERSION in versions or R1V3_ARGUMENT_VERSION in versions:
+        if versions != (R1V3_REQUEST_VERSION, R1V3_ARGUMENT_VERSION):
+            raise ContractError(['request_and_argument_contract_versions_differ'])
+        from .r1v3_profile import validate_argument as validate_r1v3_argument
+        return validate_r1v3_argument(argument, request)
     validate_request(request)
     issues = schema_issues(argument, 'draft_argument.schema.json')
     if issues:
