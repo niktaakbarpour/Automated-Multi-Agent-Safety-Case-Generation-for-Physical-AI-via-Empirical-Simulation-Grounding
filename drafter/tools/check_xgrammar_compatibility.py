@@ -49,7 +49,12 @@ def main():
     stop_token = len(vocab) - 1
     tokenizer = xgr.TokenizerInfo(vocab, xgr.VocabType.RAW, stop_token_ids=[stop_token])
     compiler = xgr.GrammarCompiler(tokenizer, max_threads=1, cache_enabled=False)
-    schema = build_plan_schema(read_json(args.request))
+    request = read_json(args.request)
+    if request.get('schema_version') == 'drafter-request/0.2.0':  # R1 v3: check the schema actually sent
+        from drafter import r1v3_generation as G
+        schema = G.decoder_schema(G.plan_schema(request))
+    else:
+        schema = build_plan_schema(request)
     old_text = {'type': 'string', 'minLength': 1, 'maxLength': 1600, 'pattern': r'\S'}
     text_schemas = {'original_text': old_text, 'corrected_text': schema['$defs']['text']}
     report = {'xgrammar_version': actual_version, 'model_called': False, 'gpu_used': False,

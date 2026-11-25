@@ -10,6 +10,8 @@ import json
 import unittest
 from unittest.mock import patch
 
+from jsonschema import Draft202012Validator
+
 from drafter import r1v3_generation as G, r1v3_profile as P, validation as V
 from drafter.argument_checks import solution_statement
 from drafter.generation import generate_argument, render_review
@@ -130,6 +132,82 @@ class RealPackage(Base):
         self.assertEqual((result['status'], result['failure_stage']), ('failed', 'discovery'))
         V.validate_argument(result['argument'], self.request)
 
+
+
+def without_relaxed_bounds(value):
+    """The full schema with exactly the bounds the decoder schema drops removed, computed independently."""
+    if isinstance(value, list):
+        return [without_relaxed_bounds(v) for v in value]
+    if not isinstance(value, dict):
+        return value
+    out = {k: without_relaxed_bounds(v) for k, v in value.items()
+           if not (k == 'maxLength' and value.get('type') == 'string')
+           and not (k in ('minItems', 'maxItems') and 'items' in value and 'prefixItems' not in value)}
+    if isinstance(out.get('pattern'), str):
+        out['pattern'] = out['pattern'].replace('[A-Za-z0-9_.:-]{1,128}$', '[A-Za-z0-9_.:-]+$')
+    return out
+
+
+class DecoderSchema(Base):
+    """Regression: Outlines timed out (60 s) compiling the full plan schema. The server gets a schema without the
+    counted-repetition bounds; the host still validates every reply against the full schema."""
+
+    @classmethod
+    def setUpClass(cls):
+        cls.request = P.build_request(load_package(), request_id='m4-e2e-original-r1v3')
+        cls.full = G.plan_schema(cls.request)
+        cls.decoding = G.decoder_schema(cls.full)
+
+    def test_only_the_named_bounds_are_dropped(self):
+        self.assertEqual(self.decoding, without_relaxed_bounds(self.full))
+        self.assertNotIn('maxLength', json.dumps(self.decoding))
+        self.assertEqual(self.decoding['$defs']['text'], {'type': 'string', 'minLength': 8})
+        graphs = self.decoding['properties']['graphs']
+        self.assertEqual((graphs['minItems'], graphs['maxItems'], graphs['items']), (5, 5, False))
+        self.assertEqual([g['properties']['object_id'] for g in graphs['prefixItems']],
+                         [{'const': o} for o in self.request['requirement_configuration']['protected_objects']])
+        self.assertEqual(json.dumps(self.full).count('"pattern"'), json.dumps(self.decoding).count('"pattern"'))
+        self.assertNotIn('{1,128}', json.dumps(self.decoding))
+        self.assertIn('maxLength', json.dumps(self.full))  # the full schema itself is unchanged
+        self.assertIn('{1,128}', json.dumps(self.full))
+
+    def test_server_gets_the_decoder_schema(self):
+        result, client = self.run_plan(self.request, model_plan(self.request))
+        self.assertEqual(result['status'], 'accepted', result['diagnostics'])
+        self.assertEqual(client.complete.call_args.args[1], self.decoding)
+        self.assertEqual(result['trace']['json_schema'], self.decoding)
+        self.assertEqual(result['trace']['validation_schema_sha256'], digest(self.full))
+
+    def test_replies_breaking_a_dropped_bound_are_rejected(self):
+        def changed(edit):
+            plan = model_plan(self.request)
+            edit(plan)
+            return plan
+        long_text = 'The object stays supported. ' * 60  # over 1600 characters
+
+        def many_nodes(plan):
+            g = plan['graphs'][0]
+            p = g['object_id'] + ':'
+            for i in range(21):
+                g['nodes'].append({'id': f'{p}C{i + 2}', 'type': 'context', 'evidence_id': None,
+                                   'physical_claim': False, 'statement': f'Context note number {i + 2} for the window.'})
+        cases = {
+            'statement over maxLength': lambda p: p['graphs'][0]['nodes'][0].update(statement=long_text),
+            'summary over maxLength': lambda p: p.update(summary=long_text),
+            'more than 24 nodes': many_nodes,
+            'fewer than 4 nodes': lambda p: p['graphs'][1].update(nodes=p['graphs'][1]['nodes'][:3]),
+            'fewer than 2 edges': lambda p: p['graphs'][2].update(edges=p['graphs'][2]['edges'][:1]),
+            'no limitations': lambda p: p.update(limitations=[]),
+            'node ID over 128 characters': lambda p: p['graphs'][0]['nodes'][2].update(
+                id=p['graphs'][0]['object_id'] + ':' + 'C' * 129),
+        }
+        for name, edit in cases.items():
+            plan = changed(edit)
+            self.assertTrue(Draft202012Validator(self.decoding).is_valid(plan), name)  # the server could emit it
+            result, _ = self.run_plan(self.request, plan)
+            self.assertEqual(result['status'], 'rejected', name)
+            self.assertEqual(result['argument']['validation']['output_schema'], 'failed', name)
+            self.assertIsNone(result['argument']['argument_bundle'], name)
 
 class AdmittedFixture(Base):
     @classmethod
