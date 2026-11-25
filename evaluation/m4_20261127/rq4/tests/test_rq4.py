@@ -221,6 +221,8 @@ class Protection(unittest.TestCase):
 
 
 class DryRun(unittest.TestCase):
+    EXTRA_SECOND_REVIEWS = {}  # scripted second-Critic replies added by a subclass-like test class
+
     @classmethod
     def setUpClass(cls):
         cls.tmp = tempfile.TemporaryDirectory()
@@ -251,7 +253,8 @@ class DryRun(unittest.TestCase):
                         'explanation': 'Still claims more than shown.', 'suggested_action': 'Narrow it.'}]}),
                     'S2:P2-M1c:Q:r1:r1': json.dumps({'findings': [{
                         'category': 'C06', 'object_id': 'carton_c', 'node_id': 'G1',
-                        'explanation': 'An unsupported conclusion.', 'suggested_action': 'Mark it unresolved.'}]})}
+                        'explanation': 'An unsupported conclusion.', 'suggested_action': 'Mark it unresolved.'}]}),
+                    **cls.EXTRA_SECOND_REVIEWS}
         (T / 'replies2.json').write_text(json.dumps(replies2), encoding='utf-8')
         CM.RB.main(['--batch', str(T / 'batch_stage2'), '--out', str(T / 's2.jsonl'), '--scripted', str(T / 'replies2.json')])
         cls.s2 = CM.RB.read_jsonl(T / 's2.jsonl')
@@ -483,6 +486,54 @@ class DryRun(unittest.TestCase):
         prov = json.loads((out / 'RQ4_PROVENANCE.json').read_text())
         self.assertEqual(prov['revision_prompt_sha256'], CM.sha256_text(CM.PROMPT_PATH.read_text(encoding='utf-8')))
         self.assertEqual(prov['model'], CM.FROZEN['model'])
+
+
+class FindingKeysWithNone(unittest.TestCase):
+    """Regression: a second review whose new findings mix a None node_id with string node_ids made
+    `score.py --pre-review` fail when sorting finding keys (TypeError comparing None and str)."""
+    EXTRA_SECOND_REVIEWS = {'S2:P2-M1c:Q:r2:r1': json.dumps({'findings': [
+        {'category': 'C06', 'object_id': 'carton_c', 'node_id': None,
+         'explanation': 'An execution-level problem.', 'suggested_action': 'Mark it unresolved.'},
+        {'category': 'C06', 'object_id': 'carton_c', 'node_id': 'G1',
+         'explanation': 'An unsupported conclusion.', 'suggested_action': 'Mark it unresolved.'}]})}
+    setUpClass = DryRun.__dict__['setUpClass']
+    tearDownClass = DryRun.__dict__['tearDownClass']
+    score, filled = DryRun.score, DryRun.filled
+
+    def test_sort_order_for_none_and_strings(self):
+        mixed = {('carton_c', 'G1', 'C06'), ('carton_c', None, 'C06'), (None, None, 'C01'), ('a', 'G2', 'C05')}
+        order = sorted(mixed, key=SC.finding_order)
+        self.assertEqual(order, [(None, None, 'C01'), ('a', 'G2', 'C05'), ('carton_c', None, 'C06'),
+                                 ('carton_c', 'G1', 'C06')])
+        self.assertEqual(sorted(reversed(order), key=SC.finding_order), order)
+        with self.assertRaises(TypeError):
+            sorted(mixed)  # the failure this guards against
+
+    def test_the_review_really_has_a_none_node_id(self):
+        stage2 = SC.second_reviews(self.T, CM.RB.read_jsonl(self.T / 's2.jsonl'), True, problems := [])
+        self.assertEqual(problems, [])
+        found = {k for r in stage2['P2-M1c:Q:r2'] if r for k in SC.keys(r)}
+        self.assertIn(None, {node for _, node, _ in found})
+        self.assertIn('G1', {node for _, node, _ in found})
+
+    def test_pre_review_succeeds(self):
+        code, out, _ = self.score(None, 'pre', extra=['--pre-review'])
+        self.assertEqual(code, 0)
+        facts = {r['output_id']: r for r in rows(out / 'RQ4_PRE_REVIEW_FACTS.csv')}
+        self.assertEqual(len(facts), 12)
+        self.assertEqual(facts['P2-M1c:Q:r2']['second_reviews_with_new_objection'], '1')
+        self.assertEqual(facts['P2-M1c:Q:r2']['new_objections'], 'carton_c G1 C06;carton_c None C06')
+
+    def test_scoring_counts_and_denominators_are_unchanged(self):
+        code, out, _ = self.score(self.filled(), 'valid')
+        self.assertEqual(code, 0)
+        summary = {(r['method'], r['metric']): (r['numerator'], r['denominator'])
+                   for r in rows(out / 'RQ4_SUMMARY.csv')}
+        self.assertEqual(summary[('qwen', 'second_critic_new_objection')], ('2', '3'))  # r1 as before, plus r2
+        self.assertEqual(summary[('qwen', 'correct_repair')], ('1', '9'))
+        self.assertEqual(summary[('qwen', 'revised')], ('3', '9'))
+        self.assertEqual(summary[('template', 'correct_repair')], ('3', '3'))
+        self.assertEqual(summary[('template', 'second_critic_new_objection')], ('0', '9'))
 
 
 if __name__ == '__main__':
