@@ -1,0 +1,321 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:trustworthy:r1-v3:checker-admission:1.0.0",
+  "title": "R1 v3 Checker admission contract",
+  "$ref": "#/$defs/assessment",
+  "$defs": {
+    "text": {"type": "string", "minLength": 1},
+    "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "commit": {"type": "string", "pattern": "^[0-9a-f]{40}$"},
+    "requirement_version": {"const": "r1-initial-table-support-v3-20261024"},
+    "checker_version": {"const": "r1-evidence-v3.0.0"},
+    "record_id": {"type": "string", "pattern": "^ev:[0-9a-f]{64}$"},
+    "record_ids": {"type": "array", "uniqueItems": true, "items": {"$ref": "#/$defs/record_id"}},
+    "gate_id": {
+      "enum": [
+        "G03_geometry_empirical_admission", "G07_static_coverage_composition",
+        "G09_contact_based_physical_evidence", "G04_initial_support_applicability",
+        "G05_validated_falling_witness", "G06_qualified_negative_certificate",
+        "G10_uncertainty_propagation", "G11_temporal_empirical_admission",
+        "G12_independent_reference_validation"
+      ]
+    },
+    "frame": {"type": "integer", "minimum": 0},
+    "frames": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"$ref": "#/$defs/frame"}},
+    "interval": {"type": "array", "minItems": 2, "maxItems": 2, "items": {"$ref": "#/$defs/frame"}},
+    "intervals": {"type": "array", "items": {"$ref": "#/$defs/interval"}},
+    "artifact": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "path": {"type": "string", "pattern": "^/"},
+        "sha256": {"$ref": "#/$defs/sha256"}
+      },
+      "required": ["path", "sha256"]
+    },
+    "configuration": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "checker_version": {"$ref": "#/$defs/checker_version"},
+        "requirement_id": {"const": "R1"},
+        "requirement_version": {"$ref": "#/$defs/requirement_version"},
+        "baseline_parent_commit": {"$ref": "#/$defs/commit"},
+        "objects": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"$ref": "#/$defs/text"}},
+        "start_frame": {"$ref": "#/$defs/frame"},
+        "initial_stencil_offsets": {"const": [-1, 0, 1]},
+        "arithmetic_eps_multiplier": {"type": "number", "exclusiveMinimum": 0},
+        "sample_period_s": {"type": "number", "exclusiveMinimum": 0},
+        "time_arithmetic_allowance_s": {"type": "number", "minimum": 0},
+        "geometry_nominal_lag_s": {"type": "number", "minimum": 0},
+        "physical_distance_threshold": {"type": "null"},
+        "physical_persistence_threshold": {"type": "null"},
+        "carrying_duration_threshold": {"type": "null"},
+        "support_policy": {"$ref": "#/$defs/text"},
+        "absence_policy": {"$ref": "#/$defs/text"},
+        "event_policy": {"$ref": "#/$defs/text"},
+        "negative_policy": {"$ref": "#/$defs/text"},
+        "comparison_domain": {"$ref": "#/$defs/text"},
+        "event_matching": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "reuse": {"const": "evaluation/r1_reference/matching.py"},
+            "tolerance_saved_frames": {"const": [0, 1]},
+            "partition": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/text"}},
+            "compatible_types": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/text"}},
+            "assignment": {"$ref": "#/$defs/text"}
+          },
+          "required": ["reuse", "tolerance_saved_frames", "partition", "compatible_types", "assignment"]
+        },
+        "exposure_disclosure": {"$ref": "#/$defs/text"}
+      },
+      "required": [
+        "checker_version", "requirement_id", "requirement_version", "baseline_parent_commit",
+        "objects", "start_frame", "initial_stencil_offsets", "arithmetic_eps_multiplier", "sample_period_s",
+        "time_arithmetic_allowance_s", "geometry_nominal_lag_s", "physical_distance_threshold",
+        "physical_persistence_threshold", "carrying_duration_threshold", "support_policy", "absence_policy",
+        "event_policy", "negative_policy", "comparison_domain", "event_matching", "exposure_disclosure"
+      ]
+    },
+    "scope": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "execution_id": {"$ref": "#/$defs/text"},
+        "task_id": {"$ref": "#/$defs/text"},
+        "object_id": {"$ref": "#/$defs/text"},
+        "trajectory_sha256": {"$ref": "#/$defs/sha256"},
+        "clock": {"const": "saved_frame_index"},
+        "frame_interval": {"$ref": "#/$defs/interval"}
+      },
+      "required": ["execution_id", "task_id", "object_id", "trajectory_sha256", "clock", "frame_interval"]
+    },
+    "citation": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "record_id": {"$ref": "#/$defs/record_id"},
+        "measurement_type": {
+          "enum": ["object_pose", "native_geometry", "contact", "timestamp", "camera_reference",
+                   "robot_state", "recorded_state"]
+        },
+        "frames": {"$ref": "#/$defs/frames"}
+      },
+      "required": ["record_id", "measurement_type", "frames"]
+    },
+    "request": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "schema_version": {"const": "1.0.0"},
+        "requirement_id": {"const": "R1"},
+        "requirement_version": {"$ref": "#/$defs/requirement_version"},
+        "purpose": {"enum": ["development_diagnostic", "empirical_admission"]},
+        "scope": {"$ref": "#/$defs/scope"},
+        "prediction": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "artifact": {"$ref": "#/$defs/artifact"},
+            "seal": {"$ref": "#/$defs/artifact"},
+            "row_index": {"$ref": "#/$defs/frame"}
+          },
+          "required": ["artifact", "seal", "row_index"]
+        },
+        "citations": {"type": "array", "items": {"$ref": "#/$defs/citation"}},
+        "review": {"$ref": "#/$defs/artifact"}
+      },
+      "required": ["schema_version", "requirement_id", "requirement_version", "purpose", "scope",
+                   "prediction", "citations"]
+    },
+    "gate_proof": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "verification_sha256": {"$ref": "#/$defs/sha256"},
+        "evidence_ids": {"$ref": "#/$defs/record_ids", "minItems": 1}
+      },
+      "required": ["verification_sha256", "evidence_ids"]
+    },
+    "review": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "schema_version": {"const": "1.0.0"},
+        "kind": {"const": "independent_empirical_review"},
+        "review_id": {"$ref": "#/$defs/text"},
+        "source_group_id": {"$ref": "#/$defs/text"},
+        "input_sha256": {"$ref": "#/$defs/sha256"},
+        "development_exposed": {"const": false},
+        "independent_reference_validated": {"const": true},
+        "gates": {
+          "type": "object",
+          "minProperties": 9,
+          "propertyNames": {"$ref": "#/$defs/gate_id"},
+          "additionalProperties": {"$ref": "#/$defs/gate_proof"}
+        }
+      },
+      "required": ["schema_version", "kind", "review_id", "source_group_id", "input_sha256",
+                   "development_exposed", "independent_reference_validated", "gates"]
+    },
+    "checker": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "version": {"$ref": "#/$defs/checker_version"},
+        "configuration": {"$ref": "#/$defs/configuration"},
+        "configuration_sha256": {"$ref": "#/$defs/sha256"},
+        "implementation_freeze_sha256": {"$ref": "#/$defs/sha256"},
+        "source_commit": {"$ref": "#/$defs/commit"}
+      },
+      "required": ["version", "configuration", "configuration_sha256", "implementation_freeze_sha256",
+                   "source_commit"]
+    },
+    "prediction_binding": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "sha256": {"$ref": "#/$defs/sha256"},
+        "seal_sha256": {"$ref": "#/$defs/sha256"},
+        "row_index": {"$ref": "#/$defs/frame"},
+        "row_sha256": {"$ref": "#/$defs/sha256"}
+      },
+      "required": ["sha256", "seal_sha256", "row_index", "row_sha256"]
+    },
+    "coverage": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "checker_reported_measurement_intervals": {"$ref": "#/$defs/intervals"},
+        "checker_reported_negative_intervals": {"$ref": "#/$defs/intervals"},
+        "continuous_time_coverage": {"const": false}
+      },
+      "required": ["checker_reported_measurement_intervals", "checker_reported_negative_intervals",
+                   "continuous_time_coverage"]
+    },
+    "evidence_row": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "citation": {"$ref": "#/$defs/citation"},
+        "status": {"enum": ["verified_source", "blocked"]},
+        "diagnostic": {"type": ["string", "null"]},
+        "binding": {
+          "oneOf": [
+            {"type": "null"},
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "source": {"$ref": "#/$defs/artifact"},
+                "native_binding": {"type": ["object", "null"]},
+                "saved_frames": {"type": "array", "minItems": 1, "items": {"type": "object"}}
+              },
+              "required": ["source", "native_binding", "saved_frames"]
+            }
+          ]
+        }
+      },
+      "required": ["citation", "status", "diagnostic", "binding"],
+      "if": {"properties": {"status": {"const": "verified_source"}}},
+      "then": {"properties": {"diagnostic": {"type": "null"}, "binding": {"type": "object"}}},
+      "else": {"properties": {"diagnostic": {"$ref": "#/$defs/text"}, "binding": {"type": "null"}}}
+    },
+    "gate_row": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "gate_id": {"$ref": "#/$defs/gate_id"},
+        "status": {"enum": ["verified", "blocked"]},
+        "reason": {"$ref": "#/$defs/text"},
+        "evidence_ids": {"$ref": "#/$defs/record_ids"},
+        "verification_sha256": {"oneOf": [{"type": "null"}, {"$ref": "#/$defs/sha256"}]}
+      },
+      "required": ["gate_id", "status", "reason", "evidence_ids", "verification_sha256"],
+      "if": {"properties": {"status": {"const": "verified"}}},
+      "then": {
+        "properties": {"evidence_ids": {"minItems": 1}, "verification_sha256": {"$ref": "#/$defs/sha256"}}
+      },
+      "else": {"properties": {"evidence_ids": {"maxItems": 0}, "verification_sha256": {"type": "null"}}}
+    },
+    "review_binding": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "sha256": {"$ref": "#/$defs/sha256"},
+        "review_id": {"$ref": "#/$defs/text"},
+        "source_group_id": {"$ref": "#/$defs/text"}
+      },
+      "required": ["sha256", "review_id", "source_group_id"]
+    },
+    "conclusion": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "applicability": {"enum": ["applies", "does_not_apply"]},
+        "outcome": {"enum": ["violation", "no_violation_observed_within_reviewed_coverage", "not_applicable"]},
+        "witness_event": {
+          "oneOf": [
+            {"type": "null"},
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "event_id": {"$ref": "#/$defs/text"},
+                "selector": {"type": "string", "pattern": "^/[0-9]+/events/[0-9]+$"},
+                "interval": {"$ref": "#/$defs/interval"}
+              },
+              "required": ["event_id", "selector", "interval"]
+            }
+          ]
+        }
+      },
+      "required": ["applicability", "outcome", "witness_event"]
+    },
+    "assessment": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "assessment_schema_version": {"const": "1.0.0"},
+        "requirement_id": {"const": "R1"},
+        "requirement_version": {"$ref": "#/$defs/requirement_version"},
+        "purpose": {"enum": ["development_diagnostic", "empirical_admission"]},
+        "input_sha256": {"$ref": "#/$defs/sha256"},
+        "assessment_hash": {"$ref": "#/$defs/sha256"},
+        "scope": {"$ref": "#/$defs/scope"},
+        "checker": {"$ref": "#/$defs/checker"},
+        "prediction": {"$ref": "#/$defs/prediction_binding"},
+        "coverage": {"$ref": "#/$defs/coverage"},
+        "evidence_ledger": {"type": "array", "items": {"$ref": "#/$defs/evidence_row"}},
+        "gate_ledger": {
+          "type": "array", "minItems": 9, "maxItems": 9, "items": {"$ref": "#/$defs/gate_row"}
+        },
+        "review": {"oneOf": [{"type": "null"}, {"$ref": "#/$defs/review_binding"}]},
+        "admission_status": {"enum": ["not_admitted", "admitted"]},
+        "blockers": {"type": "array", "uniqueItems": true, "items": {"$ref": "#/$defs/text"}},
+        "empirical_admission_enabled": {"type": "boolean"},
+        "conclusion": {"oneOf": [{"type": "null"}, {"$ref": "#/$defs/conclusion"}]}
+      },
+      "required": [
+        "assessment_schema_version", "requirement_id", "requirement_version", "purpose", "input_sha256",
+        "assessment_hash", "scope", "checker", "prediction", "coverage", "evidence_ledger", "gate_ledger",
+        "review", "admission_status", "blockers", "empirical_admission_enabled", "conclusion"
+      ],
+      "if": {"properties": {"admission_status": {"const": "admitted"}}},
+      "then": {
+        "properties": {
+          "purpose": {"const": "empirical_admission"}, "review": {"type": "object"},
+          "blockers": {"maxItems": 0}, "empirical_admission_enabled": {"const": true},
+          "conclusion": {"type": "object"}, "gate_ledger": {"items": {"properties": {"status": {"const": "verified"}}}}
+        }
+      },
+      "else": {
+        "properties": {
+          "blockers": {"minItems": 1}, "empirical_admission_enabled": {"const": false},
+          "conclusion": {"type": "null"}
+        }
+      }
+    }
+  }
+}
