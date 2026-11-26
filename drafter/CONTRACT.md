@@ -309,6 +309,18 @@ only when the assessment is admitted and the plan cites graph-eligible evidence 
 that object's graph, and every reasoning node is bound to the request, the run, the prompt and the serializer
 version. An accepted argument needs a real generation run (`backend` other than `not_run`).
 
+**Decoder schema.** The server gets `r1v3_generation.decoder_schema(plan_schema)`, not the full plan schema. The
+first GPU run failed with HTTP 500 because Outlines did not compile the full schema within its 60-second limit: it
+turns counted repetitions (text `maxLength` 1600, node ID length `{1,128}`, and `minItems`/`maxItems` on the node,
+edge and limitation arrays) into a regex automaton that grows too large. The decoder schema drops exactly those
+bounds and keeps everything else (identifier patterns, roster and order, node types, physical-claim and evidence
+constraints, required keys, no extra properties, text `minLength`). Every reply is still validated against the full
+schema, so a reply that breaks a dropped bound is rejected, never repaired. CPU measurements with a 48,781-token BPE
+vocabulary (not Qwen's): Outlines did not finish the full schema in 200 s and built the decoder schema in 2.4 s;
+XGrammar 0.1.25 compiles both and accepts a valid scripted plan through EOS. Before a GPU run,
+`drafter/tools/check_outlines_compatibility.py` repeats the Outlines check with the serving tokenizer, and
+`drafter/tools/check_xgrammar_compatibility.py` now accepts an R1 v3 request.
+
 The request for the original execution is `evaluation/m4_20261127/integration/DRAFTER_R1V3_REQUEST.json`, rebuilt
 and checked by `python -m evaluation.m4_20261127.integration.build_r1v3_request --check`. With the current package
 no record is v3-citable and no assessment is admitted, so a run on it leaves every object `insufficient_information`.

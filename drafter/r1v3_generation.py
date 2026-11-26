@@ -44,7 +44,39 @@ def plan_view(request):
 
 
 def plan_schema(request):
+    """The full plan schema. The host validates every model reply against it."""
     return build_plan_schema(plan_view(request))
+
+
+ID_LENGTH = '{1,128}$'
+DECODER_RELAXATION = ('Sent to the model server: the full plan schema without text maxLength, without minItems/maxItems '
+                      'on the node, edge and limitation arrays, and with node IDs bounded by + instead of {1,128}. Outlines compiles counted repetitions into a regex '
+                      'automaton and timed out on the full schema; XGrammar compiles both. The host still validates '
+                      'every reply against the full schema, so no reply that breaks a removed bound is accepted.')
+
+
+def decoder_schema(schema):
+    """The schema sent to the server for constrained decoding: the full schema minus bounds the host re-checks.
+
+    Kept: every identifier pattern (its length bound {1,128} becomes +), the object roster and order, node types, physical-claim and evidence-ID
+    constraints, required keys, no additional properties, and text minLength (it stops the one-character
+    statements seen under XGrammar). Removed: string maxLength, the identifier length bound, and minItems/maxItems on arrays of repeated items.
+    The graph roster array (fixed prefixItems) keeps its bounds."""
+    def strip(value):
+        if isinstance(value, list):
+            return [strip(v) for v in value]
+        if not isinstance(value, dict):
+            return value
+        out = {k: strip(v) for k, v in value.items()}
+        if out.get('type') == 'string':
+            out.pop('maxLength', None)
+            if out.get('pattern', '').endswith(ID_LENGTH):
+                out['pattern'] = out['pattern'][:-len(ID_LENGTH)] + '+$'
+        if 'items' in out and 'prefixItems' not in out:
+            out.pop('minItems', None)
+            out.pop('maxItems', None)
+        return out
+    return strip(schema)
 
 
 def host_backing(request, cited=None):
@@ -201,7 +233,8 @@ def generate_argument(request, config):
         'started_at': datetime.now(timezone.utc).isoformat(), 'status': 'failed', 'configuration': None,
         'configuration_sha256': None, 'request_sha256': None, 'argument': None, 'diagnostics': [],
         'trace': {'serializer_version': SERIALIZER_VERSION, 'prompt_version': PROMPT_VERSION, 'messages': None,
-                  'prompt_sha256': None, 'json_schema': None, 'discovery': None, 'completion': None},
+                  'prompt_sha256': None, 'json_schema': None, 'validation_schema_sha256': None,
+                  'decoder_relaxation': None, 'discovery': None, 'completion': None},
         'model_called': False, 'completion_attempted': False, 'argument_generated': False,
         'project_evidence_sent': False, 'empirical_admission_enabled': False, 'safety_claim_verified': False}
     stage, argument = 'input', None
@@ -216,7 +249,9 @@ def generate_argument(request, config):
         report['configuration'] = config.public_settings()
         report['configuration_sha256'] = digest(report['configuration'])
         schema, sent = plan_schema(request), messages(request)
-        report['trace'].update(messages=sent, prompt_sha256=digest(sent), json_schema=schema)
+        decoding = decoder_schema(schema)
+        report['trace'].update(messages=sent, prompt_sha256=digest(sent), json_schema=decoding,
+                               validation_schema_sha256=digest(schema), decoder_relaxation=DECODER_RELAXATION)
         argument['generation_provenance'].update(model_id=config.model_id, model_revision=config.model_revision,
                                                  prompt_version=PROMPT_VERSION, prompt_sha256=digest(sent))
         stage = 'discovery'
@@ -228,7 +263,7 @@ def generate_argument(request, config):
         stage = 'completion'
         report['completion_attempted'] = True
         report['model_called'] = report['project_evidence_sent'] = None
-        completion = client.complete(sent, schema, schema_name='drafter_graph_plan')
+        completion = client.complete(sent, decoding, schema_name='drafter_graph_plan')
         report['trace']['completion'] = asdict(completion)
         if isinstance(completion.raw_response, dict) and isinstance(completion.raw_response.get('choices'), list):
             report['model_called'] = report['project_evidence_sent'] = True
