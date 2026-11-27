@@ -13,8 +13,12 @@ jobs:
       - run: python -m pip install -r requirements-m4-cpu.lock -r requirements.txt -r drafter/requirements.txt -r critic/requirements.txt -r evaluation/r1_v4/requirements.txt
       - run: python -m pip check
       - run: python integration/replay_m4_tables.py
-      - run: python -m unittest integration.tests.test_handoff integration.tests.test_replay_m4_tables -v
+      - run: python -m unittest integration.tests.test_handoff integration.tests.test_r1v3_handoff integration.tests.test_replay_m4_tables integration.tests.test_orchestrator -v
       - run: python -m unittest discover -s evaluation/m4_20261127/rq4/tests -p 'test_*.py' -v
       - run: python -m unittest drafter.tests.test_r1v3_profile drafter.tests.test_r1v3_generation -v
       - run: python -m evaluation.m4_20261127.integration.build_r1v3_request --check
+      - name: Verify accepted R1 v3 handoff and genuine saved-run CPU resume
+        run: python -m integration.orchestrator resume-task8a --out-dir "$RUNNER_TEMP/m4-task8a-resume"
+        env:
+          PYTHONPATH: .
       - run: git diff --exit-code
