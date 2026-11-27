@@ -58,7 +58,10 @@ def make_record(payload):
 
 
 def validate_record(record):
-    """Check the metadata and content ID without opening an artifact."""
+    """Check a versioned record and content ID without opening its artifact."""
+    if isinstance(record, dict) and record.get("schema_version") == "2.1.0":
+        from evaluation.r1_v4.evidence_registry_gsn.registry_v3_task8c import validate_task8c_record
+        return validate_task8c_record(record)
     error = next(RECORD_SCHEMA.iter_errors(record), None)
     if error is not None:
         field = ".".join(map(str, error.absolute_path)) or "record"
@@ -115,8 +118,18 @@ def _verify_artifact(artifact, root, checked):
         raise ValueError(f"artifact hash mismatch: {path}")
 
 
-def _verify_record_sources(record, root, checked):
+def _verify_record_sources(
+    record, root, checked, trusted_task8c_manifest_hashes=(),
+    trusted_task8c_artifact_hashes=None, trusted_task8c_runner_hashes=(),
+):
     _verify_artifact(record["source"], root, checked)
+    if record.get("schema_version") == "2.1.0":
+        from evaluation.r1_v4.evidence_registry_gsn.registry_v3_task8c import verify_task8c_artifacts
+        verify_task8c_artifacts(
+            record, root, checked, trusted_task8c_manifest_hashes,
+            trusted_task8c_artifact_hashes or {}, trusted_task8c_runner_hashes,
+        )
+        return
     if "native_binding" in record:
         binding = record["native_binding"]
         _verify_artifact(binding["mapping"], root, checked)
@@ -173,7 +186,16 @@ def _check_contact_payload(trajectory, simulator, native):
             raise ValueError("invalid recorded contact numerics")
 
 
-def _verify_trajectory(record):
+def _verify_trajectory(
+    record, *, source_root=None, trusted_task8c_manifest_hashes=(),
+    trusted_task8c_artifact_hashes=None, trusted_task8c_runner_hashes=(),
+):
+    if record.get("schema_version") == "2.1.0":
+        from evaluation.r1_v4.evidence_registry_gsn.registry_v3_task8c import verify_task8c_record
+        return verify_task8c_record(
+            record, source_root, trusted_task8c_manifest_hashes,
+            trusted_task8c_artifact_hashes or {}, trusted_task8c_runner_hashes,
+        )
     binding = record.get("native_binding")
     native = _verify_native_binding(record) if binding is not None else None
     measurement_type = record["measurement_type"]
@@ -315,7 +337,11 @@ def _check_event_source(record):
         raise ValueError("checker event identity or interval mismatch")
 
 
-def _check_event_inputs(event, records, root, checked, verified_measurements):
+def _check_event_inputs(
+    event, records, root, checked, verified_measurements,
+    trusted_task8c_manifest_hashes=(), trusted_task8c_artifact_hashes=None,
+    trusted_task8c_runner_hashes=(),
+):
     covered = set()
     for record_id in event["checker"]["input_record_ids"]:
         record = records.get(record_id)
@@ -324,8 +350,16 @@ def _check_event_inputs(event, records, root, checked, verified_measurements):
         if any(record[key] != event[key] for key in IDENTITY_FIELDS):
             raise ValueError("checker event input scope mismatch")
         if record_id not in verified_measurements:
-            _verify_record_sources(record, root, checked)
-            _verify_trajectory(record)
+            _verify_record_sources(
+                record, root, checked, trusted_task8c_manifest_hashes,
+                trusted_task8c_artifact_hashes, trusted_task8c_runner_hashes,
+            )
+            _verify_trajectory(
+                record, source_root=root,
+                trusted_task8c_manifest_hashes=trusted_task8c_manifest_hashes,
+                trusted_task8c_artifact_hashes=trusted_task8c_artifact_hashes,
+                trusted_task8c_runner_hashes=trusted_task8c_runner_hashes,
+            )
             verified_measurements.add(record_id)
         covered.update(entry["frame"] for entry in record["saved_frames"])
     if any(entry["frame"] not in covered for entry in event["saved_frames"]):
@@ -335,8 +369,14 @@ def _check_event_inputs(event, records, root, checked, verified_measurements):
 class RegistryV3:
     """Immutable local SQLite index with an explicitly approved source root."""
 
-    def __init__(self, path, *, source_root, create=False):
+    def __init__(
+        self, path, *, source_root, create=False, trusted_task8c_manifest_hashes=(),
+        trusted_task8c_artifact_hashes=None, trusted_task8c_runner_hashes=(),
+    ):
         self.source_root = Path(source_root).resolve(strict=True)
+        self.trusted_task8c_manifest_hashes = frozenset(trusted_task8c_manifest_hashes)
+        self.trusted_task8c_artifact_hashes = dict(trusted_task8c_artifact_hashes or {})
+        self.trusted_task8c_runner_hashes = frozenset(trusted_task8c_runner_hashes)
         if not self.source_root.is_dir():
             raise ValueError("source root must be a directory")
         self.path = Path(path).resolve()
@@ -386,9 +426,18 @@ class RegistryV3:
         verified_measurements = set()
         events = []
         for record in batch:
-            _verify_record_sources(record, self.source_root, checked)
+            _verify_record_sources(
+                record, self.source_root, checked,
+                self.trusted_task8c_manifest_hashes, self.trusted_task8c_artifact_hashes,
+                self.trusted_task8c_runner_hashes,
+            )
             if record["kind"] == "raw_measurement":
-                _verify_trajectory(record)
+                _verify_trajectory(
+                    record, source_root=self.source_root,
+                    trusted_task8c_manifest_hashes=self.trusted_task8c_manifest_hashes,
+                    trusted_task8c_artifact_hashes=self.trusted_task8c_artifact_hashes,
+                    trusted_task8c_runner_hashes=self.trusted_task8c_runner_hashes,
+                )
                 verified_measurements.add(record["id"])
             else:
                 _check_event_source(record)
@@ -396,7 +445,11 @@ class RegistryV3:
         if events:
             available = {record["id"]: record for record in (*self.records(), *batch)}
             for event in events:
-                _check_event_inputs(event, available, self.source_root, checked, verified_measurements)
+                _check_event_inputs(
+                    event, available, self.source_root, checked, verified_measurements,
+                    self.trusted_task8c_manifest_hashes, self.trusted_task8c_artifact_hashes,
+                    self.trusted_task8c_runner_hashes,
+                )
         with self.db:
             self.db.executemany(
                 "INSERT INTO evidence VALUES (?,?,?,?,?,?,?) ON CONFLICT(id) DO NOTHING",
@@ -433,8 +486,18 @@ class RegistryV3:
             type(frame) is not int or frame not in available for frame in frames
         ):
             raise ValueError("citation requires explicitly recorded saved frames")
-        _verify_record_sources(record, self.source_root, {})
-        _verify_trajectory(record)
+        _verify_record_sources(
+            record, self.source_root, {}, self.trusted_task8c_manifest_hashes,
+            self.trusted_task8c_artifact_hashes, self.trusted_task8c_runner_hashes,
+        )
+        _verify_trajectory(
+            record, source_root=self.source_root,
+            trusted_task8c_manifest_hashes=self.trusted_task8c_manifest_hashes,
+            trusted_task8c_artifact_hashes=self.trusted_task8c_artifact_hashes,
+            trusted_task8c_runner_hashes=self.trusted_task8c_runner_hashes,
+        )
+        if record.get("schema_version") == "2.1.0" and record["task8c_binding"]["runner_status"] != "VERIFIED":
+            raise ValueError("Task 8C citation lacks verified capture-runner provenance")
         return record
 
     def export(self):

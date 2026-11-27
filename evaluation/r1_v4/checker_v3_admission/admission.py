@@ -207,13 +207,16 @@ def _evidence_ledger(citations, registry, scope, limits):
             except (ValueError, OSError, sqlite3.DatabaseError):
                 row["diagnostic"] = "citation_failed_source_or_scope_validation"
             else:
-                row.update(
-                    status="verified_source", diagnostic=None,
-                    binding={
-                        "source": record["source"], "native_binding": record.get("native_binding"),
-                        "saved_frames": [item for item in record["saved_frames"] if item["frame"] in frames],
-                    },
-                )
+                if record.get("development_only") is True:
+                    row["diagnostic"] = "development_only_source"
+                else:
+                    row.update(
+                        status="verified_source", diagnostic=None,
+                        binding={
+                            "source": record["source"], "native_binding": record.get("native_binding"),
+                            "saved_frames": [item for item in record["saved_frames"] if item["frame"] in frames],
+                        },
+                    )
         ledger.append(row)
     return ledger
 

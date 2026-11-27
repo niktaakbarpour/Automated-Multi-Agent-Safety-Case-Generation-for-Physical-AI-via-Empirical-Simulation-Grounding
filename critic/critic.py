@@ -15,12 +15,13 @@ DISCLAIMER = ('A report with no blocking findings means only that this Critic fo
               'physically safe.')
 
 
-def review(request, llm=None):
+def review(request, llm=None, *, source_root=None, registry=None, trusted_review_hashes=(), task_id=None):
     """Review one execution's argument bundle.
 
     request: dict following critic/schemas/critic_request.schema.json
     llm:     NullLLM (default), ScriptedLLM or OpenAICompatibleLLM
-    returns: dict following critic/schemas/critic_report.schema.json
+    returns: a report for the request's declared version. R1 v3 uses the separate
+             CPU route. Any Checker authority is supplied separately by the host.
 
     Never raises on bad input. review_status says what happened:
       completed               input valid, review done (the LLM step, if any, worked)
@@ -31,6 +32,12 @@ def review(request, llm=None):
     """
     llm = llm or L.NullLLM()
     try:
+        if isinstance(request, dict) and request.get('schema_version') == K.R1V3_REQUEST_SCHEMA_VERSION:
+            from . import r1v3
+            return r1v3.review(
+                request, llm, source_root=source_root, registry=registry,
+                trusted_review_hashes=trusted_review_hashes, task_id=task_id,
+            )
         return copy.deepcopy(_review(request, llm))
     except Exception as exc:  # a Critic bug: the tests and fuzzing check that no input gets here
         return _crash_report(request, llm, exc)

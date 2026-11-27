@@ -1,0 +1,86 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:trustworthy:drafter:accepted-generation-run:r1v3:0.1.0",
+  "title": "Accepted R1 v3 Drafter generation run",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "run_id", "started_at", "elapsed_seconds", "status",
+               "configuration", "configuration_sha256", "request_sha256", "argument", "diagnostics", "trace",
+               "model_called", "completion_attempted", "argument_generated", "project_evidence_sent",
+               "empirical_admission_enabled", "safety_claim_verified"],
+  "properties": {
+    "schema_version": {"const": "drafter-generation-run/0.1.0"},
+    "run_id": {"type": "string", "minLength": 1},
+    "started_at": {"type": "string", "minLength": 1},
+    "elapsed_seconds": {"type": "number", "minimum": 0},
+    "status": {"const": "accepted"},
+    "configuration": {
+      "type": "object",
+      "required": ["model_id", "model_revision"],
+      "properties": {"model_id": {"type": "string", "minLength": 1}, "model_revision": {"type": ["string", "null"]}}
+    },
+    "configuration_sha256": {"$ref": "#/$defs/sha256"},
+    "request_sha256": {"$ref": "#/$defs/sha256"},
+    "argument": {"$ref": "draft_argument_r1v3.schema.json"},
+    "diagnostics": {"type": "array", "maxItems": 0},
+    "trace": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["serializer_version", "prompt_version", "messages", "prompt_sha256", "json_schema",
+                   "validation_schema_sha256", "decoder_relaxation", "discovery", "completion"],
+      "properties": {
+        "serializer_version": {"const": "graph-plan-to-gsn-r1v3/0.1.0"},
+        "prompt_version": {"const": "draft-argument-r1v3-prompt/0.1.0"},
+        "messages": {"type": "array", "minItems": 2, "maxItems": 2},
+        "prompt_sha256": {"$ref": "#/$defs/sha256"},
+        "json_schema": {"type": "object"},
+        "validation_schema_sha256": {"$ref": "#/$defs/sha256"},
+        "decoder_relaxation": {"type": "string", "minLength": 1},
+        "discovery": {
+          "type": "object",
+          "required": ["status", "configured_model_available"],
+          "properties": {"status": {"const": "ok"}, "configured_model_available": {"const": true}}
+        },
+        "completion": {
+          "type": "object",
+          "required": ["status", "text", "parsed_json", "response_redacted", "effective_model_id",
+                       "finish_reason", "raw_response"],
+          "properties": {
+            "status": {"const": "ok"}, "text": {"type": "string", "minLength": 1},
+            "parsed_json": {"type": "object"}, "response_redacted": {"const": false},
+            "effective_model_id": {"type": "string", "minLength": 1},
+            "finish_reason": {"const": "stop"},
+            "raw_response": {
+              "type": "object",
+              "required": ["model", "choices"],
+              "properties": {
+                "model": {"type": "string", "minLength": 1},
+                "choices": {
+                  "type": "array", "minItems": 1, "maxItems": 1,
+                  "items": {
+                    "type": "object",
+                    "required": ["finish_reason", "message"],
+                    "properties": {
+                      "finish_reason": {"const": "stop"},
+                      "message": {
+                        "type": "object", "required": ["content"],
+                        "properties": {"role": {"const": "assistant"}, "content": {"type": "string"}}
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "model_called": {"const": true},
+    "completion_attempted": {"const": true},
+    "argument_generated": {"const": true},
+    "project_evidence_sent": {"const": true},
+    "empirical_admission_enabled": {"const": false},
+    "safety_claim_verified": {"const": false}
+  },
+  "$defs": {"sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}}
+}

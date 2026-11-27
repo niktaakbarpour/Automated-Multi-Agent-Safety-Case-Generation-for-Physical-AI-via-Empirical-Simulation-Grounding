@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:trustworthy:r1-v3-task8c-registry-record:2.1.0",
+  "title": "R1 v3 Task 8C source-schema record",
+  "description": "Source-bound measurements for the Task 8C custom HDF5 layout. Every record is development-only; schema validity is not empirical admission.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "id": {"type": "string", "pattern": "^ev:[0-9a-f]{64}$"},
+    "schema_version": {"const": "2.1.0"},
+    "requirement_id": {"const": "R1"},
+    "requirement_version": {"const": "r1-initial-table-support-v3-20261024"},
+    "execution_id": {"type": "string", "minLength": 1},
+    "task_id": {"type": "string", "minLength": 1},
+    "object_id": {"const": "cream_cheese_1"},
+    "kind": {"const": "raw_measurement"},
+    "measurement_type": {"enum": ["object_pose", "native_geometry", "contact", "timestamp"]},
+    "validation_status": {"const": "verified_source"},
+    "source": {"$ref": "#/$defs/file"},
+    "trajectory_sha256": {"$ref": "#/$defs/sha256"},
+    "source_schema": {
+      "type": "object", "additionalProperties": false,
+      "properties": {"format": {"const": "task8c_custom_hdf5"}, "version": {"const": "1.0.0"}, "adapter_version": {"const": "task8c-r1v3-source-adapter-1.0.0"}},
+      "required": ["format", "version", "adapter_version"]
+    },
+    "domain": {"const": "frame"},
+    "clock": {"const": "saved_frame_index"},
+    "interval": {"type": "array", "minItems": 2, "maxItems": 2, "items": {"type": "integer", "minimum": 0}},
+    "saved_frames": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/frame"}},
+    "coverage_status": {"enum": ["complete", "partial"]},
+    "uncertainty": {"$ref": "#/$defs/strings"},
+    "limitations": {"$ref": "#/$defs/strings"},
+    "native_binding": {"$ref": "#/$defs/native_binding"},
+    "task8c_binding": {"$ref": "#/$defs/task8c_binding"},
+    "source_files": {"$ref": "#/$defs/source_files"},
+    "derivation": {"enum": ["direct_source_measurement", "reconstructed_from_recorded_body_pose_and_xml"]},
+    "development_only": {"const": true}
+  },
+  "required": ["id", "schema_version", "requirement_id", "requirement_version", "execution_id", "task_id", "object_id", "kind", "measurement_type", "validation_status", "source", "trajectory_sha256", "source_schema", "domain", "clock", "interval", "saved_frames", "coverage_status", "uncertainty", "limitations", "native_binding", "task8c_binding", "source_files", "derivation", "development_only"],
+  "$defs": {
+    "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "file": {"type": "object", "additionalProperties": false, "properties": {"path": {"type": "string", "pattern": "^/"}, "sha256": {"$ref": "#/$defs/sha256"}}, "required": ["path", "sha256"]},
+    "strings": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+    "frame": {"type": "object", "additionalProperties": false, "properties": {"frame": {"type": "integer", "minimum": 0}, "native_sample_index": {"type": "integer", "minimum": 0}, "simulator_time_seconds": {"type": "number"}, "selectors": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "pattern": "^/"}}}, "required": ["frame", "native_sample_index", "simulator_time_seconds", "selectors"]},
+    "native_binding": {"type": "object", "additionalProperties": false, "properties": {"body_id": {"type": "integer", "minimum": 0}, "collision_geom_ids": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "integer", "minimum": 0}}, "simulator_xml": {"$ref": "#/$defs/file"}, "mapping": {"$ref": "#/$defs/file"}}, "required": ["body_id", "collision_geom_ids", "simulator_xml", "mapping"]},
+    "task8c_binding": {"type": "object", "additionalProperties": false, "properties": {"case_id": {"type": "string", "minLength": 1}, "source_group_id": {"type": "string", "minLength": 1}, "source_manifest": {"$ref": "#/$defs/file"}, "runner_bindings": {"$ref": "#/$defs/file"}, "recorded_runner_sha256": {"$ref": "#/$defs/sha256"}, "runner_status": {"enum": ["VERIFIED", "UNVERIFIED"]}, "runner_source": {"anyOf": [{"$ref": "#/$defs/file"}, {"type": "null"}]}, "task_id_source": {"const": "manifest_execution_id_prefix"}}, "required": ["case_id", "source_group_id", "source_manifest", "runner_bindings", "recorded_runner_sha256", "runner_status", "runner_source", "task_id_source"]},
+    "source_files": {"type": "object", "additionalProperties": false, "properties": {"physical_config": {"$ref": "#/$defs/file"}, "checker_config": {"$ref": "#/$defs/file"}, "entity_inventory": {"$ref": "#/$defs/file"}}, "required": ["physical_config", "checker_config", "entity_inventory"]}
+  },
+  "allOf": [
+    {"if": {"properties": {"measurement_type": {"const": "native_geometry"}}, "required": ["measurement_type"]}, "then": {"properties": {"derivation": {"const": "reconstructed_from_recorded_body_pose_and_xml"}}}},
+    {"if": {"properties": {"measurement_type": {"enum": ["object_pose", "contact", "timestamp"]}}, "required": ["measurement_type"]}, "then": {"properties": {"derivation": {"const": "direct_source_measurement"}}}}
+  ]
+}

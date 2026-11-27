@@ -1,2 +1,4 @@
-# Existing Hestia installation used; no environment installation performed in Phase 2A.
+# CPU dependencies for RegistryV3 and the source-measurement adapters.
+h5py==3.12.1
 jsonschema==4.19.1
+numpy==1.26.4

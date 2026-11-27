@@ -18,12 +18,12 @@ import uuid
 
 from jsonschema import Draft202012Validator
 
-from evaluation.r1_v4.provenance import canonical, digest
+from evaluation.r1_v4.provenance import bytes_digest, canonical, digest, strict_loads
 from . import r1v3_profile as P
 from .argument_checks import REVIEW_WARNING, authoritative_limitations, graph_structure_issues, solution_statement
 from .llm import ConfigError, LocalModelClient
 from .plan_schema import build_plan_schema, validate_plan_prose
-from .validation import ContractError
+from .validation import ContractError, schema_issues
 
 PROMPT_VERSION = 'draft-argument-r1v3-prompt/0.1.0'
 SERIALIZER_VERSION = P.SERIALIZER_VERSION
@@ -222,6 +222,70 @@ def envelope(request, run_id):
         'generation_provenance': {'backend': 'not_run', 'model_id': None, 'model_revision': None, 'prompt_version': None,
                                   'prompt_sha256': None, 'run_id': run_id, 'raw_output_sha256': None},
         'empirical_admission_enabled': False, 'safety_claim_verified': False}
+
+
+def validate_accepted_run(request, report):
+    """Check the immutable R1 v3 request, accepted argument and saved trace without inference."""
+    P.validate_request(request)
+    issues = schema_issues(report, 'accepted_generation_run_r1v3.schema.json')
+    if issues:
+        raise ContractError(['handoff_generation_report:' + issue for issue in issues])
+    issues = P.reference_label_issues({'generation_report': report})
+    if issues:
+        raise ContractError(issues)
+    argument = report['argument']
+    P.validate_argument(argument, request)
+    if argument['generation_status'] != 'accepted':
+        raise ContractError(['handoff_requires_accepted_draft'])
+
+    trace, configuration = report['trace'], report['configuration']
+    provenance, completion = argument['generation_provenance'], trace['completion']
+    saved_reply = completion['raw_response']
+    saved_message = saved_reply['choices'][0]['message']
+    schema = plan_schema(request)
+    checks = {
+        'original_request_hash': report['request_sha256'] == digest(request),
+        'generation_configuration': report['configuration_sha256'] == digest(configuration),
+        'generation_run_id': report['run_id'] == provenance['run_id'],
+        'generation_model': (
+            provenance['backend'] == 'local_llm'
+            and provenance['model_id'] == configuration['model_id'] == completion['effective_model_id']
+            and provenance['model_id'] == saved_reply['model']
+            and provenance['model_revision'] == configuration['model_revision']
+        ),
+        'generation_prompt': (
+            trace['messages'] == messages(request)
+            and digest(trace['messages']) == trace['prompt_sha256'] == provenance['prompt_sha256']
+            and trace['prompt_version'] == provenance['prompt_version']
+        ),
+        'generation_schema': (
+            trace['validation_schema_sha256'] == digest(schema)
+            and trace['json_schema'] == decoder_schema(schema)
+            and trace['decoder_relaxation'] == DECODER_RELAXATION
+        ),
+        'generation_raw_output': (
+            not saved_message.get('tool_calls') and not saved_message.get('refusal')
+            and completion['text'] == saved_message['content']
+            and provenance['raw_output_sha256'] == bytes_digest(completion['text'].encode('utf-8'))
+        ),
+    }
+    issues = ['handoff_' + name + '_mismatch' for name, ok in checks.items() if not ok]
+    if issues:
+        raise ContractError(issues)
+    plan = completion['parsed_json']
+    try:
+        parsed = strict_loads(completion['text'])
+    except ValueError as error:
+        raise ContractError(['handoff_invalid_completion_json']) from error
+    if digest(parsed) != digest(plan) or not Draft202012Validator(schema).is_valid(plan):
+        raise ContractError(['handoff_invalid_completion_plan'])
+    validate_plan_prose(plan)
+    reasoning_review = argument['reasoning_review']
+    if (serialize_plan(plan, request, provenance) != argument['argument_bundle']
+            or plan['summary'] != reasoning_review['summary']
+            or plan['limitations'] != reasoning_review['limitations']):
+        raise ContractError(['handoff_completion_argument_mismatch'])
+    return argument
 
 
 def generate_argument(request, config):
