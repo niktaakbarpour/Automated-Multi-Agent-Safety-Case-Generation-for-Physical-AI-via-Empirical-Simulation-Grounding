@@ -1,5 +1,10 @@
 # One-pass Drafter to Critic handoff
 
+The local M4 orchestration candidate and current stage boundaries are documented
+in [ORCHESTRATION.md](ORCHESTRATION.md). The saved genuine Task 8A resume command
+validates the R1 v3 handoff and deterministic CPU Critic without regenerating
+the draft or claiming full end-to-end acceptance.
+
 ## R1 v3
 
 The adapter selects `critic-request/r1v3/0.1.0` for the Drafter's R1 v3 request.
