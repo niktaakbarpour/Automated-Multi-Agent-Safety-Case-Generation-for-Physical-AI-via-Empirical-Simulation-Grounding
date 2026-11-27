@@ -11,6 +11,8 @@ import math
 
 REQUEST_SCHEMA_VERSION = 'critic-request/0.3.0'
 REPORT_SCHEMA_VERSION = 'critic-report/0.4.0'
+R1V3_REQUEST_SCHEMA_VERSION = 'critic-request/r1v3/0.1.0'
+R1V3_REPORT_SCHEMA_VERSION = 'critic-report/r1v3/0.1.0'
 
 # --- existing GSN 1.0.0 vocabulary (gsn.py / gsn_graph.schema.json) ---
 GSN_SCHEMA_VERSION = '1.0.0'

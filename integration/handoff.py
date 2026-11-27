@@ -1,12 +1,43 @@
 """Lossless, validated Drafter -> Critic envelope projection. No inference or checking of physics."""
 from copy import deepcopy
 from critic import checks, contract as K
-from drafter.validation import ContractError, schema_issues, validate_argument, validate_request
+from drafter.validation import ContractError, R1V3_REQUEST_VERSION, schema_issues, validate_argument, validate_request
 
 ORIGINAL_CONTEXT_PREFIX = 'Original Drafter retrieval_context (lossless JSON): '
 
 
-def build_critic_request(draft_request, generation_report):
+def build_critic_request(draft_request, generation_report, *, checker_assessments=()):
+    """Return a validated handoff request and its provenance."""
+    if isinstance(draft_request, dict) and draft_request.get('schema_version') == R1V3_REQUEST_VERSION:
+        return _build_r1v3_critic_request(draft_request, generation_report, checker_assessments)
+    if checker_assessments:
+        raise ContractError(['checker_assessment_pairs_require_r1v3'])
+    return _build_legacy_critic_request(draft_request, generation_report)
+
+
+def _build_r1v3_critic_request(draft_request, generation_report, checker_assessments):
+    from critic.r1v3 import provenance_for, validate_draft_input
+
+    run_id = generation_report.get('run_id') if isinstance(generation_report, dict) else None
+    req = {
+        'schema_version': K.R1V3_REQUEST_SCHEMA_VERSION,
+        'request_id': run_id + ':critic' if isinstance(run_id, str) else '',
+        'drafter_request': draft_request,
+        'generation_report': generation_report,
+        'checker_assessments': list(checker_assessments) if isinstance(checker_assessments, tuple) else checker_assessments,
+    }
+    argument = validate_draft_input(req)
+    sidecar = {
+        'schema_version': 'one-pass-handoff/r1v3/0.1.0',
+        'automatic_revision': False,
+        'drafter_request': draft_request,
+        'drafter_argument': argument,
+        **provenance_for(req),
+    }
+    return deepcopy(req), deepcopy(sidecar)
+
+
+def _build_legacy_critic_request(draft_request, generation_report):
     """Return (critic_request, provenance_sidecar); never change a graph or manufacture a field observation.
 
     The Critic has no field for the full Drafter retrieval/review envelopes. Keep

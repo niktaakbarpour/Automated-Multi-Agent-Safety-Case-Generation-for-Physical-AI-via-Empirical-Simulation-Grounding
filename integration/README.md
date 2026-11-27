@@ -1,5 +1,51 @@
 # One-pass Drafter to Critic handoff
 
+## R1 v3
+
+The adapter selects `critic-request/r1v3/0.1.0` for the Drafter's R1 v3 request.
+It preserves the original source package and accepted generation report, including
+all five GSN graphs, the outcome backing and the decoder and host validation trace.
+It checks the saved completion against the full plan schema and replays its
+serialization on CPU. The sidecar records canonical hashes of the exact inputs
+and GSN bundle.
+
+Use the original R1 v3 request and the accepted report from the same run.
+The handoff rejects evaluation-only reference fields and file paths. The original
+source package retains its note about the excluded reference.
+
+```python
+from critic import review
+from evaluation.r1_v4.provenance import load
+from integration.handoff import build_critic_request
+
+request, provenance = build_critic_request(load(request_file), load(saved_generation_report))
+report = review(request)
+```
+
+An exported R1 v3 Critic request also works with `python3 -m critic --request FILE`
+for a deterministic review without independently admitted Checker inputs.
+
+To supply Checker evidence, pass `checker_assessments=[{"request": checker_request,
+"assessment": assessment}]` to the adapter. Call `review` with the host's
+`source_root`, open `RegistryV3` instance as `registry`, `task_id` and independently
+approved `trusted_review_hashes`. The Critic checks exact identity and frame
+scope, then reproduces each assessment through the
+[Checker admission contract](../evaluation/r1_v4/checker_v3_admission/README.md).
+The report keeps the complete reproduced assessment and its gate and evidence
+ledgers. Blocked assessments have no conclusion. Conflicts stay open for review.
+
+The R1 v3 route runs deterministic checks only. A requested model backend is
+reported as unavailable. The GSN's reasoning review remains required, and
+`safety_claim_verified` stays false. The adapter does not run Revision.
+
+Run the R1 v3 tests from the repository root with `requirements-m4-cpu.lock`.
+
+```sh
+python3 -m unittest integration.tests.test_r1v3_handoff critic.tests.test_r1v3_assessments
+```
+
+## R1 v2
+
 `build_critic_request(original_drafter_request, accepted_generation_report)` returns
 an independently copied Critic request and provenance sidecar. It validates the
 Drafter request/report/argument, binds the original request hash and runs existing
