@@ -1,0 +1,92 @@
+{
+  "contains_confidential_reference_contents": false,
+  "contains_credentials_or_private_paths": false,
+  "contains_restricted_raw_evidence": false,
+  "corrected_offline_evaluation": {
+    "aggregate_sha256": "fe3240bce3b9a35773994e5f28babb763e809285700fb207ea222fe2cbc05a46",
+    "assessments": {
+      "confirmed_false_complete": 0,
+      "correct_abstention": 71,
+      "correct_and_verified_complete": 133,
+      "evaluation_unavailable": 12
+    },
+    "case_classifications_sha256": "28bc1f065dd2fce3e398954ee03b7d025cb9dc5c86e6c03c15b151e61e38a815",
+    "cited_items_verified": 232,
+    "correction_commit": "0f56bad9e59c222689618796b372e176c1e4e92c",
+    "numeric_samples_verified": 150,
+    "source_sha256": "2130549dd1674142ef4e608a3d64d14f7fa11bac39bdc03f5a663a321c6d6e0d",
+    "unique_cited_files_verified": 52,
+    "version": "offline-retrieval-adjudication-3.0.0"
+  },
+  "created_date": "2026-11-27",
+  "fault_injection": {
+    "all_authoritative_sources_unchanged": true,
+    "all_correct_abstentions": true,
+    "cases": 12,
+    "execution_errors": 0,
+    "outcomes": {
+      "UNAVAILABLE": 12
+    },
+    "report_file_sha256": "28efcb982feba40d42dc365798d0f154d313c88d87da06caa791ffdfdc5db0f2",
+    "report_sha256_canonical": "c88359fd5fb113aba0b14a87e4ed6f6cab20919da6687b9e02536d9079658a02",
+    "retrieval_source_sha256": {
+      "bundle.py": "6ca3f6297c9faf0682dc3ae48ace1b07a51988fd3f3fd9e58273d4bc0c0073c4",
+      "bundle_v2.py": "5bc36718a4a1f7ebda35a15f2cc7d51072533f5819128a8162eca818dc1941d0",
+      "planner.py": "616aa4ef756300cf70dcfe6aea09aa466ae70f35244803e546c72533ffc4166c",
+      "requested_obligations_v2.py": "4eaf8757c90401652dbc122508e144857ac3286e8b4a6992e327be17c07f7bb9",
+      "run_eval_v2.py": "669bb21e081031b2f0ade5d8acb0eb6154aae07b91564d9a583dcf7318f9c115",
+      "store.py": "a5b9d47e1f6dfbb26115af34eb5052d100c35237205c52d160cc67089089d08a"
+    },
+    "runner_sha256": "7fcacd35d44d3c2f1ac6b0f935c2acc503e1097adec3a4392dfd273dbf8d5934",
+    "runner_version": "planner-v2 frozen source-fault runner"
+  },
+  "normal_216_actual_replay": {
+    "aggregate_sha256": "f7ce1dda5dc2cfc80969968164129f2f2a0a16e67a7c664d2d044c4807c7baa1",
+    "all_record_hashes_valid": true,
+    "attempted": 216,
+    "execution_errors": 0,
+    "historical_false_complete_flags": 49,
+    "manifest_sha256": "ca8a4d4daaf2d75b59a7b9f3181f349c1eab85d3b2bb357197d04135dd25803d",
+    "source_commit": "44e74a485253dc46a3b2acd49aef9b5598e93983"
+  },
+  "pinned_input_sha256": {
+    "catalogue": "ff9fe4d422c274f3f109d76ae21b91d9d6364fd568f52ce7b5fa1501bbcbae0e",
+    "encoder": "53aa51172d142c89d9012cce15ae4d6cc0ca6895895114379cacb4fab128d9db",
+    "expanded_database": "f6dbea047ad16c5420c34ff002e068e4ade41ab52806c936816aaf7019f303c8",
+    "frozen_reference_dataset": "f6c6e31e12d3c0ed7e70db077494a4bed98f1d0a56d82f382c556c13b00c6caf"
+  },
+  "planner_development": {
+    "baseline_expected_family_omissions": 3,
+    "planner_v2_commit": "44e74a485253dc46a3b2acd49aef9b5598e93983",
+    "planner_v2_expected_family_omissions": 0,
+    "planner_v2_outcomes": {
+      "ambiguous": 9,
+      "complete": 165,
+      "unsupported_or_incomplete": 42
+    },
+    "queries": 216
+  },
+  "publication_files": {
+    "CASE_ASSESSMENTS.csv": "289d0c86264c46666f71276379d75f598c0f6d61b1a478c088c7c2d98daa395c",
+    "FAULT_INJECTION_CASES.csv": "1d04d7b90bbbe199d93ef972c12d651d42a8f919b034751f54964815155c2568",
+    "RQ1_FINAL_RESULTS.md": "f3a3504d3cd7daf3dcb16bc81a69e4c7abc80869e199d9537097d0e2ced40948",
+    "THREE_CASE_ACTUAL_RETRIEVALS.csv": "a931ad1a9ac15962e509b29e3db455b46112bb9719a4ad6d35cb0da94b49d1ec"
+  },
+  "schema": "rq1-publication-provenance-v1",
+  "three_case_actual_replay": {
+    "aggregate_sha256": "e73a4db54c3a0f238794f636ec0d7103ce407b71ff580d11ceb47c856c7c31d1",
+    "cases": [
+      "KH2-C2-02",
+      "KH2-C2-10",
+      "KH2-C2-18"
+    ],
+    "count": 3,
+    "manifest_sha256": "df127723f17abc537db923ba98733777ff729c2705a16df1321cf73ac4bdf75f",
+    "records_integrity_verified": true
+  },
+  "publication_encoding": {
+    "character_encoding": "UTF-8",
+    "csv_byte_order_mark": false,
+    "csv_line_endings": "LF"
+  }
+}

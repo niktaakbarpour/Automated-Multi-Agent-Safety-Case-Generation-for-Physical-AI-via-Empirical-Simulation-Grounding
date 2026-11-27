@@ -31,6 +31,16 @@ jobs:
       - run: python -m unittest discover -s evaluation/m4_20261127/rq4/tests -p 'test_*.py' -v
       - run: python -m unittest drafter.tests.test_r1v3_profile drafter.tests.test_r1v3_generation -v
       - run: python -m evaluation.m4_20261127.integration.build_r1v3_request --check
+      - name: RQ1 requested-obligation planner regressions (synthetic/development fixtures)
+        run: python -m unittest evaluation.r1_v4.rag_evidence_database.retrieval_remediation.tests.test_requested_obligations_v2 evaluation.r1_v4.rag_evidence_database.retrieval_remediation.tests.test_bundle_v2_contract -v
+      - name: RQ1 planner-v2 actual-retrieval replay harness (synthetic fixtures)
+        run: python -m unittest evaluation.r1_v4.rag_evidence_database.retrieval_remediation.tests.test_run_eval_v2 -v
+      - name: RQ1 saved-response evaluator v3 regressions (synthetic fixtures)
+        run: python -m unittest evaluation.r1_v4.rag_evidence_database.retrieval_remediation.tests.test_evaluate_replay_v3 -v
+      - name: RQ1 publication encoding, semantic, and checksum integrity
+        run: |
+          python evaluation/r1_v4/rag_evidence_database/retrieval_remediation/publication_v1/validate_publication.py
+          python -m unittest evaluation.r1_v4.rag_evidence_database.retrieval_remediation.tests.test_validate_publication -v
       - run: python evaluation/m4_20261127/integration/task8a_r1v3/validate_generated_argument.py
       - name: Reproduce expected R1 v3 Drafter-to-Critic contract rejection
         shell: bash
