@@ -27,7 +27,7 @@ jobs:
       - name: Verify frozen R1 v3 Checker regressions
         run: python -m unittest discover -s evaluation/r1_v3/tests -p 'test_checker.py' -v
       - run: python integration/replay_m4_tables.py
-      - run: python -m unittest integration.tests.test_handoff integration.tests.test_replay_m4_tables -v
+      - run: python -m unittest integration.tests.test_handoff integration.tests.test_r1v3_handoff integration.tests.test_replay_m4_tables integration.tests.test_orchestrator -v
       - run: python -m unittest discover -s evaluation/m4_20261127/rq4/tests -p 'test_*.py' -v
       - run: python -m unittest drafter.tests.test_r1v3_profile drafter.tests.test_r1v3_generation -v
       - run: python -m evaluation.m4_20261127.integration.build_r1v3_request --check
@@ -42,17 +42,31 @@ jobs:
           python evaluation/r1_v4/rag_evidence_database/retrieval_remediation/publication_v1/validate_publication.py
           python -m unittest evaluation.r1_v4.rag_evidence_database.retrieval_remediation.tests.test_validate_publication -v
       - run: python evaluation/m4_20261127/integration/task8a_r1v3/validate_generated_argument.py
-      - name: Reproduce expected R1 v3 Drafter-to-Critic contract rejection
+      - name: Reproduce historical pre-PR #63 R1 v3 contract rejection
         shell: bash
+        env:
+          HISTORICAL_COMMIT: e0e6900453f0300b35a69daa3a9694a82c9e12dd
         run: |
+          set -euo pipefail
+          git fetch --no-tags --depth=1 origin "$HISTORICAL_COMMIT"
+          historical="$RUNNER_TEMP/m4-pre-pr63"
+          mkdir -p "$historical"
+          git archive FETCH_HEAD | tar -x -C "$historical"
           set +e
-          python evaluation/m4_20261127/integration/task8a_r1v3/DOWNSTREAM_REPRODUCE.py
+          (cd "$historical" && PYTHONPATH="$historical" python evaluation/m4_20261127/integration/task8a_r1v3/DOWNSTREAM_REPRODUCE.py) > "$RUNNER_TEMP/pre-pr63-reproduction.log" 2>&1
           result=$?
           set -e
           if [ "$result" -ne 2 ]; then
-            echo "Expected the known adapter ContractError (exit 2); got $result" >&2
+            echo "Historical adapter rejection did not reproduce (expected exit 2; got $result)." >&2
             exit 1
           fi
+          grep -q '^ContractError:' "$RUNNER_TEMP/pre-pr63-reproduction.log"
+          grep -q 'outcome_backing' "$RUNNER_TEMP/pre-pr63-reproduction.log"
+          echo "Historical pre-PR #63 ContractError reproduced from $HISTORICAL_COMMIT (details withheld from CI log)."
+      - name: Verify supported R1 v3 handoff and genuine saved-run CPU resume
+        run: python -m integration.orchestrator resume-task8a --out-dir "$RUNNER_TEMP/m4-task8a-resume"
+        env:
+          PYTHONPATH: .
       - run: python evaluation/m4_20261127/rq4/finalized_results/validate_public_results.py
       - run: sha256sum -c evaluation/m4_20261127/integration/task8a_r1v3/ARTIFACT_SHA256SUMS.txt
       - run: sha256sum -c evaluation/m4_20261127/rq4/finalized_results/ARTIFACT_SHA256SUMS.txt
