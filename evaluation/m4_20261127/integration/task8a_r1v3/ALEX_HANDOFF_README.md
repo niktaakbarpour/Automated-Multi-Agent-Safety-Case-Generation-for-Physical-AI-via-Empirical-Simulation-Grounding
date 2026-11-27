@@ -13,7 +13,7 @@ From the repository root, load `evaluation/m4_20261127/integration/task8a_r1v3/D
 - `evaluation/m4_20261127/integration/DRAFTER_R1V3_REQUEST.json` (SHA-256 `2e264891305919e201f9e5614aebbdcc68de4e4fe10f40eda5007a336753a291`)
 - `evaluation/m4_20261127/integration/ORIGINAL_EXECUTION_EVIDENCE_PACKAGE.json` (SHA-256 `9bef4ae3cb669f9de661059820e09cae8274528fd6d746496481171836ed5d27`)
 
-Run request regeneration check and authoritative host validation from the repository root (with the project CPU dependencies installed):
+Run request regeneration check and authoritative host validation from the repository root with the approved project CPU environment active (Python 3.12 and repository CPU dependencies installed):
 
 ```sh
 python3 -m evaluation.m4_20261127.integration.build_r1v3_request --check
@@ -30,6 +30,12 @@ print('request and accepted argument valid')
 PY
 ```
 
+The same argument check is available directly:
+
+```sh
+python3 evaluation/m4_20261127/integration/task8a_r1v3/validate_generated_argument.py
+```
+
 `FULL_HOST_SCHEMA.json` is the authoritative validation schema; `DECODER_SCHEMA.json` is only the relaxed generation-time decoder schema. The exact tokenizer-specific CPU compatibility measurement is in `OUTLINES_COMPATIBILITY_PUBLIC.json`: decoder compilation took 7.91 seconds within the 60-second limit. Host validation is still required after constrained generation.
 
 ## Reproduce the downstream rejection without inference
@@ -40,7 +46,7 @@ With the project CPU dependencies installed, run:
 python3 evaluation/m4_20261127/integration/task8a_r1v3/DOWNSTREAM_REPRODUCE.py
 ```
 
-Exit status 2 with a `ContractError` is the expected current-main result. The script calls only `integration.handoff.build_critic_request` using the original repository request and genuine accepted generation report; it does not invoke any model. The diagnostics are summarized in `DOWNSTREAM_INTERFACE_DIAGNOSTICS.md` and `DOWNSTREAM_INTERFACE_COMPATIBILITY_PUBLIC.json`.
+Exit status 2 and the concise expected `ContractError` diagnostics are the expected current-main result. Other nonzero exit statuses indicate script or environment errors. The script calls only `integration.handoff.build_critic_request` using the original repository request and genuine accepted generation report; it does not invoke any model. The diagnostics are summarized in `DOWNSTREAM_INTERFACE_DIAGNOSTICS.md` and `DOWNSTREAM_INTERFACE_COMPATIBILITY_PUBLIC.json`.
 
 The adapter contract currently needs an explicit reviewed update for `outcome_backing`, the R1 v3 prompt and serializer versions, `decoder_relaxation`, and `validation_schema_sha256`. Preserve evidence grounding, unresolved outcomes, scope, and run provenance. Do not strip fields or fabricate a Critic request. Critic and Revision stages have not been run on this genuine draft.
 
