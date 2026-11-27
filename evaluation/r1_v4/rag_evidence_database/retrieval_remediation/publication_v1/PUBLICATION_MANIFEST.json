@@ -67,10 +67,10 @@
     "queries": 216
   },
   "publication_files": {
-    "CASE_ASSESSMENTS.csv": "d94098cbf47a508df55cf96466ed809ae7f5cceaabba4c4596b245991b8407c9",
-    "FAULT_INJECTION_CASES.csv": "5c09b63bc6ee202a8a7c6568aa046e5e158265e9cabd903e2a1660db083b745b",
-    "RQ1_FINAL_RESULTS.md": "a6264dc33112d944c5cf4549e87d0bf74b98c0525137547e1b0b841b7f05b5e4",
-    "THREE_CASE_ACTUAL_RETRIEVALS.csv": "7240cbfdb952e7ac3c0f00620e5c489f1f2ea918286c9ee1a13c280177ae63f7"
+    "CASE_ASSESSMENTS.csv": "289d0c86264c46666f71276379d75f598c0f6d61b1a478c088c7c2d98daa395c",
+    "FAULT_INJECTION_CASES.csv": "1d04d7b90bbbe199d93ef972c12d651d42a8f919b034751f54964815155c2568",
+    "RQ1_FINAL_RESULTS.md": "f3a3504d3cd7daf3dcb16bc81a69e4c7abc80869e199d9537097d0e2ced40948",
+    "THREE_CASE_ACTUAL_RETRIEVALS.csv": "a931ad1a9ac15962e509b29e3db455b46112bb9719a4ad6d35cb0da94b49d1ec"
   },
   "schema": "rq1-publication-provenance-v1",
   "three_case_actual_replay": {
@@ -83,5 +83,10 @@
     "count": 3,
     "manifest_sha256": "df127723f17abc537db923ba98733777ff729c2705a16df1321cf73ac4bdf75f",
     "records_integrity_verified": true
+  },
+  "publication_encoding": {
+    "character_encoding": "UTF-8",
+    "csv_byte_order_mark": false,
+    "csv_line_endings": "LF"
   }
 }

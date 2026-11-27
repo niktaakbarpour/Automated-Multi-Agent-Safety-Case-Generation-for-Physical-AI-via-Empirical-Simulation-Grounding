@@ -37,6 +37,12 @@ The targeted 12-case fault suite is supplemental and reported separately. Do not
 
 `PUBLICATION_MANIFEST.json` binds safe publication files to the original replay manifests and aggregates, frozen reference/database/catalogue/encoder hashes, evaluator source, and fault-runner inputs. Restricted reference contents, raw evidence, numeric outputs, exact source paths, and credentials are not included in this publication bundle.
 
+The published CSV files use UTF-8 without a byte-order mark and LF line endings. Validate their parsed contracts, row sets, semantic aggregates, and both checksum manifests with:
+
+```sh
+python evaluation/r1_v4/rag_evidence_database/retrieval_remediation/publication_v1/validate_publication.py
+```
+
 Run the targeted fixtures only in an authorized environment where the pinned inputs already exist. Set the variables to the verified local input paths and hashes; use a new empty output directory and a dedicated writable temporary directory:
 
 ```sh
