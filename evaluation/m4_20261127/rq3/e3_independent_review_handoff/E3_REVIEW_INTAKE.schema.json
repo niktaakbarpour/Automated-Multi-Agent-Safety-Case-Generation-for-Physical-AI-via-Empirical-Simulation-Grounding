@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Blank RQ3 independent review intake row",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "blind_case_id", "reviewer_id", "review_date", "prior_exposure_declaration",
+    "defect_assessment", "affected_object", "target_verification_status",
+    "affected_gsn_node", "target_node_verification_status", "target_interval",
+    "target_interval_verification_status", "evidence_reference_ids",
+    "evidence_based_rationale", "label_confidence_1_to_5", "review_frozen_timestamp"
+  ],
+  "properties": {
+    "blind_case_id": {"type": "string", "enum": ["R01", "R02", "R03", "R04", "R05", "R06", "R07", "R08", "R09", "R10", "R11", "R12"]},
+    "reviewer_id": {"type": "string", "minLength": 1},
+    "review_date": {"type": "string", "format": "date"},
+    "prior_exposure_declaration": {"type": "string", "enum": ["none_declared", "prior_labels_seen", "prior_predictions_seen", "other_exposure", "unknown"]},
+    "prior_exposure_details": {"type": "string"},
+    "defect_assessment": {"type": "string", "enum": ["present", "absent", "indeterminate"]},
+    "affected_object": {"type": "string"},
+    "target_verification_status": {"type": "string", "enum": ["verified", "not_applicable", "uncertain"]},
+    "affected_gsn_node": {"type": "string"},
+    "target_node_verification_status": {"type": "string", "enum": ["verified", "not_applicable", "uncertain"]},
+    "target_interval": {"type": "string"},
+    "target_interval_verification_status": {"type": "string", "enum": ["verified", "not_applicable", "uncertain"]},
+    "evidence_reference_ids": {"type": "string"},
+    "evidence_based_rationale": {"type": "string", "minLength": 1},
+    "label_confidence_1_to_5": {"type": "integer", "minimum": 1, "maximum": 5},
+    "scope_or_source_issue": {"type": "string"},
+    "uncertainty_or_alternative": {"type": "string"},
+    "reviewer_notes": {"type": "string"},
+    "review_frozen_timestamp": {"type": "string", "minLength": 1}
+  }
+}

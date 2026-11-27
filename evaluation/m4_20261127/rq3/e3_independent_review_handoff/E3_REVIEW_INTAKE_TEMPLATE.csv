@@ -1,0 +1,13 @@
+blind_case_id,reviewer_id,review_date,prior_exposure_declaration,prior_exposure_details,defect_assessment,affected_object,target_verification_status,affected_gsn_node,target_node_verification_status,target_interval,target_interval_verification_status,evidence_reference_ids,evidence_based_rationale,label_confidence_1_to_5,scope_or_source_issue,uncertainty_or_alternative,reviewer_notes,review_frozen_timestamp
+R01,,,,,,,,,,,,,,,,,,
+R02,,,,,,,,,,,,,,,,,,
+R03,,,,,,,,,,,,,,,,,,
+R04,,,,,,,,,,,,,,,,,,
+R05,,,,,,,,,,,,,,,,,,
+R06,,,,,,,,,,,,,,,,,,
+R07,,,,,,,,,,,,,,,,,,
+R08,,,,,,,,,,,,,,,,,,
+R09,,,,,,,,,,,,,,,,,,
+R10,,,,,,,,,,,,,,,,,,
+R11,,,,,,,,,,,,,,,,,,
+R12,,,,,,,,,,,,,,,,,,
