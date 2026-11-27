@@ -242,240 +242,422 @@ def _validate_family(family, items, row, source_checks, database_sha):
     if not items:
         return "unverifiable", "no_returned_items"
     ref_samples = row.get("reference_samples", {}).get(family)
-    ref_meta = row.get("rvßÎí¢G§²ÚîÆ­yØØ][ÙÝYHŠ_Bˆš[˜[N‚ˆ‹˜ÛÜÙJ
-B‚‚™YˆÛ\ÜÚYžWØØ\ÙJ›ÝË™XÛÜ™Ø][ÙÝYKÛÝ\˜ÙWÜ›ÛÝ]X˜\ÙWÜÚK\ÚØØXÚJN‚ˆØ\ÙWÚYH›ÝÖÈšY—BˆXYÛ›ÜÝXÜÈH×Bˆš[™[™ÜÈH×Bˆ™\ÜÛœÙHH™XÛÜ™™Ù]
-œ™\ÜÛœÙHŠHÜˆßBˆÛZ[YYH›ÛÛ
-™XÛÜ™™Ù]
-˜ÛZ[YYØÛÛ\]HŠJBˆ^XÝYH\Ý
-›ÝË™Ù]
-™^XÝYÙ˜[Z[Y\È‹×JJBˆÜ›Ý\ÈH™\ÜÛœÙK™Ù]
-™Ü›Ý\È‹™XÛÜ™™Ù]
-™Ü›Ý\È‹×JJHÜˆ×BˆžWÙ˜[Z[HHÙË™Ù]
-™˜[Z[HŠNˆÈ›ÜˆÈ[ˆÜ›Ý\ÈYˆ\Ú[œÝ[˜ÙJËXÝ
-_Bˆ[Ú][\ÈHÚH›ÜˆÈ[ˆÜ›Ý\ÈYˆ\Ú[œÝ[˜ÙJËXÝ
-H›ÜˆH[ˆË™Ù]
-š][\È‹×JHYˆ\Ú[œÝ[˜ÙJKXÝ
-WB‚ˆYˆ›ÝË™Ù]
-™˜][ŠN‚ˆXYÛ›ÜÝXÜË˜\[™
-™˜][Ùš^\™WÛ›ÝØ\YYØžWÜ[—Ù]˜[ÝŒˆŠBˆ\ÜÙ\ÜÛY[H™]˜[X][Û—Ý[˜]˜Z[X›H‚ˆ[ÙN‚ˆ\ÜÙ\ÜÛY[H›Û™B‚ˆ™XÛÜ™ÜÚHH™XÛÜ™™Ù]
-œ™XÛÜ™ÜÚLMˆŠBˆØœÙ\™YÜÚHHØ[›ÛšXØ[ÜÚJÚÎˆˆ›ÜˆËˆ[ˆ™XÛÜ™š][\Ê
-HYˆÈOHœ™XÛÜ™ÜÚLMˆŸJBˆYˆ™XÛÜ™ÜÚHOHØœÙ\™YÜÚN‚ˆXYÛ›ÜÝXÜË˜\[™
-œØ]™YØØ\ÙWÜ™XÛÜ™Ú\ÚÛZ\ÛX]ÚŠBˆ\ÜÙ\ÜÛY[H[œ™\ÛÛ™YÙ\ØÜ™\[˜ÞH‚‚ˆÛÝ\˜ÙWÜÝ]\ÈH×Bˆ›Üˆ][H[ˆ[Ú][\Î‚ˆ˜[HH][K™Ù]
-™˜[Z[HŠBˆÚË™X\ÛÛˆHÜÛÝ\˜ÙWØš[™
-›ÝË][K˜[KØ][ÙÝYKÛÝ\˜ÙWÜ›ÛÝ]X˜\ÙWÜÚK\ÚØØXÚJBˆÛÝ\˜ÙWÜÝ]\Ë˜\[™
+    ref_meta = row.get("reference_metadata", {}).get(family)
 
-ÚË™X\ÛÛŠJBˆYˆ™X\ÛÛˆ›Ý[ˆ
-™œ›Þ™[—ÜÛÝ\˜ÙWÜZ\ˆ‹˜Ø][ÙÝYWÛY]Y]WØ[˜ÚÜˆ‹˜Ø][ÙÝYWÛXZ[—ÝX›WØ[˜ÚÜˆŠN‚ˆXYÛ›ÜÝXÜË˜\[™
-œÛÝ\˜ÙWÈˆ
-È™X\ÛÛŠBˆ[Yˆ™X\ÛÛˆ[ˆ
-˜Ø][ÙÝYWÛY]Y]WØ[˜ÚÜˆ‹˜Ø][ÙÝYWÛXZ[—ÝX›WØ[˜ÚÜˆŠN‚ˆXYÛ›ÜÝXÜË˜\[™
-˜[YØ[\›˜]]™WÜÛÝ\˜ÙWÛ›ÝÛ\ÝYÚ[—Ùœ›Þ™[—ÜÛÝ\˜ÙWØ\Y˜XÝÎˆˆ
-ÈÝŠ˜[JJBˆ™\HH›ÝË™Ù]
-œ™\]Y\Ý‹ßJBˆ›ÜˆÙ^H[ˆ
-™^XÝ][Û—ÚY‹\Ú×ÚY‹˜\šX[ÚYŠN‚ˆYˆ™\K™Ù]
-Ù^JH\È›Ý›Û™H[™][K™Ù]
-Ù^JHOH™\K™Ù]
-Ù^JN‚ˆXYÛ›ÜÝXÜË˜\[™
-š][WÜØÛÜWÛZ\ÛX]Úˆˆ
-ÈÙ^JBˆš[™[™ÜË˜\[™
-È˜Ø]YÛÜžHŽˆ[\Ü˜[ÛÜ—Ù^XÝ][Û—ÜØÛÜWÛZ\ÛX]Ú‹™˜[Z[HŽˆ˜[K™šY[ŽˆÙ^_JB‚ˆ˜[Z[WÙš[™[™ÜÈHßBˆ›Üˆ˜[Z[KÜ›Ý\[ˆžWÙ˜[Z[Kš][\Ê
-N‚ˆ][\ÈHÜ›Ý\™Ù]
-š][\È‹×JHÜˆ×BˆYˆÜ›Ý\™Ù]
-œÝ]\ÈŠHOHURSP“HŽ‚ˆÚXÚÜÈH×Bˆ›Üˆ][H[ˆ][\Î‚ˆYH[Ú][\Ëš[™^
-][JHYˆ][H[ˆ[Ú][\È[ÙHLBˆÚXÚÜË˜\[™
-ÛÝ\˜ÙWÜÝ]\ÖÚYHYˆYH[ÙH
-˜[ÙKš][WÛZ\ÜÚ[™ÈŠJBˆ›ÜˆØ[\H[ˆ][K™Ù]
-œØ[\\È‹×JHÜˆ×N‚ˆ\H][K™Ù]
-œÛÝ\˜ÙWØ\Y˜XÝŠHÜˆßBˆ]H]
-\™Ù]
-œ]‹ˆŠJBˆÙ[XÝÜˆHØ[\K™Ù]
-œÛÝ\˜ÙWÜÙ[XÝÜˆŠBˆžN‚ˆÚË™X\ÛÛ‹›ÙHHÚWÜÙ[XÝÜ—ØÚXÚÊ]Ù[XÝÜ‹Ø[\K™Ù]
-˜[YHŠJBˆYˆÚÈ[™ÝŠ›ÙK™\JHOHÝŠØ[\K™Ù]
-™\HŠJN‚ˆÚË™X\ÛÛˆH˜[ÙK™\WÛZ\ÛX]Ú‚ˆYˆ›ÝÚÎ‚ˆš[™[™ÜË˜\[™
-È˜Ø]YÛÜžHŽˆš[˜ÛÜœ™XÝÛ[Y\šXØ[Ý˜[YH‹™˜[Z[HŽˆ˜[Z[KˆœÙ[XÝÜˆŽˆÙ[XÝÜ‹œ™X\ÛÛˆŽˆ™X\ÛÛŸJBˆœ˜[Y\ÈH›ÝË™Ù]
-œ™Y™\™[˜ÙWÙœ˜[YWÚ[™XÙ\ÈŠBˆœ˜[YHHØ[\K™Ù]
-œØ]™YÙœ˜[YWÚ[™^ŠBˆYˆœ˜[Y\È\È›Ý›Û™H[™œ˜[YH›Ý[ˆœ˜[Y\Î‚ˆš[™[™ÜË˜\[™
-È˜Ø]YÛÜžHŽˆ[\Ü˜[ÛÜ—Ù^XÝ][Û—ÜØÛÜWÛZ\ÛX]Ú‹ˆ™˜[Z[HŽˆ˜[Z[K™œ˜[YHŽˆœ˜[Y_JBˆ^Ù\
-ÔÑ\œ›Ü‹Ù^Q\œ›Ü‹˜[YQ\œ›Ü‹[\Ü\œ›ÜŠN‚ˆÚXÚÜË˜\[™
+    if family.startswith("raw.") or family == "simulator.ncon":
+        if not ref_samples:
+            return "unverifiable", "numeric_reference_absent"
+        expected = {x.get("frame"): x for x in ref_samples}
+        observed = set()
+        for item in items:
+            for sample in item.get("samples", []) or []:
+                frame = sample.get("saved_frame_index")
+                ref = expected.get(frame)
+                if ref is None:
+                    continue
+                if (sample.get("value") != ref.get("value") or sample.get("dtype") != ref.get("dtype")
+                        or sample.get("source_selector") != ref.get("selector")):
+                    return "confirmed_error", "reference_sample_value_dtype_or_selector_mismatch"
+                observed.add(frame)
+        if set(expected) - observed:
+            return "unverifiable", "reference_sample_not_returned"
+        return "verified", "frozen_sample_and_source_selectors_match"
 
-˜[ÙKœØ[\WÜÛÝ\˜ÙWÝ[™\šYšXX›HŠJBˆÛÝ\˜ÙWØÚXÚÜÈHÞ›Üˆ[ˆÚXÚÜÈYˆBˆÝ]\ËÚHHÝ˜[Y]WÙ˜[Z[J˜[Z[K][\Ë›ÝËÛÝ\˜ÙWØÚXÚÜË]X˜\ÙWÜÚJBˆ˜[Z[WÙš[™[™ÜÖÙ˜[Z[WHHÈœÝ]\ÈŽˆÝ]\Ëœ™X\ÛÛˆŽˆÚ_Bˆ[ÙN‚ˆ˜[Z[WÙš[™[™ÜÖÙ˜[Z[WHHÈœÝ]\ÈŽˆ[˜]˜Z[X›H‹œ™X\ÛÛˆŽˆÜ›Ý\™Ù]
-œ™X\ÛÛˆ‹Ü›Ý\™Ù]
-œÝ]\ÈŠJ_B‚ˆ]˜Z[X›HHÙˆ›Üˆ‹È[ˆžWÙ˜[Z[Kš][\Ê
-HYˆË™Ù]
-œÝ]\ÈŠHOHURSP“HŸBˆZ\ÜÚ[™ÈHÛÜY
-Ù]
-^XÝY
-HH]˜Z[X›JBˆYˆZ\ÜÚ[™Î‚ˆXYÛ›ÜÝXÜË˜\[™
-™^XÝYÙ˜[Z[WÛ›ÝØ]˜Z[X›Nˆˆ
-È‹‹š›Ú[ŠZ\ÜÚ[™ÊJBˆYˆ™XÛÜ™™Ù]
-˜Ú]][Û—ÛÜ—Ü™Y™\™[˜ÙWÙ\œ›ÜœÈŠN‚ˆXYÛ›ÜÝXÜË˜\[™
-›YØXÞWÙ]˜[X]Ü—Ù›YÜÎˆˆ
-È‹‹š›Ú[Š™XÛÜ™È˜Ú]][Û—ÛÜ—Ü™Y™\™[˜ÙWÙ\œ›ÜœÈ—JJBˆ›Üˆ˜[Z[H[ˆ^XÝY‚ˆYˆ˜[Z[H›Ý[ˆ›ÝË™Ù]
-œ™Y™\™[˜ÙWÜØ[\\È‹ßJH[™˜[Z[H›Ý[ˆ›ÝË™Ù]
-œ™Y™\™[˜ÙWÛY]Y]H‹ßJN‚ˆXYÛ›ÜÝXÜË˜\[™
-™œ›Þ™[—Ü™Y™\™[˜ÙWÙ˜[Z[WØÛÝ™\˜YÙWØXœÙ[ˆˆ
-È˜[Z[JBˆYˆœ™Y™\™[˜ÙWÛY]Y]WÛZ\ÛX]Úœ™XÛÜ™YÝ[YHˆ[ˆ™XÛÜ™™Ù]
-˜Ú]][Û—ÛÜ—Ü™Y™\™[˜ÙWÙ\œ›ÜœÈ‹×JN‚ˆYˆ[ŠžWÙ˜[Z[K™Ù]
-œ™XÛÜ™YÝ[YH‹ßJK™Ù]
-š][\È‹×JJHˆN‚ˆXYÛ›ÜÝXÜË˜\[™
-œØØ[\—Ü™XÛÜ™YÝ[YWÜ™Y™\™[˜ÙWØÛÛ\\™YÝ×Û][\WÙœ˜[Y\ÈŠBˆYˆœ™Y™\™[˜ÙWÛY]Y]WÛZ\ÛX]Ú›XZ[—ÝX›WÚY[]Hˆ[ˆ™XÛÜ™™Ù]
-˜Ú]][Û—ÛÜ—Ü™Y™\™[˜ÙWÙ\œ›ÜœÈ‹×JN‚ˆXYÛ›ÜÝXÜË˜\[™
-›XZ[—ÝX›WÜ™Y™\™[˜ÙWØ›ÙWÙÙ[ÛWÚÙ^\×ÙY™™\—Ùœ›ÛWÜ™\ÜÛœÙWØ›ÙWÛ˜[YWÙÙ[ÛWÛ˜[YHŠBˆYˆ[žJÝŠ
-KœÝ\ÝÚ]
-œ™Y™\™[˜ÙWÜØ[\\×ÛZ\ÜÚ[™ÎˆŠH›Üˆ[ˆ™XÛÜ™™Ù]
-˜Ú]][Û—ÛÜ—Ü™Y™\™[˜ÙWÙ\œ›ÜœÈ‹×JJN‚ˆYˆ›Ý[Ú][\Î‚ˆXYÛ›ÜÝXÜË˜\[™
-œ™Y™\™[˜ÙWØXœÙ[˜ÙWÙYWÝ×Ü™]šY]˜[Û›ÝÜ[ˆŠB‚ˆ[œÝ\ÜYÜ™YœÈHÙˆ›Üˆˆ[ˆ^XÝYYˆ˜[Z[WÙš[™[™ÜË™Ù]
-‹ßJK™Ù]
-œÝ]\ÈŠHOH[™\šYšXX›H—BˆÛÛ™š\›YYÙ˜[Z[WÙ\œ›ÜœÈHÙˆ›Üˆˆ[ˆ^XÝYYˆ˜[Z[WÙš[™[™ÜË™Ù]
-‹ßJK™Ù]
-œÝ]\ÈŠHOH˜ÛÛ™š\›YYÙ\œ›Üˆ—BˆYˆÛÛ™š\›YYÙ˜[Z[WÙ\œ›ÜœÎ‚ˆš[™[™ÜË™^[™
-È˜Ø]YÛÜžHŽˆ˜ÛÛ™š\›YYÜ™]šY]˜[ÙY™XÝ‹™˜[Z[HŽˆŸH›Üˆˆ[ˆÛÛ™š\›YYÙ˜[Z[WÙ\œ›ÜœÊB‚ˆYˆ\ÜÙ\ÜÛY[\È›Û™N‚ˆYˆÛZ[YY‚ˆYˆš[™[™ÜÈÜˆZ\ÜÚ[™ÈÜˆ[žJ›ÝÚÈ›ÜˆÚËÈ[ˆÛÝ\˜ÙWÜÝ]\ÊN‚ˆ\ÜÙ\ÜÛY[H˜ÛÛ™š\›YYÙ˜[ÙWØÛÛ\]HˆYˆš[™[™ÜÈÜˆZ\ÜÚ[™È[ÙH˜ÛZ[YYØÛÛ\]WÝ[™\šYšXX›H‚ˆ[Yˆ[œÝ\ÜYÜ™YœÎ‚ˆ\ÜÙ\ÜÛY[H˜ÛZ[YYØÛÛ\]WÝ[™\šYšXX›H‚ˆ[Yˆ›Ý^XÝY‚ˆXYÛ›ÜÝXÜË˜\[™
-››×Ùœ›Þ™[—Ù^XÝYÙ˜[Z[WØÛÛ˜XÝŠBˆ\ÜÙ\ÜÛY[H˜ÛZ[YYØÛÛ\]WÝ[™\šYšXX›H‚ˆ[Yˆ[
-˜[Z[WÙš[™[™ÜË™Ù]
-‹ßJK™Ù]
-œÝ]\ÈŠHOH™\šYšYYˆ›Üˆˆ[ˆ^XÝY
-N‚ˆ\ÜÙ\ÜÛY[H˜ÛÜœ™XÝØ[™Ý™\šYšYYØÛÛ\]H‚ˆ[ÙN‚ˆ\ÜÙ\ÜÛY[H˜ÛZ[YYØÛÛ\]WÝ[™\šYšXX›H‚ˆ[ÙN‚ˆ™\ÜÛœÙWÜÝ]\ÈH™XÛÜ™™Ù]
-œ™]šY]˜[ÜÝ]\ÈŠBˆ›×Ü™]\›ˆH›Ý[Ú][\Âˆ[ˆH™XÛÜ™™Ù]
-›Ø›YØ][Û—Ü[—ÜÝ]\ÈŠBˆ[œÝ\ÜYH›ÛÛ
+    if family == "recorded_time":
+        if not isinstance(ref_meta, dict):
+            return "unverifiable", "unsupported_recorded_time_reference"
+        anchor_ok = False
+        for item in items:
+            val = item.get("value") or {}
+            direct_ok, _ = _h5_metadata_item(item, family)
+            if not direct_ok:
+                return "confirmed_error", "recorded_time_source_selector_or_value_mismatch"
+            if (val.get("simulator_endpoint_seconds") == ref_meta.get("simulator_endpoint_seconds")
+                    and val.get("recorder_host_wall_ns") == ref_meta.get("wall_ns")
+                    and val.get("synchronized_physical_instant") is False):
+                anchor_ok = True
+        if not anchor_ok:
+            return "unverifiable", "scalar_time_anchor_not_found"
+        # Multiple frame results are not all compared to one scalar anchor.
+        return "verified", "reference_anchor_matches_one_frame; other_frames_source_checked"
 
-™\ÜÛœÙK™Ù]
-š[\œ™]][ÛˆŠHÜˆßJK™Ù]
-[œÝ\ÜYŠJBˆ[XšYÝ[Ý\ÈH™XÛÜ™™Ù]
-œ]Y\žWÚ[\œ™]][Û—ÜÝ]\ÈŠH[ˆ
-SP’QÕSÕTÈ‹”T•PS‹•S’Ó“ÕÓˆ‹’S•SQÐÓÔH‹•S”ÕTÔ•QŠBˆ™Y—ÜØ^\×Ý[œÝ\ÜYH[žJˆ\Ú[œÝ[˜ÙJ›ÝË™Ù]
-œ™Y™\™[˜ÙWÛY]Y]H‹ßJK™Ù]
-ŠKXÝ
-Bˆ[™›ÝÖÈœ™Y™\™[˜ÙWÛY]Y]H—VÙ—K™Ù]
-œÝ\ÜYŠH\È˜[ÙH›Üˆˆ[ˆ^XÝYˆ
-BˆYˆ™\ÜÛœÙWÜÝ]\ÈOH‘VPÕUSÓ—ÑT”“ÔˆŽ‚ˆ\ÜÙ\ÜÛY[H™]˜[X][Û—Ý[˜]˜Z[X›H‚ˆ[Yˆ›×Ü™]\›ˆ[™
-›ÝË™Ù]
-˜Üš]XØ[ØXœÝ[[ÛˆŠHÜˆ[œÝ\ÜYÜˆ[XšYÝ[Ý\ÈÜˆ™Y—ÜØ^\×Ý[œÝ\ÜYˆÜˆ™\ÜÛœÙWÜÝ]\È[ˆ
-•SURSP“H‹’S•SQÐÓÔH‹•S”ÕTÔ•Q‹““ÕÔ•SˆŠJN‚ˆ\ÜÙ\ÜÛY[H˜ÛÜœ™XÝØXœÝ[[Ûˆ‚ˆYˆ[œÝ\ÜYÜˆ[XšYÝ[Ý\ÈÜˆ™Y—ÜØ^\×Ý[œÝ\ÜY‚ˆXYÛ›ÜÝXÜË˜\[™
-˜[XšYÝ[Ý\×ÛÜ—Ý[œÝ\ÜYÜ™\]Y\ÝŠBˆ[YˆZ\ÜÚ[™Î‚ˆ\ÜÙ\ÜÛY[H™\šYšYYÚ[˜ÛÛ\]H‚ˆš[™[™ÜË™^[™
-È˜Ø]YÛÜžHŽˆ˜ÛÛ™š\›YYÛZ\ÜÚ[™×Ü™\]Y\ÝYÙ]šY[˜ÙH‹™˜[Z[HŽˆŸH›Üˆˆ[ˆZ\ÜÚ[™ÊBˆ[Yˆ^XÝY[™™\ÜÛœÙWÜÝ]\È›Ý[ˆ
-ÓÓTUHÒUSˆ‘T’Q’QQÓÓ•PÕ‹
-N‚ˆ\ÜÙ\ÜÛY[H[œ™\ÛÛ™YÙ\ØÜ™\[˜ÞH‚ˆ[ÙN‚ˆ\ÜÙ\ÜÛY[H™]˜[X][Û—Ý[˜]˜Z[X›H‚‚ˆ™]\›ˆÂˆ˜Ø\ÙWÚYŽˆØ\ÙWÚYˆ˜\ÜÙ\ÜÛY[Žˆ\ÜÙ\ÜÛY[ˆ˜ÛZ[YYØÛÛ\]HŽˆÛZ[YYˆœ™]šY]˜[ÜÝ]\ÈŽˆ™XÛÜ™™Ù]
-œ™]šY]˜[ÜÝ]\ÈŠKˆ™^XÝYÙ˜[Z[Y\ÈŽˆ^XÝYˆ˜]˜Z[X›WÙ˜[Z[Y\ÈŽˆÛÜY
-]˜Z[X›JKˆ›Z\ÜÚ[™×Ù^XÝYÙ˜[Z[Y\ÈŽˆZ\ÜÚ[™Ëˆ™˜[Z[WÙš[™[™ÜÈŽˆ˜[Z[WÙš[™[™ÜËˆ™XYÛ›ÜÝXÜÈŽˆÛÜY
-Ù]
-XYÛ›ÜÝXÜÊJKˆ˜ÛÛ™š\›YYÙš[™[™ÜÈŽˆš[™[™ÜËˆ›YØXÞWÙ]˜[X]Ü—Ù\œ›ÜœÈŽˆ™XÛÜ™™Ù]
-˜Ú]][Û—ÛÜ—Ü™Y™\™[˜ÙWÙ\œ›ÜœÈ‹×JKˆ™˜][Ùš^\™WÜ™\]Z\™YŽˆ›ÝË™Ù]
-™˜][ŠKˆ˜XœÝ[[ÛˆŽˆ›ÛÛ
-™XÛÜ™™Ù]
-˜XœÝ[[ÛˆŠJKˆB‚‚™YˆÚ[YÜš]WÜÝ[[X\žJ™\ÜÛœÙWÜ]
-N‚ˆX[šY™\ÝÜ]H™\ÜÛœÙWÜ]È”“Õ‘SSÑWÓPS’Q‘TÕšœÛÛˆ‚ˆX[šY™\ÝHœÛÛ‹›ØYÊX[šY™\ÝÜ]œ™XYÝ^
+    if family == "main_table_identity":
+        if not isinstance(ref_meta, dict) or ref_meta.get("supported") is not True:
+            return "unverifiable", "reference_marks_alias_unsupported"
+        for item in items:
+            val = item.get("value") or {}
+            body = val.get("body_name", val.get("body"))
+            geom = val.get("geom_name", val.get("geom"))
+            if body != ref_meta.get("body") or geom != ref_meta.get("geom"):
+                return "confirmed_error", "main_table_name_mismatch"
+        return "verified", "body_geom_aliases_match_reference_and_catalogue"
 
-JBˆ˜YH×Bˆ›ÜˆÚYØ[Y[ˆX[šY™\Ý™Ù]
-˜Ø\ÙWÜ™XÛÜ™È‹ßJKš][\Ê
-N‚ˆ™XÛÜ™Ü]H™\ÜÛœÙWÜ]È
-˜Ø\ÙKHˆ
-ÈÚY
-È‹šœÛÛˆŠBˆ™XÛÜ™HœÛÛ‹›ØYÊ™XÛÜ™Ü]œ™XYÝ^
+    if family == "geometry_identity":
+        if not isinstance(ref_meta, dict):
+            return "unverifiable", "geometry_reference_missing"
+        required = ("object_id", "root_body", "body_id", "collision_geom_ids")
+        if any(k not in ref_meta for k in required):
+            return "unverifiable", "unsupported_geometry_reference_schema"
+        for item in items:
+            value = item.get("value") or {}
+            if any(value.get(k) != ref_meta[k] for k in required):
+                return "confirmed_error", "geometry_identity_mismatch"
+        return "verified", "typed_geometry_identity_fields_match"
 
-JBˆØ[›ÛšXØ[HØ[›ÛšXØ[ÜÚJÚÎˆˆ›ÜˆËˆ[ˆ™XÛÜ™š][\Ê
-HYˆÈOHœ™XÛÜ™ÜÚLMˆŸJBˆYˆ™XÛÜ™™Ù]
-œ™XÛÜ™ÜÚLMˆŠHOHØ[YÜˆØ[›ÛšXØ[OHØ[Y‚ˆ˜Y˜\[™
-ÚY
-BˆYÙÜ™YØ]WÜ]H™\ÜÛœÙWÜ]ÈQÑÔ‘QÐUKšœÛÛˆ‚ˆYÙÜ™YØ]WÜÚHHš[WÜÚLMŠYÙÜ™YØ]WÜ]
-BˆYˆYÙÜ™YØ]WÜÚHOHX[šY™\Ý™Ù]
-˜YÙÜ™YØ]WÜÚLMˆŠHÜˆ˜Y‚ˆ˜Z\ÙH˜[YQ\œ›ÜŠˆœ™\Ù\™Y™\ÜÛœÙH[YÜš]H˜Z[\™Nˆ˜YØØ\Ù\Ï^Ø˜YKYÙÜ™YØ]WÛX]Ú^ØYÙÜ™YØ]WÜÚHOHX[šY™\Ý™Ù]
-	ØYÙÜ™YØ]WÜÚLM‰Ê_HŠBˆ™]\›ˆÂˆœ]ŽˆÝŠ™\ÜÛœÙWÜ]
-Kˆ›X[šY™\ÝÜÚLMˆŽˆš[WÜÚLMŠX[šY™\ÝÜ]
-Kˆ˜YÙÜ™YØ]WÜÚLMˆŽˆYÙÜ™YØ]WÜÚKˆ˜Ø\ÙWØÛÝ[Žˆ[ŠX[šY™\Ý™Ù]
-˜Ø\ÙWÜ™XÛÜ™È‹ßJJKˆ˜[ØØ\ÙWÜ™XÛÜ™Ú\Ú\×Ý˜[YŽˆYKˆB‚‚™Yˆ]˜[X]J™Y™\™[˜Ù\Ë™\ÜÛœÙ\ËØ][ÙÝYWÜ]Ý]]ÛÝ\˜ÙWÜ›ÛÝ]X˜\ÙWÜÚK™YWØØ\ÙWÜ™\ÜÛœÙ\ÏS›Û™JN‚ˆ™Yœ×Ü]Ý]Ü]H]
-™Y™\™[˜Ù\ÊK]
-Ý]]
-Bˆ™\ÜÛœÙWÜ]H]
-™\ÜÛœÙ\ÊBˆ[—ÛX[šY™\ÝÜ]H™\ÜÛœÙWÜ]È”“Õ‘SSÑWÓPS’Q‘TÕšœÛÛˆ‚ˆ[—Ú[YÜš]HHÚ[YÜš]WÜÝ[[X\žJ™\ÜÛœÙWÜ]
-Bˆ™YWÚ[YÜš]HHÚ[YÜš]WÜÝ[[X\žJ]
-™YWØØ\ÙWÜ™\ÜÛœÙ\ÊJHYˆ™YWØØ\ÙWÜ™\ÜÛœÙ\È[ÙH›Û™Bˆ[—ÛX[šY™\ÝHœÛÛ‹›ØYÊ[—ÛX[šY™\ÝÜ]œ™XYÝ^
+    if family == "action_metadata":
+        if not isinstance(ref_meta, dict) or not isinstance(ref_meta.get("attributes"), dict):
+            return "unverifiable", "unsupported_action_metadata_reference"
+        for item in items:
+            value = item.get("value") or {}
+            direct_ok, _ = _h5_metadata_item(item, family)
+            if not direct_ok:
+                return "confirmed_error", "action_metadata_source_selector_or_value_mismatch"
+            if item.get("source_artifact", {}).get("selector") != ref_meta.get("selector"):
+                return "confirmed_error", "action_metadata_selector_mismatch"
+            attrs = value.get("policy_attributes")
+            if not isinstance(attrs, dict) or any(attrs.get(k) != v for k, v in ref_meta["attributes"].items()):
+                return "confirmed_error", "action_metadata_attributes_mismatch"
+        return "verified", "policy_step_selector_and_attributes_match"
 
-JBˆX[šY™\ÝÜ™XÛÜ™ÈH[—ÛX[šY™\Ý™Ù]
-˜Ø\ÙWÜ™XÛÜ™È‹ßJBˆ›ÝÜÈHÚœÛÛ‹›ØYÊ
-H›Üˆ[ˆ™Yœ×Ü]œ™XYÝ^
+    if family == "execution_metadata":
+        if not source_checks or not all(ok for ok, _ in source_checks):
+            return "unverifiable", "execution_metadata_source_not_independently_bound"
+        return "verified", "catalogue_metadata_path_hash_and_json_projection_match"
 
-KœÜ][™\Ê
-HYˆœÝš\
+    if family == "source_provenance":
+        if not source_checks or not all(ok for ok, _ in source_checks):
+            return "unverifiable", "source_provenance_source_unbound"
+        for item in items:
+            val = item.get("value") or {}
+            art = item.get("source_artifact") or {}
+            if val.get("source_sha256") != art.get("sha256") or val.get("database_sha256") != database_sha:
+                return "confirmed_error", "source_provenance_hash_mismatch"
+        return "verified", "artifact_and_database_hashes_match"
 
-WBˆ›Ý×ØžWÚYHÜ–ÈšY—Nˆˆ›Üˆˆ[ˆ›ÝÜßBˆYˆ[Š›Ý×ØžWÚY
-HOH[Š›ÝÜÊN‚ˆ˜Z\ÙH˜[YQ\œ›ÜŠ™\XØ]Hœ›Þ™[ˆ™Y™\™[˜ÙHØ\ÙHQÈŠBˆYˆÙ]
-X[šY™\ÝÜ™XÛÜ™ÊHOHÙ]
-›Ý×ØžWÚY
-N‚ˆ˜Z\ÙH˜[YQ\œ›ÜŠœ™\ÜÛœÙHX[šY™\Ý[™œ›Þ™[ˆ™Y™\™[˜ÙHØ\ÙHÙ]ÈY™™\ˆŠBˆYˆš[WÜÚLMŠ™Yœ×Ü]
-HOH[—ÛX[šY™\ÝÈš\Ú\È—VÈœ™Y™\™[˜ÙWÙ]\Ù]ÜÚLMˆ—N‚ˆ˜Z\ÙH˜[YQ\œ›ÜŠ™œ›Þ™[ˆ™Y™\™[˜ÙH\ÚÙ\È›ÝX]Ú™\ÜÛœÙHX[šY™\ÝŠBˆØ][ÙÝYHHÛØYØØ][ÙÝYJØ][ÙÝYWÜ]
-Bˆ›ÛÝH]
-ÛÝ\˜ÙWÜ›ÛÝ
-Kœ™\ÛÛ™J
-Bˆ\ÚØØXÚHHßBˆØ\Ù\ÈH×Bˆ›ÜˆÚY[ˆÛÜY
-›Ý×ØžWÚY
-N‚ˆ]H™\ÜÛœÙWÜ]Èˆ˜Ø\ÙK^ØÚYKšœÛÛˆ‚ˆ™XÈHœÛÛ‹›ØYÊ]œ™XYÝ^
+    if family in ("camera_references", "contact_references"):
+        import h5py
+        for item in items:
+            art = item.get("source_artifact") or {}
+            path = Path(art.get("path", ""))
+            val = item.get("value") or {}
+            selector = art.get("selector") or ""
+            with h5py.File(path, "r") as h5:
+                key = selector.lstrip("/")
+                if key not in h5:
+                    return "unverifiable", family + "_selector_missing"
+                node = h5[key]
+                if family == "camera_references":
+                    if not isinstance(node, h5py.Dataset):
+                        return "unverifiable", "camera_selector_not_dataset"
+                    if list(node.shape) != val.get("shape") or str(node.dtype) != val.get("dtype"):
+                        return "confirmed_error", "camera_shape_or_dtype_mismatch"
+                    if val.get("materialized") is not False or val.get("physical_contact_or_support_inferred") is not False:
+                        return "confirmed_error", "camera_reference_overclaim"
+                else:
+                    if not isinstance(node, h5py.Group):
+                        return "unverifiable", "contact_selector_not_group"
+                    if val.get("materialized") is not False or val.get("physical_contact_or_support_inferred") is not False:
+                        return "confirmed_error", "contact_reference_overclaim"
+        return "verified", "recorded_reference_selectors_and_noninference_scope_match"
 
-JBˆØ[YHX[šY™\ÝÜ™XÛÜ™ÖØÚYBˆXÝX[Ü™XÛÜ™H™XË™Ù]
-œ™XÛÜ™ÜÚLMˆŠBˆØ[›ÛšXØ[Ü™XÛÜ™HØ[›ÛšXØ[ÜÚJÚÎˆˆ›ÜˆËˆ[ˆ™XËš][\Ê
-HYˆÈOHœ™XÛÜ™ÜÚLMˆŸJBˆYˆXÝX[Ü™XÛÜ™OHØ[YÜˆØ[›ÛšXØ[Ü™XÛÜ™OHØ[Y‚ˆ˜Z\ÙH˜[YQ\œ›ÜŠˆœØ]™Y™\ÜÛœÙH™XÛÜ™\ÚY™™\œÈœ›ÛH™\Ù\™YX[šY™\ÝˆØÚYHŠBˆØ\Ù\Ë˜\[™
-Û\ÜÚYžWØØ\ÙJ›Ý×ØžWÚYØÚYK™XËØ][ÙÝYK›ÛÝ]X˜\ÙWÜÚK\ÚØØXÚJJB‚ˆÛÝ[ÈHßBˆ›ÜˆØ\ÙH[ˆØ\Ù\Î‚ˆÛÝ[ÖØØ\ÙVÈ˜\ÜÙ\ÜÛY[—WHHÛÝ[Ë™Ù]
-Ø\ÙVÈ˜\ÜÙ\ÜÛY[—K
-H
-ÈBˆYØXÞWÙ\œ›ÜœÈHßBˆXYÛ›ÜÝX×ØÛÝ[ÈHßBˆ›ÜˆØ\ÙH[ˆØ\Ù\Î‚ˆ›Üˆ\œ›Üˆ[ˆØ\ÙVÈ›YØXÞWÙ]˜[X]Ü—Ù\œ›ÜœÈ—N‚ˆYØXÞWÙ\œ›ÜœÖÙ\œ›Ü—HHYØXÞWÙ\œ›ÜœË™Ù]
-\œ›Ü‹
-H
-ÈBˆ›ÜˆXYÛ›ÜÝXÈ[ˆØ\ÙVÈ™XYÛ›ÜÝXÜÈ—N‚ˆÙ^HHXYÛ›ÜÝXËœÜ]
-Žˆ‹JVÌBˆXYÛ›ÜÝX×ØÛÝ[ÖÚÙ^WHHXYÛ›ÜÝX×ØÛÝ[Ë™Ù]
-Ù^K
-H
-ÈBˆYØXÞWÙ˜[ÙWÚYÈHØÚY›ÜˆÚY[ˆ›Ý×ØžWÚYYˆœÛÛ‹›ØYÊ
-™\ÜÛœÙWÜ]È
-˜Ø\ÙKHˆ
-ÈÚY
-È‹šœÛÛˆŠJKœ™XYÝ^
+    if family == "inference_metadata":
+        import h5py
+        for item in items:
+            ok, reason = _h5_metadata_item(item, family)
+            if not ok:
+                return "confirmed_error", "inference_metadata_" + reason
+        return "verified", "inference_call_selector_and_attributes_match_source"
 
-JK™Ù]
-™˜[ÙWØÛÛ\]HŠ_BˆžWØØ\ÙHHØØ\ÙVÈ˜Ø\ÙWÚY—NˆØ\ÙH›ÜˆØ\ÙH[ˆØ\Ù\ßBˆYÙÜ™YØ]HHÂˆ™]˜[X]Ü—Ý™\œÚ[ÛˆŽˆ‘T”ÒSÓ‹ˆ›YØXÞWÙ˜[ÙWØÛÛ\]WÙ›YÜÈŽˆ[ŠYØXÞWÙ˜[ÙWÚYÊKˆ›YØXÞWÙ˜[ÙWØÛÛ\]WÜ™XÛ\ÜÚYšYYÝ™\šYšYYŽˆÝ[JžWØØ\ÙVØÚYVÈ˜\ÜÙ\ÜÛY[—HOH˜ÛÜœ™XÝØ[™Ý™\šYšYYØÛÛ\]Hˆ›ÜˆÚY[ˆYØXÞWÙ˜[ÙWÚYÊKˆ›YØXÞWÙ˜[ÙWØÛÛ\]WÜ™XÛ\ÜÚYšYYÙ]˜[X][Û—Ý[˜]˜Z[X›HŽˆÝ[JžWØØ\ÙVØÚYVÈ˜\ÜÙ\ÜÛY[—HOH™]˜[X][Û—Ý[˜]˜Z[X›Hˆ›ÜˆÚY[ˆYØXÞWÙ˜[ÙWÚYÊKˆ›YØXÞWÙ\œ›Ü—ØÛÝ[ÈŽˆYØXÞWÙ\œ›ÜœËˆ™XYÛ›ÜÝX×ØØ\ÙWØÛÝ[ÈŽˆXYÛ›ÜÝX×ØÛÝ[Ëˆ˜Ø\Ù\ÈŽˆ[ŠØ\Ù\ÊKˆ˜\ÜÙ\ÜÛY[ÈŽˆÛÝ[Ëˆ˜ÛÛ™š\›YYÙ˜[ÙWØÛÛ\]HŽˆÛÝ[Ë™Ù]
-˜ÛÛ™š\›YYÙ˜[ÙWØÛÛ\]H‹
-Kˆ˜ÛZ[YYØÛÛ\]WÝ[™\šYšXX›HŽˆÛÝ[Ë™Ù]
-˜ÛZ[YYØÛÛ\]WÝ[™\šYšXX›H‹
-Kˆ™\šYšYYØÛÛ\]HŽˆÛÝ[Ë™Ù]
-˜ÛÜœ™XÝØ[™Ý™\šYšYYØÛÛ\]H‹
-Kˆ˜ÛÜœ™XÝØXœÝ[[ÛœÈŽˆÛÝ[Ë™Ù]
-˜ÛÜœ™XÝØXœÝ[[Ûˆ‹
-Kˆ˜ÛÛ™š\›YYÛZ\ÜÚ[™×Ü™\]Y\ÝYÙ]šY[˜ÙHŽˆÝ[JˆH›ÜˆÈ[ˆØ\Ù\È›Üˆˆ[ˆÖÈ˜ÛÛ™š\›YYÙš[™[™ÜÈ—HYˆ–È˜Ø]YÛÜžH—HOH˜ÛÛ™š\›YYÛZ\ÜÚ[™×Ü™\]Y\ÝYÙ]šY[˜ÙH‚ˆ
-Kˆ˜ÛÛ™š\›YYÚ[˜ÛÜœ™XÝÛ[Y\šXØ[Ý˜[Y\ÈŽˆÝ[JˆH›ÜˆÈ[ˆØ\Ù\È›Üˆˆ[ˆÖÈ˜ÛÛ™š\›YYÙš[™[™ÜÈ—HYˆ–È˜Ø]YÛÜžH—HOHš[˜ÛÜœ™XÝÛ[Y\šXØ[Ý˜[YH‚ˆ
-Kˆ˜Ø\Ù\×ÝÚ]ÛYØXÞWÙ\œ›ÜœÈŽˆÝ[J›ÛÛ
-ÖÈ›YØXÞWÙ]˜[X]Ü—Ù\œ›ÜœÈ—JH›ÜˆÈ[ˆØ\Ù\ÊKˆš[œ]Ü[—ØYÙÜ™YØ]WÜÚLMˆŽˆ[—ÛX[šY™\Ý™Ù]
-˜YÙÜ™YØ]WÜÚLMˆŠKˆBˆ›Ý™[˜[˜ÙHHÂˆ™]˜[X]Ü—Ý™\œÚ[ÛˆŽˆ‘T”ÒSÓ‹ˆ™]˜[X]Ü—ÜÛÝ\˜ÙWÜÚLMˆŽˆš[WÜÚLMŠ]
-×Ùš[W×ÊJKˆ˜ÛÜœ™XÝ[Û—ØÚXÚÛÝ]ØÛÛ[Z]ŽˆÝXœ›ØÙ\ÜËœ[ŠˆÈ™Ú]‹‹PÈ‹ÝŠ™^
-\™[›Üˆ\™[[ˆ]
-×Ùš[W×ÊKœ™\ÛÛ™J
-Kœ\™[ÈYˆ
-\™[È‹™Ú]ŠK™^\ÝÊ
-JJKœ™]‹\\œÙH‹’PQ—KˆØ\\™WÛÝ]]UYK^UYKÚXÚÏQ˜[ÙBˆ
-KœÝÝ]œÝš\
+    return "unverifiable", "no_family_specific_validator"
 
-HÜˆ•SURSP“H‹ˆœÛÝ\˜ÙWØÛÛ[Z]Žˆ[—ÛX[šY™\Ý™Ù]
-œÛÝ\˜ÙWØÛÛ[Z]ŠKˆ™[Ü™\^WÚ[YÜš]HŽˆ[—Ú[YÜš]Kˆ™YWØØ\ÙWÜ™\^WÚ[YÜš]HŽˆ™YWÚ[YÜš]Kˆœ™\ÜÛœÙWÛX[šY™\ÝÜÚLMˆŽˆš[WÜÚLMŠ[—ÛX[šY™\ÝÜ]
-Kˆœ™Y™\™[˜ÙWÜÚLMˆŽˆš[WÜÚLMŠ™Yœ×Ü]
-Kˆ˜Ø][ÙÝYWÜÚLMˆŽˆš[WÜÚLMŠ]
-Ø][ÙÝYWÜ]
-JKˆ™]X˜\ÙWÜÚLMˆŽˆ]X˜\ÙWÜÚKˆœÛÝ\˜ÙWÜ›ÛÝŽˆÝŠ›ÛÝ
-Kˆ™\šYšYYØÚ]YÙš[\ÈŽˆ[Š\ÚØØXÚJKˆ˜Ü™X]YØžHŽˆ›Ù™›[™HØ]™Y\™\ÜÛœÙH]˜[X][ÛŽÈ›È™]šY]˜[Ø\È[ˆ‹ˆBˆYˆÝ]Ü]™^\ÝÊ
-H[™[žJÝ]Ü]š]\™\Š
-JN‚ˆ˜Z\ÙHš[Q^\ÝÑ\œ›ÜŠˆœ™Y\Ú[™ÈÈÝ™\Üš]H›Û™[\H]˜[X][ÛˆÝ]]ˆÛÝ]Ü]HŠBˆÝ]Ü]›ZÙ\Š\™[ÏUYK^\ÝÛÚÏUYJBˆ
-Ý]Ü]ÈÐTÑWÐÓTÔÒQ’PÐUSÓ”ËšœÛÛ›ŠKÜš]WÝ^
-ˆˆ‹š›Ú[ŠœÛÛ‹™[\ÊËÛÜÚÙ^\ÏUYK[Ý×Û˜[Q˜[ÙJH
-È—ˆˆ›ÜˆÈ[ˆØ\Ù\ÊBˆ
-Bˆ
-Ý]Ü]ÈQÑÔ‘QÐUKšœÛÛˆŠKÜš]WÝ^
-œÛÛ‹™[\ÊYÙÜ™YØ]KÛÜÚÙ^\ÏUYK[™[LŠH
-È—ˆŠBˆ
-Ý]Ü]È”“Õ‘SSÑWÓPS’Q‘TÕšœÛÛˆŠKÜš]WÝ^
-œÛÛ‹™[\Ê›Ý™[˜[˜ÙKÛÜÚÙ^\ÏUYK[™[LŠH
-È—ˆŠBˆ™]\›ˆYÙÜ™YØ]B‚‚™YˆXZ[Š\™ÝS›Û™JN‚ˆH\™Ü\œÙK\™Ý[Y[\œÙ\Š\ØÜš\[ÛW×ÙØ××ÊBˆ˜YØ\™Ý[Y[
-‹K\™Y™\™[˜Ù\È‹™\]Z\™YUYJBˆ˜YØ\™Ý[Y[
-‹K\™\ÜÛœÙ\È‹™\]Z\™YUYJBˆ˜YØ\™Ý[Y[
-‹KXØ][ÙÝYH‹™\]Z\™YUYJBˆ˜YØ\™Ý[Y[
-‹K\ÛÝ\˜ÙK\›ÛÝ‹™\]Z\™YUYJBˆ˜YØ\™Ý[Y[
-‹KY]X˜\ÙK\ÚLMˆ‹™\]Z\™YUYJBˆ˜YØ\™Ý[Y[
-‹K[Ý]]‹™\]Z\™YUYJBˆ˜YØ\™Ý[Y[
-‹K]™YKXØ\ÙK\™\ÜÛœÙ\ÈŠBˆHHœ\œÙWØ\™ÜÊ\™ÝŠBˆš[
-œÛÛ‹™[\Ê]˜[X]JKœ™Y™\™[˜Ù\ËKœ™\ÜÛœÙ\ËK˜Ø][ÙÝYKK›Ý]]ˆKœÛÝ\˜ÙWÜ›ÛÝK™]X˜\ÙWÜÚLM‹K™YWØØ\ÙWÜ™\ÜÛœÙ\ÊKÛÜÚÙ^\ÏUYK[™[LŠJB‚‚šYˆ×Û˜[YW×ÈOH—×ÛXZ[—×ÈŽ‚ˆXZ[Š
-B
+
+def _load_catalogue(path):
+    uri = "file:" + Path(path).resolve().as_posix() + "?mode=ro"
+    db = sqlite3.connect(uri, uri=True)
+    try:
+        return {ex: json.loads(body) for ex, body in db.execute("SELECT execution, body FROM catalogue")}
+    finally:
+        db.close()
+
+
+def classify_case(row, record, catalogue, source_root, database_sha, hash_cache):
+    case_id = row["id"]
+    diagnostics = []
+    findings = []
+    response = record.get("response") or {}
+    claimed = bool(record.get("claimed_complete"))
+    expected = list(row.get("expected_families", []))
+    groups = response.get("groups", record.get("groups", [])) or []
+    by_family = {g.get("family"): g for g in groups if isinstance(g, dict)}
+    all_items = [i for g in groups if isinstance(g, dict) for i in g.get("items", []) if isinstance(i, dict)]
+
+    if row.get("fault"):
+        diagnostics.append("fault_fixture_not_applied_by_run_eval_v2")
+        assessment = "evaluation_unavailable"
+    else:
+        assessment = None
+
+    record_sha = record.get("record_sha256")
+    observed_sha = canonical_sha({k: v for k, v in record.items() if k != "record_sha256"})
+    if record_sha != observed_sha:
+        diagnostics.append("saved_case_record_hash_mismatch")
+        assessment = "unresolved_discrepancy"
+
+    source_status = []
+    for item in all_items:
+        fam = item.get("family")
+        ok, reason = _source_bind(row, item, fam, catalogue, source_root, database_sha, hash_cache)
+        source_status.append((ok, reason))
+        if reason not in ("frozen_source_pair", "catalogue_metadata_anchor", "catalogue_main_table_anchor"):
+            diagnostics.append("source_" + reason)
+        elif reason in ("catalogue_metadata_anchor", "catalogue_main_table_anchor"):
+            diagnostics.append("valid_alternative_source_not_listed_in_frozen_source_artifacts:" + str(fam))
+        req = row.get("request", {})
+        for key in ("execution_id", "task_id", "variant_id"):
+            if req.get(key) is not None and item.get(key) != req.get(key):
+                diagnostics.append("item_scope_mismatch:" + key)
+                findings.append({"category": "temporal_or_execution_scope_mismatch", "family": fam, "field": key})
+
+    family_findings = {}
+    for family, group in by_family.items():
+        items = group.get("items", []) or []
+        if group.get("status") == "AVAILABLE":
+            checks = []
+            for item in items:
+                idx = all_items.index(item) if item in all_items else -1
+                checks.append(source_status[idx] if idx >= 0 else (False, "item_missing"))
+                for sample in item.get("samples", []) or []:
+                    art = item.get("source_artifact") or {}
+                    path = Path(art.get("path", ""))
+                    selector = sample.get("source_selector")
+                    try:
+                        ok, reason, node = _h5_selector_check(path, selector, sample.get("value"))
+                        if ok and str(node.dtype) != str(sample.get("dtype")):
+                            ok, reason = False, "dtype_mismatch"
+                        if not ok:
+                            findings.append({"category": "incorrect_numerical_value", "family": family,
+                                             "selector": selector, "reason": reason})
+                        frames = row.get("reference_frame_indices")
+                        frame = sample.get("saved_frame_index")
+                        if frames is not None and frame not in frames:
+                            findings.append({"category": "temporal_or_execution_scope_mismatch",
+                                             "family": family, "frame": frame})
+                    except (OSError, KeyError, ValueError, ImportError):
+                        checks.append((False, "sample_source_unverifiable"))
+            source_checks = [x for x in checks if x]
+            status, why = _validate_family(family, items, row, source_checks, database_sha)
+            family_findings[family] = {"status": status, "reason": why}
+        else:
+            family_findings[family] = {"status": "unavailable", "reason": group.get("reason", group.get("status"))}
+
+    available = {f for f, g in by_family.items() if g.get("status") == "AVAILABLE"}
+    missing = sorted(set(expected) - available)
+    if missing:
+        diagnostics.append("expected_family_not_available:" + ",".join(missing))
+    if record.get("citation_or_reference_errors"):
+        diagnostics.append("legacy_evaluator_flags:" + ",".join(record["citation_or_reference_errors"]))
+    for family in expected:
+        if family not in row.get("reference_samples", {}) and family not in row.get("reference_metadata", {}):
+            diagnostics.append("frozen_reference_family_coverage_absent:" + family)
+    if "reference_metadata_mismatch:recorded_time" in record.get("citation_or_reference_errors", []):
+        if len(by_family.get("recorded_time", {}).get("items", [])) > 1:
+            diagnostics.append("scalar_recorded_time_reference_compared_to_multiple_frames")
+    if "reference_metadata_mismatch:main_table_identity" in record.get("citation_or_reference_errors", []):
+        diagnostics.append("main_table_reference_body_geom_keys_differ_from_response_body_name_geom_name")
+    if any(str(x).startswith("reference_samples_missing:") for x in record.get("citation_or_reference_errors", [])):
+        if not all_items:
+            diagnostics.append("reference_absence_due_to_retrieval_not_run")
+
+    unsupported_refs = [f for f in expected if family_findings.get(f, {}).get("status") == "unverifiable"]
+    confirmed_family_errors = [f for f in expected if family_findings.get(f, {}).get("status") == "confirmed_error"]
+    if confirmed_family_errors:
+        findings.extend({"category": "confirmed_retrieval_defect", "family": f} for f in confirmed_family_errors)
+
+    if assessment is None:
+        if claimed:
+            if findings or missing or any(not ok for ok, _ in source_status):
+                assessment = "confirmed_false_complete" if findings or missing else "claimed_complete_unverifiable"
+            elif unsupported_refs:
+                assessment = "claimed_complete_unverifiable"
+            elif not expected:
+                diagnostics.append("no_frozen_expected_family_contract")
+                assessment = "claimed_complete_unverifiable"
+            elif all(family_findings.get(f, {}).get("status") == "verified" for f in expected):
+                assessment = "correct_and_verified_complete"
+            else:
+                assessment = "claimed_complete_unverifiable"
+        else:
+            response_status = record.get("retrieval_status")
+            no_return = not all_items
+            plan = record.get("obligation_plan_status")
+            unsupported = bool((response.get("interpretation") or {}).get("unsupported"))
+            ambiguous = record.get("query_interpretation_status") in ("AMBIGUOUS", "PARTIAL", "UNKNOWN", "INVALID SCOPE", "UNSUPPORTED")
+            ref_says_unsupported = any(
+                isinstance(row.get("reference_metadata", {}).get(f), dict)
+                and row["reference_metadata"][f].get("supported") is False for f in expected
+            )
+            if response_status == "EXECUTION_ERROR":
+                assessment = "evaluation_unavailable"
+            elif no_return and (row.get("critical_abstention") or unsupported or ambiguous or ref_says_unsupported
+                                or response_status in ("UNAVAILABLE", "INVALID SCOPE", "UNSUPPORTED", "NOT_RUN")):
+                assessment = "correct_abstention"
+                if unsupported or ambiguous or ref_says_unsupported:
+                    diagnostics.append("ambiguous_or_unsupported_request")
+            elif missing:
+                assessment = "verified_incomplete"
+                findings.extend({"category": "confirmed_missing_requested_evidence", "family": f} for f in missing)
+            elif expected and response_status not in ("COMPLETE WITHIN VERIFIED CONTRACT",):
+                assessment = "unresolved_discrepancy"
+            else:
+                assessment = "evaluation_unavailable"
+
+    return {
+        "case_id": case_id,
+        "assessment": assessment,
+        "claimed_complete": claimed,
+        "retrieval_status": record.get("retrieval_status"),
+        "expected_families": expected,
+        "available_families": sorted(available),
+        "missing_expected_families": missing,
+        "family_findings": family_findings,
+        "diagnostics": sorted(set(diagnostics)),
+        "confirmed_findings": findings,
+        "legacy_evaluator_errors": record.get("citation_or_reference_errors", []),
+        "fault_fixture_required": row.get("fault"),
+        "abstention": bool(record.get("abstention")),
+    }
+
+
+def _integrity_summary(response_path):
+    manifest_path = response_path / "PROVENANCE_MANIFEST.json"
+    manifest = json.loads(manifest_path.read_text())
+    bad = []
+    for cid, wanted in manifest.get("case_records", {}).items():
+        record_path = response_path / ("case-" + cid + ".json")
+        record = json.loads(record_path.read_text())
+        canonical = canonical_sha({k: v for k, v in record.items() if k != "record_sha256"})
+        if record.get("record_sha256") != wanted or canonical != wanted:
+            bad.append(cid)
+    aggregate_path = response_path / "AGGREGATE.json"
+    aggregate_sha = file_sha256(aggregate_path)
+    if aggregate_sha != manifest.get("aggregate_sha256") or bad:
+        raise ValueError(f"preserved response integrity failure: bad_cases={bad}, aggregate_match={aggregate_sha == manifest.get('aggregate_sha256')}")
+    return {
+        "path": str(response_path),
+        "manifest_sha256": file_sha256(manifest_path),
+        "aggregate_sha256": aggregate_sha,
+        "case_count": len(manifest.get("case_records", {})),
+        "all_case_record_hashes_valid": True,
+    }
+
+
+def evaluate(references, responses, catalogue_path, output, source_root, database_sha, three_case_responses=None):
+    refs_path, out_path = Path(references), Path(output)
+    response_path = Path(responses)
+    run_manifest_path = response_path / "PROVENANCE_MANIFEST.json"
+    run_integrity = _integrity_summary(response_path)
+    three_integrity = _integrity_summary(Path(three_case_responses)) if three_case_responses else None
+    run_manifest = json.loads(run_manifest_path.read_text())
+    manifest_records = run_manifest.get("case_records", {})
+    rows = [json.loads(x) for x in refs_path.read_text().splitlines() if x.strip()]
+    row_by_id = {r["id"]: r for r in rows}
+    if len(row_by_id) != len(rows):
+        raise ValueError("duplicate frozen reference case IDs")
+    if set(manifest_records) != set(row_by_id):
+        raise ValueError("response manifest and frozen reference case sets differ")
+    if file_sha256(refs_path) != run_manifest["hashes"]["reference_dataset_sha256"]:
+        raise ValueError("frozen reference hash does not match response manifest")
+    catalogue = _load_catalogue(catalogue_path)
+    root = Path(source_root).resolve()
+    hash_cache = {}
+    cases = []
+    for cid in sorted(row_by_id):
+        path = response_path / f"case-{cid}.json"
+        rec = json.loads(path.read_text())
+        wanted = manifest_records[cid]
+        actual_record = rec.get("record_sha256")
+        canonical_record = canonical_sha({k: v for k, v in rec.items() if k != "record_sha256"})
+        if actual_record != wanted or canonical_record != wanted:
+            raise ValueError(f"saved response record hash differs from preserved manifest: {cid}")
+        cases.append(classify_case(row_by_id[cid], rec, catalogue, root, database_sha, hash_cache))
+
+    counts = {}
+    for case in cases:
+        counts[case["assessment"]] = counts.get(case["assessment"], 0) + 1
+    legacy_errors = {}
+    diagnostic_counts = {}
+    for case in cases:
+        for error in case["legacy_evaluator_errors"]:
+            legacy_errors[error] = legacy_errors.get(error, 0) + 1
+        for diagnostic in case["diagnostics"]:
+            key = diagnostic.split(":", 1)[0]
+            diagnostic_counts[key] = diagnostic_counts.get(key, 0) + 1
+    legacy_false_ids = {cid for cid in row_by_id if json.loads((response_path / ("case-" + cid + ".json")).read_text()).get("false_complete")}
+    by_case = {case["case_id"]: case for case in cases}
+    aggregate = {
+        "evaluator_version": VERSION,
+        "legacy_false_complete_flags": len(legacy_false_ids),
+        "legacy_false_complete_reclassified_verified": sum(by_case[cid]["assessment"] == "correct_and_verified_complete" for cid in legacy_false_ids),
+        "legacy_false_complete_reclassified_evaluation_unavailable": sum(by_case[cid]["assessment"] == "evaluation_unavailable" for cid in legacy_false_ids),
+        "legacy_error_counts": legacy_errors,
+        "diagnostic_case_counts": diagnostic_counts,
+        "cases": len(cases),
+        "assessments": counts,
+        "confirmed_false_complete": counts.get("confirmed_false_complete", 0),
+        "claimed_complete_unverifiable": counts.get("claimed_complete_unverifiable", 0),
+        "verified_complete": counts.get("correct_and_verified_complete", 0),
+        "correct_abstentions": counts.get("correct_abstention", 0),
+        "confirmed_missing_requested_evidence": sum(
+            1 for c in cases for f in c["confirmed_findings"] if f["category"] == "confirmed_missing_requested_evidence"
+        ),
+        "confirmed_incorrect_numerical_values": sum(
+            1 for c in cases for f in c["confirmed_findings"] if f["category"] == "incorrect_numerical_value"
+        ),
+        "cases_with_legacy_errors": sum(bool(c["legacy_evaluator_errors"]) for c in cases),
+        "input_run_aggregate_sha256": run_manifest.get("aggregate_sha256"),
+    }
+    provenance = {
+        "evaluator_version": VERSION,
+        "evaluator_source_sha256": file_sha256(Path(__file__)),
+        "correction_checkout_commit": subprocess.run(
+            ["git", "-C", str(next(parent for parent in Path(__file__).resolve().parents if (parent / ".git").exists())), "rev-parse", "HEAD"],
+            capture_output=True, text=True, check=False
+        ).stdout.strip() or "UNAVAILABLE",
+        "source_commit": run_manifest.get("source_commit"),
+        "full_replay_integrity": run_integrity,
+        "three_case_replay_integrity": three_integrity,
+        "response_manifest_sha256": file_sha256(run_manifest_path),
+        "reference_sha256": file_sha256(refs_path),
+        "catalogue_sha256": file_sha256(Path(catalogue_path)),
+        "database_sha256": database_sha,
+        "source_root": str(root),
+        "verified_cited_files": len(hash_cache),
+        "created_by": "offline saved-response evaluation; no retrieval was run",
+    }
+    if out_path.exists() and any(out_path.iterdir()):
+        raise FileExistsError(f"refusing to overwrite nonempty evaluation output: {out_path}")
+    out_path.mkdir(parents=True, exist_ok=True)
+    (out_path / "CASE_CLASSIFICATIONS.jsonl").write_text(
+        "".join(json.dumps(c, sort_keys=True, allow_nan=False) + "\n" for c in cases)
+    )
+    (out_path / "AGGREGATE.json").write_text(json.dumps(aggregate, sort_keys=True, indent=2) + "\n")
+    (out_path / "PROVENANCE_MANIFEST.json").write_text(json.dumps(provenance, sort_keys=True, indent=2) + "\n")
+    return aggregate
+
+
+def main(argv=None):
+    p = argparse.ArgumentParser(description=__doc__)
+    p.add_argument("--references", required=True)
+    p.add_argument("--responses", required=True)
+    p.add_argument("--catalogue", required=True)
+    p.add_argument("--source-root", required=True)
+    p.add_argument("--database-sha256", required=True)
+    p.add_argument("--output", required=True)
+    p.add_argument("--three-case-responses")
+    a = p.parse_args(argv)
+    print(json.dumps(evaluate(a.references, a.responses, a.catalogue, a.output,
+                              a.source_root, a.database_sha256, a.three_case_responses), sort_keys=True, indent=2))
+
+
+if __name__ == "__main__":
+    main()
