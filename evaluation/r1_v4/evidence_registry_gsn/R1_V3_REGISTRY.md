@@ -21,6 +21,8 @@ For Task 5, use the original trajectory and matching recorder artifacts to build
 
 For Task 8C, use `Task8CRegistryV3Adapter` from `registry_v3_task8c.py`; it delegates reconstruction to the recovered source adapter. Provide explicit trusted hashes for the source manifest, XML/native map/configuration files, runner-binding audit, and verified capture runner when constructing `RegistryV3`. Task 8C records are always development-only. Source validation and citation resolution do not constitute Checker admission; see the [2.1.0 trust boundary and supported source measurements](TASK8C_REGISTRY_V3_SCHEMA_2_1.md).
 
+The prospective independent-cohort architecture and the nine-gate feasibility assessment are documented separately in [Task 8C registration and gate feasibility](TASK8C_PROSPECTIVE_REGISTRATION_AND_GATE_FEASIBILITY.md). This is a proposal and does not authorize new recordings or change admission criteria.
+
 ## CPU tests
 
 Run from the repository root with Python 3.12 and the `h5py` and `jsonschema` versions in `requirements-m4-cpu.lock`.
