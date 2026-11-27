@@ -4,15 +4,15 @@ This report states current component status. The dated [end-to-end feasibility r
 
 | Stage | Current status | What is verified | Remaining boundary |
 |---|---|---|---|
-| RQ1 retrieval | Saved analyses complete; fresh raw-source replay limited | Historical and Phase 5K saved results; known temporal false-complete cases | External retrieval store, source corpus/HDF5 and pinned encoder needed for full replay; held-out expansion has zero eligible independent cases |
-| RQ2 checker | Descriptive calibration/coverage outputs complete; physical admission blocked | Saved row-level counts and applicability/coverage validation | No suitable independent physical reference set; do not call metrics physical accuracy |
+| RQ1 retrieval | Planner-v2 actual replay and adjudication complete; fault suite complete | 216 attempts: 133 verified complete, 71 correct abstentions, 12 normal-run cases evaluation-unavailable because the normal replay did not run their fault fixtures; separate 12/12 fault cases rejected correctly; zero confirmed false-complete retrievals | Exposed development cohort; external retrieval store/source corpus/encoder needed for fresh raw-source reproduction; no independent held-out cases |
+| RQ2 checker | Final retrospective reference scored; physical admission remains blocked | 3/3 applicability agreement; on two applicable cases TP=1, TN=1, FP=0, FN=0; one not-applicable case excluded | One canonical source group; final labels not independently verified, early event-review forms preserved with discrepancy; no physical admission or accuracy generalization |
 | R1 v3 Drafter request | Frozen request and request builder available | Original request binds to the LIBERO Long/OpenVLA-OFT execution, requirement version and frame 10–257 scope | External source evidence is required for raw-source replay |
 | Genuine Task 8A Drafter | Complete; one genuine generation, HTTP 200, 112.87 s, no retries | Five graphs and authoritative host validation; all outcomes `insufficient_information`; evidence admission disabled | Supplementary human reasoning review is pending; this is not safety-case approval |
-| Drafter-to-Critic | Known contract rejection reproduced and preserved | PR #62 adds a specific `ContractError` reproduction, five expected diagnostic markers, original argument validation, and CPU CI checks | Adapter schema/interface must be reviewed and updated by Alex to preserve R1 v3 evidence/provenance fields |
-| Critic on genuine Task 8A argument | Not run | No fabricated Critic request is used | Requires accepted adapter contract and Alex’s integration work |
-| Revision on genuine Task 8A chain | Not run | Separate RQ4 pilot is complete and remains bounded | Do not conflate RQ4 pilot with Task 8A end-to-end flow |
-| Second Critic on genuine Task 8A chain | Not run | RQ4 pilot has separate second-Critic outputs | No real end-to-end revised Task 8A argument has been re-criticized |
-| End-to-end safety-case acceptance | Not demonstrated | Individual components and saved CPU interfaces have scoped checks | Requires adapter integration, reasoning review, downstream stages and appropriate independent evidence review; no current result establishes physical safety |
+| Drafter-to-Critic | Accepted R1 v3 handoff in PR #63 | Original request and accepted generation report are validated and retained losslessly; request and bundle hashes are recorded | PR #62 rejection reproduction is historical and superseded by the accepted handoff contract |
+| Critic on genuine Task 8A argument | Deterministic CPU review completed in the local orchestration candidate | Genuine Task 8A draft was revalidated; Critic report has no admitted Checker assessment, keeps all five conclusions unresolved, and leaves `safety_claim_verified=false` | R1 v3 Critic model inference is not implemented; no evidence of model-based semantic review |
+| Revision on genuine Task 8A chain | Not run; no actionable finding in the deterministic report | No Revision request was fabricated or run | If a later Critic produces actionable R1 v3 findings, a compatible R1 v3 Critic-to-Revision contract and validated adapter are not yet implemented |
+| Second Critic on genuine Task 8A chain | Not applicable in this resume | No revision was produced | Requires a validated revision and an agreed second-Critic interface |
+| End-to-end safety-case acceptance | Not demonstrated | Saved Drafter-to-deterministic-Critic resume was validated; all evidence gaps and review requirements remain visible | Requires RQ1 retrieval/source registration, an admitted Checker assessment where applicable, reasoning review, integrated Critic/Revision contracts and appropriate independent evidence review; no current result establishes physical safety |
 
 ## Reproduction from repository root
 
@@ -21,12 +21,14 @@ Use Python 3.12 and the CPU dependencies listed in the root installation and CI 
 ```sh
 python3 -m evaluation.m4_20261127.integration.build_r1v3_request --check
 python3 evaluation/m4_20261127/integration/task8a_r1v3/validate_generated_argument.py
+python3 -m integration.orchestrator resume-task8a --out-dir /tmp/m4-task8a-resume
 python3 -m unittest drafter.tests.test_r1v3_profile drafter.tests.test_r1v3_generation -v
+python3 -m unittest integration.tests.test_orchestrator -v
 python3 evaluation/m4_20261127/rq4/finalized_results/validate_public_results.py
 sha256sum -c evaluation/m4_20261127/integration/task8a_r1v3/ARTIFACT_SHA256SUMS.txt
 sha256sum -c evaluation/m4_20261127/rq4/finalized_results/ARTIFACT_SHA256SUMS.txt
 ```
 
-To reproduce the known adapter rejection without inference, run the documented `DOWNSTREAM_REPRODUCE.py`; exit 2 with its expected `ContractError` diagnostics is the expected result, while other exit codes indicate a failure. The report and exact expected diagnostics are in `task8a_r1v3/DOWNSTREAM_INTERFACE_DIAGNOSTICS.md`.
+`DOWNSTREAM_REPRODUCE.py` and its diagnostic report are preserved as historical PR #62 artifacts. In the combined PR #63 interface, its expected rejection is superseded: current handoff behavior is tested by `integration.tests.test_r1v3_handoff` and by the saved-run orchestration command above.
 
 The historical feasibility report describes an earlier saved fixture. It remains preserved for provenance; use this status report and the [experiment registry](../EXPERIMENT_REGISTRY.md) for current conclusions.

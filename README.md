@@ -126,33 +126,34 @@ The scorer and table generator are CPU-only. This re-analysis does not rerun Qwe
 
 ### RQ2 saved results
 
-Run `python integration/verify_saved_results.py`. The current adjudicated calibration reports applicability agreement 3/3 and TP=1, TN=1, FP=0, FN=0 on two applicable cases; one not-applicable case is excluded from binary metrics. These three variants share one canonical source group. The expanded 60-execution analysis is unlabeled coverage evidence: 300 object units, 120 applicable, 20 determinate decisions and 100 abstentions. Its overall coverage is 20/120. The verifier checks those counts against committed row-level artifacts; it does not authenticate external Hestia source recordings or create new labels.
+Run `python integration/verify_saved_results.py`. The recovered, user-confirmed final adjudicated reference reports applicability agreement 3/3; on two applicable cases TP=1, TN=1, FP=0, FN=0, outcome agreement 2/2, and decision coverage 2/2. One not-applicable case is excluded from binary metrics. The three variants share one canonical source group and remain descriptive development evidence; the checker run did not load human references and admission remains disabled. Earlier event-review forms are preserved and differ on the sham observation; the final adjudicated classification is retained verbatim, without independent verification of frame-10 reaction forces. The expanded 60-execution analysis is unlabeled coverage evidence: 300 object units, 120 applicable, 20 determinate decisions and 100 abstentions. Its overall coverage is 20/120. The verifier checks those counts against committed row-level artifacts; it does not authenticate external Hestia source recordings or create new labels.
 
 ### RQ1 saved results
 
-Committed RQ1 metric and assessment files can be read directly under `evaluation/m4_20261127/rq1/` and `evaluation/r1_v4/rag_evidence_database/`. Historical, V1, V2 and Phase 5K findings are separate populations. Phase 5K V2 reported 24/24 multi-source completeness and 84/84 required-family obligations, while three temporal-plan cases remain false-complete: `KH2-C2-02`, `KH2-C2-10` and `KH2-C2-18`. These results do not mean that full retrieval can be rerun from a fresh clone: the retrieval database, source corpus/HDF5 recordings and pinned local encoder are external. Do not run the Hestia-only replay instructions as if their dependencies were bundled.
+Committed RQ1 results and the publication-safe case tables are under `evaluation/r1_v4/rag_evidence_database/retrieval_remediation/publication_v1/`. The 216-query planner-v2 actual replay is complete: 133 verified complete retrievals, 71 correct abstentions, 12 cases unavailable in the normal saved-response evaluation because the source-fault fixtures were not run, and zero confirmed false-complete retrievals. The original 49 false-complete flags are retained as historical evaluator results but superseded as interpretations. A separate targeted fault suite verified all 12 source-integrity rejections. The three temporal cases `KH2-C2-02`, `-10` and `-18` passed corrected retrieval verification. Historical, V1, planner-only, and actual retrieval results are separate populations. These results do not mean that full retrieval can be rerun from a fresh clone: the retrieval database, source corpus/HDF5 recordings and pinned local encoder are external.
 
-### Genuine Task 8A artifact validation and known adapter result
+### Genuine Task 8A validation and saved downstream resumption
 
 These checks use the preserved genuine output and do not run inference. Use the Python 3.12 environment installed above:
 
 ```sh
 python -m evaluation.m4_20261127.integration.build_r1v3_request --check
 python evaluation/m4_20261127/integration/task8a_r1v3/validate_generated_argument.py
+python -m integration.orchestrator resume-task8a --out-dir /tmp/m4-task8a-resume
 python -m unittest drafter.tests.test_r1v3_profile drafter.tests.test_r1v3_generation -v
 ```
 
-The current adapter rejection is expected and independently reproducible without a model call. Exit status 2 with the expected `ContractError` markers indicates the known interface mismatch; any other exit status is an error:
+The current R1 v3 handoff is accepted and the saved Task 8A output has been resumed through the deterministic CPU Critic. The R1 v3 Critic model route and Critic-to-Revision contract remain unimplemented; Revision and second-Critic stages have not run. This does not regenerate the draft or call a model. The historical PR #62 rejection reproduction is preserved but superseded by the PR #63 handoff contract:
 
 ```sh
 set +e
 python evaluation/m4_20261127/integration/task8a_r1v3/DOWNSTREAM_REPRODUCE.py
 status=$?
 set -e
-test "$status" -eq 2
+test "$status" -eq 2 # historical pre-PR #63 diagnostic only
 ```
 
-The generated argument passed full host validation and has five `insufficient_information` object outcomes. Evidence admission remains disabled; the draft still requires supplementary human reasoning review and downstream adapter integration. See [current integration status](evaluation/m4_20261127/integration/CURRENT_INTEGRATION_STATUS.md).
+The generated argument passed full host validation and has five `insufficient_information` object outcomes. Evidence admission remains disabled; the draft still requires supplementary human reasoning review, a model-backed R1 v3 Critic route, a compatible R1 v3 Critic-to-Revision contract, Revision, and second-Critic review. See [current integration status](evaluation/m4_20261127/integration/CURRENT_INTEGRATION_STATUS.md).
 
 ### Finalized RQ4 public results
 
@@ -184,7 +185,7 @@ The isolated RQ3 unseen-parent expansion remains blocked: PR #39 and stacked PR 
 
 ## Scientific boundaries
 
-- RQ1 completeness is scoped to the requested obligations. The known temporal false-complete failures remain.
+- RQ1 completeness is scoped to requested obligations. The three temporal cases passed corrected actual-retrieval verification; historical false-complete flags are superseded by offline adjudication, not confirmed retrieval defects.
 - RQ2's finalized binary comparison has one positive, one negative, one not-applicable case and one canonical source group. Expanded outputs are coverage/abstention counts, not accuracy.
 - RQ3's 108 responses are development-only; 12 semantic cases come from two exposed parent groups. The independent mutation-label audit is pending. C is admission-status-only.
 - The saved one-pass Qwen interaction shows real model calls on a development fixture and one controlled semantic miss; it does not establish physical safety or general Critic effectiveness.
