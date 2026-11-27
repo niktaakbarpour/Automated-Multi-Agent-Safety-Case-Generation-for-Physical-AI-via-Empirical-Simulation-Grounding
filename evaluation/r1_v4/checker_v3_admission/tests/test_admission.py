@@ -2,6 +2,7 @@
 
 from copy import deepcopy
 from pathlib import Path
+from shutil import copyfile
 from tempfile import TemporaryDirectory
 import unittest
 
@@ -230,6 +231,17 @@ class AdmissionTests(unittest.TestCase):
         self.assertIn("development_only_prediction", result["blockers"])
         self.assertIsNone(result["conclusion"])
 
+    def test_malformed_development_marker_is_rejected(self):
+        request = self.request()
+        prediction = self._prediction(request["scope"])
+        for row, seal in (
+            ({**prediction, "development_only": "true"}, {}),
+            (prediction, {"synthetic": 1}),
+        ):
+            self._write_prediction(request, row, **seal)
+            with self.assertRaisesRegex(ValueError, "development markers must be boolean"):
+                self.run_assessment(request, self.approve(request))
+
     def test_scope_mismatch_in_registry_citations_is_blocked(self):
         request = self.request()
         request["scope"]["task_id"] = "different-task"
@@ -260,6 +272,15 @@ class AdmissionTests(unittest.TestCase):
         request = self.request(outcome="violation")
         prediction = self._prediction(request["scope"], outcome="violation")
         prediction["events"][0]["interval"] = [11, 14]
+        self._write_prediction(request, prediction)
+        result = self.run_assessment(request, self.approve(request))
+        self.assertIn("G05_validated_falling_witness", result["blockers"])
+        self.assertIsNone(result["conclusion"])
+
+    def test_fall_descent_cannot_overlap_support_departure(self):
+        request = self.request(outcome="violation")
+        prediction = self._prediction(request["scope"], outcome="violation")
+        prediction["events"][0]["evidence"]["downward_motion_bracket"] = [11, 12]
         self._write_prediction(request, prediction)
         result = self.run_assessment(request, self.approve(request))
         self.assertIn("G05_validated_falling_witness", result["blockers"])
@@ -314,6 +335,66 @@ class AdmissionTests(unittest.TestCase):
         proofs[gate]["evidence_ids"] = ["ev:" + "0" * 64]
         result = self.run_assessment(request, self.approve(request, gates=proofs))
         self.assertIn(gate, result["blockers"])
+        self.assertIsNone(result["conclusion"])
+
+    def test_gate_proof_requires_relevant_evidence(self):
+        request = self.request()
+        self.approve(request)
+        proofs = load(self.review)["gates"]
+        gate = "G03_geometry_empirical_admission"
+        proofs[gate]["evidence_ids"] = [
+            item["record_id"] for item in request["citations"] if item["measurement_type"] == "object_pose"
+        ]
+        result = self.run_assessment(request, self.approve(request, gates=proofs))
+        self.assertTrue(all(row["status"] == "verified_source" for row in result["evidence_ledger"]))
+        self.assertEqual(result["blockers"], [gate])
+        self.assertIsNone(result["conclusion"])
+
+    def test_gate_proof_must_cite_the_required_frames(self):
+        request = self.request()
+        contact = next(row for row in self.registry.records() if row["measurement_type"] == "contact")
+        payload = {key: value for key, value in contact.items() if key != "id"}
+        short = make_record({**payload, "saved_frames": payload["saved_frames"][:2]})
+        self.registry.add([short])
+        request["citations"].append(
+            {"record_id": short["id"], "measurement_type": "contact", "frames": [9, 10]}
+        )
+        self.approve(request)
+        proofs = load(self.review)["gates"]
+        gate = "G09_contact_based_physical_evidence"
+        proofs[gate]["evidence_ids"] = [short["id"]]
+        result = self.run_assessment(request, self.approve(request, gates=proofs))
+        self.assertEqual(result["blockers"], [gate])
+        self.assertIsNone(result["conclusion"])
+
+    def test_individually_verified_citations_must_agree_on_the_simulator_model(self):
+        request = self.request()
+        alternate = self.root / "alternate_capture"
+        alternate.mkdir()
+        trajectory = alternate / "trajectory.h5"
+        copyfile(self.trajectory, trajectory)
+        xml = alternate / "simulator.xml"
+        xml.write_bytes((self.root / "simulator.xml").read_bytes() + b"\n<!-- distinct model artifact -->\n")
+        native_map = load(self.root / "native_map.json")
+        native_map["source_xml_sha256"] = binding(xml)["sha256"]
+        mapping = save(alternate / "native_map.json", native_map)
+        old = next(row for row in self.registry.records() if row["measurement_type"] == "contact")
+        payload = {key: value for key, value in old.items() if key != "id"}
+        alternate_contact = make_record({
+            **payload,
+            "source": binding(trajectory),
+            "native_binding": {
+                **old["native_binding"], "simulator_xml": binding(xml),
+                "mapping": {**mapping, "selector": "/geometries"},
+            },
+        })
+        self.registry.add([alternate_contact])
+        contact = next(row for row in request["citations"] if row["measurement_type"] == "contact")
+        contact["record_id"] = alternate_contact["id"]
+        result = self.run_assessment(request, self.approve(request))
+        self.assertTrue(all(row["status"] == "verified_source" for row in result["evidence_ledger"]))
+        self.assertIn("G03_geometry_empirical_admission", result["blockers"])
+        self.assertIn("G09_contact_based_physical_evidence", result["blockers"])
         self.assertIsNone(result["conclusion"])
 
     def test_assessment_hash_alone_cannot_authorize_a_modified_result(self):

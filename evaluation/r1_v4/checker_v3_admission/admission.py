@@ -148,15 +148,18 @@ def _read_prediction(request, root, checker):
         or any(not isinstance(event, dict) for event in prediction["events"])
     ):
         raise ValueError("invalid or inconsistent Checker decision fields")
-    development = any(
-        source.get(flag) is True
+    flags = [
+        source[flag]
         for source in (prediction, seal)
         for flag in ("development_only", "development_exposed", "synthetic")
-    )
+        if flag in source
+    ]
+    if any(type(flag) is not bool for flag in flags):
+        raise ValueError("prediction and seal development markers must be boolean")
     return prediction, {
         "sha256": artifact["sha256"], "seal_sha256": binding["seal"]["sha256"],
         "row_index": index, "row_sha256": digest(prediction),
-    }, development
+    }, any(flags)
 
 
 def _archived_development_scope(scope, prediction_sha256):
@@ -231,11 +234,14 @@ def _fall_witness(prediction, index, frame_interval):
         ):
             continue
         downward = evidence.get("downward_motion_bracket")
+        departure = evidence.get("support_departure_bracket")
         if (
             not _interval(downward) or onset[1] - onset[0] != 1 or downward[1] - downward[0] != 1
-            or onset != evidence.get("support_departure_bracket") or event.get("onset") != onset[1]
-            or not first - 1 <= interval[0] <= onset[0] < onset[1] <= downward[1] <= interval[1] <= last
-            or onset[1] < first or downward[0] < onset[0]
+            or not _interval(departure) or departure != onset
+            or type(event.get("onset")) is not int or event["onset"] != onset[1]
+            or interval[0] != onset[0]
+            or not first - 1 <= onset[0] < onset[1] <= downward[0] < downward[1] <= interval[1] <= last
+            or onset[1] < first
         ):
             continue
         return {"event_id": event["event_id"], "selector": f"/{index}/events/{offset}", "interval": interval}
@@ -246,7 +252,27 @@ def _encloses(intervals, start, end):
     return any(lo <= start and end <= hi for lo, hi in intervals)
 
 
-def _qualification(prediction, prediction_binding, frame_interval, stencil, measurement, negative, ledger):
+def _available_frames(rows):
+    available = {family: set() for family in ("object_pose", "native_geometry", "contact", "timestamp")}
+    for row in rows:
+        family = row["citation"]["measurement_type"]
+        if family in available:
+            available[family].update(row["citation"]["frames"])
+        if family in ("object_pose", "native_geometry", "contact"):
+            available["timestamp"].update(
+                frame["frame"] for frame in row["binding"]["saved_frames"] if "simulator_time_seconds" in frame
+            )
+    return available
+
+
+def _missing_coverage(available, required):
+    for family, spans in required.items():
+        if any(sum(lo <= frame <= hi for frame in available[family]) != hi - lo + 1 for lo, hi in spans):
+            return family
+    return None
+
+
+def _qualification(prediction, prediction_binding, frame_interval, stencil, measurement, negative, available):
     first, last = frame_interval
     initial = prediction.get("initial_support")
     applicability, outcome = prediction["applicability"], prediction["outcome"]
@@ -274,7 +300,9 @@ def _qualification(prediction, prediction_binding, frame_interval, stencil, meas
     ):
         issues["G04_initial_support_applicability"] = "The Checker lacks a matching, qualified initial-support result."
 
-    spans = [(stencil[0], stencil[-1])]
+    boundary_spans = [(stencil[0], stencil[-1])]
+    spans = list(boundary_spans)
+    coverage = {}
     if outcome == "insufficient_information":
         blockers.append("checker_abstained")
     if outcome == "violation":
@@ -282,48 +310,47 @@ def _qualification(prediction, prediction_binding, frame_interval, stencil, meas
         if witness is None or not _encloses(measurement, max(first, witness["interval"][0]), witness["interval"][1]):
             issues["G05_validated_falling_witness"] = "The Checker lacks a scoped fall witness with measurement coverage."
         else:
-            spans.append(tuple(witness["interval"]))
+            witness_span = tuple(witness["interval"])
+            spans.append(witness_span)
+            coverage["G05_validated_falling_witness"] = dict.fromkeys(available, [witness_span])
     if outcome in (NEGATIVE, "not_applicable") and any(
         event.get("type") == "r1_fall" and event.get("scope") == "in_scope" for event in prediction["events"]
     ):
         blockers.append("checker_outcome_conflicts_with_an_in_scope_fall")
     if outcome == NEGATIVE:
         spans.append((first, last))
+        for gate in ("G06_qualified_negative_certificate", "G07_static_coverage_composition"):
+            coverage[gate] = dict.fromkeys(available, spans)
         if not (_encloses(measurement, first, last) and _encloses(negative, first, last)):
             for gate in ("G06_qualified_negative_certificate", "G07_static_coverage_composition"):
                 issues[gate] = "The Checker lacks qualified negative coverage for the full saved-frame interval."
 
-    available = {family: set() for family in ("object_pose", "native_geometry", "contact", "timestamp")}
-    for row in ledger:
-        if row["status"] != "verified_source":
-            continue
-        family = row["citation"]["measurement_type"]
-        if family in available:
-            available[family].update(row["citation"]["frames"])
-        if family in ("object_pose", "native_geometry", "contact"):
-            available["timestamp"].update(
-                item["frame"] for item in row["binding"]["saved_frames"] if "simulator_time_seconds" in item
-            )
-    for family, gate in (
-        ("object_pose", "G04_initial_support_applicability"),
-        ("native_geometry", "G03_geometry_empirical_admission"),
-        ("contact", "G09_contact_based_physical_evidence"),
-        ("timestamp", "G11_temporal_empirical_admission"),
-    ):
-        if any(sum(lo <= frame <= hi for frame in available[family]) != hi - lo + 1 for lo, hi in spans):
+    coverage.update({
+        "G04_initial_support_applicability": {**dict.fromkeys(available, boundary_spans), "object_pose": spans},
+        "G03_geometry_empirical_admission": {"native_geometry": spans},
+        "G09_contact_based_physical_evidence": {"contact": spans},
+        "G11_temporal_empirical_admission": {"timestamp": spans},
+    })
+    for gate, required in coverage.items():
+        if family := _missing_coverage(available, required):
             issues.setdefault(gate, f"Verified {family} records do not cover the required saved frames.")
-    return {"applicability": applicability, "outcome": outcome, "witness_event": witness}, issues, blockers
+    return {"applicability": applicability, "outcome": outcome, "witness_event": witness}, issues, blockers, coverage
 
 
-def _gate_ledger(review, issues, verified):
+def _gate_ledger(review, issues, verified, coverage):
     ledger = []
     for gate in PHYSICAL_GATES:
         proof = None if review is None else review["gates"][gate]
         reason = issues.get(gate)
-        if reason is None and proof is None:
-            reason = f"Authorized review is required for {GATE_REQUIREMENTS[gate]}."
-        if reason is None and not set(proof["evidence_ids"]) <= verified:
-            reason = "The independent review cites missing or unverified evidence."
+        if reason is None:
+            if proof is None:
+                reason = f"Authorized review is required for {GATE_REQUIREMENTS[gate]}."
+            elif not set(proof["evidence_ids"]) <= verified.keys():
+                reason = "The independent review cites missing or unverified evidence."
+            elif gate in coverage:
+                cited = _available_frames(verified[record_id] for record_id in proof["evidence_ids"])
+                if family := _missing_coverage(cited, coverage[gate]):
+                    reason = f"The independent review's {family} citations do not cover this gate's saved frames."
         ledger.append({
             "gate_id": gate,
             "status": "blocked" if reason else "verified",
@@ -361,15 +388,27 @@ def assess(request, *, source_root, registry=None, trusted_review_hashes=()):
     archived_development = _archived_development_scope(scope, prediction_binding["sha256"])
     review, denial = _read_review(request, root, input_sha256, declared_development or archived_development, trusted)
     evidence = _evidence_ledger(request["citations"], registry, scope, limits)
-    verified = {row["citation"]["record_id"] for row in evidence if row["status"] == "verified_source"}
-    conclusion, issues, blockers = _qualification(
-        prediction, prediction_binding, interval, stencil, measurement, negative, evidence,
+    verified = {row["citation"]["record_id"]: row for row in evidence if row["status"] == "verified_source"}
+    conclusion, issues, blockers, coverage = _qualification(
+        prediction, prediction_binding, interval, stencil, measurement, negative, _available_frames(verified.values()),
     )
+    native_identities = {
+        (binding["simulator_xml"]["sha256"], binding["body_id"])
+        for row in verified.values()
+        if (binding := row["binding"]["native_binding"]) is not None
+    }
+    if len(native_identities) > 1:
+        for gate in (
+            "G03_geometry_empirical_admission",
+            "G04_initial_support_applicability",
+            "G09_contact_based_physical_evidence",
+        ):
+            issues[gate] = "The verified citations disagree on the simulator model or native object binding."
     if denial:
         blockers.append(denial)
     if len(verified) != len(evidence):
         blockers.append("unverified_registry_citations")
-    gates = _gate_ledger(review, issues, verified)
+    gates = _gate_ledger(review, issues, verified, coverage)
     blockers.extend(row["gate_id"] for row in gates if row["status"] == "blocked")
     admitted = not blockers
     result = {
