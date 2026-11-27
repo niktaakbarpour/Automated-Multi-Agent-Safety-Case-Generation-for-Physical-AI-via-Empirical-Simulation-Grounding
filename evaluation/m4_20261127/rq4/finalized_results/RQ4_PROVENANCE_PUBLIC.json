@@ -1,0 +1,30 @@
+{
+  "protocol_run_commit": "c524765604f61fbb15a5c9c7bd46d2b76516a5c3",
+  "scorer_commit": "dd0c4f8815cd3c230b301280f543d333a756985e",
+  "scorer_source_sha256": "0c2c7146a227c0238dc14493856fcc6cf5322861873dd6cb208ee3101109c866",
+  "human_review_model": "one coordinator-confirmed consensus form; identities and private review metadata withheld",
+  "human_review_agreement": "Coordinator-confirmed agreement based on a single consensus form; not independently recalculated; Cohen kappa unavailable.",
+  "inference": {
+    "genuine_qwen_responses": "9/9",
+    "second_critic_responses": "27/27",
+    "revision_outputs_applied": "12/12"
+  },
+  "design": {
+    "planted_defect_cases": 3,
+    "source_groups": 2,
+    "independent_cases": 0,
+    "defect_types": 1,
+    "qwen_outputs_per_case": 3,
+    "template_outputs_per_case": 1
+  },
+  "limitations": [
+    "Bounded development-stage pilot only; broader RQ4 effectiveness study remains NO-GO.",
+    "Repeated outputs do not constitute independent defect cases.",
+    "No natural Critic findings or effect of admitted physical checker evidence were evaluated.",
+    "Human results were coordinator-confirmed from one consensus form; Cohen kappa is unavailable."
+  ],
+  "private_source_hashes": {
+    "stage1_responses_sha256": "388eef7dfbdb346e5ee9e907266e6744e65d66c7d022270b53711729cdf570ae",
+    "stage2_responses_sha256": "5888078ed549427db7264fc6e11b1306e1fd3661570d0c9129d4b65e7bb1afe8"
+  }
+}

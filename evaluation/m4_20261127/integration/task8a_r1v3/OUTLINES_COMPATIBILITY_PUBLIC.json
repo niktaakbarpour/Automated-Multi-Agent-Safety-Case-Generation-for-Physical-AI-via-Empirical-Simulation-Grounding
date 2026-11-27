@@ -1,0 +1,18 @@
+{
+  "model_called": false,
+  "gpu_used": false,
+  "tokenizer_identity": "Qwen3-32B tokenizer at approved model revision 9216db5781bf21249d130ec9da846c4624c16137; local host path omitted",
+  "limit_seconds": 60.0,
+  "decoder_schema": {
+    "compiled": true,
+    "seconds": 7.91,
+    "vocabulary_tokens": 150332,
+    "regex_characters": 8753
+  },
+  "full_plan_schema": {
+    "compiled": false,
+    "seconds": null,
+    "note": "Still compiling at the 60 second limit; full host-side validation remains authoritative."
+  },
+  "passed": true
+}

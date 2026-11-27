@@ -1,0 +1,13 @@
+output_id,method,case_id,sample,status,second_reviews,second_reviews_missing,second_reviews_target_flagged,second_reviews_with_new_objection,defect_fixed,revised_claim_supported_by_evidence,new_problem_introduced,scope_preserved,correct_repair
+P1-M1a:template,template,P1-M1a,,revised,3,0,0,0,yes,yes,no,yes,1
+P1-M1b:template,template,P1-M1b,,revised,3,0,0,0,yes,yes,no,yes,1
+P2-M1c:template,template,P2-M1c,,revised,3,0,0,2,yes,no,yes,no,0
+P1-M1a:Q:r1,qwen,P1-M1a,1,revised,1,0,0,0,yes,yes,no,yes,1
+P1-M1a:Q:r2,qwen,P1-M1a,2,revised,1,0,0,0,yes,yes,no,yes,1
+P1-M1a:Q:r3,qwen,P1-M1a,3,revised,1,0,0,0,yes,yes,no,yes,1
+P1-M1b:Q:r1,qwen,P1-M1b,1,revised,1,0,0,0,yes,yes,no,yes,1
+P1-M1b:Q:r2,qwen,P1-M1b,2,revised,1,0,0,0,yes,yes,no,yes,1
+P1-M1b:Q:r3,qwen,P1-M1b,3,revised,1,0,0,0,yes,yes,no,yes,1
+P2-M1c:Q:r1,qwen,P2-M1c,1,revised,1,0,0,0,yes,yes,no,yes,1
+P2-M1c:Q:r2,qwen,P2-M1c,2,revised,1,0,0,1,yes,yes,no,yes,1
+P2-M1c:Q:r3,qwen,P2-M1c,3,revised,1,0,0,1,yes,yes,no,yes,1
