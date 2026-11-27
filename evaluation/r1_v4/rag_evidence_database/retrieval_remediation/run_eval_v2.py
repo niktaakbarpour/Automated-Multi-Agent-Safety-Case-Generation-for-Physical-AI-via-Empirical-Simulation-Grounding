@@ -127,6 +127,9 @@ def _sample_audit(response, row):
             elif references and (artifact.get("path"), artifact.get("sha256")) not in references:
                 errors.append("citation_source_not_bound_to_reference")
             matched_reference = False
+            value = item.get("value", {})
+            if expected_frames is not None and value.get("saved_frame_index") is not None and value["saved_frame_index"] not in expected_frames:
+                errors.append("sample_outside_reference_scope")
             for sample in item.get("samples", []):
                 refs = row.get("reference_samples", {}).get(family, [])
                 ref = next((candidate for candidate in refs if candidate.get("frame") == sample.get("saved_frame_index")), None)
@@ -152,8 +155,15 @@ def _sample_audit(response, row):
                 continue
             for item in group.get("items", []):
                 value = item.get("value", {})
-                fields = ("object_id", "root_body", "body_id", "collision_geom_ids") if family == "geometry_identity" else ("body_name", "geom_name")
-                if all(value.get(key) == expected.get(key) for key in fields):
+                if family == "recorded_time":
+                    matched = (value.get("simulator_endpoint_seconds") == expected.get("simulator_endpoint_seconds")
+                               and value.get("recorder_host_wall_ns") == expected.get("wall_ns")
+                               and value.get("saved_frame_index") in (row.get("reference_frame_indices") or [value.get("saved_frame_index")])
+                               and value.get("synchronized_physical_instant") is False)
+                else:
+                    fields = ("object_id", "root_body", "body_id", "collision_geom_ids") if family == "geometry_identity" else ("body_name", "geom_name")
+                    matched = all(value.get(key) == expected.get(key) for key in fields)
+                if matched:
                     verified.add(family)
                 else:
                     errors.append("reference_metadata_mismatch:" + family)

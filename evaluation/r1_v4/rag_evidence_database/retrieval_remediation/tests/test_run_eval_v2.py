@@ -104,6 +104,30 @@ class ReplayHarnessTests(unittest.TestCase):
         self.assertIn("sample_outside_reference_scope", record["citation_or_reference_errors"])
         self.assertEqual(result["partial_retrieval_responses"], 1)
 
+    def test_recorded_time_frame_and_timestamp_are_checked_against_reference(self):
+        row = self.rows[0]
+        row["expected_families"] = ["raw.robot0_joint_pos", "recorded_time"]
+        row["reference_frame_indices"] = [2]
+        row["reference_metadata"] = {"recorded_time": {"simulator_endpoint_seconds": 2.1, "wall_ns": 2100, "sensor_clock": False}}
+        self.write_refs()
+        result = response()
+        result["requested_families"].append("recorded_time")
+        result["groups"].append({"family": "recorded_time", "status": "AVAILABLE", "items": [{
+            "execution_id": "exec-A", "task_id": "task-A", "variant_id": "variant-A", "family": "recorded_time",
+            "integrity_status": "verified_source", "source_artifact": {"path": str(self.source), "sha256": "source-hash"},
+            "value": {"saved_frame_index": 2, "simulator_endpoint_seconds": 2.1,
+                      "recorder_host_wall_ns": 2100, "synchronized_physical_instant": False}}]})
+        result["interpretation"]["families"].append("recorded_time")
+        fake = FakeRetriever("", "", responses={row["query"]: result})
+        summary = self.execute(fake)
+        self.assertEqual(summary["retrieval_complete_verified"], 1)
+        # A timestamp mismatch cannot be hidden behind a complete retrieval label.
+        self.out = self.root / "out-bad-timestamp"
+        result["groups"][1]["items"][0]["value"]["simulator_endpoint_seconds"] = 99.0
+        fake = FakeRetriever("", "", responses={row["query"]: result})
+        summary = self.execute(fake)
+        self.assertEqual(summary["false_complete"], 1)
+
     def test_missing_source_artifact_is_recorded_as_retrieval_unavailable(self):
         missing = response(status="UNAVAILABLE", claimed="UNAVAILABLE")
         missing["groups"][0]["items"] = []
