@@ -21,4 +21,6 @@ jobs:
         run: python -m unittest evaluation.r1_v4.rag_evidence_database.retrieval_remediation.tests.test_requested_obligations_v2 evaluation.r1_v4.rag_evidence_database.retrieval_remediation.tests.test_bundle_v2_contract -v
       - name: RQ1 planner-v2 actual-retrieval replay harness (synthetic fixtures)
         run: python -m unittest evaluation.r1_v4.rag_evidence_database.retrieval_remediation.tests.test_run_eval_v2 -v
+      - name: RQ1 saved-response evaluator v3 regressions (synthetic fixtures)
+        run: python -m unittest evaluation.r1_v4.rag_evidence_database.retrieval_remediation.tests.test_evaluate_replay_v3 -v
       - run: git diff --exit-code
