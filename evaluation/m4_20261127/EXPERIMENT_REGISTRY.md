@@ -23,3 +23,14 @@ The approved `shared/M4_PROTOCOL_FREEZE.md` is M4-v1.0. It freezes design defini
 ## Reconciliation notice
 
 `integration/EXPERIMENT_REPRODUCTION_INDEX.md`, root README RQ4 descriptions, and `integration/END_TO_END_FEASIBILITY_REPORT.md` were written before the finalized genuine RQ4 and Task 8A artifacts. They remain historical records and contain superseded status statements. Use this registry and the dated finalization/handoff reports for current milestones; do not infer RQ4 results from the older scripted-example row. The Task 8A Drafter-to-Critic adapter rejection remains Alex’s integration task.
+
+
+## RQ1 planner-v2 actual retrieval and fault-injection addendum
+
+The exposed 216-query planner-v2 actual retrieval replay is complete. The original evaluator recorded 49 false-complete flags; these remain preserved as historical evaluator results and are superseded interpretations, not confirmed retrieval defects. The versioned offline adjudication verified 133 complete retrievals, 71 correct abstentions, and left 12 saved rows evaluation-unavailable because the normal replay did not run their specified source-fault fixtures. It confirmed zero false-complete retrievals, zero missing retrieved evidence, and zero wrong numeric values. It also verified 150 numeric samples and 232 cited items. The 28 historical error cases overlap among source-binding, recorded-time, table-identity, and not-run sample diagnostics.
+
+A separate targeted planner-v2 fault run faithfully reproduced all 12 frozen C8 source-integrity faults: three each for missing, corrupt, symlinked, and replaced sources. All 12 were rejected as unavailable with correct abstention, no execution errors, and unchanged authoritative source hashes. These supplemental tests do not change the normal replay denominator or reclassify its 12 saved-response rows. No algorithmic retrieval change was made.
+
+The three temporal cases KH2-C2-02, KH2-C2-10, and KH2-C2-18 each returned the requested recorded-time and joint-position families and passed the corrected source/frame audit. The full cohort remains exposed development data, not an independent evaluation; physical evidence eligibility remains NOT_EVALUATED.
+
+Publication-safe case tables, fault outcomes, checksums, provenance, and reproduction instructions are in the RQ1 package at `evaluation/r1_v4/rag_evidence_database/retrieval_remediation/publication_v1/` on PR #66 (current source commit `d088986dabfbff2a1f17313e8077fc5cc0d13689`). The corrected offline evaluation is separately documented in `OFFLINE_ADJUDICATION_V3.md`. These artifacts exclude raw evidence, confidential reference contents, exact private source paths, and credentials.
