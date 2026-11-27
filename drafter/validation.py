@@ -29,6 +29,7 @@ AUTHORITATIVE_SCHEMAS = {
     '../../evaluation/r1_v4/evidence_registry_gsn/registry_record.schema.json': 'evaluation/r1_v4/evidence_registry_gsn/registry_record.schema.json',
     '../../evaluation/r1_v4/evidence_registry_gsn/gsn_graph.schema.json': 'evaluation/r1_v4/evidence_registry_gsn/gsn_graph.schema.json',
     'draft_argument.schema.json': 'drafter/schemas/draft_argument.schema.json',
+    'draft_argument_r1v3.schema.json': 'drafter/schemas/draft_argument_r1v3.schema.json',
     '../../requirements/r1_initial_table_support_v3/R1_V3_DRAFTER_CONFIG_SCHEMA.json': 'requirements/r1_initial_table_support_v3/R1_V3_DRAFTER_CONFIG_SCHEMA.json',
 }
 # Versioned R1 v3 profile (drafter/r1v3_profile.py). Earlier versions keep their own validators unchanged.

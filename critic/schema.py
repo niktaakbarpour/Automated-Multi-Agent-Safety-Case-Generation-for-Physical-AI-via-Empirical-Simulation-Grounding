@@ -21,6 +21,7 @@ ROOT = Path(__file__).resolve().parents[1]
 PHASE5 = ROOT / 'evaluation' / 'r1_v4' / 'rag_evidence_database' / 'final_phase5_release'
 SCHEMAS = {
     'request': ROOT / 'critic' / 'schemas' / 'critic_request.schema.json',
+    'request_r1v3': ROOT / 'critic' / 'schemas' / 'critic_request_r1v3.schema.json',
     'report': ROOT / 'critic' / 'schemas' / 'critic_report.schema.json',
     'gsn_graph': ROOT / 'evaluation' / 'r1_v4' / 'evidence_registry_gsn' / 'gsn_graph.schema.json',
     'registry_record': ROOT / 'evaluation' / 'r1_v4' / 'evidence_registry_gsn' / 'registry_record.schema.json',

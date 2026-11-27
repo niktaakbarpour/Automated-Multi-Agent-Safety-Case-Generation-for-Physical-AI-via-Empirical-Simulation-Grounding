@@ -64,7 +64,9 @@ NOT_ADMITTED_REASON = ('No checker-assessment admission contract is available; t
 FORBIDDEN_KEYS = frozenset({'human_reference', 'human_references', 'human_label', 'human_labels', 'reference_label',
                             'reference_labels', 'gold_label', 'gold_labels', 'adjudicated_label', 'adjudicated_labels',
                             'adjudication', 'expected_outcome', 'reference_answers', 'reference_answer'})
+REFERENCE_FILENAME = 'human_reference_evaluation_only.json'
 ALLOWED_EXCLUSION_NOTE = ('source_package', 'evidence_semantics', 'human_reference')
+EXCLUSION_NOTE_TEXT = 'stored only in HUMAN_REFERENCE_EVALUATION_ONLY.json; excluded from this package'
 SERIALIZER_VERSION = 'graph-plan-to-gsn-r1v3/0.1.0'
 REASONING_ROLE = 'proposed_reasoning_not_verified_physical_evidence'
 CONCLUSION_UNRESOLVED = 'R1 remains unresolved for all protected objects in the declared window.'
@@ -136,14 +138,24 @@ def _forbidden_label_paths(value, path=()):
     if isinstance(value, dict):
         for key, item in value.items():
             here = path + (key,)
-            if key in FORBIDDEN_KEYS and not (here == ALLOWED_EXCLUSION_NOTE and isinstance(item, str)
-                                              and 'excluded' in item):
+            if here == ALLOWED_EXCLUSION_NOTE and item == EXCLUSION_NOTE_TEXT:
+                continue
+            name = key.casefold() if isinstance(key, str) else ''
+            if name in FORBIDDEN_KEYS or REFERENCE_FILENAME in name:
                 found.append('/'.join(map(str, here)))
-            found.extend(_forbidden_label_paths(item, here))
-    elif isinstance(value, list):
+            else:
+                found.extend(_forbidden_label_paths(item, here))
+    elif isinstance(value, (list, tuple)):
         for index, item in enumerate(value):
             found.extend(_forbidden_label_paths(item, path + (index,)))
+    elif isinstance(value, str) and REFERENCE_FILENAME in value.casefold():
+        found.append('/'.join(map(str, path)))
     return found
+
+
+def reference_label_issues(value):
+    """Report evidence-only reference fields or file references without including their contents."""
+    return ['human_reference_label_present:' + path for path in _forbidden_label_paths(value)]
 
 
 def _eligible(record, config, execution_id, interval):
@@ -229,7 +241,7 @@ def derived_fields(package, config, admission=None):
 
 def _package_issues(package, config):
     """The package must describe this requirement and checker, without labels."""
-    issues = ['human_reference_label_present:' + p for p in _forbidden_label_paths({'source_package': package})]
+    issues = reference_label_issues({'source_package': package})
     execution, checker, rag = package['execution'], package['checker_assessment'], package['rag_source']
     if (execution['requirement_id'], execution['requirement_version']) != (config['requirement_id'],
                                                                             config['requirement_version']):
@@ -311,8 +323,7 @@ def validate_request(request):
     if request['source_package_sha256'] != digest(package):
         issues.append('source_package_sha256_mismatch')
     issues += _package_issues(package, config)
-    issues += ['human_reference_label_present:' + p
-               for p in _forbidden_label_paths({k: v for k, v in request.items() if k != 'source_package'})]
+    issues += reference_label_issues({k: v for k, v in request.items() if k != 'source_package'})
     if issues:
         raise _error(issues)
     admission = request['checker_context']['admission']
@@ -514,7 +525,7 @@ def validate_argument(argument, request):
     issues = schema_issues(argument, 'draft_argument_r1v3.schema.json')
     if issues:
         raise _error(issues)
-    issues += ['human_reference_label_present:' + p for p in _forbidden_label_paths(argument)]
+    issues += reference_label_issues(argument)
     for field, expected in (('request_id', request['request_id']), ('request_sha256', digest(request)),
                             ('requirement_configuration_sha256', request['requirement_configuration_sha256']),
                             ('source_package_sha256', request['source_package_sha256']),

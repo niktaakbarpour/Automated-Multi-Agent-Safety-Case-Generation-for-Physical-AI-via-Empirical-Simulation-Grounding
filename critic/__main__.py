@@ -45,9 +45,9 @@ def make_llm(args):
 def main(argv=None):
     p = argparse.ArgumentParser(prog='python3 -m critic', description='Review one R1 argument bundle.')
     p.add_argument('--request', required=True,
-                   help='review request JSON file (critic/schemas/critic_request.schema.json)')
+                   help='review request JSON file for R1 v2 or R1 v3')
     p.add_argument('--backend', choices=['none', 'openai', 'scripted'], default='none',
-                   help='none = rule checks only; openai = any OpenAI-compatible server such as vLLM')
+                   help='none = rule checks only (including R1 v3); openai = an OpenAI-compatible server for R1 v2')
     p.add_argument('--base-url', default=None, help='default $CRITIC_LLM_BASE_URL or http://localhost:8000/v1')
     p.add_argument('--model', default=None, help='default $CRITIC_LLM_MODEL')
     p.add_argument('--temperature', type=float, default=None,
