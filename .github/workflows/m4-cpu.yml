@@ -17,4 +17,19 @@ jobs:
       - run: python -m unittest discover -s evaluation/m4_20261127/rq4/tests -p 'test_*.py' -v
       - run: python -m unittest drafter.tests.test_r1v3_profile drafter.tests.test_r1v3_generation -v
       - run: python -m evaluation.m4_20261127.integration.build_r1v3_request --check
+      - run: python evaluation/m4_20261127/integration/task8a_r1v3/validate_generated_argument.py
+      - name: Reproduce expected R1 v3 Drafter-to-Critic contract rejection
+        shell: bash
+        run: |
+          set +e
+          python evaluation/m4_20261127/integration/task8a_r1v3/DOWNSTREAM_REPRODUCE.py
+          result=$?
+          set -e
+          if [ "$result" -ne 2 ]; then
+            echo "Expected the known adapter ContractError (exit 2); got $result" >&2
+            exit 1
+          fi
+      - run: python evaluation/m4_20261127/rq4/finalized_results/validate_public_results.py
+      - run: sha256sum -c evaluation/m4_20261127/integration/task8a_r1v3/ARTIFACT_SHA256SUMS.txt
+      - run: sha256sum -c evaluation/m4_20261127/rq4/finalized_results/ARTIFACT_SHA256SUMS.txt
       - run: git diff --exit-code
