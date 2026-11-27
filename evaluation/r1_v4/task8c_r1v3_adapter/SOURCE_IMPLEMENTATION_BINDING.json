@@ -1,0 +1,28 @@
+{
+  "adapter_version": "task8c-r1v3-source-adapter-1.0.0",
+  "files": {
+    "ADAPTER_SPECIFICATION.md": {
+      "bytes": 5899,
+      "sha256": "1bfcf0cf013b6fa11b244f569e9f961fde19e228988f1f9ab228982229a1261d"
+    },
+    "cohort_execution_wrapper.py": {
+      "bytes": 1067,
+      "sha256": "63406f43b00e5744d759e117de3776afd9fb9bf12c99f656aacb9b390258b1a6"
+    },
+    "task8c_adapter.py": {
+      "bytes": 25496,
+      "sha256": "4219da57f397b814283ad006b693b8288d9717d43e023b08ce1860837b9a6c76"
+    },
+    "tests/test_task8c_adapter.py": {
+      "bytes": 17875,
+      "sha256": "0f0a8a18c372f7ef67fd294a61ddae110072fba450a9905028b0ba7d69e5d696"
+    },
+    "tests/test_task8c_adapter_edges.py": {
+      "bytes": 3664,
+      "sha256": "8d0285b000f51e230e7d3eff83e6c9fde4e2da66c45b41d63bae507faf61e228"
+    }
+  },
+  "origin": "Task 7B frozen adapter package recovered from local Task8D Downloads bundle; source bytes preserved for the adapter, wrapper, original tests, and specification.",
+  "original_task7b_freeze_sha256": "7c47200fe0fa5b9970552d8dccc5523924ff6357db4c615768b6f8c8dd777e46",
+  "schema_version": "recovered-task8c-adapter-source-binding-1.0"
+}

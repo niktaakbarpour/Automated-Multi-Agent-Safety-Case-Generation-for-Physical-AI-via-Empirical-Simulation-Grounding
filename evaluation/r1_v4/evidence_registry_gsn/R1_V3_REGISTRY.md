@@ -1,6 +1,6 @@
 # R1 v3 evidence records and citations
 
-The R1 v3 registry uses record schema `2.0.0` and the frozen R1 requirement version `r1-initial-table-support-v3-20261024`. Its standalone [record schema](registry_v3_record.schema.json) is the interchange contract.
+The original R1 v3 registry uses record schema `2.0.0` and the frozen R1 requirement version `r1-initial-table-support-v3-20261024`. Its standalone [record schema](registry_v3_record.schema.json) remains the interchange contract for the original recorder layout. A separately versioned Task 8C extension uses record schema `2.1.0` and the [Task 8C record schema](task8c_registry_v3_record.schema.json). Existing 2.0.0 records, source selectors, identifiers, and validation behavior are unchanged.
 
 ## Record types
 
@@ -19,12 +19,15 @@ For a measurement citation, call `resolve_citation(record_id, execution_id=..., 
 
 For Task 5, use the original trajectory and matching recorder artifacts to build v3 records. The existing RAG export is v2 evidence. Keep the evaluation-only human reference outside the source directory supplied to the agents.
 
+For Task 8C, use `Task8CRegistryV3Adapter` from `registry_v3_task8c.py`; it delegates reconstruction to the recovered source adapter. Provide explicit trusted hashes for the source manifest, XML/native map/configuration files, runner-binding audit, and verified capture runner when constructing `RegistryV3`. Task 8C records are always development-only. Source validation and citation resolution do not constitute Checker admission; see the [2.1.0 trust boundary and supported source measurements](TASK8C_REGISTRY_V3_SCHEMA_2_1.md).
+
 ## CPU tests
 
 Run from the repository root with Python 3.12 and the `h5py` and `jsonschema` versions in `requirements-m4-cpu.lock`.
 
 ```sh
-python3 -m unittest discover -s evaluation/r1_v4/evidence_registry_gsn/tests -p test_registry_v3.py -v
+python3.12 -m unittest discover -s evaluation/r1_v4/evidence_registry_gsn/tests -p test_registry_v3.py -v
+python3.12 -m unittest evaluation.r1_v4.evidence_registry_gsn.tests.test_registry_v3_task8c -v
 ```
 
 The tests use a synthetic HDF5 trajectory and a temporary SQLite database.
