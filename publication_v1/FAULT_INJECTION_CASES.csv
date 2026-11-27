@@ -1,0 +1,13 @@
+case_id,fault_condition,fixture_procedure,planner_status,requested_families,retrieval_status,correct_abstention,rejection_code,execution_error,authoritative_source_unchanged
+KH2-C8-04,missing_source,designated fixture path intentionally absent,COMPLETE,raw.robot0_gripper_qpos,UNAVAILABLE,True,primary_proof_verification_failed,False,True
+KH2-C8-05,corrupt_source,copied source with literal bytes appended,COMPLETE,source_provenance;raw.robot0_gripper_qvel,UNAVAILABLE,True,primary_proof_verification_failed,False,True
+KH2-C8-06,symlink_source,designated fixture path is a symlink to copied source,COMPLETE,raw.robot0_joint_pos,UNAVAILABLE,True,primary_proof_verification_failed,False,True
+KH2-C8-07,replace_source,"copied source verified first, then atomically replaced",COMPLETE,raw.simulator_actuator_force,UNAVAILABLE,True,primary_proof_verification_failed,False,True
+KH2-C8-12,missing_source,designated fixture path intentionally absent,COMPLETE,raw.robot0_gripper_qpos,UNAVAILABLE,True,primary_proof_verification_failed,False,True
+KH2-C8-13,corrupt_source,copied source with literal bytes appended,COMPLETE,source_provenance;raw.robot0_gripper_qvel,UNAVAILABLE,True,primary_proof_verification_failed,False,True
+KH2-C8-14,symlink_source,designated fixture path is a symlink to copied source,COMPLETE,raw.robot0_joint_pos,UNAVAILABLE,True,primary_proof_verification_failed,False,True
+KH2-C8-15,replace_source,"copied source verified first, then atomically replaced",COMPLETE,raw.simulator_actuator_force,UNAVAILABLE,True,primary_proof_verification_failed,False,True
+KH2-C8-20,missing_source,designated fixture path intentionally absent,COMPLETE,raw.robot0_gripper_qpos,UNAVAILABLE,True,primary_proof_verification_failed,False,True
+KH2-C8-21,corrupt_source,copied source with literal bytes appended,COMPLETE,source_provenance;raw.robot0_gripper_qvel,UNAVAILABLE,True,primary_proof_verification_failed,False,True
+KH2-C8-22,symlink_source,designated fixture path is a symlink to copied source,COMPLETE,raw.robot0_joint_pos,UNAVAILABLE,True,primary_proof_verification_failed,False,True
+KH2-C8-23,replace_source,"copied source verified first, then atomically replaced",COMPLETE,raw.simulator_actuator_force,UNAVAILABLE,True,primary_proof_verification_failed,False,True

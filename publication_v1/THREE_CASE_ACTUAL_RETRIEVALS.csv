@@ -1,0 +1,4 @@
+case_id,retrieval_status,planner_version,requested_families,available_families,numeric_sample_count,corrected_assessment
+KH2-C2-02,COMPLETE WITHIN VERIFIED CONTRACT,requested-obligations-2.0.0,recorded_time;raw.robot0_joint_pos,recorded_time;raw.robot0_joint_pos,1,correct_and_verified_complete
+KH2-C2-10,COMPLETE WITHIN VERIFIED CONTRACT,requested-obligations-2.0.0,recorded_time;raw.robot0_joint_pos,recorded_time;raw.robot0_joint_pos,1,correct_and_verified_complete
+KH2-C2-18,COMPLETE WITHIN VERIFIED CONTRACT,requested-obligations-2.0.0,recorded_time;raw.robot0_joint_pos,recorded_time;raw.robot0_joint_pos,1,correct_and_verified_complete
