@@ -65,7 +65,7 @@ The Task 8C archive is development/regression material. The source groups used f
 
 ## Unsupported claims and conditions
 
-This schema does not supply policy trajectories/actions, intermediate saved frames, continuous-time coverage, contact reactions interpreted as support force, validated support loss, validated falling witnesses, floor-contact attribution as an event, a physical safety verdict, or generalization to other models/objects/recording layouts. If native contact attribution, a required source field, complete temporal coverage, exact provenance, or the bound object mapping is missing or inconsistent, registration or citation resolution fails. Uncertainty that the source does not quantify remains unknown; it is not estimated from reviewer labels.
+This schema does not expose the fixed settling/stationary-hold action arrays as measurement citations or provide a general deployed-policy action trace for natural failures. It does not supply continuous-time coverage, contact reactions interpreted as support force, validated support loss, validated falling witnesses, floor-contact attribution as an event, a physical safety verdict, or generalization to other models/objects/recording layouts. If native contact attribution, a required source field, complete temporal coverage, exact provenance, or the bound object mapping is missing or inconsistent, registration or citation resolution fails. Uncertainty that the source does not quantify remains unknown; it is not estimated from reviewer labels.
 
 ## Tests
 
