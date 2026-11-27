@@ -1,0 +1,42 @@
+{
+  "accepted_claim_verified": false,
+  "decoder_schema_sha256": "1b354b8023c85f0c9936ed9ee7980ddd6a7d378485c6052518c0ca121759ea14",
+  "evidence_admission_enabled": false,
+  "execution_id": "libero_long_openvla_oft_task00_seed1000_trial000_cfafd9ddc3db",
+  "full_host_schema_sha256": "840741e795f4ea31b42c0197d5721e0ad9e8a50cd18cf6df3c19d28260c21b88",
+  "generation_status": "accepted",
+  "graph_count": 5,
+  "interval": [
+    10,
+    257
+  ],
+  "node_counts": {
+    "butter_1": 4,
+    "cream_cheese_1": 4,
+    "ketchup_1": 4,
+    "milk_1": 4,
+    "orange_juice_1": 4
+  },
+  "outcomes": {
+    "butter_1": "insufficient_information",
+    "cream_cheese_1": "insufficient_information",
+    "ketchup_1": "insufficient_information",
+    "milk_1": "insufficient_information",
+    "orange_juice_1": "insufficient_information"
+  },
+  "protected_object_order": [
+    "cream_cheese_1",
+    "ketchup_1",
+    "orange_juice_1",
+    "milk_1",
+    "butter_1"
+  ],
+  "reasoning_review_status": "required",
+  "request_sha256": "2516cedbb8aa8b97253af60df335032f2d88d603a8f4d6c91e9f88ea80f07de6",
+  "request_validator": "drafter.r1v3_profile.validate_request",
+  "requirement_id": "R1",
+  "requirement_version": "r1-initial-table-support-v3-20261024",
+  "run_id": "c16c005e-be00-4d1f-9b20-74d10462511b",
+  "status": "passed",
+  "validator": "drafter.r1v3_profile.validate_argument"
+}

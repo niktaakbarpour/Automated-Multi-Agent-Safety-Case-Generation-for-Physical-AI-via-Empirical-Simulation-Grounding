@@ -1,0 +1,674 @@
+{
+  "$defs": {
+    "id": {
+      "pattern": "^[A-Za-z0-9_.:-]{1,128}$",
+      "type": "string"
+    },
+    "text": {
+      "maxLength": 1600,
+      "minLength": 8,
+      "type": "string"
+    }
+  },
+  "$id": "urn:trustworthy:drafter-graph-plan:0.2.2",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "graphs": {
+      "items": false,
+      "maxItems": 5,
+      "minItems": 5,
+      "prefixItems": [
+        {
+          "additionalProperties": false,
+          "properties": {
+            "edges": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "source": {
+                    "pattern": "^cream_cheese_1:[A-Za-z0-9_.:-]{1,128}$",
+                    "type": "string"
+                  },
+                  "target": {
+                    "pattern": "^cream_cheese_1:[A-Za-z0-9_.:-]{1,128}$",
+                    "type": "string"
+                  },
+                  "type": {
+                    "enum": [
+                      "supported_by",
+                      "in_context_of",
+                      "challenged_by"
+                    ]
+                  }
+                },
+                "required": [
+                  "source",
+                  "target",
+                  "type"
+                ],
+                "type": "object"
+              },
+              "maxItems": 80,
+              "minItems": 2,
+              "type": "array"
+            },
+            "nodes": {
+              "items": {
+                "anyOf": [
+                  {
+                    "additionalProperties": false,
+                    "properties": {
+                      "evidence_id": {
+                        "type": "null"
+                      },
+                      "id": {
+                        "pattern": "^cream_cheese_1:[A-Za-z0-9_.:-]{1,128}$",
+                        "type": "string"
+                      },
+                      "physical_claim": {
+                        "const": true
+                      },
+                      "statement": {
+                        "$ref": "#/$defs/text"
+                      },
+                      "type": {
+                        "enum": [
+                          "goal",
+                          "unresolved_claim"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "type",
+                      "statement",
+                      "evidence_id",
+                      "physical_claim"
+                    ],
+                    "type": "object"
+                  },
+                  {
+                    "additionalProperties": false,
+                    "properties": {
+                      "evidence_id": {
+                        "type": "null"
+                      },
+                      "id": {
+                        "pattern": "^cream_cheese_1:[A-Za-z0-9_.:-]{1,128}$",
+                        "type": "string"
+                      },
+                      "physical_claim": {
+                        "const": false
+                      },
+                      "statement": {
+                        "$ref": "#/$defs/text"
+                      },
+                      "type": {
+                        "enum": [
+                          "strategy",
+                          "context",
+                          "assumption",
+                          "justification",
+                          "defeater"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "type",
+                      "statement",
+                      "evidence_id",
+                      "physical_claim"
+                    ],
+                    "type": "object"
+                  }
+                ]
+              },
+              "maxItems": 24,
+              "minItems": 4,
+              "type": "array"
+            },
+            "object_id": {
+              "const": "cream_cheese_1"
+            },
+            "root_id": {
+              "pattern": "^cream_cheese_1:[A-Za-z0-9_.:-]{1,128}$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "object_id",
+            "root_id",
+            "nodes",
+            "edges"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "edges": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "source": {
+                    "pattern": "^ketchup_1:[A-Za-z0-9_.:-]{1,128}$",
+                    "type": "string"
+                  },
+                  "target": {
+                    "pattern": "^ketchup_1:[A-Za-z0-9_.:-]{1,128}$",
+                    "type": "string"
+                  },
+                  "type": {
+                    "enum": [
+                      "supported_by",
+                      "in_context_of",
+                      "challenged_by"
+                    ]
+                  }
+                },
+                "required": [
+                  "source",
+                  "target",
+                  "type"
+                ],
+                "type": "object"
+              },
+              "maxItems": 80,
+              "minItems": 2,
+              "type": "array"
+            },
+            "nodes": {
+              "items": {
+                "anyOf": [
+                  {
+                    "additionalProperties": false,
+                    "properties": {
+                      "evidence_id": {
+                        "type": "null"
+                      },
+                      "id": {
+                        "pattern": "^ketchup_1:[A-Za-z0-9_.:-]{1,128}$",
+                        "type": "string"
+                      },
+                      "physical_claim": {
+                        "const": true
+                      },
+                      "statement": {
+                        "$ref": "#/$defs/text"
+                      },
+                      "type": {
+                        "enum": [
+                          "goal",
+                          "unresolved_claim"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "type",
+                      "statement",
+                      "evidence_id",
+                      "physical_claim"
+                    ],
+                    "type": "object"
+                  },
+                  {
+                    "additionalProperties": false,
+                    "properties": {
+                      "evidence_id": {
+                        "type": "null"
+                      },
+                      "id": {
+                        "pattern": "^ketchup_1:[A-Za-z0-9_.:-]{1,128}$",
+                        "type": "string"
+                      },
+                      "physical_claim": {
+                        "const": false
+                      },
+                      "statement": {
+                        "$ref": "#/$defs/text"
+                      },
+                      "type": {
+                        "enum": [
+                          "strategy",
+                          "context",
+                          "assumption",
+                          "justification",
+                          "defeater"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "type",
+                      "statement",
+                      "evidence_id",
+                      "physical_claim"
+                    ],
+                    "type": "object"
+                  }
+                ]
+              },
+              "maxItems": 24,
+              "minItems": 4,
+              "type": "array"
+            },
+            "object_id": {
+              "const": "ketchup_1"
+            },
+            "root_id": {
+              "pattern": "^ketchup_1:[A-Za-z0-9_.:-]{1,128}$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "object_id",
+            "root_id",
+            "nodes",
+            "edges"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "edges": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "source": {
+                    "pattern": "^orange_juice_1:[A-Za-z0-9_.:-]{1,128}$",
+                    "type": "string"
+                  },
+                  "target": {
+                    "pattern": "^orange_juice_1:[A-Za-z0-9_.:-]{1,128}$",
+                    "type": "string"
+                  },
+                  "type": {
+                    "enum": [
+                      "supported_by",
+                      "in_context_of",
+                      "challenged_by"
+                    ]
+                  }
+                },
+                "required": [
+                  "source",
+                  "target",
+                  "type"
+                ],
+                "type": "object"
+              },
+              "maxItems": 80,
+              "minItems": 2,
+              "type": "array"
+            },
+            "nodes": {
+              "items": {
+                "anyOf": [
+                  {
+                    "additionalProperties": false,
+                    "properties": {
+                      "evidence_id": {
+                        "type": "null"
+                      },
+                      "id": {
+                        "pattern": "^orange_juice_1:[A-Za-z0-9_.:-]{1,128}$",
+                        "type": "string"
+                      },
+                      "physical_claim": {
+                        "const": true
+                      },
+                      "statement": {
+                        "$ref": "#/$defs/text"
+                      },
+                      "type": {
+                        "enum": [
+                          "goal",
+                          "unresolved_claim"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "type",
+                      "statement",
+                      "evidence_id",
+                      "physical_claim"
+                    ],
+                    "type": "object"
+                  },
+                  {
+                    "additionalProperties": false,
+                    "properties": {
+                      "evidence_id": {
+                        "type": "null"
+                      },
+                      "id": {
+                        "pattern": "^orange_juice_1:[A-Za-z0-9_.:-]{1,128}$",
+                        "type": "string"
+                      },
+                      "physical_claim": {
+                        "const": false
+                      },
+                      "statement": {
+                        "$ref": "#/$defs/text"
+                      },
+                      "type": {
+                        "enum": [
+                          "strategy",
+                          "context",
+                          "assumption",
+                          "justification",
+                          "defeater"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "type",
+                      "statement",
+                      "evidence_id",
+                      "physical_claim"
+                    ],
+                    "type": "object"
+                  }
+                ]
+              },
+              "maxItems": 24,
+              "minItems": 4,
+              "type": "array"
+            },
+            "object_id": {
+              "const": "orange_juice_1"
+            },
+            "root_id": {
+              "pattern": "^orange_juice_1:[A-Za-z0-9_.:-]{1,128}$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "object_id",
+            "root_id",
+            "nodes",
+            "edges"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "edges": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "source": {
+                    "pattern": "^milk_1:[A-Za-z0-9_.:-]{1,128}$",
+                    "type": "string"
+                  },
+                  "target": {
+                    "pattern": "^milk_1:[A-Za-z0-9_.:-]{1,128}$",
+                    "type": "string"
+                  },
+                  "type": {
+                    "enum": [
+                      "supported_by",
+                      "in_context_of",
+                      "challenged_by"
+                    ]
+                  }
+                },
+                "required": [
+                  "source",
+                  "target",
+                  "type"
+                ],
+                "type": "object"
+              },
+              "maxItems": 80,
+              "minItems": 2,
+              "type": "array"
+            },
+            "nodes": {
+              "items": {
+                "anyOf": [
+                  {
+                    "additionalProperties": false,
+                    "properties": {
+                      "evidence_id": {
+                        "type": "null"
+                      },
+                      "id": {
+                        "pattern": "^milk_1:[A-Za-z0-9_.:-]{1,128}$",
+                        "type": "string"
+                      },
+                      "physical_claim": {
+                        "const": true
+                      },
+                      "statement": {
+                        "$ref": "#/$defs/text"
+                      },
+                      "type": {
+                        "enum": [
+                          "goal",
+                          "unresolved_claim"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "type",
+                      "statement",
+                      "evidence_id",
+                      "physical_claim"
+                    ],
+                    "type": "object"
+                  },
+                  {
+                    "additionalProperties": false,
+                    "properties": {
+                      "evidence_id": {
+                        "type": "null"
+                      },
+                      "id": {
+                        "pattern": "^milk_1:[A-Za-z0-9_.:-]{1,128}$",
+                        "type": "string"
+                      },
+                      "physical_claim": {
+                        "const": false
+                      },
+                      "statement": {
+                        "$ref": "#/$defs/text"
+                      },
+                      "type": {
+                        "enum": [
+                          "strategy",
+                          "context",
+                          "assumption",
+                          "justification",
+                          "defeater"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "type",
+                      "statement",
+                      "evidence_id",
+                      "physical_claim"
+                    ],
+                    "type": "object"
+                  }
+                ]
+              },
+              "maxItems": 24,
+              "minItems": 4,
+              "type": "array"
+            },
+            "object_id": {
+              "const": "milk_1"
+            },
+            "root_id": {
+              "pattern": "^milk_1:[A-Za-z0-9_.:-]{1,128}$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "object_id",
+            "root_id",
+            "nodes",
+            "edges"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "edges": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "source": {
+                    "pattern": "^butter_1:[A-Za-z0-9_.:-]{1,128}$",
+                    "type": "string"
+                  },
+                  "target": {
+                    "pattern": "^butter_1:[A-Za-z0-9_.:-]{1,128}$",
+                    "type": "string"
+                  },
+                  "type": {
+                    "enum": [
+                      "supported_by",
+                      "in_context_of",
+                      "challenged_by"
+                    ]
+                  }
+                },
+                "required": [
+                  "source",
+                  "target",
+                  "type"
+                ],
+                "type": "object"
+              },
+              "maxItems": 80,
+              "minItems": 2,
+              "type": "array"
+            },
+            "nodes": {
+              "items": {
+                "anyOf": [
+                  {
+                    "additionalProperties": false,
+                    "properties": {
+                      "evidence_id": {
+                        "type": "null"
+                      },
+                      "id": {
+                        "pattern": "^butter_1:[A-Za-z0-9_.:-]{1,128}$",
+                        "type": "string"
+                      },
+                      "physical_claim": {
+                        "const": true
+                      },
+                      "statement": {
+                        "$ref": "#/$defs/text"
+                      },
+                      "type": {
+                        "enum": [
+                          "goal",
+                          "unresolved_claim"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "type",
+                      "statement",
+                      "evidence_id",
+                      "physical_claim"
+                    ],
+                    "type": "object"
+                  },
+                  {
+                    "additionalProperties": false,
+                    "properties": {
+                      "evidence_id": {
+                        "type": "null"
+                      },
+                      "id": {
+                        "pattern": "^butter_1:[A-Za-z0-9_.:-]{1,128}$",
+                        "type": "string"
+                      },
+                      "physical_claim": {
+                        "const": false
+                      },
+                      "statement": {
+                        "$ref": "#/$defs/text"
+                      },
+                      "type": {
+                        "enum": [
+                          "strategy",
+                          "context",
+                          "assumption",
+                          "justification",
+                          "defeater"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "type",
+                      "statement",
+                      "evidence_id",
+                      "physical_claim"
+                    ],
+                    "type": "object"
+                  }
+                ]
+              },
+              "maxItems": 24,
+              "minItems": 4,
+              "type": "array"
+            },
+            "object_id": {
+              "const": "butter_1"
+            },
+            "root_id": {
+              "pattern": "^butter_1:[A-Za-z0-9_.:-]{1,128}$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "object_id",
+            "root_id",
+            "nodes",
+            "edges"
+          ],
+          "type": "object"
+        }
+      ],
+      "type": "array"
+    },
+    "limitations": {
+      "items": {
+        "$ref": "#/$defs/text"
+      },
+      "maxItems": 20,
+      "minItems": 1,
+      "type": "array"
+    },
+    "summary": {
+      "$ref": "#/$defs/text"
+    }
+  },
+  "required": [
+    "graphs",
+    "summary",
+    "limitations"
+  ],
+  "title": "Intermediate model graph plan, not the final shared GSN graph",
+  "type": "object"
+}

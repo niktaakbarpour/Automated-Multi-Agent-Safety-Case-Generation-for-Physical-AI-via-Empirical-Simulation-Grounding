@@ -1,0 +1,25 @@
+method,metric,numerator,denominator,rate,samples,mean_over_samples,sd_over_samples,n_cases,n_groups,note
+template,revised,3,3,1.0,0,,,3,2,deterministic: one output per case
+template,abstained,0,3,0.0,0,,,3,2,deterministic: one output per case
+template,invalid,0,3,0.0,0,,,3,2,deterministic: one output per case
+template,missing_or_no_reply,0,3,0.0,0,,,3,2,deterministic: one output per case
+template,correct_repair,2,3,0.6667,0,,,3,2,all outputs; a non-revised output is not a repair
+template,correct_repair_of_revised,2,3,0.6667,0,,,3,2,deterministic: one output per case
+template,defect_fixed=yes,3,3,1.0,0,,,3,2,"revised outputs, human review"
+template,revised_claim_supported_by_evidence=yes,2,3,0.6667,0,,,3,2,"revised outputs, human review"
+template,new_problem_introduced=yes,1,3,0.3333,0,,,3,2,"revised outputs, human review"
+template,scope_preserved=yes,2,3,0.6667,0,,,3,2,"revised outputs, human review"
+template,second_critic_target_still_flagged,0,9,0.0,0,,,3,2,secondary; per second review
+template,second_critic_new_objection,2,9,0.2222,0,,,3,2,secondary; per second review
+qwen,revised,9,9,1.0,3,1.0,0.0,3,2,
+qwen,abstained,0,9,0.0,3,0.0,0.0,3,2,
+qwen,invalid,0,9,0.0,3,0.0,0.0,3,2,
+qwen,missing_or_no_reply,0,9,0.0,3,0.0,0.0,3,2,
+qwen,correct_repair,9,9,1.0,3,1.0,0.0,3,2,all outputs; a non-revised output is not a repair
+qwen,correct_repair_of_revised,9,9,1.0,3,1.0,0.0,3,2,
+qwen,defect_fixed=yes,9,9,1.0,3,1.0,0.0,3,2,"revised outputs, human review"
+qwen,revised_claim_supported_by_evidence=yes,9,9,1.0,3,1.0,0.0,3,2,"revised outputs, human review"
+qwen,new_problem_introduced=yes,0,9,0.0,3,0.0,0.0,3,2,"revised outputs, human review"
+qwen,scope_preserved=yes,9,9,1.0,3,1.0,0.0,3,2,"revised outputs, human review"
+qwen,second_critic_target_still_flagged,0,9,0.0,3,0.0,0.0,3,2,secondary; per second review
+qwen,second_critic_new_objection,2,9,0.2222,3,0.2222,0.1925,3,2,secondary; per second review

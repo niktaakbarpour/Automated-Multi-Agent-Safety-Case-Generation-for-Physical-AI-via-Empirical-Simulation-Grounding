@@ -1,0 +1,13 @@
+{
+  "adapter": "integration.handoff.build_critic_request",
+  "status": "rejected",
+  "error_type": "ContractError",
+  "model_calls": 0,
+  "diagnostics": [
+    "argument.argument_bundle.execution_conclusion.outcome_backing is rejected as an additional property by the current Critic handoff generation-run schema",
+    "trace.prompt_version draft-argument-r1v3-prompt/0.1.0 is not among adapter-allowed draft-argument-prompt/0.2.0, 0.2.1, or 0.2.2",
+    "trace.serializer_version graph-plan-to-gsn-r1v3/0.1.0 does not match adapter-required graph-plan-to-gsn/0.2.0",
+    "trace.decoder_relaxation and trace.validation_schema_sha256 are rejected as additional properties"
+  ],
+  "privacy_note": "Sanitized projection of the authoritative compatibility result; local absolute paths and embedded argument payload omitted."
+}

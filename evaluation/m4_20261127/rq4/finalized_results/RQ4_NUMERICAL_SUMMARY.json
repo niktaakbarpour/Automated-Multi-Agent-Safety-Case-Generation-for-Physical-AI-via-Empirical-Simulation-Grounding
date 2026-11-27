@@ -1,0 +1,157 @@
+{
+  "qwen": {
+    "revised": {
+      "numerator": 9,
+      "denominator": 9,
+      "rate": 1.0,
+      "mean_over_3_repetitions": 1.0,
+      "sd_over_3_repetitions": 0.0
+    },
+    "abstained": {
+      "numerator": 0,
+      "denominator": 9,
+      "rate": 0.0,
+      "mean_over_3_repetitions": 0.0,
+      "sd_over_3_repetitions": 0.0
+    },
+    "invalid": {
+      "numerator": 0,
+      "denominator": 9,
+      "rate": 0.0,
+      "mean_over_3_repetitions": 0.0,
+      "sd_over_3_repetitions": 0.0
+    },
+    "missing_or_no_reply": {
+      "numerator": 0,
+      "denominator": 9,
+      "rate": 0.0,
+      "mean_over_3_repetitions": 0.0,
+      "sd_over_3_repetitions": 0.0
+    },
+    "correct_repair": {
+      "numerator": 9,
+      "denominator": 9,
+      "rate": 1.0,
+      "mean_over_3_repetitions": 1.0,
+      "sd_over_3_repetitions": 0.0
+    },
+    "defect_fixed=yes": {
+      "numerator": 9,
+      "denominator": 9,
+      "rate": 1.0,
+      "mean_over_3_repetitions": 1.0,
+      "sd_over_3_repetitions": 0.0
+    },
+    "revised_claim_supported_by_evidence=yes": {
+      "numerator": 9,
+      "denominator": 9,
+      "rate": 1.0,
+      "mean_over_3_repetitions": 1.0,
+      "sd_over_3_repetitions": 0.0
+    },
+    "new_problem_introduced=yes": {
+      "numerator": 0,
+      "denominator": 9,
+      "rate": 0.0,
+      "mean_over_3_repetitions": 0.0,
+      "sd_over_3_repetitions": 0.0
+    },
+    "scope_preserved=yes": {
+      "numerator": 9,
+      "denominator": 9,
+      "rate": 1.0,
+      "mean_over_3_repetitions": 1.0,
+      "sd_over_3_repetitions": 0.0
+    },
+    "second_critic_target_still_flagged": {
+      "numerator": 0,
+      "denominator": 9,
+      "rate": 0.0,
+      "mean_over_3_repetitions": 0.0,
+      "sd_over_3_repetitions": 0.0
+    },
+    "second_critic_new_objection": {
+      "numerator": 2,
+      "denominator": 9,
+      "rate": 0.2222,
+      "mean_over_3_repetitions": 0.2222,
+      "sd_over_3_repetitions": 0.1925
+    }
+  },
+  "template": {
+    "revised": {
+      "numerator": 3,
+      "denominator": 3,
+      "rate": 1.0
+    },
+    "abstained": {
+      "numerator": 0,
+      "denominator": 3,
+      "rate": 0.0
+    },
+    "invalid": {
+      "numerator": 0,
+      "denominator": 3,
+      "rate": 0.0
+    },
+    "missing_or_no_reply": {
+      "numerator": 0,
+      "denominator": 3,
+      "rate": 0.0
+    },
+    "correct_repair": {
+      "numerator": 2,
+      "denominator": 3,
+      "rate": 0.6667
+    },
+    "defect_fixed=yes": {
+      "numerator": 3,
+      "denominator": 3,
+      "rate": 1.0
+    },
+    "revised_claim_supported_by_evidence=yes": {
+      "numerator": 2,
+      "denominator": 3,
+      "rate": 0.6667
+    },
+    "new_problem_introduced=yes": {
+      "numerator": 1,
+      "denominator": 3,
+      "rate": 0.3333
+    },
+    "scope_preserved=yes": {
+      "numerator": 2,
+      "denominator": 3,
+      "rate": 0.6667
+    },
+    "second_critic_target_still_flagged": {
+      "numerator": 0,
+      "denominator": 9,
+      "rate": 0.0
+    },
+    "second_critic_new_objection": {
+      "numerator": 2,
+      "denominator": 9,
+      "rate": 0.2222
+    }
+  },
+  "design": {
+    "total_outputs": 12,
+    "reviewed_items": 12,
+    "qwen_repetitions_per_case": 3,
+    "independent_cases": 0,
+    "planted_defects": 3,
+    "source_groups": 2,
+    "mutation_types": 1,
+    "template_critic_repeats_are_not_independent_template_repairs": true,
+    "review_agreement": "Coordinator-confirmed agreement based on a single consensus form; not independently recalculated; Cohen kappa unavailable.",
+    "review_date": "2026-11-25"
+  },
+  "limitations": [
+    "Controlled development-stage study of three planted defects across two source groups and one mutation type.",
+    "Zero independent cases; do not generalize to overall Revision Agent effectiveness.",
+    "Does not test effects of admitted physical checker evidence.",
+    "Second-Critic objections/target reflagging are not correctness measures.",
+    "Qwen repeated-run SD is descriptive for only three samples per case; not an inferential population estimate."
+  ]
+}

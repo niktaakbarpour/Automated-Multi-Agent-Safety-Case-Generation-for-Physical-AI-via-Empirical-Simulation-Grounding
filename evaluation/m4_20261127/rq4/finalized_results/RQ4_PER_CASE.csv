@@ -1,0 +1,7 @@
+case_id,method,outputs,revised,abstained,invalid,missing_or_no_reply,correct_repairs,correct_repair_rate,defect_fixed_yes,defect_fixed_partly,defect_fixed_no,defect_fixed_indeterminate,supported_yes,supported_no,supported_indeterminate,new_problem_yes,new_problem_no,new_problem_indeterminate,scope_preserved_yes,scope_preserved_no,scope_preserved_indeterminate,critic_reviews,critic_missing,critic_target_reflagged,critic_new_objection_reviews,critic_new_objection_rate
+P1-M1a,qwen,3,3,0,0,0,3,1.000000,3,0,0,0,3,0,0,0,3,0,3,0,0,3,0,0,0,0.000000
+P1-M1a,template,1,1,0,0,0,1,1.000000,1,0,0,0,1,0,0,0,1,0,1,0,0,3,0,0,0,0.000000
+P1-M1b,qwen,3,3,0,0,0,3,1.000000,3,0,0,0,3,0,0,0,3,0,3,0,0,3,0,0,0,0.000000
+P1-M1b,template,1,1,0,0,0,1,1.000000,1,0,0,0,1,0,0,0,1,0,1,0,0,3,0,0,0,0.000000
+P2-M1c,qwen,3,3,0,0,0,3,1.000000,3,0,0,0,3,0,0,0,3,0,3,0,0,3,0,0,2,0.666667
+P2-M1c,template,1,1,0,0,0,0,0.000000,1,0,0,0,0,1,0,1,0,0,0,1,0,3,0,0,2,0.666667
