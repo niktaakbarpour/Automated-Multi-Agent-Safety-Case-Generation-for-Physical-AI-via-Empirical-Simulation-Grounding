@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schema.r1-v4.invalid/evidence-bundle-requested-obligations-v2.schema.json",
+  "title": "R1 v4 requested-obligation bundle response v2",
+  "type": "object",
+  "required": [
+    "planner_version",
+    "query_interpretation_status",
+    "obligation_plan_status",
+    "retrieval_completeness_status",
+    "physical_evidence_eligibility",
+    "requested_families",
+    "interpretation",
+    "groups",
+    "safety_claim_sufficiency",
+    "safety_claim_verified",
+    "empirical_admission_enabled"
+  ],
+  "properties": {
+    "planner_version": {"const": "requested-obligations-2.0.0"},
+    "query_interpretation_status": {"enum": ["RESOLVED", "PARTIAL", "AMBIGUOUS", "INVALID SCOPE", "UNSUPPORTED"]},
+    "obligation_plan_status": {"enum": ["COMPLETE", "INCOMPLETE"]},
+    "retrieval_completeness_status": {"enum": ["NOT_RUN", "COMPLETE WITHIN VERIFIED CONTRACT", "PARTIAL", "UNAVAILABLE", "UNSUPPORTED", "AMBIGUOUS", "INVALID SCOPE"]},
+    "physical_evidence_eligibility": {"const": "NOT_EVALUATED"},
+    "requested_families": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "interpretation": {"type": "object", "required": ["measurement_obligations", "temporal_obligations", "unresolved_obligations"]},
+    "groups": {"type": "array"},
+    "safety_claim_sufficiency": {"const": "NOT_EVALUATED"},
+    "safety_claim_verified": {"const": false},
+    "empirical_admission_enabled": {"const": false}
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"obligation_plan_status": {"const": "INCOMPLETE"}}},
+      "then": {"properties": {"retrieval_completeness_status": {"const": "NOT_RUN"}}}
+    },
+    {
+      "if": {"properties": {"retrieval_completeness_status": {"const": "COMPLETE WITHIN VERIFIED CONTRACT"}}},
+      "then": {
+        "properties": {
+          "query_interpretation_status": {"const": "RESOLVED"},
+          "obligation_plan_status": {"const": "COMPLETE"}
+        }
+      }
+    }
+  ],
+  "additionalProperties": true
+}

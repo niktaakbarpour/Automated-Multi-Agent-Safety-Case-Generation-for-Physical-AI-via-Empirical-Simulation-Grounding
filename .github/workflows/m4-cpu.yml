@@ -17,4 +17,6 @@ jobs:
       - run: python -m unittest discover -s evaluation/m4_20261127/rq4/tests -p 'test_*.py' -v
       - run: python -m unittest drafter.tests.test_r1v3_profile drafter.tests.test_r1v3_generation -v
       - run: python -m evaluation.m4_20261127.integration.build_r1v3_request --check
+      - name: RQ1 requested-obligation planner regressions (synthetic/development fixtures)
+        run: python -m unittest evaluation.r1_v4.rag_evidence_database.retrieval_remediation.tests.test_requested_obligations_v2 evaluation.r1_v4.rag_evidence_database.retrieval_remediation.tests.test_bundle_v2_contract -v
       - run: git diff --exit-code
