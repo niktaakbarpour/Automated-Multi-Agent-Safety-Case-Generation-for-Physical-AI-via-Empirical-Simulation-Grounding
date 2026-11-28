@@ -107,7 +107,7 @@ sha256sum -c "$M/rq4/finalized_results/ARTIFACT_SHA256SUMS.txt"
 |---|---|---|
 | Manuscript table replay | Historical RQ1 reports, RQ2 public tables, RQ3 frozen batch and saved replies, RQ4 CPU examples/tests and historical transcript | Four `PASS tab:…` lines. RQ3 recomputes the three scored files byte for byte from 108 replies. Model-only mutation detections are 8/24, 9/24 and 10/24. Use the dedicated RQ1 and RQ4 validators for the later result packages. |
 | RQ1 publication validation | All three publication CSVs and both checksum manifests | 216 cases, 133 verified complete, 71 correct abstentions, 12 unavailable and zero confirmed false-complete. Three temporal cases verified. The separate saved fault CSV has 12 correct rejections. |
-| RQ2 verifier and manifest | Calibration and task-transfer rows, transfer exclusions, and Task 7C public accounting, matrix and provenance | Calibration applicability 3/3 and TP/TN 1/1. Coverage 20/120 overall and 0/100 across tasks in the same scene, with 38 cross-scene mapping rejections. Task 7C scores 18/20, TP/FP/TN/FN 7/2/8/1, precision 77.78%, recall 87.50%, F1 82.35%, accuracy 83.33%. The public check recalculates metrics from the published matrix. |
+| RQ2 verifier and manifest | Calibration and task-transfer rows, transfer exclusions, and Task 7C public accounting, matrix and provenance | Calibration applicability 3/3 and TP/TN 1/1. Coverage 20/120 overall and 0/100 across tasks in the same scene, with 38 cross-scene mapping rejections. Task 7C scores 18/20, TP/FP/TN/FN 7/2/8/1, precision 77.78%, recall 87.50%, F1 82.35%, accuracy 83.33%. The public check re-joins the pseudonymized case inputs, recounts the confusion matrix and recalculates all four metrics. |
 | RQ4 validator and manifest | Sanitized rows, summary and checksums | 12 validated outputs, correct repair 9/9 for Qwen and 2/3 for the template. New second-Critic objections 2/9 per method, target reflags 0/9. |
 
 Run the RQ1 synthetic harness regressions independently with:
@@ -189,6 +189,47 @@ PYTHONPATH=. python "$M/rq4/experiment/score.py" --base "$RQ4_PRIVATE_EXPERIMENT
   --out-dir "$RQ4_NEW_OUTPUT"
 cmp "$RQ4_NEW_OUTPUT/RQ4_SUMMARY.csv" "$M/rq4/finalized_results/RQ4_SUMMARY.csv"
 ```
+
+## Scoring input release boundary
+
+### RQ2 public case inputs
+
+`rq2/task7c_retrospective/SCORING_INPUTS_PUBLIC.csv` is a release derivative with one row per case. It was projected from the approved Task 8D reference and sealed Task 7C predictions after checking case-set equality, execution and group identity, recording digest and agreement with the historical scored join. Randomly ordered opaque case and group labels retain the paired structure without publishing the original identifiers or a crosswalk. The projection includes only reference classification, Checker applicability and outcome, and execution status. It omits raw recordings and hashes, reviewer fields, free text, source paths, and private case bindings. Group and outcome patterns can still be recognizable to someone with the original records. The original seal and manifests cover the original package only.
+
+```sh
+python integration/verify_saved_results.py
+```
+
+Expected `task7c_retrospective.scoring_input_rows_verified: 20`, 18 scored and two provenance exclusions. The public verifier recomputes the metrics from the released case rows. The archived Task 7D verifier still requires the original sealed inputs for a source audit. The derivative SHA-256 is `a60648d0273b05b58bc8eb0fa8a523dc794e8e2ea707c073ae8b8adf04940412`.
+
+### RQ1 minimum controlled-access archive
+
+The release already includes sanitized case assessments, temporal outcomes and fault outcomes under `publication_v1/`. Run its validator in the public command block above. The offline evaluator needs the full response and citation content to verify source selectors and numeric values. The saved records include raw values and original source bindings omitted from the public release. Removing them would invalidate the per-record digest and prevent the source checks. No redacted response is presented as an original input.
+
+For an approved transfer, use the following layout. Retain the original bytes of both sets of replay inputs. The evaluator checks every sealed case digest, each aggregate digest, and the full frozen reference digest. Bind the archive to the publication manifest and verify the separate source file digests before use.
+
+```text
+RQ1_RUN/
+  output/{PROVENANCE_MANIFEST.json,AGGREGATE.json,case-*.json}           # 216 records
+  three-case-output/{PROVENANCE_MANIFEST.json,AGGREGATE.json,case-*.json} # 3 records
+RQ1_DATA/
+  expanded.sqlite
+  catalogue.sqlite
+  encoder/model.safetensors
+  sources/<original root-relative paths from FROZEN_HOLDOUT_DATASET.jsonl>
+```
+
+Supply the archive through controlled institutional storage after reviewing redistribution rights for the raw recordings, simulator artifacts and material incorporated into the databases. Restore the bound source prefix as described above. Point the restricted CPU scoring command at this layout. The database is required for actual retrieval and fault replay. For offline scoring the evaluator uses its recorded digest, the catalogue and original sources.
+
+### RQ2 trajectory archive
+
+A source audit needs the coordinator-only `EXECUTION_MANIFEST.csv`, the 20 HDF5 files at its recorded bindings, and bound runner/configuration, XML, BDDL and asset records. Keep the sealed prediction package and approved reference package at separate paths for the Task 7D verifier. Do not package the original human submissions for public distribution. Arrange controlled access through the coordinator and confirm redistribution rights before distributing recordings. The public scoring command above requires none of these files.
+
+### RQ4 public and controlled-access scoring
+
+The approved public `finalized_results/RQ4_PER_OUTPUT.csv` already binds the twelve outputs to cases and retains the score-bearing judgments and second-Critic objection counts. Run the existing `validate_public_results.py` command above to recompute the published primary and second-Critic counts. Expected 9/9 correct Qwen repairs, 2/3 template repairs, and 2/9 new objections per method. This uses the sanitized judgments after scoring the model outputs.
+
+The public audit explicitly withheld raw model responses, blind mappings and confidential review forms. The existing full scorer verifies original response, revision and review-item bindings. Its controlled-access layout and exact invocation are given above. The public judgments must not be substituted into that original sealed input contract. An additional raw-response release would need clearance for model content, inputs and blind mapping, plus a newly sealed derivative with approved pseudonyms and checked response-to-output bindings. Preserve the public audit and original hashes.
 
 ## Interpretation rules
 

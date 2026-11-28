@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Check committed public RQ2 CSV/JSON consistency; never opens review records."""
 import csv, json
+from collections import Counter
 from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 RQ2 = ROOT / "evaluation/m4_20261127/rq2"
@@ -43,7 +44,29 @@ def retrospective():
     assert len(case_ids) == len(exclusions) == int(cohort[2][excluded])
     assert all(row["status"] == "not_executed" and row["reason"] == "source_runner_provenance_unavailable"
                for row in exclusions)
-    return {"cases": int(cohort[2]["total"]), "scored": total, "confusion": confusion,
+    inputs = rows(root / "SCORING_INPUTS_PUBLIC.csv")
+    assert len(inputs) == len({r["case"] for r in inputs}) == int(cohort[2]["total"])
+    groups = Counter(r["matched_group"] for r in inputs)
+    assert len(groups) == provenance["cohort"]["matched_source_groups"]
+    assert set(groups.values()) == {2}
+    by_reference = Counter()
+    for row in inputs:
+        label = row["reference_classification"]
+        assert label in labels[:2]
+        outcome = row["checker_outcome"]
+        if row["execution_status"] == "EXECUTED":
+            assert row["checker_applicability"] == "applies"
+            column = {"violation": positive,
+                      "no_violation_observed_within_reviewed_coverage": negative}[outcome]
+        else:
+            assert row["execution_status"] == outcome == "NOT_EXECUTED_SOURCE_PROVENANCE"
+            assert row["checker_applicability"] == "NOT_EXECUTED"
+            column = excluded
+        by_reference[label, column] += 1
+    for row in cohort[:2]:
+        for column in (positive, negative, excluded):
+            assert by_reference[row["human_reference"], column] == int(row[column])
+    return {"scoring_input_rows_verified": len(inputs), "cases": int(cohort[2]["total"]), "scored": total, "confusion": confusion,
             "metrics": metrics, "not_executed": sorted(case_ids)}
 
 def main():
