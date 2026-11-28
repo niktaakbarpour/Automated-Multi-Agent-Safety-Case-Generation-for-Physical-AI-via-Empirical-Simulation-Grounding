@@ -1,0 +1,67 @@
+{
+  "evaluation": "Task 7C retrospective Task 8C Checker compatibility evaluation",
+  "interpretation": "retrospective development-only; not a prospective blinded holdout",
+  "cohort": {
+    "cases": 20,
+    "matched_source_groups": 10,
+    "checker_executed": 18,
+    "not_executed_source_runner_provenance_unavailable": 2,
+    "executed_subset_abstentions": 0,
+    "executed_subset_invalid": 0,
+    "executed_subset_execution_failures": 0
+  },
+  "checker": {
+    "version": "r1-evidence-v3.0.0",
+    "source_commit": "a357557aac457a5cecb1ee8372f70fb12d796cdd",
+    "configuration_sha256": "fd3464dc0ee0ac44ee81c325e951832896eab489517aeed0a715f8e4d0088375",
+    "device": "CPU"
+  },
+  "source_adapter": {
+    "version": "task8c-r1v3-source-adapter-1.0.0",
+    "freeze_sha256": "7c47200fe0fa5b9970552d8dccc5523924ff6357db4c615768b6f8c8dd777e46",
+    "task8c_source_manifest_sha256": "f30f4b9e907fa0cdda75c3ca31de08e50de9a916f2f27bf69ece776c37966617"
+  },
+  "reference": {
+    "source": "approved Task 8D finalized reference",
+    "approval_date": "2026-11-24",
+    "approval_status": "approved",
+    "approved_for_scoring_reference_gate": true,
+    "checker_predictions_used_in_reference_process": false,
+    "approved_reference_sha256": "beb7f9b89f542b9d5dc7cdaf1f95907dc1e9414c5170916fa23b81bc449d6426",
+    "reference_seal_sha256": "67b8a58e7cade033fa4eb84963560db16a6f71126844fc8efe4f0a466a00fb0c",
+    "approval_record_sha256": "a319239512c3b6321ade248c31e00d71adf46587bf827a30192ac315bb2a6a00",
+    "cases_joined": 20,
+    "source_recording_bindings_matched": 20
+  },
+  "prediction_artifacts": {
+    "task7c_artifact_manifest_sha256": "3833b7a2eb2ea5197cd4d1e343d28672c516763d57fa9d6ff8a0ce08c0bc4a08",
+    "task7c_artifact_files_verified": 30,
+    "prediction_seal_sha256": "ba80afb7dc3016a695553e73c0308ca92ca78c57e7ab6f4793e0f9c62519206e",
+    "prediction_ledger_sha256": "50242e67485ac6dc6cdaebaf0e2044fcc868dbb4f79f835d748c7dda5d97430b"
+  },
+  "task7d_consistency_audit": {
+    "audit_files_verified": 3,
+    "corrected_numerical_summary_sha256": "5d76e3129cf6500e35cd5c1bbbb3a39fc67adcebf75f51f311cba0247faeee9f",
+    "audit_report_sha256": "c51f2dd2ff03d6d5fb39908431531906799ee41e6ee3be2426c4cb843bb2ec7c",
+    "read_only_verifier_sha256": "9ee53279673d0190d7a9c61dec9d48a6291aa666c8cbf0c1124a6a9c665eaf4f"
+  },
+  "join_verification": {
+    "all_20_case_ids_match": true,
+    "all_20_source_bindings_match": true,
+    "checker_output_ledger_join_matches": true,
+    "task7d_recomputed_numerical_summary_matches": true
+  },
+  "metrics_determinate_subset_n18": {
+    "TP": 7,
+    "FP": 2,
+    "TN": 8,
+    "FN": 1,
+    "precision": {"numerator": 7, "denominator": 9, "percent": 77.78},
+    "recall_sensitivity": {"numerator": 7, "denominator": 8, "percent": 87.5},
+    "f1": {"numerator": 14, "denominator": 17, "percent": 82.35},
+    "accuracy": {"numerator": 15, "denominator": 18, "percent": 83.33}
+  },
+  "restricted_source_artifacts_published": false,
+  "human_labels_changed": false,
+  "checker_or_experiment_rerun_for_publication": false
+}
