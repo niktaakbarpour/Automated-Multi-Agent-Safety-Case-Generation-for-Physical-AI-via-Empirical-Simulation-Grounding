@@ -1,0 +1,9 @@
+Review all five generated R1 v3 object arguments independently. Read README.md and REVIEW_BINDING.json first, then read the original request and execution evidence context linked there. Confirm the argument_sha256 and graphs_sha256 values in REVIEW_BINDING.json against the corresponding files before reviewing. Do not edit the frozen source files.
+
+For each object row in BLANK_REVIEW_FORM.csv, record reviewer independence and its basis, prior exposure and details, then judge semantic correctness, logical consistency, scope preservation, evidence grounding, unsupported guarantees, and whether the insufficient_information conclusion is justified. Enter yes, no, indeterminate, or not_applicable. Explain every no, indeterminate, or not_applicable judgment in notes and identify node IDs or source locations.
+
+Review the complete request and source/admission context. The packet documents context-only evidence, zero graph-eligible records, no admitted Checker assessment, and no human reference labels. Do not infer safety or a violation from the video or argument. A reasoning review does not verify physical safety, admit evidence, change any frozen outcome, or approve a safety case.
+
+Do not change a judgment after seeing another reviewer's form. If multiple reviewers are assigned, submit independently and do not discuss judgments before submission. Report disagreements without silently reconciling them; any discrepancy or adjudication record is separate from these individual forms.
+
+Return the completed form privately through the study coordinator's approved channel. Do not commit identifiable forms or reviewer identity keys to the public repository. Keep the original blank form and frozen sources unchanged.
