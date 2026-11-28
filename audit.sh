@@ -1,4 +1,14 @@
 #!/bin/bash
 set -euo pipefail
-R=/local/home/niktakbr/trustworthy_project
-exec /local/home/niktakbr/groot-n17-libero-gpu0-queue/.venv/bin/python -u "$R/src/audit_imports.py" /disk/1/data/niktakbr/openvla-7b-oft-finetuned-libero-spatial-object-goal-10-libero "$R/reports/existing_annotations_audit.json" > "$R/reports/audit.log" 2>&1
+
+if [[ $# -ne 2 ]]; then
+  echo "Usage: audit.sh SOURCE_RESULTS OUTPUT_JSON" >&2
+  exit 2
+fi
+if [[ ! -d "$1" || -e "$2" || -L "$2" ]]; then
+  echo "Provide an existing source directory and a new output path." >&2
+  exit 2
+fi
+
+project_dir=$(cd -- "$(dirname -- "$0")" && pwd)
+exec "${PYTHON:-python}" -u "$project_dir/src/audit_imports.py" "$1" "$2"
