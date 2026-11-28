@@ -67,13 +67,9 @@ python -m drafter.revision --help
 
 A synthetic integration or revision example demonstrates interface behavior only. It is not a physical execution or an effectiveness result.
 
-## Level C — New inference and external evidence
+## Installation, models and data
 
-New model inference requires a compatible OpenAI-style serving endpoint or local server, the specified checkpoint and tokenizer, hardware admission, environment/runtime versions, frozen input manifests and output destinations. Model weights are not included. New RQ3 inference used Qwen/Qwen3-32B revision `9216db5781bf21249d130ec9da846c4624c16137`, two L40S GPUs, BF16 and vLLM's native sampling fallback (`VLLM_USE_FLASHINFER_SAMPLER=0`); the precise recorded run notes and server launch command are in the real-run directory. Do not copy the old launch command without checking current resource admission and approvals.
-
-A full RQ1 replay additionally requires the external retrieval database/catalogue, source recordings and pinned encoder described in its reproducibility documentation. RQ2 source-level replay requires the source HDF5 and associated recordings; external paths in result provenance are not available from GitHub. Any new human-reviewed RQ2 evaluation requires genuine independent human submissions and an authorized adjudication workflow. No model or scripted output may stand in for those labels.
-
-The isolated RQ3 unseen-parent expansion remains blocked: PR #39 and stacked PR #41 document the unavailable HDF5 sources and zero admitted independent parent executions.
+The [reproduction index](evaluation/m4_20261127/integration/EXPERIMENT_REPRODUCTION_INDEX.md#cpu-installation) gives the verified Python 3.12.16 installation, pinned dependency files, model downloads and RQ1–RQ4 input preparation. Saved results and CPU regressions use repository artifacts. Fresh inference and source-level replay have additional hardware and access requirements. The experiments use pretrained models without training.
 
 ## Scientific boundaries
 

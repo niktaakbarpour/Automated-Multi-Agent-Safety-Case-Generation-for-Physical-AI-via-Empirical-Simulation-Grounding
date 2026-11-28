@@ -17,15 +17,78 @@ All paths are repository-relative. Run the commands below from the repository ro
 | Drafter/Critic/adapter | `drafter/`, `critic/`, `integration/handoff.py` | Component tests and `integration.tests.test_handoff` | Structural interfaces are tested with scripted/synthetic cases; not model effectiveness. |
 | RQ4 Revision pilot | `evaluation/m4_20261127/rq4/finalized_results/` | `python3 evaluation/m4_20261127/rq4/finalized_results/validate_public_results.py`; `sha256sum -c evaluation/m4_20261127/rq4/finalized_results/ARTIFACT_SHA256SUMS.txt` | Genuine Qwen pilot: 9/9 valid responses, 9/9 correct repairs; deterministic template 2/3. Three planted defects, two source groups, zero independent cases; one coordinator-confirmed consensus form, kappa unavailable. Broader study NO-GO; not general effectiveness. |
 
-## CPU manuscript table replay
+## CPU installation
 
-From the root of a fresh clone, use Python 3.12. The install needs package-index access. The replay uses only repository files and temporary output.
+Use CPython **3.12.16** (verified on macOS arm64). The Linux CPU workflow selects the Python 3.12 series. From a fresh Git clone, use a POSIX shell, Python with `venv` and pip, and access to PyPI or a mirror containing the same wheels. Checksum commands use GNU `sha256sum`; on macOS use `shasum -a 256 -c` in its place. The saved-result and regression paths use CPU only and need no model server, CUDA, simulator installation or external recordings.
 
 ```sh
 python3.12 -m venv .venv
 . .venv/bin/activate
-python -m pip install -r requirements-m4-cpu.lock
+python -VV
+python -m pip --isolated install --index-url https://pypi.org/simple \
+  -r requirements-m4-cpu.lock -r requirements.txt \
+  -r drafter/requirements.txt -r critic/requirements.txt \
+  -r evaluation/r1_v4/requirements.txt
 python -m pip check
+python -c 'import h5py, jsonschema, numpy'
+```
+
+Source-level retrieval also needs SQLite with FTS5 support through Python’s `sqlite3` module. The lock pins the shared CPU environment, including `jsonschema==4.19.1`, `h5py==3.12.1`, `numpy==1.26.4`, and `tokenizers==0.22.2`. The component files declare their own constraints and are installed together as in CI. Geometry, pilot and historical prompt requirements are separate workloads. If a restricted index cannot supply a pin such as `anyio==4.16.0`, obtain the pinned wheels through an approved index or wheelhouse. Preserve the lock.
+
+## Model setup for fresh inference
+
+These experiments use pretrained checkpoints without training or fine-tuning. Download snapshots only when preparing a fresh inference environment. Set `MODEL_ROOT` to a writable local directory with room for the weights (Qwen BF16 weights alone require roughly 64 GB). The `hf` CLI is supplied by the locked Hugging Face Hub package.
+
+```sh
+export MODEL_ROOT=/path/to/model-storage
+hf download Qwen/Qwen3-32B --revision 9216db5781bf21249d130ec9da846c4624c16137 --local-dir "$MODEL_ROOT/Qwen3-32B"
+hf download sentence-transformers/all-MiniLM-L6-v2 --revision 1110a243fdf4706b3f48f1d95db1a4f5529b4d41 --local-dir "$MODEL_ROOT/encoder"
+hf download moojink/openvla-7b-oft-finetuned-libero-spatial-object-goal-10 --revision 638918f3d1c2e43a39a8a20772bdb8b91835e4b7 --local-dir "$MODEL_ROOT/OpenVLA-OFT"
+```
+
+- **Qwen model server.** Use a separate Linux GPU environment with a compatible NVIDIA driver, CUDA and vLLM. Task 8A records vLLM 0.31.0, BF16 without quantization, tensor parallel size 2, context 24,576, one sequence, GPU memory fraction 0.90, eager mode and thinking disabled. It used Outlines with JSON schema, temperature 0.7, top-p 0.8, seed 42 and 8,192 maximum output tokens. See [Task 8A run metadata](task8a_r1v3/RUN_METADATA_PUBLIC.json).
+- **RQ3 Critic inference.** The saved run used two NVIDIA L40S GPUs (48 GB each), BF16, tensor parallel size 2, context 24,576, one sequence and GPU memory fraction 0.90. Serve the local Qwen snapshot under `Qwen/Qwen3-32B` at a configurable OpenAI-compatible endpoint. Use XGrammar with `json_object`, thinking disabled, temperature 0.6, top-p 0.95, top-k 20, 8,192 output tokens and `VLLM_USE_FLASHINFER_SAMPLER=0`. See the [recorded runtime and compatibility notes](../rq3/experiment/real_run_20261122T142300Z/RUN_NOTES.md).
+- **RQ4 Revision and second Critic.** The frozen protocol uses Qwen3-32B with the RQ3 sampling settings and no per-request seed for revision. The public final provenance omits the actual stage checkpoint revisions and server hardware. The Qwen download above pins the verified RQ3/Task 8A checkpoint. Exact RQ4 inference requires the original stage metadata. See the [protocol](../rq4/RQ4_PROTOCOL.md) and [public provenance](../rq4/finalized_results/RQ4_PROVENANCE_PUBLIC.json).
+- **Encoder and recorded policy.** MiniLM can run locally on CPU for semantic retrieval. The recorded RQ1 bundle replay checks its weights and revision without executing the encoder. OpenVLA-OFT identifies the Task 8A recording producer. The evaluations consume existing LIBERO recordings. Producing new rollouts would require the matching LIBERO simulator, task assets and policy runtime and would yield new data.
+
+## Prepare inputs
+
+**Simulation recordings.** Obtain the original collection from the project maintainers where access is authorized. There is no public download for the original recording tree. Preserve the run identities and layout below. For inventory tooling, set `source_results` in a local `config/project.json` to the collection root. Check small-file bindings against [the source manifest](../../../reports/source_manifest.json) and trajectory bindings against `data/runs.json` and each episode's `integrity_manifest.json`.
+
+```text
+RECORDINGS/{summary.json,run_metadata.json}
+RECORDINGS/<suite>/task_*/{task.bddl,run_metadata.json}
+RECORDINGS/<suite>/task_*/episode_*/{trajectory.h5,metadata.json,evaluation.json,completion.json,integrity_manifest.json,semantic_initial_conditions.json,simulator_index.json,simulator.xml,evaluator_version.json,success_condition_source.py.txt}
+```
+
+### RQ1 retrieval
+
+For the public path, use the committed publication tables and manifests in the index above. For a source-level replay, provision these exact artifacts in a local staging area. The database and catalogue require authorized access to the original snapshots. Generic LIBERO data or newly built SQLite files cannot replace them.
+
+| Required filename | SHA-256 |
+|---|---|
+| `expanded.sqlite` | `f6dbea047ad16c5420c34ff002e068e4ade41ab52806c936816aaf7019f303c8` |
+| `catalogue.sqlite` | `ff9fe4d422c274f3f109d76ae21b91d9d6364fd568f52ce7b5fa1501bbcbae0e` |
+| `encoder/model.safetensors` | `53aa51172d142c89d9012cce15ae4d6cc0ca6895895114379cacb4fab128d9db` |
+| `FROZEN_HOLDOUT_DATASET.jsonl` | `f6c6e31e12d3c0ed7e70db077494a4bed98f1d0a56d82f382c556c13b00c6caf` |
+
+Use the tracked [frozen dataset](../../r1_v4/rag_evidence_database/retrieval_remediation/FROZEN_HOLDOUT_DATASET.jsonl) as the exact inventory for the 216 queries. Its `source_artifacts` entries give source filenames, layout and digests for the 90 unique original HDF5, XML and JSON artifacts. Request the exact bound corpus and profiles from the maintainers. Verify the inputs before invoking `run_eval_v2` with configurable `--database`, `--catalogue`, `--encoder`, `--references`, `--source-root` and a new `--output` directory. The frozen harness expects the original absolute artifact bindings under the declared root, so copying the tree under a new prefix alone is insufficient. A compatible source mount or a separately validated relocation mechanism is required for fresh replay on another host. Keep the original reference and digests intact. See the [runner contract and historical invocation](../../r1_v4/rag_evidence_database/retrieval_remediation/ACTUAL_RETRIEVAL_REPLAY_V2.md).
+
+### RQ2 Checker
+
+Use the committed calibration tables, expanded coverage outputs and Task 7C publication for CPU checks. The raw retrospective audit requires the original HDF5 recordings and related manifests, the approved Task 8D reference and source bindings, and the sealed Task 7C prediction ledger and outputs. Obtain them from the project maintainers with permission to access the original human records. Match case ID, execution, recording digest and run provenance before joining predictions to references. The [Task 7C provenance](../rq2/task7c_retrospective/PROVENANCE.json) supplies the reference, ledger and audit digests. The restricted source join and two unavailable source-runner bindings cannot be reconstructed from the public tables.
+
+### RQ3 Critic
+
+Use the tracked frozen batch in `rq3/experiment/batch/`, archived `RQ3_RESPONSES.jsonl` and development labels in `rq3/mutations/gold_labels.json`. The CPU scorer consumes these directly. Preserve the paired parent and mutation IDs and check regenerated files against the committed scored outputs using the commands below. The separate unseen-parent expansion lacks admitted independent source recordings and completed labels.
+
+### RQ4 Revision
+
+Use the committed cases, finding approvals, and `rq4/finalized_results/` checksums for public verification. Full private scoring needs the original `RQ4_STAGE1_RESPONSES.jsonl`, `RQ4_STAGE2_RESPONSES.jsonl`, sealed review form and blind mapping from the coordinator, plus the matching stage batches. Validate the response digests in the public provenance before applying the [protocol's preparation and scoring steps](../rq4/RQ4_PROTOCOL.md). The public release omits the sealed review inputs and raw stage responses. The published Task 8A supplementary review packet is a separate pending review.
+
+## CPU manuscript table replay
+
+```sh
 python integration/replay_m4_tables.py
 ```
 
