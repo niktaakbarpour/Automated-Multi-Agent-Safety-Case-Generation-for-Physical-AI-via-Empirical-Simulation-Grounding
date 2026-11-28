@@ -22,24 +22,19 @@ The recovered Task 7C outputs were checked against the approved Task 8D referenc
 
 The separate expanded coverage audit included 60 same-scene executions / 300 object units: 120 applicable, 20 determinate, and 100 abstentions. Decision coverage was 20/120 (16.7%); abstention was 100/120 (83.3%). Cross-scene mapping gates rejected 38 executions; cross-task scored decisions were 0/100. These are coverage and abstention results, not labeled accuracy. Physical checker admission remains blocked.
 
-Reproduce saved public counts with `python3 integration/verify_saved_results.py`. See `rq2/R1_EVIDENCE_NOTES.md` and `rq2/expanded_evaluation/METHODS_AND_LIMITATIONS.md`.
+See the [reproduction index](integration/EXPERIMENT_REPRODUCTION_INDEX.md) for saved result checks. See `rq2/R1_EVIDENCE_NOTES.md` and `rq2/expanded_evaluation/METHODS_AND_LIMITATIONS.md`.
 
 ## RQ3 — Critic pilot
 
 The paired pilot used 12 semantic cases (8 mutations and 4 controls) from 2 parent groups, with 3 repetitions per condition. All 108 responses were valid (36 each for T/R/C). For the eight mutations, detections were T 8/24, R 9/24, C 10/24; rules plus model yielded 10/24, 10/24 and 11/24. On clean controls, false positives were T 0/12, R 1/12 and C 3/12. Reference-correct model outputs were T 20/36, R 20/36 and C 19/36.
 
-This is development-only: there are zero independent cases, the labels were developer-authored and independent review remains pending. Condition C indicates checker-admission status; it does not test admitted physical evidence. Repeats and mutations are paired, not independent samples. Reproduce scoring from archived responses using the commands in the [root README](../../README.md#rq3-saved-qwen-responses-and-scores).
+This is development-only: there are zero independent cases, the labels were developer-authored and independent review remains pending. Condition C indicates checker-admission status; it does not test admitted physical evidence. Repeats and mutations are paired, not independent samples. Reproduce scoring from archived responses using the commands in the [reproduction index](integration/EXPERIMENT_REPRODUCTION_INDEX.md#rq3-saved-qwen-responses-and-scores).
 
 ## RQ4 — Revision pilot
 
 The bounded pilot used three planted unsupported-guarantee defects across two source groups and one defect type, with zero independent evaluation cases. There were 9/9 valid genuine Qwen responses, 27/27 valid second-Critic responses and all 12 revisions were applied. Qwen had 9/9 correct repairs; the deterministic template had 2/3. Defect fixed: 9/9 vs 3/3; revised claim supported by evidence: 9/9 vs 2/3; new problem introduced: 0/9 vs 1/3; scope preserved: 9/9 vs 2/3; invalid, abstained or missing: 0/9 vs 0/3. Second-Critic reviews found new objections in 2/9 per method and reflagged the target in 0/9 per method.
 
-Human outcomes were coordinator-confirmed from a single consensus form; independent agreement was not recalculated and Cohen’s kappa is unavailable. These results describe repeated outputs on a small fixed pilot, not general or comparative Revision Agent effectiveness. The broader RQ4 effectiveness study remains NO-GO. Public aggregate validation:
-
-```sh
-python3 evaluation/m4_20261127/rq4/finalized_results/validate_public_results.py
-sha256sum -c evaluation/m4_20261127/rq4/finalized_results/ARTIFACT_SHA256SUMS.txt
-```
+Human outcomes were coordinator-confirmed from a single consensus form; independent agreement was not recalculated and Cohen’s kappa is unavailable. These results describe repeated outputs on a small fixed pilot, not general or comparative Revision Agent effectiveness. The broader RQ4 effectiveness study remains NO-GO.
 
 See [finalization report](rq4/finalized_results/RQ4_FINALIZATION_REPORT.md), [manuscript tables](rq4/finalized_results/RQ4_MANUSCRIPT_TABLES.md), and [public audit](rq4/finalized_results/RQ4_PUBLICATION_AUDIT.md). Full private scorer replay requires confidential sealed review inputs and mappings, which are not included.
 
@@ -47,7 +42,7 @@ See [finalization report](rq4/finalized_results/RQ4_FINALIZATION_REPORT.md), [ma
 
 One genuine request was generated from the frozen LIBERO Long/OpenVLA-OFT execution using Qwen3-32B BF16 at revision `9216db5781bf21249d130ec9da846c4624c16137`, vLLM 0.31.0, Outlines and tensor parallel size 2. It returned HTTP 200 in 112.87 seconds, without retry. Five object graphs were generated for `cream_cheese_1`, `ketchup_1`, `orange_juice_1`, `milk_1` and `butter_1`; all five outcomes are `insufficient_information`.
 
-The argument passed full host validation. The request had 135 context-only evidence records, zero graph-eligible records, no admitted checker assessment, no human reference labels and 15 explicit evidence gaps. `safety_claim_verified` is false. Supplementary human reasoning review is pending. The generated file is a Drafter-accepted draft, not an independently approved or physically verified safety case.
+The argument passed full host validation. The request had 135 context-only evidence records, zero graph-eligible records, no admitted checker assessment, no human reference labels and 15 explicit evidence gaps. `safety_claim_verified` is false. The [supplementary reasoning review packet](integration/GSN_HUMAN_REVIEW/README.md) is published. Human judgments for that packet are pending. The generated file is a Drafter-accepted draft, not an independently approved or physically verified safety case.
 
 Artifact and source details: [Task 8A handoff](integration/task8a_r1v3/ALEX_HANDOFF_README.md), source generation commit `bf62fe8338d40807c6ff7e6a5b331df557aaf632`, and [current integration status](integration/CURRENT_INTEGRATION_STATUS.md).
 

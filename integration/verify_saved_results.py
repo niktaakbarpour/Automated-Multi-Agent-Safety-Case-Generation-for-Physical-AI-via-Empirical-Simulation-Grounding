@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Check committed public RQ2 CSV/JSON consistency; never opens review records."""
 import csv, json
+from collections import Counter
 from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 RQ2 = ROOT / "evaluation/m4_20261127/rq2"
@@ -9,6 +10,65 @@ def rows(path):
         return list(csv.DictReader(f))
 def truth(value):
     return str(value).strip().lower() in ("true", "1", "yes")
+def retrospective():
+    root = RQ2 / "task7c_retrospective"
+    cohort = rows(root / "COHORT_ACCOUNTING.csv")
+    matrix = rows(root / "CONFUSION_MATRIX.csv")
+    labels = ["violation_observed", "no_violation_observed_within_validated_coverage", "TOTAL"]
+    positive = "checker_violation_prediction"
+    negative = "checker_no_violation_prediction"
+    excluded = "not_executed_source_provenance_unavailable"
+    assert [r["human_reference"] for r in cohort] == [r["human_reference"] for r in matrix] == labels
+    for row, scored in zip(cohort, matrix):
+        assert (row[positive], row[negative]) == (scored[positive], scored[negative])
+        assert int(scored["total"]) == int(row[positive]) + int(row[negative])
+        assert int(row["total"]) == int(scored["total"]) + int(row[excluded])
+    for column in (positive, negative, excluded, "total"):
+        assert int(cohort[2][column]) == sum(int(r[column]) for r in cohort[:2])
+    tp, fn = int(matrix[0][positive]), int(matrix[0][negative])
+    fp, tn = int(matrix[1][positive]), int(matrix[1][negative])
+    total = tp + tn + fp + fn
+    confusion = {"TP": tp, "FP": fp, "TN": tn, "FN": fn}
+    metrics = {
+        name: {"numerator": n, "denominator": d, "percent": round(100 * n / d, 2)}
+        for name, n, d in (
+            ("precision", tp, tp + fp), ("recall_sensitivity", tp, tp + fn),
+            ("f1", 2 * tp, 2 * tp + fp + fn), ("accuracy", tp + tn, total),
+        )
+    }
+    provenance = json.loads((root / "PROVENANCE.json").read_text(encoding="utf-8"))
+    assert dict(confusion, **metrics) == provenance["metrics_determinate_subset_n18"]
+    assert total == provenance["cohort"]["checker_executed"] == int(matrix[2]["total"])
+    exclusions = rows(root / "NOT_EXECUTED_CASES.csv")
+    case_ids = {row["case_id"] for row in exclusions}
+    assert len(case_ids) == len(exclusions) == int(cohort[2][excluded])
+    assert all(row["status"] == "not_executed" and row["reason"] == "source_runner_provenance_unavailable"
+               for row in exclusions)
+    inputs = rows(root / "SCORING_INPUTS_PUBLIC.csv")
+    assert len(inputs) == len({r["case"] for r in inputs}) == int(cohort[2]["total"])
+    groups = Counter(r["matched_group"] for r in inputs)
+    assert len(groups) == provenance["cohort"]["matched_source_groups"]
+    assert set(groups.values()) == {2}
+    by_reference = Counter()
+    for row in inputs:
+        label = row["reference_classification"]
+        assert label in labels[:2]
+        outcome = row["checker_outcome"]
+        if row["execution_status"] == "EXECUTED":
+            assert row["checker_applicability"] == "applies"
+            column = {"violation": positive,
+                      "no_violation_observed_within_reviewed_coverage": negative}[outcome]
+        else:
+            assert row["execution_status"] == outcome == "NOT_EXECUTED_SOURCE_PROVENANCE"
+            assert row["checker_applicability"] == "NOT_EXECUTED"
+            column = excluded
+        by_reference[label, column] += 1
+    for row in cohort[:2]:
+        for column in (positive, negative, excluded):
+            assert by_reference[row["human_reference"], column] == int(row[column])
+    return {"scoring_input_rows_verified": len(inputs), "cases": int(cohort[2]["total"]), "scored": total, "confusion": confusion,
+            "metrics": metrics, "not_executed": sorted(case_ids)}
+
 def main():
     results = rows(RQ2 / "R1_RESULTS.csv")
     metrics = json.loads((RQ2 / "R1_METRICS.json").read_text(encoding="utf-8"))
@@ -51,8 +111,22 @@ def main():
     assert summary["generalization_coverage_only"]["overall"]["determinate_decisions"] == len(determinate)
     assert summary["generalization_coverage_only"]["overall"]["abstentions"] == len(abstained)
     assert summary["generalization_coverage_only"]["frozen_summary_comparison"]["matches_frozen_counts"]
+    cross_task = [r for r in general if r["benchmark_task_id"] != "0"]
+    cross_app = [r for r in cross_task if r["applicability"] == "applies"]
+    cross_determinate = sum(not truth(r["abstention"]) for r in cross_app)
+    transfer = summary["generalization_coverage_only"]["partitions"]["cross_task_same_scene"]
+    assert len(cross_task) == transfer["object_units"] == 250
+    assert len(cross_app) == transfer["applicable_units"] == 100
+    assert cross_determinate == transfer["determinate_decisions"] == 0
+    exclusions = rows(RQ2 / "expanded_evaluation/EXCLUSIONS.csv")
+    gated = {r["canonical_execution_id"] for r in exclusions if r["stage"] == "mapping_gate"}
+    assert len(gated) == 38
+
     print(json.dumps({
         "result": "PASS", "private_review_records_opened": 0,
+        "task7c_retrospective": retrospective(),
+        "task_transfer": {"cross_task_same_scene": f"{cross_determinate}/{len(cross_app)}",
+                          "cross_scene_mapping_rejections": len(gated)},
         "calibration": {"cases": 3, "applicability_agreement": "3/3",
                         "applicable": 2, "not_applicable": 1, "confusion": counts,
                         "groups": groups, "coverage": f"{len(applicable)-abstentions}/{len(applicable)}",
