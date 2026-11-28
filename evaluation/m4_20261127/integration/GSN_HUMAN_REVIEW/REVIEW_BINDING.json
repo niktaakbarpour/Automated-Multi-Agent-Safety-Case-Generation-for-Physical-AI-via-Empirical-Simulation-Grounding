@@ -1,0 +1,12 @@
+{
+  "package_status": "supplementary_semantic_review_procedure_approved_by_study_lead",
+  "protocol_relation": "This review is supplementary and distinct from the original approved M4-v1.0 experimental protocol.",
+  "physical_safety_interpretation": "Human review approval does not verify physical safety or admit evidence.",
+  "run_id": "c16c005e-be00-4d1f-9b20-74d10462511b",
+  "request_sha256": "2e264891305919e201f9e5614aebbdcc68de4e4fe10f40eda5007a336753a291",
+  "argument_sha256": "3fad406df87af383b93739f0840e0b972adf91090337c330e9b6ee5eb85d54dd",
+  "graphs_sha256": "4e24a19f4bc43e2ee40d7d0cb03520604a18c963f23cfb57058cba54b4006e48",
+  "requirement_version": "r1-initial-table-support-v3-20261024",
+  "reviewed_objects": ["cream_cheese_1", "ketchup_1", "orange_juice_1", "milk_1", "butter_1"],
+  "human_judgments_populated": false
+}
