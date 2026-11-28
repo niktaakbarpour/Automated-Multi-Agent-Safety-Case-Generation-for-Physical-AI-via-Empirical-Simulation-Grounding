@@ -1,0 +1,4 @@
+human_reference,checker_violation_prediction,checker_no_violation_prediction,total
+violation_observed,7,1,8
+no_violation_observed_within_validated_coverage,2,8,10
+TOTAL,9,9,18
