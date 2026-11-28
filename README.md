@@ -1,94 +1,102 @@
-# Trustworthy AI M4: empirical simulation grounding
+# Trustworthy AI for Physical AI
 
-This repository studies how evidence-grounded safety-case tools behave on recorded physical-AI simulation evidence. It does not certify a robot or policy as safe. The framework keeps measured source evidence, requirement checks, argument generation, criticism, revision and evaluation as separately validated steps.
+This project evaluates tools that build evidence-grounded safety arguments from recorded robot simulation data. It separates source measurements, requirement checks, argument generation, criticism, revision, and evaluation. A completed software check or generated argument does not certify physical safety.
 
-## Current Milestone 4 status
+## Framework
 
-The genuine R1 v3 Drafter run and bounded RQ4 Revision pilot are complete. The Drafter produced five graphs with `insufficient_information` for every protected object; the frozen request had zero graph-eligible evidence and no admitted checker assessment. The saved draft passed Drafter validation, host validation and the integrated deterministic R1 v3 Critic handoff. The supplementary human reasoning review packet is published and judgments are pending. Model-backed downstream review and end-to-end acceptance remain open.
+The workflow is `recorded execution → evidence retrieval → optional requirement check → GSN Drafter → Critic → reviewed Revision → second Critic`.
 
-RQ2 and RQ3 results remain development evidence with their documented admission and independent-review limitations. RQ4 is a small planted-defect pilot, not evidence of general Revision Agent effectiveness. No result establishes physical safety. See the [current M4 results](evaluation/m4_20261127/MILESTONE4_RESULTS.md), [integration status](evaluation/m4_20261127/integration/CURRENT_INTEGRATION_STATUS.md), and [experiment registry](evaluation/m4_20261127/EXPERIMENT_REGISTRY.md).
+- **RQ1 retrieval** finds requested evidence families, checks source bindings and obligation coverage, and abstains when evidence is unavailable.
+- **RQ2 Checker** evaluates the R1 fall-prevention requirement for protected objects over recorded frames. It reports unresolved results when evidence does not support a decision.
+- **Drafter** produces a per-object Goal Structuring Notation (GSN) argument from a validated request and supplied evidence.
+- **Critic** checks argument structure, links and evidence, using deterministic rules and an optional model route.
+- **Revision** applies only approved, contract-permitted edits and preserves evidence and provenance.
 
-## Reproduce saved results on CPU
+The saved genuine Task 8A argument has five `insufficient_information` conclusions. The deterministic CPU Critic handoff is supported. Human review materials are prepared and human judgments are pending. The model-backed R1 v3 Critic route and compatible downstream Revision path are incomplete, so end-to-end safety-case acceptance has not been demonstrated.
 
-The [experiment reproduction index](evaluation/m4_20261127/integration/EXPERIMENT_REPRODUCTION_INDEX.md) contains the Python 3.12 setup, manuscript table replay, individual RQ checks and saved Task 8A resumption commands.
+## Repository guide
 
-## Repository and contributor guides
+| Path | Contents |
+|---|---|
+| `src/`, `config/`, `schemas/`, `requirements/` | Recorded execution inventory, configuration, schemas and requirement definitions |
+| `evaluation/r1_v4/` | Versioned evidence registry, Checker, measurement readers and retrieval implementations |
+| `drafter/`, `critic/`, `drafter/revision/` | Argument generation, criticism and constrained revision |
+| `integration/` | Component handoffs, saved fixtures and Task 8A CPU orchestration |
+| `evaluation/m4_20261127/` | M4 protocols, frozen inputs, results and validators |
+| `reports/`, `evidence/`, `data/` | Inventory records, manifests and historical evidence |
+| `human_review_package/` | Review materials with package-specific handling instructions |
+| `report/m4_neurips_materials/` | Manuscript source and supporting material |
 
-- [Repository map](docs/REPOSITORY_MAP.md) describes active components and historical result areas.
-- [Cleanup audit](docs/REPOSITORY_CLEANUP_AUDIT.md) records code findings, archive candidates, and publication risks.
-- [Artifact policy](docs/ARTIFACT_POLICY.md) explains frozen evidence, generated outputs, external dependencies, and restricted records.
+See [the repository map](docs/REPOSITORY_MAP.md) for maintained scripts and historical artifacts, and [the artifact policy](docs/ARTIFACT_POLICY.md) for access and preservation guidance.
 
-## Research questions and architecture
+## Install
 
-- **RQ1 — Evidence retrieval:** retrieves requested evidence families and source-scoped measurements, checks obligation coverage and abstains when a request cannot be supported. Retrieval completeness is limited to the explicit request; it is not proof of R1 safety evidence sufficiency.
-- **RQ2 — Requirement-aware R1 checking:** evaluates the fall-prevention requirement for specified protected non-target objects on the living-room table, under a versioned configuration and recorded monitoring interval. An unsupported decision remains an abstention. The current adjudicated sample is tiny and development-only.
-- **GSN Drafter:** proposes a per-object GSN safety argument from validated configuration and supplied evidence. Its accepted structure and citations do not establish that the claims are physically true.
-- **RQ3 — Critic:** checks the argument and its links, runs deterministic rules and can optionally screen model proposals. A zero-finding report is not a safety conclusion.
-- **RQ4 — Revision Agent:** applies only contract-approved edits to an argument, preserving source evidence, requirement configuration and provenance. It cannot revise physical outcomes or invent evidence. The completed genuine Qwen run is a bounded pilot on three planted defects; repeated outputs are not independent cases, and the broader effectiveness study remains NO-GO.
-
-The intended flow is:
-
-`recorded evidence -> retrieval -> optional R1 assessment -> Drafter -> Critic -> reviewed revision -> second Critic -> scoring`
-
-Each arrow has its own contract. The complete chain has not been demonstrated on a new, independently eligible physical execution. See [the feasibility report](evaluation/m4_20261127/integration/END_TO_END_FEASIBILITY_REPORT.md).
-
-## Level A — CPU tests and demonstrations
-
-Run the main CPU regression suites:
+Use CPython 3.12. The pinned CPU environment was verified with Python 3.12.16 on macOS arm64. From the repository root:
 
 ```sh
-python -m unittest discover -s drafter/tests -t . -v
-python -m unittest discover -s critic/tests -t . -v
-python -m unittest integration.tests.test_handoff -v
-python -m unittest discover -s drafter/revision/tests -t . -v
-python -m drafter.revision.tools.check_examples
-python -m unittest evaluation.m4_20261127.rq3.tests.test_experiment evaluation.m4_20261127.rq3.tests.test_mutations -v
-python -m unittest evaluation.r1_v4.rag_evidence_database.retrieval_remediation.tests.test_bundle evaluation.r1_v4.rag_evidence_database.retrieval_remediation.tests.test_integrity -v
+python3.12 -m venv .venv
+. .venv/bin/activate
+python -m pip --isolated install --index-url https://pypi.org/simple \
+  -r requirements-m4-cpu.lock -r requirements.txt \
+  -r drafter/requirements.txt -r critic/requirements.txt \
+  -r evaluation/r1_v4/requirements.txt
+python -m pip check
 ```
 
-The RQ3 and RQ1 remediation tests are invoked by module because those test directories are not Python packages for `unittest discover -s`. These commands use scripted, synthetic or saved test inputs. The RQ3 unit tests print scripted request activity; those replies are test inputs, not new model results.
+The lock includes `jsonschema==4.19.1`, `h5py==3.12.1`, `numpy==1.26.4`, and `tokenizers==0.22.2`. Existing experiments use pretrained models. Model training is not required. Checkpoint downloads, recorded inference settings, and environment details are in the [reproduction index](evaluation/m4_20261127/integration/EXPERIMENT_REPRODUCTION_INDEX.md#model-setup-for-fresh-inference).
 
-Verify the committed one-pass fixture and public RQ2 tables:
+## Quick start
+
+These checks use tracked data, run on CPU, and do not call a model:
 
 ```sh
+python integration/replay_m4_tables.py
 python integration/verify_saved_fixture.py
 python integration/verify_saved_results.py
 ```
 
-These validators make no model calls and do not read private RQ2 reviewer files. The first checks eight fixture hashes and current Critic contracts. The second recalculates the public RQ2 confusion and coverage counts from committed case rows and metrics.
+The first summarizes archived experimental outcomes. The fixture verifier checks saved component inputs and outputs. The result verifier recomputes public RQ2 counts, including Task 7C. These commands verify saved work. They do not rerun the experiments.
 
-Other useful CPU commands:
+To resume the saved genuine Task 8A request through the currently supported deterministic CPU Critic:
 
 ```sh
-python -m drafter --validate-request drafter/cases/scenario_a.request.json
-python -m critic --help
-python -m drafter.revision --help
+python -m evaluation.m4_20261127.integration.build_r1v3_request --check
+python evaluation/m4_20261127/integration/task8a_r1v3/validate_generated_argument.py
+python -m integration.orchestrator resume-task8a --out-dir "$(mktemp -d)/resume"
 ```
 
-A synthetic integration or revision example demonstrates interface behavior only. It is not a physical execution or an effectiveness result.
+This validates and resumes the saved argument. It does not perform fresh Drafter inference or Checker admission.
 
-## Installation, models and data
+## Result reproduction
 
-The [reproduction index](evaluation/m4_20261127/integration/EXPERIMENT_REPRODUCTION_INDEX.md#cpu-installation) gives the verified Python 3.12.16 installation, pinned dependency files, model downloads and RQ1–RQ4 input preparation. Saved results and CPU regressions use repository artifacts. Fresh inference and source-level replay have additional hardware and access requirements. The experiments use pretrained models without training.
+The [RQ1–RQ4 reproduction index](evaluation/m4_20261127/integration/EXPERIMENT_REPRODUCTION_INDEX.md) is the authoritative command guide. It separates saved-result verification, numerical recomputation, model-response rescoring, source-level replay, and fresh inference. The principal result sets are:
 
-## Scientific boundaries
+| Experiment | Result package | Reproduction available from a fresh clone |
+|---|---|---|
+| **RQ1 Phase 5K retrieval** | `evaluation/r1_v4/rag_evidence_database/retrieval_remediation/publication_v1/` | Publication integrity and result validation. Corrected saved-response rescoring and fault replay require restricted replay outputs and source inputs. |
+| **RQ2 calibration and transfer** | `evaluation/m4_20261127/rq2/` | Public calibration, coverage and pseudonymized Task 7C counts are recomputed from tracked rows. Source audit requires original recordings and restricted provenance. |
+| **RQ3 Critic mutation experiment** | `evaluation/m4_20261127/rq3/` | Saved model responses can be rescored from the tracked batch and labels. Fresh inference requires the pinned Qwen model and GPU serving stack. |
+| **RQ4 Revision experiment** | `evaluation/m4_20261127/rq4/finalized_results/` | Public result validation recomputes sanitized counts. Full rescoring requires the original response, review and blind-key package. |
 
-- RQ1 completeness is scoped to requested obligations. The three temporal cases passed corrected actual-retrieval verification; historical false-complete flags are superseded by offline adjudication, not confirmed retrieval defects.
-- RQ2 has a three-variant calibration, a 20-case retrospective evaluation with 18 scored cases, and a separate expanded coverage audit. The completed retrospective comparison remains development-only.
-- RQ3's 108 responses are development-only; 12 semantic cases come from two exposed parent groups. The independent mutation-label audit is pending. C is admission-status-only.
-- The saved one-pass Qwen interaction shows real model calls on a development fixture and one controlled semantic miss; it does not establish physical safety or general Critic effectiveness.
-- RQ4 includes a genuine Qwen Revision pilot and second-Critic outputs on three planted defects (9 Qwen outputs, 3 template outputs). Its human judgments came from one coordinator-confirmed consensus form; independent agreement metrics are unavailable. This does not demonstrate the complete Task 8A Drafter-to-Critic-to-Revision-to-second-Critic chain or general effectiveness.
-- A passing schema, CPU test, source hash or component handoff proves only its checked contract, not the truth of physical claims or complete system-level performance.
+RQ1 source files and databases, RQ2 trajectories and private source bindings, and RQ4 confidential review bindings are not distributed in the public repository. The index documents their required filenames, sizes where measured, hashes, access boundaries and preparation instructions. Redistribution rights for the large source datasets require confirmation.
 
-## Reports
+## Tests and hardware
 
-- [Milestone 4 final results](evaluation/m4_20261127/MILESTONE4_RESULTS.md)
-- [Experiment registry](evaluation/m4_20261127/EXPERIMENT_REGISTRY.md)
-- [Current integration status](evaluation/m4_20261127/integration/CURRENT_INTEGRATION_STATUS.md)
-- [End-to-end feasibility historical snapshot](evaluation/m4_20261127/integration/END_TO_END_FEASIBILITY_REPORT.md)
-- [CPU reproducibility record](evaluation/m4_20261127/integration/CPU_REPRODUCIBILITY_REPORT.md)
-- [RQ1-RQ4 reproduction index](evaluation/m4_20261127/integration/EXPERIMENT_REPRODUCTION_INDEX.md)
+Run maintained CPU tests with:
 
-## Existing execution-inventory workflow
+```sh
+python -m unittest integration.tests.test_handoff integration.tests.test_r1v3_handoff \
+  integration.tests.test_replay_m4_tables integration.tests.test_orchestrator -v
+python -m unittest discover -s evaluation/m4_20261127/rq4/tests -p 'test_*.py' -v
+python -m unittest drafter.tests.test_r1v3_profile drafter.tests.test_r1v3_generation -v
+```
 
-The root `pipeline.sh` provides task/run inventory and transition-inspection commands. It uses the active Python environment or the interpreter selected by `PYTHON`. Commands that read recordings require the external source location in `config/project.json`. Set `source_results` in your local copy to the root of the original recordings. The checked-in value records the original collection location. `collect` inventories existing recordings and does not run a policy. `validate` checks the saved inventory and selected trajectory bindings. These commands are separate from RQ1–RQ3 evaluation reproduction.
+RQ1 synthetic regressions and other component checks are listed in the reproduction index and CI workflow. Fresh Qwen inference uses a compatible Linux GPU server and the pinned checkpoint. The recorded Qwen3-32B runs used two NVIDIA L40S GPUs in BF16 with tensor parallelism of two. CPU result checks and the saved Task 8A deterministic resume require no GPU.
+
+## Contributors
+
+The project was developed collaboratively by Nikta Akbarpour, Alex Hashemi, and Ryiad Elewi. Their implementation and evaluation contributions are represented in the repository history. The experimental registry identifies the ownership and provenance of individual work.
+
+## Interpretation
+
+RQ1–RQ4 results are bounded development results with experiment-specific limitations. RQ2 retrospective scoring is not an independent holdout. RQ3 uses exposed development groups and awaits independent label review. RQ4 is a small planted-defect pilot. The supplementary Task 8A reasoning review has materials prepared, with judgments pending. No result establishes physical safety or general system effectiveness. Read [Milestone 4 results](evaluation/m4_20261127/MILESTONE4_RESULTS.md), the [current integration status](evaluation/m4_20261127/integration/CURRENT_INTEGRATION_STATUS.md), and the [experiment registry](evaluation/m4_20261127/EXPERIMENT_REGISTRY.md) before interpreting metrics.
